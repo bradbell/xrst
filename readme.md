@@ -1,2 +1,1 @@
-# xsrst
-Extract Sphinx RST Files
+# xsrst: Extract Sphinx RST Files
