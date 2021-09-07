@@ -30,3 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
+s|cppad_py: A C++ Object Library and Python Interface to Cppad|             xsrst: Extract Sphinx RST Files|

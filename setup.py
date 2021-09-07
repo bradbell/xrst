@@ -5,35 +5,16 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-"""
-{xsrst_begin_parent code_exam}
-
-Code Example
-############
-
-{xsrst_file
-    # BEGIN_SRC
-    # END_SRC
-}
-
-{xsrst_end code_exam}
-"""
-# ----------------------------------------------------------------------------
-# BEGIN_SRC
-"""
-{xsrst_begin code_res}
-
-Code Result
-###########
-{xsrst_code py}"""
-def factorial(n) :
-    if n == 1 :
-        return 1
-    return n * factorial(n-1)
-"""{xsrst_code}
-
-:ref:`code_exam`
-
-{xsrst_end code_res}
-"""
-# END_SRC
+# setup
+xsrst_version = "21.09.07"
+package_name  = "xsrst"
+setup_result = setup(
+    name         = 'xsrst',
+    version      = xsrst_version,
+    license      = 'GPL3',
+    description  = 'Exract Sphinx RST Files',
+    author       = 'Bradley M. Bell',
+    author_email = 'bradbell@seanet.com',
+    url          = 'https://github.com/bradbell/xsrst',
+    scripts      = [ 'bin/xsrst.py' ],
+)
