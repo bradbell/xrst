@@ -1,0 +1,15 @@
+# BEGIN spelling
+#
+# words in xsrst commands
+xsrst
+#
+# example latex commands
+\rm
+#
+# File extensions
+cpp
+html
+py
+rst
+#
+# END spelling

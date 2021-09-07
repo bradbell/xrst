@@ -1,3 +1,12 @@
 # temporary files
 temp
 temp.*
+# automatically created files
+/sphinx/index.rst
+# automatically created directories
+/doc/
+/sphinx/xsrst/
+# file extensions to ignore
+*.log
+*.swp
+*.tmp
