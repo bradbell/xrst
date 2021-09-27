@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+          cppad_py: A C++ Object Library and Python Interface to Cppad
+           Copyright (C) 2017-21 Bradley M. Bell (bradbell@seanet.com)
+               This program is distributed under the terms of the
+               GNU General Public License version 3.0 or later see
+                     https://www.gnu.org/licenses/gpl-3.0.txt
+-------------------------------------------------------------------------------
+{xsrst_begin 2021}
+
+{xsrst_spell
+}
+
+xsrst Release Notes for 2021
+############################
+
+09-27
+*****
+For changes before 2021-09-27; see
+`cppad_py release_notes
+<https://bradbell.github.io/cppad_py/doc/xsrst/release_notes.html>`_
+
+{xsrst_end 2021}

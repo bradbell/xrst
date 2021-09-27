@@ -23,9 +23,9 @@ then
     echo_eval rm -r doc
 fi
 # -----------------------------------------------------------------------------
-echo "bin/xsrst.py html bin/xsrst.py sphinx spelling keyword"
+echo "bin/xsrst.py html doc.xsrst sphinx spelling keyword"
 if ! bin/xsrst.py \
-    html bin/xsrst.py sphinx spelling  keyword 2> check_xsrst.$$
+    html doc.xsrst sphinx spelling  keyword 2> check_xsrst.$$
 then
     type_error='error'
 else

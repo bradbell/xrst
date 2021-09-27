@@ -38,7 +38,7 @@ then
 fi
 # -----------------------------------------------------------------------------
 # xsrst
-echo_eval bin/xsrst.py $target bin/xsrst.py sphinx spelling keyword
+echo_eval bin/xsrst.py $target doc.xsrst sphinx spelling keyword
 # -----------------------------------------------------------------------------
 # html
 # -----------------------------------------------------------------------------
