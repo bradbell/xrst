@@ -40,7 +40,19 @@ then
 fi
 rm check_xsrst.$$
 # -----------------------------------------------------------------------------
+file_list=$(ls sphinx/test_out/*.rst | sed -e 's|^sphinx/test_out/||' )
+if echo $file_list | grep '20[0-9][0-9][.]rst' > /dev/null
+then
+    file=$(echo $file_list | sed -e 's|.*\(20[0-9][0-9][.]rst\).*|\1|')
+    echo "The release notes file $file should not be in test_out."
+    echo 'Use the following command to remove it ?'
+    echo "    git rm sphinx/test_out/$file"
+    exit 1
+fi
+# -----------------------------------------------------------------------------
 file_list=$(ls sphinx/xsrst/*.rst | sed -e "s|^sphinx/xsrst/||" )
+# exclude release notes from test
+file_list=$(echo $file_list | sed -e 's|20[0-9][0-9][.]rst| |g')
 for file in $file_list
 do
     if [ ! -e sphinx/test_out/$file ]
@@ -60,13 +72,14 @@ do
         echo "$file: OK"
     fi
 done
+# -----------------------------------------------------------------------------
 file_list=$(ls sphinx/test_out/*.rst | sed -e 's|^sphinx/test_out/||' )
 for file in $file_list
 do
     if [ ! -e sphinx/xsrst/$file ]
     then
         echo "The output file sphinx/xsrst/$file does not nexist."
-        echo "Use he following command to remove sphinx/test_out/$file ?"
+        echo "Use the following command to remove sphinx/test_out/$file ?"
         echo "    git rm sphinx/test_out/$file"
         exit 1
     fi

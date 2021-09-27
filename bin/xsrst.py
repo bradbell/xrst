@@ -779,6 +779,10 @@ pattern_line = re.compile(r'\{xsrst_line ([0-9]+)@')
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
+def section_name_ok(section_name) :
+    match = re.search('[a-z0-9_]+', section_name)
+    return match.group(0) == section_name
+# ---------------------------------------------------------------------------
 def replace_section_number(file_data, section_number) :
     pattern   = '\n{xsrst_section_number}'
     if section_number == '' :
@@ -1129,21 +1133,21 @@ def pattern_begin_end(file_data, file_in) :
     if ch :
         pattern_begin = re.compile(
         r'(^|\n)[' + ch +
-            r']?[ \t]*\{xsrst_(begin|begin_parent)\s+([a-z0-9_]*)\}'
+            r']?[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
         )
     else :
         pattern_begin = re.compile(
-            r'(^|\n)[ \t]*\{xsrst_(begin|begin_parent)\s+([a-z0-9_]*)\}'
+            r'(^|\n)[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
         )
     #
     # pattern_end
     if ch :
         pattern_end = re.compile(
-            r'\n[' + ch + r']?[ \t]*\{xsrst_end\s+([a-z0-9_]*)\}'
+            r'\n[' + ch + r']?[ \t]*\{xsrst_end\s+([^}]*)\}'
         )
     else :
         pattern_end = re.compile(
-            r'\n[ \t]*\{xsrst_end\s+([a-z0-9_]*)\}'
+            r'\n[ \t]*\{xsrst_end\s+([^}]*)\}'
         )
     return pattern_begin, pattern_end, match_comment_ch
 
@@ -1194,8 +1198,9 @@ def file2file_info(
             # section_name
             section_name = match_xsrst_begin.group(3)
             is_parent    = match_xsrst_begin.group(2) == 'begin_parent'
-            if section_name == '' :
-                msg  = 'section_name after xsrst_begin is empty'
+            if not section_name_ok(section_name) :
+                msg  = 'section_name after xsrst_begin must be non-empty'
+                msg += '\nand only contain following characters: a-z, 0-9, _'
                 sys_exit(msg,
                     fname=file_in, match=match_xsrst_begin, data=data_rest
                 )
@@ -1440,7 +1445,6 @@ def child_commands(
             msg  = 'The file ' + child_file + '\n'
             msg += 'in the ' + command + ' command does not contain any '
             msg += 'begin commands.\n'
-            msg += 'Note the restrictions on the characters in a section name.'
             sys_exit(msg,
                 fname=file_in, sname=section_name, line=child_line
             )

@@ -8,15 +8,22 @@
 {xsrst_begin 2021}
 
 {xsrst_spell
+    cppad
 }
 
 xsrst Release Notes for 2021
 ############################
 
-09-27
+09-26
 *****
-For changes before 2021-09-27; see
+For changes before 2021-09-26; see
 `cppad_py release_notes
 <https://bradbell.github.io/cppad_py/doc/xsrst/release_notes.html>`_
+
+09-27
+*****
+Improve the error messaging when the
+:ref:`begin_cmd.section_name` in a begin command
+has an invalid character; e.g. a period.
 
 {xsrst_end 2021}
