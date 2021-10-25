@@ -769,6 +769,7 @@ import sys
 import re
 import os
 import pdb
+import string
 import spellchecker
 import shutil
 import filecmp
@@ -948,12 +949,18 @@ def remove_line_numbers(pattern, data_in) :
     return data_out, line_pair
 # ---------------------------------------------------------------------------
 def init_spell_checker(spell_list) :
+    #
+    # default spell_checker
+    spell_checker = spellchecker.SpellChecker(distance=1)
+    # ------------------------------------------------------------------------
+    # remove certain words from dictionary
     remove_from_dictionary = [
         # BEGIN_SORT_THIS_LINE_PLUS_1
         'af',
         'anl',
         'ap',
         'av',
+        'bnd',
         'bv',
         'cg',
         'cpp',
@@ -968,6 +975,7 @@ def init_spell_checker(spell_list) :
         'jac',
         'len',
         'mcs',
+        'meas',
         'nc',
         'nd',
         'nr',
@@ -978,6 +986,7 @@ def init_spell_checker(spell_list) :
         'rel',
         'sim',
         'std',
+        'tbl',
         'thier',
         'var',
         'vec',
@@ -985,9 +994,18 @@ def init_spell_checker(spell_list) :
         'yi',
         # END_SORT_THIS_LINE_MINUS_1
     ]
+    remove_from_dictionary = spell_checker.known( remove_from_dictionary )
+    spell_checker.word_frequency.remove_words(remove_from_dictionary)
+    # ------------------------------------------------------------------------
+    # Add certain words to dictionary
+    single_letter_word = list( string.ascii_lowercase )
+    add_to_dictionary = spell_checker.unknown( single_letter_word )
+    spell_checker.word_frequency.load_words(add_to_dictionary)
+    #
     add_to_dictionary = [
         # BEGIN_SORT_THIS_LINE_PLUS_1
         'aborts',
+        'asymptotic',
         'covariate',
         'covariates',
         'debug',
@@ -998,6 +1016,8 @@ def init_spell_checker(spell_list) :
         'initialization',
         'initialize',
         'initialized',
+        'integrand',
+        'integrands',
         'invertible',
         'jacobian',
         'jacobians',
@@ -1005,6 +1025,7 @@ def init_spell_checker(spell_list) :
         'messaging',
         'modeled',
         'modeling',
+        'multipliers',
         'optimizes',
         'partials',
         'piecewise',
@@ -1049,10 +1070,9 @@ def init_spell_checker(spell_list) :
         r'\rightarrow',
         # END_SORT_THIS_LINE_MINUS_1
     ]
-    #
-    spell_checker = spellchecker.SpellChecker(distance=1)
-    spell_checker.word_frequency.remove_words(remove_from_dictionary)
     spell_checker.word_frequency.load_words(add_to_dictionary)
+    # -------------------------------------------------------------------------
+    # Add local spelling list to dictionary
     spell_checker.word_frequency.load_words(spell_list)
     #
     return spell_checker
