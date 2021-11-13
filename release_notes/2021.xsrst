@@ -14,6 +14,10 @@
 xsrst Release Notes for 2021
 ############################
 
+11-13
+*****
+Line up the file names in the error message when a section name appears twice.
+
 10-25
 *****
 Adapt to pyspellchecker changes from version 0.5.5 to version 0.6.2.

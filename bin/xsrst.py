@@ -1256,8 +1256,8 @@ def file2file_info(
                 if section_name == info['section_name'] :
                     msg  = 'xsrst_begin ' + section_name
                     msg += ' appears twice\n'
-                    msg += 'Once in file ' + file_in + '\n'
-                    msg += 'And again in file ' + info['file_in'] + '\n'
+                    msg += 'Once  in file ' + file_in + '\n'
+                    msg += 'Again in file ' + info['file_in'] + '\n'
                     sys_exit(msg)
             #
             # check if two parent sections in this file
