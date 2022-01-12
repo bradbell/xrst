@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
-#          Copyright (C) 2020-21 Bradley M. Bell (bradbell@seanet.com)
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
@@ -321,7 +321,13 @@ If not groups were specified, all groups would be included.
 
 Spelling
 ========
-Automatically ignore more words that are sphinx or latex commands.
+1.  Automatically ignore more words that are sphinx or latex commands.
+
+2.  Add a command that automatically fixes spelling warnings by changing
+    the :ref:`spell_cmd` in input sections. This is usefull when
+    pyspellchecker changes, when the
+    :ref:`xsrst_py.command_line_arguments.spelling` file changes,
+    and when xsrst.py automatically ignores more words.
 
 Tabs
 ====
