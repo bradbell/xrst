@@ -311,6 +311,14 @@ The following is a wish list for future improvements to ``xsrst.py``:
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
 
+Link to Section Name
+====================
+Currently, when you link to an entire seciton, you get the section title
+displayed for the link.
+It would be good to have a separate anchor that displays the seciton name;
+e.g., ``:ref:section_name`` would display the section name and
+``:ref:title@section_name`` would display the section title.
+
 Subset Documentation
 ====================
 Have a way to specify subsets of the documentation by a group name.
