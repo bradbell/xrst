@@ -787,6 +787,14 @@ import string
 import spellchecker
 import shutil
 import filecmp
+#
+# sys.path
+# used so that we can test before installing
+if( os.getcwd().endswith('/xsrst.git') ) :
+    if( os.path.isdir('xsrst') ) :
+        sys.path.insert(0, os.getcwd() )
+#
+import xsrst
 # ---------------------------------------------------------------------------
 # global variables
 # ---------------------------------------------------------------------------
@@ -1106,30 +1114,6 @@ def find_text_line(data, text, exclude=None) :
         index = data.find(text, index + len(text))
     return result
 # ---------------------------------------------------------------------------
-# add file name, section name, and program name to system exit call
-def sys_exit(msg, fname=None, sname=None, match=None, data=None, line=None) :
-    extra = ''
-    if sname :
-        extra += 'section = ' + sname
-    if fname :
-        if extra != '' :
-            extra += ', '
-        extra += 'file = ' + fname
-    if match :
-        assert fname != None
-        assert data != None
-        assert line == None
-        match_line  = pattern_line.search( data[match.start() :] )
-        assert match_line
-        line = match_line.group(1)
-    if line != None :
-        if extra != '' :
-            extra += ', '
-        extra += 'line = ' + str(line)
-    if extra != '' :
-        msg += '\n' + extra
-    sys.exit('\n' + msg)
-# ---------------------------------------------------------------------------
 def file2list(file_name) :
     file_ptr  = open(file_name, 'r')
     result    = list()
@@ -1156,11 +1140,11 @@ def pattern_begin_end(file_data, file_in) :
             msg = 'There are multiple command_ch commands in this file'
             # This error is detected during a child command and file_data
             # does not have line numbers in it
-            sys_exit(msg, fname=file_in)
+            xsrst.system_exit(msg, fname=file_in)
         if comment_ch == ']' :
             msg  = 'Cannot use "]" as the speical comment charater\n'
             msg += 'in a comment_ch command.'
-            sys_exit(msg, fname=file_in)
+            xsrst.system_exit(msg, fname=file_in)
     #
     # pattern_begin
     ch = comment_ch
@@ -1226,7 +1210,7 @@ def file2file_info(
             if file_index == 0 :
                 msg  = 'can not find followng at start of a line:\n'
                 msg += '    {xsrst_begin section_name}\n'
-                sys_exit(msg, fname=file_in)
+                xsrst.system_exit(msg, fname=file_in)
             file_index = len(file_data)
         else :
             # section_name
@@ -1235,21 +1219,21 @@ def file2file_info(
             if not section_name_ok(section_name) :
                 msg  = 'section_name after xsrst_begin must be non-empty'
                 msg += '\nand only contain following characters: a-z, 0-9, _'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, match=match_xsrst_begin, data=data_rest
                 )
             if section_name.startswith('xsrst_') :
                 # section name xsrst_py is used to document this program
                 if section_name != 'xsrst_py' :
                     msg = 'section_name cannot start with xsrst_'
-                    sys_exit(msg,
+                    xsrst.system_exit(msg,
                         fname=file_in, match=match_xsrst_begin, data=data_rest
                     )
             #
             begin_index = file_index + match_xsrst_begin.start()
             if begin_index < comment_ch_index :
                 msg = 'A begin command comes before the comment_ch command'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
                     match=match_xsrst_begin,
@@ -1260,7 +1244,7 @@ def file2file_info(
             for info in file_info :
                 if section_name == info['section_name'] :
                     msg  = 'xsrst_begin: section appears multiple times'
-                    sys_exit(msg,
+                    xsrst.system_exit(msg,
                         fname=file_in,
                         sname=section_name,
                         match=match_xsrst_begin,
@@ -1272,14 +1256,14 @@ def file2file_info(
                     msg += ' appears twice\n'
                     msg += 'Once  in file ' + file_in + '\n'
                     msg += 'Again in file ' + info['file_in'] + '\n'
-                    sys_exit(msg)
+                    xsrst.system_exit(msg)
             #
             # check if two parent sections in this file
             if is_parent :
                 if len(file_info) != 0 :
                     msg  = 'xsrst_begin_parent'
                     msg += ' is not the first begin command in this file'
-                    sys_exit(msg,
+                    xsrst.system_exit(msg,
                         fname=file_in,
                         sname=section_name,
                         match=match_xsrst_begin,
@@ -1296,12 +1280,12 @@ def file2file_info(
             if match_xsrst_end == None :
                 msg  = 'can not find followig at start of a line:\n'
                 msg += '    {xsrst_end section_name}'
-                sys_exit(msg, fname=file_in, sname=section_name)
+                xsrst.system_exit(msg, fname=file_in, sname=section_name)
             if match_xsrst_end.group(1) != section_name :
                 msg = 'begin and end section names do not match\n'
                 msg += 'begin name = ' + section_name + '\n'
                 msg += 'end name   = ' + match_xsrst_end.group(1)
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in,
                     match=match_xsrst_end,
                     data=data_rest
@@ -1366,7 +1350,7 @@ def indent_to_remove(section_data, file_in, section_name) :
             if section_data[next_] not in check_ch :
                 msg  = 'mixing both spaces and tabs for '
                 msg += 'white space that indents this section.'
-                sys_exit(msg, fname=file_in, sname=section_name)
+                xsrst.system_exit(msg, fname=file_in, sname=section_name)
             next_ += 1
     #
     return num_remove
@@ -1384,7 +1368,7 @@ def suspend_command(
         if match_resume == None :
             msg  = 'there is a {xsrst_suspend} without a '
             msg += 'corresponding {xsrst_resume}'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
                 match=match_suspend,
@@ -1395,7 +1379,7 @@ def suspend_command(
             if match_suspend.start() < match_resume.start() :
                 msg  = 'there are two {xsrst_suspend} without a '
                 msg += '{xsrst_resume} between them'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
                     match=match_suspend,
@@ -1425,7 +1409,7 @@ def child_commands(
     match_tmp    = pattern['child'].search(section_data[match.end() :] )
     if match_tmp is not None :
         msg = 'More than one children or child_list command in a section.'
-        sys_exit(msg,
+        xsrst.system_exit(msg,
             fname=file_in,
             sname=section_name,
             match=match_tmp,
@@ -1459,7 +1443,7 @@ def child_commands(
         if not os.path.isfile(child_file) :
             msg  = 'The file ' + child_file + '\n'
             msg += 'in the ' + command + ' command does not exist'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in, sname=section_name, line=child_line
             )
         #
@@ -1479,7 +1463,7 @@ def child_commands(
             msg  = 'The file ' + child_file + '\n'
             msg += 'in the ' + command + ' command does not contain any '
             msg += 'begin commands.\n'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in, sname=section_name, line=child_line
             )
         #
@@ -1513,7 +1497,7 @@ def spell_command(
         match_another  = pattern['spell'].search(section_rest)
         if match_another :
             msg  = 'there are two spell xsrst commands'
-            sys_exit(msg, fname=file_in, sname=section_name)
+            xsrst.system_exit(msg, fname=file_in, sname=section_name)
         previous_word = ''
         spell_arg = match_spell.group(1)
         spell_arg = pattern['line'].sub('', spell_arg)
@@ -1633,7 +1617,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
         language       = match_begin_code.group(1).strip()
         if language == '' :
             msg = 'missing language in first command of a code block pair'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
                 match=match_begin_code,
@@ -1642,7 +1626,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
         for ch in language :
             if ch < 'a' or 'z' < ch :
                 msg = 'code block language character not in a-z.'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
                     match=match_begin_code,
@@ -1654,7 +1638,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
         match_end_code = pattern['code'].search( section_rest )
         if match_end_code == None :
             msg = 'xsrst_code start does not have a corresponding stop'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
                 match=match_begin_code,
@@ -1662,7 +1646,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
             )
         if match_end_code.group(1).strip() != '' :
             msg ='xsrst_code stop command has language argument'
-            sys_exit(msg,
+            xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
                 match=match_end_code,
@@ -1710,7 +1694,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
             start_line = int( match_file.group(3) )
             if start == '' :
                 msg = 'xsrst_file command: start text is empty'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=start_line
                 )
             #
@@ -1719,7 +1703,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
             stop_line = int( match_file.group(5) )
             if stop == '' :
                 msg = 'xsrst_file command: stop text is empty'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=stop_line
                 )
             #
@@ -1745,14 +1729,14 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
                 msg  = 'xsrst_file command: can not find'
                 msg += '\nstart = "' + start + '"'
                 msg += ' in file '+ file_name
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=start_line
                 )
             if 1 < len(start_list) :
                 msg  = 'xsrst_file command: found more than one'
                 msg += '\nstart = "' + start + '"'
                 msg += ' in file '+ file_name
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=start_line
                 )
             #
@@ -1765,14 +1749,14 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
                 msg  = 'xsrst_file command: can not find'
                 msg += '\nstop = "' + stop + '"'
                 msg += ' in file '+ file_name
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=stop_line
                 )
             if 1 < len(stop_list) :
                 msg  = 'xsrst_file command: found more than one'
                 msg += '\nstop = "' + stop + '"'
                 msg += ' in file '+ file_name
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=stop_line
                 )
             #
@@ -1781,7 +1765,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
                 msg += ' in file '+ file_name
                 msg += '\nstart = "' + start + '"'
                 msg += '\nstop = "' + stop + '"'
-                sys_exit(msg,
+                xsrst.system_exit(msg,
                     fname=file_in, sname=section_name, line=stop_line
                 )
             #
@@ -1876,7 +1860,7 @@ def process_headings(
                     same_level = character == heading_list[0]['character']
                 if same_level :
                     msg = 'There are multiple titles for this section'
-                    sys_exit(msg, fname=file_in, sname=section_name)
+                    xsrst.system_exit(msg, fname=file_in, sname=section_name)
                 level = 1
                 while level < len(heading_list) and not same_level :
                     same_level = overline == heading_list[level]['overline']
@@ -1945,7 +1929,7 @@ def process_headings(
     #
     if len(heading_list) == 0 :
         msg = 'There are no headings in this section'
-        sys_exit(msg, fname=file_in, sname=section_name)
+        xsrst.system_exit(msg, fname=file_in, sname=section_name)
     #
     i = 0
     while punctuation[i] in punctuation_used :
@@ -1953,7 +1937,7 @@ def process_headings(
         if i == len(punctuation) :
             msg  = 'more than ' + len(punctuation) - 1
             msg += ' overlined heading levels'
-            sys_exit(msg, fname = file_in, sname = section_name)
+            xsrst.system_exit(msg, fname = file_in, sname = section_name)
     line           = len(section_name) * punctuation[i] + '\n'
     pseudo_heading = line + section_name + '\n' + line + '\n'
     #
@@ -2174,34 +2158,34 @@ def main() :
     # check working directory
     if not os.path.isdir('.git') :
         msg = 'must be executed from to top directory for a git repository'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # check number of command line arguments
     if len(sys.argv) != 6 and len(sys.argv) != 7 :
         usage  = 'bin/xsrst.py target root_file sphinx_dir spelling keyword'
         usage += ' [line_increment]'
-        sys_exit(usage)
+        xsrst.system_exit(usage)
     #
     # target
     target = sys.argv[1]
     if target != 'html' and target != 'pdf' :
         msg  = 'target = ' + target + '\n'
         msg += 'is not "html" or "pdf"'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # root_file
     root_file = sys.argv[2]
     if not os.path.isfile(root_file) :
         msg  = 'root_file = ' + root_file + '\n'
         msg += 'is not a file'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # sphinx_dir
     sphinx_dir      = sys.argv[3]
     if not os.path.isdir(sphinx_dir) :
         msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
         msg += 'is not a sub-directory of current working directory'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # spelling
     spelling   = sys.argv[4]
@@ -2209,7 +2193,7 @@ def main() :
     if not os.path.isfile(spell_path) :
         msg  = 'sphinx_dir/spelling = ' + spell_path + '\n'
         msg += 'is not a file'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # keyword
     keyword      = sys.argv[5]
@@ -2217,7 +2201,7 @@ def main() :
     if not os.path.isfile(keyword_path) :
         msg  = 'sphinx_dir/keyword = ' + keyword_path + '\n'
         msg += 'is not a file'
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # line_increment
     if len(sys.argv) == 6 :
@@ -2226,14 +2210,14 @@ def main() :
         line_increment = int(sys.argv[6])
         if line_increment < 1 :
             msg += 'line_increment is not a positive integer'
-            sys_exit(msg)
+            xsrst.system_exit(msg)
     #
     # conf.y
     file_path = sphinx_dir + '/conf.py'
     if not os.path.isfile( file_path ) :
         msg  = 'can not find the file conf.py\n'
         msg += 'in sphinx_dir = ' + sphinx_dir
-        sys_exit(msg)
+        xsrst.system_exit(msg)
     #
     # xsrist_dir
     xsrst_dir = sphinx_dir + '/xsrst'
@@ -2313,7 +2297,7 @@ def main() :
                 msg  = 'The file ' + info['file_in'] + ' is included twice\n'
                 msg += 'Once in ' + info_tmp['parent_file'] + '\n'
                 msg += 'and again in ' + info['parent_file'] + '\n'
-                sys_exit(msg)
+                xsrst.system_exit(msg)
         file_info_done.append(info)
         #
         file_in              = info['file_in']
@@ -2336,7 +2320,7 @@ def main() :
             if len(this_file_info) < 2 :
                 msg  = 'xsrst_begin_parent appreas in a file '
                 msg += 'that only has one section; i.e., no children.'
-                sys_exit(msg, fname=file_in, sname=section_name)
+                xsrst.system_exit(msg, fname=file_in, sname=section_name)
         #
         # add this files sections to section_info
         for i_file in range( len(this_file_info) ) :

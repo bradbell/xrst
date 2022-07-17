@@ -30,4 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|2017-21 Bradley|2020-21 Bradley|
+s|sys_exit(|xsrst.system_exit(|
+/^# add file name/,/^#/d

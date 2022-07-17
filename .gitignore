@@ -2,10 +2,14 @@
 temp
 temp.*
 # automatically created files
+/git_commit.sh
 /sphinx/index.rst
 # automatically created directories
 /doc/
 /sphinx/xsrst/
+/new/
+/new.[0-9]/
+__pycache__/
 # file extensions to ignore
 *.log
 *.swp
