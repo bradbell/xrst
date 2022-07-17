@@ -8,7 +8,11 @@
 # ----------------------------------------------------------------------------
 import re
 #
-# Constants
-pattern_line = re.compile(r'\{xsrst_line ([0-9]+)@')
+# pattern
+# This dictionary is does not change from its inital settings in this file
+pattern = dict()
+#
+# find corresponding line number in the input file
+pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 #
 from .system_exit import system_exit

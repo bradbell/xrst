@@ -796,10 +796,6 @@ if( os.getcwd().endswith('/xsrst.git') ) :
 #
 import xsrst
 # ---------------------------------------------------------------------------
-# global variables
-# ---------------------------------------------------------------------------
-pattern_line = re.compile(r'\{xsrst_line ([0-9]+)@')
-# ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
 def section_name_ok(section_name) :
@@ -950,7 +946,7 @@ def add_line_numbers(data) :
     return result
 # ---------------------------------------------------------------------------
 def remove_line_numbers(pattern, data_in) :
-    match     = pattern['line'].search(data_in)
+    match     = xsrst.pattern['line'].search(data_in)
     offset_in = 0
     line_out  = 1
     data_out  = ''
@@ -966,7 +962,7 @@ def remove_line_numbers(pattern, data_in) :
         data_out += before
         #
         offset_in   = end
-        match       = pattern['line'].search(data_in[end :])
+        match       = xsrst.pattern['line'].search(data_in[end :])
     data_out += data_in[offset_in :]
     return data_out, line_pair
 # ---------------------------------------------------------------------------
@@ -1427,10 +1423,10 @@ def child_commands(
     #
     # file_list, file_line
     for child_pair in match.group(2).split('\n') :
-        match_line = pattern['line'].search(child_pair)
+        match_line = xsrst.pattern['line'].search(child_pair)
         if match_line :
             line_number = match_line.group(1)
-        child_file  = pattern['line'].sub('', child_pair).strip()
+        child_file  = xsrst.pattern['line'].sub('', child_pair).strip()
         if child_file != '' :
             assert match_line
             file_list.append(child_file)
@@ -1500,7 +1496,7 @@ def spell_command(
             xsrst.system_exit(msg, fname=file_in, sname=section_name)
         previous_word = ''
         spell_arg = match_spell.group(1)
-        spell_arg = pattern['line'].sub('', spell_arg)
+        spell_arg = xsrst.pattern['line'].sub('', spell_arg)
         for itr in pattern['word'].finditer( spell_arg ) :
             word_lower = itr.group(0).lower()
             if len(word_lower) > 1 :
@@ -1549,7 +1545,7 @@ def spell_command(
                     first_spell_error = False
                 # line_number
                 offset = itr.start()
-                match  = pattern['line'].search(section_tmp[offset :] )
+                match  = xsrst.pattern['line'].search(section_tmp[offset :] )
                 assert match
                 line_number = match.group(1)
                 #
@@ -1574,7 +1570,7 @@ def spell_command(
                 first_spell_error = False
             # line_number
             offset = itr.start()
-            match  = pattern['line'].search(section_tmp[offset :] )
+            match  = xsrst.pattern['line'].search(section_tmp[offset :] )
             assert match
             line_number = match.group(1)
             # first and last character in pattern is not part of double word
@@ -1808,7 +1804,7 @@ def process_headings(
     candidate_state  = 'empty'
     while 0 <= next_newline :
         next_line = section_data[next_start : next_newline]
-        next_line = pattern['line'].sub('', next_line)
+        next_line = xsrst.pattern['line'].sub('', next_line)
         next_line = next_line[num_remove :].rstrip(' \t')
         next_len  = len(next_line)
         if next_len == 0 :
@@ -2083,7 +2079,7 @@ def compute_output(
                 rst_output += '\n'
             previous_empty = True
         else :
-            match = pattern['line'].search(line)
+            match = xsrst.pattern['line'].search(line)
             if match :
                 empty_line = match.start() <= num_remove
             else :
@@ -2256,7 +2252,6 @@ def main() :
     )
     #
     # regular expressions corresponding to xsrst commands
-    pattern['line']    = pattern_line
     pattern['suspend'] = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
     pattern['resume']  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
     pattern['code']    = re.compile(

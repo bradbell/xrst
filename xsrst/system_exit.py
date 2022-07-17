@@ -35,7 +35,7 @@ def system_exit(msg, fname=None, sname=None, match=None, data=None, line=None) :
         assert fname != None
         assert data != None
         assert line == None
-        match_line  = xsrst.pattern_line.search( data[match.start() :] )
+        match_line  = xsrst.pattern['line'].search( data[match.start() :] )
         assert match_line
         line = match_line.group(1)
     if line != None :
