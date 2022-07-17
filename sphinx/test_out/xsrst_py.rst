@@ -502,6 +502,21 @@ The following is a wish list for future improvements to ``xsrst.py``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
+   :keywords: link, to, section, name
+
+.. index:: link, to, section, name
+
+.. _xsrst_py.wish_list.link_to_section_name:
+
+Link to Section Name
+====================
+Currently, when you link to an entire seciton, you get the section title
+displayed for the link.
+It would be good to have a separate anchor that displays the seciton name;
+e.g., ``:ref:section_name`` would display the section name and
+``:ref:title@section_name`` would display the section title.
+
+.. meta::
    :keywords: subset, documentation
 
 .. index:: subset, documentation
@@ -525,7 +540,13 @@ If not groups were specified, all groups would be included.
 
 Spelling
 ========
-Automatically ignore more words that are sphinx or latex commands.
+1.  Automatically ignore more words that are sphinx or latex commands.
+
+2.  Add a command that automatically fixes spelling warnings by changing
+    the :ref:`spell_cmd` in input sections. This is usefull when
+    pyspellchecker changes, when the
+    :ref:`xsrst_py.command_line_arguments.spelling` file changes,
+    and when xsrst.py automatically ignores more words.
 
 .. meta::
    :keywords: tabs
