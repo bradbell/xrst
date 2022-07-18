@@ -28,7 +28,7 @@
 #
 import re
 import xsrst
-def section_name_ok(section_name, fname, m_obj, data) :
+def check_section_name(section_name, fname, m_obj, data) :
     m = re.search('[a-z0-9_]+', section_name)
     if m.group(0) != section_name :
         msg  = 'section_name after xsrst_begin must be non-empty'

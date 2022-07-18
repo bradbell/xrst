@@ -798,58 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def replace_section_number(file_data, section_number) :
-    pattern   = '\n{xsrst_section_number}'
-    if section_number == '' :
-        # This is the root section
-        return file_data.replace(pattern,'')
-    #
-    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-    # start of section_number command
-    start_cmd = file_data.find(pattern)
-    assert 0 <= start_cmd
-    # first character after command
-    ch  = file_data[start_cmd + len(pattern)]
-    assert ch == '\n'
-    # second and third newline after command
-    second_index = file_data.index('\n', start_cmd + len(pattern) + 1)
-    third_index  = file_data.index('\n', second_index + 1)
-    # first and second line after comman
-    first_line   = file_data[start_cmd + len(pattern) + 1 : second_index ]
-    second_line  = file_data[ second_index + 1 : third_index ]
-    # check for overline
-    overline = False
-    if first_line[0] * len(first_line) == first_line :
-        if first_line[0] in punctuation :
-            overline = True
-    if not overline :
-        assert second_line[0] in punctuation
-        first_line   = section_number + ' ' + first_line
-        second_line += second_line[0] * ( len(section_number) + 1 )
-        data  = file_data[: start_cmd] + '\n'
-        data += first_line + '\n'
-        data += second_line + '\n'
-        data += file_data[third_index :]
-    else :
-        # fourth newline after command
-            fourth_index = file_data.index('\n', third_index + 1)
-            third_line   = file_data[third_index + 1 : fourth_index]
-            assert first_line == third_line
-            first_line += first_line[0] * ( len(section_number) + 1 )
-            third_line  = first_line
-            second_line = section_number + ' ' + second_line
-    data  = file_data[: start_cmd] + '\n'
-    data += first_line + '\n'
-    data += second_line + '\n'
-    if not overline :
-        data += file_data[third_index :]
-    else :
-        data += third_line
-        data += file_data[fourth_index:]
-    #
-    return data
-    #
-# ---------------------------------------------------------------------------
 # create table of contents and replace '{xsrst_section_number}' commands
 # in *.rst files.
 def table_of_contents(
@@ -887,9 +835,9 @@ def table_of_contents(
     file_data = file_ptr.read()
     file_ptr.close()
     if target == 'pdf' :
-        file_data = replace_section_number(file_data, section_number)
+        file_data = xsrst.replace_section_number(file_data, section_number)
     else :
-        file_data = replace_section_number(file_data, '')
+        file_data = xsrst.replace_section_number(file_data, '')
     file_ptr  = open(file_name, 'w')
     file_ptr.write(file_data)
     file_ptr.close()
@@ -1209,8 +1157,8 @@ def file2file_info(
             section_name = match_xsrst_begin.group(3)
             is_parent    = match_xsrst_begin.group(2) == 'begin_parent'
             #
-            # section_name_ok
-            xsrst.section_name_ok(
+            # check_section_name
+            xsrst.check_section_name(
                 section_name,
                 fname=file_in,
                 m_obj=match_xsrst_begin,

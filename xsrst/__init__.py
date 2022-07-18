@@ -15,5 +15,6 @@ pattern = dict()
 # find corresponding line number in the input file
 pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 #
-from .section_name_ok import section_name_ok
-from .system_exit     import system_exit
+from .check_section_name     import check_section_name
+from .replace_section_number import replace_section_number
+from .system_exit            import system_exit
