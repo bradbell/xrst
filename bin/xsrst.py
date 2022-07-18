@@ -798,17 +798,8 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def newline_indices(data) :
-    pattern_newline  = re.compile( r'\n')
-    newline_itr      = pattern_newline.finditer(data)
-    newline_list     = list()
-    for itr in newline_itr :
-        newlist = itr.start()
-        newline_list.append( newlist )
-    return newline_list
-# ---------------------------------------------------------------------------
 def add_line_numbers(data) :
-    newline_list = newline_indices(data)
+    newline_list = xsrst.newline_indices(data)
     result       = ""
     previous     = 0
     for i in range( len(newline_list) ) :
@@ -1190,7 +1181,7 @@ def indent_to_remove(section_data, file_in, section_name) :
     len_data   = len(section_data)
     #
     # newline_list
-    newline_list = newline_indices(section_data)
+    newline_list = xsrst.newline_indices(section_data)
     #
     # num_remove
     num_remove = len(section_data)
@@ -1838,7 +1829,7 @@ def compute_output(
     top_dir = top_dir[:-1]
     #
     # split section data into lines
-    newline_list = newline_indices(section_data)
+    newline_list = xsrst.newline_indices(section_data)
     #
     # start output by including preamble
     rst_output = '.. include:: ../preamble.rst\n\n'

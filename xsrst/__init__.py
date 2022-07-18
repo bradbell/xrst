@@ -18,3 +18,4 @@ from .check_section_name     import check_section_name
 from .replace_section_number import replace_section_number
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents
+from .newline_indices        import newline_indices
