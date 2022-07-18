@@ -1216,14 +1216,14 @@ def file2file_info(
                 msg  = 'section_name after xsrst_begin must be non-empty'
                 msg += '\nand only contain following characters: a-z, 0-9, _'
                 xsrst.system_exit(msg,
-                    fname=file_in, match=match_xsrst_begin, data=data_rest
+                    fname=file_in, m_obj=match_xsrst_begin, data=data_rest
                 )
             if section_name.startswith('xsrst_') :
                 # section name xsrst_py is used to document this program
                 if section_name != 'xsrst_py' :
                     msg = 'section_name cannot start with xsrst_'
                     xsrst.system_exit(msg,
-                        fname=file_in, match=match_xsrst_begin, data=data_rest
+                        fname=file_in, m_obj=match_xsrst_begin, data=data_rest
                     )
             #
             begin_index = file_index + match_xsrst_begin.start()
@@ -1232,7 +1232,7 @@ def file2file_info(
                 xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
-                    match=match_xsrst_begin,
+                    m_obj=match_xsrst_begin,
                     data=data_rest,
                 )
             #
@@ -1243,7 +1243,7 @@ def file2file_info(
                     xsrst.system_exit(msg,
                         fname=file_in,
                         sname=section_name,
-                        match=match_xsrst_begin,
+                        m_obj=match_xsrst_begin,
                         data=data_rest
                     )
             for info in section_info :
@@ -1262,7 +1262,7 @@ def file2file_info(
                     xsrst.system_exit(msg,
                         fname=file_in,
                         sname=section_name,
-                        match=match_xsrst_begin,
+                        m_obj=match_xsrst_begin,
                         data=data_rest
                     )
             #
@@ -1283,7 +1283,7 @@ def file2file_info(
                 msg += 'end name   = ' + match_xsrst_end.group(1)
                 xsrst.system_exit(msg,
                     fname=file_in,
-                    match=match_xsrst_end,
+                    m_obj=match_xsrst_end,
                     data=data_rest
                 )
             #
@@ -1367,7 +1367,7 @@ def suspend_command(
             xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
-                match=match_suspend,
+                m_obj=match_suspend,
                 data=section_data
             )
         match_suspend = pattern['suspend'].search(section_rest)
@@ -1378,7 +1378,7 @@ def suspend_command(
                 xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
-                    match=match_suspend,
+                    m_obj=match_suspend,
                     data=section_rest
                 )
         resume_end   = match_resume.end() + suspend_end
@@ -1408,7 +1408,7 @@ def child_commands(
         xsrst.system_exit(msg,
             fname=file_in,
             sname=section_name,
-            match=match_tmp,
+            m_obj=match_tmp,
             data=section_data[match.end():]
         )
     #
@@ -1616,7 +1616,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
             xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
-                match=match_begin_code,
+                m_obj=match_begin_code,
                 data=data_right
             )
         for ch in language :
@@ -1625,7 +1625,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
                 xsrst.system_exit(msg,
                     fname=file_in,
                     sname=section_name,
-                    match=match_begin_code,
+                    m_obj=match_begin_code,
                     data=data_right
                 )
         begin_start    = match_begin_code.start() + section_index
@@ -1637,7 +1637,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
             xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
-                match=match_begin_code,
+                m_obj=match_begin_code,
                 data=data_right
             )
         if match_end_code.group(1).strip() != '' :
@@ -1645,7 +1645,7 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
             xsrst.system_exit(msg,
                 fname=file_in,
                 sname=section_name,
-                match=match_end_code,
+                m_obj=match_end_code,
                 data=section_rest
             )
         # pygments does not recognize hpp ?
