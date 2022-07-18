@@ -798,24 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def add_line_numbers(data) :
-    newline_list = xsrst.newline_indices(data)
-    result       = ""
-    previous     = 0
-    for i in range( len(newline_list) ) :
-        current = newline_list[i]
-        line    = data[previous : current]
-        if previous == current :
-            assert i == 0
-        elif line[-1] != '\n' :
-            line += '{xsrst_line ' + str(i + 1) + '@'
-        result  += line
-        previous = current
-    #
-    assert previous == len(data) - 1
-    result += '\n'
-    return result
-# ---------------------------------------------------------------------------
 def remove_line_numbers(pattern, data_in) :
     match     = xsrst.pattern['line'].search(data_in)
     offset_in = 0
@@ -1049,7 +1031,7 @@ def file2file_info(
     file_data  = file_ptr.read()
     file_ptr.close()
     #
-    file_data = add_line_numbers(file_data)
+    file_data = xsrst.add_line_numbers(file_data)
     #
     # initialize return value
     file_info = list()
