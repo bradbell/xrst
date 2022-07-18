@@ -798,135 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def init_spell_checker(spell_list) :
-    #
-    # default spell_checker
-    spell_checker = spellchecker.SpellChecker(distance=1)
-    # ------------------------------------------------------------------------
-    # remove certain words from dictionary
-    remove_from_dictionary = [
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        'af',
-        'anl',
-        'ap',
-        'av',
-        'bnd',
-        'bv',
-        'cg',
-        'cpp',
-        'dep',
-        'dir',
-        'dv',
-        'exp',
-        'gcc',
-        'hes',
-        'hess',
-        'ind',
-        'jac',
-        'len',
-        'mcs',
-        'meas',
-        'nc',
-        'nd',
-        'nr',
-        'op',
-        'prt',
-        'ptr',
-        'rc',
-        'rel',
-        'sim',
-        'std',
-        'tbl',
-        'thier',
-        'var',
-        'vec',
-        'xp',
-        'yi',
-        # END_SORT_THIS_LINE_MINUS_1
-    ]
-    remove_from_dictionary = spell_checker.known( remove_from_dictionary )
-    spell_checker.word_frequency.remove_words(remove_from_dictionary)
-    # ------------------------------------------------------------------------
-    # Add certain words to dictionary
-    single_letter_word = list( string.ascii_lowercase )
-    add_to_dictionary = spell_checker.unknown( single_letter_word )
-    spell_checker.word_frequency.load_words(add_to_dictionary)
-    #
-    add_to_dictionary = [
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        'aborts',
-        'asymptotic',
-        'covariate',
-        'covariates',
-        'debug',
-        'destructor',
-        'exponentiation',
-        'hessians',
-        'identifiability',
-        'initialization',
-        'initialize',
-        'initialized',
-        'integrand',
-        'integrands',
-        'invertible',
-        'jacobian',
-        'jacobians',
-        'likelihoods',
-        'messaging',
-        'modeled',
-        'modeling',
-        'multipliers',
-        'optimizes',
-        'partials',
-        'piecewise',
-        'unary',
-        'unicode',
-        'wiki',
-        'wikipedia',
-        # END_SORT_THIS_LINE_MINUS_1
-        #
-        # greek letter latex commands
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        r'\alpha',
-        r'\beta',
-        r'\chi',
-        r'\delta',
-        r'\epsilon',
-        r'\eta',
-        r'\gamma',
-        r'\iota',
-        r'\kappa',
-        r'\lambda',
-        r'\mu',
-        r'\nu',
-        r'\omega',
-        r'\omicron',
-        r'\phi',
-        r'\pi',
-        r'\psi',
-        r'\rho',
-        r'\sigma',
-        r'\tau',
-        r'\theta',
-        r'\upsilon',
-        r'\xi',
-        r'\zeta',
-        # END_SORT_THIS_LINE_MINUS_1
-        #
-        # common latex commands
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        r'\exp',
-        r'\log',
-        r'\rightarrow',
-        # END_SORT_THIS_LINE_MINUS_1
-    ]
-    spell_checker.word_frequency.load_words(add_to_dictionary)
-    # -------------------------------------------------------------------------
-    # Add local spelling list to dictionary
-    spell_checker.word_frequency.load_words(spell_list)
-    #
-    return spell_checker
-# ---------------------------------------------------------------------------
 def find_text_line(data, text, exclude=None) :
     assert len(text) > 0
     result = list()
@@ -2055,7 +1926,7 @@ def main() :
     #
     # spell_checker
     spell_list           = file2list(spell_path)
-    spell_checker        = init_spell_checker(spell_list)
+    spell_checker        = xsrst.create_spell_checker(spell_list)
     #
     # index_list
     index_list = list()
