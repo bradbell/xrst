@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
@@ -20,7 +19,7 @@
 # i.e., the replacement text is the empty string.
 #
 # data_out:
-# the return value is the data after replacement. This is a python str
+# the return data_out is the data after replacement. This is a python str
 def replace_section_number(data_in, section_number) :
     assert type(data_in) == str
     assert type(section_number) == str

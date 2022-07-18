@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
@@ -18,3 +17,4 @@ pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 from .check_section_name     import check_section_name
 from .replace_section_number import replace_section_number
 from .system_exit            import system_exit
+from .table_of_contents      import table_of_contents

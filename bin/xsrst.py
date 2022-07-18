@@ -798,70 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-# create table of contents and replace '{xsrst_section_number}' commands
-# in *.rst files.
-def table_of_contents(
-    tmp_dir, target, section_info, level, count, section_index
-) :
-    assert level >= 1
-    assert len(count) == level-1
-    #
-    section_name  = section_info[section_index]['section_name']
-    section_title = section_info[section_index]['section_title']
-    if level == 1 :
-        assert section_index == 0
-        content  = '\n.. _xsrst_table_of_contents:\n\n'
-        content += 'Table of Contents\n'
-        content += '*****************\n'
-        content += ':ref:`' + section_name + '`\n\n'
-        section_number = ''
-    else :
-        assert section_index != 0
-        content  = '| '
-        assert level > 1
-        for i in range(level - 2 ) :
-            content += ' |space| '
-        section_number = ''
-        for i in range(level - 1) :
-            section_number += str(count[i])
-            if i + 1 < level - 1 :
-                section_number += '.'
-        content  += f':ref:`{section_number}<{section_name}>` '
-        content  += section_title + '\n'
-    # --------------------------------------------------------------------
-    # replace {xsrst_section_number} in xsrst_dir/section_name.rst
-    file_name = tmp_dir + '/' + section_name + '.rst'
-    file_ptr  = open(file_name, 'r')
-    file_data = file_ptr.read()
-    file_ptr.close()
-    if target == 'pdf' :
-        file_data = xsrst.replace_section_number(file_data, section_number)
-    else :
-        file_data = xsrst.replace_section_number(file_data, '')
-    file_ptr  = open(file_name, 'w')
-    file_ptr.write(file_data)
-    file_ptr.close()
-    #
-    child_count   = count + [0]
-    child_content = ''
-    for child_index in range( len( section_info ) ) :
-        if section_info[child_index]['parent_section'] == section_index :
-            child_count[-1] += 1
-            child_content += table_of_contents(
-            tmp_dir, target, section_info, level + 1, child_count, child_index
-            )
-    #
-    # if the number of children greater than one, put a blank line before
-    # and after the child table of contents
-    number_children = child_count[-1]
-    if 1 < number_children :
-        if not child_content.startswith('|\n') :
-            child_content = '|\n' + child_content
-        if not child_content.endswith('|\n') :
-            child_content = child_content + '|\n'
-    #
-    return content + child_content
-# ---------------------------------------------------------------------------
 def newline_indices(data) :
     pattern_newline  = re.compile( r'\n')
     newline_itr      = pattern_newline.finditer(data)
@@ -2384,7 +2320,7 @@ def main() :
     level         = 1
     count         = list()
     section_index = 0
-    output_data  += table_of_contents(
+    output_data  += xsrst.table_of_contents(
         tmp_dir, target, section_info, level, count, section_index
     )
     if target == 'html' :
