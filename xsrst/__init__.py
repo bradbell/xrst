@@ -15,4 +15,5 @@ pattern = dict()
 # find corresponding line number in the input file
 pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 #
-from .system_exit import system_exit
+from .section_name_ok import section_name_ok
+from .system_exit     import system_exit

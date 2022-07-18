@@ -798,10 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def section_name_ok(section_name) :
-    match = re.search('[a-z0-9_]+', section_name)
-    return match.group(0) == section_name
-# ---------------------------------------------------------------------------
 def replace_section_number(file_data, section_number) :
     pattern   = '\n{xsrst_section_number}'
     if section_number == '' :
@@ -1212,19 +1208,14 @@ def file2file_info(
             # section_name
             section_name = match_xsrst_begin.group(3)
             is_parent    = match_xsrst_begin.group(2) == 'begin_parent'
-            if not section_name_ok(section_name) :
-                msg  = 'section_name after xsrst_begin must be non-empty'
-                msg += '\nand only contain following characters: a-z, 0-9, _'
-                xsrst.system_exit(msg,
-                    fname=file_in, m_obj=match_xsrst_begin, data=data_rest
-                )
-            if section_name.startswith('xsrst_') :
-                # section name xsrst_py is used to document this program
-                if section_name != 'xsrst_py' :
-                    msg = 'section_name cannot start with xsrst_'
-                    xsrst.system_exit(msg,
-                        fname=file_in, m_obj=match_xsrst_begin, data=data_rest
-                    )
+            #
+            # section_name_ok
+            xsrst.section_name_ok(
+                section_name,
+                fname=file_in,
+                m_obj=match_xsrst_begin,
+                data=data_rest
+            )
             #
             begin_index = file_index + match_xsrst_begin.start()
             if begin_index < comment_ch_index :

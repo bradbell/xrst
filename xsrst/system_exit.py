@@ -8,7 +8,7 @@
 # Add file name, section name, and line number to a message in a system exit
 #
 # msg:    error message
-# fname:  file name
+# fname:  original input file that that data appeared in.
 # sname:  section name
 # m_obj:  match object inticating where in data the error is detected
 # data:   is the input data that was matched when m_obj is not None
