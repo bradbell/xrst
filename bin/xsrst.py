@@ -798,27 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def remove_line_numbers(pattern, data_in) :
-    match     = xsrst.pattern['line'].search(data_in)
-    offset_in = 0
-    line_out  = 1
-    data_out  = ''
-    line_pair = list()
-    while match :
-        start      = offset_in + match.start()
-        end        = offset_in + match.end()
-        before     = data_in[offset_in : start]
-        line_xsrst = match.group(1)
-        line_out  += before.count('\n')
-        #
-        line_pair.append( ( line_out, int(line_xsrst) ) )
-        data_out += before
-        #
-        offset_in   = end
-        match       = xsrst.pattern['line'].search(data_in[end :])
-    data_out += data_in[offset_in :]
-    return data_out, line_pair
-# ---------------------------------------------------------------------------
 def init_spell_checker(spell_list) :
     #
     # default spell_checker
@@ -1949,7 +1928,7 @@ def compute_output(
     #
     # The last step in converting xsrst commands is removing line numbers
     # (done last so mapping from output to input line number is correct)
-    rst_output, line_pair = remove_line_numbers(pattern, rst_output)
+    rst_output, line_pair = xsrst.remove_line_numbers(pattern, rst_output)
     # -----------------------------------------------------------------------
     if not previous_empty :
         rst_output += '\n'

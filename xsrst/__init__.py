@@ -11,13 +11,15 @@ import re
 # This dictionary is does not change from its inital settings in this file
 pattern = dict()
 #
-# find corresponding line number in the input file
+# line
+# These line numbers are added to the input by add_line_number
 pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 #
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
 from .check_section_name     import check_section_name
 from .newline_indices        import newline_indices
+from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents

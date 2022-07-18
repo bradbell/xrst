@@ -14,7 +14,7 @@ def newline_indices(data) :
     pattern_newline  = re.compile( r'\n')
     newline_itr      = pattern_newline.finditer(data)
     newline_list     = list()
-    for itr in newline_itr :
-        next_index = itr.start()
+    for m_obj in newline_itr :
+        next_index = m_obj.start()
         newline_list.append( next_index )
     return newline_list

@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
-#          Copyright (C) 2020-21 Bradley M. Bell (bradbell@seanet.com)
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
@@ -20,10 +20,11 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$1" != 'html' ] && [ "$1" != 'pdf' ]
 then
-    echo 'usage: bin/run_sphinx (html|pdf)'
+    echo 'usage: bin/run_sphinx.sh (html|pdf) [line_increment]'
     exit 1
 fi
 target="$1"
+line_increment="$2"
 # -----------------------------------------------------------------------------
 # preamble
 preamble='sphinx/preamble.rst'
@@ -38,7 +39,8 @@ then
 fi
 # -----------------------------------------------------------------------------
 # xsrst
-echo_eval bin/xsrst.py $target doc.xsrst sphinx spelling keyword
+echo_eval bin/xsrst.py \
+    $target doc.xsrst sphinx spelling keyword $line_increment
 # -----------------------------------------------------------------------------
 # html
 # -----------------------------------------------------------------------------
