@@ -6,14 +6,24 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 import re
-#
+# ----------------------------------------------------------------------------
 # pattern
 # This dictionary is does not change from its inital settings in this file
 pattern = dict()
 #
-# line
+# pattern['line']
 # These line numbers are added to the input by add_line_number
-pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
+pattern['line'] = re.compile( r'\{xsrst_line ([0-9]+)@' )
+#
+# pattern['begin']
+# pattern['end']
+# These patterns assume that remove_comment_ch has preprocessed the input
+pattern['begin'] = re.compile(
+    r'(^|\n)[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
+)
+pattern['end'] = re.compile( r'\n[ \t]*\{xsrst_end\s+([^}]*)\}' )
+# ----------------------------------------------------------------------------
+# functions
 #
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers

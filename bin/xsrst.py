@@ -798,35 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def pattern_begin_end(file_data, file_in) :
-    #
-    # match_comment_ch
-    match_comment_ch   = None
-    #
-    # pattern_begin
-    ch = match_comment_ch
-    if ch :
-        pattern_begin = re.compile(
-        r'(^|\n)[' + ch +
-            r']?[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
-        )
-    else :
-        pattern_begin = re.compile(
-            r'(^|\n)[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
-        )
-    #
-    # pattern_end
-    if ch :
-        pattern_end = re.compile(
-            r'\n[' + ch + r']?[ \t]*\{xsrst_end\s+([^}]*)\}'
-        )
-    else :
-        pattern_end = re.compile(
-            r'\n[ \t]*\{xsrst_end\s+([^}]*)\}'
-        )
-    return pattern_begin, pattern_end, match_comment_ch
-
-# ----------------------------------------------------------------------------
 # find all the section names and corresponding data in the specified file
 # The returned data does not include the begin and end section commands
 def file2file_info(
@@ -845,16 +816,6 @@ def file2file_info(
     # initialize return value
     file_info = list()
     #
-    pattern_begin_command, pattern_end_command, match_comment_ch = \
-        pattern_begin_end(file_data, file_in)
-    #
-    if match_comment_ch :
-        comment_ch       = match_comment_ch.group(1)
-        comment_ch_index = match_comment_ch.end()
-    else :
-        comment_ch       = None
-        comment_ch_index = 0
-    #
     # index to start search for next pattern in file_data
     file_index  = 0
     #
@@ -862,7 +823,7 @@ def file2file_info(
         #
         # match_xsrst_begin
         data_rest   = file_data[file_index : ]
-        match_xsrst_begin = pattern_begin_command.search(data_rest)
+        match_xsrst_begin = xsrst.pattern['begin'].search(data_rest)
         #
         if match_xsrst_begin == None :
             if file_index == 0 :
@@ -882,16 +843,6 @@ def file2file_info(
                 m_obj=match_xsrst_begin,
                 data=data_rest
             )
-            #
-            begin_index = file_index + match_xsrst_begin.start()
-            if begin_index < comment_ch_index :
-                msg = 'A begin command comes before the comment_ch command'
-                xsrst.system_exit(msg,
-                    fname=file_in,
-                    sname=section_name,
-                    m_obj=match_xsrst_begin,
-                    data=data_rest,
-                )
             #
             # check if section appears multiple times
             for info in file_info :
@@ -928,7 +879,7 @@ def file2file_info(
             #
             # match_xsrst_end
             data_rest = file_data[file_index : ]
-            match_xsrst_end = pattern_end_command.search(data_rest)
+            match_xsrst_end = xsrst.pattern['end'].search(data_rest)
             #
             if match_xsrst_end == None :
                 msg  = 'can not find followig at start of a line:\n'
@@ -948,12 +899,6 @@ def file2file_info(
             section_start = file_index
             section_end   = file_index + match_xsrst_end.start() + 1
             section_data  = file_data[ section_start : section_end ]
-            #
-            # remove comments at start of lines
-            if comment_ch :
-                assert len(comment_ch) == 1
-                pattern = re.compile( r'\n[' + comment_ch + r'] ?' )
-                section_data = pattern.sub(r'\n', section_data)
             #
             # file_info
             file_info.append( {
@@ -1108,10 +1053,7 @@ def child_commands(
         file_index  = 0
         file_data   = xsrst.remove_comment_ch(file_data, child_file)
         #
-        pattern_begin, pattern_end, comment_ch = \
-            pattern_begin_end(file_data, child_file)
-        #
-        match  = pattern_begin.search(file_data)
+        match  = xsrst.pattern['begin'].search(file_data)
         offset = 0
         if match is None :
             msg  = 'The file ' + child_file + '\n'
@@ -1133,7 +1075,7 @@ def child_commands(
                 list_children.append( child_name )
             #
             offset  = offset + match.end()
-            match   = pattern_begin.search(file_data[offset :])
+            match   = xsrst.pattern['begin'].search(file_data[offset :])
         #
         section_list += list_children
     #
