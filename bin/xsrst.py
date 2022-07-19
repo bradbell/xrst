@@ -798,17 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def file2list(file_name) :
-    file_ptr  = open(file_name, 'r')
-    result    = list()
-    for line in file_ptr :
-        if not line.startswith('#') :
-            line = line.strip(' \t\n')
-            if not line == '' :
-                result.append(line)
-    file_ptr.close()
-    return result
-# ----------------------------------------------------------------------------
 def pattern_begin_end(file_data, file_in) :
     #
     # comment_ch
@@ -1854,12 +1843,12 @@ def main() :
     os.mkdir(tmp_dir)
     #
     # spell_checker
-    spell_list           = file2list(spell_path)
+    spell_list           = xsrst.file2_list_str(spell_path)
     spell_checker        = xsrst.create_spell_checker(spell_list)
     #
     # index_list
     index_list = list()
-    for regexp in file2list(keyword_path) :
+    for regexp in xsrst.file2_list_str(keyword_path) :
         index_list.append( re.compile( regexp ) )
     # -----------------------------------------------------------------------
     # pattern

@@ -19,6 +19,7 @@ pattern['line'] = re.compile(r'\{xsrst_line ([0-9]+)@')
 from .add_line_numbers       import add_line_numbers
 from .check_section_name     import check_section_name
 from .create_spell_checker   import create_spell_checker
+from .file2_list_str         import file2_list_str
 from .newline_indices        import newline_indices
 from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
