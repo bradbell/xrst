@@ -45,4 +45,4 @@ def system_exit(msg, fname=None, sname=None, m_obj=None, data=None, line=None) :
         extra += 'line = ' + str(line)
     if extra != '' :
         msg += '\n' + extra
-    sys.exit('\n' + msg)
+    sys.exit('\nxsrst: ' + msg)

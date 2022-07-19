@@ -21,6 +21,7 @@ from .check_section_name     import check_section_name
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
 from .newline_indices        import newline_indices
+from .remove_comment_ch      import remove_comment_ch
 from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
 from .start_stop_file        import start_stop_file

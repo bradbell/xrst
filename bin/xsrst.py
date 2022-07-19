@@ -800,27 +800,11 @@ import xsrst
 # ---------------------------------------------------------------------------
 def pattern_begin_end(file_data, file_in) :
     #
-    # comment_ch
-    pattern_comment_ch = re.compile(r'{xsrst_comment_ch\s+([^}])\s*\}')
-    match_comment_ch   = pattern_comment_ch.search(file_data)
-    if not match_comment_ch :
-        comment_ch = None
-    else :
-        comment_ch = match_comment_ch.group(1)
-        data_rest  = file_data[ match_comment_ch.end() : ]
-        match      = pattern_comment_ch.search(data_rest)
-        if match :
-            msg = 'There are multiple command_ch commands in this file'
-            # This error is detected during a child command and file_data
-            # does not have line numbers in it
-            xsrst.system_exit(msg, fname=file_in)
-        if comment_ch == ']' :
-            msg  = 'Cannot use "]" as the speical comment charater\n'
-            msg += 'in a comment_ch command.'
-            xsrst.system_exit(msg, fname=file_in)
+    # match_comment_ch
+    match_comment_ch   = None
     #
     # pattern_begin
-    ch = comment_ch
+    ch = match_comment_ch
     if ch :
         pattern_begin = re.compile(
         r'(^|\n)[' + ch +
@@ -856,6 +840,7 @@ def file2file_info(
     file_ptr.close()
     #
     file_data = xsrst.add_line_numbers(file_data)
+    file_data = xsrst.remove_comment_ch(file_data, file_in)
     #
     # initialize return value
     file_info = list()
@@ -1121,6 +1106,7 @@ def child_commands(
         file_data   = file_ptr.read()
         file_ptr.close()
         file_index  = 0
+        file_data   = xsrst.remove_comment_ch(file_data, child_file)
         #
         pattern_begin, pattern_end, comment_ch = \
             pattern_begin_end(file_data, child_file)

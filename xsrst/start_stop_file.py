@@ -67,7 +67,7 @@ def start_stop_file(
         exclude_line = (0, 0)
     #
     # msg
-    msg  = f'in xsrst_file command:'
+    msg  = f'in file command:'
     #
     if start_text == '' :
         msg += ' start is empty'
@@ -109,7 +109,7 @@ def start_stop_file(
         msg += f'\nfile  =  {file_search}'
         msg += f'\nfound {count} matches expected 1'
         if file_cmd == file_search :
-            msg += ' not counting the xsrst_file command'
+            msg += ' not counting the file command'
         xsrst.system_exit(msg,
             fname = file_cmd, sname = section_name, line = cmd_line[0]
         )
@@ -128,7 +128,7 @@ def start_stop_file(
         msg += f'\nfile =  {file_search}'
         msg += f'\nfound {count} matches expected 1'
         if file_cmd == file_search :
-            msg += ' not counting the xsrst_file command'
+            msg += ' not counting the file command'
         xsrst.system_exit(msg,
             fname = file_cmd, sname = section_name, line = cmd_line[0]
         )
