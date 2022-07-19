@@ -798,21 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def find_text_line(data, text, exclude=None) :
-    assert len(text) > 0
-    result = list()
-    #
-    if exclude == None :
-        exclude = (0, 0)
-    #
-    index = data.find(text)
-    while 0 <= index :
-        line_number = data[: index].count('\n') + 1
-        if line_number < exclude[0] or exclude[1] < line_number :
-            result.append( line_number )
-        index = data.find(text, index + len(text))
-    return result
-# ---------------------------------------------------------------------------
 def file2list(file_name) :
     file_ptr  = open(file_name, 'r')
     result    = list()
@@ -1376,97 +1361,41 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
         while match_file != None :
             #
             # exclude
-            cmd_start = int( match_file.group(1) )
+            cmd_line_0 = int( match_file.group(1) )
             if key == 'file_2' :
-                cmd_end = int( match_file.group(6) )
+                cmd_line_1 = int( match_file.group(6) )
             else :
-                cmd_end = int( match_file.group(8) )
-            exclude = (cmd_start, cmd_end)
+                cmd_line_1 = int( match_file.group(8) )
+            cmd_line = (cmd_line_0, cmd_line_1)
             #
-            # start, start_line
-            start      = match_file.group(2).strip()
-            start_line = int( match_file.group(3) )
-            if start == '' :
-                msg = 'xsrst_file command: start text is empty'
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=start_line
-                )
+            # start_text
+            start_text = match_file.group(2).strip()
             #
-            # stop, stop_line
-            stop      = match_file.group(4) .strip()
-            stop_line = int( match_file.group(5) )
-            if stop == '' :
-                msg = 'xsrst_file command: stop text is empty'
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=stop_line
-                )
+            # stop_text
+            stop_text = match_file.group(4) .strip()
             #
-            # file_name, same_file
+            # file_search
             if key == 'file_2' :
-                file_name = file_in
-                same_file = True
+                file_search = file_in
             else :
-                file_name  = match_file.group(6).strip()
-                same_file  = os.path.samefile(file_name, file_in)
+                file_search = match_file.group(6).strip()
+                same_file   = os.path.samefile(file_search, file_in)
+                if same_file :
+                    file_search = file_in
             #
-            # data
-            file_ptr  = open(file_name, 'r')
-            data      = file_ptr.read()
-            file_ptr.close()
+            # start_line, stop_line
+            start_line, stop_line = xsrst.start_stop_file(
+                section_name = section_name,
+                file_cmd     = file_in,
+                file_search  = file_search,
+                cmd_line     = cmd_line,
+                start_text   = start_text,
+                stop_text    = stop_text
+            )
             #
-            # start_list
-            if same_file :
-                start_list = find_text_line(data ,start, exclude)
-            else :
-                start_list = find_text_line(data ,start)
-            if len(start_list) == 0 :
-                msg  = 'xsrst_file command: can not find'
-                msg += '\nstart = "' + start + '"'
-                msg += ' in file '+ file_name
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=start_line
-                )
-            if 1 < len(start_list) :
-                msg  = 'xsrst_file command: found more than one'
-                msg += '\nstart = "' + start + '"'
-                msg += ' in file '+ file_name
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=start_line
-                )
-            #
-            # stop_list
-            if same_file :
-                stop_list = find_text_line(data, stop, exclude)
-            else :
-                stop_list = find_text_line(data, stop)
-            if len(stop_list) == 0 :
-                msg  = 'xsrst_file command: can not find'
-                msg += '\nstop = "' + stop + '"'
-                msg += ' in file '+ file_name
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=stop_line
-                )
-            if 1 < len(stop_list) :
-                msg  = 'xsrst_file command: found more than one'
-                msg += '\nstop = "' + stop + '"'
-                msg += ' in file '+ file_name
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=stop_line
-                )
-            #
-            if stop_list[0] <= start_list[0] :
-                msg  = 'xsrst_file command: stop does not come after start'
-                msg += ' in file '+ file_name
-                msg += '\nstart = "' + start + '"'
-                msg += '\nstop = "' + stop + '"'
-                xsrst.system_exit(msg,
-                    fname=file_in, sname=section_name, line=stop_line
-                )
-            #
-            # locations in file_name
-            start_line  = start_list[0] + 1
-            stop_line   = stop_list[0] - 1
-            #
+            # locations in file_search
+            start_line  = start_line + 1
+            stop_line   = stop_line  - 1
             #
             # beginning of lines with command in it
             begin_line = match_file.start() + file_offset;
@@ -1475,7 +1404,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
             end_line = match_file.end() + file_offset;
             #
             # converted version of the command
-            cmd  = f'xsrst__file {file_name} {start_line} {stop_line} '
+            cmd  = f'xsrst__file {file_search} {start_line} {stop_line} '
             cmd  = '\n{' + cmd  + '}\n'
             #
             data_left  = section_data[: begin_line]
