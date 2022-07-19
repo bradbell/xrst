@@ -17,7 +17,7 @@
 # A section name cannot begin with xsrst_. If seciton_name does not follow the
 # rules in the previous sentence, a message is printed and the program exits.
 #
-# fname:
+# file_name:
 # is the name of the original input file that data appears in.
 #
 # m_obj:
@@ -28,9 +28,14 @@
 #
 import re
 import xsrst
-def check_section_name(section_name, fname, m_obj, data) :
-    m = re.search('[a-z0-9_]+', section_name)
-    if m.group(0) != section_name :
+def check_section_name(section_name, file_name, m_obj, data) :
+    assert type(section_name) == str
+    assert type(file_name) == str
+    assert m_obj
+    assert type(data) == str
+    #
+    m_obj = re.search('[a-z0-9_]+', section_name)
+    if m_obj.group(0) != section_name :
         msg  = 'section_name after xsrst_begin must be non-empty'
         msg += '\nand only contain following characters: a-z, 0-9, _'
         xsrst.system_exit(msg,

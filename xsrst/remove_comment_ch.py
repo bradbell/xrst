@@ -8,9 +8,8 @@
 # Removes the beginning of line comment character from file data.
 #
 # Comment Character:
-# The comment character is specified by {xsrst_comment_ch ch} at the
-# beginning of a line where ch is a single character after leading and trailing
-# white space is removed.
+# The comment character is specified by {xsrst_comment_ch ch} where ch
+# is a single character after leading and trailing white space is removed.
 #
 # data_in:
 # is the original data in this file as one disk. Line numbers may, or may not
@@ -27,6 +26,8 @@
 import re
 import xsrst
 def remove_comment_ch(data_in, file_name) :
+    assert type(data_in) == str
+    assert type(file_name) == str
     #
     # m_obj
     pattern = re.compile(r'{xsrst_comment_ch\s+([^}])\s*\}')

@@ -798,119 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-# find all the section names and corresponding data in the specified file
-# The returned data does not include the begin and end section commands
-def file2file_info(
-        section_info,
-        file_in
-) :
-    #
-    # file_data
-    file_ptr   = open(file_in, 'r')
-    file_data  = file_ptr.read()
-    file_ptr.close()
-    #
-    file_data = xsrst.add_line_numbers(file_data)
-    file_data = xsrst.remove_comment_ch(file_data, file_in)
-    #
-    # initialize return value
-    file_info = list()
-    #
-    # index to start search for next pattern in file_data
-    file_index  = 0
-    #
-    while file_index < len(file_data) :
-        #
-        # match_xsrst_begin
-        data_rest   = file_data[file_index : ]
-        match_xsrst_begin = xsrst.pattern['begin'].search(data_rest)
-        #
-        if match_xsrst_begin == None :
-            if file_index == 0 :
-                msg  = 'can not find followng at start of a line:\n'
-                msg += '    {xsrst_begin section_name}\n'
-                xsrst.system_exit(msg, fname=file_in)
-            file_index = len(file_data)
-        else :
-            # section_name
-            section_name = match_xsrst_begin.group(3)
-            is_parent    = match_xsrst_begin.group(2) == 'begin_parent'
-            #
-            # check_section_name
-            xsrst.check_section_name(
-                section_name,
-                fname=file_in,
-                m_obj=match_xsrst_begin,
-                data=data_rest
-            )
-            #
-            # check if section appears multiple times
-            for info in file_info :
-                if section_name == info['section_name'] :
-                    msg  = 'xsrst_begin: section appears multiple times'
-                    xsrst.system_exit(msg,
-                        fname=file_in,
-                        sname=section_name,
-                        m_obj=match_xsrst_begin,
-                        data=data_rest
-                    )
-            for info in section_info :
-                if section_name == info['section_name'] :
-                    msg  = 'xsrst_begin ' + section_name
-                    msg += ' appears twice\n'
-                    msg += 'Once  in file ' + file_in + '\n'
-                    msg += 'Again in file ' + info['file_in'] + '\n'
-                    xsrst.system_exit(msg)
-            #
-            # check if two parent sections in this file
-            if is_parent :
-                if len(file_info) != 0 :
-                    msg  = 'xsrst_begin_parent'
-                    msg += ' is not the first begin command in this file'
-                    xsrst.system_exit(msg,
-                        fname=file_in,
-                        sname=section_name,
-                        m_obj=match_xsrst_begin,
-                        data=data_rest
-                    )
-            #
-            # file_index
-            file_index += match_xsrst_begin.end()
-            #
-            # match_xsrst_end
-            data_rest = file_data[file_index : ]
-            match_xsrst_end = xsrst.pattern['end'].search(data_rest)
-            #
-            if match_xsrst_end == None :
-                msg  = 'can not find followig at start of a line:\n'
-                msg += '    {xsrst_end section_name}'
-                xsrst.system_exit(msg, fname=file_in, sname=section_name)
-            if match_xsrst_end.group(1) != section_name :
-                msg = 'begin and end section names do not match\n'
-                msg += 'begin name = ' + section_name + '\n'
-                msg += 'end name   = ' + match_xsrst_end.group(1)
-                xsrst.system_exit(msg,
-                    fname=file_in,
-                    m_obj=match_xsrst_end,
-                    data=data_rest
-                )
-            #
-            # section_data
-            section_start = file_index
-            section_end   = file_index + match_xsrst_end.start() + 1
-            section_data  = file_data[ section_start : section_end ]
-            #
-            # file_info
-            file_info.append( {
-                'section_name' : section_name,
-                'section_data' : section_data,
-                'is_parent'    : is_parent,
-            } )
-            #
-            # place to start search for next section
-            file_index += match_xsrst_end.end()
-    return file_info
-# ----------------------------------------------------------------------------
 def indent_to_remove(section_data, file_in, section_name) :
     #
     # len_data
@@ -1845,7 +1732,7 @@ def main() :
         assert os.path.isfile(file_in)
         #
         # get xsrst docuemntation in this file
-        this_file_info = file2file_info(
+        this_file_info = xsrst.get_file_info(
             section_info,
             file_in,
         )
@@ -1855,11 +1742,6 @@ def main() :
         for i in range( len(this_file_info) ) :
             if this_file_info[i]['is_parent'] :
                 this_file_parent_section_index = len(section_info) + i
-        if this_file_parent_section_index :
-            if len(this_file_info) < 2 :
-                msg  = 'xsrst_begin_parent appreas in a file '
-                msg += 'that only has one section; i.e., no children.'
-                xsrst.system_exit(msg, fname=file_in, sname=section_name)
         #
         # add this files sections to section_info
         for i_file in range( len(this_file_info) ) :
