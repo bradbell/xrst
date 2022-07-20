@@ -30,5 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|fname *= *|file_name=|
-s|sname *= *|section_name=|
+s|tmp_dir|rst_dir|
