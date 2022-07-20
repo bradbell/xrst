@@ -25,10 +25,13 @@
 #   is an str containing the name of a seciton in this file.
 #
 #   info['section_data']:
-#   is an str containing the data for this seciton. Line numbers have been
-#   added using add_line_numbers. If present in this file, the comment
-#   character and possilbe space after have been removed. The begin and end
-#   commands are not include in this data.
+#   is an str containing the data for this seciton.
+#   1. Line numbers have been added using add_line_numbers.
+#   2. If present in this file, the comment character and possilbe space
+#      after have been removed.
+#   3. The begin and end commands are not include in this data.
+#   4. The suspend / resume comands and data between such pairs
+#      have been removed.
 #
 #   info['is_parent']:
 #   is true (false) if this is (is not) the parent section for the other
@@ -151,6 +154,11 @@ def get_file_info(
             section_start = data_index
             section_end   = data_index + m_obj.start() + 1
             section_data  = file_data[ section_start : section_end ]
+            #
+            # section_data
+            section_data  = xsrst.suspend_command(
+                section_data, file_in, section_name
+            )
             #
             # file_info
             file_info.append( {

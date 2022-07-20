@@ -1730,11 +1730,6 @@ def main() :
                 'file_in'        : file_in,
                 'parent_section' : parent_section
             } )
-            # ----------------------------------------------------------------
-            # process suspend commands
-            section_data = xsrst.suspend_command(
-                section_data, file_in, section_name,
-            )
             # ---------------------------------------------------------------
             # num_remove, indent_ch
             num_remove = indent_to_remove(
