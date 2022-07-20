@@ -32,6 +32,8 @@
 #   3. The begin and end commands are not include in this data.
 #   4. The suspend / resume comands and data between such pairs
 #      have been removed.
+#   5. If there is a common indentation for the entire section,
+#      it is removed.
 #
 #   info['is_parent']:
 #   is true (false) if this is (is not) the parent section for the other
@@ -157,6 +159,9 @@ def get_file_info(
             #
             # section_data
             section_data  = xsrst.suspend_command(
+                section_data, file_in, section_name
+            )
+            section_data = xsrst.remove_indent(
                 section_data, file_in, section_name
             )
             #

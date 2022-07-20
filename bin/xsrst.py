@@ -798,50 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-def indent_to_remove(section_data, file_in, section_name) :
-    #
-    # len_data
-    len_data   = len(section_data)
-    #
-    # newline_list
-    newline_list = xsrst.newline_indices(section_data)
-    #
-    # num_remove
-    num_remove = len(section_data)
-    for newline in newline_list :
-        next_ = newline + 1
-        if next_ < len_data and 0 < num_remove :
-            ch = section_data[next_]
-            while ch in ' \t' and next_ + 1 < len_data :
-                next_ += 1
-                ch     = section_data[next_]
-            if ch not in ' \t\n' :
-                num_remove = min(num_remove, next_ - newline - 1)
-    if num_remove == 0 :
-        return num_remove
-    #
-    # check indent_ch
-    line      = 0
-    indent_ch = section_data[ newline_list[line] + 1 ]
-    while indent_ch == '\n' :
-        line += 1
-        indent_ch = section_data[ newline_list[line] + 1 ]
-    #
-    check_ch  = indent_ch + '\n'
-    for newline in newline_list :
-        next_ = newline + 1
-        end   = min( len_data, next_ + num_remove )
-        while next_ < end :
-            if section_data[next_] not in check_ch :
-                msg  = 'mixing both spaces and tabs for '
-                msg += 'white space that indents this section.'
-                xsrst.system_exit(
-                    msg, file_name=file_in, section_name=section_name
-                )
-            next_ += 1
-    #
-    return num_remove
-# -----------------------------------------------------------------------------
 # process child commands
 def child_commands(
     pattern,
@@ -1188,7 +1144,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
 # -----------------------------------------------------------------------------
 # add labels and indices for headings
 def process_headings(
-        pattern, section_data, num_remove, file_in, section_name, index_list
+        pattern, section_data, file_in, section_name, index_list
 ) :
     punctuation      = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
     assert len(punctuation) == 34 - 2 # two escape sequences
@@ -1202,7 +1158,7 @@ def process_headings(
     while 0 <= next_newline :
         next_line = section_data[next_start : next_newline]
         next_line = xsrst.pattern['line'].sub('', next_line)
-        next_line = next_line[num_remove :].rstrip(' \t')
+        next_line = next_line.rstrip(' \t')
         next_len  = len(next_line)
         if next_len == 0 :
             candidate_start = next_start
@@ -1347,7 +1303,6 @@ def process_headings(
 # after all the sections have been output and replaced during the
 # table_of_contents computation.
 def compute_output(
-    num_remove,
     pattern,
     sphinx_dir,
     file_in,
@@ -1482,13 +1437,11 @@ def compute_output(
         else :
             match = xsrst.pattern['line'].search(line)
             if match :
-                empty_line = match.start() <= num_remove
+                empty_line = match.start() == 0
             else :
-                empty_line = len(line) <= num_remove
+                empty_line = True
             if empty_line :
                     line = '\n'
-            else :
-                    line = line[num_remove :]
             if inside_code :
                 line = 4 * ' ' + line
             #
@@ -1730,13 +1683,6 @@ def main() :
                 'file_in'        : file_in,
                 'parent_section' : parent_section
             } )
-            # ---------------------------------------------------------------
-            # num_remove, indent_ch
-            num_remove = indent_to_remove(
-                section_data,
-                file_in,
-                section_name
-            )
             # ----------------------------------------------------------------
             # process spell commands
             # do after suspend and before other commands to help ignore
@@ -1785,7 +1731,6 @@ def main() :
             process_headings(
                 pattern,
                 section_data,
-                num_remove,
                 file_in,
                 section_name,
                 index_list,
@@ -1803,7 +1748,6 @@ def main() :
             list_children = list_children + child_section
             # ---------------------------------------------------------------
             rst_output = compute_output(
-                num_remove,
                 pattern,
                 sphinx_dir,
                 file_in,

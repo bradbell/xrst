@@ -33,6 +33,7 @@ from .file2_list_str         import file2_list_str
 from .get_file_info          import get_file_info
 from .newline_indices        import newline_indices
 from .remove_comment_ch      import remove_comment_ch
+from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
 from .start_stop_file        import start_stop_file
