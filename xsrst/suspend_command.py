@@ -21,6 +21,7 @@
 # and including each suspend / resume pair has been removed.
 #
 import re
+import xsrst
 def suspend_command(data_in, file_name, section_name) :
     #
     # data_out
