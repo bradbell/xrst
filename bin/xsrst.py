@@ -934,7 +934,7 @@ def spell_command(
     # command with section names and headings as arguments
     section_tmp = pattern['ref_1'].sub('', section_tmp)
     section_tmp = pattern['ref_2'].sub(r'\1', section_tmp)
-    section_tmp = pattern['code'].sub('', section_tmp)
+    section_tmp = xsrst.pattern['code'].sub('', section_tmp)
     #
     # commands with external urls as arguments
     section_tmp = pattern['url_1'].sub('', section_tmp)
@@ -1011,70 +1011,6 @@ def spell_command(
             msg += '" not needed'
             print(msg)
     #
-    return section_data
-# -----------------------------------------------------------------------------
-# remove characters on same line as {xsrst_code}
-def isolate_code_command(pattern, section_data, file_in, section_name) :
-    section_index    = 0
-    data_right       = section_data
-    match_begin_code = pattern['code'].search(section_data)
-    while match_begin_code != None :
-        language       = match_begin_code.group(1).strip()
-        if language == '' :
-            msg = 'missing language in first command of a code block pair'
-            xsrst.system_exit(msg,
-                file_name=file_in,
-                section_name=section_name,
-                m_obj=match_begin_code,
-                data=data_right
-            )
-        for ch in language :
-            if ch < 'a' or 'z' < ch :
-                msg = 'code block language character not in a-z.'
-                xsrst.system_exit(msg,
-                    file_name=file_in,
-                    section_name=section_name,
-                    m_obj=match_begin_code,
-                    data=data_right
-                )
-        begin_start    = match_begin_code.start() + section_index
-        begin_end      = match_begin_code.end()   + section_index
-        section_rest   = section_data[ begin_end : ]
-        match_end_code = pattern['code'].search( section_rest )
-        if match_end_code == None :
-            msg = 'xsrst_code start does not have a corresponding stop'
-            xsrst.system_exit(msg,
-                file_name=file_in,
-                section_name=section_name,
-                m_obj=match_begin_code,
-                data=data_right
-            )
-        if match_end_code.group(1).strip() != '' :
-            msg ='xsrst_code stop command has language argument'
-            xsrst.system_exit(msg,
-                file_name=file_in,
-                section_name=section_name,
-                m_obj=match_end_code,
-                data=section_rest
-            )
-        # pygments does not recognize hpp ?
-        if language == 'hpp' :
-            language = 'cpp'
-        #
-        end_start = match_end_code.start() + begin_end
-        end_end   = match_end_code.end()   + begin_end
-        #
-        code_section = section_data[ begin_end : end_start + 1]
-        #
-        data_left   = section_data[: begin_start + 1 ]
-        data_left  += '{xsrst_code ' + language + '}'
-        data_left  += code_section
-        data_left  += '{xsrst_code}'
-        data_right  = section_data[ end_end : ]
-        #
-        section_data  = data_left + data_right
-        section_index = len(data_left)
-        match_begin_code  = pattern['code'].search(data_right)
     return section_data
 # -----------------------------------------------------------------------------
 # convert file command start and stop from patterns to line numbers
@@ -1379,8 +1315,8 @@ def compute_output(
             # code command
             inside_code = not inside_code
             if inside_code :
-                assert line[-2:] == '}\n'
-                language = line[ len('{xsrst_code') : -2 ].strip()
+                m_obj = xsrst.pattern['code'].search( '\n' + line)
+                language = m_obj.group(2).strip()
                 line     = '.. code-block:: ' + language + '\n\n'
                 if not previous_empty :
                     line = '\n' + line
@@ -1608,9 +1544,6 @@ def main() :
     # regular expressions corresponding to xsrst commands
     pattern['suspend'] = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
     pattern['resume']  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
-    pattern['code']    = re.compile(
-        r'\n[^\n`]*\{xsrst_code([^}]*)\}[^\n`]*'
-    )
     pattern['spell']   = re.compile(
         r'\n[ \t]*\{xsrst_spell([^}]*)\}'
     )
@@ -1711,8 +1644,7 @@ def main() :
                 } )
             # ----------------------------------------------------------------
             # remove characters on same line as {xsrst_code}
-            section_data = isolate_code_command(
-                pattern,
+            section_data = xsrst.isolate_code_command(
                 section_data,
                 file_in,
                 section_name,

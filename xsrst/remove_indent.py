@@ -23,6 +23,9 @@
 import re
 import xsrst
 def remove_indent(data_in, file_name, section_name) :
+    assert type(data_in) == str
+    assert type(file_name) == str
+    assert type(section_name) == str
     #
     # len_data
     len_data   = len(data_in)

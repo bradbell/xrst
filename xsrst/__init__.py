@@ -13,15 +13,35 @@ pattern = dict()
 #
 # pattern['line']
 # These line numbers are added to the input by add_line_number
+# match.group(0) is the entire line command.
+# match.group(1) is the line_number.
 pattern['line'] = re.compile( r'\{xsrst_line ([0-9]+)@' )
 #
 # pattern['begin']
-# pattern['end']
-# These patterns assume that remove_comment_ch has preprocessed the input
+# This pattern assume that remove_comment_ch has preprocessed the input
+# match.group(0) is preceeding newline and white space plus the command.
+# match.group(2) is begin or begin_parent
+# match.group(3) is the section name.
 pattern['begin'] = re.compile(
     r'(^|\n)[ \t]*\{xsrst_(begin|begin_parent)\s+([^}]*)\}'
 )
+# pattern['end']
+# This pattern assume that remove_comment_ch has preprocessed the input
+# match.group(0) is preceeding newline and white space plus the command.
+# match.group(1) is the section name.
 pattern['end'] = re.compile( r'\n[ \t]*\{xsrst_end\s+([^}]*)\}' )
+#
+# pattern['code']
+# Pattern for entire line containing a code command.
+# match.group(0) is the entire line for the command (whith newline at front).
+# match.group(1) is the characters before the language argument including
+#                white space
+# match.group(2) is the language argument which is emtpy (just white space)
+#                for the second code command in each pair.
+# match.group(3) is the line number for this line; see pattern['line'] above.
+pattern['code'] = re.compile(
+    r'(\n[^\n`]*\{xsrst_code *)([^}]*)\}[^\n`]*(\{xsrst_line [0-9]+@)'
+)
 # ----------------------------------------------------------------------------
 # functions
 #
@@ -31,6 +51,7 @@ from .check_section_name     import check_section_name
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
 from .get_file_info          import get_file_info
+from .isolate_code_command   import isolate_code_command
 from .newline_indices        import newline_indices
 from .remove_comment_ch      import remove_comment_ch
 from .remove_indent          import remove_indent
