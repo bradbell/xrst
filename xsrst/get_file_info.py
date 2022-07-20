@@ -71,7 +71,7 @@ def get_file_info(
             if data_index == 0 :
                 msg  = 'can not find followng at start of a line:\n'
                 msg += '    {xsrst_begin section_name}\n'
-                xsrst.system_exit(msg, fname=file_in)
+                xsrst.system_exit(msg, file_name=file_in)
             #
             # data_index
             # set so that the section loop for this file terminates
@@ -94,8 +94,8 @@ def get_file_info(
                 if section_name == info['section_name'] :
                     msg  = 'xsrst_begin: section appears multiple times'
                     xsrst.system_exit(msg,
-                        fname=file_in,
-                        sname=section_name,
+                        file_name=file_in,
+                        section_name=section_name,
                         m_obj=m_obj,
                         data=data_rest
                     )
@@ -115,8 +115,8 @@ def get_file_info(
                     msg  = 'xsrst_begin_parent'
                     msg += ' is not the first begin command in this file'
                     xsrst.system_exit(msg,
-                        fname=file_in,
-                        sname=section_name,
+                        file_name=file_in,
+                        section_name=section_name,
                         m_obj=m_obj,
                         data=data_rest
                     )
@@ -134,13 +134,15 @@ def get_file_info(
             if m_obj == None :
                 msg  = 'Expected the followig text at start of a line:\n'
                 msg += '    {xsrst_end section_name}'
-                xsrst.system_exit(msg, fname=file_in, sname=section_name)
+                xsrst.system_exit(
+                    msg, file_name=file_in, section_name=section_name
+                )
             if m_obj.group(1) != section_name :
                 msg = 'begin and end section names do not match\n'
                 msg += 'begin name = ' + section_name + '\n'
                 msg += 'end name   = ' + m_obj.group(1)
                 xsrst.system_exit(msg,
-                    fname=file_in,
+                    file_name=file_in,
                     m_obj=m_obj,
                     data=data_rest
                 )
@@ -163,6 +165,8 @@ def get_file_info(
     if parent_section_name != None and len(file_info) < 2 :
         msg  = 'begin_parent command appreas in a file '
         msg += 'that only has one section; i.e., no children.'
-        xsrst.system_exit(msg, fname=file_in, sname=parent_section_name)
+        xsrst.system_exit(
+            msg, file_name=file_in, section_name=parent_section_name
+        )
 
     return file_info

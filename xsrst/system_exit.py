@@ -7,33 +7,35 @@
 # ----------------------------------------------------------------------------
 # Add file name, section name, and line number to a message in a system exit
 #
-# msg:    error message
-# fname:  original input file that that data appeared in.
-# sname:  section name
-# m_obj:  match object inticating where in data the error is detected
-# data:   is the input data that was matched when m_obj is not None
-# line:   is the error line number when m_obj is None
+# msg:           error message
+# file_name:     original input file that that data appeared in.
+# section_name:  section name
+# m_obj:         match object inticating where in data the error is detected
+# data:          is the input data that was matched when m_obj is not None
+# line:          is the error line number when m_obj is None
 #
 import sys
 import xsrst
-def system_exit(msg, fname=None, sname=None, m_obj=None, data=None, line=None) :
+def system_exit(
+    msg, file_name=None, section_name=None, m_obj=None, data=None, line=None
+) :
     assert type(msg)   == str
-    assert type(fname) == str or fname == None
-    assert type(sname) == str or sname == None
+    assert type(file_name) == str or file_name== None
+    assert type(section_name) == str or section_name== None
     assert type(line)  in [ int, str ] or line == None
-
+    #
     if m_obj :
         assert type(data) == str
     #
     extra = ''
-    if sname :
-        extra += 'section = ' + sname
-    if fname :
+    if section_name :
+        extra += 'section = ' + section_name
+    if file_name :
         if extra != '' :
             extra += ', '
-        extra += 'file = ' + fname
+        extra += 'file = ' + file_name
     if m_obj :
-        assert fname != None
+        assert file_name != None
         assert data != None
         assert line == None
         match_line  = xsrst.pattern['line'].search( data[m_obj.start() :] )

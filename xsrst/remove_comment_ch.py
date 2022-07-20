@@ -43,7 +43,7 @@ def remove_comment_ch(data_in, file_name) :
         if comment_ch == ']' :
             line = data_in[: m_obj.start() ].count('\n') + 1
             msg  = 'Cannot use "]" as charaxter in comment_ch command\n'
-            xsrst.system_exit(msg, fname=file_name, line=line)
+            xsrst.system_exit(msg, file_name=file_name, line=line)
         #
         # m_obj
         data_rest  = data_in[ m_obj.end() : ]
@@ -51,7 +51,7 @@ def remove_comment_ch(data_in, file_name) :
         if m_rest :
             line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
             msg = 'There are multiple comment_ch commands in this file'
-            xsrst.system_exit(msg, fname=file_name, line=line)
+            xsrst.system_exit(msg, file_name=file_name, line=line)
         #
         # data_out
         pattern  = re.compile( r'\n[' + comment_ch + r'] ?' )

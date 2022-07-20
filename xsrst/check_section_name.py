@@ -36,15 +36,16 @@ def check_section_name(section_name, file_name, m_obj, data) :
     #
     m_obj = re.search('[a-z0-9_]+', section_name)
     if m_obj.group(0) != section_name :
-        msg  = 'section_name after xsrst_begin must be non-empty'
-        msg += '\nand only contain following characters: a-z, 0-9, _'
+        msg  = f'in begin comamnd section_name = "{section_name}"'
+        msg += '\nIt must be non-empty and only contain the following'
+        msg += 'characters: a-z, 0-9, _'
         xsrst.system_exit(msg,
-            fname=fname, m_obj=m_obj, data=data
+            file_name=file_name, m_obj=m_obj, data=data
         )
     if section_name.startswith('xsrst_') :
         # section name xsrst_py is used to document this program
         if section_name != 'xsrst_py' :
             msg = 'section_name cannot start with xsrst_'
             xsrst.system_exit(msg,
-                fname=fname, m_obj=m_obj, data=data
+                file_name=file_name, m_obj=m_obj, data=data
             )

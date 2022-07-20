@@ -72,22 +72,22 @@ def start_stop_file(
     if start_text == '' :
         msg += ' start is empty'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     if stop_text == '' :
         msg += ' stop is empty'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     if 0 <= start_text.find('\n') :
         msg += ' a newline appears in start'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     if 0 <= stop_text.find('\n') :
         msg += ' a newline appears in stop'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     #
     # data
@@ -111,7 +111,7 @@ def start_stop_file(
         if file_cmd == file_search :
             msg += ' not counting the file command'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     #
     # stop_line
@@ -130,7 +130,7 @@ def start_stop_file(
         if file_cmd == file_search :
             msg += ' not counting the file command'
         xsrst.system_exit(msg,
-            fname = file_cmd, sname = section_name, line = cmd_line[0]
+            file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
     #
     return start_line, stop_line

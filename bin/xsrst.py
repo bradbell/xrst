@@ -835,7 +835,9 @@ def indent_to_remove(section_data, file_in, section_name) :
             if section_data[next_] not in check_ch :
                 msg  = 'mixing both spaces and tabs for '
                 msg += 'white space that indents this section.'
-                xsrst.system_exit(msg, fname=file_in, sname=section_name)
+                xsrst.system_exit(
+                    msg, file_name=file_in, section_name=section_name
+                )
             next_ += 1
     #
     return num_remove
@@ -854,8 +856,8 @@ def suspend_command(
             msg  = 'there is a {xsrst_suspend} without a '
             msg += 'corresponding {xsrst_resume}'
             xsrst.system_exit(msg,
-                fname=file_in,
-                sname=section_name,
+                file_name=file_in,
+                section_name=section_name,
                 m_obj=match_suspend,
                 data=section_data
             )
@@ -865,8 +867,8 @@ def suspend_command(
                 msg  = 'there are two {xsrst_suspend} without a '
                 msg += '{xsrst_resume} between them'
                 xsrst.system_exit(msg,
-                    fname=file_in,
-                    sname=section_name,
+                    file_name=file_in,
+                    section_name=section_name,
                     m_obj=match_suspend,
                     data=section_rest
                 )
@@ -895,8 +897,8 @@ def child_commands(
     if match_tmp is not None :
         msg = 'More than one children or child_list command in a section.'
         xsrst.system_exit(msg,
-            fname=file_in,
-            sname=section_name,
+            file_name=file_in,
+            section_name=section_name,
             m_obj=match_tmp,
             data=section_data[match.end():]
         )
@@ -929,7 +931,7 @@ def child_commands(
             msg  = 'The file ' + child_file + '\n'
             msg += 'in the ' + command + ' command does not exist'
             xsrst.system_exit(msg,
-                fname=file_in, sname=section_name, line=child_line
+                file_name=file_in, section_name=section_name, line=child_line
             )
         #
         # errors in the begin and end commands will be detected later
@@ -947,7 +949,7 @@ def child_commands(
             msg += 'in the ' + command + ' command does not contain any '
             msg += 'begin commands.\n'
             xsrst.system_exit(msg,
-                fname=file_in, sname=section_name, line=child_line
+                file_name=file_in, section_name=section_name, line=child_line
             )
         #
         list_children     = list()
@@ -980,7 +982,9 @@ def spell_command(
         match_another  = pattern['spell'].search(section_rest)
         if match_another :
             msg  = 'there are two spell xsrst commands'
-            xsrst.system_exit(msg, fname=file_in, sname=section_name)
+            xsrst.system_exit(
+                msg, file_name=file_in, section_name=section_name
+            )
         previous_word = ''
         spell_arg = match_spell.group(1)
         spell_arg = xsrst.pattern['line'].sub('', spell_arg)
@@ -1101,8 +1105,8 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
         if language == '' :
             msg = 'missing language in first command of a code block pair'
             xsrst.system_exit(msg,
-                fname=file_in,
-                sname=section_name,
+                file_name=file_in,
+                section_name=section_name,
                 m_obj=match_begin_code,
                 data=data_right
             )
@@ -1110,8 +1114,8 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
             if ch < 'a' or 'z' < ch :
                 msg = 'code block language character not in a-z.'
                 xsrst.system_exit(msg,
-                    fname=file_in,
-                    sname=section_name,
+                    file_name=file_in,
+                    section_name=section_name,
                     m_obj=match_begin_code,
                     data=data_right
                 )
@@ -1122,16 +1126,16 @@ def isolate_code_command(pattern, section_data, file_in, section_name) :
         if match_end_code == None :
             msg = 'xsrst_code start does not have a corresponding stop'
             xsrst.system_exit(msg,
-                fname=file_in,
-                sname=section_name,
+                file_name=file_in,
+                section_name=section_name,
                 m_obj=match_begin_code,
                 data=data_right
             )
         if match_end_code.group(1).strip() != '' :
             msg ='xsrst_code stop command has language argument'
             xsrst.system_exit(msg,
-                fname=file_in,
-                sname=section_name,
+                file_name=file_in,
+                section_name=section_name,
                 m_obj=match_end_code,
                 data=section_rest
             )
@@ -1287,7 +1291,9 @@ def process_headings(
                     same_level = character == heading_list[0]['character']
                 if same_level :
                     msg = 'There are multiple titles for this section'
-                    xsrst.system_exit(msg, fname=file_in, sname=section_name)
+                    xsrst.system_exit(
+                        msg, file_name=file_in, section_name=section_name
+                    )
                 level = 1
                 while level < len(heading_list) and not same_level :
                     same_level = overline == heading_list[level]['overline']
@@ -1356,7 +1362,7 @@ def process_headings(
     #
     if len(heading_list) == 0 :
         msg = 'There are no headings in this section'
-        xsrst.system_exit(msg, fname=file_in, sname=section_name)
+        xsrst.system_exit(msg, file_name=file_in, section_name=section_name)
     #
     i = 0
     while punctuation[i] in punctuation_used :
@@ -1364,7 +1370,9 @@ def process_headings(
         if i == len(punctuation) :
             msg  = 'more than ' + len(punctuation) - 1
             msg += ' overlined heading levels'
-            xsrst.system_exit(msg, fname = file_in, sname = section_name)
+            xsrst.system_exit(
+                msg, file_name=file_in, section_name=section_name
+            )
     line           = len(section_name) * punctuation[i] + '\n'
     pseudo_heading = line + section_name + '\n' + line + '\n'
     #

@@ -30,5 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|sys_exit(|xsrst.system_exit(|
-/^# add file name/,/^#/d
+s|fname *= *|file_name=|
+s|sname *= *|section_name=|
