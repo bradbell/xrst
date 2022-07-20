@@ -841,44 +841,6 @@ def indent_to_remove(section_data, file_in, section_name) :
             next_ += 1
     #
     return num_remove
-# ----------------------------------------------------------------------------
-# process xsrst_suspend commands
-def suspend_command(
-    pattern, section_data, file_in, section_name
-) :
-    match_suspend = pattern['suspend'].search(section_data)
-    while match_suspend != None :
-        suspend_start = match_suspend.start()
-        suspend_end   = match_suspend.end()
-        section_rest  = section_data[ suspend_end : ]
-        match_resume  = pattern['resume'].search(section_rest)
-        if match_resume == None :
-            msg  = 'there is a {xsrst_suspend} without a '
-            msg += 'corresponding {xsrst_resume}'
-            xsrst.system_exit(msg,
-                file_name=file_in,
-                section_name=section_name,
-                m_obj=match_suspend,
-                data=section_data
-            )
-        match_suspend = pattern['suspend'].search(section_rest)
-        if match_suspend != None :
-            if match_suspend.start() < match_resume.start() :
-                msg  = 'there are two {xsrst_suspend} without a '
-                msg += '{xsrst_resume} between them'
-                xsrst.system_exit(msg,
-                    file_name=file_in,
-                    section_name=section_name,
-                    m_obj=match_suspend,
-                    data=section_rest
-                )
-        resume_end   = match_resume.end() + suspend_end
-        section_rest = section_data[ resume_end :]
-        section_data = section_data[: suspend_start] + section_rest
-        #
-        # redo match_suppend so relative to new section_data
-        match_suspend = pattern['suspend'].search(section_data)
-    return section_data
 # -----------------------------------------------------------------------------
 # process child commands
 def child_commands(
@@ -1770,11 +1732,8 @@ def main() :
             } )
             # ----------------------------------------------------------------
             # process suspend commands
-            section_data = suspend_command(
-                pattern,
-                section_data,
-                file_in,
-                section_name,
+            section_data = xsrst.suspend_command(
+                section_data, file_in, section_name,
             )
             # ---------------------------------------------------------------
             # num_remove, indent_ch

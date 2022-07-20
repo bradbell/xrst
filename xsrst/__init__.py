@@ -36,6 +36,7 @@ from .remove_comment_ch      import remove_comment_ch
 from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
 from .start_stop_file        import start_stop_file
+from .suspend_command        import suspend_command
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents
 # END_SORT_THIS_LINE_MINUS_1
