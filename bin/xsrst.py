@@ -9,6 +9,8 @@
 """
 {xsrst_begin_parent xsrst_py}
 {xsrst_spell
+    rtd
+    cd
     underbars
     conf
     toctree
@@ -313,9 +315,9 @@ The following is a wish list for future improvements to ``xsrst.py``:
 
 Link to Section Name
 ====================
-Currently, when you link to an entire seciton, you get the section title
+Currently, when you link to an entire section, you get the section title
 displayed for the link.
-It would be good to have a separate anchor that displays the seciton name;
+It would be good to have a separate anchor that displays the section name;
 e.g., ``:ref:section_name`` would display the section name and
 ``:ref:title@section_name`` would display the section title.
 
@@ -497,6 +499,9 @@ Example
 # ---------------------------------------------------------------------------
 """
 {xsrst_begin spell_cmd}
+{xsrst_spell
+    abcd
+}
 
 Spell Command
 #############
@@ -681,20 +686,20 @@ that move files and automatically change references to them.
 
 start
 *****
-The code block starts with the line following the occurence
+The code block starts with the line following the occurrence
 of the text *start* in *file_name*.
 If this is the same as the file containing the command,
 the text *start* will not match any text in the command.
-There must be one and only one occurence of *start* in *file_name*,
+There must be one and only one occurrence of *start* in *file_name*,
 not counting the command itself when the files are the same.
 
 stop
 ****
-The code block ends with the line before the occurence
+The code block ends with the line before the occurrence
 of the text *start* in *file_name*.
 If this is the same as the file containing the command,
 the text *stop* will not match any text in the command.
-There must be one and only one occurence of *stop* in *file_name*,
+There must be one and only one occurrence of *stop* in *file_name*,
 not counting the command itself when the files are the same.
 
 Spell Checking
@@ -713,6 +718,9 @@ Example
 # ----------------------------------------------------------------------------
 """
 {xsrst_begin comment_ch_cmd}
+{xsrst_spell
+    ch
+}
 
 Comment Character Command
 #########################
@@ -735,7 +743,7 @@ The value of *ch* must be one non white space character.
 There must be at least one white space character
 between ``xsrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
-There can be only one occurence of this command within a file,
+There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
 it must come before the first :ref:`begin_cmd` in the file.
 
@@ -1145,7 +1153,7 @@ def process_headings(
 # -----------------------------------------------------------------------------
 # Compute output corresponding to a section.
 # This finishes all the xsrst processing that has been delayed to this point
-# with the exception of {xsrst_section_number}. The seciton number is computed
+# with the exception of {xsrst_section_number}. The section number is computed
 # after all the sections have been output and replaced during the
 # table_of_contents computation.
 def compute_output(
@@ -1306,7 +1314,7 @@ def compute_output(
     if not previous_empty :
         rst_output += '\n'
     #
-    # If there is no child command in this seciton, automatically generate
+    # If there is no child command in this section, automatically generate
     # links to the child sections at the end of the section.
     if len(list_children) > 0 and not has_child_command :
         rst_output += '.. csv-table::\n'

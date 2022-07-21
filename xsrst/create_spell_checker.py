@@ -36,6 +36,7 @@ def create_spell_checker(local_words) :
         'bnd',
         'bv',
         'cg',
+        'conf',
         'cpp',
         'dep',
         'dir',
@@ -82,6 +83,8 @@ def create_spell_checker(local_words) :
     # list of
     add_to_dictionary = [
         # BEGIN_SORT_THIS_LINE_PLUS_1
+        'configurable',
+        'pdf',
         'aborts',
         'asymptotic',
         'covariate',
@@ -91,6 +94,7 @@ def create_spell_checker(local_words) :
         'exponentiation',
         'hessians',
         'identifiability',
+        'indenting',
         'initialization',
         'initialize',
         'initialized',
