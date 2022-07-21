@@ -24,8 +24,9 @@ ignore_files='
     .gitignore
     batch_edit.sed
     bin/devel.sh
-    sphinx/xsrst/
+    sphinx/spelling
     sphinx/test_out/
+    sphinx/xsrst/
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"

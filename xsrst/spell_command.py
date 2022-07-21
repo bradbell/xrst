@@ -26,9 +26,10 @@
 # is removed.
 #
 # Spelling Warnings:
-# A spelling warning is reported for each work that is not in the spell_checker
-# dictionary. Word is two or more letter characters. If a word is directly
-# precceded by a backslash, it is ignored (for latex commands).
+# A spelling warning is reported for each word (and double word) that is not
+# in the spell_checker dictionary or the speical word list. A word is two or
+# more letter characters. If a word is directly precceded by a backslash,
+# it is ignored (so that latex commands do not generate warnings).
 #
 import re
 import xsrst
@@ -104,8 +105,8 @@ def spell_command(
         #
         # special_used, double_used
         previous_word = ''
-        for itr in pattern['word'].finditer( word_list ) :
-            word_lower = itr.group(0).lower()
+        for m_obj in pattern['word'].finditer( word_list ) :
+            word_lower = m_obj.group(0).lower()
             special_used[ word_lower ] = False
             if word_lower == previous_word :
                 double_used[ word_lower ] = False
@@ -136,23 +137,27 @@ def spell_command(
     data_tmp = pattern['url_1'].sub('', data_tmp)
     data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
     #
-    # check for spelling errors
+    # first_spell_error
     first_spell_error = True
-    for itr in pattern['word'].finditer( data_tmp ) :
-        word = itr.group(0)
+    #
+    # first_spell_erro, special_used, m_obj
+    for m_obj in pattern['word'].finditer( data_tmp ) :
+        word = m_obj.group(0)
         if word[0] != '\\' and len( spell_checker.unknown( [word] ) ) > 0 :
             word_lower = word.lower()
             if not word_lower in special_used :
+                #
+                # first_spell_error
                 if first_spell_error :
                     msg  = '\nwarning: file = ' + file_name
                     msg += ', section = ' + section_name
                     print(msg)
                     first_spell_error = False
+                #
                 # line_number
-                offset = itr.start()
-                match  = pattern['line'].search(data_tmp[offset :] )
-                assert match
-                line_number = match.group(1)
+                m_tmp  = pattern['line'].search(data_tmp, m_obj.end() )
+                assert m_tmp
+                line_number = m_tmp.group(1)
                 #
                 # msg
                 msg  = 'spelling = ' + word
@@ -162,27 +167,34 @@ def spell_command(
                 msg += ', line ' + line_number
                 #
                 print(msg)
+            #
+            # special_used
             special_used[word_lower] = True
     #
-    # check for double word errors
-    for itr in pattern['double_word'].finditer(data_tmp) :
-        word_lower = itr.group(1).lower()
+    # first_spell_erro, special_used, double_used, m_obj
+    for m_obj in pattern['double_word'].finditer(data_tmp) :
+        word_lower = m_obj.group(1).lower()
         if not word_lower in double_used :
+            #
+            # first_spell_error
             if first_spell_error :
                 msg  = 'warning: file = ' + file_name
                 msg += ', section = ' + section_name
                 print(msg)
                 first_spell_error = False
+            #
             # line_number
-            offset = itr.start()
-            match  = pattern['line'].search(data_tmp[offset :] )
-            assert match
-            line_number = match.group(1)
+            m_tmp = pattern['line'].search(data_tmp, m_obj.end() )
+            assert m_tmp
+            line_number = m_tmp.group(1)
+            #
             # first and last character in pattern is not part of double word
-            double_word = itr.group(0)[1 : -1]
+            double_word = m_obj.group(0)[1 : -1]
             msg         = 'double word error: "' + double_word + '"'
             msg        += ', line ' + line_number
             print(msg)
+        #
+        # double_used, special_used
         double_used[word_lower]  = True
         special_used[word_lower] = True
     #
