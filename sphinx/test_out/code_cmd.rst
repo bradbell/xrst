@@ -59,7 +59,9 @@ Requirements
 Each code command ends with
 a line containing the second version of the command; i.e., ``{xsrst_code}``.
 Hence there must be an even number of code commands.
-The back quote character \` can't be in the same line as the commands.
+If the back quote character \` appears before or after the ``{xsrst_code``,
+it is not a command but rather normal input text. This is useful when
+referring to this command in documentation.
 
 .. meta::
    :keywords: language
