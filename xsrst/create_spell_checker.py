@@ -83,10 +83,9 @@ def create_spell_checker(local_words) :
     # list of
     add_to_dictionary = [
         # BEGIN_SORT_THIS_LINE_PLUS_1
-        'configurable',
-        'pdf',
         'aborts',
         'asymptotic',
+        'configurable',
         'covariate',
         'covariates',
         'debug',
@@ -110,6 +109,7 @@ def create_spell_checker(local_words) :
         'multipliers',
         'optimizes',
         'partials',
+        'pdf',
         'piecewise',
         'unary',
         'unicode',
