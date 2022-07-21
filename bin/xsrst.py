@@ -19,8 +19,6 @@
     cmd
     cppad
     dir
-    \chapter
-    \paragraph
     cmake
 }
 
@@ -510,15 +508,14 @@ Syntax
 ******
 ``{xsrst_spell`` *word_1* ...  *word_n* :code:`}`
 
-Here *word_1*, ..., *word_n* is the special list of words for this section.
-In the syntax above the list of words is all in one line,
-but they could be on different lines.
-Each word starts with an upper case letter,
-a lower case letter, or a back slash.
-The back slash is included as a possible beginning of a word
-so that latex commands can be included in the spelling list.
-The rest of the characters in a word are lower case letters.
-
+Here *word_1*, ..., *word_n* is the special word list for this section.
+In the syntax above the list of words is all in one line.
+They could be on different lines which helps when displaying
+the difference between  versions of the corresponding file.
+Each word is a sequence of letters.
+Upper case letters start a new word (even when preceded by a letter).
+You need not include latex commands in special word list because
+words with a backslash directly before them are not include in spell checking.
 
 Purpose
 *******

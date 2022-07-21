@@ -73,12 +73,6 @@ def create_spell_checker(local_words) :
     remove_from_dictionary = spell_checker.known( remove_from_dictionary )
     spell_checker.word_frequency.remove_words(remove_from_dictionary)
     #
-    # spell_checker
-    # add all the single letter words that are missing from the dictionary
-    single_letter_word = list( string.ascii_lowercase )
-    single_letter_word = spell_checker.unknown( single_letter_word )
-    spell_checker.word_frequency.load_words(single_letter_word)
-    #
     # add_to_dictionary
     # list of
     add_to_dictionary = [
@@ -115,51 +109,6 @@ def create_spell_checker(local_words) :
         'unicode',
         'wiki',
         'wikipedia',
-        # END_SORT_THIS_LINE_MINUS_1
-        #
-        # greek letter latex commands
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        r'\Delta',
-        r'\Gamma',
-        r'\Lambda',
-        r'\Omega',
-        r'\Phi',
-        r'\Pi',
-        r'\Sigma',
-        r'\Theta',
-        r'\Upsilon',
-        r'\Xi',
-        r'\alpha',
-        r'\beta',
-        r'\chi',
-        r'\delta',
-        r'\epsilon',
-        r'\eta',
-        r'\gamma',
-        r'\iota',
-        r'\kappa',
-        r'\lambda',
-        r'\mu',
-        r'\nu',
-        r'\omega',
-        r'\omicron',
-        r'\phi',
-        r'\pi',
-        r'\psi',
-        r'\rho',
-        r'\sigma',
-        r'\tau',
-        r'\theta',
-        r'\upsilon',
-        r'\xi',
-        r'\zeta',
-        # END_SORT_THIS_LINE_MINUS_1
-        #
-        # common latex commands
-        # BEGIN_SORT_THIS_LINE_PLUS_1
-        r'\exp',
-        r'\log',
-        r'\rightarrow',
         # END_SORT_THIS_LINE_MINUS_1
     ]
     spell_checker.word_frequency.load_words(add_to_dictionary)

@@ -10,7 +10,7 @@
 # msg:           error message
 # file_name:     original input file that that data appeared in.
 # section_name:  section name
-# m_obj:         match object inticating where in data the error is detected
+# m_obj:         match object indicating where in data the error is detected
 # data:          is the input data that was matched when m_obj is not None
 # line:          is the error line number when m_obj is None
 #

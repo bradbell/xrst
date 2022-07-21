@@ -5,99 +5,152 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-# process spell command
+# Process the spell command for a section
 #
+# data_in:
+# is the data for this section before the spell command is removed.
+#
+# file_name:
+# is the name of the file that this data comes from. This is only used
+# for error reporting.
+#
+# section_name:
+# is the name of the section that this data is in. This is only used
+# for error reporting.
+#
+# spell_checker:
+# Is the pyspellchecker object used for error checking.
+#
+# data_out:
+# is the data for this section after the spell command (if it exists)
+# is removed.
+#
+# Spelling Warnings:
+# A spelling warning is reported for each work that is not in the spell_checker
+# dictionary. Word is two or more letter characters. If a word is directly
+# precceded by a backslash, it is ignored (for latex commands).
 #
 import re
 import xsrst
 def spell_command(
-    section_data, file_in, section_name, spell_checker
+    data_in, file_name, section_name, spell_checker
 ) :
     #
     # pattern
     pattern = dict()
-    pattern['spell']       = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
+    pattern['spell']     = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
+    pattern['word_list'] = re.compile( r'[A-Za-z\s]*' )
     #
+    # pattern
+    # global pattern values used by spell command
     pattern['child']  = xsrst.pattern['child']
     pattern['code']   = xsrst.pattern['code']
     pattern['file_2'] = xsrst.pattern['file_2']
     pattern['file_3'] = xsrst.pattern['file_3']
-    # local pattern values
+    pattern['line']   = xsrst.pattern['line']
+    #
+    # pattern
+    # local pattern values only used by spell command
     pattern['directive']   = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
     pattern['double_word'] = re.compile(
-        r'[^a-zA-Z]([\\A-Za-z][a-z]*)\s+\1[^a-z]'
+        r'[^a-zA-Z]([A-Za-z][a-z]+)\s+\1[^a-z]'
     )
-    pattern['http']        = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
-    pattern['ref_1']       = re.compile( r':ref:`[^\n<`]+`' )
-    pattern['ref_2']       = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
-    pattern['url_1']       = re.compile( r'`<[^\n>`]+>`_' )
-    pattern['url_2']       = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
-    pattern['word']        = re.compile( r'[\\A-Za-z][a-z]*' )
+    pattern['http']  = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
+    pattern['ref_1'] = re.compile( r':ref:`[^\n<`]+`' )
+    pattern['ref_2'] = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
+    pattern['url_1'] = re.compile( r'`<[^\n>`]+>`_' )
+    pattern['url_2'] = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+    pattern['word']  = re.compile( r'\\?[A-Za-z][a-z]+' )
     #
     #
-    match_spell   = pattern['spell'].search(section_data)
+    # m_spell
+    m_spell       = pattern['spell'].search(data_in)
+    #
+    # special_used, double_used
     special_used  = dict()
     double_used   = dict()
-    if match_spell != None :
-        section_rest   = section_data[ match_spell.end() : ]
-        match_another  = pattern['spell'].search(section_rest)
-        if match_another :
-            msg  = 'there are two spell xsrst commands'
+    #
+    # data_out
+    data_out = data_in
+    #
+    if m_spell != None :
+        #
+        # check for multiple spell commands in one section
+        m_tmp  = pattern['spell'].search(data_in, m_spell.end() )
+        if m_tmp :
+            msg  = 'There are two spell xsrst commands in this section'
             xsrst.system_exit(
-                msg, file_name=file_in, section_name=section_name
+                msg,
+                file_name=file_name,
+                section_name=section_name,
+                m_obj=m_tmp,
+                data=data_in
             )
+        #
+        # word_list
+        word_list = m_spell.group(1)
+        word_list = pattern['line'].sub('', word_list)
+        m_tmp     = pattern['word_list'].search(word_list)
+        if m_tmp.group(0) != word_list :
+            msg  = 'The word list in spell command contains '
+            msg += 'charactes that are not letters or white space.'
+            xsrst.system_exit(
+                msg,
+                file_name=file_name,
+                section_name=section_name,
+                m_obj=m_spell,
+                data=data_in
+            )
+        #
+        # special_used, double_used
         previous_word = ''
-        spell_arg = match_spell.group(1)
-        spell_arg = xsrst.pattern['line'].sub('', spell_arg)
-        for itr in pattern['word'].finditer( spell_arg ) :
+        for itr in pattern['word'].finditer( word_list ) :
             word_lower = itr.group(0).lower()
-            if len(word_lower) > 1 :
-                special_used[ word_lower ] = False
-                if word_lower == previous_word :
-                    double_used[ word_lower ] = False
+            special_used[ word_lower ] = False
+            if word_lower == previous_word :
+                double_used[ word_lower ] = False
             previous_word = word_lower
         #
         # remove spell command
-        start        = match_spell.start()
-        end          = match_spell.end()
-        section_data = section_data[: start] + section_data[end :]
-    # This suppress reporting \ \ as a double word error
-    double_used['\\'] = True
+        start    = m_spell.start()
+        end      = m_spell.end()
+        data_out = data_in[: start] + data_in[end :]
     #
-    # version of section_data with certain commands removed
-    section_tmp = section_data
+    # data_tmp
+    # version of data_in with certain commands removed
+    data_tmp = data_out
     #
     # commands with file names as arugments
-    section_tmp = pattern['file_2'].sub('', section_tmp)
-    section_tmp = pattern['file_3'].sub('', section_tmp)
-    section_tmp = pattern['child'].sub('', section_tmp)
-    section_tmp = pattern['http'].sub('', section_tmp)
-    section_tmp = pattern['directive'].sub('', section_tmp)
+    data_tmp = pattern['file_2'].sub('', data_tmp)
+    data_tmp = pattern['file_3'].sub('', data_tmp)
+    data_tmp = pattern['child'].sub('', data_tmp)
+    data_tmp = pattern['http'].sub('', data_tmp)
+    data_tmp = pattern['directive'].sub('', data_tmp)
     #
     # command with section names and headings as arguments
-    section_tmp = pattern['ref_1'].sub('', section_tmp)
-    section_tmp = pattern['ref_2'].sub(r'\1', section_tmp)
-    section_tmp = pattern['code'].sub('', section_tmp)
+    data_tmp = pattern['ref_1'].sub('', data_tmp)
+    data_tmp = pattern['ref_2'].sub(r'\1', data_tmp)
+    data_tmp = pattern['code'].sub('', data_tmp)
     #
     # commands with external urls as arguments
-    section_tmp = pattern['url_1'].sub('', section_tmp)
-    section_tmp = pattern['url_2'].sub(r'\1', section_tmp)
+    data_tmp = pattern['url_1'].sub('', data_tmp)
+    data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
     #
     # check for spelling errors
     first_spell_error = True
-    for itr in pattern['word'].finditer( section_tmp ) :
+    for itr in pattern['word'].finditer( data_tmp ) :
         word = itr.group(0)
-        if len( spell_checker.unknown( [word] ) ) > 0 :
+        if word[0] != '\\' and len( spell_checker.unknown( [word] ) ) > 0 :
             word_lower = word.lower()
             if not word_lower in special_used :
                 if first_spell_error :
-                    msg  = '\nwarning: file = ' + file_in
+                    msg  = '\nwarning: file = ' + file_name
                     msg += ', section = ' + section_name
                     print(msg)
                     first_spell_error = False
                 # line_number
                 offset = itr.start()
-                match  = xsrst.pattern['line'].search(section_tmp[offset :] )
+                match  = pattern['line'].search(data_tmp[offset :] )
                 assert match
                 line_number = match.group(1)
                 #
@@ -112,17 +165,17 @@ def spell_command(
             special_used[word_lower] = True
     #
     # check for double word errors
-    for itr in pattern['double_word'].finditer(section_tmp) :
+    for itr in pattern['double_word'].finditer(data_tmp) :
         word_lower = itr.group(1).lower()
         if not word_lower in double_used :
             if first_spell_error :
-                msg  = 'warning: file = ' + file_in
+                msg  = 'warning: file = ' + file_name
                 msg += ', section = ' + section_name
                 print(msg)
                 first_spell_error = False
             # line_number
             offset = itr.start()
-            match  = xsrst.pattern['line'].search(section_tmp[offset :] )
+            match  = pattern['line'].search(data_tmp[offset :] )
             assert match
             line_number = match.group(1)
             # first and last character in pattern is not part of double word
@@ -137,7 +190,7 @@ def spell_command(
     for word_lower in special_used :
         if not special_used[word_lower] :
             if first_spell_error :
-                msg  = '\nwarning: file = ' + file_in
+                msg  = '\nwarning: file = ' + file_name
                 msg += ', section = ' + section_name
                 print(msg)
                 first_spell_error = False
@@ -146,7 +199,7 @@ def spell_command(
     for word_lower in double_used :
         if not double_used[word_lower] :
             if first_spell_error :
-                msg  = '\nwarning: file = ' + file_in
+                msg  = '\nwarning: file = ' + file_name
                 msg += ', section = ' + section_name
                 print(msg)
                 first_spell_error = False
@@ -154,4 +207,4 @@ def spell_command(
             msg += '" not needed'
             print(msg)
     #
-    return section_data
+    return data_out

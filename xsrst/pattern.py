@@ -8,7 +8,8 @@
 import re
 #
 # pattern
-# This dictionary is does not change after its inital settings in this file
+# This dictionary contains compiled regular expressions.
+# It does not change after its initial setting when this file is imported.
 pattern = dict()
 #
 # pattern['begin']

@@ -25,8 +25,21 @@ Spell Result
 
 Text
 ****
-The words ``iterable`` and ``xsrst`` are not the dictionary,
-so we have included them in the spelling command for this section.
+The word ``iterable`` is not in the dictionary,
+so we have included it in the special words for this section.
+
+.. meta::
+   :keywords: spelling, file
+
+.. index:: spelling, file
+
+.. _spell_res.spelling_file:
+
+Spelling File
+*************
+The word ``xsrst`` is included by the
+:ref:`spelling<xsrst_py.command_line_arguments.spelling>` file
+and hence need not be in the special words for this section.
 
 .. meta::
    :keywords: math
@@ -37,14 +50,8 @@ so we have included them in the spelling command for this section.
 
 Math
 ****
-The latex commands for greek letters
+Words that are preceded by a backslash; e.g., latex commands,
 are automatically included as correct spelling.
-The ``\rm`` command is included by the
-:ref:`spelling<xsrst_py.command_line_arguments.spelling>`.
-The other latex commands in this section, ``\cos`` and ``\sin``,
-have been included in the spelling command for this section.
-An alternative would be to add them to the *spelling* file
-which applies to all sections:
 
 .. math::
 

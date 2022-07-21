@@ -24,7 +24,7 @@ Spell Example
 
 
 .. literalinclude:: ../../sphinx/test_in/spell.py
-    :lines: 23-68
+    :lines: 23-65
     :language: py
 
 .. csv-table::
