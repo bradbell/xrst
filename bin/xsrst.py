@@ -798,96 +798,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-# process child commands
-def child_commands(
-    pattern,
-    section_data,
-    file_in,
-    section_name,
-) :
-    file_list    = list()
-    file_line    = list()
-    section_list = list()
-    match        = pattern['child'].search(section_data)
-    if match is None :
-        return section_data, file_list, section_list
-    match_tmp    = pattern['child'].search(section_data[match.end() :] )
-    if match_tmp is not None :
-        msg = 'More than one children or child_list command in a section.'
-        xsrst.system_exit(msg,
-            file_name=file_in,
-            section_name=section_name,
-            m_obj=match_tmp,
-            data=section_data[match.end():]
-        )
-    #
-    assert match.group(1) in [ 'children', 'child_list', 'child_table']
-    command = match.group(1)
-    replace = '\n{xsrst_' + command + '}\n'
-    #
-    # section_data
-    data_left  = section_data[ : match.start() ]
-    data_right = section_data[ match.end() : ]
-    section_data = data_left + replace + data_right
-    #
-    # file_list, file_line
-    for child_pair in match.group(2).split('\n') :
-        match_line = xsrst.pattern['line'].search(child_pair)
-        if match_line :
-            line_number = match_line.group(1)
-        child_file  = xsrst.pattern['line'].sub('', child_pair).strip()
-        if child_file != '' :
-            assert match_line
-            file_list.append(child_file)
-            file_line.append(line_number)
-    #
-    # section_list
-    for i in range( len(file_list) ) :
-        child_file = file_list[i]
-        child_line = file_line[i]
-        if not os.path.isfile(child_file) :
-            msg  = 'The file ' + child_file + '\n'
-            msg += 'in the ' + command + ' command does not exist'
-            xsrst.system_exit(msg,
-                file_name=file_in, section_name=section_name, line=child_line
-            )
-        #
-        # errors in the begin and end commands will be detected later
-        # when this file is processed.
-        file_ptr    = open(child_file, 'r')
-        file_data   = file_ptr.read()
-        file_ptr.close()
-        file_index  = 0
-        file_data   = xsrst.remove_comment_ch(file_data, child_file)
-        #
-        match  = xsrst.pattern['begin'].search(file_data)
-        offset = 0
-        if match is None :
-            msg  = 'The file ' + child_file + '\n'
-            msg += 'in the ' + command + ' command does not contain any '
-            msg += 'begin commands.\n'
-            xsrst.system_exit(msg,
-                file_name=file_in, section_name=section_name, line=child_line
-            )
-        #
-        list_children     = list()
-        found_parent = False
-        while match and not found_parent:
-            found_parent  = match.group(2) == 'begin_parent'
-            child_name    = match.group(3)
-            #
-            if found_parent :
-                list_children = [ child_name ]
-            else :
-                list_children.append( child_name )
-            #
-            offset  = offset + match.end()
-            match   = xsrst.pattern['begin'].search(file_data[offset :])
-        #
-        section_list += list_children
-    #
-    return section_data, file_list, section_list
-# -----------------------------------------------------------------------------
 # process spell command
 def spell_command(
     pattern, section_data, file_in, section_name, spell_checker
@@ -927,7 +837,7 @@ def spell_command(
     # commands with file names as arugments
     section_tmp = pattern['file_2'].sub('', section_tmp)
     section_tmp = pattern['file_3'].sub('', section_tmp)
-    section_tmp = pattern['child'].sub('', section_tmp)
+    section_tmp = xsrst.pattern['child'].sub('', section_tmp)
     section_tmp = pattern['http'].sub('', section_tmp)
     section_tmp = pattern['directive'].sub('', section_tmp)
     #
@@ -1555,9 +1465,6 @@ def main() :
     pattern['file_3']  = re.compile(
         r'\n[ \t]*\{xsrst_file' + lin + arg + arg + arg + r'[ \t]*\}' + lin
     )
-    pattern['child']   = re.compile(
-        r'\n[ \t]*\{xsrst_(children|child_list|child_table)([^}]*)\}'
-    )
     # -------------------------------------------------------------------------
     # process each file in the list
     section_info     = list()
@@ -1629,8 +1536,7 @@ def main() :
             )
             # ----------------------------------------------------------------
             # process child command
-            section_data, child_file, child_section = child_commands(
-                pattern,
+            section_data, child_file, child_section = xsrst.child_commands(
                 section_data,
                 file_in,
                 section_name,

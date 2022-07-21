@@ -42,12 +42,24 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xsrst_end\s+([^}]*)\}' )
 pattern['code'] = re.compile(
     r'(\n[^\n`]*\{xsrst_code *)([^}]*)\}[^\n`]*(\{xsrst_line [0-9]+@)'
 )
+#
+# pattern['child']
+# Patterns for the children, child_list, and child_table commands.
+#
+# match.group(1) is command name; i.e., children, child_list, or child_table
+# match.group(2) is the rest of the command that comes after the command name.
+#                This is a list of file names with one name per line.
+#                The } at the end of the command is not included.
+pattern['child']   = re.compile(
+    r'\n[ \t]*\{xsrst_(children|child_list|child_table)([^}]*)\}'
+)
 # ----------------------------------------------------------------------------
 # functions
 #
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
 from .check_section_name     import check_section_name
+from .child_commands         import child_commands
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
 from .get_file_info          import get_file_info

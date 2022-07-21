@@ -26,6 +26,9 @@
 #
 import xsrst
 def isolate_code_command(data_in, file_name, section_name) :
+    assert type(data_in) == str
+    assert type(file_name) == str
+    assert type(section_name) == str
     #
     # data_out
     data_out = data_in
