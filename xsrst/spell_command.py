@@ -50,8 +50,8 @@ def spell_command(
     section_tmp = section_data
     #
     # commands with file names as arugments
-    section_tmp = pattern['file_2'].sub('', section_tmp)
-    section_tmp = pattern['file_3'].sub('', section_tmp)
+    section_tmp = xsrst.pattern['file_2'].sub('', section_tmp)
+    section_tmp = xsrst.pattern['file_3'].sub('', section_tmp)
     section_tmp = xsrst.pattern['child'].sub('', section_tmp)
     section_tmp = pattern['http'].sub('', section_tmp)
     section_tmp = pattern['directive'].sub('', section_tmp)

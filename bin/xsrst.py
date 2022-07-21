@@ -808,11 +808,11 @@ import xsrst
 # ---------------------------------------------------------------------------
 # convert file command start and stop from patterns to line numbers
 def convert_file_command(pattern, section_data, file_in, section_name) :
-    assert pattern['file_2'].groups == 6
-    assert pattern['file_3'].groups == 8
+    assert xsrst.pattern['file_2'].groups == 6
+    assert xsrst.pattern['file_3'].groups == 8
     for key in [ 'file_2', 'file_3' ] :
         file_offset = 0
-        match_file  = pattern[key].search(section_data)
+        match_file  = xsrst.pattern[key].search(section_data)
         while match_file != None :
             #
             # exclude
@@ -868,7 +868,7 @@ def convert_file_command(pattern, section_data, file_in, section_name) :
             #
             section_data  = data_left + data_right
             file_offset   = len(data_left)
-            match_file  = pattern[key].search(data_right)
+            match_file  = xsrst.pattern[key].search(data_right)
     return section_data
 # -----------------------------------------------------------------------------
 # add labels and indices for headings
@@ -1337,14 +1337,6 @@ def main() :
     # regular expressions corresponding to xsrst commands
     pattern['suspend'] = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
     pattern['resume']  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
-    arg = r'([^{]*)\{xsrst_line ([0-9]+)@\n'
-    lin = r'[ \t]*\{xsrst_line ([0-9]+)@\n'
-    pattern['file_2']  = re.compile(
-        r'\n[ \t]*\{xsrst_file' + lin + arg + arg + r'[ \t]*\}' + lin
-    )
-    pattern['file_3']  = re.compile(
-        r'\n[ \t]*\{xsrst_file' + lin + arg + arg + arg + r'[ \t]*\}' + lin
-    )
     # -------------------------------------------------------------------------
     # process each file in the list
     section_info     = list()
