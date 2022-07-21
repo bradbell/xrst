@@ -13,12 +13,12 @@
 # file_cmd:
 # is the name of the file where the xsrst_file command appears.
 #
-# file_search:
-# is the name of the file that we are searching. If it is not the same as
+# display_file:
+# is the name of the file that we are displaying. If it is not the same as
 # file_cmd, then it must have appeared in the xsrst_file command.
 #
 # cmd_line:
-# If file_cmd is equal to file_search, the section of the file between
+# If file_cmd is equal to display_file, the section of the file between
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
 # are in the xsrst_file command and are excluded from the search.
 #
@@ -45,14 +45,14 @@ import xsrst
 def start_stop_file(
     section_name = None,
     file_cmd     = None,
-    file_search  = None,
+    display_file  = None,
     cmd_line     = None,
     start_text   = None,
     stop_text    = None
 ) :
     assert type(section_name) == str
     assert type(file_cmd) == str
-    assert type(file_search) == str
+    assert type(display_file) == str
     assert type(cmd_line[0]) == int
     assert type(cmd_line[1]) == int
     assert type(start_text) == str
@@ -61,7 +61,7 @@ def start_stop_file(
     assert cmd_line[0] <= cmd_line[1]
     #
     # exclude_line
-    if file_cmd == file_search :
+    if file_cmd == display_file :
         exclude_line = cmd_line
     else :
         exclude_line = (0, 0)
@@ -91,7 +91,7 @@ def start_stop_file(
         )
     #
     # data
-    file_ptr  = open(file_search, 'r')
+    file_ptr  = open(display_file, 'r')
     data      = file_ptr.read()
     file_ptr.close()
     #
@@ -106,9 +106,9 @@ def start_stop_file(
         start_index = data.find(start_text, start_index + len(start_text) )
     if count != 1 :
         msg += f'\nstart = "{start_text}"'
-        msg += f'\nfile  =  {file_search}'
+        msg += f'\nfile  =  {display_file}'
         msg += f'\nfound {count} matches expected 1'
-        if file_cmd == file_search :
+        if file_cmd == display_file :
             msg += ' not counting the file command'
         xsrst.system_exit(msg,
             file_name=file_cmd, section_name=section_name, line = cmd_line[0]
@@ -125,9 +125,9 @@ def start_stop_file(
         stop_index = data.find(stop_text, stop_index + len(stop_text) )
     if count != 1 :
         msg += f'\nstop = "{stop_text}"'
-        msg += f'\nfile =  {file_search}'
+        msg += f'\nfile =  {display_file}'
         msg += f'\nfound {count} matches expected 1'
-        if file_cmd == file_search :
+        if file_cmd == display_file :
             msg += ' not counting the file command'
         xsrst.system_exit(msg,
             file_name=file_cmd, section_name=section_name, line = cmd_line[0]

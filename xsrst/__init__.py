@@ -12,6 +12,7 @@ from .check_section_name     import check_section_name
 from .child_commands         import child_commands
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
+from .file_command           import file_command
 from .get_file_info          import get_file_info
 from .isolate_code_command   import isolate_code_command
 from .newline_indices        import newline_indices

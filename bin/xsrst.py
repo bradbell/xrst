@@ -658,26 +658,26 @@ Syntax
 | ``{xsrst_file``
 | |tab| *start*
 | |tab| *stop*
-| |tab| *file_name*
+| |tab| *display_file*
 | :code:`}`
 
 Purpose
 *******
 A code block, from any where in any file,
-is included by the command above at the
+can be included by the command above at the
 :ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
 
 White Space
 ***********
 Leading and trailing white space is not included in
-*start*, *stop* or *file_name*.
+*start*, *stop* or *display_file*.
 The new line character separates these tokens.
 
-file_name
-*********
-If *file_name* is not in the syntax,
+display_file
+************
+If *display_file* is not in the syntax,
 the code block is in the current input file.
-Otherwise, the code block is in *file_name*.
+Otherwise, the code block is in *display_file*.
 This file name is relative to the directory where ``xsrst.py``
 is executed; i.e., the top directory for this git repository.
 This may seem verbose, but it makes it easier to write scripts
@@ -686,19 +686,19 @@ that move files and automatically change references to them.
 start
 *****
 The code block starts with the line following the occurrence
-of the text *start* in *file_name*.
+of the text *start* in *display_file*.
 If this is the same as the file containing the command,
 the text *start* will not match any text in the command.
-There must be one and only one occurrence of *start* in *file_name*,
+There must be one and only one occurrence of *start* in *display_file*,
 not counting the command itself when the files are the same.
 
 stop
 ****
 The code block ends with the line before the occurrence
-of the text *start* in *file_name*.
+of the text *start* in *display_file*.
 If this is the same as the file containing the command,
 the text *stop* will not match any text in the command.
-There must be one and only one occurrence of *stop* in *file_name*,
+There must be one and only one occurrence of *stop* in *display_file*,
 not counting the command itself when the files are the same.
 
 Spell Checking
@@ -805,71 +805,6 @@ import xsrst
 # ---------------------------------------------------------------------------
 # functions
 # ---------------------------------------------------------------------------
-# convert file command start and stop from patterns to line numbers
-def convert_file_command(pattern, section_data, file_in, section_name) :
-    assert xsrst.pattern['file_2'].groups == 6
-    assert xsrst.pattern['file_3'].groups == 8
-    for key in [ 'file_2', 'file_3' ] :
-        file_offset = 0
-        match_file  = xsrst.pattern[key].search(section_data)
-        while match_file != None :
-            #
-            # exclude
-            cmd_line_0 = int( match_file.group(1) )
-            if key == 'file_2' :
-                cmd_line_1 = int( match_file.group(6) )
-            else :
-                cmd_line_1 = int( match_file.group(8) )
-            cmd_line = (cmd_line_0, cmd_line_1)
-            #
-            # start_text
-            start_text = match_file.group(2).strip()
-            #
-            # stop_text
-            stop_text = match_file.group(4) .strip()
-            #
-            # file_search
-            if key == 'file_2' :
-                file_search = file_in
-            else :
-                file_search = match_file.group(6).strip()
-                same_file   = os.path.samefile(file_search, file_in)
-                if same_file :
-                    file_search = file_in
-            #
-            # start_line, stop_line
-            start_line, stop_line = xsrst.start_stop_file(
-                section_name = section_name,
-                file_cmd     = file_in,
-                file_search  = file_search,
-                cmd_line     = cmd_line,
-                start_text   = start_text,
-                stop_text    = stop_text
-            )
-            #
-            # locations in file_search
-            start_line  = start_line + 1
-            stop_line   = stop_line  - 1
-            #
-            # beginning of lines with command in it
-            begin_line = match_file.start() + file_offset;
-            #
-            # end of lines with command in it
-            end_line = match_file.end() + file_offset;
-            #
-            # converted version of the command
-            cmd  = f'xsrst__file {file_search} {start_line} {stop_line} '
-            cmd  = '\n{' + cmd  + '}\n'
-            #
-            data_left  = section_data[: begin_line]
-            data_left += cmd
-            data_right = '\n' + section_data[ end_line : ]
-            #
-            section_data  = data_left + data_right
-            file_offset   = len(data_left)
-            match_file  = xsrst.pattern[key].search(data_right)
-    return section_data
-# -----------------------------------------------------------------------------
 # add labels and indices for headings
 def process_headings(
         pattern, section_data, file_in, section_name, index_list
@@ -1415,8 +1350,7 @@ def main() :
             )
             # ---------------------------------------------------------------
             # file command: convert start and stop to line numbers
-            section_data = convert_file_command(
-                pattern,
+            section_data = xsrst.file_command(
                 section_data,
                 file_in,
                 section_name,
