@@ -1320,19 +1320,7 @@ def main() :
     # -----------------------------------------------------------------------
     # pattern
     # -----------------------------------------------------------------------
-    #
-    # regular expresssions only used for spell command
     pattern = dict()
-    pattern['word']        = re.compile( r'[\\A-Za-z][a-z]*' )
-    pattern['ref_1']       = re.compile( r':ref:`[^\n<`]+`' )
-    pattern['url_1']       = re.compile( r'`<[^\n>`]+>`_' )
-    pattern['ref_2']       = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
-    pattern['url_2']       = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
-    pattern['http']        = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
-    pattern['directive']   = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
-    pattern['double_word'] = re.compile(
-        r'[^a-zA-Z]([\\A-Za-z][a-z]*)\s+\1[^a-z]'
-    )
     #
     # regular expressions corresponding to xsrst commands
     pattern['suspend'] = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
@@ -1400,7 +1388,6 @@ def main() :
             # do after suspend and before other commands to help ignore
             # sections of text that do not need spell checking
             section_data = xsrst.spell_command(
-                pattern,
                 section_data,
                 file_in,
                 section_name,

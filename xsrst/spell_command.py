@@ -11,18 +11,36 @@
 import re
 import xsrst
 def spell_command(
-    pattern, section_data, file_in, section_name, spell_checker
+    section_data, file_in, section_name, spell_checker
 ) :
     #
-    # ppattern_spell
-    pattern_spell = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
+    # pattern
+    pattern = dict()
+    pattern['spell']       = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
     #
-    match_spell   = pattern_spell.search(section_data)
+    pattern['child']  = xsrst.pattern['child']
+    pattern['code']   = xsrst.pattern['code']
+    pattern['file_2'] = xsrst.pattern['file_2']
+    pattern['file_3'] = xsrst.pattern['file_3']
+    # local pattern values
+    pattern['directive']   = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
+    pattern['double_word'] = re.compile(
+        r'[^a-zA-Z]([\\A-Za-z][a-z]*)\s+\1[^a-z]'
+    )
+    pattern['http']        = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
+    pattern['ref_1']       = re.compile( r':ref:`[^\n<`]+`' )
+    pattern['ref_2']       = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
+    pattern['url_1']       = re.compile( r'`<[^\n>`]+>`_' )
+    pattern['url_2']       = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+    pattern['word']        = re.compile( r'[\\A-Za-z][a-z]*' )
+    #
+    #
+    match_spell   = pattern['spell'].search(section_data)
     special_used  = dict()
     double_used   = dict()
     if match_spell != None :
         section_rest   = section_data[ match_spell.end() : ]
-        match_another  = pattern_spell.search(section_rest)
+        match_another  = pattern['spell'].search(section_rest)
         if match_another :
             msg  = 'there are two spell xsrst commands'
             xsrst.system_exit(
@@ -50,16 +68,16 @@ def spell_command(
     section_tmp = section_data
     #
     # commands with file names as arugments
-    section_tmp = xsrst.pattern['file_2'].sub('', section_tmp)
-    section_tmp = xsrst.pattern['file_3'].sub('', section_tmp)
-    section_tmp = xsrst.pattern['child'].sub('', section_tmp)
+    section_tmp = pattern['file_2'].sub('', section_tmp)
+    section_tmp = pattern['file_3'].sub('', section_tmp)
+    section_tmp = pattern['child'].sub('', section_tmp)
     section_tmp = pattern['http'].sub('', section_tmp)
     section_tmp = pattern['directive'].sub('', section_tmp)
     #
     # command with section names and headings as arguments
     section_tmp = pattern['ref_1'].sub('', section_tmp)
     section_tmp = pattern['ref_2'].sub(r'\1', section_tmp)
-    section_tmp = xsrst.pattern['code'].sub('', section_tmp)
+    section_tmp = pattern['code'].sub('', section_tmp)
     #
     # commands with external urls as arguments
     section_tmp = pattern['url_1'].sub('', section_tmp)
