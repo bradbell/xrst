@@ -95,11 +95,11 @@ that move files and automatically change references to them.
 
 start
 *****
-The code block starts with the line following the occurence
+The code block starts with the line following the occurrence
 of the text *start* in *file_name*.
 If this is the same as the file containing the command,
 the text *start* will not match any text in the command.
-There must be one and only one occurence of *start* in *file_name*,
+There must be one and only one occurrence of *start* in *file_name*,
 not counting the command itself when the files are the same.
 
 .. meta::
@@ -111,11 +111,11 @@ not counting the command itself when the files are the same.
 
 stop
 ****
-The code block ends with the line before the occurence
+The code block ends with the line before the occurrence
 of the text *start* in *file_name*.
 If this is the same as the file containing the command,
 the text *stop* will not match any text in the command.
-There must be one and only one occurence of *stop* in *file_name*,
+There must be one and only one occurrence of *stop* in *file_name*,
 not counting the command itself when the files are the same.
 
 .. meta::

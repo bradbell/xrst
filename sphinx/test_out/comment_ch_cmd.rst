@@ -61,7 +61,7 @@ The value of *ch* must be one non white space character.
 There must be at least one white space character
 between ``xsrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
-There can be only one occurence of this command within a file,
+There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
 it must come before the first :ref:`begin_cmd` in the file.
 

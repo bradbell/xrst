@@ -69,6 +69,7 @@ from .remove_comment_ch      import remove_comment_ch
 from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
 from .replace_section_number import replace_section_number
+from .spell_command          import spell_command
 from .start_stop_file        import start_stop_file
 from .suspend_command        import suspend_command
 from .system_exit            import system_exit
