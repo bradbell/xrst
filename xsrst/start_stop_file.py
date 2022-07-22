@@ -5,6 +5,8 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import xsrst
+#
 # Convert start,  stop text for a file command to start, stop line numbers.
 #
 # section_name:
@@ -41,7 +43,7 @@
 # The second element of the return stop_line is the line number where
 # stop_text appears.
 #
-import xsrst
+# start_line, stop_line =
 def start_stop_file(
     section_name = None,
     file_cmd     = None,

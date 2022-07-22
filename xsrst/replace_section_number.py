@@ -20,6 +20,8 @@
 #
 # data_out:
 # the return data_out is the data after replacement. This is a python str
+#
+# data_out =
 def replace_section_number(data_in, section_number) :
     assert type(data_in) == str
     assert type(section_number) == str

@@ -5,6 +5,8 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import xsrst
+#
 # Create the table of contents and replace the '{xsrst_section_number}'
 # for this section and all its child sections.
 #
@@ -43,7 +45,7 @@
 # The return content is the table of contents entries for this section
 # and all the sections below this section.
 #
-import xsrst
+# content =
 def table_of_contents(
     rst_dir, target, section_info, level, count, section_index
 ) :

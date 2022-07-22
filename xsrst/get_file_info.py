@@ -5,6 +5,8 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import xsrst
+#
 # Get all the information for a file.
 #
 # section_info:
@@ -40,7 +42,8 @@
 #   sections in this file. The parent section must be the first, and hence
 #   have index zero in file_info. In addition, if there is a parent section,
 #   there must be at least one other section; i.e., len(file_info) >= 2.
-import xsrst
+#
+# file_info =
 def get_file_info(
         section_info,
         file_in

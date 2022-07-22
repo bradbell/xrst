@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+import xsrst
+#
 # Add line numbers to a string in a way that is useful for reporting errors
 # (for modified versions of string) using line number in the origianl string.
 #
@@ -18,8 +21,7 @@
 # {xsrst_line line_number@ is added at the end of each non-empty line.
 # Spaces and tabs in empty lines are removed (so they are truely empty).
 #
-import re
-import xsrst
+# data_out =
 def add_line_numbers(data) :
     #
     # pattern

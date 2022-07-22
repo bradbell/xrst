@@ -16,13 +16,15 @@
 # 2. Leading and traiiling spaces ' ', tabs '\t', and the newline '\n'
 #    are not included.
 # 3. Empty lines, after step 2, are not included.
+#
+# list_str =
 def file2_list_str(file_name) :
     file_ptr  = open(file_name, 'r')
-    result    = list()
+    list_str  = list()
     for line in file_ptr :
         if not line.startswith('#') :
             line = line.strip(' \t\n')
             if not line == '' :
-                result.append(line)
+                list_str.append(line)
     file_ptr.close()
-    return result
+    return list_str

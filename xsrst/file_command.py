@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import os
+import xsrst
+#
 # Process the file commands in a section.
 #
 # data_in:
@@ -27,9 +30,7 @@
 # start_line:  line number of first line to dislay
 # stop_line:   line number of last line to dislay
 #
-import os
-import xsrst
-#
+# data_out =
 def file_command(data_in, file_name, section_name) :
     assert xsrst.pattern['file_2'].groups == 6
     assert xsrst.pattern['file_3'].groups == 8

@@ -5,14 +5,22 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import xsrst
+#
 # Remove the number numbers that were added by add_line_number.
 #
 # data_in
 # is the string we are removing the line numbers from {xsrst_line number@.
 #
 # data_out
-# The return data_out is a copy of data_in with the lin numbers removed.
-import xsrst
+# The first return data_out is a copy of data_in with the lin numbers removed.
+#
+# line_pair
+# The second return line_pair is a list of tuples with two elements in each
+# tuple. The first element is the line number in data_out. The second element
+# is the corresponding line number that has been removed.
+#
+# data_out, line_pair =
 def remove_line_numbers(pattern, data_in) :
     #
     # previous_end

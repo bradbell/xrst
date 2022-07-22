@@ -5,11 +5,14 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+#
 # Find index of all the newlines in a string
 #
 # data:         The string we are searching for newlines
 # newline_list: The return newline_list is the list of indices in data
-import re
+#
+# newline_list =
 def newline_indices(data) :
     pattern_newline  = re.compile( r'\n')
     newline_itr      = pattern_newline.finditer(data)

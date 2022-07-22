@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+import xsrst
+#
 # Process the spell command for a section
 #
 # data_in:
@@ -31,8 +34,7 @@
 # more letter characters. If a word is directly precceded by a backslash,
 # it is ignored (so that latex commands do not generate warnings).
 #
-import re
-import xsrst
+# data_out =
 def spell_command(
     data_in, file_name, section_name, spell_checker
 ) :

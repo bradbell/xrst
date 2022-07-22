@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+import xsrst
+#
 # Check that a section name abides by its rules. If not, report error and exit.
 #
 # section_name:
@@ -26,8 +29,6 @@
 # data:
 # is that data that was searched to detect the match object.
 #
-import re
-import xsrst
 def check_section_name(section_name, file_name, m_obj, data) :
     assert type(section_name) == str
     assert type(file_name) == str

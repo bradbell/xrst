@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+import xsrst
+#
 # Remove text specified by suspend / resume pairs.
 #
 # data_in
@@ -20,8 +23,7 @@
 # The return data_out is a copy of data_in except that the text between
 # and including each suspend / resume pair has been removed.
 #
-import re
-import xsrst
+# data_out =
 def suspend_command(data_in, file_name, section_name) :
     assert type(data_in) == str
     assert type(file_name) == str

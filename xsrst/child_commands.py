@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import os
+import xsrst
+#
 # process child commands
 #
 # data_in:
@@ -34,8 +37,7 @@
 # one section in section_list for that file. Otherwise all of the secitons
 # in the file are in section_list.
 #
-import os
-import xsrst
+# data_out, file_list, section_list =
 def child_commands(data_in, file_name, section_name) :
     assert type(data_in) == str
     assert type(file_name) == str

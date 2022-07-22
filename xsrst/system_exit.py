@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import sys
+import xsrst
+#
 # Add file name, section name, and line number to a message in a system exit
 #
 # msg:           error message
@@ -14,8 +17,6 @@
 # data:          is the input data that was matched when m_obj is not None
 # line:          is the error line number when m_obj is None
 #
-import sys
-import xsrst
 def system_exit(
     msg, file_name=None, section_name=None, m_obj=None, data=None, line=None
 ) :

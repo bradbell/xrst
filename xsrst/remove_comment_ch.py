@@ -5,6 +5,9 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
+import xsrst
+#
 # Removes the beginning of line comment character from file data.
 #
 # Comment Character:
@@ -23,8 +26,7 @@
 # beginning of each line removed. If there is a space directly after the
 # comment character, it is also removed.
 #
-import re
-import xsrst
+# data_out =
 def remove_comment_ch(data_in, file_name) :
     assert type(data_in) == str
     assert type(file_name) == str

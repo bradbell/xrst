@@ -5,6 +5,8 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import xsrst
+#
 # Remove extra characters on same line as code commands.
 #
 # data_in:
@@ -24,7 +26,7 @@
 # for each line that contains a code command, the characters that are not
 # part of the command (except for the line numbers) are removed.
 #
-import xsrst
+# data_out =
 def isolate_code_command(data_in, file_name, section_name) :
     assert type(data_in) == str
     assert type(file_name) == str

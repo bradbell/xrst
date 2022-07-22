@@ -5,6 +5,8 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import spellchecker
+#
 # Create a pyspellchecker object
 #
 # local_words:
@@ -15,8 +17,7 @@
 # 1. All single letter words are in its dictionary.
 # 2. The latex command fo all the greek letters are in its dictionary.
 #
-import spellchecker
-import string
+# spell_checker =
 def create_spell_checker(local_words) :
     assert type(local_words) == list
     if len(local_words) > 0 :
