@@ -40,7 +40,7 @@ def spell_command(
     # pattern
     pattern = dict()
     pattern['spell']     = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
-    pattern['word_list'] = re.compile( r'[A-Za-z\s]*' )
+    pattern['word_list'] = re.compile( r'[A-Za-z \t\n]*' )
     #
     # pattern
     # global pattern values used by spell command
@@ -53,15 +53,18 @@ def spell_command(
     # pattern
     # local pattern values only used by spell command
     pattern['directive']   = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
-    pattern['double_word'] = re.compile(
-        r'[^a-zA-Z]([A-Za-z][a-z]+)\s+\1[^a-z]'
-    )
     pattern['http']  = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
     pattern['ref_1'] = re.compile( r':ref:`[^\n<`]+`' )
     pattern['ref_2'] = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
     pattern['url_1'] = re.compile( r'`<[^\n>`]+>`_' )
     pattern['url_2'] = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
-    pattern['word']  = re.compile( r'\\?[A-Za-z][a-z]+' )
+    #
+    # The first choice is for line numbers which are not in original file.
+    # The second is characters that are not letters, white space, or backslash.
+    # These character separate double words so they are not an error.
+    # The third is for the actual words (plus a possible backlash at start).
+    pattern['word']  = re.compile(
+        r'({xsrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)' )
     #
     #
     # m_spell
@@ -74,6 +77,7 @@ def spell_command(
     # data_out
     data_out = data_in
     #
+    # special_used, double_used
     if m_spell != None :
         #
         # check for multiple spell commands in one section
@@ -104,13 +108,14 @@ def spell_command(
             )
         #
         # special_used, double_used
-        previous_word = ''
+        previous_lower = ''
         for m_obj in pattern['word'].finditer( word_list ) :
             word_lower = m_obj.group(0).lower()
-            special_used[ word_lower ] = False
-            if word_lower == previous_word :
-                double_used[ word_lower ] = False
-            previous_word = word_lower
+            if not word_lower.startswith('{xsrst_line') :
+                special_used[ word_lower ] = False
+                if word_lower == previous_lower :
+                    double_used[ word_lower ] = False
+                previous_lower = word_lower
         #
         # remove spell command
         start    = m_spell.start()
@@ -140,67 +145,81 @@ def spell_command(
     # first_spell_error
     first_spell_error = True
     #
-    # first_spell_erro, special_used, m_obj
-    for m_obj in pattern['word'].finditer( data_tmp ) :
-        word = m_obj.group(0)
-        if word[0] != '\\' and len( spell_checker.unknown( [word] ) ) > 0 :
-            word_lower = word.lower()
-            if not word_lower in special_used :
-                #
-                # first_spell_error
-                if first_spell_error :
-                    msg  = '\nwarning: file = ' + file_name
-                    msg += ', section = ' + section_name
-                    print(msg)
-                    first_spell_error = False
-                #
-                # line_number
-                m_tmp  = pattern['line'].search(data_tmp, m_obj.end() )
-                assert m_tmp
-                line_number = m_tmp.group(1)
-                #
-                # msg
-                msg  = 'spelling = ' + word
-                suggest = spell_checker.correction(word)
-                if suggest != word :
-                    msg += ', suggest = ' + suggest
-                msg += ', line ' + line_number
-                #
-                print(msg)
-            #
-            # special_used
-            special_used[word_lower] = True
+    # previous_word
+    previous_word = ''
     #
-    # first_spell_erro, special_used, double_used, m_obj
-    for m_obj in pattern['double_word'].finditer(data_tmp) :
-        word_lower = m_obj.group(1).lower()
-        if not word_lower in double_used :
-            #
-            # first_spell_error
-            if first_spell_error :
-                msg  = 'warning: file = ' + file_name
-                msg += ', section = ' + section_name
-                print(msg)
-                first_spell_error = False
-            #
-            # line_number
-            m_tmp = pattern['line'].search(data_tmp, m_obj.end() )
-            assert m_tmp
-            line_number = m_tmp.group(1)
-            #
-            # first and last character in pattern is not part of double word
-            double_word = m_obj.group(0)[1 : -1]
-            msg         = 'double word error: "' + double_word + '"'
-            msg        += ', line ' + line_number
-            print(msg)
+    # m_obj
+    for m_obj in pattern['word'].finditer( data_tmp ) :
         #
-        # double_used, special_used
-        double_used[word_lower]  = True
-        special_used[word_lower] = True
+        # word, word_lower
+        word       = m_obj.group(0)
+        word_lower = word.lower()
+        #
+        if not word.startswith('{xsrst_line') and word[0].isalpha()  :
+            #
+            unknown = len( spell_checker.unknown( [word] ) ) > 0
+            if unknown :
+                # word is not in the dictionary
+                #
+                if not word_lower in special_used :
+                    # word is not in the list of special words
+                    #
+                    # first_spell_error
+                    if first_spell_error :
+                        msg  = '\nwarning: file = ' + file_name
+                        msg += ', section = ' + section_name
+                        print(msg)
+                        first_spell_error = False
+                    #
+                    # line_number
+                    m_tmp  = pattern['line'].search(data_tmp, m_obj.end() )
+                    assert m_tmp
+                    line_number = m_tmp.group(1)
+                    #
+                    # msg
+                    msg  = 'spelling = ' + word
+                    suggest = spell_checker.correction(word)
+                    if suggest != word :
+                        msg += ', suggest = ' + suggest
+                    msg += ', line ' + line_number
+                    #
+                    print(msg)
+                #
+                # special_used
+                special_used[word_lower] = True
+            #
+            double_word = word_lower == previous_word.lower()
+            if double_word :
+                # This is the second use of word with only white space between
+                #
+                if not word_lower in double_used :
+                    # word is not in list of special double words
+                    #
+                    # first_spell_error
+                    if first_spell_error :
+                        msg  = 'warning: file = ' + file_name
+                        msg += ', section = ' + section_name
+                        print(msg)
+                        first_spell_error = False
+                    #
+                    # line_number
+                    m_tmp = pattern['line'].search(data_tmp, m_obj.end() )
+                    assert m_tmp
+                    line_number = m_tmp.group(1)
+                    msg  = f'double word error: "{previous_word} {word}"'
+                    msg += ', line ' + line_number
+                    print(msg)
+                #
+                # double_used
+                double_used[word_lower]  = True
+        if not word.startswith('{xsrst_line') :
+            # previous_word
+            # This captures when there are non space characters between words
+            previous_word = word
     #
     # check for words that were not used
     for word_lower in special_used :
-        if not special_used[word_lower] :
+        if not (special_used[word_lower] or word_lower in double_used) :
             if first_spell_error :
                 msg  = '\nwarning: file = ' + file_name
                 msg += ', section = ' + section_name
