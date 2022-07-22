@@ -5,6 +5,7 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import sys
 import re
 import xsrst
 #
@@ -169,8 +170,8 @@ def spell_command(
                     # first_spell_error
                     if first_spell_error :
                         msg  = '\nwarning: file = ' + file_name
-                        msg += ', section = ' + section_name
-                        print(msg)
+                        msg += ', section = ' + section_name + '\n'
+                        sys.stderr.write(msg)
                         first_spell_error = False
                     #
                     # line_number
@@ -183,9 +184,9 @@ def spell_command(
                     suggest = spell_checker.correction(word)
                     if suggest != word :
                         msg += ', suggest = ' + suggest
-                    msg += ', line ' + line_number
+                    msg += ', line ' + line_number + '\n'
                     #
-                    print(msg)
+                    sys.stderr.write(msg)
                 #
                 # special_used
                 special_used[word_lower] = True
@@ -200,8 +201,8 @@ def spell_command(
                     # first_spell_error
                     if first_spell_error :
                         msg  = 'warning: file = ' + file_name
-                        msg += ', section = ' + section_name
-                        print(msg)
+                        msg += ', section = ' + section_name + '\n'
+                        sys.stderr.write(msg)
                         first_spell_error = False
                     #
                     # line_number
@@ -209,8 +210,8 @@ def spell_command(
                     assert m_tmp
                     line_number = m_tmp.group(1)
                     msg  = f'double word error: "{previous_word} {word}"'
-                    msg += ', line ' + line_number
-                    print(msg)
+                    msg += ', line ' + line_number + '\n'
+                    sys.stderr.write(msg)
                 #
                 # double_used
                 double_used[word_lower]  = True
@@ -224,20 +225,20 @@ def spell_command(
         if not (special_used[word_lower] or word_lower in double_used) :
             if first_spell_error :
                 msg  = '\nwarning: file = ' + file_name
-                msg += ', section = ' + section_name
-                print(msg)
+                msg += ', section = ' + section_name + '\n'
+                sys.stderr.write(msg)
                 first_spell_error = False
-            msg = 'spelling word "' + word_lower + '" not needed'
-            print(msg)
+            msg = 'spelling word "' + word_lower + '" not needed\n'
+            sys.stderr.write(msg)
     for word_lower in double_used :
         if not double_used[word_lower] :
             if first_spell_error :
                 msg  = '\nwarning: file = ' + file_name
-                msg += ', section = ' + section_name
-                print(msg)
+                msg += ', section = ' + section_name + '\n'
+                sys.stderr.write(msg)
                 first_spell_error = False
             msg  = 'double word "' + word_lower + ' ' + word_lower
-            msg += '" not needed'
-            print(msg)
+            msg += '" not needed\n'
+            sys.stderr.write(msg)
     #
     return data_out
