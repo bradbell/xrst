@@ -120,4 +120,4 @@ Example
 
 ----
 
-xsrst input file: ``bin/xsrst.py``
+xsrst input file: ``xsrst/remove_comment_ch.py``
