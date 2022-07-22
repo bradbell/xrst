@@ -16,6 +16,7 @@ from .file_command           import file_command
 from .get_file_info          import get_file_info
 from .isolate_code_command   import isolate_code_command
 from .newline_indices        import newline_indices
+from .next_heading           import next_heading
 from .pattern                import pattern
 from .remove_comment_ch      import remove_comment_ch
 from .remove_indent          import remove_indent

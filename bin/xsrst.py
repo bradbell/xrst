@@ -809,144 +809,157 @@ import xsrst
 def process_headings(
         pattern, section_data, file_in, section_name, index_list
 ) :
+    #
+    # punctuation
     punctuation      = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
     assert len(punctuation) == 34 - 2 # two escape sequences
     #
-    punctuation_used = set()
+    # overline_used
+    overline_used = set()
+    #
+    # heading_list, heading_index, heading_text, underline_text
     heading_list     = list()
-    next_start       = 0
-    next_newline     = section_data.find('\n', next_start)
-    candidate_start  = None
-    candidate_state  = 'empty'
-    while 0 <= next_newline :
-        next_line = section_data[next_start : next_newline]
-        next_line = xsrst.pattern['line'].sub('', next_line)
-        next_line = next_line.rstrip(' \t')
-        next_len  = len(next_line)
-        if next_len == 0 :
-            candidate_start = next_start
-            candidate_state = 'before_overline'
-        elif candidate_state == 'before_overline' :
-            ch = next_line[0]
-            if ch in punctuation and next_line == ch * next_len :
-                candidate_state = 'before_heading'
-                overline        = next_line
-            else :
-                candidate_state = 'before_underline'
-                overline        = None
-                heading_text    = next_line
-        elif candidate_state == 'before_heading' :
-            candidate_state = 'before_underline'
-            heading_text    = next_line
-        elif candidate_state == 'before_underline' :
-            ch = next_line[0]
-            if len(next_line) < len(heading_text) :
-                candidate_state = 'empty'
-            elif overline is not None and overline != next_line:
-                candidate_state = 'empty'
-            elif next_line[0] not in punctuation :
-                candidate_state = 'empty'
-            elif next_line != next_line[0] * next_len :
-                candidate_state = 'empty'
-            else :
-                candidate_state = 'end'
-                underline       = next_line
-        if candidate_state == 'end' :
-            # overline, character, and text for this heading
-            character = underline[0]
-            overline  =  overline is not None
-            heading   = {
-                'overline' : overline,
-                'character': character,
-                'text':      heading_text
-            }
-            if overline :
-                punctuation_used.add(character)
-            #
-            # check for first heading
-            if len( heading_list ) == 0 :
-                heading_list.append( heading )
-            else :
-                same_level = overline == heading_list[0]['overline']
-                if same_level :
-                    same_level = character == heading_list[0]['character']
-                if same_level :
-                    msg = 'There are multiple titles for this section'
-                    xsrst.system_exit(
-                        msg, file_name=file_in, section_name=section_name
-                    )
-                level = 1
-                while level < len(heading_list) and not same_level :
-                    same_level = overline == heading_list[level]['overline']
-                    if same_level :
-                        same_level = \
-                            character == heading_list[level]['character']
-                    if same_level :
-                        heading_list = heading_list[: level ]
-                        heading_list.append(heading)
-                    else :
-                        level += 1
-                if not same_level :
-                    # this heading at a deeper level
-                    heading_list.append( heading )
-
-            label = ''
-            for level in range( len(heading_list) ) :
-                if level == 0 :
-                    label = section_name.lower().replace(' ', '_')
-                    label = label.replace('.', '_')
-                    assert label == section_name
-                else :
-                    heading = heading_list[level]
-                    text   = heading['text'].lower().replace(' ', '_')
-                    label += '.' + text.replace('.', '_')
-            # include section link as link to first heading
-            if len(heading_list) == 1 :
-                index = section_name
-            else :
-                index = ''
-            for word in heading_list[-1]['text'].lower().split() :
-                skip = False
-                for regexp in index_list :
-                    match = regexp.search(word)
-                    if match :
-                        if match.group(0) == word :
-                            skip = True
-                if not skip :
-                    if index == '' :
-                        index = word
-                    else :
-                        index += ',' + word
-            #
-            cmd  = '\n{xsrst_label '
-            cmd += index + ' '
-            cmd += label + ' }'
-            #
-            # place label and index entry in output before the heading
-            data_left   = section_data[: candidate_start]
-            if len(heading_list) == 1 :
-                cmd += '\n{xsrst_section_number}'
-            data_left  += cmd
-            data_left  += section_data[candidate_start : next_newline]
-            if len(heading_list) == 1 :
-                data_left += '\n{xsrst_jump_table}'
-            data_right  = section_data[next_newline : ]
-            section_data = data_left + data_right
-            #
-            # setup of for next heading
-            candidate_state = 'empty'
-            next_start      = len(data_left) + 1
-            next_newline    = section_data.find('\n', next_start )
+    data_index       = 0
+    heading_index, heading_text, underline_text = \
+        xsrst.next_heading(section_data, data_index)
+    #
+    while 0 <= heading_index :
+        if 0 < heading_index :
+            assert section_data[heading_index-1] == '\n'
+        # overline
+        m_obj = xsrst.pattern['line'].search(section_data, heading_index)
+        index = m_obj.start()
+        overline = underline_text == section_data[heading_index : index]
+        #
+        # character
+        character = underline_text[0]
+        #
+        # heading
+        heading   = {
+            'overline' : overline,
+            'character': character,
+            'text':      heading_text
+        }
+        #
+        # underline_end
+        underline_end = section_data.find('\n', heading_index)
+        underline_end = section_data.find('\n', underline_end+1)
+        if overline :
+            underline_end = section_data.find('\n', underline_end+1)
+        assert section_data[underline_end] == '\n'
+        #
+        # overline_used
+        if overline :
+            overline_used.add(character)
+        #
+        # heading_list
+        if len( heading_list ) == 0 :
+            # first heading in this section
+            heading_list.append( heading )
         else :
-            next_start   = next_newline + 1
-            next_newline = section_data.find('\n', next_start)
+            # level_zero
+            level_zero = overline == heading_list[0]['overline']
+            if level_zero :
+                level_zero = character == heading_list[0]['character']
+            if level_zero :
+                m_obj = \
+                    xsrst.pattern['line'].search(section_data, heading_index)
+                msg = 'There are multiple titles for this section'
+                xsrst.system_exit(
+                    msg,
+                    file_name=file_in,
+                    section_name=section_name,
+                    m_obj=m_obj,
+                    data=section_data
+                )
+            #
+            # found_level
+            found_level = False
+            level       = 1
+            while level < len(heading_list) and not found_level :
+                found_level = overline == heading_list[level]['overline']
+                if found_level :
+                    found_level = character == heading_list[level]['character']
+                if found_level :
+                    #
+                    # heading_list
+                    heading_list = heading_list[: level ]
+                    heading_list.append(heading)
+                else :
+                    level += 1
+            #
+            # heading_list
+            if not found_level :
+                # this heading at a deeper level
+                heading_list.append( heading )
+
+        label = ''
+        for level in range( len(heading_list) ) :
+            if level == 0 :
+                label = section_name.lower().replace(' ', '_')
+                label = label.replace('.', '_')
+                assert label == section_name
+            else :
+                heading = heading_list[level]
+                text   = heading['text'].lower().replace(' ', '_')
+                label += '.' + text.replace('.', '_')
+        #
+        # index_entry
+        if len(heading_list) == 1 :
+            index_entry = section_name
+        else :
+            index_entry = ''
+        for word in heading_list[-1]['text'].lower().split() :
+            skip = False
+            for regexp in index_list :
+                m_obj = regexp.fullmatch(word)
+                if m_obj :
+                    skip = True
+            if not skip :
+                if index_entry == '' :
+                    index_entry = word
+                else :
+                    index_entry += ',' + word
+        #
+        cmd  = '{xsrst_label '
+        cmd += index_entry + ' '
+        cmd += label + ' }\n'
+        if len(heading_list) == 1 :
+            cmd += '{xsrst_section_number}\n'
+        #
+        # data_left
+        # data that comes before this heading
+        data_left   = section_data[: heading_index]
+        #
+        # data_left
+        # add new xsrst command before the heading
+        data_left  += cmd
+        #
+        # data_left
+        # add data from stat to end of heading
+        data_left  += section_data[heading_index : underline_end]
+        #
+        # data_left
+        # at level zero, add jump table command
+        if len(heading_list) == 1 :
+            data_left += '\n{xsrst_jump_table}'
+        #
+        # section_data
+        data_right  = section_data[underline_end : ]
+        section_data = data_left + data_right
+        #
+        # next heading
+        data_index = len(data_left)
+        heading_index, heading_text, underline_text = \
+            xsrst.next_heading(section_data, data_index + 1)
     #
     if len(heading_list) == 0 :
         msg = 'There are no headings in this section'
         xsrst.system_exit(msg, file_name=file_in, section_name=section_name)
     #
+    # pseudo_heading
     i = 0
-    while punctuation[i] in punctuation_used :
+    while punctuation[i] in overline_used :
         i += 1
         if i == len(punctuation) :
             msg  = 'more than ' + len(punctuation) - 1
@@ -957,7 +970,9 @@ def process_headings(
     line           = len(section_name) * punctuation[i] + '\n'
     pseudo_heading = line + section_name + '\n' + line + '\n'
     #
+    # section_title
     section_title = heading_list[0]['text']
+    #
     return section_data, section_title, pseudo_heading
 # -----------------------------------------------------------------------------
 # Compute output corresponding to a section.
