@@ -29,6 +29,7 @@ Extract Sphinx RST
 .. The indentation examples are included by the child_cmd section.
 
 {xsrst_children
+    xsrst/suspend_command.py
     xsrst/isolate_code_command.py
     xsrst/file_command.py
     xsrst/remove_comment_ch.py
@@ -558,35 +559,6 @@ Example
 }
 
 {xsrst_end spell_cmd}
-"""
-# ---------------------------------------------------------------------------
-"""
-{xsrst_begin suspend_cmd}
-
-Suspend and Resume Commands
-###########################
-
-Syntax
-******
-- ``{xsrst_suspend}``
-- ``{xsrst_resume}``
-
-Purpose
-*******
-It is possible to suspend (resume) the xsrst extraction during a section.
-One begins (ends) the suspension with a suspend command (resume command)
-at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
-Note that this will also suspend all other xsrst processing; e.g.,
-spell checking.
-
-Example
-*******
-{xsrst_child_list
-   sphinx/test_in/suspend.py
-}
-
-{xsrst_end suspend_cmd}
 """
 # ---------------------------------------------------------------------------
 # imports
