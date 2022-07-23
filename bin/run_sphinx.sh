@@ -38,14 +38,12 @@ then
     echo "bin/run_sphinx: can't find END_LATEX_MACROS in $premable"
 fi
 # -----------------------------------------------------------------------------
-# xsrst
-echo_eval bin/xsrst.py \
-    $target doc.xsrst sphinx spelling keyword $line_increment
-# -----------------------------------------------------------------------------
 # html
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
+    echo_eval bin/xsrst.py \
+        html doc.xsrst sphinx spelling keyword $line_increment
     sphinx-build -b html sphinx doc/html
     echo 'run_sphinx.sh: OK'
     exit 0
@@ -63,14 +61,27 @@ then
     echo "Then check in the new $preamble before running bin/run_sphinx.sh pdf."
     exit 1
 fi
+#
+# remove latex macros from preamble
 echo "sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'"
 sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
+#
+# run xsrst to create rst files
+echo_eval bin/xsrst.py pdf doc.xsrst sphinx spelling keyword $line_increment
+#
+# run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex
-echo_eval git checkout $preamble
 echo_eval cd doc/latex
+#
+# change latex \chapter commands to \section commands
 echo "sed -i xsrst.tex -e 's|\\chapter{|\\section{|'"
 sed -i xsrst.tex -e 's|\\chapter{|\\section{|'
+#
+# create pdf from latex
 echo_eval make xsrst.pdf
+#
+# restore the preamble
+echo_eval git checkout ../../$preamble
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'
 exit 0
