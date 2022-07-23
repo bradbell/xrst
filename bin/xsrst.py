@@ -29,6 +29,7 @@ Extract Sphinx RST
 .. The indentation examples are included by the child_cmd section.
 
 {xsrst_children
+    xsrst/file_command.py
     xsrst/remove_comment_ch.py
     sphinx/test_in/heading.py
     sphinx/test_in/indent.py
@@ -640,80 +641,6 @@ Example
 }
 
 {xsrst_end code_cmd}
-"""
-# ---------------------------------------------------------------------------
-"""
-{xsrst_begin file_cmd}
-
-File Command
-############
-
-Syntax
-******
-
-| ``{xsrst_file``
-| |tab| *start*
-| |tab| *stop*
-| :code:`}`
-|
-| ``{xsrst_file``
-| |tab| *start*
-| |tab| *stop*
-| |tab| *display_file*
-| :code:`}`
-
-Purpose
-*******
-A code block, from any where in any file,
-can be included by the command above at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
-
-White Space
-***********
-Leading and trailing white space is not included in
-*start*, *stop* or *display_file*.
-The new line character separates these tokens.
-
-display_file
-************
-If *display_file* is not in the syntax,
-the code block is in the current input file.
-Otherwise, the code block is in *display_file*.
-This file name is relative to the directory where ``xsrst.py``
-is executed; i.e., the top directory for this git repository.
-This may seem verbose, but it makes it easier to write scripts
-that move files and automatically change references to them.
-
-start
-*****
-The code block starts with the line following the occurrence
-of the text *start* in *display_file*.
-If this is the same as the file containing the command,
-the text *start* will not match any text in the command.
-There must be one and only one occurrence of *start* in *display_file*,
-not counting the command itself when the files are the same.
-
-stop
-****
-The code block ends with the line before the occurrence
-of the text *start* in *display_file*.
-If this is the same as the file containing the command,
-the text *stop* will not match any text in the command.
-There must be one and only one occurrence of *stop* in *display_file*,
-not counting the command itself when the files are the same.
-
-Spell Checking
-**************
-Spell checking is **not** done for these code blocks.
-
-
-Example
-*******
-{xsrst_child_list
-   sphinx/test_in/file.cpp
-}
-
-{xsrst_end file_cmd}
 """
 # ---------------------------------------------------------------------------
 # imports
