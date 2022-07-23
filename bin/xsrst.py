@@ -29,6 +29,7 @@ Extract Sphinx RST
 .. The indentation examples are included by the child_cmd section.
 
 {xsrst_children
+    xsrst/spell_command.py
     xsrst/suspend_command.py
     xsrst/isolate_code_command.py
     xsrst/file_command.py
@@ -497,68 +498,6 @@ Example
 }
 
 {xsrst_end child_cmd}
-"""
-# ---------------------------------------------------------------------------
-"""
-{xsrst_begin spell_cmd}
-{xsrst_spell
-    abcd
-}
-
-Spell Command
-#############
-
-Syntax
-******
-``{xsrst_spell`` *word_1* ...  *word_n* :code:`}`
-
-Here *word_1*, ..., *word_n* is the special word list for this section.
-In the syntax above the list of words is all in one line.
-They could be on different lines which helps when displaying
-the difference between  versions of the corresponding file.
-Each word is a sequence of letters.
-Upper case letters start a new word (even when preceded by a letter).
-You need not include latex commands in special word list because
-words with a backslash directly before them are not include in spell checking.
-
-Purpose
-*******
-You can specify a special list of words
-(not normally considered correct spelling)
-for the current section using the command above at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
-
-spelling
-********
-The list of words in
-:ref:`spelling<xsrst_py.command_line_arguments.spelling>`
-are considered correct spellings for all sections.
-The latex commands corresponding to the letters in the greek alphabet
-are automatically added to this list.
-
-
-Capital Letters
-***************
-The case of the first letter does not matter when checking spelling;
-e.g., if ``abcd`` is *word_1* then ``Abcd`` will be considered a valid word.
-Each capital letter starts a new word; e.g., `CamelCase` is considered to
-be the two words 'camel' and 'case'.
-Single letter words are always correct and not included in the
-special word list; e.g., the word list entry ``CppAD`` is the same as ``Cpp``.
-
-Double Words
-************
-It is considered an error to have only white space between two occurrences
-of the same word. You can make an exception for this by entering
-the same word twice (next to each other) in the special word list.
-
-Example
-*******
-{xsrst_child_list
-   sphinx/test_in/spell.py
-}
-
-{xsrst_end spell_cmd}
 """
 # ---------------------------------------------------------------------------
 # imports

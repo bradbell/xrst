@@ -114,4 +114,4 @@ Example
 
 ----
 
-xsrst input file: ``bin/xsrst.py``
+xsrst input file: ``xsrst/spell_command.py``

@@ -64,4 +64,4 @@ Example
 
 ----
 
-xsrst input file: ``bin/xsrst.py``
+xsrst input file: ``xsrst/suspend_command.py``
