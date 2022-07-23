@@ -95,4 +95,4 @@ of the section that included this file using a :ref:`child command<child_cmd>`.
 
 ----
 
-xsrst input file: ``bin/xsrst.py``
+xsrst input file: ``xsrst/get_file_info.py``
