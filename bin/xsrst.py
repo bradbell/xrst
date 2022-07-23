@@ -29,6 +29,7 @@ Extract Sphinx RST
 .. The indentation examples are included by the child_cmd section.
 
 {xsrst_children
+    xsrst/isolate_code_command.py
     xsrst/file_command.py
     xsrst/remove_comment_ch.py
     sphinx/test_in/heading.py
@@ -586,61 +587,6 @@ Example
 }
 
 {xsrst_end suspend_cmd}
-"""
-# ---------------------------------------------------------------------------
-"""
-{xsrst_begin code_cmd}
-
-Code Command
-############
-
-Syntax
-******
-- ``{xsrst_code`` *language* :code:`}`
-- ``{xsrst_code}``
-
-Purpose
-*******
-A code block, directly below in the current input file, begins with
-a line containing the first version ( *language* included version)
-of the command above.
-
-Requirements
-************
-Each code command ends with
-a line containing the second version of the command; i.e., ``{xsrst_code}``.
-Hence there must be an even number of code commands.
-If the back quote character \` appears before or after the ``{xsrst_code``,
-it is not a command but rather normal input text. This is useful when
-referring to this command in documentation.
-
-language
-********
-A *language* is a non-empty sequence of non-space the characters.
-It is used to determine the source code language
-for highlighting the code block.
-
-Rest of Line
-************
-Other characters on the same line as a code command
-are not included in the xsrst output.
-This enables one to begin or end a comment block
-without having the comment characters in the xsrst output.
-
-Spell Checking
-**************
-Code blocks as usually small and
-spell checking is done for these code blocks.
-(Spell checking is not done for code blocks included using the
-:ref:`file command<file_cmd>` .)
-
-Example
-*******
-{xsrst_child_list
-   sphinx/test_in/code.py
-}
-
-{xsrst_end code_cmd}
 """
 # ---------------------------------------------------------------------------
 # imports

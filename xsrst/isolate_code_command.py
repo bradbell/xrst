@@ -5,6 +5,61 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+"""
+{xsrst_begin code_cmd}
+
+Code Command
+############
+
+Syntax
+******
+- ``{xsrst_code`` *language* :code:`}`
+- ``{xsrst_code}``
+
+Purpose
+*******
+A code block, directly below in the current input file, begins with
+a line containing the first version ( *language* included version)
+of the command above.
+
+Requirements
+************
+Each code command ends with
+a line containing the second version of the command; i.e., ``{xsrst_code}``.
+Hence there must be an even number of code commands.
+If the back quote character \` appears before or after the ``{xsrst_code``,
+it is not a command but rather normal input text. This is useful when
+referring to this command in documentation.
+
+language
+********
+A *language* is a non-empty sequence of non-space the characters.
+It is used to determine the source code language
+for highlighting the code block.
+
+Rest of Line
+************
+Other characters on the same line as a code command
+are not included in the xsrst output.
+This enables one to begin or end a comment block
+without having the comment characters in the xsrst output.
+
+Spell Checking
+**************
+Code blocks as usually small and
+spell checking is done for these code blocks.
+(Spell checking is not done for code blocks included using the
+:ref:`file command<file_cmd>` .)
+
+Example
+*******
+{xsrst_child_list
+   sphinx/test_in/code.py
+}
+
+{xsrst_end code_cmd}
+"""
+# ----------------------------------------------------------------------------
 import xsrst
 #
 # Remove extra characters on same line as code commands.
