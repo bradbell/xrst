@@ -458,7 +458,6 @@ def compute_output(
         # commands that delay some processing to this point
         section_number_command = line.startswith('{xsrst_section_number}')
         jump_table_command     = line.startswith('{xsrst_jump_table')
-        label_command          = line.startswith('{xsrst_label')
         children_command       = line.startswith('{xsrst_children')
         child_list_command     = line.startswith('{xsrst_child_list')
         child_table_command    = line.startswith('{xsrst_child_table')
@@ -468,21 +467,6 @@ def compute_output(
             rst_output += '.. contents::\n'
             rst_output += '   :local:\n'
             rst_output += '\n'
-            previous_empty = True
-        elif label_command :
-            # --------------------------------------------------------
-            # label command
-            line  = line.split(' ')
-            index = line[1].replace(',', ', ')
-            label = line[2]
-            line  = ''
-            if index != '' :
-                # index is empty if keyword file ingnores all words in heading
-                line += '.. meta::\n'
-                line += '   :keywords: ' + index + '\n\n'
-                line += '.. index:: ' + index + '\n\n'
-            line += '.. _' + label + ':\n\n'
-            rst_output += line
             previous_empty = True
         elif children_command or child_list_command or child_table_command:
             assert not has_child_command

@@ -28,22 +28,10 @@ import xsrst
 # data_out:
 # is a copy of data_in with the following extra command added directly before
 # its corresponding heading:
-#
-#   {xsrst_lable index_entries label }
-#   This command is on its own line.
-#   index_entries:
-#   comman separated list of word to be indexed to the corresponding heading
-#   label:
-#   The label begins with the section name.
-#   It there has a lower case version of the the text for each heading
-#   above and incluing this section. The dot character '.' and spaces
-#   have been converted to underbar '_'.
-#   The headings (and section_name) are seperated by the dot character '.'.
-#   For example: section_name.head_text_one.head_text_two
-#
-#   {xsrst_section_number}
-#   This is placed after the command above and directly before the the first
-#   heading for this section.
+# {xsrst_section_number}
+# This is placed directly before the the first heading for this section.
+# {xsrst_section_number}
+# This is placed after the the first heading for this section.
 #
 # section_title:
 # This is the heading text in the first heading for this section.
@@ -178,28 +166,35 @@ def process_headings(
                 if index_entries == '' :
                     index_entries = word
                 else :
-                    index_entries += ',' + word
+                    index_entries += ', ' + word
         #
-        cmd  = '{xsrst_label '
-        cmd += index_entries + ' '
-        cmd += label + ' }\n'
-        if len(heading_list) == 1 :
-            cmd += '{xsrst_section_number}\n'
+        # cmd
+        cmd  = ''
+        if index_entries != '' :
+                cmd += '.. meta::\n'
+                cmd += 3 * ' ' + ':keywords: ' + index_entries + '\n\n'
+                cmd += '.. index:: '           + index_entries + '\n\n'
+        cmd += '.. _' + label + ':\n\n'
         #
         # data_tmp
         # data that comes before this heading
         data_tmp   = data_out[: heading_index]
         #
         # data_tmp
-        # add new xsrst command before the heading
+        # add sphnix keyword, index, and label commnds
         data_tmp  += cmd
+        #
+        # data_tmp
+        # at level zero put section number command just before heading
+        if len(heading_list) == 1 :
+            cmd += '{xsrst_section_number}\n'
         #
         # data_tmp
         # add data from stat to end of heading
         data_tmp  += data_out[heading_index : underline_end]
         #
         # data_tmp
-        # at level zero, add jump table command
+        # at level zero put jump table command just after heading
         if len(heading_list) == 1 :
             data_tmp += '\n{xsrst_jump_table}'
         #
