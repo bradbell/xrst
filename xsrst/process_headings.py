@@ -183,7 +183,7 @@ def process_headings(
         # data_tmp
         # If level zero, put section number command just before heading
         if len(heading_list) == 1 :
-            cmd += '{xsrst_section_number}\n'
+            data_tmp += '{xsrst_section_number}\n'
         #
         # data_tmp
         # add data from stat to end of heading

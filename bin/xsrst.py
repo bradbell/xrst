@@ -461,13 +461,10 @@ def compute_output(
     for newline in newline_list :
         line  = section_data[startline : newline + 1]
         # commands that delay some processing to this point
-        section_number_command = line.startswith('{xsrst_section_number}')
         children_command       = line.startswith('{xsrst_children')
         child_list_command     = line.startswith('{xsrst_child_list')
         child_table_command    = line.startswith('{xsrst_child_table')
-        if section_number_command :
-            rst_output += line
-        elif children_command or child_list_command or child_table_command:
+        if children_command or child_list_command or child_table_command:
             assert not has_child_command
             assert len(list_children) > 0
             has_child_command = True
