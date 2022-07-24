@@ -33,7 +33,7 @@ Extract Sphinx RST
     xsrst/child_commands.py
     xsrst/spell_command.py
     xsrst/suspend_command.py
-    xsrst/isolate_code_command.py
+    xsrst/code_command.py
     xsrst/file_command.py
     xsrst/remove_comment_ch.py
     sphinx/test_in/heading.py
@@ -437,7 +437,6 @@ def compute_output(
     #
     # now output the section data
     startline         = 0
-    inside_code       = False
     previous_empty    = True
     has_child_command = False
     for newline in newline_list :
@@ -445,7 +444,6 @@ def compute_output(
         # commands that delay some processing to this point
         section_number_command = line.startswith('{xsrst_section_number}')
         jump_table_command     = line.startswith('{xsrst_jump_table')
-        code_command           = line.startswith('{xsrst_code')
         file_command           = line.startswith('{xsrst__file')
         label_command          = line.startswith('{xsrst_label')
         children_command       = line.startswith('{xsrst_children')
@@ -471,20 +469,6 @@ def compute_output(
                 line += '   :keywords: ' + index + '\n\n'
                 line += '.. index:: ' + index + '\n\n'
             line += '.. _' + label + ':\n\n'
-            rst_output += line
-            previous_empty = True
-        elif code_command :
-            # --------------------------------------------------------
-            # code command
-            inside_code = not inside_code
-            if inside_code :
-                m_obj = xsrst.pattern['code'].search( '\n' + line)
-                language = m_obj.group(2).strip()
-                line     = '.. code-block:: ' + language + '\n\n'
-                if not previous_empty :
-                    line = '\n' + line
-            else :
-                line = '\n'
             rst_output += line
             previous_empty = True
         elif file_command :
@@ -534,15 +518,16 @@ def compute_output(
                 rst_output += '\n'
             previous_empty = True
         else :
-            match = xsrst.pattern['line'].search(line)
-            if match :
-                empty_line = match.start() == 0
+            m_obj = xsrst.pattern['line'].search(line)
+            if m_obj :
+                empty_line = m_obj.start() == 0
             else :
-                empty_line = True
+                if len( line.strip(' \t') ) == 0 :
+                    empty_line = True
+                else :
+                    empty_line = False
             if empty_line :
                     line = '\n'
-            if inside_code :
-                line = 4 * ' ' + line
             #
             if line != '\n' :
                 rst_output += line
@@ -778,8 +763,8 @@ def main() :
                     'parent_section' : section_index,
                 } )
             # ----------------------------------------------------------------
-            # remove characters on same line as {xsrst_code}
-            section_data = xsrst.isolate_code_command(
+            # process code commands
+            section_data = xsrst.code_command(
                 section_data,
                 file_in,
                 section_name,

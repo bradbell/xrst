@@ -81,7 +81,7 @@ display_file
 If *display_file* is not in the syntax,
 the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
-This file name is relative to the directory where ``xsrst.py``
+The file name *display_file* is relative to the directory where ``xsrst.py``
 is executed; i.e., the top directory for this git repository.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.

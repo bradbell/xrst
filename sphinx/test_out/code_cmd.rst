@@ -118,4 +118,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/isolate_code_command.py``
+xsrst input file: ``xsrst/code_command.py``

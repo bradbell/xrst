@@ -62,10 +62,10 @@ Example
 # ----------------------------------------------------------------------------
 import xsrst
 #
-# Remove extra characters on same line as code commands.
+# Process the xsrst code commands for a section.
 #
 # data_in:
-# is the data for the section before the code commands have been isolated.
+# is the data for the section before the code commands have been processed.
 # Line numbers have been added to this data: see add_line_numbers.
 #
 # file_name:
@@ -77,12 +77,11 @@ import xsrst
 # for error reporting.
 #
 # data_out:
-# is a copy of data_in with the code commands isloated. To be specific,
-# for each line that contains a code command, the characters that are not
-# part of the command (except for the line numbers) are removed.
+# is a copy of data_in with the xsrst code commands replaced by corrsponding
+# sphinx command.
 #
 # data_out =
-def isolate_code_command(data_in, file_name, section_name) :
+def code_command(data_in, file_name, section_name) :
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str
@@ -91,16 +90,16 @@ def isolate_code_command(data_in, file_name, section_name) :
     data_out = data_in
     #
     # m_begin
-    m_begin = xsrst.pattern['code'].search(data_in)
+    m_begin = xsrst.pattern['code'].search(data_out)
     #
     if m_begin == None :
-        return data_in
+        return data_out
     #
     while m_begin != None :
         #
         # m_end
         start = m_begin.end()
-        m_end = xsrst.pattern['code'].search(data_in, start)
+        m_end = xsrst.pattern['code'].search(data_out, start)
         #
         # language
         language  = m_begin.group(2).strip()
@@ -139,19 +138,33 @@ def isolate_code_command(data_in, file_name, section_name) :
                 data=section_rest
             )
         #
-        # data_out
+        # language
         # pygments does not recognize hpp so change it to cpp ?
         if language == 'hpp' :
-            index = m_begin.start() + len(m_begin.group(1))
-            assert data_out[index: index+2] == 'hpp'
-            data_out[index] = 'c'
+            language = 'cpp'
+        #
+        # data_before
+        data_before  = data_out[ : m_begin.start() + 1]
+        assert data_before[-1] == '\n'
+        data_before += '\n'
+        #
+        # data_between
+        data_between  = data_out[m_begin.end() : m_end.start()]
+        data_between  = data_between.replace('\n', '\n    ')
+        data_between += '\n'
+        #
+        # data_after
+        data_after  = data_out[m_end.end() : ]
+        assert data_after[0] == '\n'
+        #
+        # data_out
+        data_out  = data_before
+        data_out += '.. code-block:: ' + language + '\n\n'
+        data_out += data_between
+        data_out += data_after
         #
         # m_begin
         start   = m_end.end()
-        m_begin = xsrst.pattern['code'].search(data_in, start)
-    #
-    # data_out
-    replace  = r'\n{xsrst_code \2}\3'
-    data_out = xsrst.pattern['code'].sub(replace, data_in)
+        m_begin = xsrst.pattern['code'].search(data_out, start)
     #
     return data_out
