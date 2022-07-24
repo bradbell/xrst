@@ -22,7 +22,6 @@ Heading Example
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/test_in/heading.py
     :lines: 30-70
     :language: py

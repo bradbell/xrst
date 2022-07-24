@@ -22,7 +22,6 @@ Suspend Example
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/test_in/suspend.py
     :lines: 23-60
     :language: py

@@ -22,7 +22,6 @@ Indent Example
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/test_in/indent.py
     :lines: 23-39
     :language: py

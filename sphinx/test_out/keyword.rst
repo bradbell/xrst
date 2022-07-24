@@ -16,7 +16,6 @@ The keyword Example File
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/keyword
     :lines: 2-7
 

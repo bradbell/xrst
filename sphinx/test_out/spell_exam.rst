@@ -22,7 +22,6 @@ Spell Example
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/test_in/spell.py
     :lines: 23-65
     :language: py

@@ -16,7 +16,6 @@ The spelling Example File
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/spelling
     :lines: 2-11
 

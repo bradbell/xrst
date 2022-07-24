@@ -96,16 +96,20 @@ import xsrst
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
+# xsrst_dir:
+# is the directory, relative to the current working directory,
+# where xsrst will place the final rst files.
+#
 # data_out:
-# Each file command is convertd to the following format
-#   {xsrst__file display_file start_line stop_line}
-# In addition, there is a newline just before and after the text above.
-# display_file: is the name of the file that is displayed by this command.
-# start_line:  line number of first line to dislay
-# stop_line:   line number of last line to dislay
+# Each xsrst file command is convertd to its corresponding sphinx commands.
 #
 # data_out =
-def file_command(data_in, file_name, section_name) :
+def file_command(data_in, file_name, section_name, xsrst_dir) :
+    assert type(data_in) == str
+    assert type(file_name) == str
+    assert type(section_name) == str
+    assert type(xsrst_dir) == str
+    #
     assert xsrst.pattern['file_2'].groups == 6
     assert xsrst.pattern['file_3'].groups == 8
     #
@@ -164,8 +168,25 @@ def file_command(data_in, file_name, section_name) :
             # cmd
             # converted version of the command, use two underbars so does
             # not match pattern['file_2'] or pattern['file_3'].
-            cmd  = f'xsrst__file {display_file} {start_line} {stop_line} '
-            cmd  = '\n{' + cmd  + '}\n'
+            depth    = xsrst_dir.count('/') + 1
+            work_dir = depth * '../'
+            cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
+            cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'
+            #
+            # Add language to literalinclude, sphinx seems to be brain
+            # dead and does not do this automatically.
+            index = display_file.rfind('.')
+            if 0 <= index and index + 1 < len(display_file) :
+                extension = display_file[index + 1 :]
+                if extension == 'xsrst' :
+                    extension = 'rst'
+                elif extension == 'hpp' :
+                    extension = 'cpp' # pygments does not recognize hpp ?
+                cmd += 4 * ' ' + f':language: {extension}\n'
+            cmd = '\n' + cmd + '\n'
+            if m_file.start() > 0 :
+                if data_out[m_file.start() - 1] != '\n' :
+                    cmd = '\n' + cmd
             #
             # data_out
             data_tmp  = data_out[: m_file.start() ]

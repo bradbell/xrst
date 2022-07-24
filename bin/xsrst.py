@@ -458,7 +458,6 @@ def compute_output(
         # commands that delay some processing to this point
         section_number_command = line.startswith('{xsrst_section_number}')
         jump_table_command     = line.startswith('{xsrst_jump_table')
-        file_command           = line.startswith('{xsrst__file')
         label_command          = line.startswith('{xsrst_label')
         children_command       = line.startswith('{xsrst_children')
         child_list_command     = line.startswith('{xsrst_child_list')
@@ -484,32 +483,6 @@ def compute_output(
                 line += '.. index:: ' + index + '\n\n'
             line += '.. _' + label + ':\n\n'
             rst_output += line
-            previous_empty = True
-        elif file_command :
-            line       = line.split()
-            file_name  = line[1]
-            start_line = line[2]
-            stop_line  = line[3]
-            #
-            rst_output += '\n'
-            line = f'.. literalinclude:: {top_dir}/{file_name}\n'
-            rst_output += line
-            line = f'    :lines: {start_line}-{stop_line}\n'
-            rst_output += line
-            #
-            # Add language to literalinclude, sphinx seems to be brain
-            # dead and does not do this automatically.
-            index = file_name.rfind('.')
-            if 0 <= index and index + 1 < len(file_name) :
-                extension = file_name[index + 1 :]
-                if extension == 'xsrst' :
-                    extension = 'rst'
-                elif extension == 'hpp' :
-                    extension = 'cpp' # pygments does not recognize hpp ?
-                line = f'    :language: {extension}\n'
-                rst_output += line
-            #
-            rst_output += '\n'
             previous_empty = True
         elif children_command or child_list_command or child_table_command:
             assert not has_child_command
@@ -632,7 +605,15 @@ def main() :
     sphinx_dir      = sys.argv[3]
     if not os.path.isdir(sphinx_dir) :
         msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-        msg += 'is not a sub-directory of current working directory'
+        msg += 'is a vlid directory path'
+        xsrst.system_exit(msg)
+    if sphinx_dir[0] == '/' :
+        msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
+        msg += 'must be a path relative to current workding directory'
+        xsrst.system_exit(msg)
+    if 0 <= sphinx_dir.find('../') :
+        msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
+        msg += 'cannot contain ../'
         xsrst.system_exit(msg)
     #
     # spelling
@@ -789,6 +770,7 @@ def main() :
                 section_data,
                 file_in,
                 section_name,
+                xsrst_dir,
             )
             # ---------------------------------------------------------------
             # add labels and indices corresponding to headings

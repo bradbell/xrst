@@ -22,7 +22,6 @@ Code Example
 .. contents::
    :local:
 
-
 .. literalinclude:: ../../sphinx/test_in/code.py
     :lines: 23-38
     :language: py
