@@ -10,12 +10,12 @@ import xsrst
 # Create the table of contents and replace the '{xsrst_section_number}'
 # for this section and all its child sections.
 #
-# rst_dir
+# tmp_dir
 # is the temporary directory whre the rst files are written.
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# rst_dir/section_name.rst the text {xsrst_section_number}
+# tmp_dir/section_name.rst the text {xsrst_section_number}
 # is replaced by the section number which includes the counter for each level.
 # If target is 'html', {xsrst_section_number} is removed with not replacement.
 #
@@ -47,10 +47,10 @@ import xsrst
 #
 # content =
 def table_of_contents(
-    rst_dir, target, section_info, level, count, section_index
+    tmp_dir, target, section_info, level, count, section_index
 ) :
     assert type(target) == str
-    assert type(rst_dir) == str
+    assert type(tmp_dir) == str
     assert type(level) == int
     assert type(count) == list
     assert type(section_index) == int
@@ -86,8 +86,8 @@ def table_of_contents(
         content  += f':ref:`{section_number}<{section_name}>` '
         content  += section_title + '\n'
     #
-    # replace {xsrst_section_number} in rst_dir/section_name.rst
-    file_name = rst_dir + '/' + section_name + '.rst'
+    # replace {xsrst_section_number} in tmp_dir/section_name.rst
+    file_name = tmp_dir + '/' + section_name + '.rst'
     file_ptr  = open(file_name, 'r')
     file_data = file_ptr.read()
     file_ptr.close()
@@ -108,7 +108,7 @@ def table_of_contents(
             # child_index corresponds to a child of this section
             child_count[-1] += 1
             child_content += table_of_contents(
-            rst_dir, target, section_info, level + 1, child_count, child_index
+            tmp_dir, target, section_info, level + 1, child_count, child_index
             )
     #
     # child_content

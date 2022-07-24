@@ -30,4 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|tmp_dir|rst_dir|
+s|rst_dir|tmp_dir|
+s|xstmp_dir|xsrst_dir|

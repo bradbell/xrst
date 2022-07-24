@@ -590,12 +590,12 @@ def compute_output(
 # -----------------------------------------------------------------------------
 # write file corresponding to a section
 def write_file(
-    rst_dir,
+    tmp_dir,
     section_name,
     rst_output,
 ) :
     # open output file
-    file_out = rst_dir + '/' + section_name + '.rst'
+    file_out = tmp_dir + '/' + section_name + '.rst'
     file_ptr = open(file_out, 'w')
     file_ptr.write(rst_output)
     file_ptr.close()
@@ -672,11 +672,11 @@ def main() :
     if not os.path.isdir(xsrst_dir) :
         os.mkdir(xsrst_dir)
     #
-    # rst_dir
-    rst_dir = xsrst_dir + '/tmp'
-    if os.path.isdir(rst_dir) :
-        shutil.rmtree(rst_dir)
-    os.mkdir(rst_dir)
+    # tmp_dir
+    tmp_dir = xsrst_dir + '/tmp'
+    if os.path.isdir(tmp_dir) :
+        shutil.rmtree(tmp_dir)
+    os.mkdir(tmp_dir)
     #
     # spell_checker
     spell_list           = xsrst.file2_list_str(spell_path)
@@ -823,7 +823,7 @@ def main() :
             )
             # ---------------------------------------------------------------
             write_file(
-                rst_dir,
+                tmp_dir,
                 section_name,
                 rst_output,
             )
@@ -842,7 +842,7 @@ def main() :
     count         = list()
     section_index = 0
     output_data  += xsrst.table_of_contents(
-        rst_dir, target, section_info, level, count, section_index
+        tmp_dir, target, section_info, level, count, section_index
     )
     if target == 'html' :
         # Link to Index
@@ -851,7 +851,7 @@ def main() :
         output_data += '*************\n'
         output_data += '* :ref:`genindex`\n'
     #
-    file_out    = rst_dir + '/' + 'xsrst_automatic.rst'
+    file_out    = tmp_dir + '/' + 'xsrst_automatic.rst'
     file_ptr    = open(file_out, 'w')
     file_ptr.write(output_data)
     file_ptr.close()
@@ -876,10 +876,10 @@ def main() :
     #
     # -------------------------------------------------------------------------
     # overwrite xsrst files that have changed and then remove temporary files
-    tmp_list   = os.listdir(rst_dir)
+    tmp_list   = os.listdir(tmp_dir)
     xsrst_list = os.listdir(xsrst_dir)
     for name in tmp_list :
-        src = rst_dir + '/' + name
+        src = tmp_dir + '/' + name
         des = xsrst_dir + '/' + name
         if name.endswith('.rst') :
             if name not in xsrst_list :
@@ -891,9 +891,9 @@ def main() :
         if name.endswith('.rst') :
             if name not in tmp_list :
                 os.remove( xsrst_dir + '/' + name )
-    # reset rst_dir becasue rmtree is such a dangerous command
-    rst_dir = xsrst_dir + '/tmp'
-    shutil.rmtree(rst_dir)
+    # reset tmp_dir becasue rmtree is such a dangerous command
+    tmp_dir = xsrst_dir + '/tmp'
+    shutil.rmtree(tmp_dir)
     # -------------------------------------------------------------------------
 main()
 print('xsrst.py: OK')
