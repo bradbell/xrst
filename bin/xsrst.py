@@ -319,6 +319,11 @@ The following is a wish list for future improvements to ``xsrst.py``:
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
 
+Standard Indent
+===============
+Change the number of spaces corresponding to a tab from 4 to 3 characters.
+This better aligns wih usage in sphinx rst files and saves output columns.
+
 Dot in Section Name
 ===================
 Change the character used in the link to separate levels from dot ``.``

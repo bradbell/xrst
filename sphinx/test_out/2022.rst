@@ -21,7 +21,8 @@ xsrst Release Notes for 2022
 07-24
 *****
 1.  Remove ignore spelling of latex commands from wish list (done).
-2.  Add :ref:`xsrst_py.wish_list.relative_file_names` and
+2.  Add :ref:`xsrst_py.wish_list.standard_indent`,
+    :ref:`xsrst_py.wish_list.relative_file_names`, and
     :ref:`xsrst_py.wish_list.git_repository` entries to wish list.
 
 .. _2022.07-21:
