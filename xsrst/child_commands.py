@@ -8,8 +8,8 @@
 """
 {xsrst_begin child_cmd}
 
-Children Commands
-#################
+Child Commands
+##############
 
 Syntax
 ******

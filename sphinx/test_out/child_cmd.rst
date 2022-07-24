@@ -11,14 +11,14 @@ child_cmd
    no_parent_exam
 
 .. meta::
-   :keywords: child_cmd, children, commands
+   :keywords: child_cmd, child, commands
 
-.. index:: child_cmd, children, commands
+.. index:: child_cmd, child, commands
 
 .. _child_cmd:
 
-Children Commands
-#################
+Child Commands
+##############
 .. contents::
    :local:
 

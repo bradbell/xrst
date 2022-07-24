@@ -1,0 +1,36 @@
+.. include:: ../preamble.rst
+
+!!!!
+2022
+!!!!
+
+.. meta::
+   :keywords: 2022, xsrst, release, notes, for, 2022
+
+.. index:: 2022, xsrst, release, notes, for, 2022
+
+.. _2022:
+
+xsrst Release Notes for 2022
+############################
+.. contents::
+   :local:
+
+.. _2022.07-24:
+
+07-24
+*****
+1.  Remove ignore spelling of latex commands from wish list (done).
+2.  Add :ref:`xsrst_py.wish_list.relative_file_names` and
+    :ref:`xsrst_py.wish_list.git_repository` entries to wish list.
+
+.. _2022.07-21:
+
+07-21
+*****
+Ignore the spelling of all words that are preceded by a backslash
+(this ignores all latex commands); see :ref:`spell_cmd`.
+
+----
+
+xsrst input file: ``release_notes/2022.xsrst``

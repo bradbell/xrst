@@ -457,17 +457,11 @@ def compute_output(
         line  = section_data[startline : newline + 1]
         # commands that delay some processing to this point
         section_number_command = line.startswith('{xsrst_section_number}')
-        jump_table_command     = line.startswith('{xsrst_jump_table')
         children_command       = line.startswith('{xsrst_children')
         child_list_command     = line.startswith('{xsrst_child_list')
         child_table_command    = line.startswith('{xsrst_child_table')
         if section_number_command :
             rst_output += line
-        elif jump_table_command :
-            rst_output += '.. contents::\n'
-            rst_output += '   :local:\n'
-            rst_output += '\n'
-            previous_empty = True
         elif children_command or child_list_command or child_table_command:
             assert not has_child_command
             assert len(list_children) > 0

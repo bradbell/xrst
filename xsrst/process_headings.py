@@ -27,11 +27,9 @@ import xsrst
 #
 # data_out:
 # is a copy of data_in with the following extra command added directly before
-# its corresponding heading:
-# {xsrst_section_number}
-# This is placed directly before the the first heading for this section.
-# {xsrst_section_number}
-# This is placed after the the first heading for this section.
+# its corresponding heading: The command {xsrst_section_number}
+# is placed directly before the the first heading for this section.
+# This is makes it easy to add the section number to the heading text.
 #
 # section_title:
 # This is the heading text in the first heading for this section.
@@ -168,24 +166,22 @@ def process_headings(
                 else :
                     index_entries += ', ' + word
         #
-        # cmd
-        cmd  = ''
-        if index_entries != '' :
-                cmd += '.. meta::\n'
-                cmd += 3 * ' ' + ':keywords: ' + index_entries + '\n\n'
-                cmd += '.. index:: '           + index_entries + '\n\n'
-        cmd += '.. _' + label + ':\n\n'
-        #
         # data_tmp
         # data that comes before this heading
         data_tmp   = data_out[: heading_index]
         #
         # data_tmp
         # add sphnix keyword, index, and label commnds
+        cmd  = ''
+        if index_entries != '' :
+                cmd += '.. meta::\n'
+                cmd += 3 * ' ' + ':keywords: ' + index_entries + '\n\n'
+                cmd += '.. index:: '           + index_entries + '\n\n'
+        cmd += '.. _' + label + ':\n\n'
         data_tmp  += cmd
         #
         # data_tmp
-        # at level zero put section number command just before heading
+        # If level zero, put section number command just before heading
         if len(heading_list) == 1 :
             cmd += '{xsrst_section_number}\n'
         #
@@ -194,9 +190,10 @@ def process_headings(
         data_tmp  += data_out[heading_index : underline_end]
         #
         # data_tmp
-        # at level zero put jump table command just after heading
+        # If level zero, put jump table command just after heading
         if len(heading_list) == 1 :
-            data_tmp += '\n{xsrst_jump_table}'
+            data_tmp += '\n.. contents::\n'
+            data_tmp += 3 * ' ' + ':local:\n\n'
         #
         # data_out
         data_right = data_out[underline_end : ]

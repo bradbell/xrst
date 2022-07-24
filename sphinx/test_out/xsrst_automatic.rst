@@ -10,7 +10,7 @@ Table of Contents
 | :ref:`1<xsrst_py>` Extract Sphinx RST
 |
 |  |space| :ref:`1.1<begin_cmd>` Begin and End Commands
-|  |space| :ref:`1.2<child_cmd>` Children Commands
+|  |space| :ref:`1.2<child_cmd>` Child Commands
 |  |space|  |space| :ref:`1.2.1<no_parent_exam>` No Parent Example
 |  |space|  |space|  |space| :ref:`1.2.1.1<no_parent_res>` No Parent Result
 |
