@@ -419,7 +419,8 @@ paragraph is
 |tab| ``xsrst_py.links_to_headings.other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading will break.
+If a heading changes, all the links to that heading, and all the headings
+below it,  will break.
 This identifies the links that should be checked
 to make sure they are still valid.
 Note that one uses the *section_name* ``xsrst_py``
@@ -502,6 +503,42 @@ The following is a wish list for future improvements to ``xsrst.py``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
+   :keywords: dot, in, section, name
+
+.. index:: dot, in, section, name
+
+.. _xsrst_py.wish_list.dot_in_section_name:
+
+Dot in Section Name
+===================
+Change the character used in the link to separate levels from dot ``.``
+to colon ``:`` so that dot can be used in section names.
+
+.. meta::
+   :keywords: relative, file, names
+
+.. index:: relative, file, names
+
+.. _xsrst_py.wish_list.relative_file_names:
+
+Relative File Names
+===================
+Make all file names relative to the directory where the
+:ref:`xsrst_py.command_line_arguments.root_file` is located.
+
+.. meta::
+   :keywords: git, repository
+
+.. index:: git, repository
+
+.. _xsrst_py.wish_list.git_repository:
+
+Git Repository
+==============
+Remove the need for xsrst.py to be executed from the top directory
+of a git repository.
+
+.. meta::
    :keywords: link, to, section, name
 
 .. index:: link, to, section, name
@@ -540,13 +577,11 @@ If not groups were specified, all groups would be included.
 
 Spelling
 ========
-1.  Automatically ignore more words that are sphinx or latex commands.
-
-2.  Add a command that automatically fixes spelling warnings by changing
-    the :ref:`spell_cmd` in input sections. This is usefull when
-    pyspellchecker changes, when the
-    :ref:`xsrst_py.command_line_arguments.spelling` file changes,
-    and when xsrst.py automatically ignores more words.
+Add a command that automatically fixes spelling warnings by changing
+the :ref:`spell_cmd` in input sections. This is usefull when
+pyspellchecker changes, when the
+:ref:`xsrst_py.command_line_arguments.spelling` file changes,
+and when xsrst.py automatically ignores more words.
 
 .. meta::
    :keywords: tabs

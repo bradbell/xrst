@@ -8,6 +8,7 @@ release_notes
    :maxdepth: 1
    :hidden:
 
+   2022
    2021
 
 .. meta::
@@ -22,6 +23,7 @@ xsrst Release Notes By Year
 .. contents::
    :local:
 
+:ref:`2022<2022>`
 :ref:`2021<2021>`
 
 ----

@@ -44,7 +44,9 @@ Table of Contents
 |  |space|  |space| :ref:`1.10.4<preamble_rst>` The preamble.rst Example File
 |
 | :ref:`2<release_notes>` xsrst Release Notes By Year
-|  |space| :ref:`2.1<2021>` xsrst Release Notes for 2021
+|
+|  |space| :ref:`2.1<2022>` xsrst Release Notes for 2022
+|  |space| :ref:`2.2<2021>` xsrst Release Notes for 2021
 |
 
 Link to Index

@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+          cppad_py: A C++ Object Library and Python Interface to Cppad
+           Copyright (C) 2017-22 Bradley M. Bell (bradbell@seanet.com)
+               This program is distributed under the terms of the
+               GNU General Public License version 3.0 or later see
+                     https://www.gnu.org/licenses/gpl-3.0.txt
+-------------------------------------------------------------------------------
+{xsrst_begin 2022}
+{xsrst_spell
+}
+
+xsrst Release Notes for 2022
+############################
+
+07-24
+*****
+1.  Remove ignore spelling of latex commands from wish list (done).
+2.  Add :ref:`xsrst_py.wish_list.relative_file_names` and
+    :ref:`xsrst_py.wish_list.git_repository` entries to wish list.
+
+07-21
+*****
+Ignore the spelling of all words that are preceded by a backslash
+(this ignores all latex commands); see :ref:`spell_cmd`.
+
+{xsrst_end 2022}

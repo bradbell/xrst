@@ -271,7 +271,8 @@ paragraph is
 |tab| ``xsrst_py.links_to_headings.other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading will break.
+If a heading changes, all the links to that heading, and all the headings
+below it,  will break.
 This identifies the links that should be checked
 to make sure they are still valid.
 Note that one uses the *section_name* ``xsrst_py``
@@ -318,6 +319,21 @@ The following is a wish list for future improvements to ``xsrst.py``:
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
 
+Dot in Section Name
+===================
+Change the character used in the link to separate levels from dot ``.``
+to colon ``:`` so that dot can be used in section names.
+
+Relative File Names
+===================
+Make all file names relative to the directory where the
+:ref:`xsrst_py.command_line_arguments.root_file` is located.
+
+Git Repository
+==============
+Remove the need for xsrst.py to be executed from the top directory
+of a git repository.
+
 Link to Section Name
 ====================
 Currently, when you link to an entire section, you get the section title
@@ -336,13 +352,11 @@ If not groups were specified, all groups would be included.
 
 Spelling
 ========
-1.  Automatically ignore more words that are sphinx or latex commands.
-
-2.  Add a command that automatically fixes spelling warnings by changing
-    the :ref:`spell_cmd` in input sections. This is usefull when
-    pyspellchecker changes, when the
-    :ref:`xsrst_py.command_line_arguments.spelling` file changes,
-    and when xsrst.py automatically ignores more words.
+Add a command that automatically fixes spelling warnings by changing
+the :ref:`spell_cmd` in input sections. This is usefull when
+pyspellchecker changes, when the
+:ref:`xsrst_py.command_line_arguments.spelling` file changes,
+and when xsrst.py automatically ignores more words.
 
 Tabs
 ====
