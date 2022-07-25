@@ -12,6 +12,11 @@
 xsrst Release Notes for 2022
 ############################
 
+07-25
+*****
+Require that the suspend and resume commands are in their own line; see
+:ref:`suspend_cmd`.
+
 07-24
 *****
 1.  Remove ignore spelling of latex commands from wish list (done).

@@ -44,9 +44,8 @@ Syntax
 Purpose
 *******
 It is possible to suspend (resume) the xsrst extraction during a section.
-One begins (ends) the suspension with a suspend command (resume command)
-at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
+One begins (ends) the suspension with a line that only contains spaces,
+tabs and a suspend command (resume command).
 Note that this will also suspend all other xsrst processing; e.g.,
 spell checking.
 

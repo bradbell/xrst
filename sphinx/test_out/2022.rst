@@ -16,6 +16,13 @@ xsrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022.07-25:
+
+07-25
+*****
+Require that the suspend and resume commands are in their own line; see
+:ref:`suspend_cmd`.
+
 .. _2022.07-24:
 
 07-24

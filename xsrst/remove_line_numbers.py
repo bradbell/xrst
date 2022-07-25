@@ -9,7 +9,7 @@ import re
 import xsrst
 #
 #
-pattern_line_error = re.compile( r'\{xsrst_line [0-9]+@[^\n]' )
+pattern_error = re.compile( r'\{xsrst_line [0-9]+@[^\n]' )
 #
 # Remove the number numbers that were added by add_line_number.
 #
@@ -28,8 +28,8 @@ pattern_line_error = re.compile( r'\{xsrst_line [0-9]+@[^\n]' )
 def remove_line_numbers(data_in) :
     #
     # m_error
-    m_error = pattern_line_error.search(data_in)
-    if False :
+    m_error = pattern_error.search(data_in)
+    if m_error :
         start = max(m_error.start() - 50, 0)
         end   = min(m_error.end() + 50, len(data_in))
         msg   = 'Program error: Line number tracking is confused:\n'
