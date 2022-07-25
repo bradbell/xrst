@@ -18,6 +18,7 @@ from .get_file_info          import get_file_info
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading
 from .pattern                import pattern
+from .process_children       import process_children
 from .process_headings       import process_headings
 from .remove_comment_ch      import remove_comment_ch
 from .remove_indent          import remove_indent
