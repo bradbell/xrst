@@ -7,14 +7,29 @@
 # ----------------------------------------------------------------------------
 import re
 import xsrst
-#
 pattern = re.compile( r'{xsrst_(children|child_list|child_table)}' )
+# ----------------------------------------------------------------------------
+# Add child information to this section
 #
+# data_in
+# is the data for this section after the child_command funcion has processed
+# the child commands
+#
+# list_children
+# is a list of the section names for the childrent of this section.
+# If this list is empty, data_out is equal to data_in.
+#
+# data_out
+# the return value data_out is has the child information added. This includes
+# a hidden table of contents as well as cross refrence links depending on if
+# this section has a children, child_list, or child_table child command.
+# If there is not child command and list_children is non-empty,
+# the child_table style is used for the links to the children.
+#
+# data_out =
 def process_children(
     data_in,
-    section_name,
     list_children,
-    line_increment,
 ) :
     #
     # split section data into lines
@@ -81,10 +96,6 @@ def process_children(
             #
             previous_empty = line == '\n'
         startline = newline + 1
-    #
-    # The last step in converting xsrst commands is removing line numbers
-    # (done last so mapping from output to input line number is correct)
-    data_out, line_pair = xsrst.remove_line_numbers(data_out)
     # -----------------------------------------------------------------------
     if not previous_empty :
         data_out += '\n'
@@ -99,18 +110,5 @@ def process_children(
             data_out += '    "' + child + '"'
             data_out += ', :ref:`' + child + '`\n'
         data_out += '\n'
-    #
-    if line_increment > 0 :
-        data_out += '\n.. csv-table:: Line Number Mapping\n'
-        data_out += 4 * ' ' + ':header: rst file, xsrst input\n'
-        data_out += 4 * ' ' + ':widths: 10, 10\n\n'
-        previous_line = None
-        for pair in line_pair :
-            if previous_line is None :
-                data_out   += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
-            elif pair[1] - previous_line >= line_increment :
-                data_out   += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
     #
     return data_out

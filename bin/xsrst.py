@@ -423,25 +423,48 @@ import xsrst
 # -----------------------------------------------------------------------------
 # write file corresponding to a section
 def write_file(
+    line_increment,
     pseudo_heading,
     file_in,
     tmp_dir,
     section_name,
-    rst_output,
+    data_in,
 ) :
     #
+    # The last step in converting xsrst commands is removing line numbers
+    # (done last so mapping from output to input line number is correct)
+    data_out, line_pair = xsrst.remove_line_numbers(data_in)
+    #
+    # before
     # start output by including preamble and then pesudo_heading
     before = '.. include:: ../preamble.rst\n\n' + pseudo_heading
     #
+    # after
     # end output with input file name
     after = '----\n\n' + f'xsrst input file: ``{file_in}``\n'
     #
-    rst_output = before + rst_output + after
+    # after
+    # If line number increment is non-zero, include mapping from
+    # rst file line number to xsrst file line number
+    if line_increment > 0 :
+        after += '\n.. csv-table:: Line Number Mapping\n'
+        after += 4 * ' ' + ':header: rst file, xsrst input\n'
+        after += 4 * ' ' + ':widths: 10, 10\n\n'
+        previous_line = None
+        for pair in line_pair :
+            if previous_line is None :
+                after        += f'    {pair[0]}, {pair[1]}\n'
+                previous_line = pair[1]
+            elif pair[1] - previous_line >= line_increment :
+                after         += f'    {pair[0]}, {pair[1]}\n'
+                previous_line = pair[1]
+    #
+    data_out = before + data_out + after
     #
     # open output file
     file_out = tmp_dir + '/' + section_name + '.rst'
     file_ptr = open(file_out, 'w')
-    file_ptr.write(rst_output)
+    file_ptr.write(data_out)
     file_ptr.close()
 # =============================================================================
 # main program
@@ -666,12 +689,11 @@ def main() :
             # ---------------------------------------------------------------
             rst_output = xsrst.process_children(
                 section_data,
-                section_name,
                 list_children,
-                line_increment,
             )
             # ---------------------------------------------------------------
             write_file(
+                line_increment,
                 pseudo_heading,
                 file_in,
                 tmp_dir,
