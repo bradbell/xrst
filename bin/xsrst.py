@@ -421,8 +421,6 @@ import xsrst
 # after all the sections have been output and replaced during the
 # table_of_contents computation.
 def compute_output(
-    pattern,
-    sphinx_dir,
     file_in,
     section_data,
     list_children,
@@ -430,12 +428,6 @@ def compute_output(
     section_name,
     line_increment,
 ) :
-    # If file_path is relative to top git repo directory,
-    # xsrst_dir2top_dir/file_path is relative to sphinx_dir/xsrst directory.
-    depth   =  sphinx_dir.count('/') + 2
-    top_dir =  depth * '../'
-    top_dir = top_dir[:-1]
-    #
     # split section data into lines
     newline_list = xsrst.newline_indices(section_data)
     #
@@ -774,8 +766,6 @@ def main() :
             list_children = list_children + child_section
             # ---------------------------------------------------------------
             rst_output = compute_output(
-                pattern,
-                sphinx_dir,
                 file_in,
                 section_data,
                 list_children,
