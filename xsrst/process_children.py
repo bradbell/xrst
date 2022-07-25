@@ -5,34 +5,39 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
 import xsrst
+#
+pattern = re.compile( r'{xsrst_(children|child_list|child_table)}' )
+#
 def process_children(
-    section_data,
-    list_children,
+    data_in,
     section_name,
+    list_children,
     line_increment,
 ) :
-    # split section data into lines
-    newline_list = xsrst.newline_indices(section_data)
     #
-    # rst_output
-    rst_output = ''
+    # split section data into lines
+    newline_list = xsrst.newline_indices(data_in)
+    #
+    # data_out
+    data_out = ''
     #
     # put hidden toctree next
     if len(list_children) > 0  :
-        rst_output += '.. toctree::\n'
-        rst_output += '   :maxdepth: 1\n'
-        rst_output += '   :hidden:\n\n'
+        data_out += '.. toctree::\n'
+        data_out += '   :maxdepth: 1\n'
+        data_out += '   :hidden:\n\n'
         for child in list_children :
-            rst_output += '   ' + child + '\n'
-        rst_output += '\n'
+            data_out += '   ' + child + '\n'
+        data_out += '\n'
     #
     # now output the section data
     startline         = 0
     previous_empty    = True
     has_child_command = False
     for newline in newline_list :
-        line  = section_data[startline : newline + 1]
+        line  = data_in[startline : newline + 1]
         # commands that delay some processing to this point
         children_command       = line.startswith('{xsrst_children')
         child_list_command     = line.startswith('{xsrst_child_list')
@@ -43,19 +48,19 @@ def process_children(
             has_child_command = True
             #
             if child_list_command:
-                rst_output += '\n'
+                data_out += '\n'
                 for child in list_children :
-                    rst_output += '-  :ref:`' + child + '`\n'
-                rst_output += '\n'
+                    data_out += '-  :ref:`' + child + '`\n'
+                data_out += '\n'
             previous_empty = True
             if child_table_command:
-                rst_output += '.. csv-table::\n'
-                rst_output += '    :header:  "Child", "Title"\n'
-                rst_output += '    :widths: 20, 80\n\n'
+                data_out += '.. csv-table::\n'
+                data_out += '    :header:  "Child", "Title"\n'
+                data_out += '    :widths: 20, 80\n\n'
                 for child in list_children :
-                    rst_output += '    "' + child + '"'
-                    rst_output += ', :ref:`' + child + '`\n'
-                rst_output += '\n'
+                    data_out += '    "' + child + '"'
+                    data_out += ', :ref:`' + child + '`\n'
+                data_out += '\n'
             previous_empty = True
         else :
             m_obj = xsrst.pattern['line'].search(line)
@@ -70,42 +75,42 @@ def process_children(
                     line = '\n'
             #
             if line != '\n' :
-                rst_output += line
+                data_out += line
             elif not previous_empty :
-                rst_output += line
+                data_out += line
             #
             previous_empty = line == '\n'
         startline = newline + 1
     #
     # The last step in converting xsrst commands is removing line numbers
     # (done last so mapping from output to input line number is correct)
-    rst_output, line_pair = xsrst.remove_line_numbers(rst_output)
+    data_out, line_pair = xsrst.remove_line_numbers(data_out)
     # -----------------------------------------------------------------------
     if not previous_empty :
-        rst_output += '\n'
+        data_out += '\n'
     #
     # If there is no child command in this section, automatically generate
     # links to the child sections at the end of the section.
     if len(list_children) > 0 and not has_child_command :
-        rst_output += '.. csv-table::\n'
-        rst_output += '    :header: "Child", "Title"\n'
-        rst_output += '    :widths: 20, 80\n\n'
+        data_out += '.. csv-table::\n'
+        data_out += '    :header: "Child", "Title"\n'
+        data_out += '    :widths: 20, 80\n\n'
         for child in list_children :
-            rst_output += '    "' + child + '"'
-            rst_output += ', :ref:`' + child + '`\n'
-        rst_output += '\n'
+            data_out += '    "' + child + '"'
+            data_out += ', :ref:`' + child + '`\n'
+        data_out += '\n'
     #
     if line_increment > 0 :
-        rst_output += '\n.. csv-table:: Line Number Mapping\n'
-        rst_output += 4 * ' ' + ':header: rst file, xsrst input\n'
-        rst_output += 4 * ' ' + ':widths: 10, 10\n\n'
+        data_out += '\n.. csv-table:: Line Number Mapping\n'
+        data_out += 4 * ' ' + ':header: rst file, xsrst input\n'
+        data_out += 4 * ' ' + ':widths: 10, 10\n\n'
         previous_line = None
         for pair in line_pair :
             if previous_line is None :
-                rst_output   += f'    {pair[0]}, {pair[1]}\n'
+                data_out   += f'    {pair[0]}, {pair[1]}\n'
                 previous_line = pair[1]
             elif pair[1] - previous_line >= line_increment :
-                rst_output   += f'    {pair[0]}, {pair[1]}\n'
+                data_out   += f'    {pair[0]}, {pair[1]}\n'
                 previous_line = pair[1]
     #
-    return rst_output
+    return data_out

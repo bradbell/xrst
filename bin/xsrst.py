@@ -666,8 +666,8 @@ def main() :
             # ---------------------------------------------------------------
             rst_output = xsrst.process_children(
                 section_data,
-                list_children,
                 section_name,
+                list_children,
                 line_increment,
             )
             # ---------------------------------------------------------------
