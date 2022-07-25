@@ -21,7 +21,7 @@ import xsrst
 # is the corresponding line number that has been removed.
 #
 # data_out, line_pair =
-def remove_line_numbers(pattern, data_in) :
+def remove_line_numbers(data_in) :
     #
     # previous_end
     # index of the end of the previous match

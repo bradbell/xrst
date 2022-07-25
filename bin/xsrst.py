@@ -506,7 +506,7 @@ def compute_output(
     #
     # The last step in converting xsrst commands is removing line numbers
     # (done last so mapping from output to input line number is correct)
-    rst_output, line_pair = xsrst.remove_line_numbers(pattern, rst_output)
+    rst_output, line_pair = xsrst.remove_line_numbers(rst_output)
     # -----------------------------------------------------------------------
     if not previous_empty :
         rst_output += '\n'
