@@ -27,7 +27,7 @@ import xsrst
 #
 # data_out:
 # is a copy of data_in with the following extra command added directly before
-# its corresponding heading: The command {xsrst_section_number}
+# its corresponding heading: The command {xsrst_section_number}\n
 # is placed directly before the the first heading for this section.
 # This is makes it easy to add the section number to the heading text.
 #

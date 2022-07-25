@@ -20,8 +20,12 @@ xsrst Release Notes for 2022
 
 07-25
 *****
-Require that the suspend and resume commands are in their own line; see
-:ref:`suspend_cmd`.
+1.  Require that the suspend and resume commands are in their own line; see
+    :ref:`suspend_cmd`.
+2.  A problem was fixed the table corresponding to the
+    :ref:`xsrst_py.command_line_arguments.line_increment` table.
+    To be specific, the indices in the rst file were one larger than
+    they should have been.
 
 .. _2022.07-24:
 

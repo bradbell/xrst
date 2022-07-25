@@ -17,12 +17,13 @@ pattern_error = re.compile( r'\{xsrst_line [0-9]+@[^\n]' )
 # is the string we are removing the line numbers from {xsrst_line number@.
 #
 # data_out
-# The first return data_out is a copy of data_in with the lin numbers removed.
+# The first return data_out is a copy of data_in with the line numbers removed.
 #
 # line_pair
-# The second return line_pair is a list of tuples with two elements in each
-# tuple. The first element is the line number in data_out. The second element
-# is the corresponding line number that has been removed.
+# The second return line_pair is a list of two element tuples.
+# The first element is the line number in data_out note counting the
+# {xsrst_section_number}\n lines. The second element is the corresponding
+# line number that has been removed.
 #
 # data_out, line_pair =
 def remove_line_numbers(data_in) :
@@ -65,7 +66,8 @@ def remove_line_numbers(data_in) :
         #
         line_match = m_obj.group(1)
         line_out  += before.count('\n')
-        #
+        line_out  -= before.count('{xsrst_section_number}\n')
+
         line_pair.append( ( line_out, int(line_match) ) )
         data_out += before
         #

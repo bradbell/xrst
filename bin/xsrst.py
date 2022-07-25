@@ -431,10 +431,6 @@ def write_file(
     data_in,
 ) :
     #
-    # The last step in converting xsrst commands is removing line numbers
-    # (done last so mapping from output to input line number is correct)
-    data_out, line_pair = xsrst.remove_line_numbers(data_in)
-    #
     # before
     # start output by including preamble and then pesudo_heading
     before = '.. include:: ../preamble.rst\n\n' + pseudo_heading
@@ -443,11 +439,19 @@ def write_file(
     # end output with input file name
     after = '----\n\n' + f'xsrst input file: ``{file_in}``\n'
     #
+    # data_out
+    data_out = before + data_in + after
+    #
+    # The last step removing line numbers. This is done last for two reasons:
+    # 1. So mapping from output to input line number is correct.
+    # 2. We are no longer able to give line numbers for errors after this.
+    data_out, line_pair = xsrst.remove_line_numbers(data_out)
+    #
     # after
     # If line number increment is non-zero, include mapping from
     # rst file line number to xsrst file line number
     if line_increment > 0 :
-        after += '\n.. csv-table:: Line Number Mapping\n'
+        after  = '\n.. csv-table:: Line Number Mapping\n'
         after += 4 * ' ' + ':header: rst file, xsrst input\n'
         after += 4 * ' ' + ':widths: 10, 10\n\n'
         previous_line = None
@@ -458,8 +462,8 @@ def write_file(
             elif pair[1] - previous_line >= line_increment :
                 after         += f'    {pair[0]}, {pair[1]}\n'
                 previous_line = pair[1]
-    #
-    data_out = before + data_out + after
+        #
+        data_out = data_out + after
     #
     # open output file
     file_out = tmp_dir + '/' + section_name + '.rst'
