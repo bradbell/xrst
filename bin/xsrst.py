@@ -423,15 +423,20 @@ import xsrst
 # -----------------------------------------------------------------------------
 # write file corresponding to a section
 def write_file(
+    pseudo_heading,
     file_in,
     tmp_dir,
     section_name,
     rst_output,
 ) :
     #
-    # sphinx transition
-    rst_output += '----\n\n'
-    rst_output += f'xsrst input file: ``{file_in}``\n'
+    # start output by including preamble and then pesudo_heading
+    before = '.. include:: ../preamble.rst\n\n' + pseudo_heading
+    #
+    # end output with input file name
+    after = '----\n\n' + f'xsrst input file: ``{file_in}``\n'
+    #
+    rst_output = before + rst_output + after
     #
     # open output file
     file_out = tmp_dir + '/' + section_name + '.rst'
@@ -662,12 +667,12 @@ def main() :
             rst_output = xsrst.process_children(
                 section_data,
                 list_children,
-                pseudo_heading,
                 section_name,
                 line_increment,
             )
             # ---------------------------------------------------------------
             write_file(
+                pseudo_heading,
                 file_in,
                 tmp_dir,
                 section_name,

@@ -9,18 +9,14 @@ import xsrst
 def process_children(
     section_data,
     list_children,
-    pseudo_heading,
     section_name,
     line_increment,
 ) :
     # split section data into lines
     newline_list = xsrst.newline_indices(section_data)
     #
-    # start output by including preamble
-    rst_output = '.. include:: ../preamble.rst\n\n'
-    #
-    # put pseudo heading next
-    rst_output += pseudo_heading
+    # rst_output
+    rst_output = ''
     #
     # put hidden toctree next
     if len(list_children) > 0  :
