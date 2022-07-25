@@ -37,6 +37,10 @@ Example
 import re
 import xsrst
 #
+# pattern_suspend, pattern_resume
+pattern_suspend = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
+pattern_resume  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
+#
 # Remove text specified by suspend / resume pairs.
 #
 # data_in
@@ -61,20 +65,16 @@ def suspend_command(data_in, file_name, section_name) :
     # data_out
     data_out = data_in
     #
-    # pattern_suspend, pattern_resume
-    pattern_suspend = re.compile( r'\n[ \t]*\{xsrst_suspend\}' )
-    pattern_resume  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
-    #
     # m_suspend
-    m_suspend       = pattern_suspend.search(data_out)
+    m_suspend  = pattern_suspend.search(data_out)
     while m_suspend != None :
-        # suspend_start, suspend_end, data_rest
+        #
+        # suspend_stat, suspend_end
         suspend_start = m_suspend.start()
         suspend_end   = m_suspend.end()
-        data_rest     = data_out[ suspend_end : ]
         #
         # m_resume
-        m_resume      = pattern_resume.search(data_rest)
+        m_resume      = pattern_resume.search(data_out, suspend_end)
         if m_resume == None :
             msg  = 'There is a suspend command without a '
             msg += 'corresponding resume commannd.'
@@ -84,11 +84,14 @@ def suspend_command(data_in, file_name, section_name) :
                 m_obj=m_suspend,
                 data=data_out
             )
+        # resume_start, resume_end
+        resume_start = m_resume.start()
+        resume_end   = m_resume.end()
         #
         # m_obj
-        m_obj = pattern_suspend.search(data_rest)
+        m_obj = pattern_suspend.search(data_out, suspend_end)
         if m_obj != None :
-            if m_obj.start() < m_resume.start() :
+            if m_obj.start() < resume_end :
                 msg  = 'There are two suspend commands without a '
                 msg += 'resume command between them.'
                 xsrst.system_exit(msg,
@@ -97,10 +100,12 @@ def suspend_command(data_in, file_name, section_name) :
                     m_obj=m_obj,
                     data=data_rest
                 )
-        resume_end = m_resume.end() + suspend_end
-        data_rest  = data_out[ resume_end :]
-        data_out   = data_out[: suspend_start] + data_rest
         #
-        # redo match_suppend so relative to new data_out
+        # data_out
+        data_tmp  = data_out[: suspend_start]
+        data_tmp += data_out[resume_end : ]
+        data_out  = data_tmp
+        #
+        # m_suspend
         m_suspend = pattern_suspend.search(data_out)
     return data_out

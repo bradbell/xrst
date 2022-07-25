@@ -5,7 +5,11 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+import re
 import xsrst
+#
+#
+pattern_line_error = re.compile( r'\{xsrst_line [0-9]+@[^\n]' )
 #
 # Remove the number numbers that were added by add_line_number.
 #
@@ -22,6 +26,20 @@ import xsrst
 #
 # data_out, line_pair =
 def remove_line_numbers(data_in) :
+    #
+    # m_error
+    m_error = pattern_line_error.search(data_in)
+    if False :
+        start = max(m_error.start() - 50, 0)
+        end   = min(m_error.end() + 50, len(data_in))
+        msg   = 'Program error: Line number tracking is confused:\n'
+        msg  += '\nText before the bad line number ='
+        msg  += '\n---------------------------------\n'
+        msg  +=  data_in[start : m_error.start()]
+        msg  += '\nText after the bad line number ='
+        msg  += '\n--------------------------------\n'
+        msg  +=  data_in[m_error.end() :  end]
+        xsrst.system_exit(msg)
     #
     # previous_end
     # index of the end of the previous match
