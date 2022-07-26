@@ -113,7 +113,7 @@ def remove_comment_ch(data_in, file_name) :
         comment_ch = m_obj.group(1)
         if comment_ch == ']' :
             line = data_in[: m_obj.start() ].count('\n') + 1
-            msg  = 'Cannot use "]" as charaxter in comment_ch command\n'
+            msg  = 'Cannot use "]" as character in comment_ch command\n'
             xsrst.system_exit(msg, file_name=file_name, line=line)
         #
         # m_obj
