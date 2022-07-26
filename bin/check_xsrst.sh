@@ -49,10 +49,10 @@ do
         echo 'Check that the corresponding sections are correct and then:'
         echo "    cp sphinx/xsrst/$file sphinx/test_out/$file"
         exit 1
-    elif ! diff sphinx/test_out/$file sphinx/xsrst/$file
+    elif ! diff sphinx/xsrst/$file sphinx/test_out/$file
     then
         echo "sphinx/xsrst/$file changed; above is output of"
-        echo "    diff sphinx/test_out/$file sphinx/xsrst/$file"
+        echo "    diff sphinx/xsrst/$file sphinx/test_out/$file"
         echo 'If the new file is currect, replace old with new using:'
         echo "    cp sphinx/xsrst/$file sphinx/test_out/$file"
         exit 1
@@ -66,7 +66,7 @@ for file in $file_list
 do
     if [ ! -e sphinx/xsrst/$file ]
     then
-        echo "The output file sphinx/xsrst/$file does not nexist."
+        echo "The output file sphinx/xsrst/$file does not exist."
         echo "Use the following command to remove sphinx/test_out/$file ?"
         echo "    git rm sphinx/test_out/$file"
         exit 1

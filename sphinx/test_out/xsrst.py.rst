@@ -515,18 +515,6 @@ Change the number of spaces corresponding to a tab from 4 to 3 characters.
 This better aligns wih usage in sphinx rst files and saves output columns.
 
 .. meta::
-   :keywords: dot, in, section, name
-
-.. index:: dot, in, section, name
-
-.. _xsrst.py@wish_list@dot_in_section_name:
-
-Dot in Section Name
-===================
-Change the character used in the link to separate levels from dot ``.``
-to colon ``:`` so that dot can be used in section names.
-
-.. meta::
    :keywords: relative, file, names
 
 .. index:: relative, file, names
