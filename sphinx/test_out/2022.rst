@@ -16,6 +16,16 @@ xsrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@07-26:
+
+07-26
+*****
+1.  Change the heading level separator character from period ``.``
+    to at sign ``@``; see links to headings
+    :ref:`xsrst_py@links_to_headings@other_levels`.
+2.  Add period ``.`` to the list of valid characters in a
+    :ref:`begin_cmd@section_name`.
+
 .. _2022@07-25:
 
 07-25

@@ -12,6 +12,14 @@
 xsrst Release Notes for 2022
 ############################
 
+07-26
+*****
+1.  Change the heading level separator character from period ``.``
+    to at sign ``@``; see links to headings
+    :ref:`xsrst_py@links_to_headings@other_levels`.
+2.  Add period ``.`` to the list of valid characters in a
+    :ref:`begin_cmd@section_name`.
+
 07-25
 *****
 1.  Require that the suspend and resume commands are in their own line; see
