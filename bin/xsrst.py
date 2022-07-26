@@ -9,17 +9,13 @@
 """
 {xsrst_begin xsrst.py}
 {xsrst_spell
-    rtd
     cd
     underbars
     conf
     toctree
-    stackoverflow
-    pyspellchecker
     cmd
     cppad
     dir
-    cmake
 }
 
 Extract Sphinx RST
@@ -46,42 +42,6 @@ Syntax
 -   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
 -   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
     *line_increment*
-
-Purpose
-*******
-This is a pseudo sphinx extension that provides the following features:
-
-#.  The file name for each section is also an abbreviated title used
-    in the navigation bar and for linking to the section. This makes the
-    navigation bar more useful while also having long descriptive titles.
-    It also makes cross reference linking from other sections easier.
-#.  Enables documentation in the comments for source code
-    even when multiple computer languages are used for one package.
-    Allows the documentation for one section to span multiple locations
-    in the source code; see :ref:`suspend command<suspend_cmd>`.
-#.  Allows for multiple sections (rst output files) to be specified by one
-    input file. In addition, one section can be the parent for the
-    other sections in a file.
-#.  Generates the table of contents from the specification
-    of which files are included; see :ref:`child commands<child_cmd>`.
-    Generates a jump table to the headings for each section
-    so that the navigation bar need not include this information.
-#.  Includes a configurable :ref:`spell checker<spell_cmd>` and
-    :ref:`index<genindex>`.
-    Words in each heading are automatically included in the index.
-#.  Makes it easy to include source code, that also executes, from
-    directly below the :ref:`code command<code_cmd>` or from
-    a different location in a :ref:`file<file_cmd>`.
-    Uses tokens in the source, not line numbers in the source,
-    to signify start and stop of inclusion from a file.
-
-Requirements
-************
--   ``pip install --user pyspellchecker``
--   ``pip install --user sphinx``
--   ``pip install --user sphinx-rtd-theme``
--   The directory *cmake_install_prefix*\ ``/bin`` must be in your execution
-    path where *cmake_install_prefix* is the prefix used to instal cppad_py.
 
 Notation
 ********
@@ -311,67 +271,6 @@ you use tabs in the indentation.
 Example
 =======
 - :ref:`indent_exam`
-
-Wish List
-*********
-The following is a wish list for future improvements to ``xsrst.py``:
-
-.. _stackoverflow: https://stackoverflow.com/questions/1686837/
-   sphinx-documentation-tool-set-tab-width-in-output
-
-Standard Indent
-===============
-Change the number of spaces corresponding to a tab from 4 to 3 characters.
-This better aligns wih usage in sphinx rst files and saves output columns.
-
-Relative File Names
-===================
-Make all file names relative to the directory where the
-:ref:`xsrst.py@command_line_arguments@root_file` is located.
-
-Git Repository
-==============
-Remove the need for xsrst.py to be executed from the top directory
-of a git repository.
-
-Link to Section Name
-====================
-Currently, when you link to an entire section, you get the section title
-displayed for the link.
-It would be good to have a separate anchor that displays the section name;
-e.g., ``:ref:section_name`` would display the section name and
-``:ref:title@section_name`` would display the section title.
-
-Subset Documentation
-====================
-Have a way to specify subsets of the documentation by a group name.
-For example ``{xsrst_begin`` `section_name group_1 group_2}` would say that
-this documentation should be included if `group_1` or `group_2`
-is specified by the ``xsrst`` command line.
-If not groups were specified, all groups would be included.
-
-Spelling
-========
-Add a command that automatically fixes spelling warnings by changing
-the :ref:`spell_cmd` in input sections. This is usefull when
-pyspellchecker changes, when the
-:ref:`xsrst.py@command_line_arguments@spelling` file changes,
-and when xsrst.py automatically ignores more words.
-
-Tabs
-====
-Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd` and :ref:`file_cmd`.
-Perhaps it would be good to support tabs as a method for
-indenting xsrst input sections.
-
-Module
-======
-Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``xsrst.py`` program
-so that users would not have to copy it to a directory in
-their execution path.
 
 
 .. All the children of this section are commands except for heading_exam.

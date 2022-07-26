@@ -25,6 +25,7 @@ Program
 ********
 {xsrst_children
     bin/xsrst.py
+    wish_list.xsrst
     release_notes/release_notes.xsrst
 }
 :ref:`xsrst@py<xsrst.py>`
