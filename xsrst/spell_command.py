@@ -104,7 +104,10 @@ def spell_command(
     #
     # pattern
     pattern = dict()
-    pattern['spell']     = re.compile( r'\n[ \t]*\{xsrst_spell([^}]*)\}' )
+    pattern['spell']     = re.compile(
+        r'\n[ \t]*\{xsrst_spell([^}]*)\}' +
+        r'([ \t]*\{xsrst_line [0-9]+@)?'
+    )
     pattern['word_list'] = re.compile( r'[A-Za-z \t\n]*' )
     #
     # pattern

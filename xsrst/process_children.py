@@ -7,102 +7,100 @@
 # ----------------------------------------------------------------------------
 import re
 import xsrst
-pattern = re.compile( r'{xsrst_(children|child_list|child_table)}' )
+pattern_child = re.compile(
+    r'\n[ \t]*{xsrst_(children|child_list|child_table)}'
+)
 # ----------------------------------------------------------------------------
 # Add child information to this section
 #
 # data_in
 # is the data for this section after the child_command funcion has processed
-# the child commands
+# the child commands.
 #
 # list_children
-# is a list of the section names for the childrent of this section.
+# is a list of the section names for the children of this section.
 # If this list is empty, data_out is equal to data_in.
 #
 # data_out
-# the return value data_out is has the child information added. This includes
-# a hidden table of contents as well as cross refrence links depending on if
-# this section has a children, child_list, or child_table child command.
-# If there is not child command and list_children is non-empty,
-# the child_table style is used for the links to the children.
+# The return value data_out has the child information added.
+# This includes a hidden table of contents for the children at the beginning
+# of data_out. If the child command in data_in is {xsrst_child_list} or
+# {xsrst_child_table} of table with the corresponding links will replace the
+# comand. If the child comamnd is {xsrst_children}, the command is removed,
+# but no table of links is added.
+# If there is no child command and list_children is non-empty,
+# the child_table style is used for the links to the children which is placed
+# at the end of the data_out.
 #
 # data_out =
 def process_children(
+    section_name,
     data_in,
     list_children,
 ) :
     #
-    # split section data into lines
-    newline_list = xsrst.newline_indices(data_in)
+    if len(list_children) == 0 :
+        m_child = pattern_child.search(data_in)
+        assert m_child is None
+        return data_in
     #
     # data_out
-    data_out = ''
+    # put hidden toctree at begining of section
+    toctree  = '.. toctree::\n'
+    toctree += '   :maxdepth: 1\n'
+    toctree += '   :hidden:\n\n'
+    for child in list_children :
+        toctree += '   ' + child + '\n'
+    toctree += '\n'
+    data_out = toctree + data_in
     #
-    # put hidden toctree next
-    if len(list_children) > 0  :
-        data_out += '.. toctree::\n'
-        data_out += '   :maxdepth: 1\n'
-        data_out += '   :hidden:\n\n'
-        for child in list_children :
-            data_out += '   ' + child + '\n'
-        data_out += '\n'
+    # m_child
+    m_child = pattern_child.search(data_out)
     #
-    # now output the section data
-    startline         = 0
-    previous_empty    = True
-    has_child_command = False
-    for newline in newline_list :
-        line  = data_in[startline : newline + 1]
-        # commands that delay some processing to this point
-        children_command       = line.startswith('{xsrst_children')
-        child_list_command     = line.startswith('{xsrst_child_list')
-        child_table_command    = line.startswith('{xsrst_child_table')
-        if children_command or child_list_command or child_table_command:
-            assert not has_child_command
-            assert len(list_children) > 0
-            has_child_command = True
-            #
-            if child_list_command:
-                data_out += '\n'
-                for child in list_children :
-                    data_out += '-  :ref:`' + child + '`\n'
-                data_out += '\n'
-            previous_empty = True
-            if child_table_command:
-                data_out += '.. csv-table::\n'
-                data_out += '    :header:  "Child", "Title"\n'
-                data_out += '    :widths: 20, 80\n\n'
-                for child in list_children :
-                    data_out += '    "' + child + '"'
-                    data_out += ', :ref:`' + child + '`\n'
-                data_out += '\n'
-            previous_empty = True
+    # section_has_child_command
+    section_has_child_command =  m_child != None
+    if section_has_child_command :
+        #
+        # type of child command
+        child_type = m_child.group(1)
+        #
+        # There chould be at most one child command per section created by
+        # the xsrst.child_command routine
+        m_tmp = pattern_child.search(data_in, m_child.end())
+        assert m_tmp == None
+        #
+        # cmd
+        if child_type ==  'child_list' :
+            cmd = '\n\n'
+            for child in list_children :
+                cmd += '-  :ref:`' + child + '`\n'
+            cmd += '\n'
+        elif child_type == 'child_table' :
+            cmd  = '\n'
+            cmd += '.. csv-table::\n'
+            cmd += '    :header:  "Child", "Title"\n'
+            cmd += '    :widths: 20, 80\n\n'
+            for child in list_children :
+                cmd += '    "' + child + '"'
+                cmd += ', :ref:`' + child + '`\n'
+            cmd += '\n'
         else :
-            m_obj = xsrst.pattern['line'].search(line)
-            if m_obj :
-                empty_line = m_obj.start() == 0
-            else :
-                if len( line.strip(' \t') ) == 0 :
-                    empty_line = True
-                else :
-                    empty_line = False
-            if empty_line :
-                    line = '\n'
-            #
-            if line != '\n' :
-                data_out += line
-            elif not previous_empty :
-                data_out += line
-            #
-            previous_empty = line == '\n'
-        startline = newline + 1
+            assert child_type == 'children'
+            cmd = ''
+        #
+        # data_out
+        data_tmp = data_out[: m_child.start()]
+        data_tmp += cmd
+        data_tmp += data_out[m_child.end() :]
+        data_out  = data_tmp
+    #
     # -----------------------------------------------------------------------
-    if not previous_empty :
+    if data_out[-1] != '\n' :
         data_out += '\n'
     #
     # If there is no child command in this section, automatically generate
     # links to the child sections at the end of the section.
-    if len(list_children) > 0 and not has_child_command :
+    if not section_has_child_command :
         data_out += '.. csv-table::\n'
         data_out += '    :header: "Child", "Title"\n'
         data_out += '    :widths: 20, 80\n\n'

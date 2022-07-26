@@ -437,10 +437,16 @@ def write_file(
     #
     # after
     # end output with input file name
-    after = '----\n\n' + f'xsrst input file: ``{file_in}``\n'
+    after = '\n----\n\n' + f'xsrst input file: ``{file_in}``\n'
     #
     # data_out
     data_out = before + data_in + after
+    #
+    # Convert three or more sequential emtpty lines to two empty lines.
+    pattern = r'\n[ \t]*\{xsrst_line [0-9]+@'
+    data_out = re.sub(pattern, '\n', data_out)
+    pattern = r'(\n[ \t]*){2,}\n'
+    data_out = re.sub(pattern, '\n\n', data_out)
     #
     # The last step removing line numbers. This is done last for two reasons:
     # 1. So mapping from output to input line number is correct.
@@ -692,6 +698,7 @@ def main() :
             list_children = list_children + child_section
             # ---------------------------------------------------------------
             rst_output = xsrst.process_children(
+                section_name,
                 section_data,
                 list_children,
             )
