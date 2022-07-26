@@ -412,70 +412,6 @@ if( os.getcwd().endswith('/xsrst.git') ) :
         sys.path.insert(0, os.getcwd() )
 #
 import xsrst
-# ---------------------------------------------------------------------------
-# functions
-# ---------------------------------------------------------------------------
-# Compute output corresponding to a section.
-# This finishes all the xsrst processing that has been delayed to this point
-# with the exception of {xsrst_section_number}. The section number is computed
-# after all the sections have been output and replaced during the
-# table_of_contents computation.
-# -----------------------------------------------------------------------------
-# write file corresponding to a section
-def write_file(
-    line_increment,
-    pseudo_heading,
-    file_in,
-    tmp_dir,
-    section_name,
-    data_in,
-) :
-    #
-    # before
-    # start output by including preamble and then pesudo_heading
-    before = '.. include:: ../preamble.rst\n\n' + pseudo_heading
-    #
-    # after
-    # end output with input file name
-    after = '\n----\n\n' + f'xsrst input file: ``{file_in}``\n'
-    #
-    # data_out
-    data_out = before + data_in + after
-    #
-    # Convert three or more sequential emtpty lines to two empty lines.
-    pattern = r'\n[ \t]*\{xsrst_line [0-9]+@'
-    data_out = re.sub(pattern, '\n', data_out)
-    pattern = r'(\n[ \t]*){2,}\n'
-    data_out = re.sub(pattern, '\n\n', data_out)
-    #
-    # The last step removing line numbers. This is done last for two reasons:
-    # 1. So mapping from output to input line number is correct.
-    # 2. We are no longer able to give line numbers for errors after this.
-    data_out, line_pair = xsrst.remove_line_numbers(data_out)
-    #
-    # after
-    # If line number increment is non-zero, include mapping from
-    # rst file line number to xsrst file line number
-    if line_increment > 0 :
-        after  = '\n.. csv-table:: Line Number Mapping\n'
-        after += 4 * ' ' + ':header: rst file, xsrst input\n'
-        after += 4 * ' ' + ':widths: 10, 10\n\n'
-        previous_line = None
-        for pair in line_pair :
-            if previous_line is None :
-                after        += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
-            elif pair[1] - previous_line >= line_increment :
-                after         += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
-        #
-        data_out = data_out + after
-    #
-    # open output file
-    file_out = tmp_dir + '/' + section_name + '.rst'
-    file_ptr = open(file_out, 'w')
-    file_ptr.write(data_out)
-    file_ptr.close()
 # =============================================================================
 # main program
 # =============================================================================
@@ -697,19 +633,19 @@ def main() :
                         list_children.append(this_file_info[i]['section_name'])
             list_children = list_children + child_section
             # ---------------------------------------------------------------
-            rst_output = xsrst.process_children(
+            section_data = xsrst.process_children(
                 section_name,
                 section_data,
                 list_children,
             )
             # ---------------------------------------------------------------
-            write_file(
+            xsrst.temporary_file(
                 line_increment,
                 pseudo_heading,
                 file_in,
                 tmp_dir,
                 section_name,
-                rst_output,
+                section_data,
             )
     # -------------------------------------------------------------------------
     # xstst_automatic.rst
