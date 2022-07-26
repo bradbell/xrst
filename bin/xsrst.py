@@ -10,7 +10,6 @@
 {xsrst_begin xsrst.py}
 {xsrst_spell
     cd
-    underbars
     conf
     toctree
     cmd
@@ -18,24 +17,10 @@
     dir
 }
 
-Extract Sphinx RST
-##################
+Run Extract Sphinx RST
+######################
 
 
-.. The indentation examples are included by the child_cmd section.
-
-{xsrst_children
-    xsrst/get_file_info.py
-    xsrst/child_commands.py
-    xsrst/spell_command.py
-    xsrst/suspend_command.py
-    xsrst/code_command.py
-    xsrst/file_command.py
-    xsrst/remove_comment_ch.py
-    sphinx/test_in/heading.py
-    sphinx/test_in/indent.py
-    sphinx/configure.xsrst
-}
 
 Syntax
 ******
@@ -189,54 +174,6 @@ If there is no begin parent command in a file,
 all the sections in the file are children of the section containing the
 child command that included the file.
 
-Links to Headings
-*****************
-- For each word in a heading,
-  a link is included in the index from the word to the heading.
-
-- Each word in a heading is added to the html keyword meta data.
-
-- A cross reference label is defined for linking
-  from anywhere to a heading. The details of how to use
-  these labels are described below.
-
-- Headings can also be used to help find links to children
-  of the current section; see the heading
-  :ref:`xsrst.py@links_to_headings@children` below.
-
-First Level
-===========
-Each :ref:`section<begin_cmd@section>` can have only one header at
-the first level which is a title for the section.
-The :ref:`section_name<begin_cmd@section_name>`
-is automatically used
-as a label for linking the title for a section; i.e., the
-following two inputs will link to the title for *section_name*:
-
-1.  ``:ref:``\ \` *section_name*\ \`
-2.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
-
-The *linking_text* in the second syntax is the text the user sees.
-The linking text for the first syntax is the title for the Section,
-not the *section_name* (which is used as an abbreviated title).
-
-Other Levels
-============
-The label for linking a heading that is not at the first level is the label
-for the heading directly above it plus an at sign character :code:`@`,
-plus a lower case version of the heading with spaces and at signs converted to
-underbars :code:`_`. For example, the label for the heading for this
-paragraph is
-
-|tab| ``xsrst.py@links_to_headings@other_levels``
-
-This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading, and all the headings
-below it,  will break.
-This identifies the links that should be checked
-to make sure they are still valid.
-Note that one uses the *section_name* ``xsrst.py``
-and not the title ``extract_sphinx_rst``.
 
 Children
 ========
@@ -254,10 +191,6 @@ the other sections in the file are children of the parent.
 
 You can place a heading directly before the links to make them easier to find.
 
-Example
-=======
-:ref:`heading_exam`
-
 Indentation
 ***********
 If there are a number of spaces before
@@ -268,12 +201,21 @@ xsrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use tabs in the indentation.
 
-Example
-=======
-- :ref:`indent_exam`
 
+.. The indentation examples are included by the child_cmd section.
 
-.. All the children of this section are commands except for heading_exam.
+{xsrst_children
+    xsrst/get_file_info.py
+    xsrst/child_commands.py
+    xsrst/spell_command.py
+    xsrst/suspend_command.py
+    xsrst/code_command.py
+    xsrst/file_command.py
+    xsrst/remove_comment_ch.py
+    xsrst/process_headings.py
+    sphinx/test_in/indent.py
+    sphinx/configure.xsrst
+}
 
 Commands
 ********
@@ -284,6 +226,14 @@ Commands
 - :ref:`code_cmd`
 - :ref:`file_cmd`
 - :ref:`comment_ch_cmd`
+
+Other Children
+**************
+- :ref:`heading_links`
+- :ref:`indent_exam`
+- :ref:`configure`
+
+
 
 {xsrst_end xsrst.py}
 """
