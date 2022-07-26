@@ -24,7 +24,7 @@ so all its sections are children of the section that includes it.
 
 .. index:: other, section
 
-.. _children_exam.other_section:
+.. _children_exam@other_section:
 
 Other Section
 *************
@@ -35,7 +35,7 @@ The :ref:`link<children_other>` goes to the other section in this file.
 
 .. index:: this, file
 
-.. _children_exam.this_file:
+.. _children_exam@this_file:
 
 This File
 *********

@@ -27,7 +27,7 @@ Comment Character Command
 
 .. index:: syntax
 
-.. _comment_ch_cmd.syntax:
+.. _comment_ch_cmd@syntax:
 
 Syntax
 ******
@@ -38,7 +38,7 @@ Syntax
 
 .. index:: purpose
 
-.. _comment_ch_cmd.purpose:
+.. _comment_ch_cmd@purpose:
 
 Purpose
 *******
@@ -53,7 +53,7 @@ not end up in your ``.rst`` output file.
 
 .. index:: ch
 
-.. _comment_ch_cmd.purpose.ch:
+.. _comment_ch_cmd@purpose@ch:
 
 ch
 --
@@ -70,7 +70,7 @@ it must come before the first :ref:`begin_cmd` in the file.
 
 .. index:: beginning, line
 
-.. _comment_ch_cmd.beginning_of_a_line:
+.. _comment_ch_cmd@beginning_of_a_line:
 
 Beginning of a Line
 *******************
@@ -85,14 +85,14 @@ after the new line and before *text*.
 
 .. index:: input, stream
 
-.. _comment_ch_cmd.input_stream:
+.. _comment_ch_cmd@input_stream:
 
 Input Stream
 ************
 The special character (and one space if present directly after)
 is removed from the input stream before any xsrst processing; e.g.,
 calculating the amount of
-:ref:`xsrst_py.Indentation` for the current section.
+:ref:`xsrst_py@Indentation` for the current section.
 For example, if :code:`#` is the special character,
 the following input has the heading Factorial
 and the ``def`` token indented the same amount:
@@ -111,7 +111,7 @@ and the ``def`` token indented the same amount:
 
 .. index:: example
 
-.. _comment_ch_cmd.example:
+.. _comment_ch_cmd@example:
 
 Example
 *******

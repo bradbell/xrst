@@ -27,7 +27,7 @@ Suspend and Resume Commands
 
 .. index:: syntax
 
-.. _suspend_cmd.syntax:
+.. _suspend_cmd@syntax:
 
 Syntax
 ******
@@ -39,7 +39,7 @@ Syntax
 
 .. index:: purpose
 
-.. _suspend_cmd.purpose:
+.. _suspend_cmd@purpose:
 
 Purpose
 *******
@@ -54,7 +54,7 @@ spell checking.
 
 .. index:: example
 
-.. _suspend_cmd.example:
+.. _suspend_cmd@example:
 
 Example
 *******

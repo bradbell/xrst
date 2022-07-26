@@ -31,14 +31,14 @@ Heading Example
 
 .. index:: child, sections
 
-.. _heading_exam.child_sections:
+.. _heading_exam@child_sections:
 
 Child Sections
 **************
 The heading above (Child Sections) is an example heading for the
-:ref:`children<xsrst_py.links_to_headings.children>`
+:ref:`children<xsrst_py@links_to_headings@children>`
 of a
-:ref:`parent section<xsrst_py.table_of_contents.parent_section>`.
+:ref:`parent section<xsrst_py@table_of_contents@parent_section>`.
 
 .. csv-table::
     :header: "Child", "Title"

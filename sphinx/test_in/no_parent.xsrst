@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
-#          Copyright (C) 2020-21 Bradley M. Bell (bradbell@seanet.com)
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
@@ -12,7 +12,7 @@ No Parent Example
 All the sections in the file ``children.py``
 are children of the section below
 because ``children.py`` does not have a
-:ref:`parent section<begin_cmd.parent_section>`:
+:ref:`parent section<begin_cmd@parent_section>`:
 {xsrst_file
     # BEGIN_SRC
     # END_SRC
@@ -32,7 +32,7 @@ because ``children.py`` does not have a
 
     children.py File
     ****************
-    Go to the heading :ref:`This File<children_exam.this_file>` in
+    Go to the heading :ref:`This File<children_exam@this_file>` in
     the children_exam section linked below:
 
     Child Link children.py

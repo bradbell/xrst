@@ -17,7 +17,7 @@ Other Child
    :local:
 
 This is the other child section in
-:ref:`this file<children_exam.this_file>`.
+:ref:`this file<children_exam@this_file>`.
 
 ----
 

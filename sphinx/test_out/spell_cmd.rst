@@ -27,7 +27,7 @@ Spell Command
 
 .. index:: syntax
 
-.. _spell_cmd.syntax:
+.. _spell_cmd@syntax:
 
 Syntax
 ******
@@ -47,26 +47,26 @@ words with a backslash directly before them are not include in spell checking.
 
 .. index:: purpose
 
-.. _spell_cmd.purpose:
+.. _spell_cmd@purpose:
 
 Purpose
 *******
 You can specify a special list of words
 (not normally considered correct spelling)
 for the current section using the command above at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: spelling
 
 .. index:: spelling
 
-.. _spell_cmd.spelling:
+.. _spell_cmd@spelling:
 
 spelling
 ********
 The list of words in
-:ref:`spelling<xsrst_py.command_line_arguments.spelling>`
+:ref:`spelling<xsrst_py@command_line_arguments@spelling>`
 are considered correct spellings for all sections.
 The latex commands corresponding to the letters in the greek alphabet
 are automatically added to this list.
@@ -76,7 +76,7 @@ are automatically added to this list.
 
 .. index:: capital, letters
 
-.. _spell_cmd.capital_letters:
+.. _spell_cmd@capital_letters:
 
 Capital Letters
 ***************
@@ -92,7 +92,7 @@ special word list; e.g., the word list entry ``CppAD`` is the same as ``Cpp``.
 
 .. index:: double, words
 
-.. _spell_cmd.double_words:
+.. _spell_cmd@double_words:
 
 Double Words
 ************
@@ -105,7 +105,7 @@ the same word twice (next to each other) in the special word list.
 
 .. index:: example
 
-.. _spell_cmd.example:
+.. _spell_cmd@example:
 
 Example
 *******

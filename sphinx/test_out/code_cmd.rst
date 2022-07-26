@@ -27,7 +27,7 @@ Code Command
 
 .. index:: syntax
 
-.. _code_cmd.syntax:
+.. _code_cmd@syntax:
 
 Syntax
 ******
@@ -39,7 +39,7 @@ Syntax
 
 .. index:: purpose
 
-.. _code_cmd.purpose:
+.. _code_cmd@purpose:
 
 Purpose
 *******
@@ -52,7 +52,7 @@ of the command above.
 
 .. index:: requirements
 
-.. _code_cmd.requirements:
+.. _code_cmd@requirements:
 
 Requirements
 ************
@@ -68,7 +68,7 @@ referring to this command in documentation.
 
 .. index:: language
 
-.. _code_cmd.language:
+.. _code_cmd@language:
 
 language
 ********
@@ -81,7 +81,7 @@ for highlighting the code block.
 
 .. index:: rest, line
 
-.. _code_cmd.rest_of_line:
+.. _code_cmd@rest_of_line:
 
 Rest of Line
 ************
@@ -95,7 +95,7 @@ without having the comment characters in the xsrst output.
 
 .. index:: spell, checking
 
-.. _code_cmd.spell_checking:
+.. _code_cmd@spell_checking:
 
 Spell Checking
 **************
@@ -109,7 +109,7 @@ spell checking is done for these code blocks.
 
 .. index:: example
 
-.. _code_cmd.example:
+.. _code_cmd@example:
 
 Example
 *******

@@ -16,19 +16,19 @@ xsrst Release Notes for 2021
 .. contents::
    :local:
 
-.. _2021.11-13:
+.. _2021@11-13:
 
 11-13
 *****
 Line up the file names in the error message when a section name appears twice.
 
-.. _2021.10-25:
+.. _2021@10-25:
 
 10-25
 *****
 Adapt to pyspellchecker changes from version 0.5.5 to version 0.6.2.
 
-.. _2021.09-26:
+.. _2021@09-26:
 
 09-26
 *****
@@ -36,12 +36,12 @@ For changes before 2021-09-26; see
 `cppad_py release_notes
 <https://bradbell.github.io/cppad_py/doc/xsrst/release_notes.html>`_
 
-.. _2021.09-27:
+.. _2021@09-27:
 
 09-27
 *****
 Improve the error messaging when the
-:ref:`begin_cmd.section_name` in a begin command
+:ref:`begin_cmd@section_name` in a begin command
 has an invalid character; e.g. a period.
 
 ----

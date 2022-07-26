@@ -25,7 +25,7 @@ No Parent Example
 All the sections in the file ``children.py``
 are children of the section below
 because ``children.py`` does not have a
-:ref:`parent section<begin_cmd.parent_section>`:
+:ref:`parent section<begin_cmd@parent_section>`:
 
 .. literalinclude:: ../../sphinx/test_in/no_parent.xsrst
     :lines: 24-48

@@ -27,7 +27,7 @@ Program
     bin/xsrst.py
     release_notes/release_notes.xsrst
 }
-:ref:`xsrst.py<xsrst_py>`
+:ref:`xsrst@py<xsrst_py>`
 
 Purpose
 *******

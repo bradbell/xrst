@@ -218,9 +218,9 @@ for sections.
 Parent Section
 ==============
 A single input file may contain multiple
-:ref:`sections<begin_cmd.section>`.
+:ref:`sections<begin_cmd@section>`.
 The first of these sections may use a
-:ref:`parent begin<begin_cmd.parent_section>` command.
+:ref:`parent begin<begin_cmd@parent_section>` command.
 In this case, the other sections in the file are children of this section
 and this section is a child of the section containing the
 :ref:`child command<child_cmd>` that included this file.
@@ -242,13 +242,13 @@ Links to Headings
 
 - Headings can also be used to help find links to children
   of the current section; see the heading
-  :ref:`xsrst_py.links_to_headings.children` below.
+  :ref:`xsrst_py@links_to_headings@children` below.
 
 First Level
 ===========
-Each :ref:`section<begin_cmd.section>` can have only one header at
+Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
-The :ref:`section_name<begin_cmd.section_name>`
+The :ref:`section_name<begin_cmd@section_name>`
 is automatically used
 as a label for linking the title for a section; i.e., the
 following two inputs will link to the title for *section_name*:
@@ -260,15 +260,15 @@ The *linking_text* in the second syntax is the text the user sees.
 The linking text for the first syntax is the title for the Section,
 not the *section_name* (which is used as an abbreviated title).
 
-Other.Levels
+Other Levels
 ============
 The label for linking a heading that is not at the first level is the label
-for the heading directly above it plus a period character :code:`.`,
-plus a lower case version of the heading with spaces and periods converted to
+for the heading directly above it plus an at sign character :code:`@`,
+plus a lower case version of the heading with spaces and at signs converted to
 underbars :code:`_`. For example, the label for the heading for this
 paragraph is
 
-|tab| ``xsrst_py.links_to_headings.other_levels``
+|tab| ``xsrst_py@links_to_headings@other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
 If a heading changes, all the links to that heading, and all the headings
@@ -281,7 +281,7 @@ and not the title ``extract_sphinx_rst``.
 Children
 ========
 If a xsrst input file has a
-:ref:`parent section<xsrst_py.table_of_contents.parent_section>`
+:ref:`parent section<xsrst_py@table_of_contents@parent_section>`
 the other sections in the file are children of the parent.
 
 - If a section has a :ref:`child link or list command<child_cmd>`
@@ -332,7 +332,7 @@ to colon ``:`` so that dot can be used in section names.
 Relative File Names
 ===================
 Make all file names relative to the directory where the
-:ref:`xsrst_py.command_line_arguments.root_file` is located.
+:ref:`xsrst_py@command_line_arguments@root_file` is located.
 
 Git Repository
 ==============
@@ -360,7 +360,7 @@ Spelling
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`xsrst_py.command_line_arguments.spelling` file changes,
+:ref:`xsrst_py@command_line_arguments@spelling` file changes,
 and when xsrst.py automatically ignores more words.
 
 Tabs

@@ -27,7 +27,7 @@ File Command
 
 .. index:: syntax
 
-.. _file_cmd.syntax:
+.. _file_cmd@syntax:
 
 Syntax
 ******
@@ -48,20 +48,20 @@ Syntax
 
 .. index:: purpose
 
-.. _file_cmd.purpose:
+.. _file_cmd@purpose:
 
 Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: white, space
 
 .. index:: white, space
 
-.. _file_cmd.white_space:
+.. _file_cmd@white_space:
 
 White Space
 ***********
@@ -74,7 +74,7 @@ The new line character separates these tokens.
 
 .. index:: display_file
 
-.. _file_cmd.display_file:
+.. _file_cmd@display_file:
 
 display_file
 ************
@@ -91,7 +91,7 @@ that move files and automatically change references to them.
 
 .. index:: start
 
-.. _file_cmd.start:
+.. _file_cmd@start:
 
 start
 *****
@@ -107,7 +107,7 @@ not counting the command itself when the files are the same.
 
 .. index:: stop
 
-.. _file_cmd.stop:
+.. _file_cmd@stop:
 
 stop
 ****
@@ -123,7 +123,7 @@ not counting the command itself when the files are the same.
 
 .. index:: spell, checking
 
-.. _file_cmd.spell_checking:
+.. _file_cmd@spell_checking:
 
 Spell Checking
 **************
@@ -134,7 +134,7 @@ Spell checking is **not** done for these code blocks.
 
 .. index:: example
 
-.. _file_cmd.example:
+.. _file_cmd@example:
 
 Example
 *******

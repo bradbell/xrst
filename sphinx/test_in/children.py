@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 #                      xsrst: Extract Sphinx RST Files
-#          Copyright (C) 2020-21 Bradley M. Bell (bradbell@seanet.com)
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
@@ -34,7 +34,7 @@ This File
 Other Child
 ###########
 This is the other child section in
-:ref:`this file<children_exam.this_file>`.
+:ref:`this file<children_exam@this_file>`.
 
 
 {xsrst_end children_other}

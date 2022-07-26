@@ -33,11 +33,11 @@ The source code for this example is indented similar to the
 
 .. index:: children.py, file
 
-.. _no_parent_res.children_py_file:
+.. _no_parent_res@children.py_file:
 
 children.py File
 ****************
-Go to the heading :ref:`This File<children_exam.this_file>` in
+Go to the heading :ref:`This File<children_exam@this_file>` in
 the children_exam section linked below:
 
 .. meta::
@@ -45,7 +45,7 @@ the children_exam section linked below:
 
 .. index:: child, link, children.py
 
-.. _no_parent_res.child_link_children_py:
+.. _no_parent_res@child_link_children.py:
 
 Child Link children.py
 **********************
@@ -58,7 +58,7 @@ Child Link children.py
 
 .. index:: example
 
-.. _no_parent_res.example:
+.. _no_parent_res@example:
 
 Example
 *******

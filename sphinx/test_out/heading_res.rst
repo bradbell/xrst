@@ -23,7 +23,7 @@ The label for this heading is the section name ``heading_res``.
 
 .. index:: second, level
 
-.. _heading_res.second_level:
+.. _heading_res@second_level:
 
 Second Level
 ************
@@ -34,7 +34,7 @@ The label for this heading is ``heading_res.second_level``.
 
 .. index:: third, level
 
-.. _heading_res.second_level.third_level:
+.. _heading_res@second_level@third_level:
 
 Third Level
 ===========
@@ -45,7 +45,7 @@ The label for this heading is ``heading_res.second_level.third_level``.
 
 .. index:: another, second, level
 
-.. _heading_res.another_second_level:
+.. _heading_res@another_second_level:
 
 Another Second Level
 ********************
@@ -56,7 +56,7 @@ The label for this heading is ``heading_res.another_second_level``.
 
 .. index:: third, level
 
-.. _heading_res.another_second_level.third_level:
+.. _heading_res@another_second_level@third_level:
 
 Third Level
 ===========
@@ -68,20 +68,20 @@ The label for this heading is
 
 .. index:: links
 
-.. _heading_res.links:
+.. _heading_res@links:
 
 Links
 *****
 These links would also work from any other section because the
-:ref:`section_name<begin_cmd.section_name>`
+:ref:`section_name<begin_cmd@section_name>`
 (which is ``heading_res`` in this case)
 is included at the beginning of the target for the link:
 
 1. :ref:`heading_res`
-2. :ref:`heading_res.second_level`
-3. :ref:`heading_res.second_level.third_level`
-4. :ref:`heading_res.another_second_level`
-5. :ref:`heading_res.another_second_level.third_level`
+2. :ref:`heading_res@second_level`
+3. :ref:`heading_res@second_level@third_level`
+4. :ref:`heading_res@another_second_level`
+5. :ref:`heading_res@another_second_level@third_level`
 
 :ref:`heading_exam`
 

@@ -21,7 +21,7 @@ Suspend Result
 
 .. index:: factorial
 
-.. _suspend_res.factorial:
+.. _suspend_res@factorial:
 
 Factorial
 *********
@@ -32,7 +32,7 @@ Factorial
 
 .. index:: product
 
-.. _suspend_res.product:
+.. _suspend_res@product:
 
 Product
 *******

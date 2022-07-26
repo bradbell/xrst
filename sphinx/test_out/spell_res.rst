@@ -21,7 +21,7 @@ Spell Result
 
 .. index:: text
 
-.. _spell_res.text:
+.. _spell_res@text:
 
 Text
 ****
@@ -33,12 +33,12 @@ so we have included it in the special words for this section.
 
 .. index:: spelling, file
 
-.. _spell_res.spelling_file:
+.. _spell_res@spelling_file:
 
 Spelling File
 *************
 The word ``xsrst`` is included by the
-:ref:`spelling<xsrst_py.command_line_arguments.spelling>` file
+:ref:`spelling<xsrst_py@command_line_arguments@spelling>` file
 and hence need not be in the special words for this section.
 
 .. meta::
@@ -46,7 +46,7 @@ and hence need not be in the special words for this section.
 
 .. index:: math
 
-.. _spell_res.math:
+.. _spell_res@math:
 
 Math
 ****
@@ -62,7 +62,7 @@ are automatically included as correct spelling.
 
 .. index:: double, words
 
-.. _spell_res.double_words:
+.. _spell_res@double_words:
 
 Double Words
 ************

@@ -28,7 +28,7 @@ Extract Sphinx RST Files
 
 .. index:: version, 2021.9.7
 
-.. _xsrst.version_2021_9_7:
+.. _xsrst@version_2021.9.7:
 
 Version 2021.9.7
 ******************
@@ -38,7 +38,7 @@ Version 2021.9.7
 
 .. index:: git, repository
 
-.. _xsrst.git_repository:
+.. _xsrst@git_repository:
 
 Git Repository
 **************
@@ -49,19 +49,19 @@ https://github.com/bradbell/xsrst
 
 .. index:: program
 
-.. _xsrst.program:
+.. _xsrst@program:
 
 Program
 ********
 
-:ref:`xsrst.py<xsrst_py>`
+:ref:`xsrst@py<xsrst_py>`
 
 .. meta::
    :keywords: purpose
 
 .. index:: purpose
 
-.. _xsrst.purpose:
+.. _xsrst@purpose:
 
 Purpose
 *******
@@ -96,7 +96,7 @@ This is a pseudo sphinx extension that provides the following features:
 
 .. index:: requirements
 
-.. _xsrst.requirements:
+.. _xsrst@requirements:
 
 Requirements
 ************

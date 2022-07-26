@@ -21,7 +21,7 @@ Begin and End Commands
 
 .. index:: syntax
 
-.. _begin_cmd.syntax:
+.. _begin_cmd@syntax:
 
 Syntax
 ******
@@ -34,25 +34,25 @@ Syntax
 
 .. index:: section
 
-.. _begin_cmd.section:
+.. _begin_cmd@section:
 
 Section
 *******
 The start (end) of a section of the input file is indicated by a
 begin (end) command at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: section_name
 
 .. index:: section_name
 
-.. _begin_cmd.section_name:
+.. _begin_cmd@section_name:
 
 section_name
 ************
 The *section_name* is a non-empty sequence of the following characters:
-a-z, 0-9, and underbar ``_``.
+period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xsrst_``.
 A link is included in the index under the section name
 to the first heading the section.
@@ -63,7 +63,7 @@ The section name is also added to the html keyword meta data.
 
 .. index:: output, file
 
-.. _begin_cmd.output_file:
+.. _begin_cmd@output_file:
 
 Output File
 ***********
@@ -71,14 +71,14 @@ The output file corresponding to *section_name* is
 
 | |tab| *sphinx_dir*\ ``/xsrst/``\ *section_name*\ ``.rst``
 
-see :ref:`sphinx_dir<xsrst_py.command_line_arguments.sphinx_dir>`
+see :ref:`sphinx_dir<xsrst_py@command_line_arguments@sphinx_dir>`
 
 .. meta::
    :keywords: parent, section
 
 .. index:: parent, section
 
-.. _begin_cmd.parent_section:
+.. _begin_cmd@parent_section:
 
 Parent Section
 **************

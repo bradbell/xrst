@@ -21,7 +21,7 @@ File Result
 
 .. index:: factorial
 
-.. _file_res.factorial:
+.. _file_res@factorial:
 
 factorial
 *********
@@ -35,7 +35,7 @@ factorial
 
 .. index:: square
 
-.. _file_res.square:
+.. _file_res@square:
 
 square
 ******

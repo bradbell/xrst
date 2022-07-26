@@ -27,7 +27,7 @@ Child Commands
 
 .. index:: syntax
 
-.. _child_cmd.syntax:
+.. _child_cmd@syntax:
 
 Syntax
 ******
@@ -37,7 +37,7 @@ Syntax
 
 .. index:: children
 
-.. _child_cmd.syntax.children:
+.. _child_cmd@syntax@children:
 
 children
 ========
@@ -52,7 +52,7 @@ children
 
 .. index:: child_list
 
-.. _child_cmd.syntax.child_list:
+.. _child_cmd@syntax@child_list:
 
 child_list
 ==========
@@ -67,7 +67,7 @@ child_list
 
 .. index:: child_table
 
-.. _child_cmd.syntax.child_table:
+.. _child_cmd@syntax@child_table:
 
 child_table
 ===========
@@ -82,24 +82,24 @@ child_table
 
 .. index:: purpose
 
-.. _child_cmd.purpose:
+.. _child_cmd@purpose:
 
 Purpose
 *******
 A section can specify a set of files for which the
-:ref:`parent section<begin_cmd.parent_section>` of each file
+:ref:`parent section<begin_cmd@parent_section>` of each file
 is a child of the current section.
 (If there is not parent section in a file,
 all the sections in the file are children of the current section.)
 This is done using the commands above at the
-:ref:`beginning of a line<xsrst_py.notation.beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: file, names
 
 .. index:: file, names
 
-.. _child_cmd.file_names:
+.. _child_cmd@file_names:
 
 File Names
 **********
@@ -116,7 +116,7 @@ that move files and automatically change references to them.
 
 .. index:: links
 
-.. _child_cmd.links:
+.. _child_cmd@links:
 
 Links
 *****
@@ -131,7 +131,7 @@ You can place a heading directly before the links to make them easier to find.
 
 .. index:: example
 
-.. _child_cmd.example:
+.. _child_cmd@example:
 
 Example
 *******

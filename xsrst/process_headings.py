@@ -142,12 +142,12 @@ def process_headings(
         for level in range( len(heading_list) ) :
             if level == 0 :
                 label = section_name.lower().replace(' ', '_')
-                label = label.replace('.', '_')
+                label = label.replace('@', '_')
                 assert label == section_name
             else :
                 heading = heading_list[level]
                 text   = heading['text'].lower().replace(' ', '_')
-                label += '.' + text.replace('.', '_')
+                label += '@' + text.replace('@', '_')
         #
         # index_entries
         if len(heading_list) == 1 :
