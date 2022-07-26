@@ -29,7 +29,7 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above at the
-:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
 
 White Space
 ***********

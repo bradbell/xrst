@@ -7,7 +7,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xsrst_begin xsrst_py}
+{xsrst_begin xsrst.py}
 {xsrst_spell
     rtd
     cd
@@ -143,7 +143,7 @@ Example Configuration Files
     :header: file name, description
     :widths: 20, 80
 
-        conf.py,        :ref:`conf_py`
+        conf.py,        :ref:`conf.py`
         preamble.rst,   :ref:`preamble_rst`
         keyword,        :ref:`keyword`
         spelling,       :ref:`spelling`
@@ -242,7 +242,7 @@ Links to Headings
 
 - Headings can also be used to help find links to children
   of the current section; see the heading
-  :ref:`xsrst_py@links_to_headings@children` below.
+  :ref:`xsrst.py@links_to_headings@children` below.
 
 First Level
 ===========
@@ -268,20 +268,20 @@ plus a lower case version of the heading with spaces and at signs converted to
 underbars :code:`_`. For example, the label for the heading for this
 paragraph is
 
-|tab| ``xsrst_py@links_to_headings@other_levels``
+|tab| ``xsrst.py@links_to_headings@other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
 If a heading changes, all the links to that heading, and all the headings
 below it,  will break.
 This identifies the links that should be checked
 to make sure they are still valid.
-Note that one uses the *section_name* ``xsrst_py``
+Note that one uses the *section_name* ``xsrst.py``
 and not the title ``extract_sphinx_rst``.
 
 Children
 ========
 If a xsrst input file has a
-:ref:`parent section<xsrst_py@table_of_contents@parent_section>`
+:ref:`parent section<xsrst.py@table_of_contents@parent_section>`
 the other sections in the file are children of the parent.
 
 - If a section has a :ref:`child link or list command<child_cmd>`
@@ -332,7 +332,7 @@ to colon ``:`` so that dot can be used in section names.
 Relative File Names
 ===================
 Make all file names relative to the directory where the
-:ref:`xsrst_py@command_line_arguments@root_file` is located.
+:ref:`xsrst.py@command_line_arguments@root_file` is located.
 
 Git Repository
 ==============
@@ -360,7 +360,7 @@ Spelling
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`xsrst_py@command_line_arguments@spelling` file changes,
+:ref:`xsrst.py@command_line_arguments@spelling` file changes,
 and when xsrst.py automatically ignores more words.
 
 Tabs
@@ -391,7 +391,7 @@ Commands
 - :ref:`file_cmd`
 - :ref:`comment_ch_cmd`
 
-{xsrst_end xsrst_py}
+{xsrst_end xsrst.py}
 """
 # ---------------------------------------------------------------------------
 # imports

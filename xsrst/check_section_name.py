@@ -35,18 +35,16 @@ def check_section_name(section_name, file_name, m_obj, data) :
     assert m_obj
     assert type(data) == str
     #
-    m_obj = re.search('[a-z0-9_]+', section_name)
+    m_obj = re.search('[._a-z0-9]+', section_name)
     if m_obj.group(0) != section_name :
         msg  = f'in begin comamnd section_name = "{section_name}"'
         msg += '\nIt must be non-empty and only contain the following'
-        msg += 'characters: a-z, 0-9, _'
+        msg += ' characters: ., _, a-z, 0-9'
         xsrst.system_exit(msg,
             file_name=file_name, m_obj=m_obj, data=data
         )
     if section_name.startswith('xsrst_') :
-        # section name xsrst_py is used to document this program
-        if section_name != 'xsrst_py' :
-            msg = 'section_name cannot start with xsrst_'
-            xsrst.system_exit(msg,
-                file_name=file_name, m_obj=m_obj, data=data
-            )
+        msg = 'section_name cannot start with xsrst_'
+        xsrst.system_exit(msg,
+            file_name=file_name, m_obj=m_obj, data=data
+        )

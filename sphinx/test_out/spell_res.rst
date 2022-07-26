@@ -38,7 +38,7 @@ so we have included it in the special words for this section.
 Spelling File
 *************
 The word ``xsrst`` is included by the
-:ref:`spelling<xsrst_py@command_line_arguments@spelling>` file
+:ref:`spelling<xsrst.py@command_line_arguments@spelling>` file
 and hence need not be in the special words for this section.
 
 .. meta::

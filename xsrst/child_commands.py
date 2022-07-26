@@ -48,7 +48,7 @@ is a child of the current section.
 (If there is not parent section in a file,
 all the sections in the file are children of the current section.)
 This is done using the commands above at the
-:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
 
 File Names
 **********

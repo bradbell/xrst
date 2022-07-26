@@ -7,7 +7,7 @@ Table of Contents
 :ref:`xsrst`
 
 |
-| :ref:`1<xsrst_py>` Extract Sphinx RST
+| :ref:`1<xsrst.py>` Extract Sphinx RST
 |
 |  |space| :ref:`1.1<begin_cmd>` Begin and End Commands
 |  |space| :ref:`1.2<child_cmd>` Child Commands
@@ -38,7 +38,7 @@ Table of Contents
 |  |space|  |space| :ref:`1.9.1<indent_res>` Indent Result
 |  |space| :ref:`1.10<configure>` Example xsrst Configuration Files
 |
-|  |space|  |space| :ref:`1.10.1<conf_py>` The conf.py Example File
+|  |space|  |space| :ref:`1.10.1<conf.py>` The conf.py Example File
 |  |space|  |space| :ref:`1.10.2<spelling>` The spelling Example File
 |  |space|  |space| :ref:`1.10.3<keyword>` The keyword Example File
 |  |space|  |space| :ref:`1.10.4<preamble_rst>` The preamble.rst Example File

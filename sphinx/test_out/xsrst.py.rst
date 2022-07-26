@@ -1,7 +1,7 @@
 .. include:: ../preamble.rst
 
 !!!!!!!!
-xsrst_py
+xsrst.py
 !!!!!!!!
 
 .. toctree::
@@ -20,11 +20,11 @@ xsrst_py
    configure
 
 .. meta::
-   :keywords: xsrst_py, extract, sphinx, rst
+   :keywords: xsrst.py, extract, sphinx, rst
 
-.. index:: xsrst_py, extract, sphinx, rst
+.. index:: xsrst.py, extract, sphinx, rst
 
-.. _xsrst_py:
+.. _xsrst.py:
 
 Extract Sphinx RST
 ##################
@@ -38,7 +38,7 @@ Extract Sphinx RST
 
 .. index:: syntax
 
-.. _xsrst_py@syntax:
+.. _xsrst.py@syntax:
 
 Syntax
 ******
@@ -51,7 +51,7 @@ Syntax
 
 .. index:: purpose
 
-.. _xsrst_py@purpose:
+.. _xsrst.py@purpose:
 
 Purpose
 *******
@@ -86,7 +86,7 @@ This is a pseudo sphinx extension that provides the following features:
 
 .. index:: requirements
 
-.. _xsrst_py@requirements:
+.. _xsrst.py@requirements:
 
 Requirements
 ************
@@ -101,7 +101,7 @@ Requirements
 
 .. index:: notation
 
-.. _xsrst_py@notation:
+.. _xsrst.py@notation:
 
 Notation
 ********
@@ -111,7 +111,7 @@ Notation
 
 .. index:: white, space
 
-.. _xsrst_py@notation@white_space:
+.. _xsrst.py@notation@white_space:
 
 White Space
 ===========
@@ -123,7 +123,7 @@ tabs are not consider white space by xsrst.
 
 .. index:: beginning, line
 
-.. _xsrst_py@notation@beginning_of_a_line:
+.. _xsrst.py@notation@beginning_of_a_line:
 
 Beginning of a Line
 ===================
@@ -135,7 +135,7 @@ only white space, or nothing, comes before *text* in the line.
 
 .. index:: command, line, arguments
 
-.. _xsrst_py@command_line_arguments:
+.. _xsrst.py@command_line_arguments:
 
 Command Line Arguments
 **********************
@@ -145,7 +145,7 @@ Command Line Arguments
 
 .. index:: target
 
-.. _xsrst_py@command_line_arguments@target:
+.. _xsrst.py@command_line_arguments@target:
 
 target
 ======
@@ -174,7 +174,7 @@ If *target* is ``pdf``, you can use the following commands:
 
 .. index:: root_file
 
-.. _xsrst_py@command_line_arguments@root_file:
+.. _xsrst.py@command_line_arguments@root_file:
 
 root_file
 =========
@@ -186,7 +186,7 @@ relative to the top git repository directory.
 
 .. index:: sphinx_dir
 
-.. _xsrst_py@command_line_arguments@sphinx_dir:
+.. _xsrst.py@command_line_arguments@sphinx_dir:
 
 sphinx_dir
 ==========
@@ -207,7 +207,7 @@ Files that do not change are not updated (to speed up the processing).
 
 .. index:: example, configuration, files
 
-.. _xsrst_py@command_line_arguments@sphinx_dir@example_configuration_files:
+.. _xsrst.py@command_line_arguments@sphinx_dir@example_configuration_files:
 
 Example Configuration Files
 ---------------------------
@@ -215,7 +215,7 @@ Example Configuration Files
     :header: file name, description
     :widths: 20, 80
 
-        conf.py,        :ref:`conf_py`
+        conf.py,        :ref:`conf.py`
         preamble.rst,   :ref:`preamble_rst`
         keyword,        :ref:`keyword`
         spelling,       :ref:`spelling`
@@ -225,7 +225,7 @@ Example Configuration Files
 
 .. index:: conf.py
 
-.. _xsrst_py@command_line_arguments@sphinx_dir@conf.py:
+.. _xsrst.py@command_line_arguments@sphinx_dir@conf.py:
 
 conf.py
 -------
@@ -236,7 +236,7 @@ The sphinx configuration file.
 
 .. index:: preamble.rst
 
-.. _xsrst_py@command_line_arguments@sphinx_dir@preamble.rst:
+.. _xsrst.py@command_line_arguments@sphinx_dir@preamble.rst:
 
 preamble.rst
 ------------
@@ -248,7 +248,7 @@ This file should only define things, it should not generate any output.
 
 .. index:: spelling
 
-.. _xsrst_py@command_line_arguments@spelling:
+.. _xsrst.py@command_line_arguments@spelling:
 
 spelling
 ========
@@ -268,7 +268,7 @@ Special words, for a particular section, are specified using the
 
 .. index:: keyword
 
-.. _xsrst_py@command_line_arguments@keyword:
+.. _xsrst.py@command_line_arguments@keyword:
 
 keyword
 =======
@@ -293,7 +293,7 @@ A line that begins with :code:`#` is a comment
 
 .. index:: line_increment
 
-.. _xsrst_py@command_line_arguments@line_increment:
+.. _xsrst.py@command_line_arguments@line_increment:
 
 line_increment
 ==============
@@ -318,7 +318,7 @@ The table at the bottom of that file maps line numbers in
 
 .. index:: table, contents
 
-.. _xsrst_py@table_of_contents:
+.. _xsrst.py@table_of_contents:
 
 Table of Contents
 *****************
@@ -328,7 +328,7 @@ Table of Contents
 
 .. index:: toctree
 
-.. _xsrst_py@table_of_contents@toctree:
+.. _xsrst.py@table_of_contents@toctree:
 
 toctree
 =======
@@ -340,7 +340,7 @@ for sections.
 
 .. index:: parent, section
 
-.. _xsrst_py@table_of_contents@parent_section:
+.. _xsrst.py@table_of_contents@parent_section:
 
 Parent Section
 ==============
@@ -361,7 +361,7 @@ child command that included the file.
 
 .. index:: links, to, headings
 
-.. _xsrst_py@links_to_headings:
+.. _xsrst.py@links_to_headings:
 
 Links to Headings
 *****************
@@ -376,14 +376,14 @@ Links to Headings
 
 - Headings can also be used to help find links to children
   of the current section; see the heading
-  :ref:`xsrst_py@links_to_headings@children` below.
+  :ref:`xsrst.py@links_to_headings@children` below.
 
 .. meta::
    :keywords: first, level
 
 .. index:: first, level
 
-.. _xsrst_py@links_to_headings@first_level:
+.. _xsrst.py@links_to_headings@first_level:
 
 First Level
 ===========
@@ -406,7 +406,7 @@ not the *section_name* (which is used as an abbreviated title).
 
 .. index:: other, levels
 
-.. _xsrst_py@links_to_headings@other_levels:
+.. _xsrst.py@links_to_headings@other_levels:
 
 Other Levels
 ============
@@ -416,14 +416,14 @@ plus a lower case version of the heading with spaces and at signs converted to
 underbars :code:`_`. For example, the label for the heading for this
 paragraph is
 
-|tab| ``xsrst_py@links_to_headings@other_levels``
+|tab| ``xsrst.py@links_to_headings@other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
 If a heading changes, all the links to that heading, and all the headings
 below it,  will break.
 This identifies the links that should be checked
 to make sure they are still valid.
-Note that one uses the *section_name* ``xsrst_py``
+Note that one uses the *section_name* ``xsrst.py``
 and not the title ``extract_sphinx_rst``.
 
 .. meta::
@@ -431,12 +431,12 @@ and not the title ``extract_sphinx_rst``.
 
 .. index:: children
 
-.. _xsrst_py@links_to_headings@children:
+.. _xsrst.py@links_to_headings@children:
 
 Children
 ========
 If a xsrst input file has a
-:ref:`parent section<xsrst_py@table_of_contents@parent_section>`
+:ref:`parent section<xsrst.py@table_of_contents@parent_section>`
 the other sections in the file are children of the parent.
 
 - If a section has a :ref:`child link or list command<child_cmd>`
@@ -454,7 +454,7 @@ You can place a heading directly before the links to make them easier to find.
 
 .. index:: example
 
-.. _xsrst_py@links_to_headings@example:
+.. _xsrst.py@links_to_headings@example:
 
 Example
 =======
@@ -465,7 +465,7 @@ Example
 
 .. index:: indentation
 
-.. _xsrst_py@indentation:
+.. _xsrst.py@indentation:
 
 Indentation
 ***********
@@ -482,7 +482,7 @@ you use tabs in the indentation.
 
 .. index:: example
 
-.. _xsrst_py@indentation@example:
+.. _xsrst.py@indentation@example:
 
 Example
 =======
@@ -493,7 +493,7 @@ Example
 
 .. index:: wish, list
 
-.. _xsrst_py@wish_list:
+.. _xsrst.py@wish_list:
 
 Wish List
 *********
@@ -507,7 +507,7 @@ The following is a wish list for future improvements to ``xsrst.py``:
 
 .. index:: standard, indent
 
-.. _xsrst_py@wish_list@standard_indent:
+.. _xsrst.py@wish_list@standard_indent:
 
 Standard Indent
 ===============
@@ -519,7 +519,7 @@ This better aligns wih usage in sphinx rst files and saves output columns.
 
 .. index:: dot, in, section, name
 
-.. _xsrst_py@wish_list@dot_in_section_name:
+.. _xsrst.py@wish_list@dot_in_section_name:
 
 Dot in Section Name
 ===================
@@ -531,19 +531,19 @@ to colon ``:`` so that dot can be used in section names.
 
 .. index:: relative, file, names
 
-.. _xsrst_py@wish_list@relative_file_names:
+.. _xsrst.py@wish_list@relative_file_names:
 
 Relative File Names
 ===================
 Make all file names relative to the directory where the
-:ref:`xsrst_py@command_line_arguments@root_file` is located.
+:ref:`xsrst.py@command_line_arguments@root_file` is located.
 
 .. meta::
    :keywords: git, repository
 
 .. index:: git, repository
 
-.. _xsrst_py@wish_list@git_repository:
+.. _xsrst.py@wish_list@git_repository:
 
 Git Repository
 ==============
@@ -555,7 +555,7 @@ of a git repository.
 
 .. index:: link, to, section, name
 
-.. _xsrst_py@wish_list@link_to_section_name:
+.. _xsrst.py@wish_list@link_to_section_name:
 
 Link to Section Name
 ====================
@@ -570,7 +570,7 @@ e.g., ``:ref:section_name`` would display the section name and
 
 .. index:: subset, documentation
 
-.. _xsrst_py@wish_list@subset_documentation:
+.. _xsrst.py@wish_list@subset_documentation:
 
 Subset Documentation
 ====================
@@ -585,14 +585,14 @@ If not groups were specified, all groups would be included.
 
 .. index:: spelling
 
-.. _xsrst_py@wish_list@spelling:
+.. _xsrst.py@wish_list@spelling:
 
 Spelling
 ========
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`xsrst_py@command_line_arguments@spelling` file changes,
+:ref:`xsrst.py@command_line_arguments@spelling` file changes,
 and when xsrst.py automatically ignores more words.
 
 .. meta::
@@ -600,7 +600,7 @@ and when xsrst.py automatically ignores more words.
 
 .. index:: tabs
 
-.. _xsrst_py@wish_list@tabs:
+.. _xsrst.py@wish_list@tabs:
 
 Tabs
 ====
@@ -615,7 +615,7 @@ indenting xsrst input sections.
 
 .. index:: module
 
-.. _xsrst_py@wish_list@module:
+.. _xsrst.py@wish_list@module:
 
 Module
 ======
@@ -631,7 +631,7 @@ their execution path.
 
 .. index:: commands
 
-.. _xsrst_py@commands:
+.. _xsrst.py@commands:
 
 Commands
 ********

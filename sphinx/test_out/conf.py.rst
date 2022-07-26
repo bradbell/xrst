@@ -1,15 +1,15 @@
 .. include:: ../preamble.rst
 
 !!!!!!!
-conf_py
+conf.py
 !!!!!!!
 
 .. meta::
-   :keywords: conf_py, the, conf.py, example, file
+   :keywords: conf.py, the, conf.py, example, file
 
-.. index:: conf_py, the, conf.py, example, file
+.. index:: conf.py, the, conf.py, example, file
 
-.. _conf_py:
+.. _conf.py:
 
 The conf.py Example File
 ########################

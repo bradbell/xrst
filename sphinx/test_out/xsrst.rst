@@ -8,7 +8,7 @@ xsrst
    :maxdepth: 1
    :hidden:
 
-   xsrst_py
+   xsrst.py
    release_notes
 
 .. meta::
@@ -54,7 +54,7 @@ https://github.com/bradbell/xsrst
 Program
 ********
 
-:ref:`xsrst@py<xsrst_py>`
+:ref:`xsrst@py<xsrst.py>`
 
 .. meta::
    :keywords: purpose

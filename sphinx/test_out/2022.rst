@@ -22,9 +22,11 @@ xsrst Release Notes for 2022
 *****
 1.  Change the heading level separator character from period ``.``
     to at sign ``@``; see links to headings
-    :ref:`xsrst_py@links_to_headings@other_levels`.
+    :ref:`xsrst.py@links_to_headings@other_levels`.
 2.  Add period ``.`` to the list of valid characters in a
     :ref:`begin_cmd@section_name`.
+3.  Change the following section names in the xsrst documentation:
+    xsrst_py -> xsrst.py, conf_py -> conf.py.
 
 .. _2022@07-25:
 
@@ -33,7 +35,7 @@ xsrst Release Notes for 2022
 1.  Require that the suspend and resume commands are in their own line; see
     :ref:`suspend_cmd`.
 2.  A problem was fixed the table corresponding to the
-    :ref:`xsrst_py@command_line_arguments@line_increment` table.
+    :ref:`xsrst.py@command_line_arguments@line_increment` table.
     To be specific, the indices in the rst file were one larger than
     they should have been.
 
@@ -42,9 +44,9 @@ xsrst Release Notes for 2022
 07-24
 *****
 1.  Remove ignore spelling of latex commands from wish list (done).
-2.  Add :ref:`xsrst_py@wish_list@standard_indent`,
-    :ref:`xsrst_py@wish_list@relative_file_names`, and
-    :ref:`xsrst_py@wish_list@git_repository` entries to wish list.
+2.  Add :ref:`xsrst.py@wish_list@standard_indent`,
+    :ref:`xsrst.py@wish_list@relative_file_names`, and
+    :ref:`xsrst.py@wish_list@git_repository` entries to wish list.
 
 .. _2022@07-21:
 

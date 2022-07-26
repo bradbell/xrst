@@ -25,7 +25,7 @@ Section
 *******
 The start (end) of a section of the input file is indicated by a
 begin (end) command at the
-:ref:`beginning of a line<xsrst_py@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
 
 section_name
 ************
@@ -42,7 +42,7 @@ The output file corresponding to *section_name* is
 
 | |tab| *sphinx_dir*\ ``/xsrst/``\ *section_name*\ ``.rst``
 
-see :ref:`sphinx_dir<xsrst_py@command_line_arguments@sphinx_dir>`
+see :ref:`sphinx_dir<xsrst.py@command_line_arguments@sphinx_dir>`
 
 Parent Section
 **************
