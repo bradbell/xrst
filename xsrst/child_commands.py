@@ -78,8 +78,8 @@ The first of these sections may use a
 
 #.  If the first section in a file is a begin parent section,
     and there is also a child command in this section,
-    the child command children come first and then the children
-    that are other sections in the same file.
+    links to the child command children come first and then links to
+    the children that are other sections in the same file.
 
 Child Links
 ***********

@@ -98,6 +98,10 @@ import xsrst
 #   have index zero in file_info. In addition, if there is a parent section,
 #   there must be at least one other section; i.e., len(file_info) >= 2.
 #
+#   info['is_child']:
+#   is true (false) if this is (is not) a child of the first section in
+#   this file.
+#
 # file_info =
 def get_file_info(
         section_info,
@@ -187,6 +191,9 @@ def get_file_info(
                 # parent_section_name
                 parent_section_name = section_name
             #
+            # is_child
+            is_child = (not is_parent) and (parent_section_name != None)
+            #
             # data_index
             data_index += m_obj.end()
             #
@@ -228,6 +235,7 @@ def get_file_info(
                 'section_name' : section_name,
                 'section_data' : section_data,
                 'is_parent'    : is_parent,
+                'is_child'     : is_child,
             } )
             #
             # place to start search for next section

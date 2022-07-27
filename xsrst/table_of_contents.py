@@ -99,17 +99,26 @@ def table_of_contents(
     file_ptr.write(file_data)
     file_ptr.close()
     #
+    # in_parent_file_list, in_child_cmd_list
+    in_parent_file_list = list()
+    in_child_cmd_list   = list()
+    for child_index in range( len( section_info ) ) :
+        if section_info[child_index]['parent_section'] == section_index :
+            if section_info[child_index]['in_parent_file'] :
+                in_parent_file_list.append(child_index)
+            else :
+                in_child_cmd_list.append(child_index)
+    #
     # child_count, child_content
     child_count   = count + [0]
     child_content = ''
-    for child_index in range( len( section_info ) ) :
-        if section_info[child_index]['parent_section'] == section_index :
-            #
-            # child_index corresponds to a child of this section
-            child_count[-1] += 1
-            child_content += table_of_contents(
+    for child_index in in_child_cmd_list + in_parent_file_list :
+        #
+        # child_index corresponds to a child of this section
+        child_count[-1] += 1
+        child_content += table_of_contents(
             tmp_dir, target, section_info, level + 1, child_count, child_index
-            )
+        )
     #
     # child_content
     # if the number of children greater than one, put a blank line before

@@ -8,11 +8,11 @@ xsrst
    :maxdepth: 1
    :hidden:
 
+   xsrst.py
    commands
    other_processing
    wish_list
    release_notes
-   xsrst.py
 
 .. meta::
    :keywords: xsrst, extract, sphinx, rst, files

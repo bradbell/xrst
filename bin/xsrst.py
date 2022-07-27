@@ -268,64 +268,69 @@ def main() :
     pattern['resume']  = re.compile( r'\n[ \t]*\{xsrst_resume\}' )
     # -------------------------------------------------------------------------
     # process each file in the list
-    section_info     = list()
-    file_info_stack  = list()
-    file_info_done   = list()
-    info = {
+    sinfo_list       = list()
+    finfo_stack      = list()
+    finfo_done       = list()
+    finfo = {
         'file_in'        : root_file,
         'parent_file'    : None,
         'parent_section' : None,
     }
-    file_info_stack.append(info)
-    while 0 < len(file_info_stack) :
+    finfo_stack.append(finfo)
+    while 0 < len(finfo_stack) :
         # pop first element is stack so that order in pdf file and
         # table of contents is correct
-        info  = file_info_stack.pop(0)
+        finfo  = finfo_stack.pop(0)
         #
-        for info_tmp in file_info_done :
-            if info_tmp['file_in'] == info['file_in'] :
-                msg  = 'The file ' + info['file_in'] + ' is included twice\n'
-                msg += 'Once in ' + info_tmp['parent_file'] + '\n'
-                msg += 'and again in ' + info['parent_file'] + '\n'
+        for finfo_tmp in finfo_done :
+            if finfo_tmp['file_in'] == finfo['file_in'] :
+                msg  = 'The file ' + finfo['file_in'] + ' is included twice\n'
+                msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
+                msg += 'and again in ' + finfo['parent_file'] + '\n'
                 xsrst.system_exit(msg)
-        file_info_done.append(info)
+        finfo_done.append(finfo)
         #
-        file_in              = info['file_in']
-        parent_file          = info['parent_file']
-        parent_file_section  = info['parent_section']
+        file_in              = finfo['file_in']
+        parent_file          = finfo['parent_file']
+        parent_file_section  = finfo['parent_section']
         assert os.path.isfile(file_in)
         #
         # get xsrst docuemntation in this file
-        this_file_info = xsrst.get_file_info(
-            section_info,
+        sinfo_file_in = xsrst.get_file_info(
+            sinfo_list,
             file_in,
         )
         #
-        # determine index of parent section for this file
-        this_file_parent_section_index = None
-        for i in range( len(this_file_info) ) :
-            if this_file_info[i]['is_parent'] :
-                this_file_parent_section_index = len(section_info) + i
+        # parent_section_file_in
+        # index in sinfo_list of parent section for this file
+        parent_section_file_in = None
+        if sinfo_file_in[0]['is_parent'] :
+            parent_section_file_in = len(sinfo_list)
         #
-        # add this files sections to section_info
-        for i_section in range( len(this_file_info) ) :
+        # add this files sections to sinfo_list
+        for i_section in range( len(sinfo_file_in) ) :
             # ----------------------------------------------------------------
-            # section_name, section_data
-            section_name = this_file_info[i_section]['section_name']
-            section_data = this_file_info[i_section]['section_data']
-            is_parent    = this_file_info[i_section]['is_parent']
-            if is_parent or this_file_parent_section_index is None :
+            # section_name, section_data, is_parent
+            section_name = sinfo_file_in[i_section]['section_name']
+            section_data = sinfo_file_in[i_section]['section_data']
+            is_parent    = sinfo_file_in[i_section]['is_parent']
+            is_child     = sinfo_file_in[i_section]['is_child']
+            #
+            # parent_section
+            if is_parent or parent_section_file_in is None :
                 parent_section = parent_file_section
             else :
-                parent_section = this_file_parent_section_index
+                parent_section = parent_section_file_in
             #
-            section_info.append( {
+            # sinfo_list
+            sinfo_list.append( {
                 'section_name'   : section_name,
                 'file_in'        : file_in,
-                'parent_section' : parent_section
+                'parent_section' : parent_section,
+                'in_parent_file' : is_child,
             } )
             # ----------------------------------------------------------------
-            # process spell commands
+            # spell_command
             # do after suspend and before other commands to help ignore
             # sections of text that do not need spell checking
             section_data = xsrst.spell_command(
@@ -335,28 +340,30 @@ def main() :
                 spell_checker,
             )
             # ----------------------------------------------------------------
-            # process child command
+            # child commands
             section_data, child_file, child_section_list = xsrst.child_commands(
                 section_data,
                 file_in,
                 section_name,
             )
-            section_index = len(section_info) - 1
+            #
+            # section_index, finfo_stack
+            section_index = len(sinfo_list) - 1
             for file_tmp in child_file :
-                file_info_stack.append( {
+                finfo_stack.append( {
                     'file_in'        : file_tmp,
                     'parent_file'    : file_in,
                     'parent_section' : section_index,
                 } )
             # ----------------------------------------------------------------
-            # process code commands
+            # code commands
             section_data = xsrst.code_command(
                 section_data,
                 file_in,
                 section_name,
             )
             # ---------------------------------------------------------------
-            # file command: convert start and stop to line numbers
+            # file command
             section_data = xsrst.file_command(
                 section_data,
                 file_in,
@@ -364,6 +371,7 @@ def main() :
                 xsrst_dir,
             )
             # ---------------------------------------------------------------
+            # process headings
             # add labels and indices corresponding to headings
             section_data, section_title, pseudo_heading = \
             xsrst.process_headings(
@@ -373,23 +381,24 @@ def main() :
                 index_list,
             )
             # section title is used by table_of_contents
-            section_info[section_index]['section_title'] = section_title
+            sinfo_list[section_index]['section_title'] = section_title
             # ----------------------------------------------------------------
             # list_children
             # section_name for each of the children of the current section
-            list_children = list()
+            list_children = child_section_list
             if is_parent :
-                for i in range( len(this_file_info) ) :
+                for i in range( len(sinfo_file_in) ) :
                     if i != i_section :
-                        list_children.append(this_file_info[i]['section_name'])
-            list_children += child_section_list
+                        list_children.append(sinfo_file_in[i]['section_name'])
             # ---------------------------------------------------------------
+            # process children
             section_data = xsrst.process_children(
                 section_name,
                 section_data,
                 list_children,
             )
             # ---------------------------------------------------------------
+            # write temporary file
             xsrst.temporary_file(
                 line_increment,
                 pseudo_heading,
@@ -413,7 +422,7 @@ def main() :
     count         = list()
     section_index = 0
     output_data  += xsrst.table_of_contents(
-        tmp_dir, target, section_info, level, count, section_index
+        tmp_dir, target, sinfo_list, level, count, section_index
     )
     if target == 'html' :
         # Link to Index
@@ -427,10 +436,10 @@ def main() :
     file_ptr.write(output_data)
     file_ptr.close()
     # -------------------------------------------------------------------------
-    # section_info[0] corresponds to the root section
-    assert section_info[0]['file_in'] == root_file
-    assert section_info[0]['parent_section'] is None
-    section_name = section_info[0]['section_name']
+    # sinfo_list[0] corresponds to the root section
+    assert sinfo_list[0]['file_in'] == root_file
+    assert sinfo_list[0]['parent_section'] is None
+    section_name = sinfo_list[0]['section_name']
     #
     # index.rst
     index_file   = sphinx_dir + '/index.rst'
