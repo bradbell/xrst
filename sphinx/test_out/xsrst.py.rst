@@ -4,21 +4,6 @@
 xsrst.py
 !!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   begin_cmd
-   child_cmd
-   spell_cmd
-   suspend_cmd
-   code_cmd
-   file_cmd
-   comment_ch_cmd
-   indentation
-   heading_links
-   configure
-
 .. meta::
    :keywords: xsrst.py, run, extract, sphinx, rst
 
@@ -245,36 +230,6 @@ For example, the sphinx warning
 corresponds to line number 30 in the file ``children_exam.rst``.
 The table at the bottom of that file maps line numbers in
 ``children_exam.rst`` to line numbers in the corresponding xsrst input file.
-
-.. meta::
-   :keywords: commands
-
-.. index:: commands
-
-.. _xsrst.py@commands:
-
-Commands
-********
-- :ref:`begin_cmd`
-- :ref:`child_cmd`
-- :ref:`spell_cmd`
-- :ref:`suspend_cmd`
-- :ref:`code_cmd`
-- :ref:`file_cmd`
-- :ref:`comment_ch_cmd`
-
-.. meta::
-   :keywords: other, children
-
-.. index:: other, children
-
-.. _xsrst.py@other_children:
-
-Other Children
-**************
-- :ref:`heading_links`
-- :ref:`indentation`
-- :ref:`configure`
 
 ----
 

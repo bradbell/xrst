@@ -16,6 +16,13 @@ xsrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@07-27:
+
+07-27
+*****
+Improve the specification of how the child commands and begin_parent command
+interact; see :ref:`child_cmd@children`.
+
 .. _2022@07-26:
 
 07-26

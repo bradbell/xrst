@@ -5,7 +5,7 @@
              GNU General Public License version 3.0 or later see
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
-{xsrst_begin xsrst}
+{xsrst_begin_parent xsrst}
 {xsrst_spell
     pyspellchecker
     rtd
@@ -25,8 +25,6 @@ Program
 ********
 {xsrst_children
     bin/xsrst.py
-    wish_list.xsrst
-    release_notes/release_notes.xsrst
 }
 :ref:`xsrst@py<xsrst.py>`
 
@@ -67,5 +65,117 @@ Requirements
 -   ``pip install --user sphinx``
 -   ``pip install --user sphinx-rtd-theme``
 
-
 {xsrst_end xsrst}
+----------------------------------------------------------------------------
+{xsrst_begin commands}
+
+xsrst Commands
+##############
+{xsrst_child_table
+    xsrst/get_file_info.py
+    xsrst/child_commands.py
+    xsrst/spell_command.py
+    xsrst/suspend_command.py
+    xsrst/code_command.py
+    xsrst/file_command.py
+    xsrst/remove_comment_ch.py
+}
+
+{xsrst_end commands}
+----------------------------------------------------------------------------
+{xsrst_begin other_processing}
+
+Other Processing
+################
+{xsrst_child_table
+    xsrst/remove_indent.py
+    xsrst/process_headings.py
+    sphinx/configure.xsrst
+}
+
+
+{xsrst_end other_processing}
+----------------------------------------------------------------------------
+{xsrst_begin wish_list}
+{xsrst_spell
+    stackoverflow
+    pyspellchecker
+    cppad
+}
+
+Wish List
+#########
+The following is a wish list for future improvements to ``xsrst.py``:
+
+.. _stackoverflow: https://stackoverflow.com/questions/1686837/
+   sphinx-documentation-tool-set-tab-width-in-output
+
+Standard Indent
+***************
+Change the number of spaces corresponding to a tab from 4 to 3 characters.
+This better aligns wih usage in sphinx rst files and saves output columns.
+
+Relative File Names
+*******************
+Make all file names relative to the directory where the
+:ref:`xsrst.py@command_line_arguments@root_file` is located.
+
+Git Repository
+**************
+Remove the need for xsrst.py to be executed from the top directory
+of a git repository.
+
+Link to Section Name
+********************
+Currently, when you link to an entire section, you get the section title
+displayed for the link.
+It would be good to have a separate anchor that displays the section name;
+e.g., ``:ref:section_name`` would display the section name and
+``:ref:title@section_name`` would display the section title.
+
+Subset Documentation
+********************
+Have a way to specify subsets of the documentation by a group name.
+For example ``{xsrst_begin`` `section_name group_1 group_2}` would say that
+this documentation should be included if `group_1` or `group_2`
+is specified by the ``xsrst`` command line.
+If not groups were specified, all groups would be included.
+
+Spelling
+********
+Add a command that automatically fixes spelling warnings by changing
+the :ref:`spell_cmd` in input sections. This is usefull when
+pyspellchecker changes, when the
+:ref:`xsrst.py@command_line_arguments@spelling` file changes,
+and when xsrst.py automatically ignores more words.
+
+Tabs
+****
+Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
+It would be nice to have a way to control the size of tabs in the code blocks
+displayed by :ref:`code_cmd` and :ref:`file_cmd`.
+Perhaps it would be good to support tabs as a method for
+indenting xsrst input sections.
+
+Module
+******
+Convert the program into a python module and provide a pip distribution for it.
+It would at least be nice for cppad_py to install the ``xsrst.py`` program
+so that users would not have to copy it to a directory in
+their execution path.
+
+{xsrst_end wish_list}
+----------------------------------------------------------------------------
+{xsrst_begin release_notes}
+
+xsrst Release Notes By Year
+###########################
+{xsrst_children
+    release_notes/2022.xsrst
+    release_notes/2021.xsrst
+}
+:ref:`2022<2022>`,
+:ref:`2021<2021>`
+
+{xsrst_end release_notes}
+----------------------------------------------------------------------------

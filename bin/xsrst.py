@@ -142,37 +142,6 @@ corresponds to line number 30 in the file ``children_exam.rst``.
 The table at the bottom of that file maps line numbers in
 ``children_exam.rst`` to line numbers in the corresponding xsrst input file.
 
-{xsrst_children
-    xsrst/get_file_info.py
-    xsrst/child_commands.py
-    xsrst/spell_command.py
-    xsrst/suspend_command.py
-    xsrst/code_command.py
-    xsrst/file_command.py
-    xsrst/remove_comment_ch.py
-    xsrst/remove_indent.py
-    xsrst/process_headings.py
-    sphinx/configure.xsrst
-}
-
-Commands
-********
-- :ref:`begin_cmd`
-- :ref:`child_cmd`
-- :ref:`spell_cmd`
-- :ref:`suspend_cmd`
-- :ref:`code_cmd`
-- :ref:`file_cmd`
-- :ref:`comment_ch_cmd`
-
-Other Children
-**************
-- :ref:`heading_links`
-- :ref:`indentation`
-- :ref:`configure`
-
-
-
 {xsrst_end xsrst.py}
 """
 # ---------------------------------------------------------------------------
@@ -407,13 +376,13 @@ def main() :
             section_info[section_index]['section_title'] = section_title
             # ----------------------------------------------------------------
             # list_children
-            # first section in each file may need to add to child list
+            # section_name for each of the children of the current section
             list_children = list()
             if is_parent :
                 for i in range( len(this_file_info) ) :
                     if i != i_file :
                         list_children.append(this_file_info[i]['section_name'])
-            list_children = list_children + child_section
+            list_children += child_section
             # ---------------------------------------------------------------
             section_data = xsrst.process_children(
                 section_name,

@@ -119,17 +119,22 @@ Each of the files may contain multiple :ref:`sections<begin_cmd@section>`.
 The first of these sections may use a
 :ref:`parent begin<begin_cmd@parent_section>` command.
 
-1.  The first section in a file is always a child of the
+#.  The first section in a file is always a child of the
     section where the child command appears..
 
-2.  If the first section in a file is a begin parent section,
+#.  If the first section in a file is a begin parent section,
     the other sections in the file are children of the frist section.
     Hence the other sections are grand children of the section
     where the begin child command appears.
 
-3.  If there is no begin parent command in a file,
+#.  If there is no begin parent command in a file,
     all the sections in the file are children of the
     section where the child command appears.
+
+#.  If the first section in a file is a begin parent section,
+    and there is also a child command in this section,
+    the child command children come first and then the children
+    that are other sections in the same file.
 
 .. meta::
    :keywords: child, links

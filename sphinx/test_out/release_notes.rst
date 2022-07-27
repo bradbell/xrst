@@ -23,9 +23,9 @@ xsrst Release Notes By Year
 .. contents::
    :local:
 
-:ref:`2022<2022>`
+:ref:`2022<2022>`,
 :ref:`2021<2021>`
 
 ----
 
-xsrst input file: ``release_notes/release_notes.xsrst``
+xsrst input file: ``doc.xsrst``

@@ -133,4 +133,4 @@ their execution path.
 
 ----
 
-xsrst input file: ``wish_list.xsrst``
+xsrst input file: ``doc.xsrst``

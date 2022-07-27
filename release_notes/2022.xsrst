@@ -13,6 +13,11 @@
 xsrst Release Notes for 2022
 ############################
 
+07-27
+*****
+Improve the specification of how the child commands and begin_parent command
+interact; see :ref:`child_cmd@children`.
+
 07-26
 *****
 1.  Change the heading level separator character from period ``.``
