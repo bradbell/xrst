@@ -11,8 +11,8 @@
     underbars
 }
 
-Headings
-########
+Heading Links
+#############
 
 Index
 *****
@@ -21,8 +21,8 @@ a link is included in the index from the word to the heading.
 In addition, each word is added to the html keyword meta data
 next to the section heading.
 
-Links
-*****
+Labels
+******
 A cross reference label is defined for linking
 from anywhere to a heading. The details of how to use
 these labels are described below.

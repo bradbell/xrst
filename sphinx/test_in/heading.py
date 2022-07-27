@@ -11,17 +11,21 @@
 Heading Example
 ###############
 
+Child File
+**********
 {xsrst_file
     # BEGIN_SRC
     # END_SRC
 }
 
+
+Example Heading
+***************
+The example heading below (Child Sections) is a heading for the
+:ref:`child_cmd@syntax@child_table` for this section:
+
 Child Sections
 **************
-The heading above (Child Sections) is an example heading for the
-:ref:`children<xsrst.py@links_to_headings@children>`
-of a
-:ref:`parent section<xsrst.py@table_of_contents@parent_section>`.
 
 {xsrst_end heading_exam}
 """

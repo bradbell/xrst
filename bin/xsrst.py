@@ -82,25 +82,15 @@ were extracted from the source code and correspond to
 last time that ``xsrst.py`` was executed.
 Files that do not change are not updated (to speed up the processing).
 
-Example Configuration Files
----------------------------
-..  csv-table::
-    :header: file name, description
-    :widths: 20, 80
-
-        conf.py,        :ref:`conf.py`
-        preamble.rst,   :ref:`preamble_rst`
-        keyword,        :ref:`keyword`
-        spelling,       :ref:`spelling`
-
 conf.py
 -------
-The sphinx configuration file.
+The sphinx configuration file; e.g., :ref:`conf.py`.
 
 preamble.rst
 ------------
 An rst file that is automatically included at the beginning of every section.
 This file should only define things, it should not generate any output.
+For example, :ref:`preamble_rst`.
 
 
 spelling
@@ -113,6 +103,7 @@ that the spell checker will consider correct for all sections
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
+For example; see :ref:`spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
 
@@ -133,6 +124,7 @@ The regular expressions are one per line and
 leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
+For example; see :ref:`keyword`.
 
 line_increment
 ==============
@@ -191,17 +183,6 @@ the other sections in the file are children of the parent.
 
 You can place a heading directly before the links to make them easier to find.
 
-Indentation
-***********
-If there are a number of spaces before
-all of the xsrst documentation for a section,
-those characters are not included in the xsrst output.
-This enables one to indent the
-xsrst so it is grouped with the proper code block in the source.
-An error message will result if
-you use tabs in the indentation.
-
-
 .. The indentation examples are included by the child_cmd section.
 
 {xsrst_children
@@ -212,8 +193,8 @@ you use tabs in the indentation.
     xsrst/code_command.py
     xsrst/file_command.py
     xsrst/remove_comment_ch.py
+    xsrst/remove_indent.py
     xsrst/process_headings.py
-    sphinx/test_in/indent.py
     sphinx/configure.xsrst
 }
 
@@ -230,7 +211,7 @@ Commands
 Other Children
 **************
 - :ref:`heading_links`
-- :ref:`indent_exam`
+- :ref:`indentation`
 - :ref:`configure`
 
 

@@ -50,7 +50,7 @@ Input Stream
 The special character (and one space if present directly after)
 is removed from the input stream before any xsrst processing; e.g.,
 calculating the amount of
-:ref:`xsrst.py@Indentation` for the current section.
+:ref:`indentation` for the current section.
 For example, if :code:`#` is the special character,
 the following input has the heading Factorial
 and the ``def`` token indented the same amount:

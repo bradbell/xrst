@@ -17,7 +17,7 @@ xsrst Release Notes for 2022
 *****
 1.  Change the heading level separator character from period ``.``
     to at sign ``@``; see links to headings
-    :ref:`xsrst.py@links_to_headings@other_levels`.
+    :ref:`heading_links@labels@other_levels`.
 2.  Add period ``.`` to the list of valid characters in a
     :ref:`begin_cmd@section_name`.
 3.  Change the following section names in the xsrst documentation:
@@ -35,9 +35,9 @@ xsrst Release Notes for 2022
 07-24
 *****
 1.  Remove ignore spelling of latex commands from wish list (done).
-2.  Add :ref:`xsrst.py@wish_list@standard_indent`,
-    :ref:`xsrst.py@wish_list@relative_file_names`, and
-    :ref:`xsrst.py@wish_list@git_repository` entries to wish list.
+2.  Add :ref:`wish_list@standard_indent`,
+    :ref:`wish_list@relative_file_names`, and
+    :ref:`wish_list@git_repository` entries to wish list.
 
 07-21
 *****

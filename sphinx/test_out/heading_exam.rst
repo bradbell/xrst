@@ -22,9 +22,31 @@ Heading Example
 .. contents::
    :local:
 
+.. meta::
+   :keywords: child, file
+
+.. index:: child, file
+
+.. _heading_exam@child_file:
+
+Child File
+**********
+
 .. literalinclude:: ../../sphinx/test_in/heading.py
-    :lines: 30-70
+    :lines: 34-74
     :language: py
+
+.. meta::
+   :keywords: example, heading
+
+.. index:: example, heading
+
+.. _heading_exam@example_heading:
+
+Example Heading
+***************
+The example heading below (Child Sections) is a heading for the
+:ref:`child_cmd@syntax@child_table` for this section:
 
 .. meta::
    :keywords: child, sections
@@ -35,10 +57,6 @@ Heading Example
 
 Child Sections
 **************
-The heading above (Child Sections) is an example heading for the
-:ref:`children<xsrst.py@links_to_headings@children>`
-of a
-:ref:`parent section<xsrst.py@table_of_contents@parent_section>`.
 
 .. csv-table::
     :header: "Child", "Title"

@@ -7,7 +7,7 @@ Table of Contents
 :ref:`xsrst`
 
 |
-| :ref:`1<xsrst.py>` Extract Sphinx RST
+| :ref:`1<xsrst.py>` Run Extract Sphinx RST
 |
 |  |space| :ref:`1.1<begin_cmd>` Begin and End Commands
 |  |space| :ref:`1.2<child_cmd>` Child Commands
@@ -32,10 +32,12 @@ Table of Contents
 |  |space| :ref:`1.7<comment_ch_cmd>` Comment Character Command
 |  |space|  |space| :ref:`1.7.1<comment_ch_exam>` Comment Character Example
 |  |space|  |space|  |space| :ref:`1.7.1.1<comment_ch_res>` Comment Character Result
-|  |space| :ref:`1.8<heading_exam>` Heading Example
-|  |space|  |space| :ref:`1.8.1<heading_res>` Heading Result
-|  |space| :ref:`1.9<indent_exam>` Indent Example
-|  |space|  |space| :ref:`1.9.1<indent_res>` Indent Result
+|  |space| :ref:`1.8<indentation>` Indentation
+|  |space|  |space| :ref:`1.8.1<indent_exam>` Indent Example
+|  |space|  |space|  |space| :ref:`1.8.1.1<indent_res>` Indent Result
+|  |space| :ref:`1.9<heading_links>` Heading Links
+|  |space|  |space| :ref:`1.9.1<heading_exam>` Heading Example
+|  |space|  |space|  |space| :ref:`1.9.1.1<heading_res>` Heading Result
 |  |space| :ref:`1.10<configure>` Example xsrst Configuration Files
 |
 |  |space|  |space| :ref:`1.10.1<conf.py>` The conf.py Example File
@@ -43,10 +45,11 @@ Table of Contents
 |  |space|  |space| :ref:`1.10.3<keyword>` The keyword Example File
 |  |space|  |space| :ref:`1.10.4<preamble_rst>` The preamble.rst Example File
 |
-| :ref:`2<release_notes>` xsrst Release Notes By Year
+| :ref:`2<wish_list>` Wish List
+| :ref:`3<release_notes>` xsrst Release Notes By Year
 |
-|  |space| :ref:`2.1<2022>` xsrst Release Notes for 2022
-|  |space| :ref:`2.2<2021>` xsrst Release Notes for 2021
+|  |space| :ref:`3.1<2022>` xsrst Release Notes for 2022
+|  |space| :ref:`3.2<2021>` xsrst Release Notes for 2021
 |
 
 Link to Index

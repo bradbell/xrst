@@ -15,23 +15,21 @@ xsrst.py
    code_cmd
    file_cmd
    comment_ch_cmd
-   heading_exam
-   indent_exam
+   indentation
+   heading_links
    configure
 
 .. meta::
-   :keywords: xsrst.py, extract, sphinx, rst
+   :keywords: xsrst.py, run, extract, sphinx, rst
 
-.. index:: xsrst.py, extract, sphinx, rst
+.. index:: xsrst.py, run, extract, sphinx, rst
 
 .. _xsrst.py:
 
-Extract Sphinx RST
-##################
+Run Extract Sphinx RST
+######################
 .. contents::
    :local:
-
-.. The indentation examples are included by the child_cmd section.
 
 .. meta::
    :keywords: syntax
@@ -45,56 +43,6 @@ Syntax
 -   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
 -   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
     *line_increment*
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
-
-.. _xsrst.py@purpose:
-
-Purpose
-*******
-This is a pseudo sphinx extension that provides the following features:
-
-#.  The file name for each section is also an abbreviated title used
-    in the navigation bar and for linking to the section. This makes the
-    navigation bar more useful while also having long descriptive titles.
-    It also makes cross reference linking from other sections easier.
-#.  Enables documentation in the comments for source code
-    even when multiple computer languages are used for one package.
-    Allows the documentation for one section to span multiple locations
-    in the source code; see :ref:`suspend command<suspend_cmd>`.
-#.  Allows for multiple sections (rst output files) to be specified by one
-    input file. In addition, one section can be the parent for the
-    other sections in a file.
-#.  Generates the table of contents from the specification
-    of which files are included; see :ref:`child commands<child_cmd>`.
-    Generates a jump table to the headings for each section
-    so that the navigation bar need not include this information.
-#.  Includes a configurable :ref:`spell checker<spell_cmd>` and
-    :ref:`index<genindex>`.
-    Words in each heading are automatically included in the index.
-#.  Makes it easy to include source code, that also executes, from
-    directly below the :ref:`code command<code_cmd>` or from
-    a different location in a :ref:`file<file_cmd>`.
-    Uses tokens in the source, not line numbers in the source,
-    to signify start and stop of inclusion from a file.
-
-.. meta::
-   :keywords: requirements
-
-.. index:: requirements
-
-.. _xsrst.py@requirements:
-
-Requirements
-************
--   ``pip install --user pyspellchecker``
--   ``pip install --user sphinx``
--   ``pip install --user sphinx-rtd-theme``
--   The directory *cmake_install_prefix*\ ``/bin`` must be in your execution
-    path where *cmake_install_prefix* is the prefix used to instal cppad_py.
 
 .. meta::
    :keywords: notation
@@ -203,24 +151,6 @@ last time that ``xsrst.py`` was executed.
 Files that do not change are not updated (to speed up the processing).
 
 .. meta::
-   :keywords: example, configuration, files
-
-.. index:: example, configuration, files
-
-.. _xsrst.py@command_line_arguments@sphinx_dir@example_configuration_files:
-
-Example Configuration Files
----------------------------
-..  csv-table::
-    :header: file name, description
-    :widths: 20, 80
-
-        conf.py,        :ref:`conf.py`
-        preamble.rst,   :ref:`preamble_rst`
-        keyword,        :ref:`keyword`
-        spelling,       :ref:`spelling`
-
-.. meta::
    :keywords: conf.py
 
 .. index:: conf.py
@@ -229,7 +159,7 @@ Example Configuration Files
 
 conf.py
 -------
-The sphinx configuration file.
+The sphinx configuration file; e.g., :ref:`conf.py`.
 
 .. meta::
    :keywords: preamble.rst
@@ -242,6 +172,7 @@ preamble.rst
 ------------
 An rst file that is automatically included at the beginning of every section.
 This file should only define things, it should not generate any output.
+For example, :ref:`preamble_rst`.
 
 .. meta::
    :keywords: spelling
@@ -260,6 +191,7 @@ that the spell checker will consider correct for all sections
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
+For example; see :ref:`spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
 
@@ -287,6 +219,7 @@ The regular expressions are one per line and
 leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
+For example; see :ref:`keyword`.
 
 .. meta::
    :keywords: line_increment
@@ -357,81 +290,11 @@ all the sections in the file are children of the section containing the
 child command that included the file.
 
 .. meta::
-   :keywords: links, to, headings
-
-.. index:: links, to, headings
-
-.. _xsrst.py@links_to_headings:
-
-Links to Headings
-*****************
-- For each word in a heading,
-  a link is included in the index from the word to the heading.
-
-- Each word in a heading is added to the html keyword meta data.
-
-- A cross reference label is defined for linking
-  from anywhere to a heading. The details of how to use
-  these labels are described below.
-
-- Headings can also be used to help find links to children
-  of the current section; see the heading
-  :ref:`xsrst.py@links_to_headings@children` below.
-
-.. meta::
-   :keywords: first, level
-
-.. index:: first, level
-
-.. _xsrst.py@links_to_headings@first_level:
-
-First Level
-===========
-Each :ref:`section<begin_cmd@section>` can have only one header at
-the first level which is a title for the section.
-The :ref:`section_name<begin_cmd@section_name>`
-is automatically used
-as a label for linking the title for a section; i.e., the
-following two inputs will link to the title for *section_name*:
-
-1.  ``:ref:``\ \` *section_name*\ \`
-2.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
-
-The *linking_text* in the second syntax is the text the user sees.
-The linking text for the first syntax is the title for the Section,
-not the *section_name* (which is used as an abbreviated title).
-
-.. meta::
-   :keywords: other, levels
-
-.. index:: other, levels
-
-.. _xsrst.py@links_to_headings@other_levels:
-
-Other Levels
-============
-The label for linking a heading that is not at the first level is the label
-for the heading directly above it plus an at sign character :code:`@`,
-plus a lower case version of the heading with spaces and at signs converted to
-underbars :code:`_`. For example, the label for the heading for this
-paragraph is
-
-|tab| ``xsrst.py@links_to_headings@other_levels``
-
-This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading, and all the headings
-below it,  will break.
-This identifies the links that should be checked
-to make sure they are still valid.
-Note that one uses the *section_name* ``xsrst.py``
-and not the title ``extract_sphinx_rst``.
-
-.. meta::
    :keywords: children
 
 .. index:: children
 
-.. _xsrst.py@links_to_headings@children:
+.. _xsrst.py@table_of_contents@children:
 
 Children
 ========
@@ -449,170 +312,7 @@ the other sections in the file are children of the parent.
 
 You can place a heading directly before the links to make them easier to find.
 
-.. meta::
-   :keywords: example
-
-.. index:: example
-
-.. _xsrst.py@links_to_headings@example:
-
-Example
-=======
-:ref:`heading_exam`
-
-.. meta::
-   :keywords: indentation
-
-.. index:: indentation
-
-.. _xsrst.py@indentation:
-
-Indentation
-***********
-If there are a number of spaces before
-all of the xsrst documentation for a section,
-those characters are not included in the xsrst output.
-This enables one to indent the
-xsrst so it is grouped with the proper code block in the source.
-An error message will result if
-you use tabs in the indentation.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
-
-.. _xsrst.py@indentation@example:
-
-Example
-=======
-- :ref:`indent_exam`
-
-.. meta::
-   :keywords: wish, list
-
-.. index:: wish, list
-
-.. _xsrst.py@wish_list:
-
-Wish List
-*********
-The following is a wish list for future improvements to ``xsrst.py``:
-
-.. _stackoverflow: https://stackoverflow.com/questions/1686837/
-   sphinx-documentation-tool-set-tab-width-in-output
-
-.. meta::
-   :keywords: standard, indent
-
-.. index:: standard, indent
-
-.. _xsrst.py@wish_list@standard_indent:
-
-Standard Indent
-===============
-Change the number of spaces corresponding to a tab from 4 to 3 characters.
-This better aligns wih usage in sphinx rst files and saves output columns.
-
-.. meta::
-   :keywords: relative, file, names
-
-.. index:: relative, file, names
-
-.. _xsrst.py@wish_list@relative_file_names:
-
-Relative File Names
-===================
-Make all file names relative to the directory where the
-:ref:`xsrst.py@command_line_arguments@root_file` is located.
-
-.. meta::
-   :keywords: git, repository
-
-.. index:: git, repository
-
-.. _xsrst.py@wish_list@git_repository:
-
-Git Repository
-==============
-Remove the need for xsrst.py to be executed from the top directory
-of a git repository.
-
-.. meta::
-   :keywords: link, to, section, name
-
-.. index:: link, to, section, name
-
-.. _xsrst.py@wish_list@link_to_section_name:
-
-Link to Section Name
-====================
-Currently, when you link to an entire section, you get the section title
-displayed for the link.
-It would be good to have a separate anchor that displays the section name;
-e.g., ``:ref:section_name`` would display the section name and
-``:ref:title@section_name`` would display the section title.
-
-.. meta::
-   :keywords: subset, documentation
-
-.. index:: subset, documentation
-
-.. _xsrst.py@wish_list@subset_documentation:
-
-Subset Documentation
-====================
-Have a way to specify subsets of the documentation by a group name.
-For example ``{xsrst_begin`` `section_name group_1 group_2}` would say that
-this documentation should be included if `group_1` or `group_2`
-is specified by the ``xsrst`` command line.
-If not groups were specified, all groups would be included.
-
-.. meta::
-   :keywords: spelling
-
-.. index:: spelling
-
-.. _xsrst.py@wish_list@spelling:
-
-Spelling
-========
-Add a command that automatically fixes spelling warnings by changing
-the :ref:`spell_cmd` in input sections. This is usefull when
-pyspellchecker changes, when the
-:ref:`xsrst.py@command_line_arguments@spelling` file changes,
-and when xsrst.py automatically ignores more words.
-
-.. meta::
-   :keywords: tabs
-
-.. index:: tabs
-
-.. _xsrst.py@wish_list@tabs:
-
-Tabs
-====
-Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd` and :ref:`file_cmd`.
-Perhaps it would be good to support tabs as a method for
-indenting xsrst input sections.
-
-.. meta::
-   :keywords: module
-
-.. index:: module
-
-.. _xsrst.py@wish_list@module:
-
-Module
-======
-Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``xsrst.py`` program
-so that users would not have to copy it to a directory in
-their execution path.
-
-.. All the children of this section are commands except for heading_exam.
+.. The indentation examples are included by the child_cmd section.
 
 .. meta::
    :keywords: commands
@@ -630,6 +330,19 @@ Commands
 - :ref:`code_cmd`
 - :ref:`file_cmd`
 - :ref:`comment_ch_cmd`
+
+.. meta::
+   :keywords: other, children
+
+.. index:: other, children
+
+.. _xsrst.py@other_children:
+
+Other Children
+**************
+- :ref:`heading_links`
+- :ref:`indentation`
+- :ref:`configure`
 
 ----
 

@@ -5,6 +5,28 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
+"""
+{xsrst_begin indentation}
+
+Indentation
+###########
+If there are a number of spaces (or tabs) before
+all of the xsrst documentation for a section,
+those characters are not included in the xsrst output.
+This enables one to indent the
+xsrst so it is grouped with the proper code block in the source.
+An error message will result if
+you use mix tabs and spaces for the indentation.
+
+{xsrst_children
+    sphinx/test_in/indent.py
+}
+Example
+*******
+- :ref:`indent_exam`
+
+{xsrst_end indentation}
+"""
 import re
 import xsrst
 #
