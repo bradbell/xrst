@@ -143,11 +143,12 @@ import xsrst
 # The second return file_list is the list of files in the child command
 # (and in same order as in the child command).
 #
-# section_list:
-# Is the list of children of the section_name section are in the the files in
-# file_list. If a file in file_list has a begin_parent command, it only has
-# one section in section_list for that file. Otherwise all of the section
-# in the file are in section_list.
+# child_section_list:
+# Is the a list of section names corresponding to the children of the
+# this section that are in the files specified by file_list.
+# If a file in file_list has a begin_parent command, it only has
+# one section in child_section_list for that file. Otherwise all of the
+# sections in the file are in child_section_list.
 #
 # data_out, file_list, section_list =
 def child_commands(data_in, file_name, section_name) :

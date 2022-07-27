@@ -308,12 +308,12 @@ def main() :
                 this_file_parent_section_index = len(section_info) + i
         #
         # add this files sections to section_info
-        for i_file in range( len(this_file_info) ) :
+        for i_section in range( len(this_file_info) ) :
             # ----------------------------------------------------------------
             # section_name, section_data
-            section_name = this_file_info[i_file]['section_name']
-            section_data = this_file_info[i_file]['section_data']
-            is_parent    = this_file_info[i_file]['is_parent']
+            section_name = this_file_info[i_section]['section_name']
+            section_data = this_file_info[i_section]['section_data']
+            is_parent    = this_file_info[i_section]['is_parent']
             if is_parent or this_file_parent_section_index is None :
                 parent_section = parent_file_section
             else :
@@ -336,7 +336,7 @@ def main() :
             )
             # ----------------------------------------------------------------
             # process child command
-            section_data, child_file, child_section = xsrst.child_commands(
+            section_data, child_file, child_section_list = xsrst.child_commands(
                 section_data,
                 file_in,
                 section_name,
@@ -380,9 +380,9 @@ def main() :
             list_children = list()
             if is_parent :
                 for i in range( len(this_file_info) ) :
-                    if i != i_file :
+                    if i != i_section :
                         list_children.append(this_file_info[i]['section_name'])
-            list_children += child_section
+            list_children += child_section_list
             # ---------------------------------------------------------------
             section_data = xsrst.process_children(
                 section_name,
