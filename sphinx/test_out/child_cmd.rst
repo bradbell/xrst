@@ -86,13 +86,8 @@ child_table
 
 Purpose
 *******
-A section can specify a set of files for which the
-:ref:`parent section<begin_cmd@parent_section>` of each file
-is a child of the current section.
-(If there is not parent section in a file,
-all the sections in the file are children of the current section.)
-This is done using the commands above at the
-:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
+These commands specify the section that are children
+of the current section.
 
 .. meta::
    :keywords: file, names
@@ -112,19 +107,69 @@ This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
 .. meta::
-   :keywords: links
+   :keywords: children
 
-.. index:: links
+.. index:: children
 
-.. _child_cmd@links:
+.. _child_cmd@children:
 
-Links
-*****
-The child list and child table commands also place
-links to all the children of the current at the location of the command.
-The links are displayed using the title for each section.
-The child table command includes the section name next to the title.
-You can place a heading directly before the links to make them easier to find.
+Children
+********
+Each of the files may contain multiple :ref:`sections<begin_cmd@section>`.
+The first of these sections may use a
+:ref:`parent begin<begin_cmd@parent_section>` command.
+
+1.  The first section in a file is always a child of the
+    section where the child command appears..
+
+2.  If the first section in a file is a begin parent section,
+    the other sections in the file are children of the frist section.
+    Hence the other sections are grand children of the section
+    where the begin child command appears.
+
+3.  If there is no begin parent command in a file,
+    all the sections in the file are children of the
+    section where the child command appears.
+
+.. meta::
+   :keywords: child, links
+
+.. index:: child, links
+
+.. _child_cmd@child_links:
+
+Child Links
+***********
+#.  The child_list syntax generates links to the children that
+    display the title for each section.
+    The child_table syntax generates links to the children that
+    display both the section name and section tile.
+
+#.  If a section has a child_list or child_table command,
+    links to all the children of the section are placed where the
+    child command is located.
+    You can place a heading directly before the these commands
+    to make the links easier to find.
+
+#.  If a section uses the children syntax,
+    no automatic links to the children of the current section are generated.
+
+#.  If a section does not have a child command,
+    and it has a begin parent command,
+    links to the children of the section are placed at the end of the section.
+
+.. meta::
+   :keywords: table, contents,, toctree
+
+.. index:: table, contents,, toctree
+
+.. _child_cmd@table_of_contents,_toctree:
+
+Table of Contents, toctree
+**************************
+A sphinx ``toctree`` directive is automatically generated for each
+section that has children. This directive has the hidden attribute so that
+one can control the links to the children using the syntax choices above.
 
 .. meta::
    :keywords: example
