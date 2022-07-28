@@ -98,17 +98,15 @@ This is a pseudo sphinx extension that provides the following features:
     to signify start and stop of inclusion from a file.
 
 .. meta::
-   :keywords: requirements
+   :keywords: install
 
-.. index:: requirements
+.. index:: install
 
-.. _xrst@requirements:
+.. _xrst@install:
 
-Requirements
+Install
 ************
--   ``pip install --user pyspellchecker``
--   ``pip install --user sphinx``
--   ``pip install --user sphinx-rtd-theme``
+-   ``pip install --index-url https://test.pypi.org/simple/ xrst``
 
 ----
 
