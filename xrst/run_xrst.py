@@ -11,20 +11,20 @@
 {xrst_spell
     cd
     conf
-    cppad
     dir
+    mv
 }
 
-Run Extract Sphinx RST
-######################
+Run Extract Sphinx RST And Sphinx
+#################################
 
 
 
 Syntax
 ******
 -   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
--   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
-    *line_increment*
+    [ *line_increment* ]
+
 
 Notation
 ********
@@ -46,19 +46,25 @@ target
 ======
 The command line argument *target* must be ``html`` or ``pdf`` and
 specifies the type of type output you plan to generate using sphinx.
+
+Run Sphinx
+----------
 If *target* is ``html`` you can generate the sphinx output using
-the following command in the *sphinx_dir* directory:
-{xrst_code sh}
-    make html
-{xrst_code}
+the following command:
+
+|space|   ``sphinx-build -b html`` *sphinx_dir* *html_dir*
+
+where *html_dir* is the directory where the html files are written,
+see below for the meaning of *sphinx_dir*.
 If *target* is ``pdf``, you can use the following commands:
 {xrst_code sh}
-    sed -i preamble.rst -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
-    sphinx-build -b latex . _build/latex
-    git checkout preamble.rst
-    cd _build/latex
-    sed -i cppad_py.tex -e 's|\\chapter{|\\paragraph{|'
-    make cppad_py.pdf
+cd sphinx_dir
+sed -i.bak preamble.rst -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
+sphinx-build -b latex . latex
+mv preamble.rst.bak preamble.rst
+cd latex
+sed -i xrst.tex -e 's|\\chapter{|\\paragraph{|'
+make xrst.pdf
 {xrst_code}
 
 root_file
