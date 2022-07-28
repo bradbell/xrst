@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+          cppad_py: A C++ Object Library and Python Interface to Cppad
+           Copyright (C) 2017-22 Bradley M. Bell (bradbell@seanet.com)
+               This program is distributed under the terms of the
+               GNU General Public License version 3.0 or later see
+                     https://www.gnu.org/licenses/gpl-3.0.txt
+-------------------------------------------------------------------------------
+{xrst_begin 2021}
+
+{xrst_spell
+    cppad
+    pyspellchecker
+}
+
+xrst Release Notes for 2021
+############################
+
+11-13
+*****
+Line up the file names in the error message when a section name appears twice.
+
+10-25
+*****
+Adapt to pyspellchecker changes from version 0.5.5 to version 0.6.2.
+
+09-26
+*****
+For changes before 2021-09-26; see
+`cppad_py release_notes
+<https://bradbell.github.io/cppad_py/doc/xrst/release_notes.html>`_
+
+09-27
+*****
+Improve the error messaging when the
+:ref:`begin_cmd@section_name` in a begin command
+has an invalid character; e.g. a period.
+
+{xrst_end 2021}

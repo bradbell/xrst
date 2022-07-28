@@ -34,4 +34,4 @@ Indent Example
 
 ----
 
-xsrst input file: ``sphinx/test_in/indent.py``
+xrst input file: ``sphinx/test_in/indent.py``

@@ -27,7 +27,8 @@ ignore_files='
     gpl-3.0.txt
     sphinx/spelling
     sphinx/test_out/
-    sphinx/xsrst/
+    sphinx/xrst/
+    sphinx/conf.py
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"

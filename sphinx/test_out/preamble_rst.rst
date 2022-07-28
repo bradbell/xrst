@@ -22,4 +22,4 @@ The preamble.rst Example File
 
 ----
 
-xsrst input file: ``sphinx/configure.xsrst``
+xrst input file: ``sphinx/configure.xrst``

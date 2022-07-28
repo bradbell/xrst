@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------
+                     xrst: Extract Sphinx RST Files
+         Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
+             This program is distributed under the terms of the
+             GNU General Public License version 3.0 or later see
+                   https://www.gnu.org/licenses/gpl-3.0.txt
+----------------------------------------------------------------------------
+{xrst_begin release_notes}
+
+{xrst_spell
+}
+
+xrst Release Notes By Year
+###########################
+
+{xrst_children
+    release_notes/2022.xrst
+    release_notes/2021.xrst
+}
+:ref:`2022<2022>`
+:ref:`2021<2021>`
+
+{xrst_end release_notes}

@@ -31,4 +31,4 @@ and the remaining text lines up with the ``def`` below:
 
 ----
 
-xsrst input file: ``sphinx/test_in/comment_ch.py``
+xrst input file: ``sphinx/test_in/comment_ch.py``

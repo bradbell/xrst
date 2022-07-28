@@ -7,7 +7,7 @@ temp.*
 # automatically created directories
 /dist/
 /doc/
-/sphinx/xsrst/
+/sphinx/xrst/
 /new/
 /new.[0-9]/
 __pycache__/

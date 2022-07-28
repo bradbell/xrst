@@ -31,8 +31,8 @@ Suspend and Resume Commands
 
 Syntax
 ******
-- ``{xsrst_suspend}``
-- ``{xsrst_resume}``
+- ``{xrst_suspend}``
+- ``{xrst_resume}``
 
 .. meta::
    :keywords: purpose
@@ -43,10 +43,10 @@ Syntax
 
 Purpose
 *******
-It is possible to suspend (resume) the xsrst extraction during a section.
+It is possible to suspend (resume) the xrst extraction during a section.
 One begins (ends) the suspension with a line that only contains spaces,
 tabs and a suspend command (resume command).
-Note that this will also suspend all other xsrst processing; e.g.,
+Note that this will also suspend all other xrst processing; e.g.,
 spell checking.
 
 .. meta::
@@ -63,4 +63,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/suspend_command.py``
+xrst input file: ``xrst/suspend_command.py``

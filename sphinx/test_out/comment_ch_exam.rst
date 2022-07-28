@@ -35,4 +35,4 @@ Comment Character Example
 
 ----
 
-xsrst input file: ``sphinx/test_in/comment_ch.py``
+xrst input file: ``sphinx/test_in/comment_ch.py``

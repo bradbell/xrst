@@ -1,7 +1,7 @@
 # BEGIN spelling
 #
-# words in xsrst commands
-xsrst
+# words in xrst commands
+xrst
 #
 # File extensions
 cpp

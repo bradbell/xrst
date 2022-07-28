@@ -1,28 +1,28 @@
 # -----------------------------------------------------------------------------
-#                      xsrst: Extract Sphinx RST Files
+#                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xsrst_begin_parent spell_exam}
+{xrst_begin_parent spell_exam}
 
 Spell Example
 #############
 
-{xsrst_file
+{xrst_file
     # BEGIN_SRC
     # END_SRC
 }
 
-{xsrst_end spell_exam}
+{xrst_end spell_exam}
 """
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-{xsrst_begin spell_res}
-{xsrst_spell
+{xrst_begin spell_res}
+{xrst_spell
     iterable
     no no
 }
@@ -38,8 +38,8 @@ so we have included it in the special words for this section.
 
 Spelling File
 *************
-The word ``xsrst`` is included by the
-:ref:`spelling<run_xsrst@command_line_arguments@spelling>` file
+The word ``xrst`` is included by the
+:ref:`spelling<run_xrst@command_line_arguments@spelling>` file
 and hence need not be in the special words for this section.
 
 Math
@@ -61,6 +61,6 @@ spelling command for this section.
 
 :ref:`spell_exam`
 
-{xsrst_end spell_res}
+{xrst_end spell_res}
 """
 # END_SRC

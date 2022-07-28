@@ -1,20 +1,20 @@
 # -----------------------------------------------------------------------------
-#                      xsrst: Extract Sphinx RST Files
+#                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 # setup
-xsrst_version = "21.09.07"
-package_name  = "xsrst"
+xrst_version = "21.09.07"
+package_name  = "xrst"
 setup_result = setup(
-    name         = 'xsrst',
-    version      = xsrst_version,
+    name         = 'xrst',
+    version      = xrst_version,
     license      = 'GPL3',
     description  = 'Exract Sphinx RST Files',
     author       = 'Bradley M. Bell',
     author_email = 'bradbell@seanet.com',
-    url          = 'https://github.com/bradbell/xsrst',
-    scripts      = [ 'xsrst/run_xsrst.py' ],
+    url          = 'https://github.com/bradbell/xrst',
+    scripts      = [ 'xrst/run_xrst.py' ],
 )

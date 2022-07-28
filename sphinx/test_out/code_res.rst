@@ -27,4 +27,4 @@ Code Result
 
 ----
 
-xsrst input file: ``sphinx/test_in/code.py``
+xrst input file: ``sphinx/test_in/code.py``

@@ -66,4 +66,4 @@ Child Sections
 
 ----
 
-xsrst input file: ``sphinx/test_in/heading.py``
+xrst input file: ``sphinx/test_in/heading.py``

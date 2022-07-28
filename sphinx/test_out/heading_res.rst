@@ -87,4 +87,4 @@ is included at the beginning of the target for the link:
 
 ----
 
-xsrst input file: ``sphinx/test_in/heading.py``
+xrst input file: ``sphinx/test_in/heading.py``

@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-#                      xsrst: Extract Sphinx RST Files
+#                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 # BEGIN_FILE
 """
-{xsrst_begin children_exam}
+{xrst_begin children_exam}
 
 Children Example
 ################
@@ -20,16 +20,16 @@ The :ref:`link<children_other>` goes to the other section in this file.
 
 This File
 *********
-{xsrst_file
+{xrst_file
     # BEGIN_FILE
     # END_FILE
 }
 
-{xsrst_end children_exam}
+{xrst_end children_exam}
 """
 # ----------------------------------------------------------------------------
 """
-{xsrst_begin children_other}
+{xrst_begin children_other}
 
 Other Child
 ###########
@@ -37,6 +37,6 @@ This is the other child section in
 :ref:`this file<children_exam@this_file>`.
 
 
-{xsrst_end children_other}
+{xrst_end children_other}
 """
 # END_FILE

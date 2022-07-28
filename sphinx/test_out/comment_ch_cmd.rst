@@ -31,7 +31,7 @@ Comment Character Command
 
 Syntax
 ******
-``{xsrst_comment_ch`` *ch* :code:`}`
+``{xrst_comment_ch`` *ch* :code:`}`
 
 .. meta::
    :keywords: purpose
@@ -45,7 +45,7 @@ Purpose
 Some languages have a special character that
 indicates the rest of the line is a comment.
 If you embed sphinx documentation in this type of comment,
-you need to inform xsrst of the special character so it does
+you need to inform xrst of the special character so it does
 not end up in your ``.rst`` output file.
 
 .. meta::
@@ -59,7 +59,7 @@ ch
 --
 The value of *ch* must be one non white space character.
 There must be at least one white space character
-between ``xsrst_comment_ch`` and *ch*.
+between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
 There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
@@ -90,7 +90,7 @@ after the new line and before *text*.
 Input Stream
 ************
 The special character (and one space if present directly after)
-is removed from the input stream before any xsrst processing; e.g.,
+is removed from the input stream before any xrst processing; e.g.,
 calculating the amount of
 :ref:`indentation` for the current section.
 For example, if :code:`#` is the special character,
@@ -120,4 +120,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/remove_comment_ch.py``
+xrst input file: ``xrst/remove_comment_ch.py``

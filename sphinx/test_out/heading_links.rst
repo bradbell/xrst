@@ -87,14 +87,14 @@ plus a lower case version of the heading with spaces and at signs converted to
 underbars :code:`_`. For example, the label for the heading for this
 paragraph is
 
-|tab| ``run_xsrst@links_to_headings@other_levels``
+|tab| ``run_xrst@links_to_headings@other_levels``
 
 This may seem verbose, but it helps keep the links up to date.
 If a heading changes, all the links to that heading, and all the headings
 below it,  will break.
 This identifies the links that should be checked
 to make sure they are still valid.
-Note that one uses the *section_name* ``run_xsrst``
+Note that one uses the *section_name* ``run_xrst``
 and not the title ``extract_sphinx_rst``.
 
 .. meta::
@@ -111,4 +111,4 @@ The :ref:`heading_exam` section contains an example using these links.
 
 ----
 
-xsrst input file: ``xsrst/process_headings.py``
+xrst input file: ``xrst/process_headings.py``

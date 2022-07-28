@@ -5,13 +5,13 @@
 !!!!
 
 .. meta::
-   :keywords: 2022, xsrst, release, notes, for, 2022
+   :keywords: 2022, xrst, release, notes, for, 2022
 
-.. index:: 2022, xsrst, release, notes, for, 2022
+.. index:: 2022, xrst, release, notes, for, 2022
 
 .. _2022:
 
-xsrst Release Notes for 2022
+xrst Release Notes for 2022
 ############################
 .. contents::
    :local:
@@ -32,8 +32,8 @@ interact; see :ref:`child_cmd@children`.
     :ref:`heading_links@labels@other_levels`.
 2.  Add period ``.`` to the list of valid characters in a
     :ref:`begin_cmd@section_name`.
-3.  Change the following section names in the xsrst documentation:
-    xsrst_py -> xsrst.py, conf_py -> conf.py.
+3.  Change the following section names in the xrst documentation:
+    xrst_py -> xrst.py, conf_py -> conf.py.
 
 .. _2022@07-25:
 
@@ -42,7 +42,7 @@ interact; see :ref:`child_cmd@children`.
 1.  Require that the suspend and resume commands are in their own line; see
     :ref:`suspend_cmd`.
 2.  A problem was fixed the table corresponding to the
-    :ref:`run_xsrst@command_line_arguments@line_increment` table.
+    :ref:`run_xrst@command_line_arguments@line_increment` table.
     To be specific, the indices in the rst file were one larger than
     they should have been.
 
@@ -64,4 +64,4 @@ Ignore the spelling of all words that are preceded by a backslash
 
 ----
 
-xsrst input file: ``release_notes/2022.xsrst``
+xrst input file: ``release_notes/2022.xrst``

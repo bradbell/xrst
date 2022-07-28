@@ -31,7 +31,7 @@ Spell Command
 
 Syntax
 ******
-``{xsrst_spell`` *word_1* ...  *word_n* :code:`}`
+``{xrst_spell`` *word_1* ...  *word_n* :code:`}`
 
 Here *word_1*, ..., *word_n* is the special word list for this section.
 In the syntax above the list of words is all in one line.
@@ -54,7 +54,7 @@ Purpose
 You can specify a special list of words
 (not normally considered correct spelling)
 for the current section using the command above at the
-:ref:`beginning of a line<run_xsrst@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<run_xrst@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: spelling
@@ -66,7 +66,7 @@ for the current section using the command above at the
 spelling
 ********
 The list of words in
-:ref:`spelling<run_xsrst@command_line_arguments@spelling>`
+:ref:`spelling<run_xrst@command_line_arguments@spelling>`
 are considered correct spellings for all sections.
 The latex commands corresponding to the letters in the greek alphabet
 are automatically added to this list.
@@ -114,4 +114,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/spell_command.py``
+xrst input file: ``xrst/spell_command.py``

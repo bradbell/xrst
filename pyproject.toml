@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-#                      xsrst: Extract Sphinx RST Files
+#                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
@@ -11,7 +11,7 @@ requires      = ['hatchling']
 build-backend = 'hatchling.build'
 
 [project]
-name    = 'xsrst'
+name    = 'xrst'
 version = '2022.07.27'
 authors = [
   {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
@@ -32,8 +32,8 @@ install_requires  = [
 ]
 
 [project.scripts]
-xsrst = 'xsrst:run_xsrst'
+xrst = 'xrst:run_xrst'
 
 [project.urls]
-'Homepage'    = 'https://github.com/bradbell/xsrst'
-'Bug Tracker' = 'https://github.com/bradbell/xsrst/issues'
+'Homepage'    = 'https://github.com/bradbell/xrst'
+'Bug Tracker' = 'https://github.com/bradbell/xrst/issues'

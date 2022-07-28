@@ -7,7 +7,7 @@
 import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
-project   = 'xsrst'
+project   = 'xrst'
 copyright = '2020'
 author    = 'Brad Bell'
 

@@ -16,7 +16,7 @@ Wish List
 .. contents::
    :local:
 
-The following is a wish list for future improvements to ``run_xsrst``:
+The following is a wish list for future improvements to ``run_xrst``:
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
@@ -43,7 +43,7 @@ This better aligns wih usage in sphinx rst files and saves output columns.
 Relative File Names
 *******************
 Make all file names relative to the directory where the
-:ref:`run_xsrst@command_line_arguments@root_file` is located.
+:ref:`run_xrst@command_line_arguments@root_file` is located.
 
 .. meta::
    :keywords: git, repository
@@ -54,7 +54,7 @@ Make all file names relative to the directory where the
 
 Git Repository
 **************
-Remove the need for run_xsrst to be executed from the top directory
+Remove the need for run_xrst to be executed from the top directory
 of a git repository.
 
 .. meta::
@@ -82,9 +82,9 @@ e.g., ``:ref:section_name`` would display the section name and
 Subset Documentation
 ********************
 Have a way to specify subsets of the documentation by a group name.
-For example ``{xsrst_begin`` `section_name group_1 group_2}` would say that
+For example ``{xrst_begin`` `section_name group_1 group_2}` would say that
 this documentation should be included if `group_1` or `group_2`
-is specified by the ``xsrst`` command line.
+is specified by the ``xrst`` command line.
 If not groups were specified, all groups would be included.
 
 .. meta::
@@ -99,8 +99,8 @@ Spelling
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`run_xsrst@command_line_arguments@spelling` file changes,
-and when run_xsrst automatically ignores more words.
+:ref:`run_xrst@command_line_arguments@spelling` file changes,
+and when run_xrst automatically ignores more words.
 
 .. meta::
    :keywords: tabs
@@ -115,7 +115,7 @@ Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`code_cmd` and :ref:`file_cmd`.
 Perhaps it would be good to support tabs as a method for
-indenting xsrst input sections.
+indenting xrst input sections.
 
 .. meta::
    :keywords: module
@@ -127,10 +127,10 @@ indenting xsrst input sections.
 Module
 ******
 Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``run_xsrst`` program
+It would at least be nice for cppad_py to install the ``run_xrst`` program
 so that users would not have to copy it to a directory in
 their execution path.
 
 ----
 
-xsrst input file: ``doc.xsrst``
+xrst input file: ``doc.xrst``

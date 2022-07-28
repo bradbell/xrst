@@ -14,13 +14,13 @@ configure
    preamble_rst
 
 .. meta::
-   :keywords: configure, example, xsrst, configuration, files
+   :keywords: configure, example, xrst, configuration, files
 
-.. index:: configure, example, xsrst, configuration, files
+.. index:: configure, example, xrst, configuration, files
 
 .. _configure:
 
-Example xsrst Configuration Files
+Example xrst Configuration Files
 #################################
 .. contents::
    :local:
@@ -36,4 +36,4 @@ Example xsrst Configuration Files
 
 ----
 
-xsrst input file: ``sphinx/configure.xsrst``
+xrst input file: ``sphinx/configure.xrst``

@@ -1,6 +1,6 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
-#                      xsrst: Extract Sphinx RST Files
+#                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
 #              This program is distributed under the terms of the
 #              GNU General Public License version 3.0 or later see
@@ -42,8 +42,8 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xsrst \
-        html doc.xsrst sphinx spelling keyword $line_increment
+    echo_eval python -m xrst \
+        html doc.xrst sphinx spelling keyword $line_increment
     sphinx-build -b html sphinx doc/html
     echo 'run_sphinx.sh: OK'
     exit 0
@@ -66,19 +66,19 @@ fi
 echo "sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'"
 sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
 #
-# run xsrst to create rst files
-echo_eval python -m xsrst pdf doc.xsrst sphinx spelling keyword $line_increment
+# run xrst to create rst files
+echo_eval python -m xrst pdf doc.xrst sphinx spelling keyword $line_increment
 #
 # run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex
 echo_eval cd doc/latex
 #
 # change latex \chapter commands to \section commands
-echo "sed -i xsrst.tex -e 's|\\chapter{|\\section{|'"
-sed -i xsrst.tex -e 's|\\chapter{|\\section{|'
+echo "sed -i xrst.tex -e 's|\\chapter{|\\section{|'"
+sed -i xrst.tex -e 's|\\chapter{|\\section{|'
 #
 # create pdf from latex
-echo_eval make xsrst.pdf
+echo_eval make xrst.pdf
 #
 # restore the preamble
 echo_eval git checkout ../../$preamble

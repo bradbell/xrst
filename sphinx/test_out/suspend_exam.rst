@@ -34,4 +34,4 @@ Suspend Example
 
 ----
 
-xsrst input file: ``sphinx/test_in/suspend.py``
+xrst input file: ``sphinx/test_in/suspend.py``

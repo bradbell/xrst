@@ -34,4 +34,4 @@ Other Processing
 
 ----
 
-xsrst input file: ``doc.xsrst``
+xrst input file: ``doc.xrst``

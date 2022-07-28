@@ -37,8 +37,8 @@ so we have included it in the special words for this section.
 
 Spelling File
 *************
-The word ``xsrst`` is included by the
-:ref:`spelling<run_xsrst@command_line_arguments@spelling>` file
+The word ``xrst`` is included by the
+:ref:`spelling<run_xrst@command_line_arguments@spelling>` file
 and hence need not be in the special words for this section.
 
 .. meta::
@@ -76,4 +76,4 @@ spelling command for this section.
 
 ----
 
-xsrst input file: ``sphinx/test_in/spell.py``
+xrst input file: ``sphinx/test_in/spell.py``

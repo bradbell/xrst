@@ -31,8 +31,8 @@ Code Command
 
 Syntax
 ******
-- ``{xsrst_code`` *language* :code:`}`
-- ``{xsrst_code}``
+- ``{xrst_code`` *language* :code:`}`
+- ``{xrst_code}``
 
 .. meta::
    :keywords: purpose
@@ -57,9 +57,9 @@ of the command above.
 Requirements
 ************
 Each code command ends with
-a line containing the second version of the command; i.e., ``{xsrst_code}``.
+a line containing the second version of the command; i.e., ``{xrst_code}``.
 Hence there must be an even number of code commands.
-If the back quote character \` appears before or after the ``{xsrst_code``,
+If the back quote character \` appears before or after the ``{xrst_code``,
 it is not a command but rather normal input text. This is useful when
 referring to this command in documentation.
 
@@ -86,9 +86,9 @@ for highlighting the code block.
 Rest of Line
 ************
 Other characters on the same line as a code command
-are not included in the xsrst output.
+are not included in the xrst output.
 This enables one to begin or end a comment block
-without having the comment characters in the xsrst output.
+without having the comment characters in the xrst output.
 
 .. meta::
    :keywords: spell, checking
@@ -118,4 +118,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/code_command.py``
+xrst input file: ``xrst/code_command.py``

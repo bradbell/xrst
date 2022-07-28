@@ -41,7 +41,7 @@ Syntax
 
 children
 ========
-| ``{xsrst_children``
+| ``{xrst_children``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -56,7 +56,7 @@ children
 
 child_list
 ==========
-| ``{xsrst_child_list``
+| ``{xrst_child_list``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -71,7 +71,7 @@ child_list
 
 child_table
 ===========
-| ``{xsrst_child_table``
+| ``{xrst_child_table``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -101,7 +101,7 @@ File Names
 A new line character must precede and follow each
 of the file names *file_1* ... *file_n*.
 Leading and trailing white space is not included in the names
-The file names are  relative to the directory where ``run_xsrst``
+The file names are  relative to the directory where ``run_xrst``
 is executed; i.e., the top directory for this git repository.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
@@ -193,4 +193,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/child_commands.py``
+xrst input file: ``xrst/child_commands.py``

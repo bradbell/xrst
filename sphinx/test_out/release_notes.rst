@@ -12,13 +12,13 @@ release_notes
    2021
 
 .. meta::
-   :keywords: release_notes, xsrst, release, notes, by, year
+   :keywords: release_notes, xrst, release, notes, by, year
 
-.. index:: release_notes, xsrst, release, notes, by, year
+.. index:: release_notes, xrst, release, notes, by, year
 
 .. _release_notes:
 
-xsrst Release Notes By Year
+xrst Release Notes By Year
 ###########################
 .. contents::
    :local:
@@ -28,4 +28,4 @@ xsrst Release Notes By Year
 
 ----
 
-xsrst input file: ``doc.xsrst``
+xrst input file: ``doc.xrst``

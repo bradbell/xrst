@@ -23,10 +23,10 @@ Indentation
    :local:
 
 If there are a number of spaces (or tabs) before
-all of the xsrst documentation for a section,
-those characters are not included in the xsrst output.
+all of the xrst documentation for a section,
+those characters are not included in the xrst output.
 This enables one to indent the
-xsrst so it is grouped with the proper code block in the source.
+xrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use mix tabs and spaces for the indentation.
 
@@ -43,4 +43,4 @@ Example
 
 ----
 
-xsrst input file: ``xsrst/remove_indent.py``
+xrst input file: ``xrst/remove_indent.py``

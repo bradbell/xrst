@@ -17,13 +17,13 @@ commands
    comment_ch_cmd
 
 .. meta::
-   :keywords: commands, xsrst, commands
+   :keywords: commands, xrst, commands
 
-.. index:: commands, xsrst, commands
+.. index:: commands, xrst, commands
 
 .. _commands:
 
-xsrst Commands
+xrst Commands
 ##############
 .. contents::
    :local:
@@ -42,4 +42,4 @@ xsrst Commands
 
 ----
 
-xsrst input file: ``doc.xsrst``
+xrst input file: ``doc.xrst``

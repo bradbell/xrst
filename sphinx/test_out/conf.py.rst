@@ -22,4 +22,4 @@ The conf.py Example File
 
 ----
 
-xsrst input file: ``sphinx/configure.xsrst``
+xrst input file: ``sphinx/configure.xrst``
