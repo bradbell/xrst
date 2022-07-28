@@ -5,6 +5,7 @@ temp.*
 /git_commit.sh
 /sphinx/index.rst
 # automatically created directories
+/dist/
 /doc/
 /sphinx/xsrst/
 /new/

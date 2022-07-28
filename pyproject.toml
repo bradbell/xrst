@@ -20,13 +20,19 @@ description       = 'Exract Sphinx RST Files'
 readme            = 'readme.md'
 license           = { file = 'gpl-3.0.txt' }
 requires-python   = '>=3.0'
-install_requires  = [ 'pyspellchecker', 'sphinx', 'sphinx-rtd-theme' ]
-scripts           = [ 'bin/xsrst.py' ]
 classifiers       = [
     'Programming Language :: Python :: 3',
     'License :: OSI Approved :: GPL3 License',
     'Operating System :: OS Independent',
 ]
+install_requires  = [
+  'pyspellchecker',
+  'sphinx',
+  'sphinx-rtd-theme'
+]
+
+[project.entry_points]
+'console_scripts' = [ 'xsrst:main' ]
 
 [project.urls]
 'Homepage'    = 'https://github.com/bradbell/xsrst'
