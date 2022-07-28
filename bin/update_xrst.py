@@ -24,6 +24,9 @@ dot2atsign:
 Change the '.' to '@' character in all text of the form :ref:`text` and
 text of the form (at the betinning of a line) .. _text:
 
+xsrst2xrst:
+Change 'xsrst' to 'xrst' in all the text.
+
 '''
 #
 # pattern
@@ -34,6 +37,11 @@ pattern['ref'] = re.compile( r'(:ref:`[^`]*)\.' )
 def abort(msg) :
     msg = '\nupdate_xstst.py: ' + msg
     sys.exit(msg)
+#
+# xsrst2xrst
+def xsrst2xrst(data_in) :
+    data_out = data_in.replace('xsrst', 'xrst')
+    return data_out
 #
 # dot2atsign
 def dot2atsign(data_in) :
@@ -59,6 +67,7 @@ def main() :
     # operation_dict
     operation_dict = {
         'dot2atsign' : dot2atsign,
+        'xsrst2xrst' : xsrst2xrst,
     }
     #
     # operation

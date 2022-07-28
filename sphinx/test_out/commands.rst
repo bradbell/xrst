@@ -24,7 +24,7 @@ commands
 .. _commands:
 
 xrst Commands
-##############
+#############
 .. contents::
    :local:
 

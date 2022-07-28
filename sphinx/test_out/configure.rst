@@ -21,7 +21,7 @@ configure
 .. _configure:
 
 Example xrst Configuration Files
-#################################
+################################
 .. contents::
    :local:
 

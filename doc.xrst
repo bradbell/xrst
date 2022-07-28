@@ -70,7 +70,7 @@ Requirements
 {xrst_begin commands}
 
 xrst Commands
-##############
+#############
 {xrst_child_table
     xrst/get_file_info.py
     xrst/child_commands.py
@@ -169,7 +169,7 @@ their execution path.
 {xrst_begin release_notes}
 
 xrst Release Notes By Year
-###########################
+##########################
 {xrst_children
     release_notes/2022.xrst
     release_notes/2021.xrst

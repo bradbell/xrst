@@ -19,7 +19,7 @@ release_notes
 .. _release_notes:
 
 xrst Release Notes By Year
-###########################
+##########################
 .. contents::
    :local:
 
