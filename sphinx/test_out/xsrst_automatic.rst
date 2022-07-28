@@ -7,7 +7,7 @@ Table of Contents
 :ref:`xsrst`
 
 |
-| :ref:`1<xsrst.py>` Run Extract Sphinx RST
+| :ref:`1<run_xsrst>` Run Extract Sphinx RST
 | :ref:`2<commands>` xsrst Commands
 |
 |  |space| :ref:`2.1<begin_cmd>` Begin and End Commands

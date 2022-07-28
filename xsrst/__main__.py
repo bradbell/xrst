@@ -5,16 +5,5 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-# setup
-xsrst_version = "21.09.07"
-package_name  = "xsrst"
-setup_result = setup(
-    name         = 'xsrst',
-    version      = xsrst_version,
-    license      = 'GPL3',
-    description  = 'Exract Sphinx RST Files',
-    author       = 'Bradley M. Bell',
-    author_email = 'bradbell@seanet.com',
-    url          = 'https://github.com/bradbell/xsrst',
-    scripts      = [ 'xsrst/run_xsrst.py' ],
-)
+import xsrst
+xsrst.run_xsrst()

@@ -54,7 +54,7 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above at the
-:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<run_xsrst@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: white, space
@@ -81,7 +81,7 @@ display_file
 If *display_file* is not in the syntax,
 the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
-The file name *display_file* is relative to the directory where ``xsrst.py``
+The file name *display_file* is relative to the directory where ``run_xsrst``
 is executed; i.e., the top directory for this git repository.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.

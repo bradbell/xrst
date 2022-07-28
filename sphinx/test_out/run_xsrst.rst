@@ -1,15 +1,15 @@
 .. include:: ../preamble.rst
 
-!!!!!!!!
-xsrst.py
-!!!!!!!!
+!!!!!!!!!
+run_xsrst
+!!!!!!!!!
 
 .. meta::
-   :keywords: xsrst.py, run, extract, sphinx, rst
+   :keywords: run_xsrst, run, extract, sphinx, rst
 
-.. index:: xsrst.py, run, extract, sphinx, rst
+.. index:: run_xsrst, run, extract, sphinx, rst
 
-.. _xsrst.py:
+.. _run_xsrst:
 
 Run Extract Sphinx RST
 ######################
@@ -21,12 +21,12 @@ Run Extract Sphinx RST
 
 .. index:: syntax
 
-.. _xsrst.py@syntax:
+.. _run_xsrst@syntax:
 
 Syntax
 ******
--   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
--   ``xsrst.py`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
+-   ``xsrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
+-   ``xsrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
     *line_increment*
 
 .. meta::
@@ -34,7 +34,7 @@ Syntax
 
 .. index:: notation
 
-.. _xsrst.py@notation:
+.. _run_xsrst@notation:
 
 Notation
 ********
@@ -44,7 +44,7 @@ Notation
 
 .. index:: white, space
 
-.. _xsrst.py@notation@white_space:
+.. _run_xsrst@notation@white_space:
 
 White Space
 ===========
@@ -56,7 +56,7 @@ tabs are not consider white space by xsrst.
 
 .. index:: beginning, line
 
-.. _xsrst.py@notation@beginning_of_a_line:
+.. _run_xsrst@notation@beginning_of_a_line:
 
 Beginning of a Line
 ===================
@@ -68,7 +68,7 @@ only white space, or nothing, comes before *text* in the line.
 
 .. index:: command, line, arguments
 
-.. _xsrst.py@command_line_arguments:
+.. _run_xsrst@command_line_arguments:
 
 Command Line Arguments
 **********************
@@ -78,7 +78,7 @@ Command Line Arguments
 
 .. index:: target
 
-.. _xsrst.py@command_line_arguments@target:
+.. _run_xsrst@command_line_arguments@target:
 
 target
 ======
@@ -107,7 +107,7 @@ If *target* is ``pdf``, you can use the following commands:
 
 .. index:: root_file
 
-.. _xsrst.py@command_line_arguments@root_file:
+.. _run_xsrst@command_line_arguments@root_file:
 
 root_file
 =========
@@ -119,7 +119,7 @@ relative to the top git repository directory.
 
 .. index:: sphinx_dir
 
-.. _xsrst.py@command_line_arguments@sphinx_dir:
+.. _run_xsrst@command_line_arguments@sphinx_dir:
 
 sphinx_dir
 ==========
@@ -128,11 +128,11 @@ of the top git repository directory.
 The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The file ``index.rst`` in this directory will be overwritten
-each time ``xsrst.py`` is run.
+each time ``run_xsrst`` executes.
 The sub-directory *sphinx_dir* :code:`/xsrst` is managed by ``xsrst`` .
 All the ``.rst`` files in *sphinx_dir* :code:`/xsrst`
 were extracted from the source code and correspond to
-last time that ``xsrst.py`` was executed.
+last time that ``run_xsrst`` was executed.
 Files that do not change are not updated (to speed up the processing).
 
 .. meta::
@@ -140,7 +140,7 @@ Files that do not change are not updated (to speed up the processing).
 
 .. index:: conf.py
 
-.. _xsrst.py@command_line_arguments@sphinx_dir@conf.py:
+.. _run_xsrst@command_line_arguments@sphinx_dir@conf.py:
 
 conf.py
 -------
@@ -151,7 +151,7 @@ The sphinx configuration file; e.g., :ref:`conf.py`.
 
 .. index:: preamble.rst
 
-.. _xsrst.py@command_line_arguments@sphinx_dir@preamble.rst:
+.. _run_xsrst@command_line_arguments@sphinx_dir@preamble.rst:
 
 preamble.rst
 ------------
@@ -164,7 +164,7 @@ For example, :ref:`preamble_rst`.
 
 .. index:: spelling
 
-.. _xsrst.py@command_line_arguments@spelling:
+.. _run_xsrst@command_line_arguments@spelling:
 
 spelling
 ========
@@ -185,7 +185,7 @@ Special words, for a particular section, are specified using the
 
 .. index:: keyword
 
-.. _xsrst.py@command_line_arguments@keyword:
+.. _run_xsrst@command_line_arguments@keyword:
 
 keyword
 =======
@@ -211,7 +211,7 @@ For example; see :ref:`keyword`.
 
 .. index:: line_increment
 
-.. _xsrst.py@command_line_arguments@line_increment:
+.. _run_xsrst@command_line_arguments@line_increment:
 
 line_increment
 ==============
@@ -233,4 +233,4 @@ The table at the bottom of that file maps line numbers in
 
 ----
 
-xsrst input file: ``bin/xsrst.py``
+xsrst input file: ``xsrst/run_xsrst.py``

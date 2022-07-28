@@ -23,8 +23,8 @@ then
     echo_eval rm -r doc
 fi
 # -----------------------------------------------------------------------------
-echo "bin/xsrst.py html doc.xsrst sphinx spelling keyword"
-if ! bin/xsrst.py \
+echo "python -m xsrst html doc.xsrst sphinx spelling keyword"
+if ! python -m xsrst \
     html doc.xsrst sphinx spelling  keyword 2> check_xsrst.$$
 then
     type_error='error'
@@ -68,7 +68,7 @@ do
     then
         echo "The output file sphinx/xsrst/$file does not exist."
         echo "Use the following command to remove sphinx/test_out/$file ?"
-        echo "    git rm sphinx/test_out/$file"
+        echo "    git rm -f sphinx/test_out/$file"
         exit 1
     fi
 done

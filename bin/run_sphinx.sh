@@ -42,7 +42,7 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval bin/xsrst.py \
+    echo_eval python -m xsrst \
         html doc.xsrst sphinx spelling keyword $line_increment
     sphinx-build -b html sphinx doc/html
     echo 'run_sphinx.sh: OK'
@@ -67,7 +67,7 @@ echo "sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'"
 sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
 #
 # run xsrst to create rst files
-echo_eval bin/xsrst.py pdf doc.xsrst sphinx spelling keyword $line_increment
+echo_eval python -m xsrst pdf doc.xsrst sphinx spelling keyword $line_increment
 #
 # run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex

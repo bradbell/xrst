@@ -16,7 +16,7 @@ Wish List
 .. contents::
    :local:
 
-The following is a wish list for future improvements to ``xsrst.py``:
+The following is a wish list for future improvements to ``run_xsrst``:
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
@@ -43,7 +43,7 @@ This better aligns wih usage in sphinx rst files and saves output columns.
 Relative File Names
 *******************
 Make all file names relative to the directory where the
-:ref:`xsrst.py@command_line_arguments@root_file` is located.
+:ref:`run_xsrst@command_line_arguments@root_file` is located.
 
 .. meta::
    :keywords: git, repository
@@ -54,7 +54,7 @@ Make all file names relative to the directory where the
 
 Git Repository
 **************
-Remove the need for xsrst.py to be executed from the top directory
+Remove the need for run_xsrst to be executed from the top directory
 of a git repository.
 
 .. meta::
@@ -99,8 +99,8 @@ Spelling
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`xsrst.py@command_line_arguments@spelling` file changes,
-and when xsrst.py automatically ignores more words.
+:ref:`run_xsrst@command_line_arguments@spelling` file changes,
+and when run_xsrst automatically ignores more words.
 
 .. meta::
    :keywords: tabs
@@ -127,7 +127,7 @@ indenting xsrst input sections.
 Module
 ******
 Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``xsrst.py`` program
+It would at least be nice for cppad_py to install the ``run_xsrst`` program
 so that users would not have to copy it to a directory in
 their execution path.
 

@@ -24,6 +24,7 @@ ignore_files='
     .gitignore
     batch_edit.sed
     bin/devel.sh
+    gpl-3.0.txt
     sphinx/spelling
     sphinx/test_out/
     sphinx/xsrst/

@@ -8,7 +8,7 @@ xsrst
    :maxdepth: 1
    :hidden:
 
-   xsrst.py
+   run_xsrst
    commands
    other_processing
    wish_list
@@ -57,7 +57,7 @@ https://github.com/bradbell/xsrst
 Program
 ********
 
-:ref:`xsrst@py<xsrst.py>`
+:ref:`xsrst@py<run_xsrst>`
 
 .. meta::
    :keywords: purpose

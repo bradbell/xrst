@@ -54,7 +54,7 @@ Purpose
 You can specify a special list of words
 (not normally considered correct spelling)
 for the current section using the command above at the
-:ref:`beginning of a line<xsrst.py@notation@beginning_of_a_line>`.
+:ref:`beginning of a line<run_xsrst@notation@beginning_of_a_line>`.
 
 .. meta::
    :keywords: spelling
@@ -66,7 +66,7 @@ for the current section using the command above at the
 spelling
 ********
 The list of words in
-:ref:`spelling<xsrst.py@command_line_arguments@spelling>`
+:ref:`spelling<run_xsrst@command_line_arguments@spelling>`
 are considered correct spellings for all sections.
 The latex commands corresponding to the letters in the greek alphabet
 are automatically added to this list.
