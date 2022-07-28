@@ -31,8 +31,8 @@ install_requires  = [
   'sphinx-rtd-theme'
 ]
 
-[project.entry_points]
-'console_scripts' = [ 'xsrst:main' ]
+[project.scripts]
+xsrst = 'xsrst:run_xsrst'
 
 [project.urls]
 'Homepage'    = 'https://github.com/bradbell/xsrst'
