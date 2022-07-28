@@ -59,11 +59,9 @@ This is a pseudo sphinx extension that provides the following features:
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
 
-Requirements
+Install
 ************
--   ``pip install --user pyspellchecker``
--   ``pip install --user sphinx``
--   ``pip install --user sphinx-rtd-theme``
+-   ``pip install --index-url https://test.pypi.org/simple/ xrst``
 
 {xrst_end xrst}
 ----------------------------------------------------------------------------
