@@ -96,7 +96,7 @@ import xrst
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
-# xrst_dir:
+# rst_dir:
 # is the directory, relative to the current working directory,
 # where xrst will place the final rst files.
 #
@@ -104,11 +104,11 @@ import xrst
 # Each xrst file command is convertd to its corresponding sphinx commands.
 #
 # data_out =
-def file_command(data_in, file_name, section_name, xrst_dir) :
+def file_command(data_in, file_name, section_name, rst_dir) :
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str
-    assert type(xrst_dir) == str
+    assert type(rst_dir) == str
     #
     assert xrst.pattern['file_2'].groups == 6
     assert xrst.pattern['file_3'].groups == 8
@@ -168,7 +168,7 @@ def file_command(data_in, file_name, section_name, xrst_dir) :
             # cmd
             # converted version of the command, use two underbars so does
             # not match pattern['file_2'] or pattern['file_3'].
-            depth    = xrst_dir.count('/') + 1
+            depth    = rst_dir.count('/') + 1
             work_dir = depth * '../'
             cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
             cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'

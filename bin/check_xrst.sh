@@ -40,21 +40,21 @@ then
 fi
 rm check_xrst.$$
 # -----------------------------------------------------------------------------
-file_list=$(ls sphinx/xrst/*.rst | sed -e "s|^sphinx/xrst/||" )
+file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
 for file in $file_list
 do
     if [ ! -e sphinx/test_out/$file ]
     then
         echo "The output file sphinx/test_out/$file does not exist."
         echo 'Check that the corresponding sections are correct and then:'
-        echo "    cp sphinx/xrst/$file sphinx/test_out/$file"
+        echo "    cp sphinx/rst/$file sphinx/test_out/$file"
         exit 1
-    elif ! diff sphinx/xrst/$file sphinx/test_out/$file
+    elif ! diff sphinx/rst/$file sphinx/test_out/$file
     then
-        echo "sphinx/xrst/$file changed; above is output of"
-        echo "    diff sphinx/xrst/$file sphinx/test_out/$file"
+        echo "sphinx/rst/$file changed; above is output of"
+        echo "    diff sphinx/rst/$file sphinx/test_out/$file"
         echo 'If the new file is currect, replace old with new using:'
-        echo "    cp sphinx/xrst/$file sphinx/test_out/$file"
+        echo "    cp sphinx/rst/$file sphinx/test_out/$file"
         exit 1
     else
         echo "$file: OK"
@@ -64,9 +64,9 @@ done
 file_list=$(ls sphinx/test_out/*.rst | sed -e 's|^sphinx/test_out/||' )
 for file in $file_list
 do
-    if [ ! -e sphinx/xrst/$file ]
+    if [ ! -e sphinx/rst/$file ]
     then
-        echo "The output file sphinx/xrst/$file does not exist."
+        echo "The output file sphinx/rst/$file does not exist."
         echo "Use the following command to remove sphinx/test_out/$file ?"
         echo "    git rm -f sphinx/test_out/$file"
         exit 1

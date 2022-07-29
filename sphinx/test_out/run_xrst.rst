@@ -139,8 +139,8 @@ The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The file ``index.rst`` in this directory will be overwritten
 each time ``run_xrst`` executes.
-The sub-directory *sphinx_dir* :code:`/xrst` is managed by ``xrst`` .
-All the ``.rst`` files in *sphinx_dir* :code:`/xrst`
+The sub-directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
+All the ``.rst`` files in *sphinx_dir* :code:`/rst`
 were extracted from the source code and correspond to
 last time that ``xrst`` was executed.
 Files that do not change are not updated (to speed up the processing).
