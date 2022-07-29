@@ -17,12 +17,16 @@ Git Repository
 **************
 https://github.com/bradbell/xrst
 
-Program
-********
+Pip Install
+***********
+-   ``pip install --index-url https://test.pypi.org/simple/ xrst``
+
+Run Program
+***********
 {xrst_children
     xrst/run_xrst.py
 }
-:ref:`xrst@py<run_xrst>`
+:ref:`run_xrst`
 
 Purpose
 *******
@@ -54,10 +58,6 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
-
-Install
-************
--   ``pip install --index-url https://test.pypi.org/simple/ xrst``
 
 {xrst_end xrst}
 ----------------------------------------------------------------------------

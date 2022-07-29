@@ -8,10 +8,16 @@
 {xrst_begin 2022}
 {xrst_spell
     conf
+    xsrst
 }
 
 xrst Release Notes for 2022
 ###########################
+
+07-28
+*****
+1.  Change ``xsrst`` to ``xrst``
+2.  Create the first :ref:`xrst@pip_install` of xrst.
 
 07-27
 *****
