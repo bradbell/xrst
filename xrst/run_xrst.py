@@ -411,12 +411,6 @@ def run_xrst() :
     # xstst_automatic.rst
     output_data = '.. include:: ../preamble.rst\n'
     #
-    if target == 'pdf' :
-        # The top level heading is not included in pdf output
-        output_data += '\n'
-        output_data += 'Dummy Heading\n'
-        output_data += '#############\n'
-    #
     # Table of Contents
     level         = 1
     count         = list()

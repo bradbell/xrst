@@ -22,13 +22,14 @@ import xrst
 # Spaces and tabs in empty lines are removed (so they are truely empty).
 #
 # data_out =
-def add_line_numbers(data) :
+def add_line_numbers(data_in) :
+    assert type(data_in) == str
     #
     # pattern
     pattern = re.compile( r'^\n[ \t]*' )
     #
     # newline_list, data_out, previous
-    newline_list = xrst.newline_indices(data)
+    newline_list = xrst.newline_indices(data_in)
     data_out     = ""
     previous     = 0
     #
@@ -39,7 +40,7 @@ def add_line_numbers(data) :
         assert previous < current
         #
         # line
-        line = data[previous : current]
+        line = data_in[previous : current]
         #
         # empty_line
         if previous == 0 :
@@ -60,7 +61,7 @@ def add_line_numbers(data) :
         previous = current
     #
     # data_out
-    assert previous == len(data) - 1
+    assert previous == len(data_in) - 1
     data_out += '\n'
     #
     return data_out

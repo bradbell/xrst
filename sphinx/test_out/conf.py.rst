@@ -17,7 +17,7 @@ The conf.py Example File
    :local:
 
 .. literalinclude:: ../../sphinx/conf.py
-    :lines: 2-58
+    :lines: 2-53
     :language: py
 
 ----

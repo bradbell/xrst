@@ -27,6 +27,7 @@ pattern_error = re.compile( r'\{xrst_line [0-9]+@[^\n]' )
 #
 # data_out, line_pair =
 def remove_line_numbers(data_in) :
+    assert type(data_in) == str
     #
     # m_error
     m_error = pattern_error.search(data_in)

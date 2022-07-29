@@ -67,7 +67,6 @@ Pip Install
 
 Run Program
 ***********
-
 :ref:`run_xrst`
 
 .. meta::
@@ -107,6 +106,22 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
+
+.. meta::
+   :keywords: contents
+
+.. index:: contents
+
+.. _xrst@contents:
+
+Contents
+********
+
+-  :ref:`run_xrst`
+-  :ref:`commands`
+-  :ref:`other_processing`
+-  :ref:`wish_list`
+-  :ref:`release_notes`
 
 ----
 
