@@ -8,6 +8,7 @@ Table of Contents
 
 |
 | :ref:`1<run_xrst>` Run Extract Sphinx RST And Sphinx
+|  |space| :ref:`1.1<auto_file>` Automatically Generated Files
 | :ref:`2<commands>` xrst Commands
 |
 |  |space| :ref:`2.1<begin_cmd>` Begin and End Commands

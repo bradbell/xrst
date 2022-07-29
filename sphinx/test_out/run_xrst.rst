@@ -4,6 +4,12 @@
 run_xrst
 !!!!!!!!
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   auto_file
+
 .. meta::
    :keywords: run_xrst, run, extract, sphinx, rst, sphinx
 
@@ -139,22 +145,38 @@ The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The file ``index.rst`` in this directory will be overwritten
 each time ``run_xrst`` executes.
+
+.. meta::
+   :keywords: rst
+
+.. index:: rst
+
+.. _run_xrst@command_line_arguments@sphinx_dir@rst:
+
+rst
+---
 The sub-directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
 All the ``.rst`` files in *sphinx_dir* :code:`/rst`
 were extracted from the source code and correspond to
 last time that ``xrst`` was executed.
-Files that do not change are not updated (to speed up the processing).
+For each :ref:`begin_cmd@section_name`, the file
+
+|space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
+
+Is the RST file for the corresponding section.
 
 .. meta::
-   :keywords: conf.py
+   :keywords: other, files
 
-.. index:: conf.py
+.. index:: other, files
 
-.. _run_xrst@command_line_arguments@sphinx_dir@conf.py:
+.. _run_xrst@command_line_arguments@sphinx_dir@other_files:
 
-conf.py
--------
-The sphinx configuration file; e.g., :ref:`conf.py`.
+Other Files
+-----------
+
+See :ref:`auto_file` for the other automatically generated files in the
+*sphinx_dir* directory.
 
 .. meta::
    :keywords: preamble.rst

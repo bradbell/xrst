@@ -40,10 +40,13 @@ import xrst
 # section_name   a str continaing the name of this section.
 # section_title  a str containing the title for this section.
 # parent_section an int index in section_info for the parent of this section.
+# in_parent_file is this section in same input file as its parent.
 #
 # content:
 # The return content is the table of contents entries for this section
 # and all the sections below this section.
+# The title Table of Contents and the label xrst_tble_of_contents
+# are placed at the beginning of the of content at level 1.
 #
 # content =
 def table_of_contents(

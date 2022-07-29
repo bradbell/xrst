@@ -8,6 +8,7 @@
 #
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
+from .auto_file              import auto_file
 from .check_section_name     import check_section_name
 from .child_commands         import child_commands
 from .code_command           import code_command

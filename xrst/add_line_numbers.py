@@ -30,6 +30,8 @@ def add_line_numbers(data_in) :
     #
     # newline_list, data_out, previous
     newline_list = xrst.newline_indices(data_in)
+    if newline_list[0] == 0 :
+        newline_list .pop(0)
     data_out     = ""
     previous     = 0
     #
