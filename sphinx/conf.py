@@ -3,9 +3,6 @@
 # The conf.py documentation is in
 # http://www.sphinx-doc.org/en/master/config
 #
-# -- Path setup --------------------------------------------------------------
-import sphinx_rtd_theme
-
 # -- Project information -----------------------------------------------------
 project   = 'xrst'
 copyright = '2020'
@@ -17,25 +14,28 @@ extensions = [
     'sphinx_rtd_theme',
 ]
 exclude_patterns = [
-    '_build', 'Thumbs.db', '.DS_Store', 'test_out', 'preamble.rst'
+    'test_out', 
+    'preamble.rst',
 ]
 
 # -- Options for HTML output -------------------------------------------------
-if False :
-    html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_rtd_theme'
+#
+if html_theme == 'sphinx_rtd_theme' :
     html_theme_options = {
         'navigation_depth' : -1   ,
         'titles_only'      : True ,
     }
-else :
-    html_theme = 'insipid'
+elif html_theme == 'insipid' :
     html_theme_options = {
         'strip_section_numbers' : True,
         'nosidebar'             : True,
-        'body_centered'         : True,
-        'body_max_width'        : None,
+        'body_centered'         : False,
+        'body_max_width'        : '70em',
         'breadcrumbs'           : True,
     }
+else :
+    assert False
 # -- These folders are copied to the documentation's HTML output ------------
 # html_static_path = [ '_static' ]
 
