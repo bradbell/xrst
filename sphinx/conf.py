@@ -21,7 +21,7 @@ exclude_patterns = [
 ]
 
 # -- Options for HTML output -------------------------------------------------
-if True :
+if False :
     html_theme = 'sphinx_rtd_theme'
     html_theme_options = {
         'navigation_depth' : -1   ,
@@ -39,11 +39,6 @@ else :
 # -- These folders are copied to the documentation's HTML output ------------
 # html_static_path = [ '_static' ]
 
-# -- These paths are either relative to html_static_path --------------------
-# or fully qualified paths (eg. https://...)
-html_css_files = [
-    'css/custom.css',
-]
 
 # -- Latex commands used by all sections -------------------------------------
 latex_elements = {

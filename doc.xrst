@@ -23,9 +23,6 @@ Pip Install
 
 Run Program
 ***********
-{xrst_children
-    xrst/run_xrst.py
-}
 :ref:`run_xrst`
 
 Purpose
@@ -58,6 +55,12 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
+
+Contents
+********
+{xrst_child_list
+    xrst/run_xrst.py
+}
 
 {xrst_end xrst}
 ----------------------------------------------------------------------------
