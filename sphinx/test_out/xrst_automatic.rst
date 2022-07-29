@@ -7,7 +7,7 @@ Table of Contents
 :ref:`xrst`
 
 |
-| :ref:`1<run_xrst>` Run Extract Sphinx RST
+| :ref:`1<run_xrst>` Run Extract Sphinx RST And Sphinx
 | :ref:`2<commands>` xrst Commands
 |
 |  |space| :ref:`2.1<begin_cmd>` Begin and End Commands

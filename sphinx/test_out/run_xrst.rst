@@ -5,14 +5,14 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-   :keywords: run_xrst, run, extract, sphinx, rst
+   :keywords: run_xrst, run, extract, sphinx, rst, sphinx
 
-.. index:: run_xrst, run, extract, sphinx, rst
+.. index:: run_xrst, run, extract, sphinx, rst, sphinx
 
 .. _run_xrst:
 
-Run Extract Sphinx RST
-######################
+Run Extract Sphinx RST And Sphinx
+#################################
 .. contents::
    :local:
 
@@ -26,8 +26,7 @@ Run Extract Sphinx RST
 Syntax
 ******
 -   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
--   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
-    *line_increment*
+    [ *line_increment* ]
 
 .. meta::
    :keywords: notation
@@ -84,23 +83,34 @@ target
 ======
 The command line argument *target* must be ``html`` or ``pdf`` and
 specifies the type of type output you plan to generate using sphinx.
+
+.. meta::
+   :keywords: run, sphinx
+
+.. index:: run, sphinx
+
+.. _run_xrst@command_line_arguments@target@run_sphinx:
+
+Run Sphinx
+----------
 If *target* is ``html`` you can generate the sphinx output using
-the following command in the *sphinx_dir* directory:
+the following command:
 
-.. code-block:: sh
+|space|   ``sphinx-build -b html`` *sphinx_dir* *html_dir*
 
-        make html
-
+where *html_dir* is the directory where the html files are written,
+see below for the meaning of *sphinx_dir*.
 If *target* is ``pdf``, you can use the following commands:
 
 .. code-block:: sh
 
-        sed -i preamble.rst -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
-        sphinx-build -b latex . _build/latex
-        git checkout preamble.rst
-        cd _build/latex
-        sed -i cppad_py.tex -e 's|\\chapter{|\\paragraph{|'
-        make cppad_py.pdf
+    cd sphinx_dir
+    sed -i.bak preamble.rst -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
+    sphinx-build -b latex . latex
+    mv preamble.rst.bak preamble.rst
+    cd latex
+    sed -i xrst.tex -e 's|\\chapter{|\\paragraph{|'
+    make xrst.pdf
 
 .. meta::
    :keywords: root_file
@@ -112,7 +122,7 @@ If *target* is ``pdf``, you can use the following commands:
 root_file
 =========
 The command line argument *root_file* is the name of a file,
-relative to the top git repository directory.
+relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 .. meta::
    :keywords: sphinx_dir
@@ -123,8 +133,8 @@ relative to the top git repository directory.
 
 sphinx_dir
 ==========
-The command line argument *sphinx_dir* is a sub-directory,
-of the top git repository directory.
+The command line argument *sphinx_dir* is a directory relative to
+of the directory where ``xrst`` is executed.
 The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The file ``index.rst`` in this directory will be overwritten
@@ -132,7 +142,7 @@ each time ``run_xrst`` executes.
 The sub-directory *sphinx_dir* :code:`/xrst` is managed by ``xrst`` .
 All the ``.rst`` files in *sphinx_dir* :code:`/xrst`
 were extracted from the source code and correspond to
-last time that ``run_xrst`` was executed.
+last time that ``xrst`` was executed.
 Files that do not change are not updated (to speed up the processing).
 
 .. meta::

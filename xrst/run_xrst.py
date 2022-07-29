@@ -70,12 +70,12 @@ make xrst.pdf
 root_file
 =========
 The command line argument *root_file* is the name of a file,
-relative to the top git repository directory.
+relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 sphinx_dir
 ==========
-The command line argument *sphinx_dir* is a sub-directory,
-of the top git repository directory.
+The command line argument *sphinx_dir* is a directory relative to
+of the directory where ``xrst`` is executed.
 The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The file ``index.rst`` in this directory will be overwritten
@@ -83,7 +83,7 @@ each time ``run_xrst`` executes.
 The sub-directory *sphinx_dir* :code:`/xrst` is managed by ``xrst`` .
 All the ``.rst`` files in *sphinx_dir* :code:`/xrst`
 were extracted from the source code and correspond to
-last time that ``run_xrst`` was executed.
+last time that ``xrst`` was executed.
 Files that do not change are not updated (to speed up the processing).
 
 conf.py
@@ -171,9 +171,6 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 def run_xrst() :
     # check working directory
-    if not os.path.isdir('.git') :
-        msg = 'must be executed from to top directory for a git repository'
-        xrst.system_exit(msg)
     #
     # check number of command line arguments
     if len(sys.argv) != 6 and len(sys.argv) != 7 :

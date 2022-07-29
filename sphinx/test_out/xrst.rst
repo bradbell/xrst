@@ -48,16 +48,27 @@ Git Repository
 https://github.com/bradbell/xrst
 
 .. meta::
-   :keywords: program
+   :keywords: pip, install
 
-.. index:: program
+.. index:: pip, install
 
-.. _xrst@program:
+.. _xrst@pip_install:
 
-Program
-********
+Pip Install
+***********
+-   ``pip install --index-url https://test.pypi.org/simple/ xrst``
 
-:ref:`xrst@py<run_xrst>`
+.. meta::
+   :keywords: run, program
+
+.. index:: run, program
+
+.. _xrst@run_program:
+
+Run Program
+***********
+
+:ref:`run_xrst`
 
 .. meta::
    :keywords: purpose
@@ -96,17 +107,6 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
-
-.. meta::
-   :keywords: install
-
-.. index:: install
-
-.. _xrst@install:
-
-Install
-************
--   ``pip install --index-url https://test.pypi.org/simple/ xrst``
 
 ----
 

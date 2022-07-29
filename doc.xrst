@@ -94,7 +94,6 @@ Other Processing
 {xrst_spell
     stackoverflow
     pyspellchecker
-    cppad
 }
 
 Wish List
@@ -113,11 +112,6 @@ Relative File Names
 *******************
 Make all file names relative to the directory where the
 :ref:`run_xrst@command_line_arguments@root_file` is located.
-
-Git Repository
-**************
-Remove the need for run_xrst to be executed from the top directory
-of a git repository.
 
 Link to Section Name
 ********************
@@ -150,13 +144,6 @@ It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`code_cmd` and :ref:`file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
-
-Module
-******
-Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``run_xrst`` program
-so that users would not have to copy it to a directory in
-their execution path.
 
 {xrst_end wish_list}
 ----------------------------------------------------------------------------

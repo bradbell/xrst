@@ -46,18 +46,6 @@ Make all file names relative to the directory where the
 :ref:`run_xrst@command_line_arguments@root_file` is located.
 
 .. meta::
-   :keywords: git, repository
-
-.. index:: git, repository
-
-.. _wish_list@git_repository:
-
-Git Repository
-**************
-Remove the need for run_xrst to be executed from the top directory
-of a git repository.
-
-.. meta::
    :keywords: link, to, section, name
 
 .. index:: link, to, section, name
@@ -116,20 +104,6 @@ It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`code_cmd` and :ref:`file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
-
-.. meta::
-   :keywords: module
-
-.. index:: module
-
-.. _wish_list@module:
-
-Module
-******
-Convert the program into a python module and provide a pip distribution for it.
-It would at least be nice for cppad_py to install the ``run_xrst`` program
-so that users would not have to copy it to a directory in
-their execution path.
 
 ----
 

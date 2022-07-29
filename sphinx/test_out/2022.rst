@@ -16,6 +16,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@07-28:
+
+07-28
+*****
+1.  Change ``xsrst`` to ``xrst``
+2.  Create the first :ref:`xrst@pip_install` of xrst.
+
 .. _2022@07-27:
 
 07-27
@@ -53,7 +60,8 @@ interact; see :ref:`child_cmd@children`.
 1.  Remove ignore spelling of latex commands from wish list (done).
 2.  Add :ref:`wish_list@standard_indent`,
     :ref:`wish_list@relative_file_names`, and
-    :ref:`wish_list@git_repository` entries to wish list.
+    Git Repository entries to wish list
+    (the Git Repository entry was completed on 07-28.)
 
 .. _2022@07-21:
 

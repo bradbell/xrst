@@ -44,7 +44,7 @@ if [ "$target" == 'html' ]
 then
     echo_eval python -m xrst \
         html doc.xrst sphinx spelling keyword $line_increment
-    sphinx-build -b html sphinx doc/html
+    sphinx-build -b html sphinx doc
     echo 'run_sphinx.sh: OK'
     exit 0
 fi
