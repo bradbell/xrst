@@ -4,6 +4,7 @@ temp.*
 # automatically created files
 /git_commit.sh
 /sphinx/index.rst
+/sphinx/conf.py
 # automatically created directories
 /dist/
 /doc/
