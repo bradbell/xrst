@@ -10,7 +10,6 @@ other_processing
 
    indentation
    heading_links
-   configure
 
 .. meta::
    :keywords: other_processing, other, processing
@@ -30,7 +29,6 @@ Other Processing
 
     "indentation", :ref:`indentation`
     "heading_links", :ref:`heading_links`
-    "configure", :ref:`configure`
 
 ----
 

@@ -8,7 +8,14 @@ Table of Contents
 
 |
 | :ref:`1<run_xrst>` Run Extract Sphinx RST And Sphinx
+|
 |  |space| :ref:`1.1<auto_file>` Automatically Generated Files
+|  |space| :ref:`1.2<configure>` Example xrst Configuration Files
+|
+|  |space|  |space| :ref:`1.2.1<spelling>` The spelling Example File
+|  |space|  |space| :ref:`1.2.2<keyword>` The keyword Example File
+|  |space|  |space| :ref:`1.2.3<preamble.rst>` The preamble.rst Example File
+|
 | :ref:`2<commands>` xrst Commands
 |
 |  |space| :ref:`2.1<begin_cmd>` Begin and End Commands
@@ -43,11 +50,6 @@ Table of Contents
 |  |space| :ref:`3.2<heading_links>` Heading Links
 |  |space|  |space| :ref:`3.2.1<heading_exam>` Heading Example
 |  |space|  |space|  |space| :ref:`3.2.1.1<heading_res>` Heading Result
-|  |space| :ref:`3.3<configure>` Example xrst Configuration Files
-|
-|  |space|  |space| :ref:`3.3.1<spelling>` The spelling Example File
-|  |space|  |space| :ref:`3.3.2<keyword>` The keyword Example File
-|  |space|  |space| :ref:`3.3.3<preamble.rst>` The preamble.rst Example File
 |
 | :ref:`4<wish_list>` Wish List
 | :ref:`5<release_notes>` xrst Release Notes By Year

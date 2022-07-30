@@ -95,6 +95,7 @@ Other Files
 -----------
 {xrst_children
     xrst/auto_file.py
+    sphinx/configure.xrst
 }
 See :ref:`auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
@@ -112,6 +113,10 @@ following python regular expression:
 
     ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
+Example
+-------
+:ref:`preamble.rst`
+
 spelling
 ========
 The command line argument *spelling* is the name of a file,
@@ -125,6 +130,10 @@ leading and trailing white space in a word are ignored.
 For example; see :ref:`spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
+
+Example
+-------
+:ref:`spelling`
 
 keyword
 =======
@@ -144,6 +153,10 @@ leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
 For example; see :ref:`keyword`.
+
+Example
+-------
+:ref:`keyword`
 
 line_increment
 ==============

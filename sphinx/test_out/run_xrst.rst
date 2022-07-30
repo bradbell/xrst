@@ -9,6 +9,7 @@ run_xrst
    :hidden:
 
    auto_file
+   configure
 
 .. meta::
    :keywords: run_xrst, run, extract, sphinx, rst, sphinx
@@ -197,6 +198,17 @@ following python regular expression:
     ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
 .. meta::
+   :keywords: example
+
+.. index:: example
+
+.. _run_xrst@command_line_arguments@preamble.rst@example:
+
+Example
+-------
+:ref:`preamble.rst`
+
+.. meta::
    :keywords: spelling
 
 .. index:: spelling
@@ -216,6 +228,17 @@ leading and trailing white space in a word are ignored.
 For example; see :ref:`spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
+
+.. meta::
+   :keywords: example
+
+.. index:: example
+
+.. _run_xrst@command_line_arguments@spelling@example:
+
+Example
+-------
+:ref:`spelling`
 
 .. meta::
    :keywords: keyword
@@ -242,6 +265,17 @@ leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
 For example; see :ref:`keyword`.
+
+.. meta::
+   :keywords: example
+
+.. index:: example
+
+.. _run_xrst@command_line_arguments@keyword@example:
+
+Example
+-------
+:ref:`keyword`
 
 .. meta::
    :keywords: line_increment
