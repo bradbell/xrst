@@ -18,6 +18,7 @@ xrst Release Notes for 2022
 *****
 1.  Change ``xsrst`` to ``xrst``
 2.  Create the first :ref:`xrst@pip_install` of xrst.
+3.  Automatically create the :ref:`auto_file@conf.py` file.
 
 07-27
 *****

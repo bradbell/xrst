@@ -17,7 +17,7 @@ The preamble.rst Example File
    :local:
 
 .. literalinclude:: ../../sphinx/preamble.rst
-    :lines: 2-15
+    :lines: 2-14
     :language: rst
 
 ----

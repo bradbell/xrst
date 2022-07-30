@@ -25,10 +25,11 @@ ignore_files='
     batch_edit.sed
     bin/devel.sh
     gpl-3.0.txt
+    sphinx/conf.py
+    sphinx/preamble.rst
     sphinx/spelling
     sphinx/test_out/
     sphinx/xrst/
-    sphinx/conf.py
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"

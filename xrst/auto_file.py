@@ -30,9 +30,12 @@ This is the sphinx configuration_ file.
 .. _configuration:  http://www.sphinx-doc.org/en/master/config
 
 
+
+
 {xrst_end auto_file}
 """
 # ----------------------------------------------------------------------------
+import re
 import xrst
 #
 # conf_py_general
@@ -70,6 +73,34 @@ else :
     assert False
 '''
 #
+def preamble_macros(sphinx_dir) :
+    #
+    # pattern
+    pattern = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
+    pattern = re.compile(pattern)
+    #
+    # file_data
+    file_name = sphinx_dir + '/preamble.rst'
+    file_ptr  = open(file_name, 'r')
+    file_data = file_ptr.read()
+    file_ptr.close()
+    #
+    # m_math
+    m_math = pattern.search(file_data)
+    #
+    # macro_list
+    macro_list = list()
+    while m_math :
+        #
+        # macro_list
+        macro = m_math.group(1)
+        macro_list.append(macro)
+        #
+        # m_math
+        m_math = pattern.search(file_data, m_math.end() - 1)
+    #
+    return macro_list
+# ----------------------------------------------------------------------------
 #
 # Create the automatically generated files in tmp_dir/rst
 # (which end up in sphinx_dir/rst)
@@ -95,9 +126,12 @@ else :
 # in_parent_file is this section in same input file as its parent.
 #
 # tmp_dir/xsrst_table_of_contents.rst
-# Is the file creates with the table of contents.
+# This file creates is the table of contents for the documentation.
 # It has the lable xrst_table_of_contents which can be used to link
 # to this section.
+#
+# sphinx_dir/conf.py
+# This is the configuration file used by sphinx to build the docuementation.
 #
 def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     #
@@ -134,8 +168,17 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     conf_py += "    'preamble' :\n"
     conf_py += "    r'\\renewcommand{\\thesection}{{\\hspace{-1em}}} ' + \n"
     conf_py += "    r'\\renewcommand{\\thesubsection}{{\\hspace{-1em}}} ' + \n"
-    conf_py += "    r'\\renewcommand{\\thesubsubsection}{{\\hspace{-1em}}} ' \n"
-    conf_py += '}\n'
+    conf_py += "    r'\\renewcommand{\\thesubsubsection}{{\\hspace{-1em}}}'"
+    #
+    # latex
+    latex = ''
+    macro_list = preamble_macros(sphinx_dir)
+    for macro in macro_list :
+        latex += ' + \n'
+        latex += "    r'" + macro + "'"
+    #
+    # conf_pu
+    conf_py += latex + '\n}\n'
     #
     file_out    = sphinx_dir + '/' + 'conf.py'
     file_ptr    = open(file_out, 'w')

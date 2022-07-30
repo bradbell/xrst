@@ -190,6 +190,11 @@ preamble.rst
 An rst file that is automatically included at the beginning of every section.
 This file should only define things, it should not generate any output.
 For example, :ref:`preamble_rst`.
+The Latex macros in this file can be used by any section.
+There must be one macro definition per line and each such line must match the
+following python regular expression:
+
+    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
 .. meta::
    :keywords: spelling
