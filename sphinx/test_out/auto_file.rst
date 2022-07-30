@@ -32,6 +32,19 @@ rst/xrst_table_contents.rst
 ***************************
 This file contains the table of contents for the last run of ``xrst``.
 
+.. meta::
+   :keywords: conf.py
+
+.. index:: conf.py
+
+.. _auto_file@conf.py:
+
+conf.py
+*******
+This is the sphinx configuration_ file.
+
+.. _configuration:  http://www.sphinx-doc.org/en/master/config
+
 ----
 
 xrst input file: ``xrst/auto_file.py``

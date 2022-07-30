@@ -7,6 +7,9 @@
 # ----------------------------------------------------------------------------
 """
 {xrst_begin auto_file}
+{xrst_spell
+    conf
+}
 
 Automatically Generated Files
 #############################
@@ -20,11 +23,59 @@ rst/xrst_table_contents.rst
 ***************************
 This file contains the table of contents for the last run of ``xrst``.
 
+conf.py
+*******
+This is the sphinx configuration_ file.
+
+.. _configuration:  http://www.sphinx-doc.org/en/master/config
+
 
 {xrst_end auto_file}
 """
+# ----------------------------------------------------------------------------
+import xrst
+#
+# conf_py_general
+conf_py_general = '''#
+# General configuration
+extensions = [
+    'sphinx.ext.mathjax',
+    'sphinx_rtd_theme',
+]
+exclude_patterns = [
+    'test_out',
+    'preamble.rst',
+]
+'''
+#
+# conf_py_theme
+conf_py_theme = '''#
+# Theme
+html_theme = 'sphinx_rtd_theme'
+#
+if html_theme == 'sphinx_rtd_theme' :
+    html_theme_options = {
+        'navigation_depth' : -1   ,
+        'titles_only'      : True ,
+    }
+elif html_theme == 'insipid' :
+    html_theme_options = {
+        'strip_section_numbers' : True,
+        'nosidebar'             : True,
+        'body_centered'         : False,
+        'body_max_width'        : '70em',
+        'breadcrumbs'           : True,
+    }
+else :
+    assert False
+'''
+#
+#
 # Create the automatically generated files in tmp_dir/rst
 # (which end up in sphinx_dir/rst)
+#
+# sphinx_dir:
+# is the name of xrst command line line argument *sphinx_dir*.
 #
 # tmp_dir:
 # is the name of the directory where xrst creates a temporary copy of
@@ -48,13 +99,9 @@ This file contains the table of contents for the last run of ``xrst``.
 # It has the lable xrst_table_of_contents which can be used to link
 # to this section.
 #
-# ----------------------------------------------------------------------------
-import xrst
-#
-#
-def auto_file(tmp_dir, target, sinfo_list) :
+def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     #
-    # xrst_table_of_contents
+    # rst/xrst_table_of_contents.rst
     output_data = '.. include:: ../preamble.rst\n'
     #
     level         = 1
@@ -73,3 +120,24 @@ def auto_file(tmp_dir, target, sinfo_list) :
     file_out    = tmp_dir + '/' + 'xrst_table_of_contents.rst'
     file_ptr    = open(file_out, 'w')
     file_ptr.write(output_data)
+    file_ptr.close()
+    #
+    # conf_py
+    project = sinfo_list[0]['section_name']
+    conf_py  = '# Project information\n'
+    conf_py += f"project = '{project}'\n"
+    conf_py += conf_py_general
+    conf_py += conf_py_theme
+    conf_py += '#\n'
+    conf_py += '# Latex used when sphinx builds  pdf\n'
+    conf_py += 'latex_elements = {\n'
+    conf_py += "    'preamble' :\n"
+    conf_py += "    r'\\renewcommand{\\thesection}{{\\hspace{-1em}}} ' + \n"
+    conf_py += "    r'\\renewcommand{\\thesubsection}{{\\hspace{-1em}}} ' + \n"
+    conf_py += "    r'\\renewcommand{\\thesubsubsection}{{\\hspace{-1em}}} ' \n"
+    conf_py += '}\n'
+    #
+    file_out    = sphinx_dir + '/' + 'conf.py'
+    file_ptr    = open(file_out, 'w')
+    file_ptr.write(conf_py)
+    file_ptr.close()

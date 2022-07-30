@@ -13,21 +13,6 @@ Example xrst Configuration Files
 
 {xrst_end configure}
 -----------------------------------------------------------------------------
-{xrst_begin conf.py}
-{xrst_spell
-    conf
-}
-
-The conf.py Example File
-########################
-{xrst_file
-    # BEGIN conf.py
-    # END conf.py
-    sphinx/conf.py
-}
-
-{xrst_end conf.py}
------------------------------------------------------------------------------
 {xrst_begin spelling}
 
 The spelling Example File

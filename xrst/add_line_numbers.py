@@ -8,6 +8,9 @@
 import re
 import xrst
 #
+# pattern
+pattern = re.compile( r'^\n[ \t]*' )
+#
 # Add line numbers to a string in a way that is useful for reporting errors
 # (for modified versions of string) using line number in the origianl string.
 #
@@ -24,9 +27,6 @@ import xrst
 # data_out =
 def add_line_numbers(data_in) :
     assert type(data_in) == str
-    #
-    # pattern
-    pattern = re.compile( r'^\n[ \t]*' )
     #
     # newline_list, data_out, previous
     newline_list = xrst.newline_indices(data_in)

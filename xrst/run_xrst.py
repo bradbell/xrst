@@ -76,9 +76,9 @@ sphinx_dir
 ==========
 The command line argument *sphinx_dir* is a directory relative to
 of the directory where ``xrst`` is executed.
-The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
+The  files ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
-The file ``index.rst`` in this directory will be overwritten
+The files ``conf.py``, ``index.rst`` in this directory will be overwritten
 each time ``run_xrst`` executes.
 
 rst
@@ -244,13 +244,6 @@ def run_xrst() :
             msg += 'line_increment is not a positive integer'
             xrst.system_exit(msg)
     #
-    # conf.y
-    file_path = sphinx_dir + '/conf.py'
-    if not os.path.isfile( file_path ) :
-        msg  = 'can not find the file conf.py\n'
-        msg += 'in sphinx_dir = ' + sphinx_dir
-        xrst.system_exit(msg)
-    #
     # xsrist_dir
     rst_dir = sphinx_dir + '/rst'
     if not os.path.isdir(rst_dir) :
@@ -279,7 +272,8 @@ def run_xrst() :
     pattern['suspend'] = re.compile( r'\n[ \t]*\{xrst_suspend\}' )
     pattern['resume']  = re.compile( r'\n[ \t]*\{xrst_resume\}' )
     # -------------------------------------------------------------------------
-    # process each file in the list
+    #
+    # sinfo_list, finfo_stack, finfo_done
     sinfo_list       = list()
     finfo_stack      = list()
     finfo_done       = list()
@@ -289,6 +283,7 @@ def run_xrst() :
         'parent_section' : None,
     }
     finfo_stack.append(finfo)
+    #
     while 0 < len(finfo_stack) :
         # pop first element is stack so that order in pdf file and
         # table of contents is correct
@@ -419,9 +414,9 @@ def run_xrst() :
                 section_name,
                 section_data,
             )
-    # -------------------------------------------------------------------------
-    # xrst_table_of_contents
-    xrst.auto_file(tmp_dir, target, sinfo_list)
+    #
+    # auto_file
+    xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list)
     # -------------------------------------------------------------------------
     # sinfo_list[0] corresponds to the root section
     assert sinfo_list[0]['file_in'] == root_file

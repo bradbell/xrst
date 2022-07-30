@@ -45,10 +45,9 @@ Table of Contents
 |  |space|  |space|  |space| :ref:`3.2.1.1<heading_res>` Heading Result
 |  |space| :ref:`3.3<configure>` Example xrst Configuration Files
 |
-|  |space|  |space| :ref:`3.3.1<conf.py>` The conf.py Example File
-|  |space|  |space| :ref:`3.3.2<spelling>` The spelling Example File
-|  |space|  |space| :ref:`3.3.3<keyword>` The keyword Example File
-|  |space|  |space| :ref:`3.3.4<preamble_rst>` The preamble.rst Example File
+|  |space|  |space| :ref:`3.3.1<spelling>` The spelling Example File
+|  |space|  |space| :ref:`3.3.2<keyword>` The keyword Example File
+|  |space|  |space| :ref:`3.3.3<preamble_rst>` The preamble.rst Example File
 |
 | :ref:`4<wish_list>` Wish List
 | :ref:`5<release_notes>` xrst Release Notes By Year

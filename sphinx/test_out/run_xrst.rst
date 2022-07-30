@@ -141,9 +141,9 @@ sphinx_dir
 ==========
 The command line argument *sphinx_dir* is a directory relative to
 of the directory where ``xrst`` is executed.
-The  files ``conf.py``, ``preamble.rst``, *spelling*, and *keyword*
+The  files ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
-The file ``index.rst`` in this directory will be overwritten
+The files ``conf.py``, ``index.rst`` in this directory will be overwritten
 each time ``run_xrst`` executes.
 
 .. meta::

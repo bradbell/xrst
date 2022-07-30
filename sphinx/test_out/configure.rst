@@ -8,7 +8,6 @@ configure
    :maxdepth: 1
    :hidden:
 
-   conf.py
    spelling
    keyword
    preamble_rst
@@ -29,7 +28,6 @@ Example xrst Configuration Files
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "conf.py", :ref:`conf.py`
     "spelling", :ref:`spelling`
     "keyword", :ref:`keyword`
     "preamble_rst", :ref:`preamble_rst`
