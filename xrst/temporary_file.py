@@ -55,7 +55,7 @@ def temporary_file(
     #
     # before
     # start output by including preamble and then pesudo_heading
-    before = '.. include:: ../preamble.rst\n\n' + pseudo_heading
+    before = '.. include:: xrst_preamble.rst\n\n' + pseudo_heading
     #
     # after
     # end output with input file name

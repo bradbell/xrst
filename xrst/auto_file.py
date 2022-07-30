@@ -13,15 +13,11 @@
 
 Automatically Generated Files
 #############################
-These files are located in the directory
-created automatically each time :ref:`xrst<run_xrst>` is run.
-They are located in the
-:ref:`run_xrst@command_line_arguments@sphinx_dir` directory:
+These files are located in the
+:ref:`run_xrst@command_line_arguments@sphinx_dir` directory.
+A new version of these files is created each time ``xrst`` is run.
+The files in the ``rst`` subdirectory that do not change are not replaced.
 
-
-rst/xrst_table_contents.rst
-***************************
-This file contains the table of contents for the last run of ``xrst``.
 
 conf.py
 *******
@@ -29,8 +25,25 @@ This is the sphinx configuration_ file.
 
 .. _configuration:  http://www.sphinx-doc.org/en/master/config
 
+rst/xrst_table_contents.rst
+***************************
+This file contains the table of contents for the last run of ``xrst``.
+You can link to the corresponding section with the following command:
 
+```
+:ref:`xrst_table_of_contents`
+```
 
+The result of this command in this documentation is
+:ref:`xrst_table_of_contents` .
+
+rst/xrst_preamble.rst
+*********************
+This is a copy of the
+:ref:`run_xrst@command_line_arguments@preamble.rst` file.
+If the
+:ref:`run_xrst@command_line_arguments@target` argument is
+``pdf``, the latex macros have been removed.
 
 {xrst_end auto_file}
 """
@@ -73,11 +86,15 @@ else :
     assert False
 '''
 #
+#
+# pattern_macro
+# Note that each macro pattern match may overlap the previous match
+# by the \n at the beginning and end of the pattern.
+pattern_macro = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
+pattern_macro = re.compile(pattern_macro)
+#
 def preamble_macros(sphinx_dir) :
     #
-    # pattern
-    pattern = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
-    pattern = re.compile(pattern)
     #
     # file_data
     file_name = sphinx_dir + '/preamble.rst'
@@ -85,19 +102,19 @@ def preamble_macros(sphinx_dir) :
     file_data = file_ptr.read()
     file_ptr.close()
     #
-    # m_math
-    m_math = pattern.search(file_data)
+    # m_macro
+    m_macro = pattern_macro.search(file_data)
     #
     # macro_list
     macro_list = list()
-    while m_math :
+    while m_macro :
         #
         # macro_list
-        macro = m_math.group(1)
+        macro = m_macro.group(1)
         macro_list.append(macro)
         #
-        # m_math
-        m_math = pattern.search(file_data, m_math.end() - 1)
+        # m_macro
+        m_macro = pattern_macro.search(file_data, m_macro.end() - 1)
     #
     return macro_list
 # ----------------------------------------------------------------------------
@@ -130,12 +147,17 @@ def preamble_macros(sphinx_dir) :
 # It has the lable xrst_table_of_contents which can be used to link
 # to this section.
 #
+# tmp_dir/xsrst_preamble.rst
+# This is a copy of the sphinx_dir/preamble.rst file. If target is
+# pdf (html) the latex macros are (are not) removed.
+#
 # sphinx_dir/conf.py
 # This is the configuration file used by sphinx to build the docuementation.
 #
+#
 def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
-    #
-    # rst/xrst_table_of_contents.rst
+    # ------------------------------------------------------------------------
+    # tmp_dir/xrst_table_of_contents.rst
     output_data = '.. include:: ../preamble.rst\n'
     #
     level         = 1
@@ -155,6 +177,8 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     file_ptr    = open(file_out, 'w')
     file_ptr.write(output_data)
     file_ptr.close()
+    # ------------------------------------------------------------------------
+    # sphinx_dir/conf.py
     #
     # conf_py
     project = sinfo_list[0]['section_name']
@@ -177,10 +201,41 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
         latex += ' + \n'
         latex += "    r'" + macro + "'"
     #
-    # conf_pu
+    # conf_py
     conf_py += latex + '\n}\n'
     #
+    # sphinx_dir/conf.py
     file_out    = sphinx_dir + '/' + 'conf.py'
     file_ptr    = open(file_out, 'w')
     file_ptr.write(conf_py)
     file_ptr.close()
+    # ------------------------------------------------------------------------
+    # tmp_dir/xrst_preamble.rst
+    #
+    # file_data
+    file_name = sphinx_dir + '/preamble.rst'
+    file_ptr  = open(file_name, 'r')
+    file_data = file_ptr.read()
+    file_ptr.close()
+    #
+    if target == 'pdf' :
+        # remove the latex macros
+        #
+        # m_macro
+        m_macro = pattern_macro.search(file_data)
+        while m_macro :
+            #
+            # file_data
+            before = file_data[0 : m_macro.start() ]
+            after  = file_data[m_macro.end() - 1 ]
+            file_data = before + after
+            #
+            # m_macro
+            m_macro = pattern_macro.search(file_data, m_end() - 1)
+    #
+    # tmp_dir/xrstt_preamble.rst
+    file_out    = tmp_dir + '/' + 'xrst_preamble.rst'
+    file_ptr    = open(file_out, 'w')
+    file_ptr.write(file_data)
+    file_ptr.close()
+    # ------------------------------------------------------------------------

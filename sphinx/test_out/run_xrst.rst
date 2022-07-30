@@ -1,4 +1,4 @@
-.. include:: ../preamble.rst
+.. include:: xrst_preamble.rst
 
 !!!!!!!!
 run_xrst
@@ -111,9 +111,7 @@ If *target* is ``pdf``, you can use the following commands:
 .. code-block:: sh
 
     cd sphinx_dir
-    sed -i.bak preamble.rst -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
     sphinx-build -b latex . latex
-    mv preamble.rst.bak preamble.rst
     cd latex
     sed -i xrst.tex -e 's|\\chapter{|\\paragraph{|'
     make xrst.pdf
@@ -156,9 +154,8 @@ each time ``run_xrst`` executes.
 rst
 ---
 The sub-directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
-All the ``.rst`` files in *sphinx_dir* :code:`/rst`
-were extracted from the source code and correspond to
-last time that ``xrst`` was executed.
+It contains all the rst files that were extracted from the source code,
+and correspond to last time that ``xrst`` was executed.
 For each :ref:`begin_cmd@section_name`, the file
 
 |space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
@@ -183,12 +180,13 @@ See :ref:`auto_file` for the other automatically generated files in the
 
 .. index:: preamble.rst
 
-.. _run_xrst@command_line_arguments@sphinx_dir@preamble.rst:
+.. _run_xrst@command_line_arguments@preamble.rst:
 
 preamble.rst
-------------
-An rst file that is automatically included at the beginning of every section.
-This file should only define things, it should not generate any output.
+============
+The file *sphinx_dir* ``/preamble.rst`` is create by the user.
+It is included at the beginning of every section.
+It should only define things, it should not generate any output.
 For example, :ref:`preamble_rst`.
 The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
