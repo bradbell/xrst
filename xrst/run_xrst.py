@@ -66,13 +66,14 @@ make xrst.pdf
 
 root_file
 =========
-The command line argument *root_file* is the name of a file,
+The command line argument *root_file* is the name of a file.
+This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 sphinx_dir
 ==========
 The command line argument *sphinx_dir* is a directory relative to
-of the directory where ``xrst`` is executed.
+of the directory where *root_file* is located.
 The  files ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The files ``conf.py``, ``index.rst`` in this directory will be overwritten
@@ -198,7 +199,9 @@ if( os.getcwd().endswith('/xrst.git') ) :
 #
 import xrst
 def run_xrst() :
-    # check working directory
+    #
+    # execution_directory
+    execution_directory = os.getcwd()
     #
     # check number of command line arguments
     if len(sys.argv) != 6 and len(sys.argv) != 7 :
@@ -214,11 +217,27 @@ def run_xrst() :
         xrst.system_exit(msg)
     #
     # root_file
+    # can not use system_exit until root_directory is set
     root_file = sys.argv[2]
     if not os.path.isfile(root_file) :
-        msg  = 'root_file = ' + root_file + '\n'
-        msg += 'is not a file'
-        xrst.system_exit(msg)
+        msg  = 'xsrst: Error\n'
+        msg += f'root_file = {root_file}\n'
+        if root_file[0] == '/' :
+            msg += 'is not a file\n'
+        else :
+            msg += f'is not a file relative to the execution directory\n'
+            msg += execution_directory
+        sys.exit(msg)
+    #
+    # root_directory
+    index = root_file.rfind('/')
+    if index < 0 :
+        root_directory = '.'
+    elif index == 0 :
+        root_directory = '/'
+    elif 0 < index :
+        root_directory = root_file[: index]
+    os.chdir(root_directory)
     #
     # sphinx_dir
     sphinx_dir      = sys.argv[3]
@@ -279,22 +298,21 @@ def run_xrst() :
     index_list = list()
     for regexp in xrst.file2_list_str(keyword_path) :
         index_list.append( re.compile( regexp ) )
-    # -----------------------------------------------------------------------
-    # pattern
-    # -----------------------------------------------------------------------
-    pattern = dict()
-    #
-    # regular expressions corresponding to xrst commands
-    pattern['suspend'] = re.compile( r'\n[ \t]*\{xrst_suspend\}' )
-    pattern['resume']  = re.compile( r'\n[ \t]*\{xrst_resume\}' )
     # -------------------------------------------------------------------------
+    #
+    # root_local
+    index = root_file.rfind('/')
+    if index < 0 :
+        root_local = root_file
+    else :
+        root_local = root_file[index + 1 :]
     #
     # sinfo_list, finfo_stack, finfo_done
     sinfo_list       = list()
     finfo_stack      = list()
     finfo_done       = list()
     finfo = {
-        'file_in'        : root_file,
+        'file_in'        : root_local,
         'parent_file'    : None,
         'parent_section' : None,
     }
@@ -435,7 +453,7 @@ def run_xrst() :
     xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list)
     # -------------------------------------------------------------------------
     # sinfo_list[0] corresponds to the root section
-    assert sinfo_list[0]['file_in'] == root_file
+    assert sinfo_list[0]['file_in'] == root_local
     assert sinfo_list[0]['parent_section'] is None
     section_name = sinfo_list[0]['section_name']
     #

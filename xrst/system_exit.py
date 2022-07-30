@@ -6,6 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 import sys
+import os
 import xrst
 #
 # Add file name, section name, and line number to a message in a system exit
@@ -28,13 +29,15 @@ def system_exit(
     if m_obj :
         assert type(data) == str
     #
-    extra = ''
+    #
+    # extra
+    root_directory = os.getcwd()
+    extra          = f'\nroot_directory = {root_directory}\n'
+    #
     if section_name :
-        extra += 'section = ' + section_name
+        extra += f'section = {section_name}\n'
     if file_name :
-        if extra != '' :
-            extra += ', '
-        extra += 'file = ' + file_name
+        extra += f'file = {file_name}\n'
     if m_obj :
         assert file_name != None
         assert data != None
@@ -43,9 +46,6 @@ def system_exit(
         assert match_line
         line = match_line.group(1)
     if line != None :
-        if extra != '' :
-            extra += ', '
-        extra += 'line = ' + str(line)
-    if extra != '' :
-        msg += '\n' + extra
-    sys.exit('\nxrst: ' + msg)
+        extra += f'line = {line}\n'
+    #
+    sys.exit('xrst: Error\n' + msg + extra)

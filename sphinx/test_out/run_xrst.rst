@@ -126,7 +126,8 @@ If *target* is ``pdf``, you can use the following commands:
 
 root_file
 =========
-The command line argument *root_file* is the name of a file,
+The command line argument *root_file* is the name of a file.
+This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 .. meta::
@@ -139,7 +140,7 @@ relative to the directory where :ref:`xrst<run_xrst>` is executed.
 sphinx_dir
 ==========
 The command line argument *sphinx_dir* is a directory relative to
-of the directory where ``xrst`` is executed.
+of the directory where *root_file* is located.
 The  files ``preamble.rst``, *spelling*, and *keyword*
 files are located in this directory.
 The files ``conf.py``, ``index.rst`` in this directory will be overwritten

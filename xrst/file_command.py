@@ -141,6 +141,15 @@ def file_command(data_in, file_name, section_name, rst_dir) :
                 display_file = file_name
             else :
                 display_file = m_file.group(6).strip()
+                if not os.path.isfile(display_file) :
+                    msg  = 'file_comand: can not find the display_file.\n'
+                    msg += f'display_file = {display_file}'
+                    xrst.system_exit(msg,
+                        file_name    = file_name,
+                        section_name = section_name,
+                        m_obj        = m_file,
+                        data         = data_out
+                    )
                 same_file   = os.path.samefile(display_file, file_name)
                 if same_file :
                     display_file = file_name

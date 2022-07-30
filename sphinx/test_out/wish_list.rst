@@ -34,18 +34,6 @@ Change the number of spaces corresponding to a tab from 4 to 3 characters.
 This better aligns wih usage in sphinx rst files and saves output columns.
 
 .. meta::
-   :keywords: relative, file, names
-
-.. index:: relative, file, names
-
-.. _wish_list@relative_file_names:
-
-Relative File Names
-*******************
-Make all file names relative to the directory where the
-:ref:`run_xrst@command_line_arguments@root_file` is located.
-
-.. meta::
    :keywords: link, to, section, name
 
 .. index:: link, to, section, name

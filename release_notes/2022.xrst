@@ -16,7 +16,10 @@ xrst Release Notes for 2022
 
 07-30
 *****
-Automatically create the file :ref:`auto_file@conf.py`.
+1. Automatically create the file :ref:`auto_file@conf.py`.
+2.  Make all file names, except the
+    :ref:`run_xrst@command_line_arguments@root_file`,
+    relative to where the root file is located.
 
 07-28
 *****
@@ -51,9 +54,9 @@ interact; see :ref:`child_cmd@children`.
 *****
 1.  Remove ignore spelling of latex commands from wish list (done).
 2.  Add :ref:`wish_list@standard_indent`,
-    :ref:`wish_list@relative_file_names`, and
-    Git Repository entries to wish list
-    (the Git Repository entry was completed on 07-28.)
+    Relative File Names, and
+    Git Repository entries to wish list.
+    Only the Standard Indent entry is outstanding.
 
 07-21
 *****

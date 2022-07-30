@@ -23,14 +23,20 @@ then
     echo_eval rm -r doc
 fi
 # -----------------------------------------------------------------------------
-echo "python -m xrst html doc.xrst sphinx spelling keyword"
+# change directory to test case where root_directory is not working directory
+PYTHONPATH="$PYTHONPATH:$(pwd)"
+mkdir doc
+cd    doc
+echo "python -m xrst html ../doc.xrst sphinx spelling keyword"
 if ! python -m xrst \
-    html doc.xrst sphinx spelling  keyword 2> check_xrst.$$
+    html ../doc.xrst sphinx spelling  keyword 2> ../check_xrst.$$
 then
     type_error='error'
 else
     type_error='warning'
 fi
+cd ..
+# -----------------------------------------------------------------------------
 if [ -s check_xrst.$$ ]
 then
     cat check_xrst.$$
