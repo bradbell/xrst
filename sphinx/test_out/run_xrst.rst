@@ -160,7 +160,9 @@ For each :ref:`begin_cmd@section_name`, the file
 
 |space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
 
-Is the RST file for the corresponding section.
+Is the RST file for the corresponding section. There is one exception
+to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
+is not added at the end.
 
 .. meta::
    :keywords: other, files
@@ -187,7 +189,7 @@ preamble.rst
 The file *sphinx_dir* ``/preamble.rst`` is create by the user.
 It is included at the beginning of every section.
 It should only define things, it should not generate any output.
-For example, :ref:`preamble_rst`.
+For example, :ref:`preamble.rst`.
 The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
 following python regular expression:

@@ -91,8 +91,11 @@ def temporary_file(
         #
         data_out = data_out + after
     #
-    # open output file
-    file_out = tmp_dir + '/' + section_name + '.rst'
+    # file_out
+    if section_name.endswith('.rst') :
+        file_out = tmp_dir + '/' + section_name
+    else :
+        file_out = tmp_dir + '/' + section_name + '.rst'
     file_ptr = open(file_out, 'w')
     file_ptr.write(data_out)
     file_ptr.close()

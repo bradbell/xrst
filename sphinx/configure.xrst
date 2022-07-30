@@ -37,7 +37,7 @@ The keyword Example File
 
 {xrst_end keyword}
 -----------------------------------------------------------------------------
-{xrst_begin preamble_rst}
+{xrst_begin preamble.rst}
 
 The preamble.rst Example File
 #############################
@@ -47,5 +47,5 @@ The preamble.rst Example File
     sphinx/preamble.rst
 }
 
-{xrst_end preamble_rst}
+{xrst_end preamble.rst}
 -----------------------------------------------------------------------------

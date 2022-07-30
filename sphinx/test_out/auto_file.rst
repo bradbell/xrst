@@ -49,6 +49,7 @@ You can link to the corresponding section with the following command:
 ```
 :ref:`xrst_table_of_contents`
 ```
+
 The result of this command in this documentation is
 :ref:`xrst_table_of_contents` .
 

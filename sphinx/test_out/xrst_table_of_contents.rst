@@ -47,7 +47,7 @@ Table of Contents
 |
 |  |space|  |space| :ref:`3.3.1<spelling>` The spelling Example File
 |  |space|  |space| :ref:`3.3.2<keyword>` The keyword Example File
-|  |space|  |space| :ref:`3.3.3<preamble_rst>` The preamble.rst Example File
+|  |space|  |space| :ref:`3.3.3<preamble.rst>` The preamble.rst Example File
 |
 | :ref:`4<wish_list>` Wish List
 | :ref:`5<release_notes>` xrst Release Notes By Year

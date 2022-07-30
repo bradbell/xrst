@@ -7,9 +7,14 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
+#
+# pattern_child
 pattern_child = re.compile(
     r'\n[ \t]*{xrst_(children|child_list|child_table)}'
 )
+#
+# patttern_rst_extension
+pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
 # Add child information to this section
 #
@@ -50,7 +55,8 @@ def process_children(
     toctree += '   :maxdepth: 1\n'
     toctree += '   :hidden:\n\n'
     for child in list_children :
-        toctree += '   ' + child + '\n'
+        entry    = pattern_rst_extension.sub('', child)
+        toctree += '   ' + entry + '\n'
     toctree += '\n'
     data_out = toctree + data_in
     #

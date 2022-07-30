@@ -1,15 +1,15 @@
 .. include:: xrst_preamble.rst
 
 !!!!!!!!!!!!
-preamble_rst
+preamble.rst
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: preamble_rst, the, preamble.rst, example, file
+   :keywords: preamble.rst, the, preamble.rst, example, file
 
-.. index:: preamble_rst, the, preamble.rst, example, file
+.. index:: preamble.rst, the, preamble.rst, example, file
 
-.. _preamble_rst:
+.. _preamble.rst:
 
 The preamble.rst Example File
 #############################

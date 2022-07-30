@@ -90,7 +90,10 @@ def table_of_contents(
         content  += section_title + '\n'
     #
     # replace {xrst_section_number} in tmp_dir/section_name.rst
-    file_name = tmp_dir + '/' + section_name + '.rst'
+    if section_name.endswith('.rst') :
+        file_name = tmp_dir + '/' + section_name
+    else :
+        file_name = tmp_dir + '/' + section_name + '.rst'
     file_ptr  = open(file_name, 'r')
     file_data = file_ptr.read()
     file_ptr.close()

@@ -10,7 +10,7 @@ configure
 
    spelling
    keyword
-   preamble_rst
+   preamble
 
 .. meta::
    :keywords: configure, example, xrst, configuration, files
@@ -30,7 +30,7 @@ Example xrst Configuration Files
 
     "spelling", :ref:`spelling`
     "keyword", :ref:`keyword`
-    "preamble_rst", :ref:`preamble_rst`
+    "preamble.rst", :ref:`preamble.rst`
 
 ----
 
