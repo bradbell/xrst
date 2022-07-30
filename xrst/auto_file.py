@@ -158,7 +158,7 @@ def preamble_macros(sphinx_dir) :
 def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     # ------------------------------------------------------------------------
     # tmp_dir/xrst_table_of_contents.rst
-    output_data = '.. include:: ../preamble.rst\n'
+    output_data = '.. include:: xrst_preamble.rst\n'
     #
     level         = 1
     count         = list()
@@ -227,11 +227,20 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
             #
             # file_data
             before = file_data[0 : m_macro.start() ]
-            after  = file_data[m_macro.end() - 1 ]
+            after  = file_data[m_macro.end() - 1 : ]
             file_data = before + after
             #
             # m_macro
-            m_macro = pattern_macro.search(file_data, m_end() - 1)
+            m_macro = pattern_macro.search(file_data)
+    #
+    # pattern
+    # check for and remove an empty .. rst-class hidden block.
+    pattern = r'\n..[ \t]*rst-class:: hidden[ \t]*\n[ \t\n]*\n([^ \t\n]|$)'
+    m_obj   = re.search(pattern, file_data)
+    if m_obj :
+        before    = file_data[ : m_obj.start() + 1]
+        after     = file_data[ m_obj.end() - 1 : ]
+        file_data = before + after
     #
     # tmp_dir/xrstt_preamble.rst
     file_out    = tmp_dir + '/' + 'xrst_preamble.rst'

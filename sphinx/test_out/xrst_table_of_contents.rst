@@ -1,4 +1,4 @@
-.. include:: ../preamble.rst
+.. include:: xrst_preamble.rst
 
 .. _xrst_table_of_contents:
 

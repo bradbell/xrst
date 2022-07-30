@@ -29,15 +29,6 @@ line_increment="$2"
 # preamble
 preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
-if ! grep BEGIN_LATEX_MACROS $preamble > /dev/null
-then
-    echo "bin/run_sphinx: can't find BEGIN_LATEX_MACROS in $premable"
-fi
-if ! grep END_LATEX_MACROS $preamble > /dev/null
-then
-    echo "bin/run_sphinx: can't find END_LATEX_MACROS in $premable"
-fi
-# -----------------------------------------------------------------------------
 # html
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
@@ -51,20 +42,6 @@ fi
 # -----------------------------------------------------------------------------
 # pdf
 # -----------------------------------------------------------------------------
-#
-diff=$(git diff $preamble)
-if [ "$diff" != '' ]
-then
-    echo 'bin/run_sphinx.sh pdf:'
-    echo "$preamble has changed."
-    echo 'You must first test bin/run_sphinx.sh html.'
-    echo "Then check in the new $preamble before running bin/run_sphinx.sh pdf."
-    exit 1
-fi
-#
-# remove latex macros from preamble
-echo "sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'"
-sed -i $preamble -e '/BEGIN_LATEX_MACROS/,/END_LATEX_MACROS/d'
 #
 # run xrst to create rst files
 echo_eval python -m xrst pdf doc.xrst sphinx spelling keyword $line_increment
@@ -80,8 +57,6 @@ sed -i xrst.tex -e 's|\\chapter{|\\section{|'
 # create pdf from latex
 echo_eval make xrst.pdf
 #
-# restore the preamble
-echo_eval git checkout ../../$preamble
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'
 exit 0
