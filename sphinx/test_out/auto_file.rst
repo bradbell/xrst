@@ -22,6 +22,19 @@ A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 
 .. meta::
+   :keywords: index.rst
+
+.. index:: index.rst
+
+.. _auto_file@index.rst:
+
+index.rst
+*********
+The sphinx index.rst file. This is root level in the documentation tree
+built by sphinx. It is one level above the first section in
+:ref:`run_xrst@command_line_arguments@root_file`.
+
+.. meta::
    :keywords: conf.py
 
 .. index:: conf.py
