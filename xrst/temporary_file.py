@@ -55,14 +55,12 @@ def temporary_file(
     #
     # before
     # start output by including preamble and then pesudo_heading
-    before = '.. include:: xrst_preamble.rst\n\n' + pseudo_heading
-    #
-    # after
-    # end output with input file name
-    after = '\n----\n\n' + f'xrst input file: ``{file_in}``\n'
+    before  = '.. include:: xrst_preamble.rst\n\n'
+    before += pseudo_heading
+    before += f'xrst input file: ``{file_in}``\n\n'
     #
     # data_out
-    data_out = before + data_in + after
+    data_out = before + data_in
     #
     # Convert three or more sequential emtpty lines to two empty lines.
     data_out = pattern_line_number.sub('\n', data_out)

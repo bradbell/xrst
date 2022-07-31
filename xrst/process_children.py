@@ -28,14 +28,14 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #
 # data_out
 # The return value data_out has the child information added.
-# This includes a hidden table of contents for the children at the beginning
-# of data_out. If the child command in data_in is {xrst_child_list} or
+# This includes a hidden table of contents (toctree) for the children at the
+# end of data_out. If the child command in data_in is {xrst_child_list} or
 # {xrst_child_table} of table with the corresponding links will replace the
 # comand. If the child comamnd is {xrst_children}, the command is removed,
 # but no table of links is added.
 # If there is no child command and list_children is non-empty,
 # the child_table style is used for the links to the children which is placed
-# at the end of the data_out.
+# at the end of the data_out (before the toctree).
 #
 # data_out =
 def process_children(
@@ -50,15 +50,7 @@ def process_children(
         return data_in
     #
     # data_out
-    # put hidden toctree at end of section
-    toctree  = '.. toctree::\n'
-    toctree += '   :maxdepth: 1\n'
-    toctree += '   :hidden:\n\n'
-    for child in list_children :
-        entry    = pattern_rst_extension.sub('', child)
-        toctree += '   ' + entry + '\n'
-    toctree += '\n'
-    data_out = data_in + toctree
+    data_out = data_in
     #
     # m_child
     m_child = pattern_child.search(data_out)
@@ -104,6 +96,7 @@ def process_children(
     if data_out[-1] != '\n' :
         data_out += '\n'
     #
+    # data_out
     # If there is no child command in this section, automatically generate
     # links to the child sections at the end of the section.
     if not section_has_child_command :
@@ -114,5 +107,16 @@ def process_children(
             data_out += '    "' + child + '"'
             data_out += ', :ref:`' + child + '`\n'
         data_out += '\n'
+    #
+    # data_out
+    # put hidden toctree at end of section
+    toctree  = '.. toctree::\n'
+    toctree += '   :maxdepth: 1\n'
+    toctree += '   :hidden:\n\n'
+    for child in list_children :
+        entry    = pattern_rst_extension.sub('', child)
+        toctree += '   ' + entry + '\n'
+    toctree += '\n'
+    data_out = data_out + toctree
     #
     return data_out

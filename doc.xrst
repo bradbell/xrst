@@ -68,7 +68,7 @@ Contents
 
 xrst Commands
 #############
-{xrst_child_table
+{xrst_child_list
     xrst/get_file_info.py
     xrst/child_commands.py
     xrst/spell_command.py

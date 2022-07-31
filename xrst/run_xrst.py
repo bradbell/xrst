@@ -402,6 +402,7 @@ def run_xrst() :
                         list_children.append(sinfo_file_in[i]['section_name'])
             # ---------------------------------------------------------------
             # process children
+            # want this as late as possible to toctree at end of input
             section_data = xrst.process_children(
                 section_name,
                 section_data,
