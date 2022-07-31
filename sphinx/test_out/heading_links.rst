@@ -4,11 +4,7 @@
 heading_links
 !!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   heading_exam
+xrst input file: ``xrst/process_headings.py``
 
 .. meta::
    :keywords: heading_links, heading, links
@@ -109,6 +105,9 @@ Example
 
 The :ref:`heading_exam` section contains an example using these links.
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/process_headings.py``
+   heading_exam
+

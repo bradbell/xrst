@@ -4,12 +4,7 @@
 other_processing
 !!!!!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   indentation
-   heading_links
+xrst input file: ``doc.xrst``
 
 .. meta::
    :keywords: other_processing, other, processing
@@ -23,13 +18,13 @@ Other Processing
 .. contents::
    :local:
 
-.. csv-table::
-    :header:  "Child", "Title"
-    :widths: 20, 80
+-  :ref:`indentation`
+-  :ref:`heading_links`
 
-    "indentation", :ref:`indentation`
-    "heading_links", :ref:`heading_links`
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-----
+   indentation
+   heading_links
 
-xrst input file: ``doc.xrst``

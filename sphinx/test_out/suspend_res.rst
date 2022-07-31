@@ -4,6 +4,8 @@
 suspend_res
 !!!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/suspend.py``
+
 .. meta::
    :keywords: suspend_res, suspend, result
 
@@ -40,6 +42,3 @@ Product
 
 :ref:`suspend_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/suspend.py``

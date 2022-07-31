@@ -4,6 +4,8 @@
 children_other
 !!!!!!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/children.py``
+
 .. meta::
    :keywords: children_other, other, child
 
@@ -19,6 +21,3 @@ Other Child
 This is the other child section in
 :ref:`this file<children_exam@this_file>`.
 
-----
-
-xrst input file: ``sphinx/test_in/children.py``

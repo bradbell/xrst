@@ -4,6 +4,8 @@
 keyword
 !!!!!!!
 
+xrst input file: ``sphinx/configure.xrst``
+
 .. meta::
    :keywords: keyword, the, keyword, example, file
 
@@ -19,6 +21,3 @@ The keyword Example File
 .. literalinclude:: ../../sphinx/keyword
     :lines: 2-7
 
-----
-
-xrst input file: ``sphinx/configure.xrst``

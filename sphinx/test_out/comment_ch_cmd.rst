@@ -4,11 +4,7 @@
 comment_ch_cmd
 !!!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   comment_ch_exam
+xrst input file: ``xrst/remove_comment_ch.py``
 
 .. meta::
    :keywords: comment_ch_cmd, comment, character, command
@@ -118,6 +114,9 @@ Example
 
 -  :ref:`comment_ch_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/remove_comment_ch.py``
+   comment_ch_exam
+

@@ -4,11 +4,7 @@
 no_parent_exam
 !!!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   no_parent_res
+xrst input file: ``sphinx/test_in/no_parent.xrst``
 
 .. meta::
    :keywords: no_parent_exam, no, parent, example
@@ -37,6 +33,9 @@ because ``children.py`` does not have a
 
     "no_parent_res", :ref:`no_parent_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/no_parent.xrst``
+   no_parent_res
+

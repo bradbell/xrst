@@ -4,12 +4,7 @@
 run_xrst
 !!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   auto_file
-   configure
+xrst input file: ``xrst/run_xrst.py``
 
 .. meta::
    :keywords: run_xrst, run, extract, sphinx, rst, sphinx
@@ -47,14 +42,14 @@ The command line argument *target* must be ``html`` or ``pdf``.
 It specifies the type of type output you plan to generate using sphinx.
 
 .. meta::
-   :keywords: run, sphinx
+   :keywords: html
 
-.. index:: run, sphinx
+.. index:: html
 
-.. _run_xrst@target@run_sphinx:
+.. _run_xrst@target@html:
 
-Run Sphinx
-==========
+html
+====
 If *target* is ``html`` you can generate the sphinx output using
 the following command:
 
@@ -62,6 +57,16 @@ the following command:
 
 where *html_dir* is the directory where the html files are written,
 see below for the meaning of *sphinx_dir*.
+
+.. meta::
+   :keywords: pdf
+
+.. index:: pdf
+
+.. _run_xrst@target@pdf:
+
+pdf
+===
 If *target* is ``pdf``, you can use the following commands:
 
 .. code-block:: sh
@@ -69,8 +74,9 @@ If *target* is ``pdf``, you can use the following commands:
     cd sphinx_dir
     sphinx-build -b latex . latex
     cd latex
-    sed -i xrst.tex -e 's|\\chapter{|\\paragraph{|'
-    make xrst.pdf
+    make root_section_name.pdf
+
+where root_section_name is the name of the root section for you documentation.
 
 .. meta::
    :keywords: root_file
@@ -252,6 +258,10 @@ corresponds to line number 30 in the file ``children_exam.rst``.
 The table at the bottom of that file maps line numbers in
 ``children_exam.rst`` to line numbers in the corresponding xrst input file.
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/run_xrst.py``
+   auto_file
+   configure
+

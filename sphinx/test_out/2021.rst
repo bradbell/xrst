@@ -4,6 +4,8 @@
 2021
 !!!!
 
+xrst input file: ``release_notes/2021.xrst``
+
 .. meta::
    :keywords: 2021, xrst, release, notes, for, 2021
 
@@ -44,6 +46,3 @@ Improve the error messaging when the
 :ref:`begin_cmd@section_name` in a begin command
 has an invalid character; e.g. a period.
 
-----
-
-xrst input file: ``release_notes/2021.xrst``

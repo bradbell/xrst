@@ -4,6 +4,8 @@
 code_res
 !!!!!!!!
 
+xrst input file: ``sphinx/test_in/code.py``
+
 .. meta::
    :keywords: code_res, code, result
 
@@ -25,6 +27,3 @@ Code Result
 
 :ref:`code_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/code.py``

@@ -4,6 +4,8 @@
 wish_list
 !!!!!!!!!
 
+xrst input file: ``doc.xrst``
+
 .. meta::
    :keywords: wish_list, wish, list
 
@@ -93,6 +95,3 @@ displayed by :ref:`code_cmd` and :ref:`file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
 
-----
-
-xrst input file: ``doc.xrst``

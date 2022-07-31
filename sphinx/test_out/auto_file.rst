@@ -4,6 +4,8 @@
 auto_file
 !!!!!!!!!
 
+xrst input file: ``xrst/auto_file.py``
+
 .. meta::
    :keywords: auto_file, automatically, generated, files
 
@@ -83,6 +85,3 @@ If the
 :ref:`run_xrst@target` argument is
 ``pdf``, the latex macros have been removed.
 
-----
-
-xrst input file: ``xrst/auto_file.py``

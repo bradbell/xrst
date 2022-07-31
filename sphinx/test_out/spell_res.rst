@@ -4,6 +4,8 @@
 spell_res
 !!!!!!!!!
 
+xrst input file: ``sphinx/test_in/spell.py``
+
 .. meta::
    :keywords: spell_res, spell, result
 
@@ -74,6 +76,3 @@ spelling command for this section.
 
 :ref:`spell_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/spell.py``

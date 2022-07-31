@@ -4,6 +4,8 @@
 heading_res
 !!!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/heading.py``
+
 .. meta::
    :keywords: heading_res, heading, result
 
@@ -85,6 +87,3 @@ is included at the beginning of the target for the link:
 
 :ref:`heading_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/heading.py``

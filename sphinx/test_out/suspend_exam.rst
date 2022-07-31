@@ -4,11 +4,7 @@
 suspend_exam
 !!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   suspend_res
+xrst input file: ``sphinx/test_in/suspend.py``
 
 .. meta::
    :keywords: suspend_exam, suspend, example
@@ -32,6 +28,9 @@ Suspend Example
 
     "suspend_res", :ref:`suspend_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/suspend.py``
+   suspend_res
+

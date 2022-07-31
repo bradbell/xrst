@@ -4,11 +4,7 @@
 code_exam
 !!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   code_res
+xrst input file: ``sphinx/test_in/code.py``
 
 .. meta::
    :keywords: code_exam, code, example
@@ -32,6 +28,9 @@ Code Example
 
     "code_res", :ref:`code_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/code.py``
+   code_res
+

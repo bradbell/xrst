@@ -4,6 +4,8 @@
 comment_ch_res
 !!!!!!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/comment_ch.py``
+
 .. meta::
    :keywords: comment_ch_res, comment, character, result
 
@@ -29,6 +31,3 @@ and the remaining text lines up with the ``def`` below:
 
 :ref:`comment_ch_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/comment_ch.py``

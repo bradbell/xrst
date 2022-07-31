@@ -4,11 +4,7 @@
 child_cmd
 !!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   no_parent_exam
+xrst input file: ``xrst/child_commands.py``
 
 .. meta::
    :keywords: child_cmd, child, commands
@@ -191,6 +187,9 @@ Example
 
     "no_parent_exam", :ref:`no_parent_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/child_commands.py``
+   no_parent_exam
+

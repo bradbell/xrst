@@ -4,11 +4,7 @@
 suspend_cmd
 !!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   suspend_exam
+xrst input file: ``xrst/suspend_command.py``
 
 .. meta::
    :keywords: suspend_cmd, suspend, resume, commands
@@ -61,6 +57,9 @@ Example
 
 -  :ref:`suspend_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/suspend_command.py``
+   suspend_exam
+

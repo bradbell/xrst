@@ -4,6 +4,8 @@
 preamble.rst
 !!!!!!!!!!!!
 
+xrst input file: ``sphinx/configure.xrst``
+
 .. meta::
    :keywords: preamble.rst, the, preamble.rst, example, file
 
@@ -20,6 +22,3 @@ The preamble.rst Example File
     :lines: 2-15
     :language: rst
 
-----
-
-xrst input file: ``sphinx/configure.xrst``

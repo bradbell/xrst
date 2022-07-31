@@ -4,6 +4,8 @@
 2022
 !!!!
 
+xrst input file: ``release_notes/2022.xrst``
+
 .. meta::
    :keywords: 2022, xrst, release, notes, for, 2022
 
@@ -93,6 +95,3 @@ interact; see :ref:`child_cmd@children`.
 Ignore the spelling of all words that are preceded by a backslash
 (this ignores all latex commands); see :ref:`spell_cmd`.
 
-----
-
-xrst input file: ``release_notes/2022.xrst``

@@ -4,11 +4,7 @@
 spell_cmd
 !!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   spell_exam
+xrst input file: ``xrst/spell_command.py``
 
 .. meta::
    :keywords: spell_cmd, spell, command
@@ -113,6 +109,9 @@ Example
 
 -  :ref:`spell_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/spell_command.py``
+   spell_exam
+

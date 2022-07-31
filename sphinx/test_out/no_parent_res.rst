@@ -4,12 +4,7 @@
 no_parent_res
 !!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   children_exam
-   children_other
+xrst input file: ``sphinx/test_in/no_parent.xrst``
 
 .. meta::
    :keywords: no_parent_res, no, parent, result
@@ -64,6 +59,10 @@ Example
 *******
 :ref:`no_parent_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/no_parent.xrst``
+   children_exam
+   children_other
+

@@ -4,11 +4,7 @@
 file_exam
 !!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   file_res
+xrst input file: ``sphinx/test_in/file.cpp``
 
 .. meta::
    :keywords: file_exam, file, example
@@ -32,6 +28,9 @@ File Example
 
     "file_res", :ref:`file_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/file.cpp``
+   file_res
+

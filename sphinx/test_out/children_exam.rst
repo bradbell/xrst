@@ -4,6 +4,8 @@
 children_exam
 !!!!!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/children.py``
+
 .. meta::
    :keywords: children_exam, children, example
 
@@ -44,6 +46,3 @@ This File
     :lines: 9-41
     :language: py
 
-----
-
-xrst input file: ``sphinx/test_in/children.py``

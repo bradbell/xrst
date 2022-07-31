@@ -4,11 +4,7 @@
 heading_exam
 !!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   heading_res
+xrst input file: ``sphinx/test_in/heading.py``
 
 .. meta::
    :keywords: heading_exam, heading, example
@@ -64,6 +60,9 @@ Child Sections
 
     "heading_res", :ref:`heading_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/heading.py``
+   heading_res
+

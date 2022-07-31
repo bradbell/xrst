@@ -4,13 +4,7 @@
 configure
 !!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   spelling
-   keyword
-   preamble
+xrst input file: ``sphinx/configure.xrst``
 
 .. meta::
    :keywords: configure, example, xrst, configuration, files
@@ -32,6 +26,11 @@ Example xrst Configuration Files
     "keyword", :ref:`keyword`
     "preamble.rst", :ref:`preamble.rst`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/configure.xrst``
+   spelling
+   keyword
+   preamble
+

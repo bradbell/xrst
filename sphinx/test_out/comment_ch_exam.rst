@@ -4,11 +4,7 @@
 comment_ch_exam
 !!!!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   comment_ch_res
+xrst input file: ``sphinx/test_in/comment_ch.py``
 
 .. meta::
    :keywords: comment_ch_exam, comment, character, example
@@ -33,6 +29,9 @@ Comment Character Example
 
     "comment_ch_res", :ref:`comment_ch_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/comment_ch.py``
+   comment_ch_res
+

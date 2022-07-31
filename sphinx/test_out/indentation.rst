@@ -4,11 +4,7 @@
 indentation
 !!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   indent_exam
+xrst input file: ``xrst/remove_indent.py``
 
 .. meta::
    :keywords: indentation, indentation
@@ -41,6 +37,9 @@ Example
 *******
 - :ref:`indent_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/remove_indent.py``
+   indent_exam
+

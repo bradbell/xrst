@@ -4,6 +4,8 @@
 begin_cmd
 !!!!!!!!!
 
+xrst input file: ``xrst/get_file_info.py``
+
 .. meta::
    :keywords: begin_cmd, begin, end, commands
 
@@ -94,6 +96,3 @@ If there is no begin parent command in an input file,
 all the sections in the file are children
 of the section that included this file using a :ref:`child command<child_cmd>`.
 
-----
-
-xrst input file: ``xrst/get_file_info.py``

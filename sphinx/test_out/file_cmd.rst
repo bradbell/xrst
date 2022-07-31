@@ -4,11 +4,7 @@
 file_cmd
 !!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   file_exam
+xrst input file: ``xrst/file_command.py``
 
 .. meta::
    :keywords: file_cmd, file, command
@@ -142,6 +138,9 @@ Example
 
 -  :ref:`file_exam`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``xrst/file_command.py``
+   file_exam
+

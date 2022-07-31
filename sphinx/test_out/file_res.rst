@@ -4,6 +4,8 @@
 file_res
 !!!!!!!!
 
+xrst input file: ``sphinx/test_in/file.cpp``
+
 .. meta::
    :keywords: file_res, file, result
 
@@ -44,6 +46,3 @@ square
     :lines: 32-32
     :language: cpp
 
-----
-
-xrst input file: ``sphinx/test_in/file.cpp``

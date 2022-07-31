@@ -4,6 +4,8 @@
 indent_res
 !!!!!!!!!!
 
+xrst input file: ``sphinx/test_in/indent.py``
+
 .. meta::
    :keywords: indent_res, indent, result
 
@@ -26,6 +28,3 @@ Indent Result
 
 :ref:`indent_exam`
 
-----
-
-xrst input file: ``sphinx/test_in/indent.py``

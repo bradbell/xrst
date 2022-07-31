@@ -4,11 +4,7 @@
 indent_exam
 !!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   indent_res
+xrst input file: ``sphinx/test_in/indent.py``
 
 .. meta::
    :keywords: indent_exam, indent, example
@@ -32,6 +28,9 @@ Indent Example
 
     "indent_res", :ref:`indent_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/indent.py``
+   indent_res
+

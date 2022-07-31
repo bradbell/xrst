@@ -4,6 +4,8 @@
 spelling
 !!!!!!!!
 
+xrst input file: ``sphinx/configure.xrst``
+
 .. meta::
    :keywords: spelling, the, spelling, example, file
 
@@ -19,6 +21,3 @@ The spelling Example File
 .. literalinclude:: ../../sphinx/spelling
     :lines: 2-11
 
-----
-
-xrst input file: ``sphinx/configure.xrst``

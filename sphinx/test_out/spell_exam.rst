@@ -4,11 +4,7 @@
 spell_exam
 !!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   spell_res
+xrst input file: ``sphinx/test_in/spell.py``
 
 .. meta::
    :keywords: spell_exam, spell, example
@@ -32,6 +28,9 @@ Spell Example
 
     "spell_res", :ref:`spell_res`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``sphinx/test_in/spell.py``
+   spell_res
+

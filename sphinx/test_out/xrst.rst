@@ -4,15 +4,7 @@
 xrst
 !!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   run_xrst
-   commands
-   other_processing
-   wish_list
-   release_notes
+xrst input file: ``doc.xrst``
 
 .. meta::
    :keywords: xrst, extract, sphinx, rst, files
@@ -123,6 +115,13 @@ Contents
 -  :ref:`wish_list`
 -  :ref:`release_notes`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``doc.xrst``
+   run_xrst
+   commands
+   other_processing
+   wish_list
+   release_notes
+

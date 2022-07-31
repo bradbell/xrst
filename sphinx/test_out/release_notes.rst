@@ -4,12 +4,7 @@
 release_notes
 !!!!!!!!!!!!!
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   2022
-   2021
+xrst input file: ``doc.xrst``
 
 .. meta::
    :keywords: release_notes, xrst, release, notes, by, year
@@ -26,6 +21,10 @@ xrst Release Notes By Year
 :ref:`2022<2022>`,
 :ref:`2021<2021>`
 
-----
+.. toctree::
+   :maxdepth: 1
+   :hidden:
 
-xrst input file: ``doc.xrst``
+   2022
+   2021
+
