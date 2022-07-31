@@ -24,8 +24,9 @@ Syntax
 Section
 *******
 The start (end) of a section of the input file is indicated by a
-begin (end) command at the
-:ref:`beginning of a line<run_xrst@notation@beginning_of_a_line>`.
+begin (end) command.
+The line containing the command
+can only have spaces and tabs before the command.
 
 section_name
 ************
@@ -42,7 +43,7 @@ The output file corresponding to *section_name* is
 
 | |tab| *sphinx_dir*\ ``/xrst/``\ *section_name*\ ``.rst``
 
-see :ref:`sphinx_dir<run_xrst@command_line_arguments@sphinx_dir>`
+see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
 Parent Section
 **************

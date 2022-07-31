@@ -131,7 +131,7 @@ Spelling
 Add a command that automatically fixes spelling warnings by changing
 the :ref:`spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
-:ref:`run_xrst@command_line_arguments@spelling` file changes,
+:ref:`run_xrst@sphinx_dir@spelling` file changes,
 and when run_xrst automatically ignores more words.
 
 Tabs

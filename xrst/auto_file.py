@@ -14,7 +14,7 @@
 Automatically Generated Files
 #############################
 These files are located in the
-:ref:`run_xrst@command_line_arguments@sphinx_dir` directory.
+:ref:`run_xrst@sphinx_dir` directory.
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 
@@ -22,7 +22,7 @@ index.rst
 *********
 The sphinx index.rst file. This is root level in the documentation tree
 built by sphinx. It is one level above the first section in
-:ref:`run_xrst@command_line_arguments@root_file`.
+:ref:`run_xrst@root_file`.
 
 
 conf.py
@@ -46,9 +46,9 @@ The result of this command in this documentation is
 rst/xrst_preamble.rst
 *********************
 This is a copy of the
-:ref:`run_xrst@command_line_arguments@preamble.rst` file.
+:ref:`run_xrst@sphinx_dir@preamble.rst` file.
 If the
-:ref:`run_xrst@command_line_arguments@target` argument is
+:ref:`run_xrst@target` argument is
 ``pdf``, the latex macros have been removed.
 
 {xrst_end auto_file}

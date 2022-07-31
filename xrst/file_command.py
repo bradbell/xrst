@@ -28,8 +28,9 @@ Syntax
 Purpose
 *******
 A code block, from any where in any file,
-can be included by the command above at the
-:ref:`beginning of a line<run_xrst@notation@beginning_of_a_line>`.
+can be included by the command above.
+The line starting the command
+can only have spaces and tabs before the command.
 
 White Space
 ***********

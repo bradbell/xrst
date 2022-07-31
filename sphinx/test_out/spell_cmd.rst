@@ -53,8 +53,9 @@ Purpose
 *******
 You can specify a special list of words
 (not normally considered correct spelling)
-for the current section using the command above at the
-:ref:`beginning of a line<run_xrst@notation@beginning_of_a_line>`.
+for the current section using the command above.
+The line starting the command
+can only have spaces and tabs before the command.
 
 .. meta::
    :keywords: spelling
@@ -66,7 +67,7 @@ for the current section using the command above at the
 spelling
 ********
 The list of words in
-:ref:`spelling<run_xrst@command_line_arguments@spelling>`
+:ref:`spelling<run_xrst@sphinx_dir@spelling>`
 are considered correct spellings for all sections.
 The latex commands corresponding to the letters in the greek alphabet
 are automatically added to this list.

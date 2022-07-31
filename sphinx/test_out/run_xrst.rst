@@ -32,74 +32,29 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
-    [ *line_increment* ]
-
-.. meta::
-   :keywords: notation
-
-.. index:: notation
-
-.. _run_xrst@notation:
-
-Notation
-********
-
-.. meta::
-   :keywords: white, space
-
-.. index:: white, space
-
-.. _run_xrst@notation@white_space:
-
-White Space
-===========
-We define white space to be a sequence of space characters; e.g.,
-tabs are not consider white space by xrst.
-
-.. meta::
-   :keywords: beginning, line
-
-.. index:: beginning, line
-
-.. _run_xrst@notation@beginning_of_a_line:
-
-Beginning of a Line
-===================
-We say that a string *text* is a the beginning of a line if
-only white space, or nothing, comes before *text* in the line.
-
-.. meta::
-   :keywords: command, line, arguments
-
-.. index:: command, line, arguments
-
-.. _run_xrst@command_line_arguments:
-
-Command Line Arguments
-**********************
+-   ``xrst`` *target* *root_file* *sphinx_dir* [ *line_increment* ]
 
 .. meta::
    :keywords: target
 
 .. index:: target
 
-.. _run_xrst@command_line_arguments@target:
+.. _run_xrst@target:
 
 target
-======
-The command line argument *target* must be ``html`` or ``pdf`` and
-specifies the type of type output you plan to generate using sphinx.
+******
+The command line argument *target* must be ``html`` or ``pdf``.
+It specifies the type of type output you plan to generate using sphinx.
 
 .. meta::
    :keywords: run, sphinx
 
 .. index:: run, sphinx
 
-.. _run_xrst@command_line_arguments@target@run_sphinx:
+.. _run_xrst@target@run_sphinx:
 
 Run Sphinx
-----------
+==========
 If *target* is ``html`` you can generate the sphinx output using
 the following command:
 
@@ -122,10 +77,10 @@ If *target* is ``pdf``, you can use the following commands:
 
 .. index:: root_file
 
-.. _run_xrst@command_line_arguments@root_file:
+.. _run_xrst@root_file:
 
 root_file
-=========
+*********
 The command line argument *root_file* is the name of a file.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
@@ -135,61 +90,24 @@ relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 .. index:: sphinx_dir
 
-.. _run_xrst@command_line_arguments@sphinx_dir:
+.. _run_xrst@sphinx_dir:
 
 sphinx_dir
-==========
+**********
 The command line argument *sphinx_dir* is a directory relative to
 of the directory where *root_file* is located.
-The  files ``preamble.rst``, *spelling*, and *keyword*
-files are located in this directory.
-The files ``conf.py``, ``index.rst`` in this directory will be overwritten
-each time ``run_xrst`` executes.
-
-.. meta::
-   :keywords: rst
-
-.. index:: rst
-
-.. _run_xrst@command_line_arguments@sphinx_dir@rst:
-
-rst
----
-The sub-directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
-It contains all the rst files that were extracted from the source code,
-and correspond to last time that ``xrst`` was executed.
-For each :ref:`begin_cmd@section_name`, the file
-
-|space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
-
-Is the RST file for the corresponding section. There is one exception
-to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
-is not added at the end.
-
-.. meta::
-   :keywords: other, files
-
-.. index:: other, files
-
-.. _run_xrst@command_line_arguments@sphinx_dir@other_files:
-
-Other Files
------------
-
-See :ref:`auto_file` for the other automatically generated files in the
-*sphinx_dir* directory.
 
 .. meta::
    :keywords: preamble.rst
 
 .. index:: preamble.rst
 
-.. _run_xrst@command_line_arguments@preamble.rst:
+.. _run_xrst@sphinx_dir@preamble.rst:
 
 preamble.rst
 ============
-The file *sphinx_dir* ``/preamble.rst`` is create by the user.
-It is included at the beginning of every section.
+The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
+If it exists, it is included at the beginning of every section.
 It should only define things, it should not generate any output.
 For example, :ref:`preamble.rst`.
 The Latex macros in this file can be used by any section.
@@ -203,7 +121,7 @@ following python regular expression:
 
 .. index:: example
 
-.. _run_xrst@command_line_arguments@preamble.rst@example:
+.. _run_xrst@sphinx_dir@preamble.rst@example:
 
 Example
 -------
@@ -214,15 +132,13 @@ Example
 
 .. index:: spelling
 
-.. _run_xrst@command_line_arguments@spelling:
+.. _run_xrst@sphinx_dir@spelling:
 
 spelling
 ========
-The command line argument *spelling* is the name of a file,
-relative to the *sphinx_dir* directory.
-This file contains a list of words
-that the spell checker will consider correct for all sections
-(it can be an empty file).
+The file *sphinx_dir* ``/spelling`` can be create by the user.
+If it exists, it contains a list of words
+that the spell checker will consider correct for all sections.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
@@ -235,7 +151,7 @@ Special words, for a particular section, are specified using the
 
 .. index:: example
 
-.. _run_xrst@command_line_arguments@spelling@example:
+.. _run_xrst@sphinx_dir@spelling@example:
 
 Example
 -------
@@ -246,14 +162,14 @@ Example
 
 .. index:: keyword
 
-.. _run_xrst@command_line_arguments@keyword:
+.. _run_xrst@sphinx_dir@keyword:
 
 keyword
 =======
-The command line argument *keyword* is the name of a file,
-relative to the *sphinx_dir* directory.
-This file contains a list of python regular expressions for heading tokens
-that should not be included in the index (it can be an empty file).
+The file *sphinx_dir* ``/keyword`` can be create by the user.
+If it exists, it contains a list of
+python regular expressions for heading tokens
+that are not included in the index.
 A heading token is any sequence of non space or new line characters
 with upper case letters converted to lower case.
 For example, a heading might contain the token ``The`` but you
@@ -272,21 +188,54 @@ For example; see :ref:`keyword`.
 
 .. index:: example
 
-.. _run_xrst@command_line_arguments@keyword@example:
+.. _run_xrst@sphinx_dir@keyword@example:
 
 Example
 -------
 :ref:`keyword`
 
 .. meta::
+   :keywords: section, rst, files
+
+.. index:: section, rst, files
+
+.. _run_xrst@sphinx_dir@section_rst_files:
+
+Section RST Files
+=================
+The directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
+It contains all the rst files that were extracted from the source code,
+and correspond to last time that ``xrst`` was executed.
+For each :ref:`begin_cmd@section_name`, the file
+
+|space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
+
+Is the RST file for the corresponding section. There is one exception
+to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
+is not added at the end.
+
+.. meta::
+   :keywords: other, automatically, generated, files
+
+.. index:: other, automatically, generated, files
+
+.. _run_xrst@sphinx_dir@other_automatically_generated_files:
+
+Other Automatically Generated Files
+===================================
+
+See :ref:`auto_file` for the other automatically generated files in the
+*sphinx_dir* directory.
+
+.. meta::
    :keywords: line_increment
 
 .. index:: line_increment
 
-.. _run_xrst@command_line_arguments@line_increment:
+.. _run_xrst@line_increment:
 
 line_increment
-==============
+**************
 This optional argument helps find the source of errors reported by sphinx.
 If the argument *line_increment* is present,
 a table is generated at the end of each output file.

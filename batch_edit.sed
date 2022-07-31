@@ -12,12 +12,9 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
-#   bin/update_xrst.py
-#   release_notes/2022.xrst
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#   bin/xrst.py
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
@@ -26,17 +23,17 @@
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
-#   doc.xrst
-#   setup.py
-#   sphinx/test_out/xrst.py.rst
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # extra_seds='
-#   s|python.-m.xrst|xrst/xrst_py.py|
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|bin/xrst.py|python -m xrst|
-s|xrst\.py|run_xrst|g
+s|run_xrst@command_line_arguments@target|run_xrst@target|
+s|run_xrst@command_line_arguments@root_file|run_xrst@root_file|
+s|run_xrst@command_line_arguments@sphinx_dir|run_xrst@sphinx_dir|
+s|run_xrst@command_line_arguments@preamble.rst|run_xrst@sphinx_dir@preamble.rst|
+s|run_xrst@command_line_arguments@spelling|run_xrst@sphinx_dir@spelling|
+s|run_xrst@command_line_arguments@line_increment|run_xrst@line_increment|

@@ -27,9 +27,8 @@ fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 mkdir doc
 cd    doc
-echo "python -m xrst html ../doc.xrst sphinx spelling keyword"
-if ! python -m xrst \
-    html ../doc.xrst sphinx spelling  keyword 2> ../check_xrst.$$
+echo "python -m xrst html ../doc.xrst sphinx"
+if ! python -m xrst html ../doc.xrst sphinx 2> ../check_xrst.$$
 then
     type_error='error'
 else

@@ -10,7 +10,6 @@
 {xrst_begin run_xrst}
 {xrst_spell
     cd
-    conf
     dir
 }
 
@@ -21,33 +20,16 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` *target* *root_file* *sphinx_dir* *spelling* *keyword*
-    [ *line_increment* ]
+-   ``xrst`` *target* *root_file* *sphinx_dir* [ *line_increment* ]
 
-
-Notation
-********
-
-White Space
-===========
-We define white space to be a sequence of space characters; e.g.,
-tabs are not consider white space by xrst.
-
-Beginning of a Line
-===================
-We say that a string *text* is a the beginning of a line if
-only white space, or nothing, comes before *text* in the line.
-
-Command Line Arguments
-**********************
 
 target
-======
-The command line argument *target* must be ``html`` or ``pdf`` and
-specifies the type of type output you plan to generate using sphinx.
+******
+The command line argument *target* must be ``html`` or ``pdf``.
+It specifies the type of type output you plan to generate using sphinx.
 
 Run Sphinx
-----------
+==========
 If *target* is ``html`` you can generate the sphinx output using
 the following command:
 
@@ -65,47 +47,20 @@ make xrst.pdf
 {xrst_code}
 
 root_file
-=========
+*********
 The command line argument *root_file* is the name of a file.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
 
 sphinx_dir
-==========
+**********
 The command line argument *sphinx_dir* is a directory relative to
 of the directory where *root_file* is located.
-The  files ``preamble.rst``, *spelling*, and *keyword*
-files are located in this directory.
-The files ``conf.py``, ``index.rst`` in this directory will be overwritten
-each time ``run_xrst`` executes.
-
-rst
----
-The sub-directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
-It contains all the rst files that were extracted from the source code,
-and correspond to last time that ``xrst`` was executed.
-For each :ref:`begin_cmd@section_name`, the file
-
-|space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
-
-Is the RST file for the corresponding section. There is one exception
-to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
-is not added at the end.
-
-Other Files
------------
-{xrst_children
-    xrst/auto_file.py
-    sphinx/configure.xrst
-}
-See :ref:`auto_file` for the other automatically generated files in the
-*sphinx_dir* directory.
-
 
 preamble.rst
 ============
-The file *sphinx_dir* ``/preamble.rst`` is create by the user.
-It is included at the beginning of every section.
+The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
+If it exists, it is included at the beginning of every section.
 It should only define things, it should not generate any output.
 For example, :ref:`preamble.rst`.
 The Latex macros in this file can be used by any section.
@@ -120,11 +75,9 @@ Example
 
 spelling
 ========
-The command line argument *spelling* is the name of a file,
-relative to the *sphinx_dir* directory.
-This file contains a list of words
-that the spell checker will consider correct for all sections
-(it can be an empty file).
+The file *sphinx_dir* ``/spelling`` can be create by the user.
+If it exists, it contains a list of words
+that the spell checker will consider correct for all sections.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
@@ -138,10 +91,10 @@ Example
 
 keyword
 =======
-The command line argument *keyword* is the name of a file,
-relative to the *sphinx_dir* directory.
-This file contains a list of python regular expressions for heading tokens
-that should not be included in the index (it can be an empty file).
+The file *sphinx_dir* ``/keyword`` can be create by the user.
+If it exists, it contains a list of
+python regular expressions for heading tokens
+that are not included in the index.
 A heading token is any sequence of non space or new line characters
 with upper case letters converted to lower case.
 For example, a heading might contain the token ``The`` but you
@@ -159,8 +112,32 @@ Example
 -------
 :ref:`keyword`
 
+
+Section RST Files
+=================
+The directory *sphinx_dir* :code:`/rst` is managed by ``xrst`` .
+It contains all the rst files that were extracted from the source code,
+and correspond to last time that ``xrst`` was executed.
+For each :ref:`begin_cmd@section_name`, the file
+
+|space| *sphinx_dir* ``/xrst/`` *section_name* ``.rst``
+
+Is the RST file for the corresponding section. There is one exception
+to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
+is not added at the end.
+
+Other Automatically Generated Files
+===================================
+{xrst_children
+    xrst/auto_file.py
+    sphinx/configure.xrst
+}
+See :ref:`auto_file` for the other automatically generated files in the
+*sphinx_dir* directory.
+
+
 line_increment
-==============
+**************
 This optional argument helps find the source of errors reported by sphinx.
 If the argument *line_increment* is present,
 a table is generated at the end of each output file.
@@ -204,9 +181,8 @@ def run_xrst() :
     execution_directory = os.getcwd()
     #
     # check number of command line arguments
-    if len(sys.argv) != 6 and len(sys.argv) != 7 :
-        usage  = 'python -m xrst target root_file sphinx_dir spelling keyword'
-        usage += ' [line_increment]'
+    if len(sys.argv) != 4 and len(sys.argv) != 5 :
+        usage  = 'xrst target root_file sphinx_dir [ line_increment ]'
         xrst.system_exit(usage)
     #
     # target
@@ -217,7 +193,7 @@ def run_xrst() :
         xrst.system_exit(msg)
     #
     # root_file
-    # can not use system_exit until root_directory is set
+    # can not use system_exit until os.getcwd() returns root_directory
     root_file = sys.argv[2]
     if not os.path.isfile(root_file) :
         msg  = 'xsrst: Error\n'
@@ -254,27 +230,11 @@ def run_xrst() :
         msg += 'cannot contain ../'
         xrst.system_exit(msg)
     #
-    # spelling
-    spelling   = sys.argv[4]
-    spell_path = sphinx_dir + '/' + spelling
-    if not os.path.isfile(spell_path) :
-        msg  = 'sphinx_dir/spelling = ' + spell_path + '\n'
-        msg += 'is not a file'
-        xrst.system_exit(msg)
-    #
-    # keyword
-    keyword      = sys.argv[5]
-    keyword_path = sphinx_dir + '/' + keyword
-    if not os.path.isfile(keyword_path) :
-        msg  = 'sphinx_dir/keyword = ' + keyword_path + '\n'
-        msg += 'is not a file'
-        xrst.system_exit(msg)
-    #
     # line_increment
-    if len(sys.argv) == 6 :
+    if len(sys.argv) == 4 :
         line_increment = 0
     else :
-        line_increment = int(sys.argv[6])
+        line_increment = int(sys.argv[4])
         if line_increment < 1 :
             msg += 'line_increment is not a positive integer'
             xrst.system_exit(msg)
@@ -291,13 +251,19 @@ def run_xrst() :
     os.mkdir(tmp_dir)
     #
     # spell_checker
-    spell_list           = xrst.file2_list_str(spell_path)
-    spell_checker        = xrst.create_spell_checker(spell_list)
+    spell_list  = list()
+    spell_file  = sphinx_dir + '/spelling'
+    if os.path.isfile( spell_file ) :
+        spell_list  = xrst.file2_list_str(spell_file)
+    spell_checker = xrst.create_spell_checker(spell_list)
     #
-    # index_list
-    index_list = list()
-    for regexp in xrst.file2_list_str(keyword_path) :
-        index_list.append( re.compile( regexp ) )
+    # keyword_list
+    keyword_list = list()
+    keyword_file = sphinx_dir + '/keyword'
+    if os.path.isfile( keyword_file ) :
+        str_list = xrst.file2_list_str(keyword_file)
+        for regexp in str_list :
+            keyword_list.append( re.compile( regexp ) )
     # -------------------------------------------------------------------------
     #
     # root_local
@@ -419,7 +385,7 @@ def run_xrst() :
                 section_data,
                 file_in,
                 section_name,
-                index_list,
+                keyword_list,
             )
             # section title is used by table_of_contents
             sinfo_list[section_index]['section_title'] = section_title

@@ -81,7 +81,7 @@ import xrst
 # name of the file that contains the input data for this section.
 # This is only used for error reporting.
 #
-# index_list:
+# keyword_list:
 # is a list of compiled reglar expressions. If pattern is an entry in this list,
 # and word is a lower case verison of a word in the heading text, if
 # pattern.fullmatch(word) returns a match, a cross-reference index will not
@@ -110,12 +110,12 @@ import xrst
 #
 # data_out, section_title, pseudo_heading =
 def process_headings(
-        data_in, file_name, section_name, index_list
+        data_in, file_name, section_name, keyword_list
 ) :
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str
-    assert type(index_list) == list
+    assert type(keyword_list) == list
     #
     # data_out
     data_out = data_in
@@ -221,7 +221,7 @@ def process_headings(
             index_entries = ''
         for word in heading_list[-1]['text'].lower().split() :
             skip = False
-            for pattern in index_list :
+            for pattern in keyword_list :
                 m_obj = pattern.fullmatch(word)
                 if m_obj :
                     skip = True

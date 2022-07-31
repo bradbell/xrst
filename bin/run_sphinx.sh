@@ -33,8 +33,7 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst \
-        html doc.xrst sphinx spelling keyword $line_increment
+    echo_eval python -m xrst html doc.xrst sphinx $line_increment
     sphinx-build -b html sphinx doc
     echo 'run_sphinx.sh: OK'
     exit 0
@@ -44,7 +43,7 @@ fi
 # -----------------------------------------------------------------------------
 #
 # run xrst to create rst files
-echo_eval python -m xrst pdf doc.xrst sphinx spelling keyword $line_increment
+echo_eval python -m xrst pdf doc.xrst sphinx $line_increment
 #
 # run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex
