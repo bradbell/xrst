@@ -20,6 +20,12 @@ xrst Release Notes for 2022
 2.  Make all file names, except the
     :ref:`run_xrst@root_file`,
     relative to where the root file is located.
+3.  The  file names for :ref:`run_xrst@sphinx_dir@preamble.rst`,
+    :ref:`run_xrst@sphinx_dir@spelling`, and
+    :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
+    These names have bern removed from the ``xrst``
+    :ref:`run_xrst@syntax` and the corresponding files are optional
+    (no longer required).
 
 07-28
 *****

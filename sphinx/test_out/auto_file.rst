@@ -75,7 +75,9 @@ The result of this command in this documentation is
 
 rst/xrst_preamble.rst
 *********************
-This is a copy of the
+If :ref:`run_xrst@sphinx_dir@preamble.rst` does not exist,
+this file is empty.
+Otherwise this file is a copy of the
 :ref:`run_xrst@sphinx_dir@preamble.rst` file.
 If the
 :ref:`run_xrst@target` argument is

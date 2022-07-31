@@ -45,7 +45,9 @@ The result of this command in this documentation is
 
 rst/xrst_preamble.rst
 *********************
-This is a copy of the
+If :ref:`run_xrst@sphinx_dir@preamble.rst` does not exist,
+this file is empty.
+Otherwise this file is a copy of the
 :ref:`run_xrst@sphinx_dir@preamble.rst` file.
 If the
 :ref:`run_xrst@target` argument is
@@ -55,6 +57,7 @@ If the
 """
 # ----------------------------------------------------------------------------
 import re
+import os
 import xrst
 #
 # conf_py_general
@@ -101,9 +104,12 @@ pattern_macro = re.compile(pattern_macro)
 #
 def preamble_macros(sphinx_dir) :
     #
+    # file_name
+    file_name = sphinx_dir + '/preamble.rst'
+    if not os.path.isfile(file_name) :
+        return list()
     #
     # file_data
-    file_name = sphinx_dir + '/preamble.rst'
     file_ptr  = open(file_name, 'r')
     file_data = file_ptr.read()
     file_ptr.close()
@@ -228,9 +234,12 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     #
     # file_data
     file_name = sphinx_dir + '/preamble.rst'
-    file_ptr  = open(file_name, 'r')
-    file_data = file_ptr.read()
-    file_ptr.close()
+    if not os.path.isfile( file_name ) :
+        file_data = ''
+    else :
+        file_ptr  = open(file_name, 'r')
+        file_data = file_ptr.read()
+        file_ptr.close()
     #
     if target == 'pdf' :
         # remove the latex macros
@@ -272,6 +281,8 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     file_data += project.upper() + '\n'
     file_data += len(project) * '#' + '\n\n'
     file_data += '.. toctree::\n'
+    file_data += '   :maxdepth: 1\n'
+    file_data += '\n'
     file_data += '   rst/xrst_table_of_contents\n'
     file_data += '   rst/' + project + '\n'
     #
