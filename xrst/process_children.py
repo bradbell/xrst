@@ -50,7 +50,7 @@ def process_children(
         return data_in
     #
     # data_out
-    # put hidden toctree at begining of section
+    # put hidden toctree at end of section
     toctree  = '.. toctree::\n'
     toctree += '   :maxdepth: 1\n'
     toctree += '   :hidden:\n\n'
@@ -58,7 +58,7 @@ def process_children(
         entry    = pattern_rst_extension.sub('', child)
         toctree += '   ' + entry + '\n'
     toctree += '\n'
-    data_out = toctree + data_in
+    data_out = data_in + toctree
     #
     # m_child
     m_child = pattern_child.search(data_out)

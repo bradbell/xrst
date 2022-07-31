@@ -28,8 +28,8 @@ target
 The command line argument *target* must be ``html`` or ``pdf``.
 It specifies the type of type output you plan to generate using sphinx.
 
-Run Sphinx
-==========
+html
+====
 If *target* is ``html`` you can generate the sphinx output using
 the following command:
 
@@ -37,14 +37,17 @@ the following command:
 
 where *html_dir* is the directory where the html files are written,
 see below for the meaning of *sphinx_dir*.
+
+pdf
+===
 If *target* is ``pdf``, you can use the following commands:
 {xrst_code sh}
 cd sphinx_dir
 sphinx-build -b latex . latex
 cd latex
-sed -i xrst.tex -e 's|\\chapter{|\\paragraph{|'
-make xrst.pdf
+make root_section_name.pdf
 {xrst_code}
+where root_section_name is the name of the root section for you documentation.
 
 root_file
 *********
@@ -219,7 +222,7 @@ def run_xrst() :
     sphinx_dir      = sys.argv[3]
     if not os.path.isdir(sphinx_dir) :
         msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-        msg += 'is a vlid directory path'
+        msg += 'is a valid directory path'
         xrst.system_exit(msg)
     if sphinx_dir[0] == '/' :
         msg  = 'sphinx_dir = ' + sphinx_dir + '\n'

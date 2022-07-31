@@ -9,14 +9,21 @@
 {xrst_spell
     conf
     xsrst
+    toctree
 }
 
 xrst Release Notes for 2022
 ###########################
 
+07-31
+*****
+Move the hidden toctree commands in rst files from beginning to end
+of sections. This puts the parent sections before their children in the
+:ref:`run_xrst@target@pdf` version of the documentation.
+
 07-30
 *****
-1. Automatically create the file :ref:`auto_file@conf.py`.
+1.  Automatically create the file :ref:`auto_file@conf.py`.
 2.  Make all file names, except the
     :ref:`run_xrst@root_file`,
     relative to where the root file is located.

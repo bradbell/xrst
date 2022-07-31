@@ -49,10 +49,6 @@ echo_eval python -m xrst pdf doc.xrst sphinx $line_increment
 echo_eval sphinx-build -b latex sphinx doc/latex
 echo_eval cd doc/latex
 #
-# change latex \chapter commands to \section commands
-echo "sed -i xrst.tex -e 's|\\chapter{|\\section{|'"
-sed -i xrst.tex -e 's|\\chapter{|\\section{|'
-#
 # create pdf from latex
 echo_eval make xrst.pdf
 #

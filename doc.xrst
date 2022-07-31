@@ -84,7 +84,7 @@ xrst Commands
 
 Other Processing
 ################
-{xrst_child_table
+{xrst_child_list
     xrst/remove_indent.py
     xrst/process_headings.py
 }

@@ -204,6 +204,7 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     conf_py += '#\n'
     conf_py += '# Project information\n'
     conf_py += f"project = '{project}'\n"
+    conf_py +=  "author = ''\n"
     conf_py += conf_py_general
     conf_py += conf_py_theme
     conf_py += '#\n'
