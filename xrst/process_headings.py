@@ -53,13 +53,21 @@ paragraph is
 
 |tab| ``run_xrst@links_to_headings@other_levels``
 
-This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading, and all the headings
-below it,  will break.
-This identifies the links that should be checked
-to make sure they are still valid.
-Note that one uses the *section_name* ``run_xrst``
-and not the title ``extract_sphinx_rst``.
+Discussion
+==========
+1.  Note that at the first level one uses the *section_name*
+    ( ``run_xrst`` in example above)
+    and not the title ( ``extract_sphinx_rst`` in example above ).
+2.  The ``@`` and not ``.`` character is used to separate levels
+    because the ``.`` character can be used in titles and
+    section names; e.g. :ref:`auto_file@conf.py`.
+3.  Specifying all the levels for a heading may seem verbose,
+    but it avoids ambiguity when the same heading appears twice in one section;
+    e.g the heading Example might appears multiple times in different context.
+4.  Specifying al the levels also helps keep the links up to date.
+    If a heading changes, all the links to that heading, and all the
+    headings below it,  will break.  This identifies the links that should be
+    checked to make sure they are still valid.
 
 Example
 *******

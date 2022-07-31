@@ -55,6 +55,9 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
+#.  Automatically generates labels for linking to headings.
+    These labels are designed with changing documentation in mind; see
+    :ref:`heading_links@labels@discussion<heading_links@labels@discussion>`.
 
 Contents
 ********
