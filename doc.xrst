@@ -6,6 +6,9 @@
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
 {xrst_begin_parent xrst}
+{xrst_spell
+    gsl
+}
 
 Extract Sphinx RST Files
 ########################
@@ -29,6 +32,11 @@ Purpose
 *******
 This is a pseudo sphinx extension that provides the following features:
 
+.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+
+#.  This extension was motivated by cases like the GNU Scientific library,
+    which is not written in python, uses sphinx, and has its documentation
+    in separate files from the corresponding source code; see `gsl doc`_ .
 #.  The rst file name for each section is also an abbreviated title used
     in the navigation bar and for linking to the section. This makes the
     navigation bar more useful while also having long descriptive titles.
@@ -38,7 +46,7 @@ This is a pseudo sphinx extension that provides the following features:
     easy to move sections to different places in the over all structure.
 #.  Enables documentation in the comments for source code
     when multiple computer languages are used for one package.
-    Allows the documentation for one section to span multiple locations
+#.  Allows the documentation for one section to span multiple locations
     in the source code; see :ref:`suspend command<suspend_cmd>`.
 #.  Allows for multiple sections (rst output files) to be specified by one
     input file. In addition, one section can be the parent for the
