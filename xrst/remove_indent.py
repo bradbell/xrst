@@ -23,7 +23,7 @@ you use mix tabs and spaces for the indentation.
 }
 Example
 *******
-- :ref:`indent_exam`
+- :ref:`@indent_exam`
 
 {xrst_end indentation}
 """

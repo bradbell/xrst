@@ -59,7 +59,7 @@ no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
-:ref:`spell_exam`
+:ref:`@spell_exam`
 
 {xrst_end spell_res}
 """

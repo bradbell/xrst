@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _indent_exam:
+
 !!!!!!!!!!!
 indent_exam
 !!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/indent.py``
 
 .. index:: indent_exam, indent, example
 
-.. _indent_exam:
+.. _@indent_exam:
 
 Indent Example
 ##############
@@ -26,7 +28,7 @@ Indent Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "indent_res", :ref:`indent_res`
+    "indent_res", :ref:`@indent_res`
 
 .. toctree::
    :maxdepth: 1

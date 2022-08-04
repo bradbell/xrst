@@ -34,7 +34,7 @@ between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
 There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
-it must come before the first :ref:`begin_cmd` in the file.
+it must come before the first :ref:`@begin_cmd` in the file.
 
 
 Beginning of a Line
@@ -50,7 +50,7 @@ Input Stream
 The special character (and one space if present directly after)
 is removed from the input stream before any xrst processing; e.g.,
 calculating the amount of
-:ref:`indentation` for the current section.
+:ref:`@indentation` for the current section.
 For example, if :code:`#` is the special character,
 the following input has the heading Factorial
 and the ``def`` token indented the same amount:

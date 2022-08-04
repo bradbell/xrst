@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _wish_list:
+
 !!!!!!!!!
 wish_list
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``doc.xrst``
 
 .. index:: wish_list, wish, list
 
-.. _wish_list:
+.. _@wish_list:
 
 Wish List
 #########
@@ -34,21 +36,6 @@ Standard Indent
 ***************
 Change the number of spaces corresponding to a tab from 4 to 3 characters.
 This better aligns wih usage in sphinx rst files and saves output columns.
-
-.. meta::
-   :keywords: link, to, section, name
-
-.. index:: link, to, section, name
-
-.. _wish_list@link_to_section_name:
-
-Link to Section Name
-********************
-Currently, when you link to an entire section, you get the section title
-displayed for the link.
-It would be good to have a separate anchor that displays the section name;
-e.g., ``:ref:section_name`` would display the section name and
-``:ref:title@section_name`` would display the section title.
 
 .. meta::
    :keywords: subset, documentation
@@ -75,7 +62,7 @@ If not groups were specified, all groups would be included.
 Spelling
 ********
 Add a command that automatically fixes spelling warnings by changing
-the :ref:`spell_cmd` in input sections. This is usefull when
+the :ref:`@spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
 :ref:`run_xrst@sphinx_dir@spelling` file changes,
 and when run_xrst automatically ignores more words.
@@ -91,7 +78,7 @@ Tabs
 ****
 Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd` and :ref:`file_cmd`.
+displayed by :ref:`@code_cmd` and :ref:`@file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
 

@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _spell_res:
+
 !!!!!!!!!
 spell_res
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/spell.py``
 
 .. index:: spell_res, spell, result
 
-.. _spell_res:
+.. _@spell_res:
 
 Spell Result
 ############
@@ -74,5 +76,5 @@ no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
-:ref:`spell_exam`
+:ref:`@spell_exam`
 

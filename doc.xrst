@@ -26,7 +26,7 @@ Pip Install
 
 Run Program
 ***********
-:ref:`run_xrst`
+:ref:`@run_xrst`
 
 Purpose
 *******
@@ -121,14 +121,6 @@ Standard Indent
 Change the number of spaces corresponding to a tab from 4 to 3 characters.
 This better aligns wih usage in sphinx rst files and saves output columns.
 
-Link to Section Name
-********************
-Currently, when you link to an entire section, you get the section title
-displayed for the link.
-It would be good to have a separate anchor that displays the section name;
-e.g., ``:ref:section_name`` would display the section name and
-``:ref:title@section_name`` would display the section title.
-
 Subset Documentation
 ********************
 Have a way to specify subsets of the documentation by a group name.
@@ -140,7 +132,7 @@ If not groups were specified, all groups would be included.
 Spelling
 ********
 Add a command that automatically fixes spelling warnings by changing
-the :ref:`spell_cmd` in input sections. This is usefull when
+the :ref:`@spell_cmd` in input sections. This is usefull when
 pyspellchecker changes, when the
 :ref:`run_xrst@sphinx_dir@spelling` file changes,
 and when run_xrst automatically ignores more words.
@@ -149,7 +141,7 @@ Tabs
 ****
 Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd` and :ref:`file_cmd`.
+displayed by :ref:`@code_cmd` and :ref:`@file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
 
@@ -163,8 +155,8 @@ xrst Release Notes By Year
     release_notes/2022.xrst
     release_notes/2021.xrst
 }
-:ref:`2022<2022>`,
-:ref:`2021<2021>`
+:ref:`2022`,
+:ref:`2021`
 
 {xrst_end release_notes}
 ----------------------------------------------------------------------------

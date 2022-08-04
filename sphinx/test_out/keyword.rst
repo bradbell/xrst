@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _keyword:
+
 !!!!!!!
 keyword
 !!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/configure.xrst``
 
 .. index:: keyword, the, keyword, example, file
 
-.. _keyword:
+.. _@keyword:
 
 The keyword Example File
 ########################

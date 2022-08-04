@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _suspend_exam:
+
 !!!!!!!!!!!!
 suspend_exam
 !!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/suspend.py``
 
 .. index:: suspend_exam, suspend, example
 
-.. _suspend_exam:
+.. _@suspend_exam:
 
 Suspend Example
 ###############
@@ -26,7 +28,7 @@ Suspend Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "suspend_res", :ref:`suspend_res`
+    "suspend_res", :ref:`@suspend_res`
 
 .. toctree::
    :maxdepth: 1

@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _2022:
+
 !!!!
 2022
 !!!!
@@ -11,12 +13,27 @@ xrst input file: ``release_notes/2022.xrst``
 
 .. index:: 2022, xrst, release, notes, for, 2022
 
-.. _2022:
+.. _@2022:
 
 xrst Release Notes for 2022
 ###########################
 .. contents::
    :local:
+
+.. _2022@08-03:
+
+08-03
+*****
+The heading links at the
+:ref:`heading_links@labels@first_level` were changed
+to make it easier to display the section name as the linking text. 
+You must change ``:ref:`` ` *section_name* `
+to ``:ref:`` ` @ *section_name* ` to get the linking text to be the title
+(as it was before this change).
+The following can be used to convert
+*file_name* to this new convention:
+
+|    bin/update_xrst.py ref_section *file_name* *file_name*
 
 .. _2022@07-31:
 
@@ -72,7 +89,7 @@ interact; see :ref:`child_cmd@children`.
 07-25
 *****
 1.  Require that the suspend and resume commands are in their own line; see
-    :ref:`suspend_cmd`.
+    :ref:`@suspend_cmd`.
 2.  A problem was fixed the table corresponding to the
     :ref:`run_xrst@line_increment` table.
     To be specific, the indices in the rst file were one larger than
@@ -93,5 +110,5 @@ interact; see :ref:`child_cmd@children`.
 07-21
 *****
 Ignore the spelling of all words that are preceded by a backslash
-(this ignores all latex commands); see :ref:`spell_cmd`.
+(this ignores all latex commands); see :ref:`@spell_cmd`.
 

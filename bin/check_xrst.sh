@@ -51,16 +51,24 @@ do
     if [ ! -e sphinx/test_out/$file ]
     then
         echo "The output file sphinx/test_out/$file does not exist."
-        echo 'Check that the corresponding sections are correct and then:'
-        echo "    cp sphinx/rst/$file sphinx/test_out/$file"
-        exit 1
+        echo 'Should we use the following command to fix this'
+        echo "    cp sphinx/rst/$file sphinx/test_out/$file" 
+        read -p '[yes/no] ?' response
+        if [ "$response" != 'yes' ]
+            then exit 1
+        fi
+        cp sphinx/rst/$file sphinx/test_out/$file
     elif ! diff sphinx/rst/$file sphinx/test_out/$file
     then
         echo "sphinx/rst/$file changed; above is output of"
         echo "    diff sphinx/rst/$file sphinx/test_out/$file"
-        echo 'If the new file is currect, replace old with new using:'
+        echo 'Should we use the following command to fix this'
         echo "    cp sphinx/rst/$file sphinx/test_out/$file"
-        exit 1
+        read -p '[yes/no] ?' response
+        if [ "$response" != 'yes' ]
+            then exit 1
+        fi
+        cp sphinx/rst/$file sphinx/test_out/$file
     else
         echo "$file: OK"
     fi
@@ -72,9 +80,13 @@ do
     if [ ! -e sphinx/rst/$file ]
     then
         echo "The output file sphinx/rst/$file does not exist."
-        echo "Use the following command to remove sphinx/test_out/$file ?"
+        echo 'Should we use the following command to fix this'
         echo "    git rm -f sphinx/test_out/$file"
-        exit 1
+        read -p '[yes/no] ?' response
+        if [ "$response" != 'yes' ]
+            then exit 1
+        fi
+        git rm -f sphinx/test_out/$file
     fi
 done
 # -----------------------------------------------------------------------------

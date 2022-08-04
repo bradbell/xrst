@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _no_parent_res:
+
 !!!!!!!!!!!!!
 no_parent_res
 !!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/no_parent.xrst``
 
 .. index:: no_parent_res, no, parent, result
 
-.. _no_parent_res:
+.. _@no_parent_res:
 
 No Parent Result
 ################
@@ -21,7 +23,7 @@ No Parent Result
 The file ``children.py`` does not contain a begin parent command
 and hence all the sections in that file are children of this section.
 The source code for this example is indented similar to the
-:ref:`indent_exam`.
+:ref:`@indent_exam`.
 
 .. meta::
    :keywords: children.py, file
@@ -45,8 +47,8 @@ the children_exam section linked below:
 Child Link children.py
 **********************
 
--  :ref:`children_exam`
--  :ref:`children_other`
+-  :ref:`@children_exam`
+-  :ref:`@children_other`
 
 .. meta::
    :keywords: example
@@ -57,7 +59,7 @@ Child Link children.py
 
 Example
 *******
-:ref:`no_parent_exam`
+:ref:`@no_parent_exam`
 
 .. toctree::
    :maxdepth: 1

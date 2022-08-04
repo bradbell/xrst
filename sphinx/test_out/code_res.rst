@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _code_res:
+
 !!!!!!!!
 code_res
 !!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/code.py``
 
 .. index:: code_res, code, result
 
-.. _code_res:
+.. _@code_res:
 
 Code Result
 ###########
@@ -25,5 +27,5 @@ Code Result
             return 1
         return n * factorial(n-1)
 
-:ref:`code_exam`
+:ref:`@code_exam`
 

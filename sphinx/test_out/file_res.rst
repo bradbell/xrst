@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _file_res:
+
 !!!!!!!!
 file_res
 !!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/file.cpp``
 
 .. index:: file_res, file, result
 
-.. _file_res:
+.. _@file_res:
 
 File Result
 ###########

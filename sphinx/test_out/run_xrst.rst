@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _run_xrst:
+
 !!!!!!!!
 run_xrst
 !!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/run_xrst.py``
 
 .. index:: run_xrst, run, extract, sphinx, rst, sphinx
 
-.. _run_xrst:
+.. _@run_xrst:
 
 Run Extract Sphinx RST And Sphinx
 #################################
@@ -115,7 +117,7 @@ preamble.rst
 The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
 If it exists, it is included at the beginning of every section.
 It should only define things, it should not generate any output.
-For example, :ref:`preamble.rst`.
+For example, :ref:`@preamble.rst`.
 The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
@@ -131,7 +133,7 @@ following python regular expression:
 
 Example
 -------
-:ref:`preamble.rst`
+:ref:`@preamble.rst`
 
 .. meta::
    :keywords: spelling
@@ -148,7 +150,7 @@ that the spell checker will consider correct for all sections.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
-For example; see :ref:`spelling`.
+For example; see :ref:`@spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
 
@@ -161,7 +163,7 @@ Special words, for a particular section, are specified using the
 
 Example
 -------
-:ref:`spelling`
+:ref:`@spelling`
 
 .. meta::
    :keywords: keyword
@@ -187,7 +189,7 @@ The regular expressions are one per line and
 leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
-For example; see :ref:`keyword`.
+For example; see :ref:`@keyword`.
 
 .. meta::
    :keywords: example
@@ -198,7 +200,7 @@ For example; see :ref:`keyword`.
 
 Example
 -------
-:ref:`keyword`
+:ref:`@keyword`
 
 .. meta::
    :keywords: section, rst, files
@@ -230,7 +232,7 @@ is not added at the end.
 Other Automatically Generated Files
 ===================================
 
-See :ref:`auto_file` for the other automatically generated files in the
+See :ref:`@auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
 
 .. meta::

@@ -16,8 +16,11 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # is an int version of the line_increment arguemnt to the xrst program.
 #
 # pseudo_heading:
-# is the pseudoc heading for this section. It is placed before
+# is the pseudoc heading for this section. This is the section name
+# surrounded by headding indicators. `It is placed before
 # all the other headings in this section.
+# A label is added just before the pseudo heading that
+# links to it using the section name.
 #
 # file_in:
 # is the name of the xrst input file for this section.
@@ -29,14 +32,15 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # is the name of this section.  The output file is tmp_dir/section_name.rst.
 #
 # data_in
-# is the data for this seciton with all the xrst commands coverted to
+# is the data for this section with all the xrst commands coverted to
 # their sphinx RST values, except the {xrst_section_number} command.
 # The following is added to this deta before writing it to the output file:
-# 1. The preamble is included at the beginning.
-# 2. The name of the input file file_in is dispalyed near the end .
-# 3. There or more lines with only tabs or space are conver to two empty lines.
-# 4. The line numbers are removed.
-# 5. if increment > 0, a mapping from RST line numbers to file_in line numbers
+# #. The preamble is included at the beginning.
+# #. The pseudo heading and its label are added next.
+# #. The name of the input file file_in is dispalyed next.
+# #. More than 2 lines with only tabs or space are converted to 2 empty lines.
+# #. The line numbers are removed.
+# #. if increment > 0, a mapping from RST line numbers to file_in line numbers
 #    is included at the end.
 #
 def temporary_file(
@@ -53,9 +57,14 @@ def temporary_file(
     assert type(section_name) == str
     assert type(data_in) == str
     #
+    # label
+    # label that displays section name (which is text in pseudo heading)
+    label = f'.. _{section_name}:\n\n'
+    #
     # before
     # start output by including preamble and then pesudo_heading
     before  = '.. include:: xrst_preamble.rst\n\n'
+    before += label
     before += pseudo_heading
     before += f'xrst input file: ``{file_in}``\n\n'
     #

@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _indentation:
+
 !!!!!!!!!!!
 indentation
 !!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/remove_indent.py``
 
 .. index:: indentation, indentation
 
-.. _indentation:
+.. _@indentation:
 
 Indentation
 ###########
@@ -35,7 +37,7 @@ you use mix tabs and spaces for the indentation.
 
 Example
 *******
-- :ref:`indent_exam`
+- :ref:`@indent_exam`
 
 .. toctree::
    :maxdepth: 1

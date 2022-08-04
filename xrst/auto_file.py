@@ -37,11 +37,11 @@ This file contains the table of contents for the last run of ``xrst``.
 You can link to the corresponding section with the following command:
 
 ```
-:ref:`xrst_table_of_contents`
+:ref:`@xrst_table_of_contents`
 ```
 
 The result of this command in this documentation is
-:ref:`xrst_table_of_contents` .
+:ref:`@xrst_table_of_contents` .
 
 rst/xrst_preamble.rst
 *********************

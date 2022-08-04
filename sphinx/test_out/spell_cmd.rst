@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _spell_cmd:
+
 !!!!!!!!!
 spell_cmd
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/spell_command.py``
 
 .. index:: spell_cmd, spell, command
 
-.. _spell_cmd:
+.. _@spell_cmd:
 
 Spell Command
 #############
@@ -107,7 +109,7 @@ the same word twice (next to each other) in the special word list.
 Example
 *******
 
--  :ref:`spell_exam`
+-  :ref:`@spell_exam`
 
 .. toctree::
    :maxdepth: 1

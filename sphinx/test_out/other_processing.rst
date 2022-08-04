@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _other_processing:
+
 !!!!!!!!!!!!!!!!
 other_processing
 !!!!!!!!!!!!!!!!
@@ -11,15 +13,15 @@ xrst input file: ``doc.xrst``
 
 .. index:: other_processing, other, processing
 
-.. _other_processing:
+.. _@other_processing:
 
 Other Processing
 ################
 .. contents::
    :local:
 
--  :ref:`indentation`
--  :ref:`heading_links`
+-  :ref:`@indentation`
+-  :ref:`@heading_links`
 
 .. toctree::
    :maxdepth: 1

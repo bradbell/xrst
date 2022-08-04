@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _auto_file:
+
 !!!!!!!!!
 auto_file
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/auto_file.py``
 
 .. index:: auto_file, automatically, generated, files
 
-.. _auto_file:
+.. _@auto_file:
 
 Automatically Generated Files
 #############################
@@ -62,11 +64,11 @@ This file contains the table of contents for the last run of ``xrst``.
 You can link to the corresponding section with the following command:
 
 ```
-:ref:`xrst_table_of_contents`
+:ref:`@xrst_table_of_contents`
 ```
 
 The result of this command in this documentation is
-:ref:`xrst_table_of_contents` .
+:ref:`@xrst_table_of_contents` .
 
 .. meta::
    :keywords: rst/xrst_preamble.rst

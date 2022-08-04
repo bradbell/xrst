@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _heading_exam:
+
 !!!!!!!!!!!!
 heading_exam
 !!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/heading.py``
 
 .. index:: heading_exam, heading, example
 
-.. _heading_exam:
+.. _@heading_exam:
 
 Heading Example
 ###############
@@ -58,7 +60,7 @@ Child Sections
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "heading_res", :ref:`heading_res`
+    "heading_res", :ref:`@heading_res`
 
 .. toctree::
    :maxdepth: 1

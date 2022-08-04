@@ -11,7 +11,7 @@ temp.*
 /sphinx/rst/
 /sphinx/latex/
 /new/
-/new.[0-9]/
+/new.[0-9]*/
 __pycache__/
 # file extensions to ignore
 *.log

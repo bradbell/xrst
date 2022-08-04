@@ -1,10 +1,10 @@
 .. include:: xrst_preamble.rst
 
-.. _xrst_table_of_contents:
+.. _@xrst_table_of_contents:
 
 Table of Contents
 *****************
-:ref:`xrst`
+:ref:`@xrst`
 
 |
 | :ref:`1<run_xrst>` Run Extract Sphinx RST And Sphinx

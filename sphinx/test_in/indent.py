@@ -33,7 +33,7 @@ Indent Example
         return n * factorial(n-1)
     """{xrst_code}
 
-    :ref:`indent_exam`
+    :ref:`@indent_exam`
 
     {xrst_end indent_res}
 """

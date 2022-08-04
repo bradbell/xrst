@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _children_exam:
+
 !!!!!!!!!!!!!
 children_exam
 !!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/children.py``
 
 .. index:: children_exam, children, example
 
-.. _children_exam:
+.. _@children_exam:
 
 Children Example
 ################

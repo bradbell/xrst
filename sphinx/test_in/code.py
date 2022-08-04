@@ -32,7 +32,7 @@ def factorial(n) :
     return n * factorial(n-1)
 """{xrst_code}
 
-:ref:`code_exam`
+:ref:`@code_exam`
 
 {xrst_end code_res}
 """

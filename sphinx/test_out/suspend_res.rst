@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _suspend_res:
+
 !!!!!!!!!!!
 suspend_res
 !!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/suspend.py``
 
 .. index:: suspend_res, suspend, result
 
-.. _suspend_res:
+.. _@suspend_res:
 
 Suspend Result
 ##############
@@ -40,5 +42,5 @@ Product
 *******
 *p* = ``product(`` *iterable* ``)``
 
-:ref:`suspend_exam`
+:ref:`@suspend_exam`
 

@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _code_exam:
+
 !!!!!!!!!
 code_exam
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/code.py``
 
 .. index:: code_exam, code, example
 
-.. _code_exam:
+.. _@code_exam:
 
 Code Example
 ############
@@ -26,7 +28,7 @@ Code Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "code_res", :ref:`code_res`
+    "code_res", :ref:`@code_res`
 
 .. toctree::
    :maxdepth: 1

@@ -37,7 +37,7 @@ def factorial(n) :
     return n * factorial(n-1)
 # {xrst_code}
 #
-# :ref:`comment_ch_exam`
+# :ref:`@comment_ch_exam`
 #
 # {xrst_end comment_ch_res}
 # END_SRC

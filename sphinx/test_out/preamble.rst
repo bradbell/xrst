@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _preamble.rst:
+
 !!!!!!!!!!!!
 preamble.rst
 !!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/configure.xrst``
 
 .. index:: preamble.rst, the, preamble.rst, example, file
 
-.. _preamble.rst:
+.. _@preamble.rst:
 
 The preamble.rst Example File
 #############################

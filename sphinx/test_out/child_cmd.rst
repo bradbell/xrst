@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _child_cmd:
+
 !!!!!!!!!
 child_cmd
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/child_commands.py``
 
 .. index:: child_cmd, child, commands
 
-.. _child_cmd:
+.. _@child_cmd:
 
 Child Commands
 ##############
@@ -185,7 +187,7 @@ Example
     :header:  "Child", "Title"
     :widths: 20, 80
 
-    "no_parent_exam", :ref:`no_parent_exam`
+    "no_parent_exam", :ref:`@no_parent_exam`
 
 .. toctree::
    :maxdepth: 1

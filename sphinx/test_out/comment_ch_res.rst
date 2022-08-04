@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _comment_ch_res:
+
 !!!!!!!!!!!!!!
 comment_ch_res
 !!!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/comment_ch.py``
 
 .. index:: comment_ch_res, comment, character, result
 
-.. _comment_ch_res:
+.. _@comment_ch_res:
 
 ========================
 Comment Character Result
@@ -29,5 +31,5 @@ and the remaining text lines up with the ``def`` below:
             return 1
         return n * factorial(n-1)
 
-:ref:`comment_ch_exam`
+:ref:`@comment_ch_exam`
 

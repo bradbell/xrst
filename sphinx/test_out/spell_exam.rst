@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _spell_exam:
+
 !!!!!!!!!!
 spell_exam
 !!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/spell.py``
 
 .. index:: spell_exam, spell, example
 
-.. _spell_exam:
+.. _@spell_exam:
 
 Spell Example
 #############
@@ -26,7 +28,7 @@ Spell Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "spell_res", :ref:`spell_res`
+    "spell_res", :ref:`@spell_res`
 
 .. toctree::
    :maxdepth: 1

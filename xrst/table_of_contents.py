@@ -70,10 +70,10 @@ def table_of_contents(
     # content, section_number
     if level == 1 :
         assert section_index == 0
-        content  = '\n.. _xrst_table_of_contents:\n\n'
+        content  = '\n.. _@xrst_table_of_contents:\n\n'
         content += 'Table of Contents\n'
         content += '*****************\n'
-        content += ':ref:`' + section_name + '`\n\n'
+        content += ':ref:`@' + section_name + '`\n\n'
         section_number = ''
     else :
         assert section_index != 0

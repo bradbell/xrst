@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _file_exam:
+
 !!!!!!!!!
 file_exam
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/file.cpp``
 
 .. index:: file_exam, file, example
 
-.. _file_exam:
+.. _@file_exam:
 
 File Example
 ############
@@ -26,7 +28,7 @@ File Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "file_res", :ref:`file_res`
+    "file_res", :ref:`@file_res`
 
 .. toctree::
    :maxdepth: 1

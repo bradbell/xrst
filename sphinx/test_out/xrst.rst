@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _xrst:
+
 !!!!
 xrst
 !!!!
@@ -11,7 +13,7 @@ xrst input file: ``doc.xrst``
 
 .. index:: xrst, extract, sphinx, rst, files
 
-.. _xrst:
+.. _@xrst:
 
 Extract Sphinx RST Files
 ########################
@@ -59,7 +61,7 @@ Pip Install
 
 Run Program
 ***********
-:ref:`run_xrst`
+:ref:`@run_xrst`
 
 .. meta::
    :keywords: purpose
@@ -72,6 +74,11 @@ Purpose
 *******
 This is a pseudo sphinx extension that provides the following features:
 
+.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+
+#.  This extension was motivated by cases like the GNU Scientific library,
+    which is not written in python, uses sphinx, and has its documentation
+    in separate files from the corresponding source code; see `gsl doc`_ .
 #.  The rst file name for each section is also an abbreviated title used
     in the navigation bar and for linking to the section. This makes the
     navigation bar more useful while also having long descriptive titles.
@@ -81,7 +88,7 @@ This is a pseudo sphinx extension that provides the following features:
     easy to move sections to different places in the over all structure.
 #.  Enables documentation in the comments for source code
     when multiple computer languages are used for one package.
-    Allows the documentation for one section to span multiple locations
+#.  Allows the documentation for one section to span multiple locations
     in the source code; see :ref:`suspend command<suspend_cmd>`.
 #.  Allows for multiple sections (rst output files) to be specified by one
     input file. In addition, one section can be the parent for the
@@ -98,6 +105,9 @@ This is a pseudo sphinx extension that provides the following features:
     a different location in a :ref:`file<file_cmd>`.
     This uses tokens in the source, not line numbers,
     to signify start and stop of inclusion from a file.
+#.  Automatically generates labels for linking to headings.
+    These labels are designed with changing documentation in mind; see
+    :ref:`heading_links@labels@discussion<heading_links@labels@discussion>`.
 
 .. meta::
    :keywords: contents
@@ -109,11 +119,11 @@ This is a pseudo sphinx extension that provides the following features:
 Contents
 ********
 
--  :ref:`run_xrst`
--  :ref:`commands`
--  :ref:`other_processing`
--  :ref:`wish_list`
--  :ref:`release_notes`
+-  :ref:`@run_xrst`
+-  :ref:`@commands`
+-  :ref:`@other_processing`
+-  :ref:`@wish_list`
+-  :ref:`@release_notes`
 
 .. toctree::
    :maxdepth: 1

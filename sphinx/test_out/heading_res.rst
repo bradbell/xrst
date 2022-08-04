@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _heading_res:
+
 !!!!!!!!!!!
 heading_res
 !!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/heading.py``
 
 .. index:: heading_res, heading, result
 
-.. _heading_res:
+.. _@heading_res:
 
 Heading Result
 ##############
@@ -79,11 +81,11 @@ These links would also work from any other section because the
 (which is ``heading_res`` in this case)
 is included at the beginning of the target for the link:
 
-1. :ref:`heading_res`
+1. :ref:`@heading_res`
 2. :ref:`heading_res@second_level`
 3. :ref:`heading_res@second_level@third_level`
 4. :ref:`heading_res@another_second_level`
 5. :ref:`heading_res@another_second_level@third_level`
 
-:ref:`heading_exam`
+:ref:`@heading_exam`
 

@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _heading_links:
+
 !!!!!!!!!!!!!
 heading_links
 !!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/process_headings.py``
 
 .. index:: heading_links, heading, links
 
-.. _heading_links:
+.. _@heading_links:
 
 Heading Links
 #############
@@ -57,16 +59,17 @@ First Level
 Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
 The :ref:`section_name<begin_cmd@section_name>`
-is automatically used
-as a label for linking the title for a section; i.e., the
-following two inputs will link to the title for *section_name*:
+is automatically used as a label for a link that displays the 
+section name or section title. To be specific,
+the first input below will display the section name as the linking text,
+the second will display the section title as the linking text.
 
 1.  ``:ref:``\ \` *section_name*\ \`
-2.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
+2.  ``:ref:``\ \` ``@``\ *section_name*\ \`
 
-The *linking_text* in the second syntax is the text the user sees.
-The linking text for the first syntax is the title for the Section,
-not the *section_name* (which is used as an abbreviated title).
+You can also explicitly choose the linking text; e.g.
+
+3.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
 
 .. meta::
    :keywords: other, levels
@@ -85,13 +88,30 @@ paragraph is
 
 |tab| ``run_xrst@links_to_headings@other_levels``
 
-This may seem verbose, but it helps keep the links up to date.
-If a heading changes, all the links to that heading, and all the headings
-below it,  will break.
-This identifies the links that should be checked
-to make sure they are still valid.
-Note that one uses the *section_name* ``run_xrst``
-and not the title ``extract_sphinx_rst``.
+These labels do not begin with ``@``.
+
+.. meta::
+   :keywords: discussion
+
+.. index:: discussion
+
+.. _heading_links@labels@discussion:
+
+Discussion
+==========
+1.  Note that at the first level one uses the *section_name*
+    ( ``run_xrst`` in example above)
+    and not the title ( ``extract_sphinx_rst`` in example above ).
+2.  The ``@`` and not ``.`` character is used to separate levels
+    because the ``.`` character is often used in titles and
+    section names; e.g. :ref:`auto_file@conf.py`.
+3.  Specifying all the levels for a heading may seem verbose,
+    but it avoids ambiguity when the same heading appears twice in one section;
+    e.g the heading Example might appears multiple times in different context.
+4.  Specifying all the levels also helps keep the links up to date.
+    If a heading changes, all the links to that heading, and all the
+    headings below it,  will break.  This identifies the links that should be
+    checked to make sure they are still valid.
 
 .. meta::
    :keywords: example
@@ -103,7 +123,7 @@ and not the title ``extract_sphinx_rst``.
 Example
 *******
 
-The :ref:`heading_exam` section contains an example using these links.
+The :ref:`@heading_exam` section contains an example using these links.
 
 .. toctree::
    :maxdepth: 1

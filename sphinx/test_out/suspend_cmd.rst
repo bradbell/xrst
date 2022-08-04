@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _suspend_cmd:
+
 !!!!!!!!!!!
 suspend_cmd
 !!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/suspend_command.py``
 
 .. index:: suspend_cmd, suspend, resume, commands
 
-.. _suspend_cmd:
+.. _@suspend_cmd:
 
 Suspend and Resume Commands
 ###########################
@@ -55,7 +57,7 @@ spell checking.
 Example
 *******
 
--  :ref:`suspend_exam`
+-  :ref:`@suspend_exam`
 
 .. toctree::
    :maxdepth: 1

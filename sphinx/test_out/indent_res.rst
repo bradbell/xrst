@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _indent_res:
+
 !!!!!!!!!!
 indent_res
 !!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/indent.py``
 
 .. index:: indent_res, indent, result
 
-.. _indent_res:
+.. _@indent_res:
 
 =============
 Indent Result
@@ -26,5 +28,5 @@ Indent Result
             return 1
         return n * factorial(n-1)
 
-:ref:`indent_exam`
+:ref:`@indent_exam`
 

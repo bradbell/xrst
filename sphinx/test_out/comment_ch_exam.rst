@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _comment_ch_exam:
+
 !!!!!!!!!!!!!!!
 comment_ch_exam
 !!!!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/comment_ch.py``
 
 .. index:: comment_ch_exam, comment, character, example
 
-.. _comment_ch_exam:
+.. _@comment_ch_exam:
 
 =========================
 Comment Character Example
@@ -27,7 +29,7 @@ Comment Character Example
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "comment_ch_res", :ref:`comment_ch_res`
+    "comment_ch_res", :ref:`@comment_ch_res`
 
 .. toctree::
    :maxdepth: 1

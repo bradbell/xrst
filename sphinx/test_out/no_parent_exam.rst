@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _no_parent_exam:
+
 !!!!!!!!!!!!!!
 no_parent_exam
 !!!!!!!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/test_in/no_parent.xrst``
 
 .. index:: no_parent_exam, no, parent, example
 
-.. _no_parent_exam:
+.. _@no_parent_exam:
 
 No Parent Example
 #################
@@ -31,7 +33,7 @@ because ``children.py`` does not have a
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "no_parent_res", :ref:`no_parent_res`
+    "no_parent_res", :ref:`@no_parent_res`
 
 .. toctree::
    :maxdepth: 1

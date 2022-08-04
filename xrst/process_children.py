@@ -71,7 +71,7 @@ def process_children(
         if child_type ==  'child_list' :
             cmd = '\n\n'
             for child in list_children :
-                cmd += '-  :ref:`' + child + '`\n'
+                cmd += '-  :ref:`@' + child + '`\n'
             cmd += '\n'
         elif child_type == 'child_table' :
             cmd  = '\n'
@@ -80,7 +80,7 @@ def process_children(
             cmd += '    :widths: 20, 80\n\n'
             for child in list_children :
                 cmd += '    "' + child + '"'
-                cmd += ', :ref:`' + child + '`\n'
+                cmd += ', :ref:`@' + child + '`\n'
             cmd += '\n'
         else :
             assert child_type == 'children'
@@ -105,7 +105,7 @@ def process_children(
         data_out += '    :widths: 20, 80\n\n'
         for child in list_children :
             data_out += '    "' + child + '"'
-            data_out += ', :ref:`' + child + '`\n'
+            data_out += ', :ref:`@' + child + '`\n'
         data_out += '\n'
     #
     # data_out

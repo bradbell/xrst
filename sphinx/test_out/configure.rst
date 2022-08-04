@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _configure:
+
 !!!!!!!!!
 configure
 !!!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/configure.xrst``
 
 .. index:: configure, example, xrst, configuration, files
 
-.. _configure:
+.. _@configure:
 
 Example xrst Configuration Files
 ################################
@@ -22,9 +24,9 @@ Example xrst Configuration Files
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "spelling", :ref:`spelling`
-    "keyword", :ref:`keyword`
-    "preamble.rst", :ref:`preamble.rst`
+    "spelling", :ref:`@spelling`
+    "keyword", :ref:`@keyword`
+    "preamble.rst", :ref:`@preamble.rst`
 
 .. toctree::
    :maxdepth: 1

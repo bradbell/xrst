@@ -27,16 +27,32 @@ text of the form (at the betinning of a line) .. _text:
 xsrst2xrst:
 Change 'xsrst' to 'xrst' in all the text.
 
+ref_section:
+Change :ref:`section_name` -> :ref:`@section_name`,
+Change :ref:`section_name<section_name>` -> :ref:`section_name`
+
 '''
 #
-# pattern
-pattern        = dict()
-pattern['ref'] = re.compile( r'(:ref:`[^`]*)\.' )
 #
 # abort
 def abort(msg) :
     msg = '\nupdate_xstst.py: ' + msg
     sys.exit(msg)
+#
+# ref_section
+def ref_section(data_in) :
+    #
+    # pattern
+    pattern = dict()
+    pattern['title']        = re.compile( r':ref:`([._a-z0-9]+)`' )
+    pattern['section_name'] = re.compile( r':ref:`([._a-z0-9]+)<\1>`' )
+    #
+    # data_out
+    data_out  = data_in
+    data_out  = pattern['title'].sub( r':ref:`@\1`', data_out)
+    data_out  = pattern['section_name'].sub( r':ref:`\1`', data_out)
+    data_out  = data_out.replace(':ref:`@genindex`', ':ref:`genindex`')
+    return data_out
 #
 # xsrst2xrst
 def xsrst2xrst(data_in) :
@@ -45,6 +61,10 @@ def xsrst2xrst(data_in) :
 #
 # dot2atsign
 def dot2atsign(data_in) :
+    # pattern
+    pattern        = dict()
+    pattern['ref'] = re.compile( r'(:ref:`[^`]*)\.' )
+    #
     # data_out
     data_out = data_in
     #
@@ -66,8 +86,9 @@ def main() :
     #
     # operation_dict
     operation_dict = {
-        'dot2atsign' : dot2atsign,
-        'xsrst2xrst' : xsrst2xrst,
+        'dot2atsign' :  dot2atsign,
+        'xsrst2xrst' :  xsrst2xrst,
+        'ref_section' : ref_section,
     }
     #
     # operation

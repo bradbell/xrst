@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _2021:
+
 !!!!
 2021
 !!!!
@@ -11,7 +13,7 @@ xrst input file: ``release_notes/2021.xrst``
 
 .. index:: 2021, xrst, release, notes, for, 2021
 
-.. _2021:
+.. _@2021:
 
 xrst Release Notes for 2021
 ###########################

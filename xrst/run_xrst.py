@@ -65,7 +65,7 @@ preamble.rst
 The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
 If it exists, it is included at the beginning of every section.
 It should only define things, it should not generate any output.
-For example, :ref:`preamble.rst`.
+For example, :ref:`@preamble.rst`.
 The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
@@ -74,7 +74,7 @@ following python regular expression:
 
 Example
 -------
-:ref:`preamble.rst`
+:ref:`@preamble.rst`
 
 spelling
 ========
@@ -84,13 +84,13 @@ that the spell checker will consider correct for all sections.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
-For example; see :ref:`spelling`.
+For example; see :ref:`@spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
 
 Example
 -------
-:ref:`spelling`
+:ref:`@spelling`
 
 keyword
 =======
@@ -109,11 +109,11 @@ The regular expressions are one per line and
 leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
-For example; see :ref:`keyword`.
+For example; see :ref:`@keyword`.
 
 Example
 -------
-:ref:`keyword`
+:ref:`@keyword`
 
 
 Section RST Files
@@ -135,7 +135,7 @@ Other Automatically Generated Files
     xrst/auto_file.py
     sphinx/configure.xrst
 }
-See :ref:`auto_file` for the other automatically generated files in the
+See :ref:`@auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
 
 

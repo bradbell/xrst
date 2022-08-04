@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _spelling:
+
 !!!!!!!!
 spelling
 !!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``sphinx/configure.xrst``
 
 .. index:: spelling, the, spelling, example, file
 
-.. _spelling:
+.. _@spelling:
 
 The spelling Example File
 #########################

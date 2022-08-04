@@ -32,16 +32,18 @@ First Level
 Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
 The :ref:`section_name<begin_cmd@section_name>`
-is automatically used
-as a label for linking the title for a section; i.e., the
-following two inputs will link to the title for *section_name*:
+is automatically used as a label for a link that displays the 
+section name or section title. To be specific,
+the first input below will display the section name as the linking text,
+the second will display the section title as the linking text.
 
 1.  ``:ref:``\ \` *section_name*\ \`
-2.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
+2.  ``:ref:``\ \` ``@``\ *section_name*\ \`
 
-The *linking_text* in the second syntax is the text the user sees.
-The linking text for the first syntax is the title for the Section,
-not the *section_name* (which is used as an abbreviated title).
+You can also explicitly choose the linking text; e.g.
+
+3.  ``:ref:``\ \`*linking_text*\ ``<``\ *section_name*\ ``>``\ \`
+
 
 Other Levels
 ============
@@ -53,18 +55,20 @@ paragraph is
 
 |tab| ``run_xrst@links_to_headings@other_levels``
 
+These labels do not begin with ``@``.
+
 Discussion
 ==========
 1.  Note that at the first level one uses the *section_name*
     ( ``run_xrst`` in example above)
     and not the title ( ``extract_sphinx_rst`` in example above ).
 2.  The ``@`` and not ``.`` character is used to separate levels
-    because the ``.`` character can be used in titles and
+    because the ``.`` character is often used in titles and
     section names; e.g. :ref:`auto_file@conf.py`.
 3.  Specifying all the levels for a heading may seem verbose,
     but it avoids ambiguity when the same heading appears twice in one section;
     e.g the heading Example might appears multiple times in different context.
-4.  Specifying al the levels also helps keep the links up to date.
+4.  Specifying all the levels also helps keep the links up to date.
     If a heading changes, all the links to that heading, and all the
     headings below it,  will break.  This identifies the links that should be
     checked to make sure they are still valid.
@@ -74,7 +78,7 @@ Example
 {xrst_children
     sphinx/test_in/heading.py
 }
-The :ref:`heading_exam` section contains an example using these links.
+The :ref:`@heading_exam` section contains an example using these links.
 
 {xrst_end heading_links}
 """
@@ -83,7 +87,7 @@ import xrst
 # Add labels and indices for headings
 #
 # data_in:
-# contains the data for a seciton before the headings are processed.
+# contains the data for a section before the headings are processed.
 #
 # file_name:
 # name of the file that contains the input data for this section.
@@ -109,10 +113,10 @@ import xrst
 # There can only be one heading at this level.
 #
 # pseudo_heading:
-# This is an automatically generated heading for this seciton. It is intended
+# This is an automatically generated heading for this section. It is intended
 # to come before the section_title heading.
 # It has three lines each termnated by a newline;
-# 1) an overline line, 2) a heading text line containig the seciton_name,
+# 1) an overline line, 2) a heading text line containig the section,
 # 3) and an underline line.
 #
 #
@@ -211,12 +215,19 @@ def process_headings(
                 # this heading at a deeper level
                 heading_list.append( heading )
 
+        #
+        # label
         label = ''
         for level in range( len(heading_list) ) :
             if level == 0 :
                 label = section_name.lower().replace(' ', '_')
                 label = label.replace('@', '_')
                 assert label == section_name
+                # label for link that displays the title
+                if len(heading_list) == 1 :
+                    label = '@' + section_name
+                else :
+                    label = section_name
             else :
                 heading = heading_list[level]
                 text   = heading['text'].lower().replace(' ', '_')

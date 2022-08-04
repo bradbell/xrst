@@ -54,7 +54,7 @@ def product(itr) :
 """
 {xrst_resume}
 
-:ref:`suspend_exam`
+:ref:`@suspend_exam`
 
 {xrst_end suspend_res}
 """

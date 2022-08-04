@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _commands:
+
 !!!!!!!!
 commands
 !!!!!!!!
@@ -11,20 +13,20 @@ xrst input file: ``doc.xrst``
 
 .. index:: commands, xrst, commands
 
-.. _commands:
+.. _@commands:
 
 xrst Commands
 #############
 .. contents::
    :local:
 
--  :ref:`begin_cmd`
--  :ref:`child_cmd`
--  :ref:`spell_cmd`
--  :ref:`suspend_cmd`
--  :ref:`code_cmd`
--  :ref:`file_cmd`
--  :ref:`comment_ch_cmd`
+-  :ref:`@begin_cmd`
+-  :ref:`@child_cmd`
+-  :ref:`@spell_cmd`
+-  :ref:`@suspend_cmd`
+-  :ref:`@code_cmd`
+-  :ref:`@file_cmd`
+-  :ref:`@comment_ch_cmd`
 
 .. toctree::
    :maxdepth: 1

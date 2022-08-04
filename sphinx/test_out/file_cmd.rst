@@ -1,5 +1,7 @@
 .. include:: xrst_preamble.rst
 
+.. _file_cmd:
+
 !!!!!!!!
 file_cmd
 !!!!!!!!
@@ -11,7 +13,7 @@ xrst input file: ``xrst/file_command.py``
 
 .. index:: file_cmd, file, command
 
-.. _file_cmd:
+.. _@file_cmd:
 
 File Command
 ############
@@ -136,7 +138,7 @@ Spell checking is **not** done for these code blocks.
 Example
 *******
 
--  :ref:`file_exam`
+-  :ref:`@file_exam`
 
 .. toctree::
    :maxdepth: 1
