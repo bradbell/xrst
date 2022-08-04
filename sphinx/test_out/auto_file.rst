@@ -24,6 +24,7 @@ These files are located in the
 :ref:`run_xrst@sphinx_dir` directory.
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
+(This reduces the amount of processing that sphinx needs to do.)
 
 .. meta::
    :keywords: index.rst
