@@ -97,4 +97,3 @@ of the section that included this file using a :ref:`child command<child_cmd>`.
 If there is no begin parent command in an input file,
 all the sections in the file are children
 of the section that included this file using a :ref:`child command<child_cmd>`.
-

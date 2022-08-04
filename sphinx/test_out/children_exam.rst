@@ -47,4 +47,3 @@ This File
 .. literalinclude:: ../../sphinx/test_in/children.py
     :lines: 9-41
     :language: py
-

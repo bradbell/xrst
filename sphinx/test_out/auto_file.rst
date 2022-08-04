@@ -87,4 +87,3 @@ Otherwise this file is a copy of the
 If the
 :ref:`run_xrst@target` argument is
 ``pdf``, the latex macros have been removed.
-

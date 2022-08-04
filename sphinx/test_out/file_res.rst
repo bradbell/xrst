@@ -47,4 +47,3 @@ square
 .. literalinclude:: ../../sphinx/test_in/file.cpp
     :lines: 32-32
     :language: cpp
-

@@ -43,4 +43,3 @@ Product
 *p* = ``product(`` *iterable* ``)``
 
 :ref:`@suspend_exam`
-

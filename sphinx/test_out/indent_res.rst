@@ -29,4 +29,3 @@ Indent Result
         return n * factorial(n-1)
 
 :ref:`@indent_exam`
-

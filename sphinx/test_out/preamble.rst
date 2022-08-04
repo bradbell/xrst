@@ -23,4 +23,3 @@ The preamble.rst Example File
 .. literalinclude:: ../../sphinx/preamble.rst
     :lines: 2-15
     :language: rst
-

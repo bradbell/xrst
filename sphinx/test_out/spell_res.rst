@@ -77,4 +77,3 @@ were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
 :ref:`@spell_exam`
-

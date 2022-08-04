@@ -88,4 +88,3 @@ is included at the beginning of the target for the link:
 5. :ref:`heading_res@another_second_level@third_level`
 
 :ref:`@heading_exam`
-

@@ -32,4 +32,3 @@ and the remaining text lines up with the ``def`` below:
         return n * factorial(n-1)
 
 :ref:`@comment_ch_exam`
-

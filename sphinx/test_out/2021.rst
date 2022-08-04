@@ -47,4 +47,3 @@ For changes before 2021-09-26; see
 Improve the error messaging when the
 :ref:`begin_cmd@section_name` in a begin command
 has an invalid character; e.g. a period.
-

@@ -81,4 +81,3 @@ It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`@code_cmd` and :ref:`@file_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
-

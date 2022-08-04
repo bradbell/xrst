@@ -22,4 +22,3 @@ The keyword Example File
 
 .. literalinclude:: ../../sphinx/keyword
     :lines: 2-7
-

@@ -22,4 +22,3 @@ The spelling Example File
 
 .. literalinclude:: ../../sphinx/spelling
     :lines: 2-11
-

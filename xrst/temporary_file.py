@@ -40,8 +40,9 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # #. The pseudo heading and its label are added next.
 # #. The name of the input file file_in is dispalyed next.
 # #. More than 2 lines with only tabs or space are converted to 2 empty lines.
+# #. Empty lines at the end are removed
 # #. The line numbers are removed.
-# #. if increment > 0, a mapping from RST line numbers to file_in line numbers
+# #. if error_lne > 0, a mapping from RST line numbers to file_in line numbers
 #    is included at the end.
 #
 def temporary_file(
@@ -72,10 +73,17 @@ def temporary_file(
     # data_out
     data_out = before + data_in
     #
+    # data_out
     # Convert three or more sequential emtpty lines to two empty lines.
     data_out = pattern_line_number.sub('\n', data_out)
     data_out = pattern_newline_3.sub('\n\n', data_out)
     #
+    # data_out
+    # remove empty lines at the end
+    while data_out[-2 :] == '\n\n' :
+        data_out = data_out[: -1]
+    #
+    # data_out
     # The last step removing line numbers. This is done last for two reasons:
     # 1. So mapping from output to input line number is correct.
     # 2. We are no longer able to give line numbers for errors after this.

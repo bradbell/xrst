@@ -28,4 +28,3 @@ Code Result
         return n * factorial(n-1)
 
 :ref:`@code_exam`
-

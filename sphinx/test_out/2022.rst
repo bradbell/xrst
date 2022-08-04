@@ -119,4 +119,3 @@ interact; see :ref:`child_cmd@children`.
 *****
 Ignore the spelling of all words that are preceded by a backslash
 (this ignores all latex commands); see :ref:`@spell_cmd`.
-
