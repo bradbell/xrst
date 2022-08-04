@@ -20,15 +20,15 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$1" != 'html' ] && [ "$1" != 'pdf' ]
 then
-    echo 'usage: bin/run_sphinx.sh (html|pdf) [line_increment]'
+    echo 'usage: bin/run_sphinx.sh (html|pdf) [error_line]'
     exit 1
 fi
 target="$1"
 if [ "$2" == '' ]
 then
-    line_increment=''
+    error_line=''
 else
-    line_increment="-l $2"
+    error_line="-e $2"
 fi
 # -----------------------------------------------------------------------------
 # preamble
@@ -38,7 +38,7 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst doc.xrst -t html -s sphinx $line_increment
+    echo_eval python -m xrst doc.xrst -t html -s sphinx $error_line
     sphinx-build -b html sphinx doc
     echo 'run_sphinx.sh: OK'
     exit 0
@@ -48,7 +48,7 @@ fi
 # -----------------------------------------------------------------------------
 #
 # run xrst to create rst files
-echo_eval python -m xrst doc.xrst -t pdf -s sphinx $line_increment
+echo_eval python -m xrst doc.xrst -t pdf -s sphinx $error_line
 #
 # run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex

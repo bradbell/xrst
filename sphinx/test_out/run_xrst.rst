@@ -30,9 +30,9 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -   ``xrst`` *root_file*
-    [ -t *target* ]
-    [-s *sphinx_dir* ]
-    [-l *line_increment* ]
+    [ ``-t`` *target* ]
+    [ ``-s`` *sphinx_dir* ]
+    [ ``-e`` *error_line* ]
 
 .. meta::
    :keywords: root_file
@@ -244,20 +244,20 @@ See :ref:`@auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
 
 .. meta::
-   :keywords: line_increment
+   :keywords: error_line
 
-.. index:: line_increment
+.. index:: error_line
 
-.. _run_xrst@line_increment:
+.. _run_xrst@error_line:
 
-line_increment
-**************
+error_line
+**********
 This optional argument helps find the source of errors reported by sphinx.
-If the argument *line_increment* is (is not) present,
+If the argument *error_line* is (is not) present,
 a table is (is not) generated at the end of each output file.
 This table maps line numbers in the rst output files to
 line numbers in the corresponding xrst input file.
-The argument *line_increment* is a positive integer specifying the minimum
+The argument *error_line* is a positive integer specifying the minimum
 difference between xrst input line numbers for entries in the table.
 The value ``1`` will give the maximum resolution.
 For example, the sphinx warning

@@ -19,9 +19,9 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -   ``xrst`` *root_file*
-    [ -t *target* ]
-    [-s *sphinx_dir* ]
-    [-l *line_increment* ]
+    [ ``-t`` *target* ]
+    [ ``-s`` *sphinx_dir* ]
+    [ ``-e`` *error_line* ]
 
 root_file
 *********
@@ -143,14 +143,14 @@ See :ref:`@auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
 
 
-line_increment
-**************
+error_line
+**********
 This optional argument helps find the source of errors reported by sphinx.
-If the argument *line_increment* is (is not) present,
+If the argument *error_line* is (is not) present,
 a table is (is not) generated at the end of each output file.
 This table maps line numbers in the rst output files to
 line numbers in the corresponding xrst input file.
-The argument *line_increment* is a positive integer specifying the minimum
+The argument *error_line* is a positive integer specifying the minimum
 difference between xrst input line numbers for entries in the table.
 The value ``1`` will give the maximum resolution.
 For example, the sphinx warning
@@ -202,7 +202,7 @@ def run_xrst() :
         help='directory containing configuration files and xrst output files'
     )
     parser.add_argument(
-        '-l', metavar='line_increment', type=int,
+        '-e', metavar='error_line', type=int,
         help='increment in table that converts sphinx error messages'
     )
     #
@@ -250,13 +250,13 @@ def run_xrst() :
         msg += 'cannot contain ../'
         xrst.system_exit(msg)
     #
-    # line_increment
-    line_increment = arguments.l
-    if line_increment == None :
-        line_increment = 0
+    # error_line
+    error_line = arguments.e
+    if error_line == None :
+        error_line = 0
     else :
-        if line_increment < 1 :
-            msg = 'line_increment is not a positive integer'
+        if error_line < 1 :
+            msg = 'error_line is not a positive integer'
             xrst.system_exit(msg)
     #
     # rst_dir
@@ -428,7 +428,7 @@ def run_xrst() :
             # ---------------------------------------------------------------
             # write temporary file
             xrst.temporary_file(
-                line_increment,
+                error_line,
                 pseudo_heading,
                 file_in,
                 tmp_dir,

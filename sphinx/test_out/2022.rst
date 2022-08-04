@@ -99,7 +99,7 @@ interact; see :ref:`child_cmd@children`.
 1.  Require that the suspend and resume commands are in their own line; see
     :ref:`@suspend_cmd`.
 2.  A problem was fixed the table corresponding to the
-    :ref:`run_xrst@line_increment` table.
+    :ref:`run_xrst@error_line` table.
     To be specific, the indices in the rst file were one larger than
     they should have been.
 

@@ -12,8 +12,8 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # ----------------------------------------------------------------------------
 # Write the temporary RST file for a section.
 #
-# line_increment:
-# is an int version of the line_increment arguemnt to the xrst program
+# error_line:
+# is an int version of the error_line arguemnt to the xrst program
 # (with None replaced by zero).
 #
 # pseudo_heading:
@@ -45,14 +45,14 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #    is included at the end.
 #
 def temporary_file(
-    line_increment,
+    error_line,
     pseudo_heading,
     file_in,
     tmp_dir,
     section_name,
     data_in,
 ) :
-    assert type(line_increment) == int
+    assert type(error_line) == int
     assert type(pseudo_heading) == str
     assert type(file_in) == str
     assert type(section_name) == str
@@ -84,7 +84,7 @@ def temporary_file(
     # after
     # If line number increment is non-zero, include mapping from
     # rst file line number to xrst file line number
-    if line_increment > 0 :
+    if error_line > 0 :
         after  = '\n.. csv-table:: Line Number Mapping\n'
         after += 4 * ' ' + ':header: rst file, xrst input\n'
         after += 4 * ' ' + ':widths: 10, 10\n\n'
@@ -93,7 +93,7 @@ def temporary_file(
             if previous_line is None :
                 after        += f'    {pair[0]}, {pair[1]}\n'
                 previous_line = pair[1]
-            elif pair[1] - previous_line >= line_increment :
+            elif pair[1] - previous_line >= error_line :
                 after         += f'    {pair[0]}, {pair[1]}\n'
                 previous_line = pair[1]
         #
