@@ -35,4 +35,3 @@ Suspend Example
    :hidden:
 
    suspend_res
-

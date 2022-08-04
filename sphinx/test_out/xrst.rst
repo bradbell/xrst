@@ -134,4 +134,3 @@ Contents
    other_processing
    wish_list
    release_notes
-

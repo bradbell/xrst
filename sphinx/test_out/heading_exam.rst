@@ -67,4 +67,3 @@ Child Sections
    :hidden:
 
    heading_res
-

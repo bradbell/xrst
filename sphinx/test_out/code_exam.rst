@@ -35,4 +35,3 @@ Code Example
    :hidden:
 
    code_res
-

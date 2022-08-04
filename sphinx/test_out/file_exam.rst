@@ -35,4 +35,3 @@ File Example
    :hidden:
 
    file_res
-

@@ -119,4 +119,3 @@ Example
    :hidden:
 
    code_exam
-

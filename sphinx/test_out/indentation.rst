@@ -44,4 +44,3 @@ Example
    :hidden:
 
    indent_exam
-

@@ -64,4 +64,3 @@ Example
    :hidden:
 
    suspend_exam
-

@@ -35,4 +35,3 @@ Example xrst Configuration Files
    spelling
    keyword
    preamble
-

@@ -274,4 +274,3 @@ The table at the bottom of that file maps line numbers in
 
    auto_file
    configure
-

@@ -35,4 +35,3 @@ Spell Example
    :hidden:
 
    spell_res
-

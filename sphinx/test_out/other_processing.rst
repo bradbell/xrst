@@ -29,4 +29,3 @@ Other Processing
 
    indentation
    heading_links
-

@@ -40,4 +40,3 @@ because ``children.py`` does not have a
    :hidden:
 
    no_parent_res
-

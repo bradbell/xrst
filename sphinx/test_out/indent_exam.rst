@@ -35,4 +35,3 @@ Indent Example
    :hidden:
 
    indent_res
-

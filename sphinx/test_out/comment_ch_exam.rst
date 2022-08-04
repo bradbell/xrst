@@ -36,4 +36,3 @@ Comment Character Example
    :hidden:
 
    comment_ch_res
-

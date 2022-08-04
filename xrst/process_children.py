@@ -116,7 +116,6 @@ def process_children(
     for child in list_children :
         entry    = pattern_rst_extension.sub('', child)
         toctree += '   ' + entry + '\n'
-    toctree += '\n'
     data_out = data_out + toctree
     #
     return data_out

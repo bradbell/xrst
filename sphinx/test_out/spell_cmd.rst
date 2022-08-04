@@ -116,4 +116,3 @@ Example
    :hidden:
 
    spell_exam
-
