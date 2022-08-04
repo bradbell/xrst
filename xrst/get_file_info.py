@@ -132,10 +132,10 @@ def get_file_info(
     # for each section in this file
     while data_index < len(file_data) :
         #
-        # m_obj
+        # m_begin
         data_rest   = file_data[data_index : ]
-        m_obj = xrst.pattern['begin'].search(data_rest)
-        if m_obj == None :
+        m_begin = xrst.pattern['begin'].search(data_rest)
+        if m_begin == None :
             if data_index == 0 :
                 msg  = 'can not find followng at start of a line:\n'
                 msg += '    {xrst_begin section_name}\n'
@@ -146,14 +146,14 @@ def get_file_info(
             data_index = len(file_data)
         else :
             # section_name, is_parent
-            section_name = m_obj.group(3)
-            is_parent    = m_obj.group(2) == 'begin_parent'
+            section_name = m_begin.group(3)
+            is_parent    = m_begin.group(2) == 'begin_parent'
             #
             # check_section_name
             xrst.check_section_name(
                 section_name,
                 file_name     = file_in,
-                m_obj         = m_obj,
+                m_obj         = m_begin,
                 data          = data_rest
             )
             #
@@ -162,10 +162,10 @@ def get_file_info(
                 if section_name == info['section_name'] :
                     msg  = 'xrst_begin: section appears multiple times'
                     xrst.system_exit(msg,
-                        file_name=file_in,
-                        section_name=section_name,
-                        m_obj=m_obj,
-                        data=data_rest
+                        file_name      = file_in,
+                        section_name   = section_name,
+                        m_obj          = m_begin,
+                        data           = data_rest
                     )
             #
             # check if section_name appears in another file
@@ -183,10 +183,10 @@ def get_file_info(
                     msg  = 'xrst_begin_parent'
                     msg += ' is not the first begin command in this file'
                     xrst.system_exit(msg,
-                        file_name=file_in,
-                        section_name=section_name,
-                        m_obj=m_obj,
-                        data=data_rest
+                        file_name     = file_in,
+                        section_name  = section_name,
+                        m_obj         = m_begin,
+                        data          = data_rest
                     )
                 #
                 # parent_section_name
@@ -196,31 +196,31 @@ def get_file_info(
             is_child = (not is_parent) and (parent_section_name != None)
             #
             # data_index
-            data_index += m_obj.end()
+            data_index += m_begin.end()
             #
-            # m_obj
+            # m_end
             data_rest = file_data[data_index : ]
-            m_obj     = xrst.pattern['end'].search(data_rest)
+            m_end     = xrst.pattern['end'].search(data_rest)
             #
-            if m_obj == None :
+            if m_end == None :
                 msg  = 'Expected the followig text at start of a line:\n'
                 msg += '    {xrst_end section_name}'
                 xrst.system_exit(
                     msg, file_name=file_in, section_name=section_name
                 )
-            if m_obj.group(1) != section_name :
+            if m_end.group(1) != section_name :
                 msg = 'begin and end section names do not match\n'
                 msg += 'begin name = ' + section_name + '\n'
-                msg += 'end name   = ' + m_obj.group(1)
+                msg += 'end name   = ' + m_end.group(1)
                 xrst.system_exit(msg,
-                    file_name=file_in,
-                    m_obj=m_obj,
-                    data=data_rest
+                    file_name = file_in,
+                    m_obj     = m_end,
+                    data      = data_rest
                 )
             #
             # section_data
             section_start = data_index
-            section_end   = data_index + m_obj.start() + 1
+            section_end   = data_index + m_end.start() + 1
             section_data  = file_data[ section_start : section_end ]
             #
             # section_data
@@ -240,7 +240,7 @@ def get_file_info(
             } )
             #
             # place to start search for next section
-            data_index += m_obj.end()
+            data_index += m_end.end()
     #
     if parent_section_name != None and len(file_info) < 2 :
         msg  = 'begin_parent command appreas in a file '
