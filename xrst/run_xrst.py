@@ -19,9 +19,9 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -   ``xrst`` *root_file*
+    [ ``-e`` *error_line* ]
     [ ``-t`` *target* ]
     [ ``-s`` *sphinx_dir* ]
-    [ ``-e`` *error_line* ]
 
 root_file
 *********
@@ -29,6 +29,24 @@ The command line argument *root_file* is the name of a file
 containing the root section for the documentation tree.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
+
+error_line
+**********
+This optional argument helps find the source of errors reported by sphinx.
+If the argument *error_line* is (is not) present,
+a table is (is not) generated at the end of each output file.
+This table maps line numbers in the rst output files to
+line numbers in the corresponding xrst input file.
+The argument *error_line* is a positive integer specifying the minimum
+difference between xrst input line numbers for entries in the table.
+The value ``1`` will give the maximum resolution.
+For example, the sphinx warning
+
+| |tab| ... ``/xrst/children_exam.rst:30: WARNING:`` ...
+
+corresponds to line number 30 in the file ``children_exam.rst``.
+The table at the bottom of that file maps line numbers in
+``children_exam.rst`` to line numbers in the corresponding xrst input file.
 
 target
 ******
@@ -142,24 +160,6 @@ Other Automatically Generated Files
 See :ref:`@auto_file` for the other automatically generated files in the
 *sphinx_dir* directory.
 
-
-error_line
-**********
-This optional argument helps find the source of errors reported by sphinx.
-If the argument *error_line* is (is not) present,
-a table is (is not) generated at the end of each output file.
-This table maps line numbers in the rst output files to
-line numbers in the corresponding xrst input file.
-The argument *error_line* is a positive integer specifying the minimum
-difference between xrst input line numbers for entries in the table.
-The value ``1`` will give the maximum resolution.
-For example, the sphinx warning
-
-| |tab| ... ``/xrst/children_exam.rst:30: WARNING:`` ...
-
-corresponds to line number 30 in the file ``children_exam.rst``.
-The table at the bottom of that file maps line numbers in
-``children_exam.rst`` to line numbers in the corresponding xrst input file.
 
 {xrst_end run_xrst}
 """
