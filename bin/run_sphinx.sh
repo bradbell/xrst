@@ -24,7 +24,12 @@ then
     exit 1
 fi
 target="$1"
-line_increment="$2"
+if [ "$2" == '' ]
+then
+    line_increment=''
+else
+    line_increment="-l $2"
+fi
 # -----------------------------------------------------------------------------
 # preamble
 preamble='sphinx/preamble.rst'
@@ -33,7 +38,7 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst html doc.xrst sphinx $line_increment
+    echo_eval python -m xrst doc.xrst -t html -s sphinx $line_increment
     sphinx-build -b html sphinx doc
     echo 'run_sphinx.sh: OK'
     exit 0
@@ -43,7 +48,7 @@ fi
 # -----------------------------------------------------------------------------
 #
 # run xrst to create rst files
-echo_eval python -m xrst pdf doc.xrst sphinx $line_increment
+echo_eval python -m xrst doc.xrst -t pdf -s sphinx $line_increment
 #
 # run sphinx to create latex
 echo_eval sphinx-build -b latex sphinx doc/latex

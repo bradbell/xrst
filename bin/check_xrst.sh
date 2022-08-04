@@ -27,8 +27,8 @@ fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 mkdir doc
 cd    doc
-echo "python -m xrst html ../doc.xrst sphinx"
-if ! python -m xrst html ../doc.xrst sphinx 2> ../check_xrst.$$
+echo "python -m xrst ../doc.xrst"
+if ! python -m xrst ../doc.xrst 2> ../check_xrst.$$
 then
     type_error='error'
 else
@@ -52,7 +52,7 @@ do
     then
         echo "The output file sphinx/test_out/$file does not exist."
         echo 'Should we use the following command to fix this'
-        echo "    cp sphinx/rst/$file sphinx/test_out/$file" 
+        echo "    cp sphinx/rst/$file sphinx/test_out/$file"
         read -p '[yes/no] ?' response
         if [ "$response" != 'yes' ]
             then exit 1

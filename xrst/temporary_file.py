@@ -13,7 +13,8 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # Write the temporary RST file for a section.
 #
 # line_increment:
-# is an int version of the line_increment arguemnt to the xrst program.
+# is an int version of the line_increment arguemnt to the xrst program
+# (with None replaced by zero).
 #
 # pseudo_heading:
 # is the pseudoc heading for this section. This is the section name

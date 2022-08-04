@@ -15,11 +15,17 @@
 xrst Release Notes for 2022
 ###########################
 
+08-04
+*****
+Make :ref:`run_xrst@target` and :ref:`run_xrst@sphinx_dir` optional
+command line arguments with default values; see the new xrst
+:ref:`run_xrst@syntax`.
+
 08-03
 *****
 The heading links at the
 :ref:`heading_links@labels@first_level` were changed
-to make it easier to display the section name as the linking text. 
+to make it easier to display the section name as the linking text.
 You must change ``:ref:`` ` *section_name* `
 to ``:ref:`` ` @ *section_name* ` to get the linking text to be the title
 (as it was before this change).
