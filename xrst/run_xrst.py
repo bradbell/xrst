@@ -321,148 +321,155 @@ def run_xrst() :
     else :
         root_local = root_file[index + 1 :]
     #
-    # sinfo_list, finfo_stack, finfo_done
-    sinfo_list       = list()
-    finfo_stack      = list()
-    finfo_done       = list()
-    finfo = {
-        'file_in'        : root_local,
-        'parent_file'    : None,
-        'parent_section' : None,
-    }
-    finfo_stack.append(finfo)
-    #
-    while 0 < len(finfo_stack) :
-        # pop first element is stack so that order in pdf file and
-        # table of contents is correct
-        finfo  = finfo_stack.pop(0)
+    # group_name
+    for group_name in group_list :
         #
-        for finfo_tmp in finfo_done :
-            if finfo_tmp['file_in'] == finfo['file_in'] :
-                msg  = 'The file ' + finfo['file_in'] + ' is included twice\n'
-                msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
-                msg += 'and again in ' + finfo['parent_file'] + '\n'
-                xrst.system_exit(msg)
-        finfo_done.append(finfo)
+        # sinfo_list, finfo_stack, finfo_done
+        sinfo_list       = list()
+        finfo_stack      = list()
+        finfo_done       = list()
+        finfo = {
+            'file_in'        : root_local,
+            'parent_file'    : None,
+            'parent_section' : None,
+        }
+        finfo_stack.append(finfo)
         #
-        file_in              = finfo['file_in']
-        parent_file          = finfo['parent_file']
-        parent_file_section  = finfo['parent_section']
-        assert os.path.isfile(file_in)
-        #
-        # get xrst docuemntation in this file
-        sinfo_file_in = xrst.get_file_info(
-            sinfo_list,
-            file_in,
-        )
-        #
-        # parent_section_file_in
-        # index in sinfo_list of parent section for this file
-        parent_section_file_in = None
-        if sinfo_file_in[0]['is_parent'] :
-            parent_section_file_in = len(sinfo_list)
-        #
-        # add this files sections to sinfo_list
-        for i_section in range( len(sinfo_file_in) ) :
-            # ----------------------------------------------------------------
-            # section_name, section_data, is_parent
-            section_name = sinfo_file_in[i_section]['section_name']
-            section_data = sinfo_file_in[i_section]['section_data']
-            is_parent    = sinfo_file_in[i_section]['is_parent']
-            is_child     = sinfo_file_in[i_section]['is_child']
+        while 0 < len(finfo_stack) :
+            # pop first element is stack so that order in pdf file and
+            # table of contents is correct
+            finfo  = finfo_stack.pop(0)
             #
-            # parent_section
-            if is_parent or parent_section_file_in is None :
-                parent_section = parent_file_section
-            else :
-                parent_section = parent_section_file_in
+            for finfo_tmp in finfo_done :
+                if finfo_tmp['file_in'] == finfo['file_in'] :
+                    msg  = 'The file ' + finfo['file_in']
+                    msg += ' is included twice\n'
+                    msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
+                    msg += 'and again in ' + finfo['parent_file'] + '\n'
+                    xrst.system_exit(msg)
+            finfo_done.append(finfo)
             #
-            # sinfo_list
-            sinfo_list.append( {
-                'section_name'   : section_name,
-                'file_in'        : file_in,
-                'parent_section' : parent_section,
-                'in_parent_file' : is_child,
-            } )
-            # ----------------------------------------------------------------
-            # spell_command
-            # do after suspend and before other commands to help ignore
-            # sections of text that do not need spell checking
-            section_data = xrst.spell_command(
-                section_data,
+            file_in              = finfo['file_in']
+            parent_file          = finfo['parent_file']
+            parent_file_section  = finfo['parent_section']
+            assert os.path.isfile(file_in)
+            #
+            # get xrst docuemntation in this file
+            sinfo_file_in = xrst.get_file_info(
+                sinfo_list,
                 file_in,
-                section_name,
-                spell_checker,
-            )
-            # ----------------------------------------------------------------
-            # child commands
-            section_data, child_file, child_section_list = xrst.child_commands(
-                section_data,
-                file_in,
-                section_name,
             )
             #
-            # section_index, finfo_stack
-            section_index = len(sinfo_list) - 1
-            for file_tmp in child_file :
-                finfo_stack.append( {
-                    'file_in'        : file_tmp,
-                    'parent_file'    : file_in,
-                    'parent_section' : section_index,
+            # parent_section_file_in
+            # index in sinfo_list of parent section for this file
+            parent_section_file_in = None
+            if sinfo_file_in[0]['is_parent'] :
+                parent_section_file_in = len(sinfo_list)
+            #
+            # add this files sections to sinfo_list
+            for i_section in range( len(sinfo_file_in) ) :
+                # ------------------------------------------------------------
+                # section_name, section_data, is_parent
+                section_name = sinfo_file_in[i_section]['section_name']
+                section_data = sinfo_file_in[i_section]['section_data']
+                is_parent    = sinfo_file_in[i_section]['is_parent']
+                is_child     = sinfo_file_in[i_section]['is_child']
+                #
+                # parent_section
+                if is_parent or parent_section_file_in is None :
+                    parent_section = parent_file_section
+                else :
+                    parent_section = parent_section_file_in
+                #
+                # sinfo_list
+                sinfo_list.append( {
+                    'section_name'   : section_name,
+                    'file_in'        : file_in,
+                    'parent_section' : parent_section,
+                    'in_parent_file' : is_child,
                 } )
-            # ----------------------------------------------------------------
-            # code commands
-            section_data = xrst.code_command(
-                section_data,
-                file_in,
-                section_name,
-            )
-            # ---------------------------------------------------------------
-            # file command
-            section_data = xrst.file_command(
-                section_data,
-                file_in,
-                section_name,
-                rst_dir,
-            )
-            # ---------------------------------------------------------------
-            # process headings
-            # add labels and indices corresponding to headings
-            section_data, section_title, pseudo_heading = \
-            xrst.process_headings(
-                section_data,
-                file_in,
-                section_name,
-                keyword_list,
-            )
-            # section title is used by table_of_contents
-            sinfo_list[section_index]['section_title'] = section_title
-            # ----------------------------------------------------------------
-            # list_children
-            # section_name for each of the children of the current section
-            list_children = child_section_list
-            if is_parent :
-                for i in range( len(sinfo_file_in) ) :
-                    if i != i_section :
-                        list_children.append(sinfo_file_in[i]['section_name'])
-            # ---------------------------------------------------------------
-            # process children
-            # want this as late as possible to toctree at end of input
-            section_data = xrst.process_children(
-                section_name,
-                section_data,
-                list_children,
-            )
-            # ---------------------------------------------------------------
-            # write temporary file
-            xrst.temporary_file(
-                error_line,
-                pseudo_heading,
-                file_in,
-                tmp_dir,
-                section_name,
-                section_data,
-            )
+                # -------------------------------------------------------------
+                # spell_command
+                # do after suspend and before other commands to help ignore
+                # sections of text that do not need spell checking
+                section_data = xrst.spell_command(
+                    section_data,
+                    file_in,
+                    section_name,
+                    spell_checker,
+                )
+                # -------------------------------------------------------------
+                # child commands
+                section_data, child_file, child_section_list = \
+                    xrst.child_commands(
+                        section_data,
+                        file_in,
+                        section_name,
+                )
+                #
+                # section_index, finfo_stack
+                section_index = len(sinfo_list) - 1
+                for file_tmp in child_file :
+                    finfo_stack.append( {
+                        'file_in'        : file_tmp,
+                        'parent_file'    : file_in,
+                        'parent_section' : section_index,
+                    } )
+                # ------------------------------------------------------------
+                # code commands
+                section_data = xrst.code_command(
+                    section_data,
+                    file_in,
+                    section_name,
+                )
+                # ------------------------------------------------------------
+                # file command
+                section_data = xrst.file_command(
+                    section_data,
+                    file_in,
+                    section_name,
+                    rst_dir,
+                )
+                # ------------------------------------------------------------
+                # process headings
+                # add labels and indices corresponding to headings
+                section_data, section_title, pseudo_heading = \
+                xrst.process_headings(
+                    section_data,
+                    file_in,
+                    section_name,
+                    keyword_list,
+                )
+                # section title is used by table_of_contents
+                sinfo_list[section_index]['section_title'] = section_title
+                # -------------------------------------------------------------
+                # list_children
+                # section_name for each of the children of the current section
+                list_children = child_section_list
+                if is_parent :
+                    for i in range( len(sinfo_file_in) ) :
+                        if i != i_section :
+                            list_children.append(
+                                sinfo_file_in[i]['section_name']
+                            )
+                # -------------------------------------------------------------
+                # process children
+                # want this as late as possible to toctree at end of input
+                section_data = xrst.process_children(
+                    section_name,
+                    section_data,
+                    list_children,
+                )
+                # -------------------------------------------------------------
+                # write temporary file
+                xrst.temporary_file(
+                    error_line,
+                    pseudo_heading,
+                    file_in,
+                    tmp_dir,
+                    section_name,
+                    section_data,
+                )
     #
     # auto_file
     xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list)
