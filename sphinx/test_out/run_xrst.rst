@@ -31,6 +31,7 @@ Syntax
 ******
 -   ``xrst`` *root_file*
     [ ``-e`` *error_line* ]
+    [ ``-g`` *group_list* ]
     [ ``-t`` *target* ]
     [ ``-s`` *sphinx_dir* ]
 
@@ -47,6 +48,8 @@ The command line argument *root_file* is the name of a file
 containing the root section for the documentation tree.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
+There must be at least one section in *root_file* that has each
+:ref:`begin_cmd@group_name` in the *group_list*.
 
 .. meta::
    :keywords: error_line
@@ -72,6 +75,30 @@ For example, the sphinx warning
 corresponds to line number 30 in the file ``children_exam.rst``.
 The table at the bottom of that file maps line numbers in
 ``children_exam.rst`` to line numbers in the corresponding xrst input file.
+
+.. meta::
+   :keywords: group_list
+
+.. index:: group_list
+
+.. _run_xrst@group_list:
+
+group_list
+**********
+It is possible to select one or more groups of sections
+to include in the output using this optional argument.
+The *group_list* is a comma separated list of
+:ref:`group names<begin_cmd@group_name>`.
+If *group_list* is not present, only the empty group is included.
+(Note that it is the group name and not the group that is empty.)
+If *group_list* begins or ends with a comma, the empty group is included
+along with the other groups specified by *group_list*.
+
+One use case for this is where the user documentation is a subset of the
+developer documentation. This enables the developer documentation to
+easily link to the specific paragraphs in the user documentation.
+It also enables the same source code file to provide both the developer
+and user documentation for the actions it provides.
 
 .. meta::
    :keywords: target
