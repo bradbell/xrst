@@ -14,11 +14,12 @@ pattern = dict()
 #
 # pattern['begin']
 # Pattern for the begin command.
-# group(0): preceeding newline + white space + the command.
+# group(0): preceeding newline + spaces and tabs + the command.
 # group(2): begin or begin_parent
-# group(3): the section name.
+# group(3): the section name (without leading or trailing spaces or tabs)
+# group(4): the group name (with leading and trailing spaces and tabs)
 pattern['begin'] = re.compile(
-    r'(^|\n)[ \t]*\{xrst_(begin|begin_parent)\s+([^}]*)\}'
+    r'(^|\n)[ \t]*\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}])*\}'
 )
 #
 # pattern['child']
