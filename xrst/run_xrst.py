@@ -32,6 +32,8 @@ This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
 There must be at least one section in *root_file* that has each
 :ref:`begin_cmd@group_name` in the *group_list*.
+The base part of *root_file*, without directories or file extension,
+will be used as the sphinx project name.
 
 error_line
 **********
