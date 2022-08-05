@@ -22,9 +22,29 @@ if [ -e doc ]
 then
     echo_eval rm -r doc
 fi
+PYTHONPATH="$PYTHONPATH:$(pwd)"
+# -----------------------------------------------------------------------------
+# start_group_list
+#
+echo "python -m xrst doc.xrst -g start"
+if ! python -m xrst doc.xrst -g start 2> check_xrst.$$
+then
+    type_error='error'
+else
+    type_error='warning'
+fi
+if [ -s check_xrst.$$ ]
+then
+    cat check_xrst.$$
+    rm check_xrst.$$
+    echo "$0: exiting due to $type_error above"
+    exit 1
+fi
+start_group_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
+echo "start_group_list=$start_group_list"
+rm -r sphinx/rst
 # -----------------------------------------------------------------------------
 # change directory to test case where root_directory is not working directory
-PYTHONPATH="$PYTHONPATH:$(pwd)"
 mkdir doc
 cd    doc
 echo "python -m xrst ../doc.xrst"
@@ -48,6 +68,15 @@ rm check_xrst.$$
 file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
 for file in $file_list
 do
+    for start_file in start_group_list
+    do
+        if [ "$file" == "$start_file" ]
+        then
+            echo "The output file sphinx/rst/$file"
+            echo 'is in both the empty group and start group builds'
+            exit 1
+        fi
+    done
     if [ ! -e sphinx/test_out/$file ]
     then
         echo "The output file sphinx/test_out/$file does not exist."
