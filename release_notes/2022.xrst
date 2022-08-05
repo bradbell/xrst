@@ -15,6 +15,12 @@
 xrst Release Notes for 2022
 ###########################
 
+08-05
+*****
+1.  Add the :ref:`run_xrst@group_list` option to the command line.
+2.  Use the base part of :ref:`run_xrst@root_file` as the sphinx
+    project name.
+
 08-04
 *****
 Make :ref:`run_xrst@target` and :ref:`run_xrst@sphinx_dir` optional
