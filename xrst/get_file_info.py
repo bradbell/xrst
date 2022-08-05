@@ -171,9 +171,9 @@ def get_file_info(
             if m_group == None :
                 this_group_name = ''
             else :
-                this_group_name = m_group(0)
+                this_group_name = m_group.group(0)
                 m_group    = pattern_group_valid.search(this_group_name)
-                if this_group_name != m_group(0) :
+                if this_group_name != m_group.group(0) :
                     msg = f'"{this_group_name}" is not a valid group name'
                     xrst.system_exit(msg,
                         file_name = file_in,
@@ -193,7 +193,7 @@ def get_file_info(
             #
             # data_index
             # place to start search for next section
-            data_index += m_end.end()
+            data_index += m_begin.end()
         else :
             #
             # found_group_name

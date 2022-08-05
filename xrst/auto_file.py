@@ -155,6 +155,10 @@ def preamble_macros(sphinx_dir) :
 # parent_section an int index in section_info for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
 #
+# root_section_list:
+# is a list of the root section names (one for each group) in the order
+# they will appear in the table of contents.
+#
 # tmp_dir/xsrst_table_of_contents.rst
 # This file creates is the table of contents for the documentation.
 # It has the lable xrst_table_of_contents which can be used to link
@@ -171,7 +175,7 @@ def preamble_macros(sphinx_dir) :
 # This is the root level in the sphinx documentation tree.
 #
 #
-def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
+def auto_file(sphinx_dir, tmp_dir, target, sinfo_list, root_section_list) :
     # ------------------------------------------------------------------------
     # tmp_dir/xrst_table_of_contents.rst
     #
@@ -286,7 +290,8 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list) :
     file_data += '   :maxdepth: 1\n'
     file_data += '\n'
     file_data += '   rst/xrst_table_of_contents\n'
-    file_data += '   rst/' + project + '\n'
+    for section_name in root_section_list :
+        file_data += '   rst/' + section_name + '\n'
     #
     # sphinx_dir/index.rst
     file_name    = sphinx_dir + '/index.rst'

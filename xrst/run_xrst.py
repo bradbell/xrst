@@ -328,6 +328,10 @@ def run_xrst() :
     # This list accumulates over all the group names
     sinfo_list       = list()
     #
+    # root_section_list
+    # Each group has a root secion (in root_file) at the top if its tree.
+    root_section_list = list()
+    #
     # group_name
     for group_name in group_list :
         #
@@ -368,6 +372,12 @@ def run_xrst() :
                 group_name,
                 file_in,
             )
+            #
+            # root_section_list
+            if finfo['parent_file'] == None :
+                assert file_in == root_local
+                section_name = sinfo_file_in[0]['section_name']
+                root_section_list.append(section_name)
             #
             # parent_section_file_in
             # index in sinfo_list of parent section for this file
@@ -482,7 +492,7 @@ def run_xrst() :
                 )
     #
     # auto_file
-    xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list)
+    xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list, root_section_list)
     #
     # -------------------------------------------------------------------------
     # overwrite rst files that have changed and then remove temporary files

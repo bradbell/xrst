@@ -38,7 +38,7 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst doc.xrst -t html -s sphinx $error_line
+    echo_eval python -m xrst doc.xrst -g start, -t html -s sphinx $error_line
     sphinx-build -b html sphinx doc
     echo 'run_sphinx.sh: OK'
     exit 0
