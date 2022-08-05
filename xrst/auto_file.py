@@ -152,7 +152,7 @@ def preamble_macros(sphinx_dir) :
 # key            value
 # section_name   a str continaing the name of this section.
 # section_title  a str containing the title for this section.
-# parent_section an int index in section_info for the parent of this section.
+# parent_section an int index in sinfo_list for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
 #
 # root_section_list:
@@ -187,7 +187,7 @@ def auto_file(sphinx_dir, tmp_dir, target, sinfo_list, root_section_list) :
     count         = list()
     section_index = 0
     file_data  += xrst.table_of_contents(
-        tmp_dir, target, sinfo_list, level, count, section_index
+        tmp_dir, target, sinfo_list, root_section_list
     )
     if target == 'html' :
         # Link to Index
