@@ -19,7 +19,7 @@ pattern = dict()
 # group(3): the section name (without leading or trailing spaces or tabs)
 # group(4): the group name (with leading and trailing spaces and tabs)
 pattern['begin'] = re.compile(
-    r'(^|\n)[ \t]*\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}])*\}'
+    r'(^|\n)[ \t]*\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)\}'
 )
 #
 # pattern['child']

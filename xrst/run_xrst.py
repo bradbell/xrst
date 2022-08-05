@@ -267,7 +267,10 @@ def run_xrst() :
     #
     # group_list
     group_list = arguments.g
-    group_list = group_list.split(',')
+    if group_list == ',' :
+        group_list = [ '' ]
+    else :
+        group_list = group_list.split(',')
     #
     # target
     target = arguments.t
@@ -321,11 +324,15 @@ def run_xrst() :
     else :
         root_local = root_file[index + 1 :]
     #
+    # sinfo_list
+    # This list accumulates over all the group names
+    sinfo_list       = list()
+    #
     # group_name
     for group_name in group_list :
         #
-        # sinfo_list, finfo_stack, finfo_done
-        sinfo_list       = list()
+        # finfo_stack, finfo_done
+        # This information is by file, not section
         finfo_stack      = list()
         finfo_done       = list()
         finfo = {
@@ -343,7 +350,8 @@ def run_xrst() :
             for finfo_tmp in finfo_done :
                 if finfo_tmp['file_in'] == finfo['file_in'] :
                     msg  = 'The file ' + finfo['file_in']
-                    msg += ' is included twice\n'
+                    msg += '\nis included twice with '
+                    msg += f'group_name = "{group_name}"\n'
                     msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
                     msg += 'and again in ' + finfo['parent_file'] + '\n'
                     xrst.system_exit(msg)
@@ -357,6 +365,7 @@ def run_xrst() :
             # get xrst docuemntation in this file
             sinfo_file_in = xrst.get_file_info(
                 sinfo_list,
+                group_name,
                 file_in,
             )
             #
@@ -440,6 +449,7 @@ def run_xrst() :
                     section_name,
                     keyword_list,
                 )
+                # sinfo_list
                 # section title is used by table_of_contents
                 sinfo_list[section_index]['section_title'] = section_title
                 # -------------------------------------------------------------

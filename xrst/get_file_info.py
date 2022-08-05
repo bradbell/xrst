@@ -76,6 +76,10 @@ of sections that have the same group name.
 """
 # ---------------------------------------------------------------------------
 import xrst
+import re
+pattern_group_name  = re.compile( r'[^ \t]+' )
+pattern_group_valid = re.compile( r'[a-z]+' )
+# ---------------------------------------------------------------------------
 #
 # Get all the information for a file.
 #
@@ -85,6 +89,9 @@ import xrst
 #
 #   info['section_name']
 #   is an str containing the name of a seciton that came before this file.
+#
+# group_name:
+# We are only retrieving information for sections in this group.
 #
 # file_in:
 # is the name of the file we are getting all the information for.
@@ -120,9 +127,11 @@ import xrst
 # file_info =
 def get_file_info(
         section_info,
-        file_in
+        group_name,
+        file_in,
 ) :
     assert type(section_info) == list
+    assert type(group_name) == str
     assert type(file_in) == str
     #
     # file_data
@@ -140,8 +149,12 @@ def get_file_info(
     # parent_section_name
     parent_section_name = None
     #
+    # data_index
     # index to start search for next pattern in file_data
     data_index  = 0
+    #
+    # found_group_name
+    found_group_name = False
     #
     # for each section in this file
     while data_index < len(file_data) :
@@ -149,16 +162,43 @@ def get_file_info(
         # m_begin
         data_rest   = file_data[data_index : ]
         m_begin = xrst.pattern['begin'].search(data_rest)
+        #
+        # this_group_name
+        if m_begin != None :
+            #
+            this_group_name = m_begin.group(4)
+            m_group         = pattern_group_name.search(this_group_name)
+            if m_group == None :
+                this_group_name = ''
+            else :
+                this_group_name = m_group(0)
+                m_group    = pattern_group_valid.search(this_group_name)
+                if this_group_name != m_group(0) :
+                    msg = f'"{this_group_name}" is not a valid group name'
+                    xrst.system_exit(msg,
+                        file_name = file_in,
+                        m_obj     = m_begin,
+                        data      = data_rest,
+                    )
         if m_begin == None :
-            if data_index == 0 :
-                msg  = 'can not find followng at start of a line:\n'
-                msg += '    {xrst_begin section_name}\n'
+            if not found_group_name :
+                msg  = 'can not find a begin command at start of a line\n'
+                msg += f'with group_name = "{group_name}"'
                 xrst.system_exit(msg, file_name=file_in)
             #
             # data_index
             # set so that the section loop for this file terminates
             data_index = len(file_data)
+        elif this_group_name != group_name :
+            #
+            # data_index
+            # place to start search for next section
+            data_index += m_end.end()
         else :
+            #
+            # found_group_name
+            found_group_name = True
+            #
             # section_name, is_parent
             section_name = m_begin.group(3)
             is_parent    = m_begin.group(2) == 'begin_parent'
@@ -185,8 +225,8 @@ def get_file_info(
             # check if section_name appears in another file
             for info in section_info :
                 if section_name == info['section_name'] :
-                    msg  = 'xrst_begin ' + section_name
-                    msg += ' appears twice\n'
+                    msg  = f'section_name = "{section_name}", '
+                    msg += f'group_name = "{group_name}" appears twice\n'
                     msg += 'Once  in file ' + file_in + '\n'
                     msg += 'Again in file ' + info['file_in'] + '\n'
                     xrst.system_exit(msg)
@@ -253,6 +293,7 @@ def get_file_info(
                 'is_child'     : is_child,
             } )
             #
+            # data_index
             # place to start search for next section
             data_index += m_end.end()
     #
