@@ -81,7 +81,10 @@ Example
 """
 # ----------------------------------------------------------------------------
 import os
+import re
 import xrst
+#
+pattern_file_0 = re.compile( r'\n[ \t]*\{xsrst_file\}' )
 # ----------------------------------------------------------------------------
 def file_extension(display_file) :
     index = display_file.rfind('.')
@@ -133,9 +136,40 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     # data_out
     data_out = data_in
     #
+    # m_file
+    m_file  = pattern_file_0.search(data_out)
+    if m_file != None :
+        cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
+        extension = file_extension( file_name )
+        if extension != '' :
+            cmd += 4 * ' ' + f':language: {extension}\n'
+        cmd = '\n' + cmd + '\n'
+        if m_file.start() > 0 :
+            if data_out[m_file.start() - 1] != '\n' :
+                cmd = '\n' + cmd
+        #
+        # data_out
+        data_tmp  = data_out[: m_file.start() ]
+        data_tmp += cmd
+        data_tmp += data_out[ m_file.end() : ]
+        data_out  = data_tmp
+        #
+        # m_file
+        m_file  = xrst.pattern[key].search(data_out)
+        if m_file :
+            msg  = 'More than one {xsrst_file} command in this section.\n'
+            msg += 'This command includes the entire current input file.'
+            xrst.system_exit(msg,
+                file_name    = file_name,
+                section_name = section_name,
+                m_obj        = m_file,
+                data         = data_out
+            )
+    #
     # key
     for key in [ 'file_2', 'file_3' ] :
         #
+        # m_file
         m_file  = xrst.pattern[key].search(data_out)
         while m_file != None :
             #
@@ -192,8 +226,6 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             end_line = m_file.end();
             #
             # cmd
-            # converted version of the command, use two underbars so does
-            # not match pattern['file_2'] or pattern['file_3'].
             cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
             cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'
             #
@@ -203,7 +235,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             extension = file_extension( display_file )
             if extension != '' :
                 cmd += 4 * ' ' + f':language: {extension}\n'
-            cmd = '\n' + cmd + '\n'
+            cmd = '\n' + cmd + '\n\n'
             if m_file.start() > 0 :
                 if data_out[m_file.start() - 1] != '\n' :
                     cmd = '\n' + cmd
@@ -211,7 +243,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             # data_out
             data_tmp  = data_out[: m_file.start() ]
             data_tmp += cmd
-            data_tmp += '\n' + data_out[ m_file.end() : ]
+            data_tmp += data_out[ m_file.end() : ]
             data_out  = data_tmp
             #
             # m_file
