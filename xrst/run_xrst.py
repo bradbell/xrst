@@ -32,8 +32,11 @@ This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
 There must be at least one section in *root_file* that has each
 :ref:`begin_cmd@group_name` in the *group_list*.
+
+project_name
+============
 The base part of *root_file*, without directories or file extension,
-will be used as the sphinx project name.
+is used as the sphinx project name.
 
 error_line
 **********
@@ -93,9 +96,10 @@ If *target* is ``pdf``, you can use the following commands:
 cd sphinx_dir
 sphinx-build -b latex . latex
 cd latex
-make root_section_name.pdf
+make project_name.pdf
 {xrst_code}
-where root_section_name is the name of the root section for you documentation.
+:ref:`run_xrst@root_file@project_name` is the
+base part of the root file name.
 
 sphinx_dir
 **********

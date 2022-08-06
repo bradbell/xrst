@@ -55,7 +55,7 @@ echo_eval sphinx-build -b latex sphinx doc/latex
 echo_eval cd doc/latex
 #
 # create pdf from latex
-echo_eval make xrst.pdf
+echo_eval make doc.pdf
 #
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'
