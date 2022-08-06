@@ -1,22 +1,22 @@
 .. include:: xrst_preamble.rst
 
-.. _file_res:
+.. _file_start_stop:
 
-!!!!!!!!
-file_res
-!!!!!!!!
+!!!!!!!!!!!!!!!
+file_start_stop
+!!!!!!!!!!!!!!!
 
 xrst input file: ``sphinx/test_in/file.cpp``
 
 .. meta::
-   :keywords: file_res, file, result
+   :keywords: file_start_stop, file, start, stop, example
 
-.. index:: file_res, file, result
+.. index:: file_start_stop, file, start, stop, example
 
-.. _@file_res:
+.. _@file_start_stop:
 
-File Result
-###########
+File Start and Stop Example
+###########################
 .. contents::
    :local:
 
@@ -25,13 +25,13 @@ File Result
 
 .. index:: factorial
 
-.. _file_res@factorial:
+.. _file_start_stop@factorial:
 
 factorial
 *********
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
-    :lines: 24-28
+    :lines: 19-23
     :language: cpp
 
 .. meta::
@@ -39,11 +39,11 @@ factorial
 
 .. index:: square
 
-.. _file_res@square:
+.. _file_start_stop@square:
 
 square
 ******
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
-    :lines: 32-32
+    :lines: 27-27
     :language: cpp

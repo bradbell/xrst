@@ -5,48 +5,15 @@
              GNU General Public License version 3.0 or later see
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
-BEGIN_GET_STARTED
-{xrst_begin get_started start}
+{xrst_begin example}
 
-Getting Started Using xrst
-##########################
-
-Step 1
-******
-Create an empty directory and make it your working directory
-
-Step 2
-******
-Create an empty sub-directory with the name ``sphinx`` .
-
-Step 3
-******
-Create a file called ``doc.xrst`` with the following contents:
-{xrst_file
-    BEGIN_GET_STARTED
-    END_GET_STARTED
+Examples
+########
+{xrst_child_list
+    sphinx/test_in/file.cpp
 }
-The file command searches ``doc.xrst`` for the specified text and does not
-include the text in the display above. You therefore will have to add
-a line at the top (with the begin text)
-and a line at the bottom (with the end text).
 
-Step 4
-******
-Run the following commands :
-
-#.  ``xrst doc.xrst``
-#.  ``sphinx-build -b html sphinx html``
-
-Step 5
-******
-Use your web browser to open the file
-
-|   ``html/get_started.html``
-
-
-{xrst_end get_started}
-END_GET_STARTED
+{xrst_end example}
 ----------------------------------------------------------------------------
 {xrst_begin_parent xrst user}
 {xrst_spell

@@ -93,6 +93,9 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # group_name:
 # We are only retrieving information for sections in this group.
 #
+# parent_file:
+# name of the file that included file_in.
+#
 # file_in:
 # is the name of the file we are getting all the information for.
 #
@@ -128,6 +131,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 def get_file_info(
         section_info,
         group_name,
+        parent_file,
         file_in,
 ) :
     assert type(section_info) == list
@@ -183,7 +187,8 @@ def get_file_info(
         if m_begin == None :
             if not found_group_name :
                 msg  = 'can not find a begin command at start of a line\n'
-                msg += f'with group_name = "{group_name}"'
+                msg += f'with group_name = "{group_name}"\n'
+                msg += f'parent file = {parent_file}'
                 xrst.system_exit(msg, file_name=file_in)
             #
             # data_index

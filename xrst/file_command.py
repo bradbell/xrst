@@ -14,6 +14,8 @@ File Command
 Syntax
 ******
 
+| ``{xrst_file}``
+|
 | ``{xrst_file``
 | |tab| *start*
 | |tab| *stop*
@@ -48,6 +50,11 @@ where :ref:`xrst<run_xrst>` is executed.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
+No start or stop
+****************
+In the case of the ``{xrst_file}`` syntax,
+then entire current input file is displayed.
+
 start
 *****
 The code block starts with the line following the occurrence
@@ -73,9 +80,7 @@ Spell checking is **not** done for these code blocks.
 
 Example
 *******
-{xrst_child_list
-   sphinx/test_in/file.cpp
-}
+see :ref:`file_example` .
 
 {xrst_end file_cmd}
 """
@@ -84,7 +89,7 @@ import os
 import re
 import xrst
 #
-pattern_file_0 = re.compile( r'\n[ \t]*\{xsrst_file\}' )
+pattern_file_0 = re.compile( r'\n[ \t]*\{xrst_file\}' )
 # ----------------------------------------------------------------------------
 def file_extension(display_file) :
     index = display_file.rfind('.')
@@ -139,7 +144,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     # m_file
     m_file  = pattern_file_0.search(data_out)
     if m_file != None :
-        cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
+        cmd       = f'.. literalinclude:: {work_dir}{file_name}\n'
         extension = file_extension( file_name )
         if extension != '' :
             cmd += 4 * ' ' + f':language: {extension}\n'
@@ -155,9 +160,9 @@ def file_command(data_in, file_name, section_name, rst_dir) :
         data_out  = data_tmp
         #
         # m_file
-        m_file  = xrst.pattern[key].search(data_out)
+        m_file  = pattern_file_0.search(data_out)
         if m_file :
-            msg  = 'More than one {xsrst_file} command in this section.\n'
+            msg  = 'More than one {xrst_file} command in this section.\n'
             msg += 'This command includes the entire current input file.'
             xrst.system_exit(msg,
                 file_name    = file_name,

@@ -6,20 +6,15 @@
 //                    https://www.gnu.org/licenses/gpl-3.0.txt
 /*
 ------------------------------------------------------------------------------
-{xrst_begin_parent file_exam user}
+{xrst_begin_parent file_example}
 
-File Example
-############
+File Command Example
+####################
+{xrst_file}
 
-{xrst_file
-    // BEGIN_SRC
-    // END_SRC
-}
-
-{xrst_end file_exam}
+{xrst_end file_example}
 ------------------------------------------------------------------------------
 */
-// BEGIN_SRC
 // BEGIN_FACTORIAL
 template<class T> factorial(const T& n)
 {   if n == static_cast<T>(1)
@@ -35,10 +30,10 @@ template<class T> square(const T& x)
 }
 /*
 ------------------------------------------------------------------------------
-{xrst_begin file_res user}
+{xrst_begin file_start_stop}
 
-File Result
-###########
+File Start and Stop Example
+###########################
 
 factorial
 *********
@@ -54,7 +49,6 @@ square
     // END_SQUARE
 }
 
-{xrst_end file_res}
+{xrst_end file_start_stop}
 ------------------------------------------------------------------------------
 */
-// END_SRC

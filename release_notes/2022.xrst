@@ -19,6 +19,7 @@ xrst Release Notes for 2022
 *****
 1. Automatically run sphinx after xrst has created the sphinx input file.
 2. Add the :ref:`run_xrst@output_dir` option to the command line.
+3. Add the :ref:`file_cmd@no_start_or_stop` syntax to the file command.
 
 08-05
 *****

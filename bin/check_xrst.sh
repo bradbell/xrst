@@ -24,10 +24,10 @@ then
 fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
-# start_group_list
+# empty_group_list
 #
-echo "python -m xrst doc.xrst -g start,user -o doc"
-if ! python -m xrst doc.xrst -g start,user -o doc 2> check_xrst.$$
+echo "python -m xrst doc.xrst -g ,user -o doc"
+if ! python -m xrst doc.xrst -g ,user -o doc 2> check_xrst.$$
 then
     type_error='error'
 else
@@ -40,16 +40,16 @@ then
     echo "$0: exiting due to $type_error above"
     exit 1
 fi
-start_group_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
-echo "start_group_list=$start_group_list"
+empty_group_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
+echo "empty_group_list=$empty_group_list"
 rm -r sphinx/rst
 # -----------------------------------------------------------------------------
 # change directory to test case where root_directory is not working directory
 rm -r doc
 mkdir doc
 cd    doc
-echo "python -m xrst ../doc.xrst -g user -o doc"
-if ! python -m xrst ../doc.xrst  -g user -o doc 2> ../check_xrst.$$
+echo "python -m xrst ../doc.xrst -g ,user -o doc"
+if ! python -m xrst ../doc.xrst  -g ,user -o doc 2> ../check_xrst.$$
 then
     type_error='error'
 else
@@ -69,12 +69,12 @@ rm check_xrst.$$
 file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
 for file in $file_list
 do
-    for start_file in start_group_list
+    for check_file in empty_group_list
     do
-        if [ "$file" == "$start_file" ]
+        if [ "$file" == "$check_file" ]
         then
             echo "The output file sphinx/rst/$file"
-            echo 'is in both the empty group and start group builds'
+            echo 'is in both the user group and empty group builds'
             exit 1
         fi
     done

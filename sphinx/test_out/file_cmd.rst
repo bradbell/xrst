@@ -30,6 +30,8 @@ File Command
 Syntax
 ******
 
+| ``{xrst_file}``
+|
 | ``{xrst_file``
 | |tab| *start*
 | |tab| *stop*
@@ -86,6 +88,18 @@ This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
 .. meta::
+   :keywords: no, start, or, stop
+
+.. index:: no, start, or, stop
+
+.. _file_cmd@no_start_or_stop:
+
+No start or stop
+****************
+In the case of the ``{xrst_file}`` syntax,
+then entire current input file is displayed.
+
+.. meta::
    :keywords: start
 
 .. index:: start
@@ -137,11 +151,4 @@ Spell checking is **not** done for these code blocks.
 
 Example
 *******
-
--  :ref:`@file_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   file_exam
+see :ref:`file_example` .

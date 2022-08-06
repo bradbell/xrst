@@ -1,37 +1,36 @@
 .. include:: xrst_preamble.rst
 
-.. _file_exam:
+.. _file_example:
 
-!!!!!!!!!
-file_exam
-!!!!!!!!!
+!!!!!!!!!!!!
+file_example
+!!!!!!!!!!!!
 
 xrst input file: ``sphinx/test_in/file.cpp``
 
 .. meta::
-   :keywords: file_exam, file, example
+   :keywords: file_example, file, command, example
 
-.. index:: file_exam, file, example
+.. index:: file_example, file, command, example
 
-.. _@file_exam:
+.. _@file_example:
 
-File Example
-############
+File Command Example
+####################
 .. contents::
    :local:
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
-    :lines: 23-59
     :language: cpp
 
 .. csv-table::
     :header: "Child", "Title"
     :widths: 20, 80
 
-    "file_res", :ref:`@file_res`
+    "file_start_stop", :ref:`@file_start_stop`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   file_res
+   file_start_stop

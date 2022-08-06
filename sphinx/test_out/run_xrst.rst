@@ -100,12 +100,14 @@ group_list
 **********
 It is possible to select one or more groups of sections
 to include in the output using this optional argument.
-The *group_list* is a comma separated list of
-:ref:`group names<begin_cmd@group_name>`.
-If *group_list* ends with a comma, the empty group is included
-along with the other groups specified by *group_list*.
-(Note that it is the group name and not the group that is empty.)
-The default value for *group_list* is ``,`` .
+
+#.  The *group_list* is a comma separated list of
+    :ref:`group names<begin_cmd@group_name>`.
+#.  If *group_list* begins or ends with a comma, the empty group is included
+    along with the other groups specified by *group_list*.
+    Note that it is the group name and not the group that is empty.
+#.  The order of the groups determines their order in the resulting output.
+#.  The default value for *group_list* is ``,`` .
 
 One use case for this is where the user documentation is a subset of the
 developer documentation. This enables the developer documentation to
