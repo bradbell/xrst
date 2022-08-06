@@ -82,6 +82,18 @@ Example
 # ----------------------------------------------------------------------------
 import os
 import xrst
+# ----------------------------------------------------------------------------
+def file_extension(display_file) :
+    index = display_file.rfind('.')
+    extension = ''
+    if 0 <= index and index + 1 < len(display_file) :
+        extension = display_file[index + 1 :]
+        if extension == 'xrst' :
+            extension = 'rst'
+        elif extension == 'hpp' :
+            extension = 'cpp' # pygments does not recognize hpp ?
+    return extension
+# ----------------------------------------------------------------------------
 #
 # Process the file commands in a section.
 #
@@ -113,6 +125,10 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     #
     assert xrst.pattern['file_2'].groups == 6
     assert xrst.pattern['file_3'].groups == 8
+    #
+    # work_dir
+    depth    = rst_dir.count('/') + 1
+    work_dir = depth * '../'
     #
     # data_out
     data_out = data_in
@@ -178,20 +194,14 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             # cmd
             # converted version of the command, use two underbars so does
             # not match pattern['file_2'] or pattern['file_3'].
-            depth    = rst_dir.count('/') + 1
-            work_dir = depth * '../'
             cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
             cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'
             #
+            # cmd
             # Add language to literalinclude, sphinx seems to be brain
             # dead and does not do this automatically.
-            index = display_file.rfind('.')
-            if 0 <= index and index + 1 < len(display_file) :
-                extension = display_file[index + 1 :]
-                if extension == 'xrst' :
-                    extension = 'rst'
-                elif extension == 'hpp' :
-                    extension = 'cpp' # pygments does not recognize hpp ?
+            extension = file_extension( display_file )
+            if extension != '' :
                 cmd += 4 * ' ' + f':language: {extension}\n'
             cmd = '\n' + cmd + '\n'
             if m_file.start() > 0 :

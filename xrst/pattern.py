@@ -51,7 +51,7 @@ pattern['code'] = re.compile(
 pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 #
 # pattern['file_2']
-# Pattern for a file command that searches the from current input file.
+# Pattern for a file command that displays the current input file.
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
 # group(2): the start text + surrounding white space
@@ -61,7 +61,7 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 # group(6): line number where } at end of command appears
 #
 # pattern['file_3']
-# Pattern for a file command that search a specified file.
+# Pattern for a file command that displays a specified file.
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
 # group(2): the start text + surrounding white space
