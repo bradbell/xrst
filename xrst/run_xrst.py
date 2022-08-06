@@ -194,7 +194,18 @@ import shutil
 import filecmp
 import argparse
 import subprocess
-#
+# ---------------------------------------------------------------------------
+def system_command(command) :
+    print(command)
+    command = command.split(' ')
+    result = subprocess.run(command, capture_output = True)
+    if result.returncode == 0 :
+        return
+    msg  = 'system command failed'
+    msg += f'\nstdout = {result.stdout}'
+    msg += f'\nstderr = {result.stderr}'
+    sys.exit(msg)
+# ---------------------------------------------------------------------------
 # sys.path
 # used so that we can test before installing
 if( os.getcwd().endswith('/xrst.git') ) :
@@ -533,14 +544,16 @@ def run_xrst() :
     shutil.rmtree(tmp_dir)
     # -------------------------------------------------------------------------
     if target == 'html' :
-        command = [ 'sphinx-build', '-b', 'html', sphinx_dir , output_dir ]
-        subprocess.run(command)
+        command = f'sphinx-build -b html {sphinx_dir} {output_dir}'
+        system_command(command)
     else :
         assert target == 'pdf'
+        #
         latex_dir = f'{output_dir}/latex'
-        command = [ 'sphinx-build', '-b', 'latex', sphinx_dir , latex_dir ]
-        subprocess.run(command)
-        command = [ 'make', '-C', latex_dir, project_name + '.pdf' ]
-        subprocess.run(command)
+        command = f'sphinx-build -b latex {sphinx_dir} {latex_dir}'
+        system_command(command)
+        #
+        command = f'make -C {latex_dir} {project_name}.pdf'
+        system_command(command)
     # -------------------------------------------------------------------------
     print('xrst: OK')
