@@ -11,6 +11,7 @@ Examples
 ########
 {xrst_child_list
     sphinx/test_in/file.cpp
+    sphinx/test_in/child_list.xrst
 }
 
 {xrst_end example}

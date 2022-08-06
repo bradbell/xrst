@@ -21,9 +21,11 @@ Examples
    :local:
 
 -  :ref:`@file_example`
+-  :ref:`@child_list_example`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    file_example
+   child_list_example

@@ -1,0 +1,30 @@
+# -----------------------------------------------------------------------------
+#                      xrst: Extract Sphinx RST Files
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
+#              This program is distributed under the terms of the
+#              GNU General Public License version 3.0 or later see
+#                    https://www.gnu.org/licenses/gpl-3.0.txt
+# ----------------------------------------------------------------------------
+    {xrst_begin child_list_example}
+
+    Example child_list Command
+    ###########################
+
+    This Example File
+    *****************
+    The source code for this example is indented similar to the
+    :ref:`@indent_exam` :
+    {xrst_file}
+
+    children.py File
+    ****************
+    see :ref:`child_example_one@this_example_file`
+    in the child_example_one section.
+
+    Child Link children.py
+    **********************
+    {xrst_child_list
+            sphinx/test_in/children.py
+    }
+
+    {xrst_end child_list_example}

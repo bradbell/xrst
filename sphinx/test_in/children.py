@@ -5,38 +5,36 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-# BEGIN_FILE
 """
-{xrst_begin children_exam user}
+{xrst_begin child_example_one}
 
-Children Example
-################
+First Child
+###########
+This section is the first child in this file.
 This file does not contain a begin parent command,
-so all its sections are children of the section that includes it.
+so all its sections are children of the section that includes this file.
 
-Other Section
-*************
-The :ref:`link<children_other>` goes to the other section in this file.
+Link to Second Child
+********************
+:ref:`child_example_two`
 
-This File
-*********
-{xrst_file
-    # BEGIN_FILE
-    # END_FILE
-}
+This Example File
+*****************
+{xrst_file}
 
-{xrst_end children_exam}
+{xrst_end child_example_one}
 """
 # ----------------------------------------------------------------------------
 """
-{xrst_begin children_other user}
+{xrst_begin child_example_two}
 
-Other Child
-###########
-This is the other child section in
-:ref:`this file<children_exam@this_file>`.
+Section Child
+#############
+This section is the second child in this file.
 
+Link to First Child
+*******************
+:ref:`child_example_one`
 
-{xrst_end children_other}
+{xrst_end child_example_two}
 """
-# END_FILE

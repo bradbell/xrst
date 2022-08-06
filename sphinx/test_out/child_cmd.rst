@@ -183,14 +183,4 @@ one can control the links to the children using the syntax choices above.
 
 Example
 *******
-.. csv-table::
-    :header:  "Child", "Title"
-    :widths: 20, 80
-
-    "no_parent_exam", :ref:`@no_parent_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   no_parent_exam
+:ref:`child_list_example`

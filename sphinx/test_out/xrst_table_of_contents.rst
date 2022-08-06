@@ -5,8 +5,14 @@
 Table of Contents
 *****************
 | :ref:`1<example>` Examples
+|
 |  |space| :ref:`1.1<file_example>` File Command Example
 |  |space|  |space| :ref:`1.1.1<file_start_stop>` File Start and Stop Example
+|  |space| :ref:`1.2<child_list_example>` Example child_list Command
+|
+|  |space|  |space| :ref:`1.2.1<child_example_one>` First Child
+|  |space|  |space| :ref:`1.2.2<child_example_two>` Section Child
+|
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
 |  |space| :ref:`2.1<run_xrst>` Run Extract Sphinx RST And Sphinx
@@ -22,12 +28,6 @@ Table of Contents
 |
 |  |space|  |space| :ref:`2.2.1<begin_cmd>` Begin and End Commands
 |  |space|  |space| :ref:`2.2.2<child_cmd>` Child Commands
-|  |space|  |space|  |space| :ref:`2.2.2.1<no_parent_exam>` No Parent Example
-|  |space|  |space|  |space|  |space| :ref:`2.2.2.1.1<no_parent_res>` No Parent Result
-|
-|  |space|  |space|  |space|  |space|  |space| :ref:`2.2.2.1.1.1<children_exam>` Children Example
-|  |space|  |space|  |space|  |space|  |space| :ref:`2.2.2.1.1.2<children_other>` Other Child
-|
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
 |  |space|  |space|  |space| :ref:`2.2.3.1<spell_exam>` Spell Example
 |  |space|  |space|  |space|  |space| :ref:`2.2.3.1.1<spell_res>` Spell Result
