@@ -34,7 +34,7 @@ between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
 There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
-it must come before the first :ref:`@begin_cmd` in the file.
+it must come before the first :ref:`begin command<begin_cmd>` in the file.
 
 
 Beginning of a Line
@@ -67,9 +67,7 @@ and the ``def`` token indented the same amount:
 
 Example
 *******
-{xrst_child_list
-    sphinx/test_in/comment_ch.py
-}
+:ref:`comment_ch_example`
 
 {xrst_end comment_ch_cmd}
 """

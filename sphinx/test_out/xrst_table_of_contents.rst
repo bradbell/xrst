@@ -15,6 +15,7 @@ Table of Contents
 |  |space| :ref:`1.3<spell_example>` Spell Command Example
 |  |space| :ref:`1.4<suspend_example>` Suspend Command Example
 |  |space| :ref:`1.5<code_example>` Code Command Example
+|  |space| :ref:`1.6<comment_ch_example>` Comment Character Command Example
 |
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
@@ -36,8 +37,6 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command
 |  |space|  |space| :ref:`2.2.6<file_cmd>` File Command
 |  |space|  |space| :ref:`2.2.7<comment_ch_cmd>` Comment Character Command
-|  |space|  |space|  |space| :ref:`2.2.7.1<comment_ch_exam>` Comment Character Example
-|  |space|  |space|  |space|  |space| :ref:`2.2.7.1.1<comment_ch_res>` Comment Character Result
 |
 |  |space| :ref:`2.3<other_processing>` Other Processing
 |

@@ -7,28 +7,17 @@
 # ----------------------------------------------------------------------------
 # {xrst_comment_ch #}
 #
-# {xrst_begin_parent comment_ch_exam user}
+# {xrst_begin comment_ch_example}
 #
-# =========================
-# Comment Character Example
-# =========================
+# Comment Character Command Example
+# #################################
 #
-# {xrst_file
-#     # BEGIN_SRC
-#     # END_SRC
-# }
-#
-# {xrst_end comment_ch_exam}
-# ----------------------------------------------------------------------------
-#
-# BEGIN_SRC
-# {xrst_begin comment_ch_res user}
-#
-# ========================
-# Comment Character Result
-# ========================
-# In the original source, the leading characters '#' and ' ' get removed
-# and the remaining text lines up with the ``def`` below:
+# Discussion
+# **********
+# The ``#`` at the beginning of a line,
+# and space directly after it, are removed.
+# The remaining text lines up with the first line in the
+# function definition below:
 #
 # {xrst_code py}
 def factorial(n) :
@@ -37,7 +26,8 @@ def factorial(n) :
     return n * factorial(n-1)
 # {xrst_code}
 #
-# :ref:`@comment_ch_exam`
+# This Example File
+# *****************
+# {xrst_file}
 #
-# {xrst_end comment_ch_res}
-# END_SRC
+# {xrst_end comment_ch_example}

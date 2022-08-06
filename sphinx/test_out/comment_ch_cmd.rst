@@ -61,7 +61,7 @@ between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
 There can be only one occurrence of this command within a file,
 it's effect lasts for the entire file, and
-it must come before the first :ref:`@begin_cmd` in the file.
+it must come before the first :ref:`begin command<begin_cmd>` in the file.
 
 .. meta::
    :keywords: beginning, line
@@ -113,11 +113,4 @@ and the ``def`` token indented the same amount:
 
 Example
 *******
-
--  :ref:`@comment_ch_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   comment_ch_exam
+:ref:`comment_ch_example`

@@ -25,6 +25,7 @@ Examples
 -  :ref:`@spell_example`
 -  :ref:`@suspend_example`
 -  :ref:`@code_example`
+-  :ref:`@comment_ch_example`
 
 .. toctree::
    :maxdepth: 1
@@ -35,3 +36,4 @@ Examples
    spell_example
    suspend_example
    code_example
+   comment_ch_example
