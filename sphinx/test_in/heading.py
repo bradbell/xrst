@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent heading_exam}
+{xrst_begin_parent heading_exam user}
 
 Heading Example
 ###############
@@ -32,7 +32,7 @@ Child Sections
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-{xrst_begin heading_res}
+{xrst_begin heading_res user}
 
 Heading Result
 ##############

@@ -5,7 +5,7 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-{xrst_begin_parent no_parent_exam}
+{xrst_begin_parent no_parent_exam user}
 
 No Parent Example
 #################
@@ -21,7 +21,7 @@ because ``children.py`` does not have a
 {xrst_end no_parent_exam}
 ------------------------------------------------------------------------------
 # BEGIN_SRC
-    {xrst_begin no_parent_res}
+    {xrst_begin no_parent_res user}
 
     No Parent Result
     ################

@@ -6,7 +6,7 @@
 //                    https://www.gnu.org/licenses/gpl-3.0.txt
 /*
 ------------------------------------------------------------------------------
-{xrst_begin_parent file_exam}
+{xrst_begin_parent file_exam user}
 
 File Example
 ############
@@ -35,7 +35,7 @@ template<class T> square(const T& x)
 }
 /*
 ------------------------------------------------------------------------------
-{xrst_begin file_res}
+{xrst_begin file_res user}
 
 File Result
 ###########

@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin suspend_cmd}
+{xrst_begin suspend_cmd user}
 
 Suspend and Resume Commands
 ###########################

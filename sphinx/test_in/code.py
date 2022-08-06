@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent code_exam}
+{xrst_begin_parent code_exam user}
 
 Code Example
 ############
@@ -21,7 +21,7 @@ Code Example
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-{xrst_begin code_res}
+{xrst_begin code_res user}
 
 Code Result
 ###########

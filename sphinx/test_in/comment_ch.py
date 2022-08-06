@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 # {xrst_comment_ch #}
 #
-# {xrst_begin_parent comment_ch_exam}
+# {xrst_begin_parent comment_ch_exam user}
 #
 # =========================
 # Comment Character Example
@@ -22,7 +22,7 @@
 # ----------------------------------------------------------------------------
 #
 # BEGIN_SRC
-# {xrst_begin comment_ch_res}
+# {xrst_begin comment_ch_res user}
 #
 # ========================
 # Comment Character Result

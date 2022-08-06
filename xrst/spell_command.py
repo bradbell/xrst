@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin spell_cmd}
+{xrst_begin spell_cmd user}
 {xrst_spell
     abcd
 }

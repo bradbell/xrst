@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin child_cmd}
+{xrst_begin child_cmd user}
 {xrst_spell
     toctree
 }

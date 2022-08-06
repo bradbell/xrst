@@ -59,7 +59,7 @@ First Level
 Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
 The :ref:`section_name<begin_cmd@section_name>`
-is automatically used as a label for a link that displays the 
+is automatically used as a label for a link that displays the
 section name or section title. To be specific,
 the first input below will display the section name as the linking text,
 the second will display the section title as the linking text.

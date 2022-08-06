@@ -13,8 +13,8 @@ import xrst
 # section_name:
 # The string section_name appears at the begnning of a line, not counting
 # white space, in one of the following cases:
-# 1. {xrst_begin_parent section_name}
-# 2. {xrst_begin section_name}
+# 1. {xrst_begin_parent section_name user}
+# 2. {xrst_begin section_name user}
 # 3. {xrst_end section_name}
 # The valid characters in a seciton name are [a-z], [0-9], and underbar.
 # A section name cannot begin with xrst_. If seciton_name does not follow the

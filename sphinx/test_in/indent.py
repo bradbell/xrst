@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent indent_exam}
+{xrst_begin_parent indent_exam user}
 
 Indent Example
 ##############
@@ -21,7 +21,7 @@ Indent Example
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-    {xrst_begin indent_res}
+    {xrst_begin indent_res user}
 
     =============
     Indent Result

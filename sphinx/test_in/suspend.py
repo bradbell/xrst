@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent suspend_exam}
+{xrst_begin_parent suspend_exam user}
 
 Suspend Example
 ###############
@@ -21,7 +21,7 @@ Suspend Example
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-{xrst_begin suspend_res}
+{xrst_begin suspend_res user}
 {xrst_spell
     iterable
 }

@@ -26,8 +26,8 @@ PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
 # start_group_list
 #
-echo "python -m xrst doc.xrst -g start -o doc"
-if ! python -m xrst doc.xrst -g start -o doc 2> check_xrst.$$
+echo "python -m xrst doc.xrst -g start,user -o doc"
+if ! python -m xrst doc.xrst -g start,user -o doc 2> check_xrst.$$
 then
     type_error='error'
 else
@@ -48,8 +48,8 @@ rm -r sphinx/rst
 rm -r doc
 mkdir doc
 cd    doc
-echo "python -m xrst ../doc.xrst -o doc"
-if ! python -m xrst ../doc.xrst  -o doc 2> ../check_xrst.$$
+echo "python -m xrst ../doc.xrst -g user -o doc"
+if ! python -m xrst ../doc.xrst  -g user -o doc 2> ../check_xrst.$$
 then
     type_error='error'
 else

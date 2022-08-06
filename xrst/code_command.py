@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin code_cmd}
+{xrst_begin code_cmd user}
 
 Code Command
 ############

@@ -7,7 +7,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin run_xrst}
+{xrst_begin run_xrst user}
 {xrst_spell
     dir
 }

@@ -48,7 +48,7 @@ Use your web browser to open the file
 {xrst_end get_started}
 END_GET_STARTED
 ----------------------------------------------------------------------------
-{xrst_begin_parent xrst}
+{xrst_begin_parent xrst user}
 {xrst_spell
     gsl
 }
@@ -118,7 +118,7 @@ Contents
 
 {xrst_end xrst}
 ----------------------------------------------------------------------------
-{xrst_begin commands}
+{xrst_begin commands user}
 
 xrst Commands
 #############
@@ -134,7 +134,7 @@ xrst Commands
 
 {xrst_end commands}
 ----------------------------------------------------------------------------
-{xrst_begin other_processing}
+{xrst_begin other_processing user}
 
 Other Processing
 ################
@@ -146,7 +146,7 @@ Other Processing
 
 {xrst_end other_processing}
 ----------------------------------------------------------------------------
-{xrst_begin wish_list}
+{xrst_begin wish_list user}
 {xrst_spell
     stackoverflow
     pyspellchecker
@@ -190,7 +190,7 @@ indenting xrst input sections.
 
 {xrst_end wish_list}
 ----------------------------------------------------------------------------
-{xrst_begin release_notes}
+{xrst_begin release_notes user}
 
 xrst Release Notes By Year
 ##########################

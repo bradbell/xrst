@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin begin_cmd}
+{xrst_begin begin_cmd user}
 {xrst_spell
     underbar
     dir

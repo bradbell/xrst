@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent spell_exam}
+{xrst_begin_parent spell_exam user}
 
 Spell Example
 #############
@@ -21,7 +21,7 @@ Spell Example
 # ----------------------------------------------------------------------------
 # BEGIN_SRC
 """
-{xrst_begin spell_res}
+{xrst_begin spell_res user}
 {xrst_spell
     iterable
     no no

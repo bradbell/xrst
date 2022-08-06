@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 # BEGIN_FILE
 """
-{xrst_begin children_exam}
+{xrst_begin children_exam user}
 
 Children Example
 ################
@@ -29,7 +29,7 @@ This File
 """
 # ----------------------------------------------------------------------------
 """
-{xrst_begin children_other}
+{xrst_begin children_other user}
 
 Other Child
 ###########
