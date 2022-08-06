@@ -20,6 +20,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-06:
+
+08-06
+*****
+1. Automatically run sphinx after xrst has created the sphinx input file.
+2. Add the :ref:`run_xrst@output_dir` option to the command line.
+
 .. _2022@08-05:
 
 08-05
@@ -57,7 +64,7 @@ The following can be used to convert
 *****
 Move the hidden toctree commands in rst files from beginning to end
 of sections. This puts the parent sections before their children in the
-:ref:`run_xrst@target@pdf` version of the documentation.
+pdf version of the documentation (see :ref:`run_xrst@target` .
 
 .. _2022@07-30:
 

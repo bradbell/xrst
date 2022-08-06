@@ -38,8 +38,7 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst doc.xrst -g start, -t html -s sphinx $error_line
-    sphinx-build -b html sphinx doc
+    echo_eval python -m xrst doc.xrst -g start, -o doc $error_line
     echo 'run_sphinx.sh: OK'
     exit 0
 fi
@@ -48,14 +47,7 @@ fi
 # -----------------------------------------------------------------------------
 #
 # run xrst to create rst files
-echo_eval python -m xrst doc.xrst -t pdf -s sphinx $error_line
-#
-# run sphinx to create latex
-echo_eval sphinx-build -b latex sphinx doc/latex
-echo_eval cd doc/latex
-#
-# create pdf from latex
-echo_eval make doc.pdf
+echo_eval python -m xrst doc.xrst -t pdf -o doc $error_line
 #
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'

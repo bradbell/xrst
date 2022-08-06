@@ -26,8 +26,8 @@ PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
 # start_group_list
 #
-echo "python -m xrst doc.xrst -g start"
-if ! python -m xrst doc.xrst -g start 2> check_xrst.$$
+echo "python -m xrst doc.xrst -g start -o doc"
+if ! python -m xrst doc.xrst -g start -o doc 2> check_xrst.$$
 then
     type_error='error'
 else
@@ -45,10 +45,11 @@ echo "start_group_list=$start_group_list"
 rm -r sphinx/rst
 # -----------------------------------------------------------------------------
 # change directory to test case where root_directory is not working directory
+rm -r doc
 mkdir doc
 cd    doc
-echo "python -m xrst ../doc.xrst"
-if ! python -m xrst ../doc.xrst 2> ../check_xrst.$$
+echo "python -m xrst ../doc.xrst -o doc"
+if ! python -m xrst ../doc.xrst  -o doc 2> ../check_xrst.$$
 then
     type_error='error'
 else
@@ -118,8 +119,6 @@ do
         git rm -f sphinx/test_out/$file
     fi
 done
-# -----------------------------------------------------------------------------
-echo_eval sphinx-build -b html sphinx doc
 # -----------------------------------------------------------------------------
 echo "$0: OK"
 exit 0
