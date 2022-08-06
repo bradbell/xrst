@@ -1,31 +1,44 @@
 .. include:: xrst_preamble.rst
 
-.. _spell_res:
+.. _spell_example:
 
-!!!!!!!!!
-spell_res
-!!!!!!!!!
+!!!!!!!!!!!!!
+spell_example
+!!!!!!!!!!!!!
 
 xrst input file: ``sphinx/test_in/spell.py``
 
 .. meta::
-   :keywords: spell_res, spell, result
+   :keywords: spell_example, example, spell, command
 
-.. index:: spell_res, spell, result
+.. index:: spell_example, example, spell, command
 
-.. _@spell_res:
+.. _@spell_example:
 
-Spell Result
-############
+Example Spell Command
+#####################
 .. contents::
    :local:
+
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _spell_example@this_example_file:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../sphinx/test_in/spell.py
+    :language: py
 
 .. meta::
    :keywords: text
 
 .. index:: text
 
-.. _spell_res@text:
+.. _spell_example@text:
 
 Text
 ****
@@ -37,12 +50,12 @@ so we have included it in the special words for this section.
 
 .. index:: spelling, file
 
-.. _spell_res@spelling_file:
+.. _spell_example@spelling_file:
 
 Spelling File
 *************
 The word ``xrst`` is included by the
-:ref:`spelling<run_xrst@sphinx_dir@spelling>` file
+:ref:`run_xrst@sphinx_dir@spelling` file
 and hence need not be in the special words for this section.
 
 .. meta::
@@ -50,7 +63,7 @@ and hence need not be in the special words for this section.
 
 .. index:: math
 
-.. _spell_res@math:
+.. _spell_example@math:
 
 Math
 ****
@@ -66,7 +79,7 @@ are automatically included as correct spelling.
 
 .. index:: double, words
 
-.. _spell_res@double_words:
+.. _spell_example@double_words:
 
 Double Words
 ************
@@ -75,5 +88,3 @@ two occurrences of the same word; e.g.,
 no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
-
-:ref:`@spell_exam`

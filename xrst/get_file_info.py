@@ -303,7 +303,7 @@ def get_file_info(
             data_index += m_end.end()
     #
     if parent_section_name != None and len(file_info) < 2 :
-        msg  = 'begin_parent command appreas in a file '
+        msg  = 'begin_parent command appears in a file '
         msg += 'that only has one section; i.e., no children.'
         xrst.system_exit(
             msg, file_name=file_in, section_name=parent_section_name

@@ -6,30 +6,18 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent spell_exam user}
-
-Spell Example
-#############
-
-{xrst_file
-    # BEGIN_SRC
-    # END_SRC
-}
-
-{xrst_end spell_exam}
-"""
-# ----------------------------------------------------------------------------
-# BEGIN_SRC
-"""
-{xrst_begin spell_res user}
+{xrst_begin spell_example}
 {xrst_spell
     iterable
     no no
 }
 
+Example Spell Command
+#####################
 
-Spell Result
-############
+This Example File
+*****************
+{xrst_file}
 
 Text
 ****
@@ -39,7 +27,7 @@ so we have included it in the special words for this section.
 Spelling File
 *************
 The word ``xrst`` is included by the
-:ref:`spelling<run_xrst@sphinx_dir@spelling>` file
+:ref:`run_xrst@sphinx_dir@spelling` file
 and hence need not be in the special words for this section.
 
 Math
@@ -59,8 +47,5 @@ no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
-:ref:`@spell_exam`
-
-{xrst_end spell_res}
+{xrst_end spell_example}
 """
-# END_SRC

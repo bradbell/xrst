@@ -108,11 +108,4 @@ the same word twice (next to each other) in the special word list.
 
 Example
 *******
-
--  :ref:`@spell_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   spell_exam
+:ref:`spell_example`

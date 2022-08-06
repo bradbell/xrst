@@ -13,6 +13,8 @@ Table of Contents
 |  |space|  |space| :ref:`1.2.1<child_example_one>` First Child
 |  |space|  |space| :ref:`1.2.2<child_example_two>` Section Child
 |
+|  |space| :ref:`1.3<spell_example>` Example Spell Command
+|
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
 |  |space| :ref:`2.1<run_xrst>` Run Extract Sphinx RST And Sphinx
@@ -29,8 +31,6 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.1<begin_cmd>` Begin and End Commands
 |  |space|  |space| :ref:`2.2.2<child_cmd>` Child Commands
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
-|  |space|  |space|  |space| :ref:`2.2.3.1<spell_exam>` Spell Example
-|  |space|  |space|  |space|  |space| :ref:`2.2.3.1.1<spell_res>` Spell Result
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
 |  |space|  |space|  |space| :ref:`2.2.4.1<suspend_exam>` Suspend Example
 |  |space|  |space|  |space|  |space| :ref:`2.2.4.1.1<suspend_res>` Suspend Result

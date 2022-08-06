@@ -60,9 +60,7 @@ the same word twice (next to each other) in the special word list.
 
 Example
 *******
-{xrst_child_list
-   sphinx/test_in/spell.py
-}
+:ref:`spell_example`
 
 {xrst_end spell_cmd}
 """

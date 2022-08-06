@@ -22,6 +22,7 @@ Examples
 
 -  :ref:`@file_example`
 -  :ref:`@child_list_example`
+-  :ref:`@spell_example`
 
 .. toctree::
    :maxdepth: 1
@@ -29,3 +30,4 @@ Examples
 
    file_example
    child_list_example
+   spell_example
