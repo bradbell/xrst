@@ -15,10 +15,6 @@
 Spell Command Example
 #####################
 
-This Example File
-*****************
-{xrst_file}
-
 Text
 ****
 The word ``iterable`` is not in the dictionary,
@@ -46,6 +42,11 @@ two occurrences of the same word; e.g.,
 no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
+
+
+This Example File
+*****************
+{xrst_file}
 
 {xrst_end spell_example}
 """

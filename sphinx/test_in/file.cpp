@@ -4,20 +4,6 @@
 //              This program is distributed under the terms of the
 //              GNU General Public License version 3.0 or later see
 //                    https://www.gnu.org/licenses/gpl-3.0.txt
-/*
-------------------------------------------------------------------------------
-{xrst_begin_parent file_example}
-
-File Command Example
-####################
-
-This Example File
-*****************
-{xrst_file}
-
-{xrst_end file_example}
-------------------------------------------------------------------------------
-*/
 // BEGIN_FACTORIAL
 template<class T> factorial(const T& n)
 {   if n == static_cast<T>(1)
@@ -33,10 +19,10 @@ template<class T> square(const T& x)
 }
 /*
 ------------------------------------------------------------------------------
-{xrst_begin file_start_stop}
+{xrst_begin file_example}
 
-File Start and Stop Example
-###########################
+File Command Example
+####################
 
 factorial
 *********
@@ -52,6 +38,10 @@ square
     // END_SQUARE
 }
 
-{xrst_end file_start_stop}
+This Example File
+*****************
+{xrst_file}
+
+{xrst_end file_example}
 ------------------------------------------------------------------------------
 */

@@ -21,6 +21,34 @@ File Command Example
    :local:
 
 .. meta::
+   :keywords: factorial
+
+.. index:: factorial
+
+.. _file_example@factorial:
+
+factorial
+*********
+
+.. literalinclude:: ../../sphinx/test_in/file.cpp
+    :lines: 8-12
+    :language: cpp
+
+.. meta::
+   :keywords: square
+
+.. index:: square
+
+.. _file_example@square:
+
+square
+******
+
+.. literalinclude:: ../../sphinx/test_in/file.cpp
+    :lines: 16-16
+    :language: cpp
+
+.. meta::
    :keywords: this, example, file
 
 .. index:: this, example, file
@@ -32,15 +60,3 @@ This Example File
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
     :language: cpp
-
-.. csv-table::
-    :header: "Child", "Title"
-    :widths: 20, 80
-
-    "file_start_stop", :ref:`@file_start_stop`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   file_start_stop

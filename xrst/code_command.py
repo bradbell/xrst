@@ -53,9 +53,7 @@ spell checking is done for these code blocks.
 
 Example
 *******
-{xrst_child_list
-   sphinx/test_in/code.py
-}
+:ref:`code_example`
 
 {xrst_end code_cmd}
 """

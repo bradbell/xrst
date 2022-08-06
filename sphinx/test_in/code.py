@@ -6,25 +6,13 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent code_exam user}
+{xrst_begin code_example}
 
-Code Example
-############
+Code Command Example
+####################
 
-{xrst_file
-    # BEGIN_SRC
-    # END_SRC
-}
-
-{xrst_end code_exam}
-"""
-# ----------------------------------------------------------------------------
-# BEGIN_SRC
-"""
-{xrst_begin code_res user}
-
-Code Result
-###########
+Factorial
+*********
 {xrst_code py}"""
 def factorial(n) :
     if n == 1 :
@@ -32,8 +20,10 @@ def factorial(n) :
     return n * factorial(n-1)
 """{xrst_code}
 
-:ref:`@code_exam`
 
-{xrst_end code_res}
+This Example File
+*****************
+{xrst_file}
+
+{xrst_end code_example}
 """
-# END_SRC

@@ -5,26 +5,24 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-    {xrst_begin child_list_example}
+{xrst_begin child_list_example}
 
-    child_list Command Example
-    ###########################
+child_list Command Example
+###########################
 
-    This Example File
-    *****************
-    The source code for this example is indented similar to the
-    :ref:`@indent_exam` :
-    {xrst_file}
+children.py File
+****************
+see :ref:`child_example_one@this_example_file`
+in the child_example_one section.
 
-    children.py File
-    ****************
-    see :ref:`child_example_one@this_example_file`
-    in the child_example_one section.
+child_list Command
+******************
+{xrst_child_list
+        sphinx/test_in/children.py
+}
 
-    Child Link children.py
-    **********************
-    {xrst_child_list
-            sphinx/test_in/children.py
-    }
+This Example File
+*****************
+{xrst_file}
 
-    {xrst_end child_list_example}
+{xrst_end child_list_example}

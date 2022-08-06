@@ -21,19 +21,6 @@ Suspend Command Example
    :local:
 
 .. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
-
-.. _suspend_example@this_example_file:
-
-This Example File
-*****************
-
-.. literalinclude:: ../../sphinx/test_in/suspend.py
-    :language: py
-
-.. meta::
    :keywords: factorial
 
 .. index:: factorial
@@ -54,3 +41,16 @@ Factorial
 Product
 *******
 *p* = ``product(`` *iterable* ``)``
+
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _suspend_example@this_example_file:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../sphinx/test_in/suspend.py
+    :language: py

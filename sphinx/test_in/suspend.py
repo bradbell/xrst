@@ -14,10 +14,6 @@
 Suspend Command Example
 #######################
 
-This Example File
-*****************
-{xrst_file}
-
 Factorial
 *********
 *f* = ``factorial(`` *positive_integer* ``)``
@@ -42,6 +38,10 @@ def product(itr) :
     return p
 """
 {xrst_resume}
+
+This Example File
+*****************
+{xrst_file}
 
 {xrst_end suspend_example}
 """

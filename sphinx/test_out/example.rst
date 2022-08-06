@@ -24,6 +24,7 @@ Examples
 -  :ref:`@child_list_example`
 -  :ref:`@spell_example`
 -  :ref:`@suspend_example`
+-  :ref:`@code_example`
 
 .. toctree::
    :maxdepth: 1
@@ -33,3 +34,4 @@ Examples
    child_list_example
    spell_example
    suspend_example
+   code_example

@@ -21,21 +21,6 @@ child_list Command Example
    :local:
 
 .. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
-
-.. _child_list_example@this_example_file:
-
-This Example File
-*****************
-The source code for this example is indented similar to the
-:ref:`@indent_exam` :
-
-.. literalinclude:: ../../sphinx/test_in/child_list.xrst
-    :language: rst
-
-.. meta::
    :keywords: children.py, file
 
 .. index:: children.py, file
@@ -48,17 +33,30 @@ see :ref:`child_example_one@this_example_file`
 in the child_example_one section.
 
 .. meta::
-   :keywords: child, link, children.py
+   :keywords: child_list, command
 
-.. index:: child, link, children.py
+.. index:: child_list, command
 
-.. _child_list_example@child_link_children.py:
+.. _child_list_example@child_list_command:
 
-Child Link children.py
-**********************
+child_list Command
+******************
 
 -  :ref:`@child_example_one`
 -  :ref:`@child_example_two`
+
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _child_list_example@this_example_file:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../sphinx/test_in/child_list.xrst
+    :language: rst
 
 .. toctree::
    :maxdepth: 1

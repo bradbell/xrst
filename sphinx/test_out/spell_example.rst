@@ -21,19 +21,6 @@ Spell Command Example
    :local:
 
 .. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
-
-.. _spell_example@this_example_file:
-
-This Example File
-*****************
-
-.. literalinclude:: ../../sphinx/test_in/spell.py
-    :language: py
-
-.. meta::
    :keywords: text
 
 .. index:: text
@@ -88,3 +75,16 @@ two occurrences of the same word; e.g.,
 no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
+
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _spell_example@this_example_file:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../sphinx/test_in/spell.py
+    :language: py

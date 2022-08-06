@@ -111,11 +111,4 @@ spell checking is done for these code blocks.
 
 Example
 *******
-
--  :ref:`@code_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   code_exam
+:ref:`code_example`
