@@ -20,6 +20,16 @@ File Command Example
 .. contents::
    :local:
 
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _file_example@this_example_file:
+
+This Example File
+*****************
+
 .. literalinclude:: ../../sphinx/test_in/file.cpp
     :language: cpp
 

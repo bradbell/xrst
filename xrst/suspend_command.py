@@ -26,9 +26,7 @@ spell checking.
 
 Example
 *******
-{xrst_child_list
-   sphinx/test_in/suspend.py
-}
+:ref:`suspend_example`
 
 {xrst_end suspend_cmd}
 """

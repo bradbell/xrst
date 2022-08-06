@@ -10,6 +10,9 @@
 
 File Command Example
 ####################
+
+This Example File
+*****************
 {xrst_file}
 
 {xrst_end file_example}

@@ -6,28 +6,17 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent suspend_exam user}
-
-Suspend Example
-###############
-
-{xrst_file
-    # BEGIN_SRC
-    # END_SRC
-}
-
-{xrst_end suspend_exam}
-"""
-# ----------------------------------------------------------------------------
-# BEGIN_SRC
-"""
-{xrst_begin suspend_res user}
+{xrst_begin suspend_example}
 {xrst_spell
     iterable
 }
 
-Suspend Result
-##############
+Suspend Command Example
+#######################
+
+This Example File
+*****************
+{xrst_file}
 
 Factorial
 *********
@@ -54,8 +43,5 @@ def product(itr) :
 """
 {xrst_resume}
 
-:ref:`@suspend_exam`
-
-{xrst_end suspend_res}
+{xrst_end suspend_example}
 """
-# END_SRC

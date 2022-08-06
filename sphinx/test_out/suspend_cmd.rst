@@ -56,11 +56,4 @@ spell checking.
 
 Example
 *******
-
--  :ref:`@suspend_exam`
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   suspend_exam
+:ref:`suspend_example`

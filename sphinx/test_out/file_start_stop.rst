@@ -31,7 +31,7 @@ factorial
 *********
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
-    :lines: 19-23
+    :lines: 22-26
     :language: cpp
 
 .. meta::
@@ -45,5 +45,5 @@ square
 ******
 
 .. literalinclude:: ../../sphinx/test_in/file.cpp
-    :lines: 27-27
+    :lines: 30-30
     :language: cpp

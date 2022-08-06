@@ -12,7 +12,7 @@
     no no
 }
 
-Example Spell Command
+Spell Command Example
 #####################
 
 This Example File

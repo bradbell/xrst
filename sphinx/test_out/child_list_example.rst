@@ -9,13 +9,13 @@ child_list_example
 xrst input file: ``sphinx/test_in/child_list.xrst``
 
 .. meta::
-   :keywords: child_list_example, example, child_list, command
+   :keywords: child_list_example, child_list, command, example
 
-.. index:: child_list_example, example, child_list, command
+.. index:: child_list_example, child_list, command, example
 
 .. _@child_list_example:
 
-Example child_list Command
+child_list Command Example
 ###########################
 .. contents::
    :local:

@@ -9,13 +9,13 @@ spell_example
 xrst input file: ``sphinx/test_in/spell.py``
 
 .. meta::
-   :keywords: spell_example, example, spell, command
+   :keywords: spell_example, spell, command, example
 
-.. index:: spell_example, example, spell, command
+.. index:: spell_example, spell, command, example
 
 .. _@spell_example:
 
-Example Spell Command
+Spell Command Example
 #####################
 .. contents::
    :local:

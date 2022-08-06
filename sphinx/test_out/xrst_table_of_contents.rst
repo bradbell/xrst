@@ -8,12 +8,13 @@ Table of Contents
 |
 |  |space| :ref:`1.1<file_example>` File Command Example
 |  |space|  |space| :ref:`1.1.1<file_start_stop>` File Start and Stop Example
-|  |space| :ref:`1.2<child_list_example>` Example child_list Command
+|  |space| :ref:`1.2<child_list_example>` child_list Command Example
 |
 |  |space|  |space| :ref:`1.2.1<child_example_one>` First Child
 |  |space|  |space| :ref:`1.2.2<child_example_two>` Section Child
 |
-|  |space| :ref:`1.3<spell_example>` Example Spell Command
+|  |space| :ref:`1.3<spell_example>` Spell Command Example
+|  |space| :ref:`1.4<suspend_example>` Suspend Command Example
 |
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
@@ -32,8 +33,6 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.2<child_cmd>` Child Commands
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
-|  |space|  |space|  |space| :ref:`2.2.4.1<suspend_exam>` Suspend Example
-|  |space|  |space|  |space|  |space| :ref:`2.2.4.1.1<suspend_res>` Suspend Result
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command
 |  |space|  |space|  |space| :ref:`2.2.5.1<code_exam>` Code Example
 |  |space|  |space|  |space|  |space| :ref:`2.2.5.1.1<code_res>` Code Result

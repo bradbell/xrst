@@ -13,6 +13,7 @@ Examples
     sphinx/test_in/file.cpp
     sphinx/test_in/child_list.xrst
     sphinx/test_in/spell.py
+    sphinx/test_in/suspend.py
 }
 
 {xrst_end example}
