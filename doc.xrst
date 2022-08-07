@@ -19,11 +19,12 @@ Examples
     example/comment_ch.py
     example/heading.py
     example/indent.py
+    sphinx/configure.xrst
 }
 
 {xrst_end example}
 ----------------------------------------------------------------------------
-{xrst_begin_parent xrst user}
+{xrst_begin_parent user_guide user}
 {xrst_spell
     gsl
 }
@@ -99,12 +100,13 @@ Contents
     xrst/run_xrst.py
 }
 
-{xrst_end xrst}
+{xrst_end user_guide}
 ----------------------------------------------------------------------------
 {xrst_begin commands user}
 
-xrst Commands
-#############
+Commands
+########
+The processing described below corresponds to xrst commands in the input files:
 {xrst_child_list
     xrst/get_file_info.py
     xrst/child_commands.py
@@ -117,17 +119,19 @@ xrst Commands
 
 {xrst_end commands}
 ----------------------------------------------------------------------------
-{xrst_begin other_processing user}
+{xrst_begin automatic user}
 
-Other Processing
-################
+Automatic Processing
+####################
+The processing described below happens without any commands:
 {xrst_child_list
     xrst/remove_indent.py
     xrst/process_headings.py
+    xrst/auto_file.py
 }
 
 
-{xrst_end other_processing}
+{xrst_end automatic}
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell

@@ -5,15 +5,15 @@
              GNU General Public License version 3.0 or later see
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
-{xrst_begin_parent configure user}
+{xrst_begin_parent configure}
 
-Example xrst Configuration Files
-################################
+Example Configuration Files
+###########################
 
 
 {xrst_end configure}
 -----------------------------------------------------------------------------
-{xrst_begin spelling user}
+{xrst_begin spelling}
 
 The spelling Example File
 #########################
@@ -25,7 +25,7 @@ The spelling Example File
 
 {xrst_end spelling}
 -----------------------------------------------------------------------------
-{xrst_begin keyword user}
+{xrst_begin keyword}
 
 The keyword Example File
 ########################
@@ -37,7 +37,7 @@ The keyword Example File
 
 {xrst_end keyword}
 -----------------------------------------------------------------------------
-{xrst_begin preamble.rst user}
+{xrst_begin preamble.rst}
 
 The preamble.rst Example File
 #############################

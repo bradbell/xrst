@@ -19,19 +19,16 @@ Table of Contents
 |  |space| :ref:`1.7<comment_ch_example>` Comment Character Command Example
 |  |space| :ref:`1.8<heading_example>` Title Heading for This Section
 |  |space| :ref:`1.9<indent_example>` Indent Example
+|  |space| :ref:`1.10<configure>` Example Configuration Files
 |
-| :ref:`2<xrst>` Extract Sphinx RST Files
+|  |space|  |space| :ref:`1.10.1<spelling>` The spelling Example File
+|  |space|  |space| :ref:`1.10.2<keyword>` The keyword Example File
+|  |space|  |space| :ref:`1.10.3<preamble.rst>` The preamble.rst Example File
+|
+| :ref:`2<user_guide>` Extract Sphinx RST Files
 |
 |  |space| :ref:`2.1<run_xrst>` Run Extract Sphinx RST And Sphinx
-|
-|  |space|  |space| :ref:`2.1.1<auto_file>` Automatically Generated Files
-|  |space|  |space| :ref:`2.1.2<configure>` Example xrst Configuration Files
-|
-|  |space|  |space|  |space| :ref:`2.1.2.1<spelling>` The spelling Example File
-|  |space|  |space|  |space| :ref:`2.1.2.2<keyword>` The keyword Example File
-|  |space|  |space|  |space| :ref:`2.1.2.3<preamble.rst>` The preamble.rst Example File
-|
-|  |space| :ref:`2.2<commands>` xrst Commands
+|  |space| :ref:`2.2<commands>` Commands
 |
 |  |space|  |space| :ref:`2.2.1<begin_cmd>` Begin and End Commands
 |  |space|  |space| :ref:`2.2.2<child_cmd>` Child Commands
@@ -41,10 +38,11 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.6<file_cmd>` File Command
 |  |space|  |space| :ref:`2.2.7<comment_ch_cmd>` Comment Character Command
 |
-|  |space| :ref:`2.3<other_processing>` Other Processing
+|  |space| :ref:`2.3<automatic>` Automatic Processing
 |
 |  |space|  |space| :ref:`2.3.1<indent>` Indentation
 |  |space|  |space| :ref:`2.3.2<heading_links>` Heading Links
+|  |space|  |space| :ref:`2.3.3<auto_file>` Automatically Generated Files
 |
 |  |space| :ref:`2.4<wish_list>` Wish List
 |  |space| :ref:`2.5<release_notes>` xrst Release Notes By Year

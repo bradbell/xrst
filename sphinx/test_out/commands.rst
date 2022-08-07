@@ -9,16 +9,18 @@ commands
 xrst input file: ``doc.xrst``
 
 .. meta::
-   :keywords: commands, xrst, commands
+   :keywords: commands, commands
 
-.. index:: commands, xrst, commands
+.. index:: commands, commands
 
 .. _@commands:
 
-xrst Commands
-#############
+Commands
+########
 .. contents::
    :local:
+
+The processing described below corresponds to xrst commands in the input files:
 
 -  :ref:`@begin_cmd`
 -  :ref:`@child_cmd`
