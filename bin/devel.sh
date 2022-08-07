@@ -27,6 +27,7 @@ ignore_files='
     batch_edit.sed
     bin/devel.sh
     gpl-3.0.txt
+    readme.md
     sphinx/conf.py
     sphinx/preamble.rst
     sphinx/spelling
