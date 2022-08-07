@@ -35,5 +35,5 @@ install_requires  = [
 xrst = 'xrst:run_xrst'
 
 [project.urls]
-'Homepage'    = 'https://github.com/bradbell/xrst'
+'Homepage'    = 'https://bradbell.github.io/xrst'
 'Bug Tracker' = 'https://github.com/bradbell/xrst/issues'
