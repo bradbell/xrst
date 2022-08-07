@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin indentation user}
+{xrst_begin indent user}
 
 Indentation
 ###########
@@ -18,14 +18,11 @@ xrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use mix tabs and spaces for the indentation.
 
-{xrst_children
-    sphinx/test_in/indent.py
-}
 Example
 *******
-- :ref:`@indent_exam`
+:ref:`indent_example`
 
-{xrst_end indentation}
+{xrst_end indent}
 """
 import re
 import xrst

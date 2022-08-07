@@ -205,7 +205,6 @@ def child_commands(data_in, file_name, section_name) :
         child_file = file_list[i]
         child_line = file_line[i]
         if not os.path.isfile(child_file) :
-            breakpoint()
             msg  = 'The file ' + child_file + '\n'
             msg += 'in the ' + command + ' command does not exist'
             xrst.system_exit(msg,

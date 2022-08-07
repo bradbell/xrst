@@ -17,6 +17,7 @@ Table of Contents
 |  |space| :ref:`1.5<code_example>` Code Command Example
 |  |space| :ref:`1.6<comment_ch_example>` Comment Character Command Example
 |  |space| :ref:`1.7<heading_example>` Title Heading for This Section
+|  |space| :ref:`1.8<indent_example>` Indent Example
 |
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
@@ -41,9 +42,7 @@ Table of Contents
 |
 |  |space| :ref:`2.3<other_processing>` Other Processing
 |
-|  |space|  |space| :ref:`2.3.1<indentation>` Indentation
-|  |space|  |space|  |space| :ref:`2.3.1.1<indent_exam>` Indent Example
-|  |space|  |space|  |space|  |space| :ref:`2.3.1.1.1<indent_res>` Indent Result
+|  |space|  |space| :ref:`2.3.1<indent>` Indentation
 |  |space|  |space| :ref:`2.3.2<heading_links>` Heading Links
 |
 |  |space| :ref:`2.4<wish_list>` Wish List

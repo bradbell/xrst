@@ -20,12 +20,12 @@ Other Processing
 .. contents::
    :local:
 
--  :ref:`@indentation`
+-  :ref:`@indent`
 -  :ref:`@heading_links`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   indentation
+   indent
    heading_links

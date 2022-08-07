@@ -6,26 +6,11 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin_parent indent_exam user}
+    {xrst_begin indent_example}
 
-Indent Example
-##############
+    Indent Example
+    ##############
 
-{xrst_file
-    # BEGIN_SRC
-    # END_SRC
-}
-
-{xrst_end indent_exam}
-"""
-# ----------------------------------------------------------------------------
-# BEGIN_SRC
-"""
-    {xrst_begin indent_res user}
-
-    =============
-    Indent Result
-    =============
     {xrst_code py}"""
     def factorial(n) :
         if n == 1 :
@@ -33,8 +18,9 @@ Indent Example
         return n * factorial(n-1)
     """{xrst_code}
 
-    :ref:`@indent_exam`
+    This Example File
+    *****************
+    {xrst_file}
 
-    {xrst_end indent_res}
+    {xrst_end indent_example}
 """
-# END_SRC
