@@ -83,8 +83,12 @@ do
         echo "The output file sphinx/test_out/$file does not exist."
         echo 'Should we use the following command to fix this'
         echo "    cp sphinx/rst/$file sphinx/test_out/$file"
-        read -p '[yes/no] ?' response
-        if [ "$response" != 'yes' ]
+        response=''
+        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
+        do
+            read -p '[yes/no] ?' response
+        done
+        if [ "$response" == 'no' ]
             then exit 1
         fi
         cp sphinx/rst/$file sphinx/test_out/$file
@@ -95,7 +99,12 @@ do
         echo 'Should we use the following command to fix this'
         echo "    cp sphinx/rst/$file sphinx/test_out/$file"
         read -p '[yes/no] ?' response
-        if [ "$response" != 'yes' ]
+        response=''
+        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
+        do
+            read -p '[yes/no] ?' response
+        done
+        if [ "$response" == 'no' ]
             then exit 1
         fi
         cp sphinx/rst/$file sphinx/test_out/$file
@@ -112,8 +121,12 @@ do
         echo "The output file sphinx/rst/$file does not exist."
         echo 'Should we use the following command to fix this'
         echo "    git rm -f sphinx/test_out/$file"
-        read -p '[yes/no] ?' response
-        if [ "$response" != 'yes' ]
+        response=''
+        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
+        do
+            read -p '[yes/no] ?' response
+        done
+        if [ "$response" == 'no' ]
             then exit 1
         fi
         git rm -f sphinx/test_out/$file

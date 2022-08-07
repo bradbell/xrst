@@ -16,6 +16,7 @@ Table of Contents
 |  |space| :ref:`1.4<suspend_example>` Suspend Command Example
 |  |space| :ref:`1.5<code_example>` Code Command Example
 |  |space| :ref:`1.6<comment_ch_example>` Comment Character Command Example
+|  |space| :ref:`1.7<heading_example>` Title Heading for This Section
 |
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |
@@ -44,8 +45,6 @@ Table of Contents
 |  |space|  |space|  |space| :ref:`2.3.1.1<indent_exam>` Indent Example
 |  |space|  |space|  |space|  |space| :ref:`2.3.1.1.1<indent_res>` Indent Result
 |  |space|  |space| :ref:`2.3.2<heading_links>` Heading Links
-|  |space|  |space|  |space| :ref:`2.3.2.1<heading_exam>` Heading Example
-|  |space|  |space|  |space|  |space| :ref:`2.3.2.1.1<heading_res>` Heading Result
 |
 |  |space| :ref:`2.4<wish_list>` Wish List
 |  |space| :ref:`2.5<release_notes>` xrst Release Notes By Year

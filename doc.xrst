@@ -16,6 +16,7 @@ Examples
     sphinx/test_in/suspend.py
     sphinx/test_in/code.py
     sphinx/test_in/comment_ch.py
+    sphinx/test_in/heading.py
 }
 
 {xrst_end example}

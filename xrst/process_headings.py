@@ -75,10 +75,7 @@ Discussion
 
 Example
 *******
-{xrst_children
-    sphinx/test_in/heading.py
-}
-The :ref:`@heading_exam` section contains an example using these links.
+:ref:`heading_example`
 
 {xrst_end heading_links}
 """

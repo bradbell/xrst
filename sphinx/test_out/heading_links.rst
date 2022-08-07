@@ -122,11 +122,4 @@ Discussion
 
 Example
 *******
-
-The :ref:`@heading_exam` section contains an example using these links.
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   heading_exam
+:ref:`heading_example`

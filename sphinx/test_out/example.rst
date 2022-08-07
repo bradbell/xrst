@@ -26,6 +26,7 @@ Examples
 -  :ref:`@suspend_example`
 -  :ref:`@code_example`
 -  :ref:`@comment_ch_example`
+-  :ref:`@heading_example`
 
 .. toctree::
    :maxdepth: 1
@@ -37,3 +38,4 @@ Examples
    suspend_example
    code_example
    comment_ch_example
+   heading_example

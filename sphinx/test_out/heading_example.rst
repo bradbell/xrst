@@ -1,36 +1,81 @@
-# -----------------------------------------------------------------------------
-#                      xrst: Extract Sphinx RST Files
-#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
-#              This program is distributed under the terms of the
-#              GNU General Public License version 3.0 or later see
-#                    https://www.gnu.org/licenses/gpl-3.0.txt
-# ----------------------------------------------------------------------------
-"""
-{xrst_begin heading_example}
+.. include:: xrst_preamble.rst
+
+.. _heading_example:
+
+!!!!!!!!!!!!!!!
+heading_example
+!!!!!!!!!!!!!!!
+
+xrst input file: ``sphinx/test_in/heading.py``
+
+.. meta::
+   :keywords: heading_example, title, heading, for, this, section
+
+.. index:: heading_example, title, heading, for, this, section
+
+.. _@heading_example:
 
 Title Heading for This Section
 ##############################
+.. contents::
+   :local:
+
 The label for the section title is the ``@``
 character followed by the section name; i.e., ``@heading_example``.
 The label ``heading_example`` displays ``heading_example``
 instead of the section title.
 
+.. meta::
+   :keywords: second, level
+
+.. index:: second, level
+
+.. _heading_example@second_level:
+
 Second Level
 ************
 The label for this heading is ``heading_example.second_level``.
+
+.. meta::
+   :keywords: third, level
+
+.. index:: third, level
+
+.. _heading_example@second_level@third_level:
 
 Third Level
 ===========
 The label for this heading is ``heading_example.second_level.third_level``.
 
+.. meta::
+   :keywords: another, second, level
+
+.. index:: another, second, level
+
+.. _heading_example@another_second_level:
+
 Another Second Level
 ********************
 The label for this heading is ``heading_example.another_second_level``.
+
+.. meta::
+   :keywords: third, level
+
+.. index:: third, level
+
+.. _heading_example@another_second_level@third_level:
 
 Third Level
 ===========
 The label for this heading is
 ``heading_example.another_second_level.third_level``.
+
+.. meta::
+   :keywords: links
+
+.. index:: links
+
+.. _heading_example@links:
 
 Links
 *****
@@ -45,9 +90,15 @@ is included at the beginning of the target for the link:
 4. :ref:`heading_example@another_second_level`
 5. :ref:`heading_example@another_second_level@third_level`
 
+.. meta::
+   :keywords: this, example, file
+
+.. index:: this, example, file
+
+.. _heading_example@this_example_file:
+
 This Example File
 *****************
-{xrst_file}
 
-{xrst_end heading_example}
-"""
+.. literalinclude:: ../../sphinx/test_in/heading.py
+    :language: py
