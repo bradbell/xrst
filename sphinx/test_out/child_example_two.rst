@@ -6,7 +6,7 @@
 child_example_two
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/children.py``
+xrst input file: ``example/children.py``
 
 .. meta::
    :keywords: child_example_two, section, child

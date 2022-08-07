@@ -6,7 +6,7 @@
 suspend_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/suspend.py``
+xrst input file: ``example/suspend.py``
 
 .. meta::
    :keywords: suspend_example, suspend, command, example
@@ -52,5 +52,5 @@ Product
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/suspend.py
+.. literalinclude:: ../../example/suspend.py
     :language: py

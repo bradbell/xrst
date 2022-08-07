@@ -18,7 +18,7 @@ in the child_example_one section.
 child_list Command
 ******************
 {xrst_child_list
-        sphinx/test_in/children.py
+        example/children.py
 }
 
 This Example File

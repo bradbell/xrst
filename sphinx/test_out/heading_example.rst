@@ -6,7 +6,7 @@
 heading_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/heading.py``
+xrst input file: ``example/heading.py``
 
 .. meta::
    :keywords: heading_example, title, heading, for, this, section
@@ -100,5 +100,5 @@ is included at the beginning of the target for the link:
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/heading.py
+.. literalinclude:: ../../example/heading.py
     :language: py

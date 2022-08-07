@@ -6,7 +6,7 @@
 comment_ch_example
 !!!!!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/comment_ch.py``
+xrst input file: ``example/comment_ch.py``
 
 .. meta::
    :keywords: comment_ch_example, comment, character, command, example
@@ -51,5 +51,5 @@ function definition below:
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/comment_ch.py
+.. literalinclude:: ../../example/comment_ch.py
     :language: py

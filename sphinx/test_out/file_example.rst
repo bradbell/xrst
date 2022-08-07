@@ -6,7 +6,7 @@
 file_example
 !!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/file.cpp``
+xrst input file: ``example/file.cpp``
 
 .. meta::
    :keywords: file_example, file, command, example
@@ -30,7 +30,7 @@ File Command Example
 factorial
 *********
 
-.. literalinclude:: ../../sphinx/test_in/file.cpp
+.. literalinclude:: ../../example/file.cpp
     :lines: 8-12
     :language: cpp
 
@@ -44,7 +44,7 @@ factorial
 square
 ******
 
-.. literalinclude:: ../../sphinx/test_in/file.cpp
+.. literalinclude:: ../../example/file.cpp
     :lines: 16-16
     :language: cpp
 
@@ -58,5 +58,5 @@ square
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/file.cpp
+.. literalinclude:: ../../example/file.cpp
     :language: cpp

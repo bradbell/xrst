@@ -6,7 +6,7 @@
 indent_example
 !!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/indent.py``
+xrst input file: ``example/indent.py``
 
 .. meta::
    :keywords: indent_example, indent, example
@@ -37,5 +37,5 @@ Indent Example
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/indent.py
+.. literalinclude:: ../../example/indent.py
     :language: py

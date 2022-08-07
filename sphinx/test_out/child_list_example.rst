@@ -6,7 +6,7 @@
 child_list_example
 !!!!!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/child_list.xrst``
+xrst input file: ``example/child_list.xrst``
 
 .. meta::
    :keywords: child_list_example, child_list, command, example
@@ -55,7 +55,7 @@ child_list Command
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/child_list.xrst
+.. literalinclude:: ../../example/child_list.xrst
     :language: rst
 
 .. toctree::

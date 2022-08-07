@@ -6,7 +6,7 @@
 child_example_one
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/children.py``
+xrst input file: ``example/children.py``
 
 .. meta::
    :keywords: child_example_one, first, child
@@ -45,5 +45,5 @@ Link to Second Child
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/children.py
+.. literalinclude:: ../../example/children.py
     :language: py

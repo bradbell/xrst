@@ -6,7 +6,7 @@
 code_example
 !!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/code.py``
+xrst input file: ``example/code.py``
 
 .. meta::
    :keywords: code_example, code, command, example
@@ -47,5 +47,5 @@ Factorial
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/code.py
+.. literalinclude:: ../../example/code.py
     :language: py

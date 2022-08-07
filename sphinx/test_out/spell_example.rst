@@ -6,7 +6,7 @@
 spell_example
 !!!!!!!!!!!!!
 
-xrst input file: ``sphinx/test_in/spell.py``
+xrst input file: ``example/spell.py``
 
 .. meta::
    :keywords: spell_example, spell, command, example
@@ -86,5 +86,5 @@ spelling command for this section.
 This Example File
 *****************
 
-.. literalinclude:: ../../sphinx/test_in/spell.py
+.. literalinclude:: ../../example/spell.py
     :language: py
