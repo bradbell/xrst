@@ -1,11 +1,7 @@
 # BEGIN spelling
 #
-# words in xrst commands
-xrst
-#
 # File extensions
 cpp
-html
 py
 rst
 #

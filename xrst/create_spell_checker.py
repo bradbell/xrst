@@ -87,6 +87,7 @@ def create_spell_checker(local_words) :
         'destructor',
         'exponentiation',
         'hessians',
+        'html',
         'identifiability',
         'indenting',
         'initialization',
@@ -110,6 +111,7 @@ def create_spell_checker(local_words) :
         'unicode',
         'wiki',
         'wikipedia',
+        'xrst',
         # END_SORT_THIS_LINE_MINUS_1
     ]
     spell_checker.word_frequency.load_words(add_to_dictionary)
