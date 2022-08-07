@@ -79,8 +79,7 @@ The label for this heading is
 
 Links
 *****
-These links would also work from any other section because the
-:ref:`begin_cmd@section_name`
+These links would also work from any other section because the section name
 (``heading_example`` in this case)
 is included at the beginning of the target for the link:
 

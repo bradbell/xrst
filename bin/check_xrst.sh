@@ -24,60 +24,39 @@ then
 fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
-# empty_group_list
-#
-echo "python -m xrst doc.xrst -g ,user -o doc"
-if ! python -m xrst doc.xrst -g ,user -o doc 2> check_xrst.$$
+# doc
+# run from doc directory so that root_directory is not working directory
+if [ -e doc ]
 then
-    type_error='error'
-else
-    type_error='warning'
+    rm -r doc
 fi
-if [ -s check_xrst.$$ ]
-then
-    cat check_xrst.$$
-    rm check_xrst.$$
-    echo "$0: exiting due to $type_error above"
-    exit 1
-fi
-empty_group_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
-echo "empty_group_list=$empty_group_list"
-rm -r sphinx/rst
-# -----------------------------------------------------------------------------
-# change directory to test case where root_directory is not working directory
-rm -r doc
 mkdir doc
 cd    doc
-echo "python -m xrst ../doc.xrst -g ,user -o doc"
-if ! python -m xrst ../doc.xrst  -g ,user -o doc 2> ../check_xrst.$$
-then
-    type_error='error'
-else
-    type_error='warning'
-fi
-cd ..
-# -----------------------------------------------------------------------------
-if [ -s check_xrst.$$ ]
-then
-    cat check_xrst.$$
-    rm check_xrst.$$
-    echo "$0: exiting due to $type_error above"
-    exit 1
-fi
+#
+for group_list in ',' ',user'
+do
+    echo_eval rm -r ../sphinx/rst
+    echo "python -m xrst ../doc.xrst -g $group_list -o doc"
+    if ! python -m xrst ../doc.xrst -g $group_list -o doc 2> check_xrst.$$
+    then
+        type_error='error'
+    else
+        type_error='warning'
+    fi
+    if [ -s check_xrst.$$ ]
+    then
+        cat check_xrst.$$
+        rm check_xrst.$$
+        echo "$0: exiting due to $type_error above"
+        exit 1
+    fi
+done
 rm check_xrst.$$
+cd ..
 # -----------------------------------------------------------------------------
 file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
 for file in $file_list
 do
-    for check_file in empty_group_list
-    do
-        if [ "$file" == "$check_file" ]
-        then
-            echo "The output file sphinx/rst/$file"
-            echo 'is in both the user group and empty group builds'
-            exit 1
-        fi
-    done
     if [ ! -e sphinx/test_out/$file ]
     then
         echo "The output file sphinx/test_out/$file does not exist."

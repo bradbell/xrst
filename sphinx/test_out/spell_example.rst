@@ -41,9 +41,8 @@ so we have included it in the special words for this section.
 
 Spelling File
 *************
-The word ``xrst`` is included by the
-:ref:`run_xrst@sphinx_dir@spelling` file
-and hence need not be in the special words for this section.
+The word ``xrst`` is included by the spelling file used to build this
+documentation and hence need not be in the special words for this section.
 
 .. meta::
    :keywords: math
