@@ -7,6 +7,9 @@
 # ----------------------------------------------------------------------------
 """
 {xrst_begin code_cmd user}
+{xrst_spell
+    delimiters
+}
 
 Code Command
 ############
@@ -19,8 +22,13 @@ Syntax
 Purpose
 *******
 A code block, directly below in the current input file, begins with
-a line containing the first version ( *language* included version)
-of the command above.
+a line containing the *language* included version of the command above.
+This has the following advantage over sphinx code block:
+
+1. One can begin and end comments, without the comment delimiters being
+   displayed.
+2. You choose a language so that the proper highlighting is done.
+3. You do not need to indent the code block.
 
 Requirements
 ************

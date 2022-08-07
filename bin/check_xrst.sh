@@ -7,9 +7,22 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # -----------------------------------------------------------------------------
 # bash function that echos and executes a command
-echo_eval() {
+function echo_eval {
     echo $*
     eval $*
+}
+# -----------------------------------------------------------------------------
+# bash funciton that prompts [yes/no] and returns (exits 1) on yes (no)
+function continue_yes_no {
+    read -p '[yes/no] ? ' response
+    while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
+    do
+        echo "response = '$response' is not yes or no"
+        read -p '[yes/no] ? ' response
+    done
+    if [ "$response" == 'no' ]
+        then exit 1
+    fi
 }
 # -----------------------------------------------------------------------------
 if [ "$0" != "bin/check_xrst.sh" ]
@@ -62,14 +75,7 @@ do
         echo "The output file sphinx/test_out/$file does not exist."
         echo 'Should we use the following command to fix this'
         echo "    cp sphinx/rst/$file sphinx/test_out/$file"
-        response=''
-        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
-        do
-            read -p '[yes/no] ?' response
-        done
-        if [ "$response" == 'no' ]
-            then exit 1
-        fi
+        continue_yes_no
         cp sphinx/rst/$file sphinx/test_out/$file
     elif ! diff sphinx/rst/$file sphinx/test_out/$file
     then
@@ -77,15 +83,7 @@ do
         echo "    diff sphinx/rst/$file sphinx/test_out/$file"
         echo 'Should we use the following command to fix this'
         echo "    cp sphinx/rst/$file sphinx/test_out/$file"
-        read -p '[yes/no] ?' response
-        response=''
-        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
-        do
-            read -p '[yes/no] ?' response
-        done
-        if [ "$response" == 'no' ]
-            then exit 1
-        fi
+        continue_yes_no
         cp sphinx/rst/$file sphinx/test_out/$file
     else
         echo "$file: OK"
@@ -100,14 +98,7 @@ do
         echo "The output file sphinx/rst/$file does not exist."
         echo 'Should we use the following command to fix this'
         echo "    git rm -f sphinx/test_out/$file"
-        response=''
-        while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
-        do
-            read -p '[yes/no] ?' response
-        done
-        if [ "$response" == 'no' ]
-            then exit 1
-        fi
+        continue_yes_no
         git rm -f sphinx/test_out/$file
     fi
 done
