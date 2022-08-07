@@ -20,6 +20,7 @@ Examples
 .. contents::
    :local:
 
+-  :ref:`@get_started`
 -  :ref:`@file_example`
 -  :ref:`@child_list_example`
 -  :ref:`@spell_example`
@@ -33,6 +34,7 @@ Examples
    :maxdepth: 1
    :hidden:
 
+   get_started
    file_example
    child_list_example
    spell_example

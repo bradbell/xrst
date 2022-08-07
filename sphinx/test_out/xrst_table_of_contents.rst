@@ -6,18 +6,19 @@ Table of Contents
 *****************
 | :ref:`1<example>` Examples
 |
-|  |space| :ref:`1.1<file_example>` File Command Example
-|  |space| :ref:`1.2<child_list_example>` child_list Command Example
+|  |space| :ref:`1.1<get_started>` Getting Started
+|  |space| :ref:`1.2<file_example>` File Command Example
+|  |space| :ref:`1.3<child_list_example>` child_list Command Example
 |
-|  |space|  |space| :ref:`1.2.1<child_example_one>` First Child
-|  |space|  |space| :ref:`1.2.2<child_example_two>` Section Child
+|  |space|  |space| :ref:`1.3.1<child_example_one>` First Child
+|  |space|  |space| :ref:`1.3.2<child_example_two>` Section Child
 |
-|  |space| :ref:`1.3<spell_example>` Spell Command Example
-|  |space| :ref:`1.4<suspend_example>` Suspend Command Example
-|  |space| :ref:`1.5<code_example>` Code Command Example
-|  |space| :ref:`1.6<comment_ch_example>` Comment Character Command Example
-|  |space| :ref:`1.7<heading_example>` Title Heading for This Section
-|  |space| :ref:`1.8<indent_example>` Indent Example
+|  |space| :ref:`1.4<spell_example>` Spell Command Example
+|  |space| :ref:`1.5<suspend_example>` Suspend Command Example
+|  |space| :ref:`1.6<code_example>` Code Command Example
+|  |space| :ref:`1.7<comment_ch_example>` Comment Character Command Example
+|  |space| :ref:`1.8<heading_example>` Title Heading for This Section
+|  |space| :ref:`1.9<indent_example>` Indent Example
 |
 | :ref:`2<xrst>` Extract Sphinx RST Files
 |

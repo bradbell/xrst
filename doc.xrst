@@ -10,6 +10,7 @@
 Examples
 ########
 {xrst_child_list
+    example/get_started.xrst
     example/file.cpp
     example/child_list.xrst
     example/spell.py
