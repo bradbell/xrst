@@ -84,6 +84,7 @@ spelling command for this section.
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_spell`` :
 
 .. literalinclude:: ../../example/spell.py
     :language: py

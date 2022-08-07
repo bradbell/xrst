@@ -50,6 +50,7 @@ function definition below:
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_comment_ch`` :
 
 .. literalinclude:: ../../example/comment_ch.py
     :language: py

@@ -45,6 +45,7 @@ spelling command for this section.
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_spell`` :
 {xrst_file}
 
 {xrst_end spell_example}

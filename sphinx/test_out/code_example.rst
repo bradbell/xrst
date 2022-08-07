@@ -46,6 +46,7 @@ Factorial
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_code`` :
 
 .. literalinclude:: ../../example/code.py
     :language: py

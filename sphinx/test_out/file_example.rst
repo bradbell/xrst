@@ -57,6 +57,7 @@ square
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_file`` :
 
 .. literalinclude:: ../../example/file.cpp
     :language: cpp

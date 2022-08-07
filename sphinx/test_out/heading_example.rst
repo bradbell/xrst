@@ -98,6 +98,7 @@ is included at the beginning of the target for the link:
 
 This Example File
 *****************
+The file below demonstrates linking to headings using ``:ref:`` :
 
 .. literalinclude:: ../../example/heading.py
     :language: py

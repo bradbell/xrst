@@ -40,6 +40,7 @@ square
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_file`` :
 {xrst_file}
 
 {xrst_end file_example}

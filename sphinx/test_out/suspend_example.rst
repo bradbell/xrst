@@ -51,6 +51,7 @@ Product
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_suspend`` and ``xrst_resume`` :
 
 .. literalinclude:: ../../example/suspend.py
     :language: py

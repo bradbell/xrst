@@ -46,6 +46,7 @@ is included at the beginning of the target for the link:
 
 This Example File
 *****************
+The file below demonstrates linking to headings using ``:ref:`` :
 {xrst_file}
 
 {xrst_end heading_example}

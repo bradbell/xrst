@@ -36,6 +36,7 @@ Indent Example
 
 This Example File
 *****************
+The file below demonstrates indenting an entire xrst section :
 
 .. literalinclude:: ../../example/indent.py
     :language: py

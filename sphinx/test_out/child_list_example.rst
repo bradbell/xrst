@@ -54,6 +54,7 @@ child_list Command
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_child_list`` :
 
 .. literalinclude:: ../../example/child_list.xrst
     :language: rst

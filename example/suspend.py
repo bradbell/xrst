@@ -41,6 +41,7 @@ def product(itr) :
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_suspend`` and ``xrst_resume`` :
 {xrst_file}
 
 {xrst_end suspend_example}

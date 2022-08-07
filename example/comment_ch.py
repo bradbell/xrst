@@ -8,6 +8,9 @@
 # {xrst_comment_ch #}
 #
 # {xrst_begin comment_ch_example}
+# {xrst_spell
+#   ch
+# }
 #
 # Comment Character Command Example
 # #################################
@@ -28,6 +31,7 @@ def factorial(n) :
 #
 # This Example File
 # *****************
+# The file below demonstrates the use of ``xrst_comment_ch`` :
 # {xrst_file}
 #
 # {xrst_end comment_ch_example}

@@ -20,6 +20,7 @@
 
     This Example File
     *****************
+    The file below demonstrates indenting an entire xrst section :
     {xrst_file}
 
     {xrst_end indent_example}

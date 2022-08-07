@@ -31,6 +31,7 @@ Getting Started
 
 This Example File
 *****************
+The file below demonstrates the use of ``xrst_begin`` and ``xrst_end`` :
 {xrst_file}
 
 {xrst_end get_started}
