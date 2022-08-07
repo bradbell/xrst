@@ -29,12 +29,25 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` *root_file*
+-   ``xrst`` ( -v |  *root_file* )
     [ ``-e`` *error_line* ]
     [ ``-g`` *group_list* ]
     [ ``-t`` *target* ]
     [ ``-o`` *output_dir ]
     [ ``-s`` *sphinx_dir* ]
+
+.. meta::
+   :keywords: -v
+
+.. index:: -v
+
+.. _run_xrst@-v:
+
+-v
+**
+If ``-v`` is present on the command line, there are no other arguments
+and the version of xrst is printed. Otherwise *root_file* is a required
+argument.
 
 .. meta::
    :keywords: root_file

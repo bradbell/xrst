@@ -21,13 +21,13 @@ Extract Sphinx RST Files
    :local:
 
 .. meta::
-   :keywords: version, 2022.7.30
+   :keywords: version, 2022.8.7
 
-.. index:: version, 2022.7.30
+.. index:: version, 2022.8.7
 
-.. _xrst@version_2022.7.30:
+.. _xrst@version_2022.8.7:
 
-Version 2022.7.30
+Version 2022.8.7
 ******************
 
 .. meta::

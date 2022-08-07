@@ -17,12 +17,18 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` *root_file*
+-   ``xrst`` ( -v |  *root_file* )
     [ ``-e`` *error_line* ]
     [ ``-g`` *group_list* ]
     [ ``-t`` *target* ]
     [ ``-o`` *output_dir ]
     [ ``-s`` *sphinx_dir* ]
+
+-v
+**
+If ``-v`` is present on the command line, there are no other arguments
+and the version of xrst is printed. Otherwise *root_file* is a required
+argument.
 
 root_file
 *********
@@ -213,6 +219,12 @@ if( os.getcwd().endswith('/xrst.git') ) :
         sys.path.insert(0, os.getcwd() )
 #
 import xrst
+#
+# version
+# The script that updates version nubmers expects version at begining of line
+# and to have the value surrounded by single quotes.
+version = '2022.8.7'
+#
 def run_xrst() :
     #
     # execution_directory
@@ -222,7 +234,11 @@ def run_xrst() :
     parser = argparse.ArgumentParser(
         prog='xrst', description='extract Sphinx RST files'
     )
-    parser.add_argument('root_file', help='contains root section')
+    parser.add_argument('-v', action='store_true',
+        help='just print version of xrst'
+    )
+    parser.add_argument('root_file', nargs='?', default=None,
+        help='file that contains root section (required except when using -v)')
     parser.add_argument(
         '-e', metavar='error_line', type=int,
         help='increment in table that converts sphinx error messages'
@@ -249,9 +265,17 @@ def run_xrst() :
     # arguments
     arguments = parser.parse_args()
     #
+    if arguments.v :
+        print(version)
+        sys.exit(0)
+    #
     # root_file
     # can not use system_exit until os.getcwd() returns root_directory
     root_file = arguments.root_file
+    if root_file == None :
+        msg  = 'xsrst: Error\n'
+        msg += 'root_file is required when not using the -v option'
+        sys.exit(msg)
     if not os.path.isfile(root_file) :
         msg  = 'xsrst: Error\n'
         msg += f'root_file = {root_file}\n'

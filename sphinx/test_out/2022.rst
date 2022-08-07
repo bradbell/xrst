@@ -20,6 +20,12 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-07:
+
+08-07
+*****
+Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+
 .. _2022@08-06:
 
 08-06
