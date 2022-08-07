@@ -49,8 +49,8 @@ cd    doc
 for group_list in ',' ',user'
 do
     echo_eval rm -r ../sphinx/rst
-    echo "python -m xrst ../doc.xrst -g $group_list -o doc"
-    if ! python -m xrst ../doc.xrst -g $group_list -o doc 2> check_xrst.$$
+    echo "python -m xrst ../xrst.xrst -g $group_list -o doc"
+    if ! python -m xrst ../xrst.xrst -g $group_list -o doc 2> check_xrst.$$
     then
         type_error='error'
     else

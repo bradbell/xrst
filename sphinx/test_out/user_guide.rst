@@ -6,7 +6,7 @@
 user_guide
 !!!!!!!!!!
 
-xrst input file: ``doc.xrst``
+xrst input file: ``xrst.xrst``
 
 .. meta::
    :keywords: user_guide, extract, sphinx, rst, files

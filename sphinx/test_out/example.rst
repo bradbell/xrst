@@ -6,7 +6,7 @@
 example
 !!!!!!!
 
-xrst input file: ``doc.xrst``
+xrst input file: ``xrst.xrst``
 
 .. meta::
    :keywords: example, examples

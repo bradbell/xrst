@@ -6,7 +6,7 @@
 wish_list
 !!!!!!!!!
 
-xrst input file: ``doc.xrst``
+xrst input file: ``xrst.xrst``
 
 .. meta::
    :keywords: wish_list, wish, list

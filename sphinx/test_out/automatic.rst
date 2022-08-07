@@ -6,7 +6,7 @@
 automatic
 !!!!!!!!!
 
-xrst input file: ``doc.xrst``
+xrst input file: ``xrst.xrst``
 
 .. meta::
    :keywords: automatic, automatic, processing
