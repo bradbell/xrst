@@ -3,6 +3,7 @@
 # Exclude articles and prepositions used in documentation.
 a
 and
+by
 for
 of
 the
