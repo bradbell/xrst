@@ -1,7 +1,7 @@
 # Extract Sphinx RST Files
 
 ## User's Guide
-https://bradbell.github.io/xrst/doc/rst/user\_guide.html
+https://bradbell.github.io/xrst/doc/rst/user_guide.html
 
 ## Run
 ```
