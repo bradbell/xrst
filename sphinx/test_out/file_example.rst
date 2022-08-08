@@ -9,9 +9,9 @@ file_example
 xrst input file: ``example/file.cpp``
 
 .. meta::
-   :keywords: file_example, file, command, example
+   :keywords: file_example
 
-.. index:: file_example, file, command, example
+.. index:: file_example
 
 .. _@file_example:
 
@@ -47,11 +47,6 @@ square
 .. literalinclude:: ../../example/file.cpp
     :lines: 16-16
     :language: cpp
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _file_example@this_example_file:
 

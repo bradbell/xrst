@@ -9,9 +9,9 @@ configure
 xrst input file: ``sphinx/configure.xrst``
 
 .. meta::
-   :keywords: configure, example, configuration, files
+   :keywords: configure, configuration, files
 
-.. index:: configure, example, configuration, files
+.. index:: configure, configuration, files
 
 .. _@configure:
 

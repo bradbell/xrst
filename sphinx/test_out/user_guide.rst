@@ -63,11 +63,6 @@ Run Program
 ***********
 :ref:`@run_xrst`
 
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
-
 .. _user_guide@purpose:
 
 Purpose

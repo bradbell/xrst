@@ -9,9 +9,9 @@ suspend_example
 xrst input file: ``example/suspend.py``
 
 .. meta::
-   :keywords: suspend_example, suspend, command, example
+   :keywords: suspend_example, suspend
 
-.. index:: suspend_example, suspend, command, example
+.. index:: suspend_example, suspend
 
 .. _@suspend_example:
 
@@ -41,11 +41,6 @@ Factorial
 Product
 *******
 *p* = ``product(`` *iterable* ``)``
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _suspend_example@this_example_file:
 

@@ -9,9 +9,9 @@ heading_example
 xrst input file: ``example/heading.py``
 
 .. meta::
-   :keywords: heading_example, title, heading, for, this, section
+   :keywords: heading_example, title, heading, for, section
 
-.. index:: heading_example, title, heading, for, this, section
+.. index:: heading_example, title, heading, for, section
 
 .. _@heading_example:
 
@@ -88,11 +88,6 @@ is included at the beginning of the target for the link:
 3. :ref:`heading_example@second_level@third_level`
 4. :ref:`heading_example@another_second_level`
 5. :ref:`heading_example@another_second_level@third_level`
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _heading_example@this_example_file:
 

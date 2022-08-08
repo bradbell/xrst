@@ -9,9 +9,9 @@ file_cmd
 xrst input file: ``xrst/file_command.py``
 
 .. meta::
-   :keywords: file_cmd, file, command
+   :keywords: file_cmd
 
-.. index:: file_cmd, file, command
+.. index:: file_cmd
 
 .. _@file_cmd:
 
@@ -19,11 +19,6 @@ File Command
 ############
 .. contents::
    :local:
-
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
 
 .. _file_cmd@syntax:
 
@@ -46,11 +41,6 @@ Syntax
 | |tab| *stop*
 | |tab| *display_file*
 | :code:`}`
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
 
 .. _file_cmd@purpose:
 
@@ -150,11 +140,6 @@ not counting the command itself when the files are the same.
 Spell Checking
 **************
 Spell checking is **not** done for these code blocks.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _file_cmd@example:
 

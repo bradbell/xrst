@@ -20,11 +20,6 @@ Child Commands
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _child_cmd@syntax:
 
 Syntax
@@ -75,11 +70,6 @@ child_table
 |   *file_n*
 | :code:`}`
 
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
-
 .. _child_cmd@purpose:
 
 Purpose
@@ -88,9 +78,9 @@ These commands specify the section that are children
 of the current section.
 
 .. meta::
-   :keywords: file, names
+   :keywords: names
 
-.. index:: file, names
+.. index:: names
 
 .. _child_cmd@file_names:
 
@@ -173,11 +163,6 @@ Table of Contents, toctree
 A sphinx ``toctree`` directive is automatically generated for each
 section that has children. This directive has the hidden attribute so that
 one can control the links to the children using the syntax choices above.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _child_cmd@example:
 

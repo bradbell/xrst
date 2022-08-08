@@ -28,11 +28,6 @@ xrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use mix tabs and spaces for the indentation.
 
-.. meta::
-   :keywords: example
-
-.. index:: example
-
 .. _indent@example:
 
 Example

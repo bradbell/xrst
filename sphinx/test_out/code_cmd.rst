@@ -9,9 +9,9 @@ code_cmd
 xrst input file: ``xrst/code_command.py``
 
 .. meta::
-   :keywords: code_cmd, code, command
+   :keywords: code_cmd, code
 
-.. index:: code_cmd, code, command
+.. index:: code_cmd, code
 
 .. _@code_cmd:
 
@@ -20,22 +20,12 @@ Code Command
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _code_cmd@syntax:
 
 Syntax
 ******
 - ``{xrst_code`` *language* :code:`}`
 - ``{xrst_code}``
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
 
 .. _code_cmd@purpose:
 
@@ -106,11 +96,6 @@ Code blocks as usually small and
 spell checking is done for these code blocks.
 (Spell checking is not done for code blocks included using the
 :ref:`file command<file_cmd>` .)
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _code_cmd@example:
 

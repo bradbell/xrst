@@ -20,22 +20,12 @@ Suspend and Resume Commands
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _suspend_cmd@syntax:
 
 Syntax
 ******
 - ``{xrst_suspend}``
 - ``{xrst_resume}``
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
 
 .. _suspend_cmd@purpose:
 
@@ -46,11 +36,6 @@ One begins (ends) the suspension with a line that only contains spaces,
 tabs and a suspend command (resume command).
 Note that this will also suspend all other xrst processing; e.g.,
 spell checking.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _suspend_cmd@example:
 

@@ -38,11 +38,6 @@ Getting Started
 #. Use your web browser to open the file ``sphinx/html/index.html`` .
    This location is relative to your workng directory.
 
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
-
 .. _get_started@this_example_file:
 
 This Example File

@@ -20,11 +20,6 @@ Run Extract Sphinx RST And Sphinx
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _run_xrst@syntax:
 
 Syntax
@@ -194,11 +189,6 @@ following python regular expression:
 
     ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
-.. meta::
-   :keywords: example
-
-.. index:: example
-
 .. _run_xrst@sphinx_dir@preamble.rst@example:
 
 Example
@@ -223,11 +213,6 @@ leading and trailing white space in a word are ignored.
 For example; see :ref:`@spelling`.
 Special words, for a particular section, are specified using the
 :ref:`spell command<spell_cmd>`.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _run_xrst@sphinx_dir@spelling@example:
 
@@ -260,11 +245,6 @@ leading and trailing spaces are ignored.
 A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
 For example; see :ref:`@keyword`.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _run_xrst@sphinx_dir@keyword@example:
 

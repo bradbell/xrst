@@ -9,9 +9,9 @@ code_example
 xrst input file: ``example/code.py``
 
 .. meta::
-   :keywords: code_example, code, command, example
+   :keywords: code_example, code
 
-.. index:: code_example, code, command, example
+.. index:: code_example, code
 
 .. _@code_example:
 
@@ -36,11 +36,6 @@ Factorial
         if n == 1 :
             return 1
         return n * factorial(n-1)
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _code_example@this_example_file:
 

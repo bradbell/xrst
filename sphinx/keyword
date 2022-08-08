@@ -1,8 +1,18 @@
-# BEGIN keyword
-# List of patterns to exclude from the index
+# xrst keyword file
+#
+# Exclude articles and prepositions used in documentation.
 a
 and
 of
-# exclude whats new mm-dd headings used by whats new sections for each year
+the
+this
+#
+# Exclude words that are used in many sections of the documentation.
+command
+example
+file
+purpose
+syntax
+#
+# Exclude the mm-dd headings used by the xrst release notes.
 [0-9][0-9]-[0-9][0-9]
-# END keyword

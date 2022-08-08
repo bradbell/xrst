@@ -9,9 +9,9 @@ spell_example
 xrst input file: ``example/spell.py``
 
 .. meta::
-   :keywords: spell_example, spell, command, example
+   :keywords: spell_example, spell
 
-.. index:: spell_example, spell, command, example
+.. index:: spell_example, spell
 
 .. _@spell_example:
 
@@ -33,9 +33,9 @@ The word ``iterable`` is not in the dictionary,
 so we have included it in the special words for this section.
 
 .. meta::
-   :keywords: spelling, file
+   :keywords: spelling
 
-.. index:: spelling, file
+.. index:: spelling
 
 .. _spell_example@spelling_file:
 
@@ -74,11 +74,6 @@ two occurrences of the same word; e.g.,
 no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _spell_example@this_example_file:
 

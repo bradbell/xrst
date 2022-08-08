@@ -9,9 +9,9 @@ spell_cmd
 xrst input file: ``xrst/spell_command.py``
 
 .. meta::
-   :keywords: spell_cmd, spell, command
+   :keywords: spell_cmd, spell
 
-.. index:: spell_cmd, spell, command
+.. index:: spell_cmd, spell
 
 .. _@spell_cmd:
 
@@ -19,11 +19,6 @@ Spell Command
 #############
 .. contents::
    :local:
-
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
 
 .. _spell_cmd@syntax:
 
@@ -39,11 +34,6 @@ Each word is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
 You need not include latex commands in special word list because
 words with a backslash directly before them are not include in spell checking.
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
 
 .. _spell_cmd@purpose:
 
@@ -98,11 +88,6 @@ Double Words
 It is considered an error to have only white space between two occurrences
 of the same word. You can make an exception for this by entering
 the same word twice (next to each other) in the special word list.
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _spell_cmd@example:
 

@@ -113,11 +113,6 @@ Discussion
     headings below it,  will break.  This identifies the links that should be
     checked to make sure they are still valid.
 
-.. meta::
-   :keywords: example
-
-.. index:: example
-
 .. _heading_links@example:
 
 Example

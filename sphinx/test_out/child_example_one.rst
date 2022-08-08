@@ -35,11 +35,6 @@ Link to Second Child
 ********************
 :ref:`child_example_two`
 
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
-
 .. _child_example_one@this_example_file:
 
 This Example File

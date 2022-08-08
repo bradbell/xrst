@@ -9,9 +9,9 @@ preamble.rst
 xrst input file: ``sphinx/configure.xrst``
 
 .. meta::
-   :keywords: preamble.rst, the, preamble.rst, example, file
+   :keywords: preamble.rst, preamble.rst
 
-.. index:: preamble.rst, the, preamble.rst, example, file
+.. index:: preamble.rst, preamble.rst
 
 .. _@preamble.rst:
 

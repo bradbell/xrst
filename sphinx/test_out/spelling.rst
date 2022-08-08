@@ -9,9 +9,9 @@ spelling
 xrst input file: ``sphinx/configure.xrst``
 
 .. meta::
-   :keywords: spelling, the, spelling, example, file
+   :keywords: spelling, spelling
 
-.. index:: spelling, the, spelling, example, file
+.. index:: spelling, spelling
 
 .. _@spelling:
 

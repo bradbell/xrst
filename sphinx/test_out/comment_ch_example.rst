@@ -9,9 +9,9 @@ comment_ch_example
 xrst input file: ``example/comment_ch.py``
 
 .. meta::
-   :keywords: comment_ch_example, comment, character, command, example
+   :keywords: comment_ch_example, comment, character
 
-.. index:: comment_ch_example, comment, character, command, example
+.. index:: comment_ch_example, comment, character
 
 .. _@comment_ch_example:
 
@@ -40,11 +40,6 @@ function definition below:
         if n == 1 :
             return 1
         return n * factorial(n-1)
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _comment_ch_example@this_example_file:
 

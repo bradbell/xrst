@@ -22,6 +22,7 @@ version_files='
 # should also be in this list. Names that end with / are directories to ignore.
 # Names that begin with a / are relative to top source directroy.
 # All other names are relavie paths somewhere below the top source directory.
+# BEGIN_SORT_THIS_LINE_PLUS_2
 ignore_files='
     .gitignore
     batch_edit.sed
@@ -29,11 +30,13 @@ ignore_files='
     gpl-3.0.txt
     readme.md
     sphinx/conf.py
+    sphinx/keyword
     sphinx/preamble.rst
     sphinx/spelling
     sphinx/test_out/
     sphinx/xrst/
 '
+# END_SORT_THIS_LINE_MINUS_2
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"
 echo "image_link=$version_files"

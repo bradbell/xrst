@@ -9,9 +9,9 @@ comment_ch_cmd
 xrst input file: ``xrst/remove_comment_ch.py``
 
 .. meta::
-   :keywords: comment_ch_cmd, comment, character, command
+   :keywords: comment_ch_cmd, comment, character
 
-.. index:: comment_ch_cmd, comment, character, command
+.. index:: comment_ch_cmd, comment, character
 
 .. _@comment_ch_cmd:
 
@@ -20,21 +20,11 @@ Comment Character Command
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _comment_ch_cmd@syntax:
 
 Syntax
 ******
 ``{xrst_comment_ch`` *ch* :code:`}`
-
-.. meta::
-   :keywords: purpose
-
-.. index:: purpose
 
 .. _comment_ch_cmd@purpose:
 
@@ -103,11 +93,6 @@ and the ``def`` token indented the same amount:
         if n == 1 :
             return 1
         return n * factorial(n-1)
-
-.. meta::
-   :keywords: example
-
-.. index:: example
 
 .. _comment_ch_cmd@example:
 

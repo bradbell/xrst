@@ -20,11 +20,6 @@ Begin and End Commands
 .. contents::
    :local:
 
-.. meta::
-   :keywords: syntax
-
-.. index:: syntax
-
 .. _begin_cmd@syntax:
 
 Syntax
@@ -78,9 +73,9 @@ If *group_name* is empty, this section is part of the empty group.
 Note that it is the group name and not the group that is empty.
 
 .. meta::
-   :keywords: output, file
+   :keywords: output
 
-.. index:: output, file
+.. index:: output
 
 .. _begin_cmd@output_file:
 

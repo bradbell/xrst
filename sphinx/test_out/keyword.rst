@@ -9,9 +9,9 @@ keyword
 xrst input file: ``sphinx/configure.xrst``
 
 .. meta::
-   :keywords: keyword, the, keyword, example, file
+   :keywords: keyword, keyword
 
-.. index:: keyword, the, keyword, example, file
+.. index:: keyword, keyword
 
 .. _@keyword:
 

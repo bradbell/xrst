@@ -9,9 +9,9 @@ indent_example
 xrst input file: ``example/indent.py``
 
 .. meta::
-   :keywords: indent_example, indent, example
+   :keywords: indent_example, indent
 
-.. index:: indent_example, indent, example
+.. index:: indent_example, indent
 
 .. _@indent_example:
 
@@ -26,11 +26,6 @@ Indent Example
         if n == 1 :
             return 1
         return n * factorial(n-1)
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _indent_example@this_example_file:
 

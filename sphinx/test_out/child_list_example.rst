@@ -9,9 +9,9 @@ child_list_example
 xrst input file: ``example/child_list.xrst``
 
 .. meta::
-   :keywords: child_list_example, child_list, command, example
+   :keywords: child_list_example, child_list
 
-.. index:: child_list_example, child_list, command, example
+.. index:: child_list_example, child_list
 
 .. _@child_list_example:
 
@@ -21,9 +21,9 @@ child_list Command Example
    :local:
 
 .. meta::
-   :keywords: children.py, file
+   :keywords: children.py
 
-.. index:: children.py, file
+.. index:: children.py
 
 .. _child_list_example@children.py_file:
 
@@ -33,9 +33,9 @@ see :ref:`child_example_one@this_example_file`
 in the child_example_one section.
 
 .. meta::
-   :keywords: child_list, command
+   :keywords: child_list
 
-.. index:: child_list, command
+.. index:: child_list
 
 .. _child_list_example@child_list_command:
 
@@ -44,11 +44,6 @@ child_list Command
 
 -  :ref:`@child_example_one`
 -  :ref:`@child_example_two`
-
-.. meta::
-   :keywords: this, example, file
-
-.. index:: this, example, file
 
 .. _child_list_example@this_example_file:
 
