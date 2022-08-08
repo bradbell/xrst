@@ -15,6 +15,13 @@
 xrst Release Notes for 2022
 ###########################
 
+08-08
+*****
+1. Fix documentaion for relative locaiton of :ref:`file_cmd@display_file`
+   in file command and `child_cmd@file_names` in child commands.
+   These change from where xrst is execute to where :ref:`run_xrst@root_file`
+   is located on :ref:`2022@07-30`
+
 08-07
 *****
 1. Add the :ref:`run_xrst@-v` option which prints the version of xrst.
