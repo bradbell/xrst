@@ -3,9 +3,11 @@
 # Exclude articles and prepositions used in documentation.
 a
 and
+for
 of
 the
 this
+to
 #
 # Exclude words that are used in many sections of the documentation.
 command

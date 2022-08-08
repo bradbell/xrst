@@ -23,9 +23,9 @@ Section Child
 This section is the second child in this file.
 
 .. meta::
-   :keywords: link, to, first, child
+   :keywords: link, first, child
 
-.. index:: link, to, first, child
+.. index:: link, first, child
 
 .. _child_example_two@link_to_first_child:
 

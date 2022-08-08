@@ -25,9 +25,9 @@ This file does not contain a begin parent command,
 so all its sections are children of the section that includes this file.
 
 .. meta::
-   :keywords: link, to, second, child
+   :keywords: link, second, child
 
-.. index:: link, to, second, child
+.. index:: link, second, child
 
 .. _child_example_one@link_to_second_child:
 

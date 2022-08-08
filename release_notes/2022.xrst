@@ -21,6 +21,8 @@ xrst Release Notes for 2022
    in file command and :ref:`child_cmd@file_names` in child commands.
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
    is located on :ref:`2022@07-30` .
+2. Improve the documentation :ref:`index<genindex>`; for example,
+   improve :ref:`keyword` .
 
 08-07
 *****

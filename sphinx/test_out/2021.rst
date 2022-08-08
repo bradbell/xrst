@@ -9,9 +9,9 @@
 xrst input file: ``release_notes/2021.xrst``
 
 .. meta::
-   :keywords: 2021, xrst, release, notes, for, 2021
+   :keywords: 2021, xrst, release, notes, 2021
 
-.. index:: 2021, xrst, release, notes, for, 2021
+.. index:: 2021, xrst, release, notes, 2021
 
 .. _@2021:
 

@@ -9,9 +9,9 @@ heading_example
 xrst input file: ``example/heading.py``
 
 .. meta::
-   :keywords: heading_example, title, heading, for, section
+   :keywords: heading_example, title, heading, section
 
-.. index:: heading_example, title, heading, for, section
+.. index:: heading_example, title, heading, section
 
 .. _@heading_example:
 
@@ -90,14 +90,14 @@ is included at the beginning of the target for the link:
 5. :ref:`heading_example@another_second_level@third_level`
 
 .. meta::
-   :keywords: linking, headings, using, \:ref\:
+   :keywords: linking, headings, using, :ref:
 
-.. index:: linking, headings, using, \:ref\:
+.. index:: linking, headings, using, :ref:
 
-.. _heading_example@linking_headings_using_\:ref\::
+.. _heading_example@linking_headings_using_:ref::
 
-Linking Headings Using \:ref\:
-******************************
+Linking Headings Using :ref:
+****************************
 The file below demonstrates linking to headings using ``:ref:`` .
 
 .. _heading_example@this_example_file:

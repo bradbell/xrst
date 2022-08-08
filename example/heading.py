@@ -44,8 +44,8 @@ is included at the beginning of the target for the link:
 4. :ref:`heading_example@another_second_level`
 5. :ref:`heading_example@another_second_level@third_level`
 
-Linking Headings Using \:ref\:
-******************************
+Linking Headings Using :ref:
+****************************
 The file below demonstrates linking to headings using ``:ref:`` .
 
 This Example File
