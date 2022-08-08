@@ -29,7 +29,7 @@ Examples
 -  :ref:`@comment_ch_example`
 -  :ref:`@heading_example`
 -  :ref:`@indent_example`
--  :ref:`@configure`
+-  :ref:`@configure_example`
 
 .. toctree::
    :maxdepth: 1
@@ -44,4 +44,4 @@ Examples
    comment_ch_example
    heading_example
    indent_example
-   configure
+   configure_example

@@ -19,7 +19,7 @@ Table of Contents
 |  |space| :ref:`1.7<comment_ch_example>` Comment Character Command Example
 |  |space| :ref:`1.8<heading_example>` Title Heading for This Section
 |  |space| :ref:`1.9<indent_example>` Indent Example
-|  |space| :ref:`1.10<configure>` Example Configuration Files
+|  |space| :ref:`1.10<configure_example>` Example Configuration Files
 |
 |  |space|  |space| :ref:`1.10.1<spelling>` The spelling Example File
 |  |space|  |space| :ref:`1.10.2<keyword>` The keyword Example File

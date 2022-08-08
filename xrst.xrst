@@ -21,7 +21,7 @@ Examples
     example/comment_ch.py
     example/heading.py
     example/indent.py
-    sphinx/configure.xrst
+    example/configure.xrst
 }
 
 {xrst_end example}

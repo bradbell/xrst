@@ -6,7 +6,7 @@
 preamble.rst
 !!!!!!!!!!!!
 
-xrst input file: ``sphinx/configure.xrst``
+xrst input file: ``example/configure.xrst``
 
 .. meta::
    :keywords: preamble.rst, preamble.rst

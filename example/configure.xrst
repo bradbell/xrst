@@ -5,13 +5,29 @@
              GNU General Public License version 3.0 or later see
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
-{xrst_begin_parent configure}
+{xrst_begin_parent configure_example}
 
 Example Configuration Files
 ###########################
+These files are used to configure xrst to build its documentation:
+
+{xrst_child_table}
 
 
-{xrst_end configure}
+xrst_file
+*********
+The file below demonstrates the used of ``xrst_file`` .
+
+xrst_begin_parent
+*****************
+The file below demonstrates the used of ``xrst_begin_parent`` .
+
+
+This Example File
+*****************
+{xrst_file}
+
+{xrst_end configure_example}
 -----------------------------------------------------------------------------
 {xrst_begin spelling}
 

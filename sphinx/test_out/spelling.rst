@@ -6,7 +6,7 @@
 spelling
 !!!!!!!!
 
-xrst input file: ``sphinx/configure.xrst``
+xrst input file: ``example/configure.xrst``
 
 .. meta::
    :keywords: spelling, spelling
