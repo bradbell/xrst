@@ -130,8 +130,6 @@ Contents
 -  :ref:`@run_xrst`
 -  :ref:`@commands`
 -  :ref:`@automatic`
--  :ref:`@wish_list`
--  :ref:`@release_notes`
 
 .. toctree::
    :maxdepth: 1
@@ -140,5 +138,3 @@ Contents
    run_xrst
    commands
    automatic
-   wish_list
-   release_notes

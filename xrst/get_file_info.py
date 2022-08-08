@@ -187,7 +187,7 @@ def get_file_info(
         if m_begin == None :
             if not found_group_name :
                 msg  = 'can not find a begin command at start of a line\n'
-                msg += f'with group_name = "{group_name}"\n'
+                msg += f'with group_name = {group_name}\n'
                 msg += f'parent file = {parent_file}'
                 xrst.system_exit(msg, file_name=file_in)
             #
@@ -231,7 +231,7 @@ def get_file_info(
             for info in section_info :
                 if section_name == info['section_name'] :
                     msg  = f'section_name = "{section_name}", '
-                    msg += f'group_name = "{group_name}" appears twice\n'
+                    msg += f'group_name = {group_name} appears twice\n'
                     msg += 'Once  in file ' + file_in + '\n'
                     msg += 'Again in file ' + info['file_in'] + '\n'
                     xrst.system_exit(msg)

@@ -24,7 +24,8 @@ xrst Release Notes for 2022
 
 08-07
 *****
-Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+1. Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+2. Put :ref:`run_xrst@root_file@project_name` at top of html documentation.
 
 .. _2022@08-06:
 

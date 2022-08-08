@@ -5,7 +5,7 @@
                GNU General Public License version 3.0 or later see
                      https://www.gnu.org/licenses/gpl-3.0.txt
 -------------------------------------------------------------------------------
-{xrst_begin 2022 user}
+{xrst_begin 2022 app}
 {xrst_spell
     conf
     xsrst
@@ -17,7 +17,8 @@ xrst Release Notes for 2022
 
 08-07
 *****
-Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+1. Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+2. Put :ref:`run_xrst@root_file@project_name` at top of html documentation.
 
 08-06
 *****

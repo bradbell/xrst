@@ -46,7 +46,7 @@ fi
 mkdir doc
 cd    doc
 #
-for group_list in ',' ',user'
+for group_list in ',' ',user,app'
 do
     echo_eval rm -r ../sphinx/rst
     echo "python -m xrst ../xrst.xrst -g $group_list -o doc"

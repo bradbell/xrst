@@ -5,6 +5,8 @@
              GNU General Public License version 3.0 or later see
                    https://www.gnu.org/licenses/gpl-3.0.txt
 ----------------------------------------------------------------------------
+empty group name
+----------------------------------------------------------------------------
 {xrst_begin example}
 
 Examples
@@ -23,6 +25,8 @@ Examples
 }
 
 {xrst_end example}
+----------------------------------------------------------------------------
+user group name
 ----------------------------------------------------------------------------
 {xrst_begin_parent user_guide user}
 {xrst_spell
@@ -133,7 +137,16 @@ The processing described below happens without any commands:
 
 {xrst_end automatic}
 ----------------------------------------------------------------------------
-{xrst_begin wish_list user}
+app group name
+----------------------------------------------------------------------------
+{xrst_begin_parent appendix app}
+
+Appendix
+########
+
+{xrst_end appendix}
+----------------------------------------------------------------------------
+{xrst_begin wish_list app}
 {xrst_spell
     stackoverflow
     pyspellchecker
@@ -177,7 +190,7 @@ indenting xrst input sections.
 
 {xrst_end wish_list}
 ----------------------------------------------------------------------------
-{xrst_begin release_notes user}
+{xrst_begin release_notes app}
 
 xrst Release Notes By Year
 ##########################

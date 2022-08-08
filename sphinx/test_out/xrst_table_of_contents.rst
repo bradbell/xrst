@@ -44,13 +44,11 @@ Table of Contents
 |  |space|  |space| :ref:`2.3.2<heading_links>` Heading Links
 |  |space|  |space| :ref:`2.3.3<auto_file>` Automatically Generated Files
 |
-|  |space| :ref:`2.4<wish_list>` Wish List
-|  |space| :ref:`2.5<release_notes>` xrst Release Notes By Year
+| :ref:`3<appendix>` Appendix
 |
-|  |space|  |space| :ref:`2.5.1<2022>` xrst Release Notes for 2022
-|  |space|  |space| :ref:`2.5.2<2021>` xrst Release Notes for 2021
+|  |space| :ref:`3.1<wish_list>` Wish List
+|  |space| :ref:`3.2<release_notes>` xrst Release Notes By Year
 |
-
-Link to Index
-*************
-* :ref:`genindex`
+|  |space|  |space| :ref:`3.2.1<2022>` xrst Release Notes for 2022
+|  |space|  |space| :ref:`3.2.2<2021>` xrst Release Notes for 2021
+|
