@@ -1,2 +1,14 @@
 # Extract Sphinx RST Files
-[purpose](https://bradbell.github.io/xrst/doc/rst/xrst.html#purpose)
+
+## Purpose
+(https://bradbell.github.io/xrst/doc/rst/xrst.html#purpose)
+
+## Install
+```
+pip install --index-url https://test.pypi.org/simple/ xrst
+```
+
+## Run
+```
+xsrst --help
+```

@@ -75,6 +75,9 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #.  Allows for multiple sections (rst output files) to be specified by one
     input file. In addition, one section can be the parent for the
     other sections in a file; see :ref:`begin_cmd` .
+#.  Allows one to build subsets of the documentation; e.g., user, developer,
+    examples. In addition, sections for different subsets can be in the
+    same input file; see :ref:`run_xrst@group_list`.
 #.  Automatic generates the contents tree from the specification
     of which files are included; see :ref:`child_cmd`.
     Generates a jump table to the headings tree for each section

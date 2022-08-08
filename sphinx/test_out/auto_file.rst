@@ -53,14 +53,14 @@ This is the sphinx configuration_ file.
 .. _configuration:  http://www.sphinx-doc.org/en/master/config
 
 .. meta::
-   :keywords: rst/xrst_table_contents.rst
+   :keywords: rst/xrst_table_of_contents.rst
 
-.. index:: rst/xrst_table_contents.rst
+.. index:: rst/xrst_table_of_contents.rst
 
-.. _auto_file@rst/xrst_table_contents.rst:
+.. _auto_file@rst/xrst_table_of_contents.rst:
 
-rst/xrst_table_contents.rst
-***************************
+rst/xrst_table_of_contents.rst
+******************************
 This file contains the table of contents for the last run of ``xrst``.
 You can link to the corresponding section with the following command::
 
