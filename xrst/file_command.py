@@ -17,6 +17,10 @@ Syntax
 | ``{xrst_file}``
 |
 | ``{xrst_file``
+| |tab| *display_file*
+| :code:`}`
+|
+| ``{xrst_file``
 | |tab| *start*
 | |tab| *stop*
 | :code:`}`
@@ -39,6 +43,9 @@ White Space
 Leading and trailing white space is not included in
 *start*, *stop* or *display_file*.
 The new line character separates these tokens.
+The line containing the ``{xrst_file`` must have nothing but white space
+before it.
+The line containing the ``}`` must have nothing but white space after it.
 
 display_file
 ************
@@ -46,14 +53,16 @@ If *display_file* is not in the syntax,
 the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
 The file name *display_file* is relative to the directory
-where :ref:`xrst<run_xrst>` is executed.
+where the :ref:`run_xrst@root_file` is located.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
 No start or stop
 ****************
+In the case where there is no *start* or *stop*,
+the entire display file is displayed.
 In the case of the ``{xrst_file}`` syntax,
-then entire current input file is displayed.
+the entire current input file is displayed.
 
 start
 *****
@@ -89,7 +98,6 @@ import os
 import re
 import xrst
 #
-pattern_file_0 = re.compile( r'\n[ \t]*\{xrst_file\}' )
 # ----------------------------------------------------------------------------
 def file_extension(display_file) :
     index = display_file.rfind('.')
@@ -131,6 +139,8 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     assert type(section_name) == str
     assert type(rst_dir) == str
     #
+    assert xrst.pattern['file_0'].groups == 1
+    assert xrst.pattern['file_1'].groups == 4
     assert xrst.pattern['file_2'].groups == 6
     assert xrst.pattern['file_3'].groups == 8
     #
@@ -141,35 +151,57 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     # data_out
     data_out = data_in
     #
-    # m_file
-    m_file  = pattern_file_0.search(data_out)
-    if m_file != None :
-        cmd       = f'.. literalinclude:: {work_dir}{file_name}\n'
-        extension = file_extension( file_name )
-        if extension != '' :
-            cmd += 4 * ' ' + f':language: {extension}\n'
-        cmd = '\n' + cmd + '\n'
-        if m_file.start() > 0 :
-            if data_out[m_file.start() - 1] != '\n' :
-                cmd = '\n' + cmd
-        #
-        # data_out
-        data_tmp  = data_out[: m_file.start() ]
-        data_tmp += cmd
-        data_tmp += data_out[ m_file.end() : ]
-        data_out  = data_tmp
+    # key
+    for key in [ 'file_0', 'file_1' ] :
         #
         # m_file
-        m_file  = pattern_file_0.search(data_out)
-        if m_file :
-            msg  = 'More than one {xrst_file} command in this section.\n'
-            msg += 'This command includes the entire current input file.'
-            xrst.system_exit(msg,
-                file_name    = file_name,
-                section_name = section_name,
-                m_obj        = m_file,
-                data         = data_out
-            )
+        m_file  = xrst.pattern[key].search(data_out)
+        while m_file != None :
+            #
+            # display_file
+            if key == 'file_0' :
+                display_file = file_name
+            else :
+                display_file = m_file.group(2).strip()
+                if not os.path.isfile(display_file) :
+                    msg  = 'file_comand: can not find the display_file.\n'
+                    msg += f'display_file = {display_file}'
+                    xrst.system_exit(msg,
+                        file_name    = file_name,
+                        section_name = section_name,
+                        m_obj        = m_file,
+                        data         = data_out
+                    )
+                if os.path.samefile(display_file, file_name) :
+                    display_file = file_name
+            #
+            # cmd
+            cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
+            extension = file_extension( display_file )
+            if extension != '' :
+                cmd += 4 * ' ' + f':language: {extension}\n'
+            cmd = '\n' + cmd + '\n'
+            if m_file.start() > 0 :
+                if data_out[m_file.start() - 1] != '\n' :
+                    cmd = '\n' + cmd
+            #
+            # data_out
+            data_tmp  = data_out[: m_file.start() ]
+            data_tmp += cmd
+            data_tmp += data_out[ m_file.end() : ]
+            data_out  = data_tmp
+            #
+            # m_file
+            m_file  = xrst.pattern[key].search(data_out)
+            if m_file and key == 'file_0' :
+                msg  = 'More than one {xrst_file} command in this section.\n'
+                msg += 'This command includes the entire current input file.'
+                xrst.system_exit(msg,
+                    file_name    = file_name,
+                    section_name = section_name,
+                    m_obj        = m_file,
+                    data         = data_out
+                )
     #
     # key
     for key in [ 'file_2', 'file_3' ] :

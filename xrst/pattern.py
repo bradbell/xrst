@@ -50,8 +50,21 @@ pattern['code'] = re.compile(
 # group(1): the section name.
 pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 #
+# pattern['file_0']
+# xrst_file with no arguments
+# group(0): preceeding newline + white space + the command.
+# group(1): line number where } at end of command appears
+#
+# pattern['file_1']
+# xrst_file wth display_file
+# group(0): preceeding newline + white space + the command.
+# group(1): the line number where this command starts
+# group(2): the display file
+# group(3): line number where display file appears
+# group(4): line number where } at end of command appears
+#
 # pattern['file_2']
-# Pattern for a file command that displays the current input file.
+# xrst_file with start, stop
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
 # group(2): the start text + surrounding white space
@@ -61,19 +74,25 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 # group(6): line number where } at end of command appears
 #
 # pattern['file_3']
-# Pattern for a file command that displays a specified file.
+# xrst_file with start, stop, display_file
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
 # group(2): the start text + surrounding white space
 # group(3): line number where start text appears
 # group(4): the stop text + surrounding white space
 # group(5): the line number where stop text appears
-# group(6): the file that is searched
-# group(7): line number where search file appears
+# group(6): the display file
+# group(7): line number where display file appears
 # group(8): line number where } at end of command appears
 #
 arg = r'([^{]*)\{xrst_line ([0-9]+)@\n'
 lin = r'[ \t]*\{xrst_line ([0-9]+)@\n'
+pattern['file_0'] = re.compile(
+    r'\n[ \t]*\{xrst_file\}' + lin
+)
+pattern['file_1']  = re.compile(
+    r'\n[ \t]*\{xrst_file' + lin + arg + r'[ \t]*\}' + lin
+)
 pattern['file_2']  = re.compile(
     r'\n[ \t]*\{xrst_file' + lin + arg + arg + r'[ \t]*\}' + lin
 )

@@ -33,6 +33,10 @@ Syntax
 | ``{xrst_file}``
 |
 | ``{xrst_file``
+| |tab| *display_file*
+| :code:`}`
+|
+| ``{xrst_file``
 | |tab| *start*
 | |tab| *stop*
 | :code:`}`
@@ -69,6 +73,9 @@ White Space
 Leading and trailing white space is not included in
 *start*, *stop* or *display_file*.
 The new line character separates these tokens.
+The line containing the ``{xrst_file`` must have nothing but white space
+before it.
+The line containing the ``}`` must have nothing but white space after it.
 
 .. meta::
    :keywords: display_file
@@ -83,7 +90,7 @@ If *display_file* is not in the syntax,
 the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
 The file name *display_file* is relative to the directory
-where :ref:`xrst<run_xrst>` is executed.
+where the :ref:`run_xrst@root_file` is located.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
@@ -96,8 +103,10 @@ that move files and automatically change references to them.
 
 No start or stop
 ****************
+In the case where there is no *start* or *stop*,
+the entire display file is displayed.
 In the case of the ``{xrst_file}`` syntax,
-then entire current input file is displayed.
+the entire current input file is displayed.
 
 .. meta::
    :keywords: start

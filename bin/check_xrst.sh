@@ -48,7 +48,10 @@ cd    doc
 #
 for group_list in ',' ',user,app'
 do
-    echo_eval rm -r ../sphinx/rst
+    if [ -e ../sphinx/rst ]
+    then
+        echo_eval rm -r ../sphinx/rst
+    fi
     echo "python -m xrst ../xrst.xrst -g $group_list -o doc"
     if ! python -m xrst ../xrst.xrst -g $group_list -o doc 2> check_xrst.$$
     then

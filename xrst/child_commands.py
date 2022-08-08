@@ -54,7 +54,7 @@ A new line character must precede and follow each
 of the file names *file_1* ... *file_n*.
 Leading and trailing white space is not included in the names
 The file names are  relative to the directory where
-:ref:`xrst<run_xrst>` is executed.
+:ref:`run_xrst@root_file` is located.
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 

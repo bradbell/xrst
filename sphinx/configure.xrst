@@ -18,8 +18,6 @@ Example Configuration Files
 The spelling Example File
 #########################
 {xrst_file
-    # BEGIN spelling
-    # END spelling
     sphinx/spelling
 }
 
@@ -30,8 +28,6 @@ The spelling Example File
 The keyword Example File
 ########################
 {xrst_file
-    # BEGIN keyword
-    # END keyword
     sphinx/keyword
 }
 
@@ -42,8 +38,6 @@ The keyword Example File
 The preamble.rst Example File
 #############################
 {xrst_file
-    comment BEGIN preamble.rst
-    comment END preamble.rst
     sphinx/preamble.rst
 }
 

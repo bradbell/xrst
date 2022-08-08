@@ -21,4 +21,3 @@ The spelling Example File
    :local:
 
 .. literalinclude:: ../../sphinx/spelling
-    :lines: 2-7
