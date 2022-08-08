@@ -41,11 +41,21 @@ function definition below:
             return 1
         return n * factorial(n-1)
 
+.. meta::
+   :keywords: xrst_comment_ch
+
+.. index:: xrst_comment_ch
+
+.. _comment_ch_example@xrst_comment_ch:
+
+xrst_comment_ch
+***************
+The file below demonstrates the use of ``xrst_comment_ch`` .
+
 .. _comment_ch_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_comment_ch`` :
 
 .. literalinclude:: ../../example/comment_ch.py
     :language: py

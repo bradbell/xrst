@@ -20,10 +20,12 @@ def factorial(n) :
     return n * factorial(n-1)
 """{xrst_code}
 
+xrst_code
+*********
+The file below demonstrates the use of ``xrst_code`` .
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_code`` :
 {xrst_file}
 
 {xrst_end code_example}

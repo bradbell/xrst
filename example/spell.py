@@ -42,10 +42,12 @@ no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
+xrst_spell
+**********
+The file below demonstrates the use of ``xrst_spell``
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_spell`` :
 {xrst_file}
 
 {xrst_end spell_example}

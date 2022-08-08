@@ -37,11 +37,21 @@ Factorial
             return 1
         return n * factorial(n-1)
 
+.. meta::
+   :keywords: xrst_code
+
+.. index:: xrst_code
+
+.. _code_example@xrst_code:
+
+xrst_code
+*********
+The file below demonstrates the use of ``xrst_code`` .
+
 .. _code_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_code`` :
 
 .. literalinclude:: ../../example/code.py
     :language: py

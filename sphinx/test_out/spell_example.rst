@@ -75,11 +75,21 @@ no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
 spelling command for this section.
 
+.. meta::
+   :keywords: xrst_spell
+
+.. index:: xrst_spell
+
+.. _spell_example@xrst_spell:
+
+xrst_spell
+**********
+The file below demonstrates the use of ``xrst_spell``
+
 .. _spell_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_spell`` :
 
 .. literalinclude:: ../../example/spell.py
     :language: py

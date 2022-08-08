@@ -38,9 +38,12 @@ square
     // END_SQUARE
 }
 
+xrst_file
+*********
+The file below demonstrates the use of ``xrst_file`` .
+
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_file`` :
 {xrst_file}
 
 {xrst_end file_example}

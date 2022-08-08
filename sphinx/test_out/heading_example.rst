@@ -89,11 +89,21 @@ is included at the beginning of the target for the link:
 4. :ref:`heading_example@another_second_level`
 5. :ref:`heading_example@another_second_level@third_level`
 
+.. meta::
+   :keywords: linking, headings, using, \:ref\:
+
+.. index:: linking, headings, using, \:ref\:
+
+.. _heading_example@linking_headings_using_\:ref\::
+
+Linking Headings Using \:ref\:
+******************************
+The file below demonstrates linking to headings using ``:ref:`` .
+
 .. _heading_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates linking to headings using ``:ref:`` :
 
 .. literalinclude:: ../../example/heading.py
     :language: py

@@ -29,9 +29,12 @@ def factorial(n) :
     return n * factorial(n-1)
 # {xrst_code}
 #
+# xrst_comment_ch
+# ***************
+# The file below demonstrates the use of ``xrst_comment_ch`` .
+#
 # This Example File
 # *****************
-# The file below demonstrates the use of ``xrst_comment_ch`` :
 # {xrst_file}
 #
 # {xrst_end comment_ch_example}

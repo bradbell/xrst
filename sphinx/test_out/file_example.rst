@@ -48,11 +48,21 @@ square
     :lines: 16-16
     :language: cpp
 
+.. meta::
+   :keywords: xrst_file
+
+.. index:: xrst_file
+
+.. _file_example@xrst_file:
+
+xrst_file
+*********
+The file below demonstrates the use of ``xrst_file`` .
+
 .. _file_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_file`` :
 
 .. literalinclude:: ../../example/file.cpp
     :language: cpp

@@ -27,11 +27,22 @@ Indent Example
             return 1
         return n * factorial(n-1)
 
+.. meta::
+   :keywords: discussion
+
+.. index:: discussion
+
+.. _indent_example@discussion:
+
+Discussion
+**********
+The file below demonstrates indenting an entire xrst section.
+Note that underling headings works even though it is indented.
+
 .. _indent_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates indenting an entire xrst section :
 
 .. literalinclude:: ../../example/indent.py
     :language: py

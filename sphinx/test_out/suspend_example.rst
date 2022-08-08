@@ -42,11 +42,32 @@ Product
 *******
 *p* = ``product(`` *iterable* ``)``
 
+.. meta::
+   :keywords: xrst_suspend
+
+.. index:: xrst_suspend
+
+.. _suspend_example@xrst_suspend:
+
+xrst_suspend
+************
+The file below demonstrates the use of ``xrst_suspend`` .
+
+.. meta::
+   :keywords: xrst_resume
+
+.. index:: xrst_resume
+
+.. _suspend_example@xrst_resume:
+
+xrst_resume
+***********
+The file below demonstrates the use of ``xrst_resume`` .
+
 .. _suspend_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_suspend`` and ``xrst_resume`` :
 
 .. literalinclude:: ../../example/suspend.py
     :language: py

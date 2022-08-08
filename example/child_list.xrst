@@ -21,9 +21,12 @@ child_list Command
         example/children.py
 }
 
+xrst_child_list
+***************
+The file below demonstrates the use of ``xrst_child_list`` .
+
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_child_list`` :
 {xrst_file}
 
 {xrst_end child_list_example}

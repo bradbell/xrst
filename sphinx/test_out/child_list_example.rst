@@ -45,11 +45,21 @@ child_list Command
 -  :ref:`@child_example_one`
 -  :ref:`@child_example_two`
 
+.. meta::
+   :keywords: xrst_child_list
+
+.. index:: xrst_child_list
+
+.. _child_list_example@xrst_child_list:
+
+xrst_child_list
+***************
+The file below demonstrates the use of ``xrst_child_list`` .
+
 .. _child_list_example@this_example_file:
 
 This Example File
 *****************
-The file below demonstrates the use of ``xrst_child_list`` :
 
 .. literalinclude:: ../../example/child_list.xrst
     :language: rst

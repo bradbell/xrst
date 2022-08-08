@@ -18,9 +18,13 @@
         return n * factorial(n-1)
     """{xrst_code}
 
+    Discussion
+    **********
+    The file below demonstrates indenting an entire xrst section.
+    Note that underling headings works even though it is indented.
+
     This Example File
     *****************
-    The file below demonstrates indenting an entire xrst section :
     {xrst_file}
 
     {xrst_end indent_example}
