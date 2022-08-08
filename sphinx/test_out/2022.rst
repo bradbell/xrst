@@ -20,6 +20,15 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-08:
+
+08-08
+*****
+1. Fix documentation for relative location of :ref:`file_cmd@display_file`
+   in file command and :ref:`child_cmd@file_names` in child commands.
+   This changed from where xrst is execute to where :ref:`run_xrst@root_file`
+   is located on :ref:`2022@07-30` .
+
 .. _2022@08-07:
 
 08-07
