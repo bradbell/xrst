@@ -10,7 +10,7 @@ import xrst
 #
 # pattern_child
 pattern_child = re.compile(
-    r'\n[ \t]*{xrst_(children|child_list|child_table)}'
+    r'\n{xrst_(children|child_list|child_table)}\n'
 )
 #
 # patttern_rst_extension
@@ -72,16 +72,15 @@ def process_children(
             cmd = '\n\n'
             for child in list_children :
                 cmd += '-  :ref:`@' + child + '`\n'
-            cmd += '\n'
+            cmd += '\n\n'
         elif child_type == 'child_table' :
-            cmd  = '\n'
+            cmd  = '\n\n'
             cmd += '.. csv-table::\n'
             cmd += '    :header:  "Child", "Title"\n'
             cmd += '    :widths: 20, 80\n\n'
             for child in list_children :
                 cmd += '    "' + child + '"'
                 cmd += ', :ref:`@' + child + '`\n'
-            cmd += '\n'
         else :
             assert child_type == 'children'
             cmd = ''

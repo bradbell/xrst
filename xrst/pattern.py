@@ -29,6 +29,7 @@ pattern['begin'] = re.compile(
 # group(2): the rest of the command that comes after the command name.
 #           This is a list of file names with one name per line.
 #           The } at the end of the command is not included.
+#           This pattern may be empty.
 pattern['child']   = re.compile(
     r'\n[ \t]*\{xrst_(children|child_list|child_table)([^}]*)\}'
 )

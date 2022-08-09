@@ -136,6 +136,7 @@ import xrst
 # The first retrun data_out is a copy of data_in with the
 # child commands replaced by  {xrst_command} where comamnd is children,
 # child_list, or child_table depending on which command was in data_in.
+# There is a newline directly before and after the {xrst_command}.
 #
 # file_list:
 # The second return file_list is the list of files in the child command
