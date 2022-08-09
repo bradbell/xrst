@@ -20,6 +20,17 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-09:
+
+08-09
+*****
+1.  The colon ``:`` was added to the characters that get changed to
+    underbar ``_`` when converting headings to labels; see
+    :ref:`heading_links@labels@conversion` .
+2.  Sphinx warnings that ocurred while running xrst were not being reported.
+    This has been fixed.
+3.  Two broken cross reference links (reported by sphinx warnings) were fixed.
+
 .. _2022@08-08:
 
 08-08
@@ -105,7 +116,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 07-28
 *****
 1.  Change ``xsrst`` to ``xrst``
-2.  Create the first :ref:`xrst@pip_install` of xrst.
+2.  Create the first :ref:`user_guide@pip_install` of xrst.
 
 .. _2022@07-27:
 

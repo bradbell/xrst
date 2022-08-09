@@ -94,7 +94,7 @@ is included at the beginning of the target for the link:
 
 .. index:: linking, headings, using, :ref:
 
-.. _heading_example@linking_headings_using_:ref::
+.. _heading_example@linking_headings_using__ref_:
 
 Linking Headings Using :ref:
 ****************************

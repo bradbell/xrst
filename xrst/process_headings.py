@@ -11,8 +11,8 @@
     underbars
 }
 
-Heading Links
-#############
+Heading Cross Reference Links
+#############################
 
 Index
 *****
@@ -49,13 +49,21 @@ Other Levels
 ============
 The label for linking a heading that is not at the first level is the label
 for the heading directly above it plus an at sign character :code:`@`,
-plus a lower case version of the heading with spaces and at signs converted to
-underbars :code:`_`. For example, the label for the heading for this
-paragraph is
-
-|tab| ``run_xrst@links_to_headings@other_levels``
-
+plus the conversion for this heading.
 These labels do not begin with ``@``.
+
+Conversion
+==========
+The conversion of a heading to a label does the following:
+
+1.  Letters are converted to lower case.
+2.  The following characters are converted to underbars ``_`` :
+    space ,  at signs ``@``, and colon ``:`` .
+
+For example, the label for the heading above is
+
+|tab| ``heading_links@labels@conversion``
+
 
 Discussion
 ==========
@@ -217,8 +225,10 @@ def process_headings(
         label = ''
         for level in range( len(heading_list) ) :
             if level == 0 :
-                label = section_name.lower().replace(' ', '_')
+                label = section_name.lower()
+                label = label.replace(' ', '_')
                 label = label.replace('@', '_')
+                label = label.replace(':', '_')
                 assert label == section_name
                 # label for link that displays the title
                 if len(heading_list) == 1 :
@@ -226,9 +236,12 @@ def process_headings(
                 else :
                     label = section_name
             else :
-                heading = heading_list[level]
-                text   = heading['text'].lower().replace(' ', '_')
-                label += '@' + text.replace('@', '_')
+                heading     = heading_list[level]
+                conversion  = heading['text'].lower()
+                conversion  = conversion.replace(' ', '_')
+                conversion  = conversion.replace('@', '_')
+                conversion  = conversion.replace(':', '_')
+                label += '@' + conversion
         #
         # index_entries
         if len(heading_list) == 1 :

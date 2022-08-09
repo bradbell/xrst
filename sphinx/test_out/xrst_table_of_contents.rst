@@ -41,7 +41,7 @@ Table of Contents
 |  |space| :ref:`2.3<automatic>` Automatic Processing
 |
 |  |space|  |space| :ref:`2.3.1<indent>` Indentation
-|  |space|  |space| :ref:`2.3.2<heading_links>` Heading Links
+|  |space|  |space| :ref:`2.3.2<heading_links>` Heading Cross Reference Links
 |  |space|  |space| :ref:`2.3.3<auto_file>` Automatically Generated Files
 |
 | :ref:`3<appendix>` Appendix

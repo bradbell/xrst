@@ -9,14 +9,14 @@ heading_links
 xrst input file: ``xrst/process_headings.py``
 
 .. meta::
-   :keywords: heading_links, heading, links
+   :keywords: heading_links, heading, cross, reference, links
 
-.. index:: heading_links, heading, links
+.. index:: heading_links, heading, cross, reference, links
 
 .. _@heading_links:
 
-Heading Links
-#############
+Heading Cross Reference Links
+#############################
 .. contents::
    :local:
 
@@ -82,13 +82,27 @@ Other Levels
 ============
 The label for linking a heading that is not at the first level is the label
 for the heading directly above it plus an at sign character :code:`@`,
-plus a lower case version of the heading with spaces and at signs converted to
-underbars :code:`_`. For example, the label for the heading for this
-paragraph is
-
-|tab| ``run_xrst@links_to_headings@other_levels``
-
+plus the conversion for this heading.
 These labels do not begin with ``@``.
+
+.. meta::
+   :keywords: conversion
+
+.. index:: conversion
+
+.. _heading_links@labels@conversion:
+
+Conversion
+==========
+The conversion of a heading to a label does the following:
+
+1.  Letters are converted to lower case.
+2.  The following characters are converted to underbars ``_`` :
+    space ,  at signs ``@``, and colon ``:`` .
+
+For example, the label for the heading above is
+
+|tab| ``heading_links@labels@conversion``
 
 .. meta::
    :keywords: discussion

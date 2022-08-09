@@ -28,7 +28,7 @@ Syntax
     [ ``-e`` *error_line* ]
     [ ``-g`` *group_list* ]
     [ ``-t`` *target* ]
-    [ ``-o`` *output_dir ]
+    [ ``-o`` *output_dir* ]
     [ ``-s`` *sphinx_dir* ]
 
 .. meta::

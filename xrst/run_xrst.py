@@ -21,7 +21,7 @@ Syntax
     [ ``-e`` *error_line* ]
     [ ``-g`` *group_list* ]
     [ ``-t`` *target* ]
-    [ ``-o`` *output_dir ]
+    [ ``-o`` *output_dir* ]
     [ ``-s`` *sphinx_dir* ]
 
 -v
@@ -201,11 +201,11 @@ def system_command(command) :
     print(command)
     command = command.split(' ')
     result = subprocess.run(command, capture_output = True)
-    if result.returncode == 0 :
+    stderr = result.stderr.decode('utf-8')
+    ok     =  result.returncode == 0 and stderr == ''
+    if ok :
         return
-    msg  = 'system command failed'
-    msg += f'\nstdout = {result.stdout}'
-    msg += f'\nstderr = {result.stderr}'
+    msg  = f'system command failed: stderr = \n{stderr}'
     sys.exit(msg)
 # ---------------------------------------------------------------------------
 # sys.path
