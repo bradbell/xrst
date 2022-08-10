@@ -81,20 +81,20 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #.  Each section has its own contents tree, for its headings, that is
     separate from the contents tree for the sections. This makes it
     easy to move sections to different places in the sections contents tree.
-#.  Enables documentation in the comments for source code
+#.  Facilitates documentation in the source code comments
     when multiple computer languages are used by one package;
     e.g., see :ref:`comment_ch_cmd` .
 #.  Allows the documentation for one section to span multiple locations
     in the source code; see :ref:`suspend_cmd`.
 #.  Allows for multiple sections (rst output files) to be specified by one
     input file. In addition, one section can be the parent for the
-    other sections in a file; see :ref:`begin_cmd` .
+    other sections in the same file; see :ref:`begin_cmd` .
 #.  Allows one to build subsets of the documentation; e.g., user, developer,
     examples. In addition, sections for different subsets can be in the
     same input file; see :ref:`run_xrst@group_list`.
 #.  Automatic generates the contents tree from the specification
     of which files are included; see :ref:`child_cmd`.
-    Generates a jump table to the headings tree for each section
+    Also generates a jump table to the headings tree for each section
     so that the navigation bar need not include this information.
 #.  Includes a configurable spell checker; see
     :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .
@@ -102,17 +102,20 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #.  Words in each heading are automatically included in the
     keyword index in a way that can be configured;
     see :ref:`run_xrst@sphinx_dir@keyword` .
-#.  Makes it easy to include source code that also executes, from
-    directly below the current file; see :ref:`code_cmd` .
-#.  Source code can also be included from any location;
+#.  Makes it easy to include source code,
+    directly below the current location,
+    that also executes; see :ref:`code_cmd` .
+#.  Source code can also be included from any location and any file;
     see :ref:`file_cmd`.
     This uses tokens in the source, not line numbers,
-    to signify start and stop of inclusion from a file.
+    to signify start and stop of the inclusion.
+    This makes it easy to move things, like function prototypes,
+    to different places in the documentation.
 #.  Automatically generates labels for linking to a heading in any section.
     These labels are designed with changing documentation in mind; e.g.,
     in this documentation the text
     ``:ref:`heading_links@labels@discussion``
-    generates the following link
+    generates the following link (which discusses these labels)
     :ref:`heading_links@labels@discussion`.
 
 .. meta::
