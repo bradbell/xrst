@@ -16,6 +16,11 @@
 xrst Release Notes for 2022
 ###########################
 
+08-15
+*****
+1.  Add ``deprecated`` to the xrst dictionary.
+2.  Extend :ref:`keyword` file to remove version number from index.
+
 08-09
 *****
 1.  The colon ``:`` was added to the characters that get changed to

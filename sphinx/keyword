@@ -18,4 +18,8 @@ purpose
 syntax
 #
 # Exclude the mm-dd headings used by the xrst release notes.
-[0-9][0-9]-[0-9][0-9]
+[0-9]{2}-[0-9]{2}
+#
+# Exclude yyyy.mm.dd pattern corresponding to version number
+# where yyyy mm and dd may be one or two characters.
+[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}

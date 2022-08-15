@@ -84,6 +84,7 @@ def create_spell_checker(local_words) :
         'covariate',
         'covariates',
         'debug',
+        'deprecated',
         'destructor',
         'exponentiation',
         'hessians',
