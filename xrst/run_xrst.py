@@ -17,16 +17,16 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` ( -v |  *root_file* )
-    [ ``-e`` *error_line* ]
-    [ ``-g`` *group_list* ]
-    [ ``-t`` *target* ]
-    [ ``-o`` *output_dir* ]
-    [ ``-s`` *sphinx_dir* ]
+-   ``xrst`` ( --version |  *root_file* )
+    [ ``--rst`` *rst_line* ]
+    [ ``--group`` *group_list* ]
+    [ ``--target`` *target* ]
+    [ ``--output`` *output_dir* ]
+    [ ``--sphinx`` *sphinx_dir* ]
 
--v
-**
-If ``-v`` is present on the command line, there are no other arguments
+version
+********
+If ``--version`` is present on the command line, there are no other arguments
 and the version of xrst is printed. Otherwise *root_file* is a required
 argument.
 
@@ -44,14 +44,14 @@ project_name
 The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
 
-error_line
-**********
+rst_line
+********
 This optional argument helps find the source of errors reported by sphinx.
-If the argument *error_line* is (is not) present,
+If the argument *rst_line* is (is not) present,
 a table is (is not) generated at the end of each output file.
 This table maps line numbers in the rst output files to
 line numbers in the corresponding xrst input file.
-The argument *error_line* is a positive integer specifying the minimum
+The argument *rst_line* is a positive integer specifying the minimum
 difference between xrst input line numbers for entries in the table.
 The value ``1`` will give the maximum resolution.
 For example, the sphinx warning
@@ -219,7 +219,7 @@ import xrst
 # version
 # The script that updates version nubmers expects version at begining of line
 # and to have the value surrounded by single quotes.
-version = '2022.8.17'
+version = '2022.8.15'
 #
 def run_xrst() :
     #
@@ -230,30 +230,30 @@ def run_xrst() :
     parser = argparse.ArgumentParser(
         prog='xrst', description='extract Sphinx RST files'
     )
-    parser.add_argument('-v', action='store_true',
+    parser.add_argument('--version', action='store_true',
         help='just print version of xrst'
     )
     parser.add_argument('root_file', nargs='?', default=None,
-        help='file that contains root section (required except when using -v)')
+        help='file that contains root section (required except when using --version)')
     parser.add_argument(
-        '-e', metavar='error_line', type=int,
+        '--rst', metavar='rst_line', type=int,
         help='increment in table that converts sphinx error messages'
     )
     parser.add_argument(
-        '-g', metavar='group_list', default=',',
+        '--group', metavar='group_list', default=',',
         help='comma separated list of groups to include (default: ,)'
     )
     parser.add_argument(
-        '-t', metavar='target', choices=['html', 'pdf'], default='html',
+        '--target', metavar='target', choices=['html', 'pdf'], default='html',
         help='type of output files, choices are html or pdf (default: html)'
     )
     parser.add_argument(
-        '-o', metavar='output_dir',
+        '--output', metavar='output_dir',
         help= 'directory containing the sphinx output files ' +
         '(default: sphinx_dir/html)'
     )
     parser.add_argument(
-        '-s', metavar='sphinx_dir', default='sphinx',
+        '--sphinx', metavar='sphinx_dir', default='sphinx',
         help='directory containing configuration and xrst generated files ' +
         '(default: sphinx)'
     )
@@ -261,7 +261,7 @@ def run_xrst() :
     # arguments
     arguments = parser.parse_args()
     #
-    if arguments.v :
+    if arguments.version :
         print(version)
         sys.exit(0)
     #
@@ -270,7 +270,7 @@ def run_xrst() :
     root_file = arguments.root_file
     if root_file == None :
         msg  = 'xsrst: Error\n'
-        msg += 'root_file is required when not using the -v option'
+        msg += 'root_file is required when not using the --version option'
         sys.exit(msg)
     if not os.path.isfile(root_file) :
         msg  = 'xsrst: Error\n'
@@ -292,27 +292,27 @@ def run_xrst() :
         root_directory = root_file[: index]
     os.chdir(root_directory)
     #
-    # error_line
-    error_line = arguments.e
-    if error_line == None :
-        error_line = 0
+    # rst_line
+    rst_line = arguments.rst
+    if rst_line == None :
+        rst_line = 0
     else :
-        if error_line < 1 :
-            msg = 'error_line is not a positive integer'
+        if rst_line < 1 :
+            msg = 'rst_line is not a positive integer'
             xrst.system_exit(msg)
     #
     # group_list
-    group_list = arguments.g
+    group_list = arguments.group
     if group_list == ',' :
         group_list = [ '' ]
     else :
         group_list = group_list.split(',')
     #
     # target
-    target = arguments.t
+    target = arguments.target
     #
     # sphinx_dir
-    sphinx_dir = arguments.s
+    sphinx_dir = arguments.sphinx
     if not os.path.isdir(sphinx_dir) :
         msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
         msg += 'is a valid directory path'
@@ -327,7 +327,7 @@ def run_xrst() :
         xrst.system_exit(msg)
     #
     # output_dir
-    output_dir = arguments.o
+    output_dir = arguments.output
     if output_dir == None :
         output_dir = f'{sphinx_dir}/html'
     #
@@ -531,7 +531,7 @@ def run_xrst() :
                 # -------------------------------------------------------------
                 # write temporary file
                 xrst.temporary_file(
-                    error_line,
+                    rst_line,
                     pseudo_heading,
                     file_in,
                     tmp_dir,

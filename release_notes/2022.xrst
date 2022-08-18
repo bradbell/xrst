@@ -16,6 +16,12 @@
 xrst Release Notes for 2022
 ###########################
 
+08-17
+*****
+Change the xrst command
+:ref:`run_xrst@syntax` to use more descriptive flags; e.g.
+``-v`` was changed to ``--version``.
+
 08-15
 *****
 1.  Add ``deprecated`` to the xrst dictionary.
@@ -41,7 +47,7 @@ xrst Release Notes for 2022
 
 08-07
 *****
-1. Add the :ref:`run_xrst@-v` option which prints the version of xrst.
+1. Add the :ref:`run_xrst@version` option which prints the version of xrst.
 2. Put :ref:`run_xrst@root_file@project_name` at top of html documentation.
 
 08-06
@@ -119,7 +125,7 @@ interact; see :ref:`child_cmd@children`.
 1.  Require that the suspend and resume commands are in their own line; see
     :ref:`@suspend_cmd`.
 2.  A problem was fixed the table corresponding to the
-    :ref:`run_xrst@error_line` table.
+    :ref:`run_xrst@rst_line` table.
     To be specific, the indices in the rst file were one larger than
     they should have been.
 

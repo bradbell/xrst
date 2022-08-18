@@ -24,23 +24,23 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` ( -v |  *root_file* )
-    [ ``-e`` *error_line* ]
-    [ ``-g`` *group_list* ]
-    [ ``-t`` *target* ]
-    [ ``-o`` *output_dir* ]
-    [ ``-s`` *sphinx_dir* ]
+-   ``xrst`` ( --version |  *root_file* )
+    [ ``--rst`` *rst_line* ]
+    [ ``--group`` *group_list* ]
+    [ ``--target`` *target* ]
+    [ ``--output`` *output_dir* ]
+    [ ``--sphinx`` *sphinx_dir* ]
 
 .. meta::
-   :keywords: -v
+   :keywords: version
 
-.. index:: -v
+.. index:: version
 
-.. _run_xrst@-v:
+.. _run_xrst@version:
 
--v
-**
-If ``-v`` is present on the command line, there are no other arguments
+version
+********
+If ``--version`` is present on the command line, there are no other arguments
 and the version of xrst is printed. Otherwise *root_file* is a required
 argument.
 
@@ -73,20 +73,20 @@ The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
 
 .. meta::
-   :keywords: error_line
+   :keywords: rst_line
 
-.. index:: error_line
+.. index:: rst_line
 
-.. _run_xrst@error_line:
+.. _run_xrst@rst_line:
 
-error_line
-**********
+rst_line
+********
 This optional argument helps find the source of errors reported by sphinx.
-If the argument *error_line* is (is not) present,
+If the argument *rst_line* is (is not) present,
 a table is (is not) generated at the end of each output file.
 This table maps line numbers in the rst output files to
 line numbers in the corresponding xrst input file.
-The argument *error_line* is a positive integer specifying the minimum
+The argument *rst_line* is a positive integer specifying the minimum
 difference between xrst input line numbers for entries in the table.
 The value ``1`` will give the maximum resolution.
 For example, the sphinx warning
