@@ -25,9 +25,9 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@version_2022.8.10:
+.. _user_guide@version_2022.8.15:
 
-Version 2022.8.10
+Version 2022.8.15
 ******************
 
 .. meta::
@@ -74,40 +74,40 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 
 .. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
-#.  The rst file name for each section is also an abbreviated title used
-    in the navigation bar and for linking to the section. This makes the
-    navigation bar more useful while also having long descriptive titles.
-    It also makes cross reference linking from other sections easier.
-#.  Each section has its own contents tree, for its headings, that is
-    separate from the contents tree for the sections. This makes it
+#.  The rst file name is used as an abbreviated title
+    in the navigation bar. This makes the navigation bar more useful
+    while also having long descriptive titles.
+#.  Each section (rst file) has a contents tree for its headings
+    that is separate from the contents tree for the sections. This makes it
     easy to move sections to different places in the sections contents tree.
-#.  Facilitates documentation in the source code comments
+#.  Puts a jump table to headings that is a contents tree at the top of each
+    section because the navigation bar does not include this information.
+#.  Makes it easy to put documentation in source code comments
     when multiple computer languages are used by one package;
     e.g., see :ref:`comment_ch_cmd` .
 #.  Allows the documentation for one section to span multiple locations
-    in the source code; see :ref:`suspend_cmd`.
-#.  Allows for multiple sections (rst output files) to be specified by one
-    input file. In addition, one section can be the parent for the
+    in source code; see :ref:`suspend_cmd`.
+#.  Allows for multiple sections to be specified by one
+    input file. One section can be the parent for the
     other sections in the same file; see :ref:`begin_cmd` .
 #.  Allows one to build subsets of the documentation; e.g., user, developer,
-    examples. In addition, sections for different subsets can be in the
+    examples. Sections for different subsets can be in the
     same input file; see :ref:`run_xrst@group_list`.
-#.  Automatic generates the contents tree from the specification
-    of which files are included; see :ref:`child_cmd`.
-    Also generates a jump table to the headings tree for each section
-    so that the navigation bar need not include this information.
+#.  Unlike doxygen and autodoc, xrst organizes  the contents tree
+    for sections using commands that include files;
+    see :ref:`child_cmd`. This enables one to group functions or classes
+    into one section of the documentation.
 #.  Includes a configurable spell checker; see
     :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .
     The spell checker catches double word errors.
 #.  Words in each heading are automatically included in the
     keyword index in a way that can be configured;
     see :ref:`run_xrst@sphinx_dir@keyword` .
-#.  Makes it easy to include source code,
-    directly below the current location,
-    that also executes; see :ref:`code_cmd` .
+#.  Makes it easy to include source code that executes
+    directly below the current location; see :ref:`code_cmd` .
 #.  Source code can also be included from any location and any file;
     see :ref:`file_cmd`.
-    This uses tokens in the source, not line numbers,
+    This uses tokens in source code, not line numbers,
     to signify start and stop of the inclusion.
     This makes it easy to move things, like function prototypes,
     to different places in the documentation.
