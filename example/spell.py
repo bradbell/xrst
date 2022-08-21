@@ -48,7 +48,7 @@ The file below demonstrates the use of ``xrst_spell``
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end spell_example}
 """

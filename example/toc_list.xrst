@@ -27,6 +27,6 @@ The file below demonstrates the use of ``xrst_toc_list`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end toc_list_example}

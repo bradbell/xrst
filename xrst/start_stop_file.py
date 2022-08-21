@@ -10,19 +10,19 @@ import xrst
 # Convert start,  stop text for a file command to start, stop line numbers.
 #
 # section_name:
-# is the name of the section where the xrst_file command appears.
+# is the name of the section where the xrst_literal command appears.
 #
 # file_cmd:
-# is the name of the file where the xrst_file command appears.
+# is the name of the file where the xrst_literal command appears.
 #
 # display_file:
 # is the name of the file that we are displaying. If it is not the same as
-# file_cmd, then it must have appeared in the xrst_file command.
+# file_cmd, then it must have appeared in the xrst_literal command.
 #
 # cmd_line:
 # If file_cmd is equal to display_file, the section of the file between
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
-# are in the xrst_file command and are excluded from the search.
+# are in the xrst_literal command and are excluded from the search.
 #
 # start_text:
 # is the starting text. There must be one and only one copy of this text in the

@@ -25,18 +25,18 @@ File Command
 Syntax
 ******
 
-| ``{xrst_file}``
+| ``{xrst_literal}``
 |
-| ``{xrst_file``
+| ``{xrst_literal``
 | |tab| *display_file*
 | :code:`}`
 |
-| ``{xrst_file``
+| ``{xrst_literal``
 | |tab| *start*
 | |tab| *stop*
 | :code:`}`
 |
-| ``{xrst_file``
+| ``{xrst_literal``
 | |tab| *start*
 | |tab| *stop*
 | |tab| *display_file*
@@ -63,7 +63,7 @@ White Space
 Leading and trailing white space is not included in
 *start*, *stop* or *display_file*.
 The new line character separates these tokens.
-The line containing the ``{xrst_file`` must have nothing but white space
+The line containing the ``{xrst_literal`` must have nothing but white space
 before it.
 The line containing the ``}`` must have nothing but white space after it.
 
@@ -95,7 +95,7 @@ No start or stop
 ****************
 In the case where there is no *start* or *stop*,
 the entire display file is displayed.
-In the case of the ``{xrst_file}`` syntax,
+In the case of the ``{xrst_literal}`` syntax,
 the entire current input file is displayed.
 
 .. meta::

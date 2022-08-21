@@ -20,7 +20,7 @@ Link to Second Child
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end child_example_one}
 """

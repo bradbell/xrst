@@ -50,7 +50,7 @@ The file below demonstrates linking to headings using ``:ref:`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end heading_example}
 """

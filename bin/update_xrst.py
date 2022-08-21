@@ -20,6 +20,9 @@ operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
 
+file2literal
+change xrst_file -> xrst_literal.
+
 child2toc:
 Change xsrt_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
 and xrst_child_table -> xrst_toc_table.
@@ -42,6 +45,11 @@ Change :ref:`section_name<section_name>` -> :ref:`section_name`
 def abort(msg) :
     msg = '\nupdate_xstst.py: ' + msg
     sys.exit(msg)
+#
+# fiile2literal:
+def file2literal(data_in) :
+    data_out = data_in.replace('{xrst_file', '{xrst_literal')
+    return data_out
 #
 # child2toc:
 def child2toc(data_in) :
@@ -97,9 +105,11 @@ def main() :
     #
     # operation_dict
     operation_dict = {
-        'dot2atsign' :  dot2atsign,
-        'xsrst2xrst' :  xsrst2xrst,
-        'ref_section' : ref_section,
+        'file2literal' :  file2literal,
+        'child2toc'    :  child2toc,
+        'dot2atsign'   :  dot2atsign,
+        'xsrst2xrst'   :  xsrst2xrst,
+        'ref_section'  : ref_section,
     }
     #
     # operation

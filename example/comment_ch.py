@@ -35,6 +35,6 @@ def factorial(n) :
 #
 # This Example File
 # *****************
-# {xrst_file}
+# {xrst_literal}
 #
 # {xrst_end comment_ch_example}

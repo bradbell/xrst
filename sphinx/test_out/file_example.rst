@@ -49,15 +49,15 @@ square
     :language: cpp
 
 .. meta::
-   :keywords: xrst_file
+   :keywords: xrst_literal
 
-.. index:: xrst_file
+.. index:: xrst_literal
 
-.. _file_example@xrst_file:
+.. _file_example@xrst_literal:
 
-xrst_file
-*********
-The file below demonstrates the use of ``xrst_file`` .
+xrst_literal
+************
+The file below demonstrates the use of ``xrst_literal`` .
 
 .. _file_example@this_example_file:
 

@@ -26,7 +26,7 @@ The file below demonstrates the use of ``xrst_code`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end code_example}
 """

@@ -25,7 +25,7 @@
 
     This Example File
     *****************
-    {xrst_file}
+    {xrst_literal}
 
     {xrst_end indent_example}
 """

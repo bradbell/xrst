@@ -12,9 +12,9 @@ Example Configuration Files
 These files are used to configure xrst to build its documentation:
 {xrst_toc_table}
 
-xrst_file
-*********
-The file below demonstrates the used of ``xrst_file`` .
+xrst_literal
+************
+The file below demonstrates the used of ``xrst_literal`` .
 
 xrst_begin_parent
 *****************
@@ -23,7 +23,7 @@ The file below demonstrates the used of ``xrst_begin_parent`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end configure_example}
 -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ This Example File
 
 The spelling Example File
 #########################
-{xrst_file
+{xrst_literal
     sphinx/spelling
 }
 
@@ -41,7 +41,7 @@ The spelling Example File
 
 The keyword Example File
 ########################
-{xrst_file
+{xrst_literal
     sphinx/keyword
 }
 
@@ -51,7 +51,7 @@ The keyword Example File
 
 The preamble.rst Example File
 #############################
-{xrst_file
+{xrst_literal
     sphinx/preamble.rst
 }
 

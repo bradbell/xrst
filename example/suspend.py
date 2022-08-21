@@ -49,7 +49,7 @@ The file below demonstrates the use of ``xrst_resume`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end suspend_example}
 """

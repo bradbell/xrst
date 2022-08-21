@@ -26,25 +26,25 @@ File Command Example
 
 factorial
 *********
-{xrst_file
+{xrst_literal
     // BEGIN_FACTORIAL
     // END_FACTORIAL
 }
 
 square
 ******
-{xrst_file
+{xrst_literal
     // BEGIN_SQUARE
     // END_SQUARE
 }
 
-xrst_file
-*********
-The file below demonstrates the use of ``xrst_file`` .
+xrst_literal
+************
+The file below demonstrates the use of ``xrst_literal`` .
 
 This Example File
 *****************
-{xrst_file}
+{xrst_literal}
 
 {xrst_end file_example}
 ------------------------------------------------------------------------------

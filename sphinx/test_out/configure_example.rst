@@ -31,15 +31,15 @@ These files are used to configure xrst to build its documentation:
     "preamble.rst", :ref:`@preamble.rst`
 
 .. meta::
-   :keywords: xrst_file
+   :keywords: xrst_literal
 
-.. index:: xrst_file
+.. index:: xrst_literal
 
-.. _configure_example@xrst_file:
+.. _configure_example@xrst_literal:
 
-xrst_file
-*********
-The file below demonstrates the used of ``xrst_file`` .
+xrst_literal
+************
+The file below demonstrates the used of ``xrst_literal`` .
 
 .. meta::
    :keywords: xrst_begin_parent
