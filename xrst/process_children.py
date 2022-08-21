@@ -77,7 +77,7 @@ def process_children(
             cmd  = '\n\n'
             cmd += '.. csv-table::\n'
             cmd += '    :header:  "Child", "Title"\n'
-            cmd += '    :widths: 20, 80\n\n'
+            cmd += '    :widths: auto\n\n'
             for child in list_children :
                 cmd += '    "' + child + '"'
                 cmd += ', :ref:`@' + child + '`\n'

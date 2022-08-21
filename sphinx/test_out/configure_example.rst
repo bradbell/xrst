@@ -24,7 +24,7 @@ These files are used to configure xrst to build its documentation:
 
 .. csv-table::
     :header:  "Child", "Title"
-    :widths: 20, 80
+    :widths: auto
 
     "spelling", :ref:`@spelling`
     "keyword", :ref:`@keyword`
