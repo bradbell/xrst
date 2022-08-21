@@ -20,6 +20,10 @@ operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
 
+child2toc:
+Change xsrt_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
+and xrst_child_table -> xrst_toc_table.
+
 dot2atsign:
 Change the '.' to '@' character in all text of the form :ref:`text` and
 text of the form (at the betinning of a line) .. _text:
@@ -38,6 +42,13 @@ Change :ref:`section_name<section_name>` -> :ref:`section_name`
 def abort(msg) :
     msg = '\nupdate_xstst.py: ' + msg
     sys.exit(msg)
+#
+# child2toc:
+def child2toc(data_in) :
+    data_out = data_in.replace('{xrst_children', '{xrst_toc_hidden')
+    data_out = data_out.replace('{xrst_child_list', '{xrst_toc_list')
+    data_out = data_out.replace('{xrst_child_table', '{xrst_toc_table')
+    return data_out
 #
 # ref_section
 def ref_section(data_in) :

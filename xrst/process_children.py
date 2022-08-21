@@ -8,9 +8,9 @@
 import re
 import xrst
 #
-# pattern_child
-pattern_child = re.compile(
-    r'\n{xrst_(children|child_list|child_table)}\n'
+# pattern_toc
+pattern_toc = re.compile(
+    r'\n{xrst_toc_(hidden|list|table)}\n'
 )
 #
 # patttern_rst_extension
@@ -29,12 +29,12 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # data_out
 # The return value data_out has the child information added.
 # This includes a hidden table of contents (toctree) for the children at the
-# end of data_out. If the child command in data_in is {xrst_child_list} or
-# {xrst_child_table} of table with the corresponding links will replace the
-# comand. If the child comamnd is {xrst_children}, the command is removed,
+# end of data_out. If the child command in data_in is {xrst_toc_list} or
+# {xrst_toc_table} of table with the corresponding links will replace the
+# comand. If the child comamnd is {xrst_toc_hidden}, the command is removed,
 # but no table of links is added.
 # If there is no child command and list_children is non-empty,
-# the child_table style is used for the links to the children which is placed
+# the toc_table style is used for the links to the children which is placed
 # at the end of the data_out (before the toctree).
 #
 # data_out =
@@ -45,7 +45,7 @@ def process_children(
 ) :
     #
     if len(list_children) == 0 :
-        m_child = pattern_child.search(data_in)
+        m_child = pattern_toc.search(data_in)
         assert m_child is None
         return data_in
     #
@@ -53,27 +53,27 @@ def process_children(
     data_out = data_in
     #
     # m_child
-    m_child = pattern_child.search(data_out)
+    m_child = pattern_toc.search(data_out)
     #
     # section_has_child_command
     section_has_child_command =  m_child != None
     if section_has_child_command :
         #
-        # type of child command
-        child_type = m_child.group(1)
+        # type of toc command
+        toc_type = m_child.group(1)
         #
         # There chould be at most one child command per section created by
         # the xrst.child_command routine
-        m_tmp = pattern_child.search(data_in, m_child.end())
+        m_tmp = pattern_toc.search(data_in, m_child.end())
         assert m_tmp == None
         #
         # cmd
-        if child_type ==  'child_list' :
+        if toc_type ==  'list' :
             cmd = '\n\n'
             for child in list_children :
                 cmd += '-  :ref:`@' + child + '`\n'
             cmd += '\n\n'
-        elif child_type == 'child_table' :
+        elif toc_type == 'table' :
             cmd  = '\n\n'
             cmd += '.. csv-table::\n'
             cmd += '    :header:  "Child", "Title"\n'
@@ -82,7 +82,7 @@ def process_children(
                 cmd += '    "' + child + '"'
                 cmd += ', :ref:`@' + child + '`\n'
         else :
-            assert child_type == 'children'
+            assert toc_type == 'hidden'
             cmd = '\n'
         #
         # data_out

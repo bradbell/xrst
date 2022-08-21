@@ -22,16 +22,17 @@ pattern['begin'] = re.compile(
     r'(^|\n)[ \t]*\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)\}'
 )
 #
-# pattern['child']
-# Patterns for the children, child_list, and child_table commands.
+# pattern['toc']
+# Patterns for the toc_hidden, toc_list, and toc_table commands.
 # group(0): preceeding newline + white space + the command.
-# group(1): command name; i.e., children, child_list, or child_table
+# group(1): command name; i.e., hidden, list, or table
 # group(2): the rest of the command that comes after the command name.
 #           This is a list of file names with one name per line.
 #           The } at the end of the command is not included.
 #           This pattern may be empty.
-pattern['child']   = re.compile(
-    r'\n[ \t]*\{xrst_(children|child_list|child_table)([^}]*)\}'
+# If you change this pattern, check pattern_toc in process_children.py
+pattern['toc']   = re.compile(
+    r'\n[ \t]*\{xrst_toc_(hidden|list|table)([^}]*)\}'
 )
 #
 # pattern['code']

@@ -11,42 +11,43 @@
     toctree
 }
 
-Child Commands
-##############
+Table of Children Commands
+##########################
 
 Syntax
 ******
 
-children
-========
-| ``{xrst_children``
+hidden
+======
+| ``{xrst_toc_hidden``
 |   *file_1*
 |   ...
 |   *file_n*
 | :code:`}`
 
 
-child_list
-==========
-| ``{xrst_child_list``
+list
+====
+| ``{xrst_toc_list``
 |   *file_1*
 |   ...
 |   *file_n*
 | :code:`}`
 
-child_table
-===========
-| ``{xrst_child_table``
+table
+=====
+| ``{xrst_toc_table``
 |   *file_1*
 |   ...
 |   *file_n*
 | :code:`}`
 
 
-Purpose
-*******
+Table of Contents
+*****************
 These commands specify the section that are children
-of the current section.
+of the current section; i.e., sections that are at the
+next level in the table of contents.
 
 File Names
 **********
@@ -65,48 +66,47 @@ The first of these sections may use a
 :ref:`parent begin<begin_cmd@parent_section>` command.
 
 #.  The first section in a file is always a child of the
-    section where the child command appears..
+    section where the toc command appears..
 
 #.  If the first section in a file is a begin parent section,
     the other sections in the file are children of the frist section.
     Hence the other sections are grand children of the section
-    where the begin child command appears.
+    where the begin toc command appears.
 
 #.  If there is no begin parent command in a file,
     all the sections in the file are children of the
-    section where the child command appears.
+    section where the toc command appears.
 
 #.  If the first section in a file is a begin parent section,
-    and there is also a child command in this section,
-    links to the child command children come first and then links to
+    and there is also a toc command in this section,
+    links to the toc command children come first and then links to
     the children that are other sections in the same file.
 
 Child Links
 ***********
-#.  The child_list syntax generates links to the children that
+#.  The toc_list syntax generates links to the children that
     display the title for each section.
-    The child_table syntax generates links to the children that
+    The toc_table syntax generates links to the children that
     display both the section name and section tile.
 
-#.  If a section has a child_list or child_table command,
+#.  If a section has a toc_list or toc_table command,
     links to all the children of the section are placed where the
-    child command is located.
+    toc command is located.
     You can place a heading directly before the these commands
     to make the links easier to find.
 
-#.  If a section uses the children syntax,
+#.  If a section uses the hidden syntax,
     no automatic links to the children of the current section are generated.
 
-#.  If a section does not have a child command,
+#.  If a section does not have a toc command,
     and it has a begin parent command,
     links to the children of the section are placed at the end of the section.
 
-Table of Contents, toctree
-**************************
-A sphinx ``toctree`` directive is automatically generated for each
-section that has children. This directive has the hidden attribute so that
-one can control the links to the children using the syntax choices above.
-
+toctree
+*******
+This command replaces the sphinx ``toctree`` directive.
+A ``toctree`` directive is automatically generated and includes each
+section that is a child of the current section.
 
 Example
 *******
@@ -118,10 +118,10 @@ Example
 import os
 import xrst
 #
-# process child commands
+# process toc commands
 #
 # data_in:
-# is the data for the section before the child commands have been processed.
+# is the data for the section before the toc commands have been processed.
 # Line numbers have been added to this data: see add_line_numbers.
 #
 # file_name:
@@ -134,13 +134,13 @@ import xrst
 #
 # data_out:
 # The first retrun data_out is a copy of data_in with the
-# child commands replaced by  {xrst_command} where comamnd is children,
-# child_list, or child_table depending on which command was in data_in.
+# toc commands replaced by  {xrst_command} where comamnd is toc_hidden,
+# toc_list, or toc_table depending on which command was in data_in.
 # There is a newline directly before and after the {xrst_command}.
 #
 # file_list:
-# The second return file_list is the list of files in the child command
-# (and in same order as in the child command).
+# The second return file_list is the list of files in the toc command
+# (and in same order as in the toc command).
 #
 # child_section_list:
 # Is the a list of section names corresponding to the children of the
@@ -164,14 +164,14 @@ def child_commands(data_in, file_name, section_name) :
     section_list = list()
     #
     # m_obj
-    m_obj        = xrst.pattern['child'].search(data_out)
+    m_obj        = xrst.pattern['toc'].search(data_out)
     if m_obj is None :
         return data_out, file_list, section_list
     #
     # m_tmp
-    m_tmp = xrst.pattern['child'].search(data_out[m_obj.end() :] )
+    m_tmp = xrst.pattern['toc'].search(data_out[m_obj.end() :] )
     if m_tmp is not None :
-        msg = 'More than one children or child_list command in a section.'
+        msg = 'More than one children or toc_list command in a section.'
         xrst.system_exit(msg,
             file_name=file_name,
             section_name=section_name,
@@ -181,11 +181,11 @@ def child_commands(data_in, file_name, section_name) :
     #
     # command
     command = m_obj.group(1)
-    assert command in [ 'children', 'child_list', 'child_table']
+    assert command in [ 'hidden', 'list', 'table']
     #
     # data_out
-    replace = '\n{xrst_' + command + '}\n'
-    data_out = xrst.pattern['child'].sub(replace, data_out)
+    replace = '\n{xrst_toc_' + command + '}\n'
+    data_out = xrst.pattern['toc'].sub(replace, data_out)
     #
     # file_list, file_line
     for child_line in m_obj.group(2).split('\n') :

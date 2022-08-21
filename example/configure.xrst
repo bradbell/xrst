@@ -10,7 +10,7 @@
 Example Configuration Files
 ###########################
 These files are used to configure xrst to build its documentation:
-{xrst_child_table}
+{xrst_toc_table}
 
 xrst_file
 *********

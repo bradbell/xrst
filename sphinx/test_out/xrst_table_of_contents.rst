@@ -31,7 +31,7 @@ Table of Contents
 |  |space| :ref:`2.2<commands>` Commands
 |
 |  |space|  |space| :ref:`2.2.1<begin_cmd>` Begin and End Commands
-|  |space|  |space| :ref:`2.2.2<child_cmd>` Child Commands
+|  |space|  |space| :ref:`2.2.2<child_cmd>` Table of Children Commands
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command

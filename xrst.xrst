@@ -11,7 +11,7 @@ empty group name
 
 Examples
 ########
-{xrst_child_list
+{xrst_toc_list
     example/get_started.xrst
     example/file.cpp
     example/child_list.xrst
@@ -108,7 +108,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 
 Contents
 ********
-{xrst_child_list
+{xrst_toc_list
     xrst/run_xrst.py
 }
 
@@ -119,7 +119,7 @@ Contents
 Commands
 ########
 The processing described below corresponds to xrst commands in the input files:
-{xrst_child_list
+{xrst_toc_list
     xrst/get_file_info.py
     xrst/child_commands.py
     xrst/spell_command.py
@@ -136,7 +136,7 @@ The processing described below corresponds to xrst commands in the input files:
 Automatic Processing
 ####################
 The processing described below happens without any commands:
-{xrst_child_list
+{xrst_toc_list
     xrst/remove_indent.py
     xrst/process_headings.py
     xrst/auto_file.py
@@ -202,7 +202,7 @@ indenting xrst input sections.
 
 xrst Release Notes By Year
 ##########################
-{xrst_children
+{xrst_toc_hidden
     release_notes/2022.xrst
     release_notes/2021.xrst
 }

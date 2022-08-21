@@ -17,13 +17,13 @@ in the child_example_one section.
 
 child_list Command
 ******************
-{xrst_child_list
+{xrst_toc_list
         example/children.py
 }
 
-xrst_child_list
-***************
-The file below demonstrates the use of ``xrst_child_list`` .
+xrst_toc_list
+*************
+The file below demonstrates the use of ``xrst_toc_list`` .
 
 This Example File
 *****************
