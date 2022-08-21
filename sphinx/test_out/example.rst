@@ -22,7 +22,7 @@ Examples
 
 -  :ref:`@get_started`
 -  :ref:`@file_example`
--  :ref:`@child_list_example`
+-  :ref:`@toc_list_example`
 -  :ref:`@spell_example`
 -  :ref:`@suspend_example`
 -  :ref:`@code_example`
@@ -37,7 +37,7 @@ Examples
 
    get_started
    file_example
-   child_list_example
+   toc_list_example
    spell_example
    suspend_example
    code_example

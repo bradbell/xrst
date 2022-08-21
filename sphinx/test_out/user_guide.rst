@@ -25,9 +25,9 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@version_2022.8.20:
+.. _user_guide@version_2022.8.21:
 
-Version 2022.8.20
+Version 2022.8.21
 ******************
 
 .. meta::
@@ -95,7 +95,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
     same input file; see :ref:`run_xrst@group_list`.
 #.  Unlike doxygen and autodoc, xrst organizes  the contents tree
     for sections using commands that include files;
-    see :ref:`child_cmd`. This enables one to group functions or classes
+    see :ref:`toc_cmd`. This enables one to group functions or classes
     into one section of the documentation.
 #.  Includes a configurable spell checker; see
     :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .

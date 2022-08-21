@@ -62,11 +62,11 @@ The following conditions hold for each *group_name*:
 #.  The other sections are children of the parent section.
 #.  The parent section is a child
     of the section that included this file using a
-    :ref:`child command<child_cmd>`.
+    :ref:`toc command<toc_cmd>`.
 #.  If there is no begin parent command in an input file,
     all the sections in the file are children
     of the section that included this file using a
-    :ref:`child command<child_cmd>`.
+    :ref:`toc command<toc_cmd>`.
 
 Note that there can be more than one begin parent command in a file if
 they have different group names. Also note that sections are only children

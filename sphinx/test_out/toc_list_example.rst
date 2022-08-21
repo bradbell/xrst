@@ -1,22 +1,22 @@
 .. include:: xrst_preamble.rst
 
-.. _child_list_example:
+.. _toc_list_example:
 
-!!!!!!!!!!!!!!!!!!
-child_list_example
-!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!
+toc_list_example
+!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/child_list.xrst``
+xrst input file: ``example/toc_list.xrst``
 
 .. meta::
-   :keywords: child_list_example, child_list
+   :keywords: toc_list_example, toc_list
 
-.. index:: child_list_example, child_list
+.. index:: toc_list_example, toc_list
 
-.. _@child_list_example:
+.. _@toc_list_example:
 
-child_list Command Example
-###########################
+toc_list Command Example
+########################
 .. contents::
    :local:
 
@@ -25,7 +25,7 @@ child_list Command Example
 
 .. index:: children.py
 
-.. _child_list_example@children.py_file:
+.. _toc_list_example@children.py_file:
 
 children.py File
 ****************
@@ -33,13 +33,13 @@ see :ref:`child_example_one@this_example_file`
 in the child_example_one section.
 
 .. meta::
-   :keywords: child_list
+   :keywords: toc_list
 
-.. index:: child_list
+.. index:: toc_list
 
-.. _child_list_example@child_list_command:
+.. _toc_list_example@toc_list_command:
 
-child_list Command
+toc_list Command
 ******************
 
 -  :ref:`@child_example_one`
@@ -50,18 +50,18 @@ child_list Command
 
 .. index:: xrst_toc_list
 
-.. _child_list_example@xrst_toc_list:
+.. _toc_list_example@xrst_toc_list:
 
 xrst_toc_list
 *************
 The file below demonstrates the use of ``xrst_toc_list`` .
 
-.. _child_list_example@this_example_file:
+.. _toc_list_example@this_example_file:
 
 This Example File
 *****************
 
-.. literalinclude:: ../../example/child_list.xrst
+.. literalinclude:: ../../example/toc_list.xrst
     :language: rst
 
 .. toctree::

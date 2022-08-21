@@ -14,7 +14,7 @@ Examples
 {xrst_toc_list
     example/get_started.xrst
     example/file.cpp
-    example/child_list.xrst
+    example/toc_list.xrst
     example/spell.py
     example/suspend.py
     example/code.py
@@ -83,7 +83,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
     same input file; see :ref:`run_xrst@group_list`.
 #.  Unlike doxygen and autodoc, xrst organizes  the contents tree
     for sections using commands that include files;
-    see :ref:`child_cmd`. This enables one to group functions or classes
+    see :ref:`toc_cmd`. This enables one to group functions or classes
     into one section of the documentation.
 #.  Includes a configurable spell checker; see
     :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .
@@ -121,7 +121,7 @@ Commands
 The processing described below corresponds to xrst commands in the input files:
 {xrst_toc_list
     xrst/get_file_info.py
-    xrst/child_commands.py
+    xrst/toc_commands.py
     xrst/spell_command.py
     xrst/suspend_command.py
     xrst/code_command.py

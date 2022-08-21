@@ -23,7 +23,7 @@ Commands
 The processing described below corresponds to xrst commands in the input files:
 
 -  :ref:`@begin_cmd`
--  :ref:`@child_cmd`
+-  :ref:`@toc_cmd`
 -  :ref:`@spell_cmd`
 -  :ref:`@suspend_cmd`
 -  :ref:`@code_cmd`
@@ -35,7 +35,7 @@ The processing described below corresponds to xrst commands in the input files:
    :hidden:
 
    begin_cmd
-   child_cmd
+   toc_cmd
    spell_cmd
    suspend_cmd
    code_cmd

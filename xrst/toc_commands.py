@@ -6,7 +6,7 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin child_cmd user}
+{xrst_begin toc_cmd user}
 {xrst_spell
     toctree
 }
@@ -110,9 +110,9 @@ section that is a child of the current section.
 
 Example
 *******
-:ref:`child_list_example`
+:ref:`toc_list_example`
 
-{xrst_end child_cmd}
+{xrst_end toc_cmd}
 """
 # ---------------------------------------------------------------------------
 import os
@@ -150,7 +150,7 @@ import xrst
 # sections in the file are in child_section_list.
 #
 # data_out, file_list, section_list =
-def child_commands(data_in, file_name, section_name) :
+def toc_commands(data_in, file_name, section_name) :
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str

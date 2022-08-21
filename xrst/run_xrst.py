@@ -491,9 +491,9 @@ def run_xrst() :
                     spell_checker,
                 )
                 # -------------------------------------------------------------
-                # child commands
+                # toc commands
                 section_data, child_file, child_section_list = \
-                    xrst.child_commands(
+                    xrst.toc_commands(
                         section_data,
                         file_in,
                         section_name,

@@ -8,7 +8,7 @@ Table of Contents
 |
 |  |space| :ref:`1.1<get_started>` Getting Started
 |  |space| :ref:`1.2<file_example>` File Command Example
-|  |space| :ref:`1.3<child_list_example>` child_list Command Example
+|  |space| :ref:`1.3<toc_list_example>` toc_list Command Example
 |
 |  |space|  |space| :ref:`1.3.1<child_example_one>` First Child
 |  |space|  |space| :ref:`1.3.2<child_example_two>` Section Child
@@ -31,7 +31,7 @@ Table of Contents
 |  |space| :ref:`2.2<commands>` Commands
 |
 |  |space|  |space| :ref:`2.2.1<begin_cmd>` Begin and End Commands
-|  |space|  |space| :ref:`2.2.2<child_cmd>` Table of Children Commands
+|  |space|  |space| :ref:`2.2.2<toc_cmd>` Table of Children Commands
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command

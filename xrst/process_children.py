@@ -20,7 +20,7 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #
 # data_in
 # is the data for this section after the child_command funcion has processed
-# the child commands.
+# the toc commands.
 #
 # list_children
 # is a list of the section names for the children of this section.
@@ -29,11 +29,11 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # data_out
 # The return value data_out has the child information added.
 # This includes a hidden table of contents (toctree) for the children at the
-# end of data_out. If the child command in data_in is {xrst_toc_list} or
+# end of data_out. If the toc command in data_in is {xrst_toc_list} or
 # {xrst_toc_table} of table with the corresponding links will replace the
 # comand. If the child comamnd is {xrst_toc_hidden}, the command is removed,
 # but no table of links is added.
-# If there is no child command and list_children is non-empty,
+# If there is no toc command and list_children is non-empty,
 # the toc_table style is used for the links to the children which is placed
 # at the end of the data_out (before the toctree).
 #
@@ -62,7 +62,7 @@ def process_children(
         # type of toc command
         toc_type = m_child.group(1)
         #
-        # There chould be at most one child command per section created by
+        # There chould be at most one toc command per section created by
         # the xrst.child_command routine
         m_tmp = pattern_toc.search(data_in, m_child.end())
         assert m_tmp == None
@@ -96,7 +96,7 @@ def process_children(
         data_out += '\n'
     #
     # data_out
-    # If there is no child command in this section, automatically generate
+    # If there is no toc command in this section, automatically generate
     # links to the child sections at the end of the section.
     if not section_has_child_command :
         data_out += '.. csv-table::\n'

@@ -5,17 +5,17 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-{xrst_begin child_list_example}
+{xrst_begin toc_list_example}
 
-child_list Command Example
-###########################
+toc_list Command Example
+########################
 
 children.py File
 ****************
 see :ref:`child_example_one@this_example_file`
 in the child_example_one section.
 
-child_list Command
+toc_list Command
 ******************
 {xrst_toc_list
         example/children.py
@@ -29,4 +29,4 @@ This Example File
 *****************
 {xrst_file}
 
-{xrst_end child_list_example}
+{xrst_end toc_list_example}

@@ -16,6 +16,19 @@
 xrst Release Notes for 2022
 ###########################
 
+08-21
+*****
+Change the command names  listed below (see :ref:`toc_cmd`).
+This was done because these commands act like the sphinx toctree command.
+
+.. csv-table::
+    :widths: auto
+
+    xrst_children,->,xrst_toc_hidden
+    xrst_child_list,->,xrst_toc_list
+    xrst_child_table,->,xrst_toc_table
+
+
 08-20
 *****
 1.  Add the :ref:`run_xrst@html_theme` option to the
@@ -47,7 +60,7 @@ Change the xrst command
 08-08
 *****
 1. Fix documentation for relative location of :ref:`file_cmd@display_file`
-   in file command and :ref:`child_cmd@file_names` in child commands.
+   in file command and :ref:`toc_cmd@file_names` in toc commands.
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
    is located on :ref:`2022@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
@@ -115,8 +128,8 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 
 07-27
 *****
-Improve the specification of how the child commands and begin_parent command
-interact; see :ref:`child_cmd@children`.
+Improve the specification of how the toc commands and begin_parent command
+interact; see :ref:`toc_cmd@children`.
 
 07-26
 *****

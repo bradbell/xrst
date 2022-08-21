@@ -12,13 +12,22 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
+#   bin/update_xrst.py
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#   xrst/child_commands.py
+#   example/child_list.xrst
+#   sphinx/test_out/child_cmd.rst
+#   sphinx/test_out/child_list_example.rst
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
+#   s|child_commands.py|toc_commands.py|
+#   s|child_list.xrst|toc_list.xrst|
+#   s|child_cmd.rst|toc_cmd.rst|
+#   s|child_list_example.rst|toc_list_example.rst|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -30,6 +39,8 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|xrst_children|xrst_toc_hidden|
-s|xrst_child_list|xrst_toc_list|
-s|xrst_child_table|xrst_toc_table|
+s|child_list|toc_list|g
+s|child_cmd|toc_cmd|g
+s|child command|toc command|
+s|from \.child_commands|from .toc_commands  |g
+s|child_commands|toc_commands|g

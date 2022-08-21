@@ -1,26 +1,26 @@
 .. include:: xrst_preamble.rst
 
-.. _child_cmd:
+.. _toc_cmd:
 
-!!!!!!!!!
-child_cmd
-!!!!!!!!!
+!!!!!!!
+toc_cmd
+!!!!!!!
 
-xrst input file: ``xrst/child_commands.py``
+xrst input file: ``xrst/toc_commands.py``
 
 .. meta::
-   :keywords: child_cmd, table, children, commands
+   :keywords: toc_cmd, table, children, commands
 
-.. index:: child_cmd, table, children, commands
+.. index:: toc_cmd, table, children, commands
 
-.. _@child_cmd:
+.. _@toc_cmd:
 
 Table of Children Commands
 ##########################
 .. contents::
    :local:
 
-.. _child_cmd@syntax:
+.. _toc_cmd@syntax:
 
 Syntax
 ******
@@ -30,7 +30,7 @@ Syntax
 
 .. index:: hidden
 
-.. _child_cmd@syntax@hidden:
+.. _toc_cmd@syntax@hidden:
 
 hidden
 ======
@@ -45,7 +45,7 @@ hidden
 
 .. index:: list
 
-.. _child_cmd@syntax@list:
+.. _toc_cmd@syntax@list:
 
 list
 ====
@@ -60,7 +60,7 @@ list
 
 .. index:: table
 
-.. _child_cmd@syntax@table:
+.. _toc_cmd@syntax@table:
 
 table
 =====
@@ -75,7 +75,7 @@ table
 
 .. index:: table, contents
 
-.. _child_cmd@table_of_contents:
+.. _toc_cmd@table_of_contents:
 
 Table of Contents
 *****************
@@ -88,7 +88,7 @@ next level in the table of contents.
 
 .. index:: names
 
-.. _child_cmd@file_names:
+.. _toc_cmd@file_names:
 
 File Names
 **********
@@ -105,7 +105,7 @@ that move files and automatically change references to them.
 
 .. index:: children
 
-.. _child_cmd@children:
+.. _toc_cmd@children:
 
 Children
 ********
@@ -135,7 +135,7 @@ The first of these sections may use a
 
 .. index:: child, links
 
-.. _child_cmd@child_links:
+.. _toc_cmd@child_links:
 
 Child Links
 ***********
@@ -162,7 +162,7 @@ Child Links
 
 .. index:: toctree
 
-.. _child_cmd@toctree:
+.. _toc_cmd@toctree:
 
 toctree
 *******
@@ -170,8 +170,8 @@ This command replaces the sphinx ``toctree`` directive.
 A ``toctree`` directive is automatically generated and includes each
 section that is a child of the current section.
 
-.. _child_cmd@example:
+.. _toc_cmd@example:
 
 Example
 *******
-:ref:`child_list_example`
+:ref:`toc_list_example`

@@ -111,15 +111,15 @@ def section_table_of_contents(
     file_ptr.write(file_data)
     file_ptr.close()
     #
-    # in_parent_file_list, in_child_cmd_list
+    # in_parent_file_list, in_toc_cmd_list
     in_parent_file_list = list()
-    in_child_cmd_list   = list()
+    in_toc_cmd_list   = list()
     for child_index in range( len( sinfo_list ) ) :
         if sinfo_list[child_index]['parent_section'] == section_index :
             if sinfo_list[child_index]['in_parent_file'] :
                 in_parent_file_list.append(child_index)
             else :
-                in_child_cmd_list.append(child_index)
+                in_toc_cmd_list.append(child_index)
     #
     #
     # child_count, child_content
@@ -127,7 +127,7 @@ def section_table_of_contents(
     child_content = ''
     #
     # child_count, child_content
-    for child_index in in_child_cmd_list + in_parent_file_list :
+    for child_index in in_toc_cmd_list + in_parent_file_list :
         #
         # child_count
         child_count[-1] += 1
