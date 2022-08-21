@@ -1,26 +1,26 @@
 .. include:: xrst_preamble.rst
 
-.. _file_cmd:
+.. _literal_cmd:
 
-!!!!!!!!
-file_cmd
-!!!!!!!!
+!!!!!!!!!!!
+literal_cmd
+!!!!!!!!!!!
 
-xrst input file: ``xrst/file_command.py``
+xrst input file: ``xrst/literal_command.py``
 
 .. meta::
-   :keywords: file_cmd
+   :keywords: literal_cmd, literal
 
-.. index:: file_cmd
+.. index:: literal_cmd, literal
 
-.. _@file_cmd:
+.. _@literal_cmd:
 
-File Command
-############
+Literal Command
+###############
 .. contents::
    :local:
 
-.. _file_cmd@syntax:
+.. _literal_cmd@syntax:
 
 Syntax
 ******
@@ -42,7 +42,7 @@ Syntax
 | |tab| *display_file*
 | :code:`}`
 
-.. _file_cmd@purpose:
+.. _literal_cmd@purpose:
 
 Purpose
 *******
@@ -56,7 +56,7 @@ can only have spaces and tabs before the command.
 
 .. index:: white, space
 
-.. _file_cmd@white_space:
+.. _literal_cmd@white_space:
 
 White Space
 ***********
@@ -72,7 +72,7 @@ The line containing the ``}`` must have nothing but white space after it.
 
 .. index:: display_file
 
-.. _file_cmd@display_file:
+.. _literal_cmd@display_file:
 
 display_file
 ************
@@ -89,7 +89,7 @@ that move files and automatically change references to them.
 
 .. index:: no, start, or, stop
 
-.. _file_cmd@no_start_or_stop:
+.. _literal_cmd@no_start_or_stop:
 
 No start or stop
 ****************
@@ -103,7 +103,7 @@ the entire current input file is displayed.
 
 .. index:: start
 
-.. _file_cmd@start:
+.. _literal_cmd@start:
 
 start
 *****
@@ -119,7 +119,7 @@ not counting the command itself when the files are the same.
 
 .. index:: stop
 
-.. _file_cmd@stop:
+.. _literal_cmd@stop:
 
 stop
 ****
@@ -135,14 +135,14 @@ not counting the command itself when the files are the same.
 
 .. index:: spell, checking
 
-.. _file_cmd@spell_checking:
+.. _literal_cmd@spell_checking:
 
 Spell Checking
 **************
 Spell checking is **not** done for these code blocks.
 
-.. _file_cmd@example:
+.. _literal_cmd@example:
 
 Example
 *******
-see :ref:`file_example` .
+see :ref:`literal_example` .

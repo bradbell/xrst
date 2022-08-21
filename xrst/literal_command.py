@@ -6,10 +6,10 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-{xrst_begin file_cmd user}
+{xrst_begin literal_cmd user}
 
-File Command
-############
+Literal Command
+###############
 
 Syntax
 ******
@@ -89,9 +89,9 @@ Spell checking is **not** done for these code blocks.
 
 Example
 *******
-see :ref:`file_example` .
+see :ref:`literal_example` .
 
-{xrst_end file_cmd}
+{xrst_end literal_cmd}
 """
 # ----------------------------------------------------------------------------
 import os
@@ -111,10 +111,10 @@ def file_extension(display_file) :
     return extension
 # ----------------------------------------------------------------------------
 #
-# Process the file commands in a section.
+# Process the literal commands in a section.
 #
 # data_in:
-# is the data for a section before the file commands have been removed.
+# is the data for a section before the literal commands have been removed.
 #
 # file_name:
 # is the name of the file that this data comes from. This is used
@@ -130,19 +130,19 @@ def file_extension(display_file) :
 # where xrst will place the final rst files.
 #
 # data_out:
-# Each xrst file command is convertd to its corresponding sphinx commands.
+# Each xrst literal command is convertd to its corresponding sphinx commands.
 #
 # data_out =
-def file_command(data_in, file_name, section_name, rst_dir) :
+def literal_command(data_in, file_name, section_name, rst_dir) :
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str
     assert type(rst_dir) == str
     #
-    assert xrst.pattern['file_0'].groups == 1
-    assert xrst.pattern['file_1'].groups == 4
-    assert xrst.pattern['file_2'].groups == 6
-    assert xrst.pattern['file_3'].groups == 8
+    assert xrst.pattern['literal_0'].groups == 1
+    assert xrst.pattern['literal_1'].groups == 4
+    assert xrst.pattern['literal_2'].groups == 6
+    assert xrst.pattern['literal_3'].groups == 8
     #
     # work_dir
     depth    = rst_dir.count('/') + 1
@@ -152,14 +152,14 @@ def file_command(data_in, file_name, section_name, rst_dir) :
     data_out = data_in
     #
     # key
-    for key in [ 'file_0', 'file_1' ] :
+    for key in [ 'literal_0', 'literal_1' ] :
         #
         # m_file
         m_file  = xrst.pattern[key].search(data_out)
         while m_file != None :
             #
             # display_file
-            if key == 'file_0' :
+            if key == 'literal_0' :
                 display_file = file_name
             else :
                 display_file = m_file.group(2).strip()
@@ -193,7 +193,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             #
             # m_file
             m_file  = xrst.pattern[key].search(data_out)
-            if m_file and key == 'file_0' :
+            if m_file and key == 'literal_0' :
                 msg  = 'More than one {xrst_literal} command in this section.\n'
                 msg += 'This command includes the entire current input file.'
                 xrst.system_exit(msg,
@@ -204,7 +204,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
                 )
     #
     # key
-    for key in [ 'file_2', 'file_3' ] :
+    for key in [ 'literal_2', 'literal_3' ] :
         #
         # m_file
         m_file  = xrst.pattern[key].search(data_out)
@@ -212,7 +212,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             #
             # cmd_line
             cmd_start_line = int( m_file.group(1) )
-            if key == 'file_2' :
+            if key == 'literal_2' :
                 cmd_stop_line = int( m_file.group(6) )
             else :
                 cmd_stop_line = int( m_file.group(8) )
@@ -225,7 +225,7 @@ def file_command(data_in, file_name, section_name, rst_dir) :
             stop_text = m_file.group(4) .strip()
             #
             # display_file
-            if key == 'file_2' :
+            if key == 'literal_2' :
                 display_file = file_name
             else :
                 display_file = m_file.group(6).strip()

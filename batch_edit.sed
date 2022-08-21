@@ -15,10 +15,18 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#   xrst/file_command.py
+#   example/file.cpp
+#   sphinx/test_out/file_cmd.rst
+#   sphinx/test_out/file_example.rst
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
+#   s|file_command.py|literal_command.py|
+#   s|file.cpp|literal.cpp|
+#   s|file_cmd.rst|literal_cmd.rst|
+#   s|file_example.rst|literal_example.rst|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -30,4 +38,15 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|xrst_file|xrst_literal|
+s|file\.cpp|literal.cpp|g
+#
+s|'file_\([0-3]\)'|'literal_\1'|g
+#
+s|from .file_command   |from .literal_command|
+s|file_command|literal_command|g
+s|file_example|literal_example|g
+s|file_cmd|literal_cmd|g
+#
+s|file command|literal command|g
+s|File Command|Literal Command|g
+#

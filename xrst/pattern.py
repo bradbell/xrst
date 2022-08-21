@@ -52,12 +52,12 @@ pattern['code'] = re.compile(
 # group(1): the section name.
 pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 #
-# pattern['file_0']
+# pattern['literal_0']
 # xrst_literal with no arguments
 # group(0): preceeding newline + white space + the command.
 # group(1): line number where } at end of command appears
 #
-# pattern['file_1']
+# pattern['literal_1']
 # xrst_literal wth display_file
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
@@ -65,7 +65,7 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 # group(3): line number where display file appears
 # group(4): line number where } at end of command appears
 #
-# pattern['file_2']
+# pattern['literal_2']
 # xrst_literal with start, stop
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
@@ -75,7 +75,7 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 # group(5): the line number where stop text appears
 # group(6): line number where } at end of command appears
 #
-# pattern['file_3']
+# pattern['literal_3']
 # xrst_literal with start, stop, display_file
 # group(0): preceeding newline + white space + the command.
 # group(1): the line number where this command starts
@@ -89,16 +89,16 @@ pattern['end'] = re.compile( r'\n[ \t]*\{xrst_end\s+([^}]*)\}' )
 #
 arg = r'([^{]*)\{xrst_line ([0-9]+)@\n'
 lin = r'[ \t]*\{xrst_line ([0-9]+)@\n'
-pattern['file_0'] = re.compile(
+pattern['literal_0'] = re.compile(
     r'\n[ \t]*\{xrst_literal\}' + lin
 )
-pattern['file_1']  = re.compile(
+pattern['literal_1']  = re.compile(
     r'\n[ \t]*\{xrst_literal' + lin + arg + r'[ \t]*\}' + lin
 )
-pattern['file_2']  = re.compile(
+pattern['literal_2']  = re.compile(
     r'\n[ \t]*\{xrst_literal' + lin + arg + arg + r'[ \t]*\}' + lin
 )
-pattern['file_3']  = re.compile(
+pattern['literal_3']  = re.compile(
     r'\n[ \t]*\{xrst_literal' + lin + arg + arg + arg + r'[ \t]*\}' + lin
 )
 #

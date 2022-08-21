@@ -24,12 +24,15 @@ xrst Release Notes for 2022
 
 08-21
 *****
-Change the command names  listed below (see :ref:`toc_cmd`).
-This was done because these commands act like the sphinx toctree command.
+Change the command names listed below;
+see :ref:`toc_cmd` and :ref:`literal_cmd` .
+This was done because the child commands act like sphinx toctree commands
+and the file command acts like a sphinx includeliteral command.
 
 .. csv-table::
     :widths: auto
 
+    xrst_file,->,xrst_literal
     xrst_children,->,xrst_toc_hidden
     xrst_child_list,->,xrst_toc_list
     xrst_child_table,->,xrst_toc_table
@@ -74,8 +77,8 @@ Change the xrst command
 
 08-08
 *****
-1. Fix documentation for relative location of :ref:`file_cmd@display_file`
-   in file command and :ref:`toc_cmd@file_names` in toc commands.
+1. Fix documentation for relative location of :ref:`literal_cmd@display_file`
+   in literal command and :ref:`toc_cmd@file_names` in toc commands.
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
    is located on :ref:`2022@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
@@ -94,7 +97,7 @@ Change the xrst command
 *****
 1. Automatically run sphinx after xrst has created the sphinx input file.
 2. Add the :ref:`run_xrst@output_dir` option to the command line.
-3. Add the :ref:`file_cmd@no_start_or_stop` syntax to the file command.
+3. Add the :ref:`literal_cmd@no_start_or_stop` syntax to the literal command.
 
 .. _2022@08-05:
 

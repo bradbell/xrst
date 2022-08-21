@@ -57,7 +57,7 @@ Spell Checking
 Code blocks as usually small and
 spell checking is done for these code blocks.
 (Spell checking is not done for code blocks included using the
-:ref:`file command<file_cmd>` .)
+:ref:`literal command<literal_cmd>` .)
 
 Example
 *******

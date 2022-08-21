@@ -21,7 +21,7 @@ Examples
    :local:
 
 -  :ref:`@get_started`
--  :ref:`@file_example`
+-  :ref:`@literal_example`
 -  :ref:`@toc_list_example`
 -  :ref:`@spell_example`
 -  :ref:`@suspend_example`
@@ -36,7 +36,7 @@ Examples
    :hidden:
 
    get_started
-   file_example
+   literal_example
    toc_list_example
    spell_example
    suspend_example

@@ -7,7 +7,7 @@ Table of Contents
 | :ref:`1<example>` Examples
 |
 |  |space| :ref:`1.1<get_started>` Getting Started
-|  |space| :ref:`1.2<file_example>` File Command Example
+|  |space| :ref:`1.2<literal_example>` Literal Command Example
 |  |space| :ref:`1.3<toc_list_example>` toc_list Command Example
 |
 |  |space|  |space| :ref:`1.3.1<child_example_one>` First Child
@@ -35,7 +35,7 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.3<spell_cmd>` Spell Command
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command
-|  |space|  |space| :ref:`2.2.6<file_cmd>` File Command
+|  |space|  |space| :ref:`2.2.6<literal_cmd>` Literal Command
 |  |space|  |space| :ref:`2.2.7<comment_ch_cmd>` Comment Character Command
 |
 |  |space| :ref:`2.3<automatic>` Automatic Processing

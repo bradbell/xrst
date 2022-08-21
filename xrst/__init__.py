@@ -14,7 +14,7 @@ from .toc_commands           import toc_commands
 from .code_command           import code_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
-from .file_command           import file_command
+from .literal_command        import literal_command
 from .get_file_info          import get_file_info
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading

@@ -13,7 +13,7 @@ Examples
 ########
 {xrst_toc_list
     example/get_started.xrst
-    example/file.cpp
+    example/literal.cpp
     example/toc_list.xrst
     example/spell.py
     example/suspend.py
@@ -94,7 +94,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #.  Makes it easy to include source code that executes
     directly below the current location; see :ref:`code_cmd` .
 #.  Source code can also be included from any location and any file;
-    see :ref:`file_cmd`.
+    see :ref:`literal_cmd`.
     This uses tokens in source code, not line numbers,
     to signify start and stop of the inclusion.
     This makes it easy to move things, like function prototypes,
@@ -125,7 +125,7 @@ The processing described below corresponds to xrst commands in the input files:
     xrst/spell_command.py
     xrst/suspend_command.py
     xrst/code_command.py
-    xrst/file_command.py
+    xrst/literal_command.py
     xrst/remove_comment_ch.py
 }
 
@@ -192,7 +192,7 @@ Tabs
 ****
 Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`@code_cmd` and :ref:`@file_cmd`.
+displayed by :ref:`@code_cmd` and :ref:`@literal_cmd`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input sections.
 

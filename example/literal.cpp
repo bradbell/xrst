@@ -19,10 +19,10 @@ template<class T> square(const T& x)
 }
 /*
 ------------------------------------------------------------------------------
-{xrst_begin file_example}
+{xrst_begin literal_example}
 
-File Command Example
-####################
+Literal Command Example
+#######################
 
 factorial
 *********
@@ -46,6 +46,6 @@ This Example File
 *****************
 {xrst_literal}
 
-{xrst_end file_example}
+{xrst_end literal_example}
 ------------------------------------------------------------------------------
 */

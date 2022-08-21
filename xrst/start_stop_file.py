@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 import xrst
 #
-# Convert start,  stop text for a file command to start, stop line numbers.
+# Convert start,  stop text for a literal command to start, stop line numbers.
 #
 # section_name:
 # is the name of the section where the xrst_literal command appears.
@@ -69,7 +69,7 @@ def start_stop_file(
         exclude_line = (0, 0)
     #
     # msg
-    msg  = f'in file command:'
+    msg  = f'in literal command:'
     #
     if start_text == '' :
         msg += ' start is empty'
@@ -111,7 +111,7 @@ def start_stop_file(
         msg += f'\nfile  =  {display_file}'
         msg += f'\nfound {count} matches expected 1'
         if file_cmd == display_file :
-            msg += ' not counting the file command'
+            msg += ' not counting the literal command'
         xrst.system_exit(msg,
             file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )
@@ -130,7 +130,7 @@ def start_stop_file(
         msg += f'\nfile =  {display_file}'
         msg += f'\nfound {count} matches expected 1'
         if file_cmd == display_file :
-            msg += ' not counting the file command'
+            msg += ' not counting the literal command'
         xrst.system_exit(msg,
             file_name=file_cmd, section_name=section_name, line = cmd_line[0]
         )

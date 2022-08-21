@@ -515,8 +515,8 @@ def run_xrst() :
                     section_name,
                 )
                 # ------------------------------------------------------------
-                # file command
-                section_data = xrst.file_command(
+                # literal command
+                section_data = xrst.literal_command(
                     section_data,
                     file_in,
                     section_name,

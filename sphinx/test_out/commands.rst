@@ -27,7 +27,7 @@ The processing described below corresponds to xrst commands in the input files:
 -  :ref:`@spell_cmd`
 -  :ref:`@suspend_cmd`
 -  :ref:`@code_cmd`
--  :ref:`@file_cmd`
+-  :ref:`@literal_cmd`
 -  :ref:`@comment_ch_cmd`
 
 .. toctree::
@@ -39,5 +39,5 @@ The processing described below corresponds to xrst commands in the input files:
    spell_cmd
    suspend_cmd
    code_cmd
-   file_cmd
+   literal_cmd
    comment_ch_cmd

@@ -112,8 +112,8 @@ def spell_command(
     # global pattern values used by spell command
     pattern['toc']    = xrst.pattern['toc']
     pattern['code']   = xrst.pattern['code']
-    pattern['file_2'] = xrst.pattern['file_2']
-    pattern['file_3'] = xrst.pattern['file_3']
+    pattern['literal_2'] = xrst.pattern['literal_2']
+    pattern['literal_3'] = xrst.pattern['literal_3']
     pattern['line']   = xrst.pattern['line']
     #
     # pattern
@@ -193,8 +193,8 @@ def spell_command(
     data_tmp = data_out
     #
     # commands with file names as arugments
-    data_tmp = pattern['file_2'].sub('', data_tmp)
-    data_tmp = pattern['file_3'].sub('', data_tmp)
+    data_tmp = pattern['literal_2'].sub('', data_tmp)
+    data_tmp = pattern['literal_3'].sub('', data_tmp)
     data_tmp = pattern['toc'].sub('', data_tmp)
     data_tmp = pattern['http'].sub('', data_tmp)
     data_tmp = pattern['directive'].sub('', data_tmp)

@@ -106,7 +106,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #.  Makes it easy to include source code that executes
     directly below the current location; see :ref:`code_cmd` .
 #.  Source code can also be included from any location and any file;
-    see :ref:`file_cmd`.
+    see :ref:`literal_cmd`.
     This uses tokens in source code, not line numbers,
     to signify start and stop of the inclusion.
     This makes it easy to move things, like function prototypes,
