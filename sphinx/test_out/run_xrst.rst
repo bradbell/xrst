@@ -85,7 +85,7 @@ html_theme
 This the html_theme_ that is used.
 The possible values (so far) are;
 ``furo``, ``sphinx_rtd_theme`` .
-The default value for *html_theme* is ``furo`` .
+The default value for *html_theme* is ``sphinx_rtd_theme`` .
 
 .. _html_theme: https://sphinx-themes.org/
 

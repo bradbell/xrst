@@ -18,8 +18,11 @@ xrst Release Notes for 2022
 
 08-20
 *****
-Add the :ref:`run_xrst@html_theme` option to the
-xrst command line.
+1.  Add the :ref:`run_xrst@html_theme` option to the
+    xrst command line.
+2.  Make some minor corrections to the documentation for labels under
+    :ref:`heading_links@labels@first_level` and the first item under
+    :ref:`heading_links@labels@discussion` .
 
 08-17
 *****

@@ -52,7 +52,7 @@ html_theme
 This the html_theme_ that is used.
 The possible values (so far) are;
 ``furo``, ``sphinx_rtd_theme`` .
-The default value for *html_theme* is ``furo`` .
+The default value for *html_theme* is ``sphinx_rtd_theme`` .
 
 .. _html_theme: https://sphinx-themes.org/
 
@@ -253,7 +253,7 @@ def run_xrst() :
     parser.add_argument('root_file', nargs='?', default=None,
         help='file that contains root section (not required for --version)')
     parser.add_argument(
-        '--html', metavar='html_theme', default='furo',
+        '--html', metavar='html_theme', default='sphinx_rtd_theme',
         help='sphinx html_theme that is used to display web pages',
         choices=[ 'furo', 'sphinx_rtd_theme' ]
     )
