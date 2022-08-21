@@ -10,6 +10,8 @@
 {xrst_begin run_xrst user}
 {xrst_spell
     dir
+    rtd
+    furo
 }
 
 Run Extract Sphinx RST And Sphinx
@@ -18,6 +20,7 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -   ``xrst`` ( --version |  *root_file* )
+    [ ``--html`` *html_theme* ]
     [ ``--rst`` *rst_line* ]
     [ ``--group`` *group_list* ]
     [ ``--target`` *target* ]
@@ -43,6 +46,20 @@ project_name
 ============
 The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
+
+html_theme
+**********
+This the html_theme_ that is used.
+The possible values (so far) are;
+``furo``, ``sphinx_rtd_theme`` .
+The default value for *html_theme* is ``furo`` .
+
+.. _html_theme: https://sphinx-themes.org/
+
+The ``furo`` theme does not include local table of contents for the
+headers at the top of each section because the right side bar contains
+this information.
+
 
 rst_line
 ********
@@ -97,7 +114,7 @@ If *target* is ``pdf``, the output file is
 | *output_dir*\ ``/latex/``\ *project_name*\ ``.pdf``
 
 see :ref:`run_xrst@root_file@project_name` .
-The default value for *output_dir* is *sphinx_dir* `/`html`` .
+The default value for *output_dir* is *sphinx_dir* ``/html`` .
 
 sphinx_dir
 **********
@@ -234,7 +251,12 @@ def run_xrst() :
         help='just print version of xrst'
     )
     parser.add_argument('root_file', nargs='?', default=None,
-        help='file that contains root section (required except when using --version)')
+        help='file that contains root section (not required for --version)')
+    parser.add_argument(
+        '--html', metavar='html_theme', default='furo',
+        help='sphinx html_theme that is used to display web pages',
+        choices=[ 'furo', 'sphinx_rtd_theme' ]
+    )
     parser.add_argument(
         '--rst', metavar='rst_line', type=int,
         help='increment in table that converts sphinx error messages'
@@ -291,6 +313,9 @@ def run_xrst() :
     elif 0 < index :
         root_directory = root_file[: index]
     os.chdir(root_directory)
+    #
+    # html_theme
+    html_theme = arguments.html
     #
     # rst_line
     rst_line = arguments.rst
@@ -502,6 +527,7 @@ def run_xrst() :
                 # add labels and indices corresponding to headings
                 section_data, section_title, pseudo_heading = \
                 xrst.process_headings(
+                    html_theme,
                     section_data,
                     file_in,
                     section_name,
@@ -540,7 +566,9 @@ def run_xrst() :
                 )
     #
     # auto_file
-    xrst.auto_file(sphinx_dir, tmp_dir, target, sinfo_list, root_section_list)
+    xrst.auto_file(
+        html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
+    )
     #
     # -------------------------------------------------------------------------
     # overwrite rst files that have changed and then remove temporary files

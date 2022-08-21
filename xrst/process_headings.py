@@ -91,6 +91,9 @@ import xrst
 #
 # Add labels and indices for headings
 #
+# html_theme:
+# is the xrst command line html_theme setting.
+#
 # data_in:
 # contains the data for a section before the headings are processed.
 #
@@ -127,8 +130,9 @@ import xrst
 #
 # data_out, section_title, pseudo_heading =
 def process_headings(
-        data_in, file_name, section_name, keyword_list
+        html_theme, data_in, file_name, section_name, keyword_list
 ) :
+    assert type(html_theme) == str
     assert type(data_in) == str
     assert type(file_name) == str
     assert type(section_name) == str
@@ -217,9 +221,8 @@ def process_headings(
             #
             # heading_list
             if not found_level :
-                # this heading at a deeper level
+                # this heading at a higher level
                 heading_list.append( heading )
-
         #
         # label
         label = ''
@@ -281,13 +284,15 @@ def process_headings(
         #
         # data_tmp
         # add data from stat to end of heading
+        assert data_out[underline_end] == '\n'
         data_tmp  += data_out[heading_index : underline_end]
         #
         # data_tmp
         # If level zero, put jump table command just after heading
         if len(heading_list) == 1 :
-            data_tmp += '\n.. contents::\n'
-            data_tmp += 3 * ' ' + ':local:\n\n'
+            if html_theme not in [ 'furo' ] :
+                data_tmp += '\n.. contents::\n'
+                data_tmp += 3 * ' ' + ':local:\n\n'
         #
         # data_out
         data_right = data_out[underline_end : ]

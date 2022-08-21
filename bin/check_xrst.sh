@@ -52,9 +52,9 @@ do
     then
         echo_eval rm -r ../sphinx/rst
     fi
-    echo "python -m xrst ../xrst.xrst --group $group_list --output doc"
-    if ! python -m xrst ../xrst.xrst --group $group_list --output doc \
-        2> check_xrst.$$
+    args="--group $group_list --output doc --html sphinx_rtd_theme"
+    echo "python -m xrst ../xrst.xrst $args"
+    if ! python -m xrst ../xrst.xrst $args 2> check_xrst.$$
     then
         type_error='error'
     else

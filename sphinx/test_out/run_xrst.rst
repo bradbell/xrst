@@ -25,6 +25,7 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -   ``xrst`` ( --version |  *root_file* )
+    [ ``--html`` *html_theme* ]
     [ ``--rst`` *rst_line* ]
     [ ``--group`` *group_list* ]
     [ ``--target`` *target* ]
@@ -71,6 +72,26 @@ project_name
 ============
 The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
+
+.. meta::
+   :keywords: html_theme
+
+.. index:: html_theme
+
+.. _run_xrst@html_theme:
+
+html_theme
+**********
+This the html_theme_ that is used.
+The possible values (so far) are;
+``furo``, ``sphinx_rtd_theme`` .
+The default value for *html_theme* is ``furo`` .
+
+.. _html_theme: https://sphinx-themes.org/
+
+The ``furo`` theme does not include local table of contents for the
+headers at the top of each section because the right side bar contains
+this information.
 
 .. meta::
    :keywords: rst_line
@@ -153,7 +174,7 @@ If *target* is ``pdf``, the output file is
 | *output_dir*\ ``/latex/``\ *project_name*\ ``.pdf``
 
 see :ref:`run_xrst@root_file@project_name` .
-The default value for *output_dir* is *sphinx_dir* `/`html`` .
+The default value for *output_dir* is *sphinx_dir* ``/html`` .
 
 .. meta::
    :keywords: sphinx_dir

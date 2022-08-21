@@ -1,4 +1,4 @@
-#! /bin/bash --rst
+#! /bin/bash -e
 # -----------------------------------------------------------------------------
 #                      xrst: Extract Sphinx RST Files
 #          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
@@ -38,7 +38,10 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst xrst.xrst --group ,user,app --output doc $rst_line
+    echo_eval python -m xrst xrst.xrst \
+        --group ,user,app \
+        --output doc $rst_line \
+        --html furo
     echo 'run_sphinx.sh: OK'
     exit 0
 fi
@@ -47,7 +50,8 @@ fi
 # -----------------------------------------------------------------------------
 #
 # run xrst to create rst files and run sphinx
-echo_eval python -m xrst xrst.xrst --group ,user,app --target pdf --output doc $rst_line
+echo_eval python -m xrst xrst.xrst --group ,user,app \
+        --target pdf --output doc $rst_line
 #
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'

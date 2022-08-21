@@ -83,7 +83,7 @@ def process_children(
                 cmd += ', :ref:`@' + child + '`\n'
         else :
             assert child_type == 'children'
-            cmd = ''
+            cmd = '\n'
         #
         # data_out
         data_tmp = data_out[: m_child.start()]
