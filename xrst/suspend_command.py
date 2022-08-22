@@ -36,10 +36,10 @@ import xrst
 #
 # pattern_suspend, pattern_resume
 pattern_suspend = re.compile(
-    r'[^\\]\{xrst_suspend\}'
+    r'[^\\]{xrst_suspend}'
 )
 pattern_resume  = re.compile(
-    r'[^\\]\{xrst_resume\}'
+    r'[^\\]{xrst_resume}'
 )
 #
 # Remove text specified by suspend / resume pairs.

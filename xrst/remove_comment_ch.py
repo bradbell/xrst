@@ -103,7 +103,7 @@ def remove_comment_ch(data_in, file_name) :
     #
     # m_obj
     pattern = re.compile(
-        r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*\}'
+        r'(^|[^\\]){xrst_comment_ch\s+([^} \t]*)\s*}'
     )
     m_obj   = pattern.search(data_in)
     #

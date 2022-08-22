@@ -9,7 +9,7 @@ import re
 import xrst
 #
 #
-pattern_error = re.compile( r'\{xrst_line [0-9]+@[^\n]' )
+pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 #
 # Remove the number numbers that were added by add_line_number.
 #
