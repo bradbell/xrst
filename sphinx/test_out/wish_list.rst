@@ -38,21 +38,6 @@ Change the number of spaces corresponding to a tab from 4 to 3 characters.
 This better aligns wih usage in sphinx rst files and saves output columns.
 
 .. meta::
-   :keywords: subset, documentation
-
-.. index:: subset, documentation
-
-.. _wish_list@subset_documentation:
-
-Subset Documentation
-********************
-Have a way to specify subsets of the documentation by a group name.
-For example ``{xrst_begin`` `section_name group_1 group_2}` would say that
-this documentation should be included if `group_1` or `group_2`
-is specified by the ``xrst`` command line.
-If not groups were specified, all groups would be included.
-
-.. meta::
    :keywords: spelling
 
 .. index:: spelling

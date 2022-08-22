@@ -22,7 +22,10 @@ xrst Release Notes for 2022
 1.  Better detection and reporting of syntax errors in
     :ref:`commands` .
 2.  Add ``sphinx_book_theme`` to the possible choices for
-    :ref:`run_xrst@html_theme` (and make it the default choice).
+    :ref:`run_xrst@html_theme`.
+3.  Remove the :ref:`wish_list` subset documentation item.
+    It was completed on :ref:`2022@08-05` when the
+    :ref:`run_xrst@group_list` option was added.
 
 08-21
 *****
