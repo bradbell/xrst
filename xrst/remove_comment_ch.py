@@ -117,7 +117,6 @@ def remove_comment_ch(data_in, file_name) :
         line       = data_in[: m_obj.start() ].count('\n') + 1
         if len( comment_ch ) != 1 :
             msg = 'Expected a single character argument to comment_ch command'
-            breakpoint()
             xrst.system_exit(msg, file_name=file_name, line=line)
         if comment_ch == ']' :
             msg  = 'Cannot use "]" as character in comment_ch command\n'
