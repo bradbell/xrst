@@ -42,7 +42,6 @@ table
 |   *file_n*
 | :code:`}`
 
-
 Table of Contents
 *****************
 These commands specify the section that are children
@@ -166,6 +165,12 @@ def toc_commands(data_in, file_name, section_name) :
     # m_obj
     m_obj        = xrst.pattern['toc'].search(data_out)
     if m_obj is None :
+        xrst.check_syntax_error(
+            command_name    = 'toc',
+            data            = data_out,
+            file_name       = file_name,
+            section_name    = section_name,
+        )
         return data_out, file_list, section_list
     #
     # m_tmp
@@ -265,4 +270,10 @@ def toc_commands(data_in, file_name, section_name) :
         # section_list
         section_list += list_children
     #
+    xrst.check_syntax_error(
+        command_name    = 'toc',
+        data            = data_out,
+        file_name       = file_name,
+        section_name    = section_name,
+    )
     return data_out, file_list, section_list

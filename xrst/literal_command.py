@@ -57,7 +57,7 @@ No start or stop
 ****************
 In the case where there is no *start* or *stop*,
 the entire display file is displayed.
-In the case of the ``{xrst_literal}`` syntax,
+In the case of the ``\{xrst_literal}`` syntax,
 the entire current input file is displayed.
 
 start
@@ -275,4 +275,11 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
             # m_file
             m_file  = xrst.pattern[key].search(data_out)
             #
+    #
+    xrst.check_syntax_error(
+        command_name    = 'literal',
+        data            = data_out,
+        file_name       = file_name,
+        section_name    = section_name,
+    )
     return data_out

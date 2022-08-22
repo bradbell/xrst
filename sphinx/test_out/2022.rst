@@ -20,6 +20,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-22:
+
+08-22
+*****
+Better detection and reporting of syntax errors in
+:ref:`commands` .
+
 .. _2022@08-21:
 
 08-21

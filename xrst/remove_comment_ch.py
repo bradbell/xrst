@@ -102,13 +102,22 @@ def remove_comment_ch(data_in, file_name) :
     assert type(file_name) == str
     #
     # m_obj
+    # need \{xrst_comment_ch so it does not match comment_ch command
     pattern = re.compile(
-        r'(^|[^\\]){xrst_comment_ch\s+([^} \t]*)\s*}'
+        r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
     )
     m_obj   = pattern.search(data_in)
     #
     # data_out
     if not m_obj :
+        # need \{xrst_comment_ch so it does not match comment_ch command
+        pattern = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
+        m_error = pattern.search(data_in)
+        if m_error :
+            msg  = f'syntax_error in xrst comment_ch command'
+            line = data_in[: m_error.start() + 1].count('\n') + 1
+            xrst.system_exit(msg, file_name = file_name, line = line)
+        #
         data_out = data_in
     else :
         #

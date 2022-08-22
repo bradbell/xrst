@@ -98,8 +98,8 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # is the name of the file we are getting all the information for.
 #
 # file_info:
-# The value file_info is a list is a dictionary contianing the information
-# for one section in this file. We use info below for one element of this list:
+# The value file_info is a list of dict. Each dict contains the information
+# for one section in this file. We use info below for one element of the list:
 #
 #   info['section_name']:
 #   is an str containing the name of a seciton in this file.
@@ -313,5 +313,17 @@ def get_file_info(
         xrst.system_exit(
             msg, file_name=file_in, section_name=parent_section_name
         )
-
+    #
+    # file_data
+    file_data = xrst.pattern['begin'].sub('', file_data)
+    file_data = xrst.pattern['end'].sub('', file_data)
+    #
+    for command_name in [ 'begin' , 'end' ] :
+        xrst.check_syntax_error(
+            command_name   = command_name,
+            data           = file_data,
+            file_name      = file_in,
+            section_name   = None,
+        )
+    #
     return file_info

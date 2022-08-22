@@ -10,12 +10,12 @@
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
 from .check_section_name     import check_section_name
-from .toc_commands           import toc_commands
+from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
-from .literal_command        import literal_command
 from .get_file_info          import get_file_info
+from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading
 from .pattern                import pattern
@@ -32,4 +32,5 @@ from .suspend_command        import suspend_command
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents
 from .temporary_file         import temporary_file
+from .toc_commands           import toc_commands
 # END_SORT_THIS_LINE_MINUS_1
