@@ -34,6 +34,7 @@ Each word is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
 You need not include latex commands in special word list because
 words with a backslash directly before them are not include in spell checking.
+The line containing the ``}`` must have nothing but white space after it.
 
 .. _spell_cmd@purpose:
 
@@ -42,8 +43,6 @@ Purpose
 You can specify a special list of words
 (not normally considered correct spelling)
 for the current section using the command above.
-The line starting the command
-can only have spaces and tabs before the command.
 
 .. meta::
    :keywords: spelling

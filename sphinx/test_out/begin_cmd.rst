@@ -39,8 +39,6 @@ Section
 *******
 The start (end) of a section of the input file is indicated by a
 begin (end) command.
-The line containing the command
-can only have spaces and tabs before the command.
 
 .. meta::
    :keywords: section_name

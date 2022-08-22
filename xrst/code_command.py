@@ -16,8 +16,8 @@ Code Command
 
 Syntax
 ******
-- ``{xrst_code`` *language* :code:`}`
-- ``{xrst_code}``
+- ``\{xrst_code`` *language* :code:`}`
+- ``\{xrst_code}``
 
 Purpose
 *******
@@ -33,11 +33,8 @@ This has the following advantage over sphinx code block:
 Requirements
 ************
 Each code command ends with
-a line containing the second version of the command; i.e., ``{xrst_code}``.
+a line containing the second version of the command; i.e., ``\{xrst_code}``.
 Hence there must be an even number of code commands.
-If the back quote character \` appears before or after the ``{xrst_code``,
-it is not a command but rather normal input text. This is useful when
-referring to this command in documentation.
 
 language
 ********
@@ -108,7 +105,7 @@ def code_command(data_in, file_name, section_name) :
         m_end = xrst.pattern['code'].search(data_out, start)
         #
         # language
-        language  = m_begin.group(2).strip()
+        language  = m_begin.group(4).strip()
         if language == '' :
             msg = 'missing language in first command of a code block pair'
             xrst.system_exit(msg,
@@ -135,7 +132,7 @@ def code_command(data_in, file_name, section_name) :
                 m_obj=m_begin,
                 data=data_out
             )
-        if m_end.group(2).strip() != '' :
+        if m_end.group(4).strip() != '' :
             msg ='Stop code command has a non-empty language argument'
             xrst.system_exit(msg,
                 file_name=file_name,

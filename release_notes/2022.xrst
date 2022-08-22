@@ -19,19 +19,22 @@ xrst Release Notes for 2022
 
 08-21
 *****
-Change the command names listed below;
-see :ref:`toc_cmd` and :ref:`literal_cmd` .
-This was done because the child commands act like sphinx toctree commands
-and the file command acts like a sphinx includeliteral command.
+1.  Change the command names listed below;
+    see :ref:`toc_cmd` and :ref:`literal_cmd` .
+    This was done because the child commands act like sphinx toctree commands
+    and the file command acts like a sphinx includeliteral command.
 
-.. csv-table::
-    :widths: auto
+    .. csv-table::
+        :widths: auto
 
-    xrst_file,->,xrst_literal
-    xrst_children,->,xrst_toc_hidden
-    xrst_child_list,->,xrst_toc_list
-    xrst_child_table,->,xrst_toc_table
-
+        xrst_file,->,xrst_literal
+        xrst_children,->,xrst_toc_hidden
+        xrst_child_list,->,xrst_toc_list
+        xrst_child_table,->,xrst_toc_table
+2.  Use the backslash in ``\{xrst_`` to escape xrst :ref:`commands` .
+    In addition, remove the restriction that commands must occur
+    at the beginning of a line. (The :ref:`code_cmd` never had
+    this restriction.)
 
 08-20
 *****

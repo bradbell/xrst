@@ -16,7 +16,7 @@ Comment Character Command
 
 Syntax
 ******
-``{xrst_comment_ch`` *ch* :code:`}`
+``\{xrst_comment_ch`` *ch* :code:`}`
 
 Purpose
 *******
@@ -26,16 +26,19 @@ If you embed sphinx documentation in this type of comment,
 you need to inform xrst of the special character so it does
 not end up in your ``.rst`` output file.
 
+Command Location
+****************
+There can be only one occurrence of this command within a file,
+it's effect lasts for the entire file, and
+it must come before the first :ref:`begin command<begin_cmd>` in the file.
+All the other xrst commands must occur between a begin / end command pair.
+
 ch
---
+**
 The value of *ch* must be one non white space character.
 There must be at least one white space character
 between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
-There can be only one occurrence of this command within a file,
-it's effect lasts for the entire file, and
-it must come before the first :ref:`begin command<begin_cmd>` in the file.
-
 
 Beginning of a Line
 *******************
@@ -78,7 +81,7 @@ import xrst
 # Removes the beginning of line comment character from file data.
 #
 # Comment Character:
-# The comment character is specified by {xrst_comment_ch ch} where ch
+# The comment character is specified by \{xrst_comment_ch ch} where ch
 # is a single character after leading and trailing white space is removed.
 #
 # data_in:
@@ -99,7 +102,9 @@ def remove_comment_ch(data_in, file_name) :
     assert type(file_name) == str
     #
     # m_obj
-    pattern = re.compile(r'{xrst_comment_ch\s+([^}])\s*\}')
+    pattern = re.compile(
+        r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*\}'
+    )
     m_obj   = pattern.search(data_in)
     #
     # data_out
@@ -108,9 +113,13 @@ def remove_comment_ch(data_in, file_name) :
     else :
         #
         # comment_ch
-        comment_ch = m_obj.group(1)
+        comment_ch = m_obj.group(2)
+        line       = data_in[: m_obj.start() ].count('\n') + 1
+        if len( comment_ch ) != 1 :
+            msg = 'Expected a single character argument to comment_ch command'
+            breakpoint()
+            xrst.system_exit(msg, file_name=file_name, line=line)
         if comment_ch == ']' :
-            line = data_in[: m_obj.start() ].count('\n') + 1
             msg  = 'Cannot use "]" as character in comment_ch command\n'
             xrst.system_exit(msg, file_name=file_name, line=line)
         #

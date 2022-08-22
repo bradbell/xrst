@@ -16,7 +16,7 @@ Spell Command
 
 Syntax
 ******
-``{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+``\{xrst_spell`` *word_1* ...  *word_n* :code:`}`
 
 Here *word_1*, ..., *word_n* is the special word list for this section.
 In the syntax above the list of words is all in one line.
@@ -26,14 +26,13 @@ Each word is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
 You need not include latex commands in special word list because
 words with a backslash directly before them are not include in spell checking.
+The line containing the ``}`` must have nothing but white space after it.
 
 Purpose
 *******
 You can specify a special list of words
 (not normally considered correct spelling)
 for the current section using the command above.
-The line starting the command
-can only have spaces and tabs before the command.
 
 spelling
 ********
@@ -103,7 +102,7 @@ def spell_command(
     # pattern
     pattern = dict()
     pattern['spell']     = re.compile(
-        r'\n[ \t]*\{xrst_spell([^}]*)\}' +
+        r'[^\\]\{xrst_spell([^}]*)\}' +
         r'([ \t]*\{xrst_line [0-9]+@)?'
     )
     pattern['word_list'] = re.compile( r'[A-Za-z \t\n]*' )
@@ -186,7 +185,7 @@ def spell_command(
         # remove spell command
         start    = m_spell.start()
         end      = m_spell.end()
-        data_out = data_in[: start] + data_in[end :]
+        data_out = data_in[: start+1] + data_in[end :]
     #
     # data_tmp
     # version of data_in with certain commands removed

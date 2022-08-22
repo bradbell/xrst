@@ -42,6 +42,7 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # #. More than 2 lines with only tabs or space are converted to 2 empty lines.
 # #. Empty lines at the end are removed
 # #. The line numbers are removed.
+# #. The text \{xrst_ is replaced by {xrst_.
 # #. if error_lne > 0, a mapping from RST line numbers to file_in line numbers
 #    is included at the end.
 #
@@ -88,6 +89,9 @@ def temporary_file(
     # 1. So mapping from output to input line number is correct.
     # 2. We are no longer able to give line numbers for errors after this.
     data_out, line_pair = xrst.remove_line_numbers(data_out)
+    #
+    # data_out
+    data_out = data_out.replace( r'\{xrst_', '{xrst_' )
     #
     # after
     # If line number increment is non-zero, include mapping from

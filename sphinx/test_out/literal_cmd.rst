@@ -48,8 +48,6 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above.
-The line starting the command
-can only have spaces and tabs before the command.
 
 .. meta::
    :keywords: white, space
@@ -63,8 +61,6 @@ White Space
 Leading and trailing white space is not included in
 *start*, *stop* or *display_file*.
 The new line character separates these tokens.
-The line containing the ``{xrst_literal`` must have nothing but white space
-before it.
 The line containing the ``}`` must have nothing but white space after it.
 
 .. meta::

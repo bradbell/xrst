@@ -14,18 +14,18 @@ Literal Command
 Syntax
 ******
 
-| ``{xrst_literal}``
+| ``\{xrst_literal}``
 |
-| ``{xrst_literal``
+| ``\{xrst_literal``
 | |tab| *display_file*
 | :code:`}`
 |
-| ``{xrst_literal``
+| ``\{xrst_literal``
 | |tab| *start*
 | |tab| *stop*
 | :code:`}`
 |
-| ``{xrst_literal``
+| ``\{xrst_literal``
 | |tab| *start*
 | |tab| *stop*
 | |tab| *display_file*
@@ -35,16 +35,12 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above.
-The line starting the command
-can only have spaces and tabs before the command.
 
 White Space
 ***********
 Leading and trailing white space is not included in
 *start*, *stop* or *display_file*.
 The new line character separates these tokens.
-The line containing the ``{xrst_literal`` must have nothing but white space
-before it.
 The line containing the ``}`` must have nothing but white space after it.
 
 display_file
@@ -181,12 +177,11 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
             if extension != '' :
                 cmd += 4 * ' ' + f':language: {extension}\n'
             cmd = '\n' + cmd + '\n'
-            if m_file.start() > 0 :
-                if data_out[m_file.start() - 1] != '\n' :
-                    cmd = '\n' + cmd
+            if data_out[m_file.start() ] != '\n' :
+                cmd = '\n' + cmd
             #
             # data_out
-            data_tmp  = data_out[: m_file.start() ]
+            data_tmp  = data_out[: m_file.start() + 1 ]
             data_tmp += cmd
             data_tmp += data_out[ m_file.end() : ]
             data_out  = data_tmp
@@ -256,12 +251,6 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
             start_line  = start_line + 1
             stop_line   = stop_line  - 1
             #
-            # beginning of lines with command in it
-            begin_line = m_file.start();
-            #
-            # end of lines with command in it
-            end_line = m_file.end();
-            #
             # cmd
             cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
             cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'
@@ -278,7 +267,7 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
                     cmd = '\n' + cmd
             #
             # data_out
-            data_tmp  = data_out[: m_file.start() ]
+            data_tmp  = data_out[: m_file.start() + 1 ]
             data_tmp += cmd
             data_tmp += data_out[ m_file.end() : ]
             data_out  = data_tmp

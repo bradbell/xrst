@@ -17,16 +17,14 @@ Begin and End Commands
 
 Syntax
 ******
-- ``{xrst_begin_parent`` *section_name* *group_name* :code:`}`
-- ``{xrst_begin``        *section_name* *group_name* :code:`}`
-- ``{xrst_end``          *section_name* :code:`}`
+- ``\{xrst_begin_parent`` *section_name* *group_name* :code:`}`
+- ``\{xrst_begin``        *section_name* *group_name* :code:`}`
+- ``\{xrst_end``          *section_name* :code:`}`
 
 Section
 *******
 The start (end) of a section of the input file is indicated by a
 begin (end) command.
-The line containing the command
-can only have spaces and tabs before the command.
 
 section_name
 ************
@@ -186,8 +184,11 @@ def get_file_info(
                     )
         if m_begin == None :
             if not found_group_name :
-                msg  = 'can not find a begin command at start of a line\n'
-                msg += f'with group_name = {group_name}\n'
+                msg  = 'can not find a begin command with \n'
+                if group_name == '' :
+                    msg += 'the empty group name and '
+                else :
+                    msg += f'group_name = {group_name} and '
                 msg += f'parent file = {parent_file}'
                 xrst.system_exit(msg, file_name=file_in)
             #

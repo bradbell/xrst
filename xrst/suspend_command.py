@@ -13,8 +13,8 @@ Suspend and Resume Commands
 
 Syntax
 ******
-- ``{xrst_suspend}``
-- ``{xrst_resume}``
+- ``\{xrst_suspend}``
+- ``\{xrst_resume}``
 
 Purpose
 *******
@@ -36,10 +36,10 @@ import xrst
 #
 # pattern_suspend, pattern_resume
 pattern_suspend = re.compile(
-    r'\n[ \t]*\{xrst_suspend\}[ \t]*\{xrst_line [0-9]+@'
+    r'[^\\]\{xrst_suspend\}'
 )
 pattern_resume  = re.compile(
-    r'\n[ \t]*\{xrst_resume\}[ \t]*\{xrst_line [0-9]+@'
+    r'[^\\]\{xrst_resume\}'
 )
 #
 # Remove text specified by suspend / resume pairs.
@@ -71,7 +71,7 @@ def suspend_command(data_in, file_name, section_name) :
     while m_suspend != None :
         #
         # suspend_stat, suspend_end
-        suspend_start = m_suspend.start()
+        suspend_start = m_suspend.start() + 1
         suspend_end   = m_suspend.end()
         #
         # m_resume
@@ -86,7 +86,7 @@ def suspend_command(data_in, file_name, section_name) :
                 data=data_out
             )
         # resume_start, resume_end
-        resume_start = m_resume.start()
+        resume_start = m_resume.start() + 1
         resume_end   = m_resume.end()
         #
         # m_obj

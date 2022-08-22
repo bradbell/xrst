@@ -19,7 +19,7 @@ Syntax
 
 hidden
 ======
-| ``{xrst_toc_hidden``
+| ``\{xrst_toc_hidden``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -28,7 +28,7 @@ hidden
 
 list
 ====
-| ``{xrst_toc_list``
+| ``\{xrst_toc_list``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -36,7 +36,7 @@ list
 
 table
 =====
-| ``{xrst_toc_table``
+| ``\{xrst_toc_table``
 |   *file_1*
 |   ...
 |   *file_n*
@@ -183,8 +183,12 @@ def toc_commands(data_in, file_name, section_name) :
     command = m_obj.group(1)
     assert command in [ 'hidden', 'list', 'table']
     #
+    # preceeding_character
+    preceeding_character = data_out[ m_obj.start() ]
+    assert preceeding_character != '\\'
+    #
     # data_out
-    replace = '\n{xrst_toc_' + command + '}\n'
+    replace = preceeding_character + '{xrst_toc_' + command + '}\n'
     data_out = xrst.pattern['toc'].sub(replace, data_out)
     #
     # file_list, file_line
