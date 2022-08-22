@@ -14,6 +14,7 @@ image_link='https://bradbell.github.io/'
 version_files='
     xrst.xrst
     xrst/run_xrst.py
+    sphinx/test_out/user_guide.rst
 '
 #
 # List of special files, for this repository, that the devel tools ignore.
