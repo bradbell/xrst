@@ -89,11 +89,11 @@ if html_theme == 'sphinx_rtd_theme' :
         'navigation_depth' : -1   ,
         'titles_only'      : True ,
     }
-elif html_theme == 'furo' :
-    pass
-else :
-    msg = 'xrst program Error'
-    assert(False)
+if html_theme == 'sphinx_book_theme' :
+    html_theme_options = {
+        'show_toc_level' : 4
+    }
+# furo theme uses default options
 '''
 #
 #

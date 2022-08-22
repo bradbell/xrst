@@ -290,7 +290,7 @@ def process_headings(
         # data_tmp
         # If level zero, put jump table command just after heading
         if len(heading_list) == 1 :
-            if html_theme not in [ 'furo' ] :
+            if html_theme in [ 'sphinx_rtd_theme' ] :
                 data_tmp += '\n.. contents::\n'
                 data_tmp += 3 * ' ' + ':local:\n\n'
         #

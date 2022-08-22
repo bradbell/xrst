@@ -19,8 +19,10 @@ xrst Release Notes for 2022
 
 08-22
 *****
-Better detection and reporting of syntax errors in
-:ref:`commands` .
+1.  Better detection and reporting of syntax errors in
+    :ref:`commands` .
+2.  Add ``sphinx_book_theme`` to the possible choices for
+    :ref:`run_xrst@html_theme` (and make it the default choice).
 
 08-21
 *****

@@ -89,9 +89,9 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 
 .. _html_theme: https://sphinx-themes.org/
 
-The ``furo`` theme does not include local table of contents for the
-headers at the top of each section because the right side bar contains
-this information.
+The ``sphinx_rtd_theme`` theme includes a local table of contents for the
+headers at the top of each section.
+The other themes include this information in the right side bar.
 
 .. meta::
    :keywords: rst_line

@@ -41,7 +41,7 @@ then
     echo_eval python -m xrst xrst.xrst \
         --group ,user,app \
         --output doc $rst_line \
-        --html furo
+        --html sphinx_book_theme
     echo 'run_sphinx.sh: OK'
     exit 0
 fi

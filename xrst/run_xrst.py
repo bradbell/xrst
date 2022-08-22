@@ -56,9 +56,9 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 
 .. _html_theme: https://sphinx-themes.org/
 
-The ``furo`` theme does not include local table of contents for the
-headers at the top of each section because the right side bar contains
-this information.
+The ``sphinx_rtd_theme`` theme includes a local table of contents for the
+headers at the top of each section.
+The other themes include this information in the right side bar.
 
 
 rst_line
@@ -253,9 +253,9 @@ def run_xrst() :
     parser.add_argument('root_file', nargs='?', default=None,
         help='file that contains root section (not required for --version)')
     parser.add_argument(
-        '--html', metavar='html_theme', default='sphinx_rtd_theme',
+        '--html', metavar='html_theme', default='sphinx_book_theme',
         help='sphinx html_theme that is used to display web pages',
-        choices=[ 'furo', 'sphinx_rtd_theme' ]
+        choices=[ 'furo', 'sphinx_rtd_theme', 'sphinx_book_theme' ]
     )
     parser.add_argument(
         '--rst', metavar='rst_line', type=int,
