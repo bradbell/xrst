@@ -134,8 +134,8 @@ import xrst
 #
 # data_out:
 # The first retrun data_out is a copy of data_in with the
-# toc commands replaced by  {xrst_command} where comamnd is toc_hidden,
-# toc_list, or toc_table depending on which command was in data_in.
+# toc commands replaced by  {xrst_command} where comamnd is TOC_hidden,
+# TOC_list, or TOC_table depending on which command was in data_in.
 # There is a newline directly before and after the {xrst_command}.
 #
 # file_list:
@@ -188,7 +188,7 @@ def toc_commands(data_in, file_name, section_name) :
     assert preceeding_character != '\\'
     #
     # data_out
-    replace = preceeding_character + '{xrst_toc_' + command + '}\n'
+    replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
     data_out = xrst.pattern['toc'].sub(replace, data_out)
     #
     # file_list, file_line

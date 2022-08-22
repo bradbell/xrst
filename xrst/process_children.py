@@ -10,7 +10,7 @@ import xrst
 #
 # pattern_toc
 pattern_toc = re.compile(
-    r'\n{xrst_toc_(hidden|list|table)}\n'
+    r'\n{xrst_TOC_(hidden|list|table)}\n'
 )
 #
 # patttern_rst_extension
@@ -29,11 +29,11 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # data_out
 # The return value data_out has the child information added.
 # This includes a hidden table of contents (toctree) for the children at the
-# end of data_out. If the toc command in data_in is {xrst_toc_list} or
-# {xrst_toc_table} of table with the corresponding links will replace the
-# comand. If the child comamnd is {xrst_toc_hidden}, the command is removed,
+# end of data_out. If the TOC command in data_in is {xrst_TOC_list} or
+# {xrst_TOC_table} of table with the corresponding links will replace the
+# comand. If the child comamnd is {xrst_TOC_hidden}, the command is removed,
 # but no table of links is added.
-# If there is no toc command and list_children is non-empty,
+# If there is no TOC command and list_children is non-empty,
 # the toc_table style is used for the links to the children which is placed
 # at the end of the data_out (before the toctree).
 #
