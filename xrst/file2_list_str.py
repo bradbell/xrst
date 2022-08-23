@@ -19,12 +19,12 @@
 #
 # list_str =
 def file2_list_str(file_name) :
-    file_ptr  = open(file_name, 'r')
-    list_str  = list()
-    for line in file_ptr :
-        if not line.startswith('#') :
-            line = line.strip(' \t\n')
-            if not line == '' :
-                list_str.append(line)
-    file_ptr.close()
-    return list_str
+   file_ptr  = open(file_name, 'r')
+   list_str  = list()
+   for line in file_ptr :
+      if not line.startswith('#') :
+         line = line.strip(' \t\n')
+         if not line == '' :
+            list_str.append(line)
+   file_ptr.close()
+   return list_str

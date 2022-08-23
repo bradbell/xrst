@@ -10,7 +10,7 @@ import xrst
 #
 # pattern_toc
 pattern_toc = re.compile(
-    r'\n{xrst_TOC_(hidden|list|table)}\n'
+   r'\n{xrst_TOC_(hidden|list|table)}\n'
 )
 #
 # patttern_rst_extension
@@ -39,82 +39,82 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #
 # data_out =
 def process_children(
-    section_name,
-    data_in,
-    list_children,
+   section_name,
+   data_in,
+   list_children,
 ) :
-    #
-    if len(list_children) == 0 :
-        m_child = pattern_toc.search(data_in)
-        assert m_child is None
-        return data_in
-    #
-    # data_out
-    data_out = data_in
-    #
-    # m_child
-    m_child = pattern_toc.search(data_out)
-    #
-    # section_has_child_command
-    section_has_child_command =  m_child != None
-    if section_has_child_command :
-        #
-        # type of toc command
-        toc_type = m_child.group(1)
-        #
-        # There chould be at most one toc command per section created by
-        # the xrst.child_command routine
-        m_tmp = pattern_toc.search(data_in, m_child.end())
-        assert m_tmp == None
-        #
-        # cmd
-        if toc_type ==  'list' :
-            cmd = '\n\n'
-            for child in list_children :
-                cmd += '-  :ref:`@' + child + '`\n'
-            cmd += '\n\n'
-        elif toc_type == 'table' :
-            cmd  = '\n\n'
-            cmd += '.. csv-table::\n'
-            cmd += '    :header:  "Child", "Title"\n'
-            cmd += '    :widths: auto\n\n'
-            for child in list_children :
-                cmd += '    "' + child + '"'
-                cmd += ', :ref:`@' + child + '`\n'
-        else :
-            assert toc_type == 'hidden'
-            cmd = '\n'
-        #
-        # data_out
-        data_tmp = data_out[: m_child.start()]
-        data_tmp += cmd
-        data_tmp += data_out[m_child.end() :]
-        data_out  = data_tmp
-    #
-    # -----------------------------------------------------------------------
-    if data_out[-1] != '\n' :
-        data_out += '\n'
-    #
-    # data_out
-    # If there is no toc command in this section, automatically generate
-    # links to the child sections at the end of the section.
-    if not section_has_child_command :
-        data_out += '.. csv-table::\n'
-        data_out += '    :header: "Child", "Title"\n'
-        data_out += '    :widths: 20, 80\n\n'
-        for child in list_children :
-            data_out += '    "' + child + '"'
-            data_out += ', :ref:`@' + child + '`\n'
-        data_out += '\n'
-    #
-    # data_out
-    # put hidden toctree at end of section
-    toctree  = '.. toctree::\n'
-    toctree += '   :maxdepth: 1\n'
-    toctree += '   :hidden:\n\n'
-    for child in list_children :
-        entry    = pattern_rst_extension.sub('', child)
-        toctree += '   ' + entry + '\n'
-    data_out = data_out + toctree
-    #
-    return data_out
+   #
+   if len(list_children) == 0 :
+      m_child = pattern_toc.search(data_in)
+      assert m_child is None
+      return data_in
+   #
+   # data_out
+   data_out = data_in
+   #
+   # m_child
+   m_child = pattern_toc.search(data_out)
+   #
+   # section_has_child_command
+   section_has_child_command =  m_child != None
+   if section_has_child_command :
+      #
+      # type of toc command
+      toc_type = m_child.group(1)
+      #
+      # There chould be at most one toc command per section created by
+      # the xrst.child_command routine
+      m_tmp = pattern_toc.search(data_in, m_child.end())
+      assert m_tmp == None
+      #
+      # cmd
+      if toc_type ==  'list' :
+         cmd = '\n\n'
+         for child in list_children :
+            cmd += '-  :ref:`@' + child + '`\n'
+         cmd += '\n\n'
+      elif toc_type == 'table' :
+         cmd  = '\n\n'
+         cmd += '.. csv-table::\n'
+         cmd += '   :header:  "Child", "Title"\n'
+         cmd += '   :widths: auto\n\n'
+         for child in list_children :
+            cmd += '   "' + child + '"'
+            cmd += ', :ref:`@' + child + '`\n'
+      else :
+         assert toc_type == 'hidden'
+         cmd = '\n'
+      #
+      # data_out
+      data_tmp = data_out[: m_child.start()]
+      data_tmp += cmd
+      data_tmp += data_out[m_child.end() :]
+      data_out  = data_tmp
+   #
+   # -----------------------------------------------------------------------
+   if data_out[-1] != '\n' :
+      data_out += '\n'
+   #
+   # data_out
+   # If there is no toc command in this section, automatically generate
+   # links to the child sections at the end of the section.
+   if not section_has_child_command :
+      data_out += '.. csv-table::\n'
+      data_out += '   :header: "Child", "Title"\n'
+      data_out += '   :widths: 20, 80\n\n'
+      for child in list_children :
+         data_out += '   "' + child + '"'
+         data_out += ', :ref:`@' + child + '`\n'
+      data_out += '\n'
+   #
+   # data_out
+   # put hidden toctree at end of section
+   toctree  = '.. toctree::\n'
+   toctree += '   :maxdepth: 1\n'
+   toctree += '   :hidden:\n\n'
+   for child in list_children :
+      entry    = pattern_rst_extension.sub('', child)
+      toctree += '   ' + entry + '\n'
+   data_out = data_out + toctree
+   #
+   return data_out

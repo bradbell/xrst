@@ -36,10 +36,10 @@ import xrst
 #
 # pattern_suspend, pattern_resume
 pattern_suspend = re.compile(
-    r'[^\\]{xrst_suspend}'
+   r'[^\\]{xrst_suspend}'
 )
 pattern_resume  = re.compile(
-    r'[^\\]{xrst_resume}'
+   r'[^\\]{xrst_resume}'
 )
 #
 # Remove text specified by suspend / resume pairs.
@@ -59,54 +59,54 @@ pattern_resume  = re.compile(
 #
 # data_out =
 def suspend_command(data_in, file_name, section_name) :
-    assert type(data_in) == str
-    assert type(file_name) == str
-    assert type(section_name) == str
-    #
-    # data_out
-    data_out = data_in
-    #
-    # m_suspend
-    m_suspend  = pattern_suspend.search(data_out)
-    while m_suspend != None :
-        #
-        # suspend_stat, suspend_end
-        suspend_start = m_suspend.start() + 1
-        suspend_end   = m_suspend.end()
-        #
-        # m_resume
-        m_resume      = pattern_resume.search(data_out, suspend_end)
-        if m_resume == None :
-            msg  = 'There is a suspend command without a '
-            msg += 'corresponding resume commannd.'
+   assert type(data_in) == str
+   assert type(file_name) == str
+   assert type(section_name) == str
+   #
+   # data_out
+   data_out = data_in
+   #
+   # m_suspend
+   m_suspend  = pattern_suspend.search(data_out)
+   while m_suspend != None :
+      #
+      # suspend_stat, suspend_end
+      suspend_start = m_suspend.start() + 1
+      suspend_end   = m_suspend.end()
+      #
+      # m_resume
+      m_resume      = pattern_resume.search(data_out, suspend_end)
+      if m_resume == None :
+         msg  = 'There is a suspend command without a '
+         msg += 'corresponding resume commannd.'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            section_name=section_name,
+            m_obj=m_suspend,
+            data=data_out
+         )
+      # resume_start, resume_end
+      resume_start = m_resume.start() + 1
+      resume_end   = m_resume.end()
+      #
+      # m_obj
+      m_obj = pattern_suspend.search(data_out, suspend_end)
+      if m_obj != None :
+         if m_obj.start() < resume_end :
+            msg  = 'There are two suspend commands without a '
+            msg += 'resume command between them.'
             xrst.system_exit(msg,
-                file_name=file_name,
-                section_name=section_name,
-                m_obj=m_suspend,
-                data=data_out
+               file_name=file_name,
+               section_name=section_name,
+               m_obj=m_obj,
+               data=data_rest
             )
-        # resume_start, resume_end
-        resume_start = m_resume.start() + 1
-        resume_end   = m_resume.end()
-        #
-        # m_obj
-        m_obj = pattern_suspend.search(data_out, suspend_end)
-        if m_obj != None :
-            if m_obj.start() < resume_end :
-                msg  = 'There are two suspend commands without a '
-                msg += 'resume command between them.'
-                xrst.system_exit(msg,
-                    file_name=file_name,
-                    section_name=section_name,
-                    m_obj=m_obj,
-                    data=data_rest
-                )
-        #
-        # data_out
-        data_tmp  = data_out[: suspend_start]
-        data_tmp += data_out[resume_end : ]
-        data_out  = data_tmp
-        #
-        # m_suspend
-        m_suspend = pattern_suspend.search(data_out)
-    return data_out
+      #
+      # data_out
+      data_tmp  = data_out[: suspend_start]
+      data_tmp += data_out[resume_end : ]
+      data_out  = data_tmp
+      #
+      # m_suspend
+      m_suspend = pattern_suspend.search(data_out)
+   return data_out

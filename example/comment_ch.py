@@ -9,7 +9,7 @@
 #
 # {xrst_begin comment_ch_example}
 # {xrst_spell
-#   ch
+#  ch
 # }
 #
 # Comment Character Command Example
@@ -24,9 +24,9 @@
 #
 # {xrst_code py}
 def factorial(n) :
-    if n == 1 :
-        return 1
-    return n * factorial(n-1)
+   if n == 1 :
+      return 1
+   return n * factorial(n-1)
 # {xrst_code}
 #
 # xrst_comment_ch

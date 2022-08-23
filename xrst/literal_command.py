@@ -96,15 +96,15 @@ import xrst
 #
 # ----------------------------------------------------------------------------
 def file_extension(display_file) :
-    index = display_file.rfind('.')
-    extension = ''
-    if 0 <= index and index + 1 < len(display_file) :
-        extension = display_file[index + 1 :]
-        if extension == 'xrst' :
-            extension = 'rst'
-        elif extension == 'hpp' :
-            extension = 'cpp' # pygments does not recognize hpp ?
-    return extension
+   index = display_file.rfind('.')
+   extension = ''
+   if 0 <= index and index + 1 < len(display_file) :
+      extension = display_file[index + 1 :]
+      if extension == 'xrst' :
+         extension = 'rst'
+      elif extension == 'hpp' :
+         extension = 'cpp' # pygments does not recognize hpp ?
+   return extension
 # ----------------------------------------------------------------------------
 #
 # Process the literal commands in a section.
@@ -130,156 +130,156 @@ def file_extension(display_file) :
 #
 # data_out =
 def literal_command(data_in, file_name, section_name, rst_dir) :
-    assert type(data_in) == str
-    assert type(file_name) == str
-    assert type(section_name) == str
-    assert type(rst_dir) == str
-    #
-    assert xrst.pattern['literal_0'].groups == 1
-    assert xrst.pattern['literal_1'].groups == 4
-    assert xrst.pattern['literal_2'].groups == 6
-    assert xrst.pattern['literal_3'].groups == 8
-    #
-    # work_dir
-    depth    = rst_dir.count('/') + 1
-    work_dir = depth * '../'
-    #
-    # data_out
-    data_out = data_in
-    #
-    # key
-    for key in [ 'literal_0', 'literal_1' ] :
-        #
-        # m_file
-        m_file  = xrst.pattern[key].search(data_out)
-        while m_file != None :
-            #
-            # display_file
-            if key == 'literal_0' :
-                display_file = file_name
-            else :
-                display_file = m_file.group(2).strip()
-                if not os.path.isfile(display_file) :
-                    msg  = 'file_comand: can not find the display_file.\n'
-                    msg += f'display_file = {display_file}'
-                    xrst.system_exit(msg,
-                        file_name    = file_name,
-                        section_name = section_name,
-                        m_obj        = m_file,
-                        data         = data_out
-                    )
-                if os.path.samefile(display_file, file_name) :
-                    display_file = file_name
-            #
-            # cmd
-            cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
-            extension = file_extension( display_file )
-            if extension != '' :
-                cmd += 4 * ' ' + f':language: {extension}\n'
-            cmd = '\n' + cmd + '\n'
-            if data_out[m_file.start() ] != '\n' :
-                cmd = '\n' + cmd
-            #
-            # data_out
-            data_tmp  = data_out[: m_file.start() + 1 ]
-            data_tmp += cmd
-            data_tmp += data_out[ m_file.end() : ]
-            data_out  = data_tmp
-            #
-            # m_file
-            m_file  = xrst.pattern[key].search(data_out)
-            if m_file and key == 'literal_0' :
-                msg  = 'More than one {xrst_literal} command in this section.\n'
-                msg += 'This command includes the entire current input file.'
-                xrst.system_exit(msg,
-                    file_name    = file_name,
-                    section_name = section_name,
-                    m_obj        = m_file,
-                    data         = data_out
-                )
-    #
-    # key
-    for key in [ 'literal_2', 'literal_3' ] :
-        #
-        # m_file
-        m_file  = xrst.pattern[key].search(data_out)
-        while m_file != None :
-            #
-            # cmd_line
-            cmd_start_line = int( m_file.group(1) )
-            if key == 'literal_2' :
-                cmd_stop_line = int( m_file.group(6) )
-            else :
-                cmd_stop_line = int( m_file.group(8) )
-            cmd_line = (cmd_start_line, cmd_stop_line)
-            #
-            # start_text
-            start_text = m_file.group(2).strip()
-            #
-            # stop_text
-            stop_text = m_file.group(4) .strip()
-            #
-            # display_file
-            if key == 'literal_2' :
-                display_file = file_name
-            else :
-                display_file = m_file.group(6).strip()
-                if not os.path.isfile(display_file) :
-                    msg  = 'file_comand: can not find the display_file.\n'
-                    msg += f'display_file = {display_file}'
-                    xrst.system_exit(msg,
-                        file_name    = file_name,
-                        section_name = section_name,
-                        m_obj        = m_file,
-                        data         = data_out
-                    )
-                same_file   = os.path.samefile(display_file, file_name)
-                if same_file :
-                    display_file = file_name
-            #
-            # start_line, stop_line
-            start_line, stop_line = xrst.start_stop_file(
-                section_name = section_name,
-                file_cmd     = file_name,
-                display_file = display_file,
-                cmd_line     = cmd_line,
-                start_text   = start_text,
-                stop_text    = stop_text
+   assert type(data_in) == str
+   assert type(file_name) == str
+   assert type(section_name) == str
+   assert type(rst_dir) == str
+   #
+   assert xrst.pattern['literal_0'].groups == 1
+   assert xrst.pattern['literal_1'].groups == 4
+   assert xrst.pattern['literal_2'].groups == 6
+   assert xrst.pattern['literal_3'].groups == 8
+   #
+   # work_dir
+   depth    = rst_dir.count('/') + 1
+   work_dir = depth * '../'
+   #
+   # data_out
+   data_out = data_in
+   #
+   # key
+   for key in [ 'literal_0', 'literal_1' ] :
+      #
+      # m_file
+      m_file  = xrst.pattern[key].search(data_out)
+      while m_file != None :
+         #
+         # display_file
+         if key == 'literal_0' :
+            display_file = file_name
+         else :
+            display_file = m_file.group(2).strip()
+            if not os.path.isfile(display_file) :
+               msg  = 'file_comand: can not find the display_file.\n'
+               msg += f'display_file = {display_file}'
+               xrst.system_exit(msg,
+                  file_name    = file_name,
+                  section_name = section_name,
+                  m_obj        = m_file,
+                  data         = data_out
+               )
+            if os.path.samefile(display_file, file_name) :
+               display_file = file_name
+         #
+         # cmd
+         cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
+         extension = file_extension( display_file )
+         if extension != '' :
+            cmd += 3 * ' ' + f':language: {extension}\n'
+         cmd = '\n' + cmd + '\n'
+         if data_out[m_file.start() ] != '\n' :
+            cmd = '\n' + cmd
+         #
+         # data_out
+         data_tmp  = data_out[: m_file.start() + 1 ]
+         data_tmp += cmd
+         data_tmp += data_out[ m_file.end() : ]
+         data_out  = data_tmp
+         #
+         # m_file
+         m_file  = xrst.pattern[key].search(data_out)
+         if m_file and key == 'literal_0' :
+            msg  = 'More than one {xrst_literal} command in this section.\n'
+            msg += 'This command includes the entire current input file.'
+            xrst.system_exit(msg,
+               file_name    = file_name,
+               section_name = section_name,
+               m_obj        = m_file,
+               data         = data_out
             )
-            #
-            # locations in display_file
-            start_line  = start_line + 1
-            stop_line   = stop_line  - 1
-            #
-            # cmd
-            cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
-            cmd     += 4 * ' ' + f':lines: {start_line}-{stop_line}\n'
-            #
-            # cmd
-            # Add language to literalinclude, sphinx seems to be brain
-            # dead and does not do this automatically.
-            extension = file_extension( display_file )
-            if extension != '' :
-                cmd += 4 * ' ' + f':language: {extension}\n'
-            cmd = '\n' + cmd + '\n\n'
-            if m_file.start() > 0 :
-                if data_out[m_file.start() - 1] != '\n' :
-                    cmd = '\n' + cmd
-            #
-            # data_out
-            data_tmp  = data_out[: m_file.start() + 1 ]
-            data_tmp += cmd
-            data_tmp += data_out[ m_file.end() : ]
-            data_out  = data_tmp
-            #
-            # m_file
-            m_file  = xrst.pattern[key].search(data_out)
-            #
-    #
-    xrst.check_syntax_error(
-        command_name    = 'literal',
-        data            = data_out,
-        file_name       = file_name,
-        section_name    = section_name,
-    )
-    return data_out
+   #
+   # key
+   for key in [ 'literal_2', 'literal_3' ] :
+      #
+      # m_file
+      m_file  = xrst.pattern[key].search(data_out)
+      while m_file != None :
+         #
+         # cmd_line
+         cmd_start_line = int( m_file.group(1) )
+         if key == 'literal_2' :
+            cmd_stop_line = int( m_file.group(6) )
+         else :
+            cmd_stop_line = int( m_file.group(8) )
+         cmd_line = (cmd_start_line, cmd_stop_line)
+         #
+         # start_text
+         start_text = m_file.group(2).strip()
+         #
+         # stop_text
+         stop_text = m_file.group(4) .strip()
+         #
+         # display_file
+         if key == 'literal_2' :
+            display_file = file_name
+         else :
+            display_file = m_file.group(6).strip()
+            if not os.path.isfile(display_file) :
+               msg  = 'file_comand: can not find the display_file.\n'
+               msg += f'display_file = {display_file}'
+               xrst.system_exit(msg,
+                  file_name    = file_name,
+                  section_name = section_name,
+                  m_obj        = m_file,
+                  data         = data_out
+               )
+            same_file   = os.path.samefile(display_file, file_name)
+            if same_file :
+               display_file = file_name
+         #
+         # start_line, stop_line
+         start_line, stop_line = xrst.start_stop_file(
+            section_name = section_name,
+            file_cmd     = file_name,
+            display_file = display_file,
+            cmd_line     = cmd_line,
+            start_text   = start_text,
+            stop_text    = stop_text
+         )
+         #
+         # locations in display_file
+         start_line  = start_line + 1
+         stop_line   = stop_line  - 1
+         #
+         # cmd
+         cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
+         cmd     += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+         #
+         # cmd
+         # Add language to literalinclude, sphinx seems to be brain
+         # dead and does not do this automatically.
+         extension = file_extension( display_file )
+         if extension != '' :
+            cmd += 3 * ' ' + f':language: {extension}\n'
+         cmd = '\n' + cmd + '\n\n'
+         if m_file.start() > 0 :
+            if data_out[m_file.start() - 1] != '\n' :
+               cmd = '\n' + cmd
+         #
+         # data_out
+         data_tmp  = data_out[: m_file.start() + 1 ]
+         data_tmp += cmd
+         data_tmp += data_out[ m_file.end() : ]
+         data_out  = data_tmp
+         #
+         # m_file
+         m_file  = xrst.pattern[key].search(data_out)
+         #
+   #
+   xrst.check_syntax_error(
+      command_name    = 'literal',
+      data            = data_out,
+      file_name       = file_name,
+      section_name    = section_name,
+   )
+   return data_out

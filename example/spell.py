@@ -8,8 +8,8 @@
 """
 {xrst_begin spell_example}
 {xrst_spell
-    iterable
-    no no
+   iterable
+   no no
 }
 
 Spell Command Example
@@ -32,7 +32,7 @@ are automatically included as correct spelling.
 
 .. math::
 
-    z = \cos( \theta ) + {\rm i} \sin( \theta )
+   z = \cos( \theta ) + {\rm i} \sin( \theta )
 
 Double Words
 ************

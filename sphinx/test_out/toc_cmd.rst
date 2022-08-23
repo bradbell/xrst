@@ -113,22 +113,22 @@ Each of the files may contain multiple :ref:`sections<begin_cmd@section>`.
 The first of these sections may use a
 :ref:`parent begin<begin_cmd@parent_section>` command.
 
-#.  The first section in a file is always a child of the
-    section where the toc command appears..
+#. The first section in a file is always a child of the
+   section where the toc command appears..
 
-#.  If the first section in a file is a begin parent section,
-    the other sections in the file are children of the frist section.
-    Hence the other sections are grand children of the section
-    where the begin toc command appears.
+#. If the first section in a file is a begin parent section,
+   the other sections in the file are children of the frist section.
+   Hence the other sections are grand children of the section
+   where the begin toc command appears.
 
-#.  If there is no begin parent command in a file,
-    all the sections in the file are children of the
-    section where the toc command appears.
+#. If there is no begin parent command in a file,
+   all the sections in the file are children of the
+   section where the toc command appears.
 
-#.  If the first section in a file is a begin parent section,
-    and there is also a toc command in this section,
-    links to the toc command children come first and then links to
-    the children that are other sections in the same file.
+#. If the first section in a file is a begin parent section,
+   and there is also a toc command in this section,
+   links to the toc command children come first and then links to
+   the children that are other sections in the same file.
 
 .. meta::
    :keywords: child, links
@@ -139,23 +139,23 @@ The first of these sections may use a
 
 Child Links
 ***********
-#.  The toc_list syntax generates links to the children that
-    display the title for each section.
-    The toc_table syntax generates links to the children that
-    display both the section name and section tile.
+#. The toc_list syntax generates links to the children that
+   display the title for each section.
+   The toc_table syntax generates links to the children that
+   display both the section name and section tile.
 
-#.  If a section has a toc_list or toc_table command,
-    links to all the children of the section are placed where the
-    toc command is located.
-    You can place a heading directly before the these commands
-    to make the links easier to find.
+#. If a section has a toc_list or toc_table command,
+   links to all the children of the section are placed where the
+   toc command is located.
+   You can place a heading directly before the these commands
+   to make the links easier to find.
 
-#.  If a section uses the hidden syntax,
-    no automatic links to the children of the current section are generated.
+#. If a section uses the hidden syntax,
+   no automatic links to the children of the current section are generated.
 
-#.  If a section does not have a toc command,
-    and it has a begin parent command,
-    links to the children of the section are placed at the end of the section.
+#. If a section does not have a toc command,
+   and it has a begin parent command,
+   links to the children of the section are placed at the end of the section.
 
 .. meta::
    :keywords: toctree

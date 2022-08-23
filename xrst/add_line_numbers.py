@@ -26,44 +26,44 @@ pattern = re.compile( r'^\n[ \t]*' )
 #
 # data_out =
 def add_line_numbers(data_in) :
-    assert type(data_in) == str
-    #
-    # newline_list, data_out, previous
-    newline_list = xrst.newline_indices(data_in)
-    if newline_list[0] == 0 :
-        newline_list .pop(0)
-    data_out     = ""
-    previous     = 0
-    #
-    for i in range( len(newline_list) ) :
-        #
-        # current
-        current = newline_list[i]
-        assert previous < current
-        #
-        # line
-        line = data_in[previous : current]
-        #
-        # empty_line
-        if previous == 0 :
-            m_obj = pattern.search( '\n' + line )
-            empty_line = m_obj.end() == len(line) + 1
-        else :
-            m_obj = pattern.search( line )
-            empty_line = m_obj.end() == len(line)
-        #
-        # line
-        if empty_line :
-            line = '\n'
-        else :
-            line += '{xrst_line ' + str(i + 1) + '@'
-        #
-        # data_out, previous
-        data_out  += line
-        previous = current
-    #
-    # data_out
-    assert previous == len(data_in) - 1
-    data_out += '\n'
-    #
-    return data_out
+   assert type(data_in) == str
+   #
+   # newline_list, data_out, previous
+   newline_list = xrst.newline_indices(data_in)
+   if newline_list[0] == 0 :
+      newline_list .pop(0)
+   data_out     = ""
+   previous     = 0
+   #
+   for i in range( len(newline_list) ) :
+      #
+      # current
+      current = newline_list[i]
+      assert previous < current
+      #
+      # line
+      line = data_in[previous : current]
+      #
+      # empty_line
+      if previous == 0 :
+         m_obj = pattern.search( '\n' + line )
+         empty_line = m_obj.end() == len(line) + 1
+      else :
+         m_obj = pattern.search( line )
+         empty_line = m_obj.end() == len(line)
+      #
+      # line
+      if empty_line :
+         line = '\n'
+      else :
+         line += '{xrst_line ' + str(i + 1) + '@'
+      #
+      # data_out, previous
+      data_out  += line
+      previous = current
+   #
+   # data_out
+   assert previous == len(data_in) - 1
+   data_out += '\n'
+   #
+   return data_out

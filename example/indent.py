@@ -6,26 +6,26 @@
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 """
-    {xrst_begin indent_example}
+   {xrst_begin indent_example}
 
-    Indent Example
-    ##############
+   Indent Example
+   ##############
 
-    {xrst_code py}"""
-    def factorial(n) :
-        if n == 1 :
-            return 1
-        return n * factorial(n-1)
-    """{xrst_code}
+   {xrst_code py}"""
+   def factorial(n) :
+      if n == 1 :
+         return 1
+      return n * factorial(n-1)
+   """{xrst_code}
 
-    Discussion
-    **********
-    The file below demonstrates indenting an entire xrst section.
-    Note that underling headings works even though it is indented.
+   Discussion
+   **********
+   The file below demonstrates indenting an entire xrst section.
+   Note that underling headings works even though it is indented.
 
-    This Example File
-    *****************
-    {xrst_literal}
+   This Example File
+   *****************
+   {xrst_literal}
 
-    {xrst_end indent_example}
+   {xrst_end indent_example}
 """

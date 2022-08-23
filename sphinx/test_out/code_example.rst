@@ -32,10 +32,10 @@ Factorial
 
 .. code-block:: py
 
-    def factorial(n) :
-        if n == 1 :
-            return 1
-        return n * factorial(n-1)
+   def factorial(n) :
+      if n == 1 :
+         return 1
+      return n * factorial(n-1)
 
 .. meta::
    :keywords: xrst_code
@@ -54,4 +54,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/code.py
-    :language: py
+   :language: py

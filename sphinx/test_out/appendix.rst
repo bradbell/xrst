@@ -21,11 +21,11 @@ Appendix
    :local:
 
 .. csv-table::
-    :header: "Child", "Title"
-    :widths: 20, 80
+   :header: "Child", "Title"
+   :widths: 20, 80
 
-    "wish_list", :ref:`@wish_list`
-    "release_notes", :ref:`@release_notes`
+   "wish_list", :ref:`@wish_list`
+   "release_notes", :ref:`@release_notes`
 
 .. toctree::
    :maxdepth: 1

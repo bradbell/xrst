@@ -24,44 +24,44 @@ xrst Release Notes for 2022
 
 08-22
 *****
-1.  Better detection and reporting of syntax errors in
-    :ref:`commands` .
-2.  Add ``sphinx_book_theme`` to the possible choices for
-    :ref:`run_xrst@html_theme`.
-3.  Remove the :ref:`wish_list` subset documentation item.
-    It was completed on :ref:`2022@08-05` when the
-    :ref:`run_xrst@group_list` option was added.
+1. Better detection and reporting of syntax errors in
+   :ref:`commands` .
+2. Add ``sphinx_book_theme`` to the possible choices for
+   :ref:`run_xrst@html_theme`.
+3. Remove the :ref:`wish_list` subset documentation item.
+   It was completed on :ref:`2022@08-05` when the
+   :ref:`run_xrst@group_list` option was added.
 
 .. _2022@08-21:
 
 08-21
 *****
-1.  Change the command names listed below;
-    see :ref:`toc_cmd` and :ref:`literal_cmd` .
-    This was done because the child commands act like sphinx toctree commands
-    and the file command acts like a sphinx includeliteral command.
+1. Change the command names listed below;
+   see :ref:`toc_cmd` and :ref:`literal_cmd` .
+   This was done because the child commands act like sphinx toctree commands
+   and the file command acts like a sphinx includeliteral command.
 
-    .. csv-table::
-        :widths: auto
+   .. csv-table::
+      :widths: auto
 
-        xrst_file,->,xrst_literal
-        xrst_children,->,xrst_toc_hidden
-        xrst_child_list,->,xrst_toc_list
-        xrst_child_table,->,xrst_toc_table
-2.  Use the backslash in ``{xrst_`` to escape xrst :ref:`commands` .
-    In addition, remove the restriction that commands must occur
-    at the beginning of a line. (The :ref:`code_cmd` never had
-    this restriction.)
+      xrst_file,->,xrst_literal
+      xrst_children,->,xrst_toc_hidden
+      xrst_child_list,->,xrst_toc_list
+      xrst_child_table,->,xrst_toc_table
+2. Use the backslash in ``{xrst_`` to escape xrst :ref:`commands` .
+   In addition, remove the restriction that commands must occur
+   at the beginning of a line. (The :ref:`code_cmd` never had
+   this restriction.)
 
 .. _2022@08-20:
 
 08-20
 *****
-1.  Add the :ref:`run_xrst@html_theme` option to the
-    xrst command line.
-2.  Make some minor corrections to the documentation for labels under
-    :ref:`heading_links@labels@first_level` and the first item under
-    :ref:`heading_links@labels@discussion` .
+1. Add the :ref:`run_xrst@html_theme` option to the
+   xrst command line.
+2. Make some minor corrections to the documentation for labels under
+   :ref:`heading_links@labels@first_level` and the first item under
+   :ref:`heading_links@labels@discussion` .
 
 .. _2022@08-17:
 
@@ -75,19 +75,19 @@ Change the xrst command
 
 08-15
 *****
-1.  Add ``deprecated`` to the xrst dictionary.
-2.  Extend :ref:`keyword` file to remove version number from index.
+1. Add ``deprecated`` to the xrst dictionary.
+2. Extend :ref:`keyword` file to remove version number from index.
 
 .. _2022@08-09:
 
 08-09
 *****
-1.  The colon ``:`` was added to the characters that get changed to
-    underbar ``_`` when converting headings to labels; see
-    :ref:`heading_links@labels@conversion` .
-2.  Sphinx warnings that ocurred while running xrst were not being reported.
-    This has been fixed.
-3.  Two broken cross reference links (reported by sphinx warnings) were fixed.
+1. The colon ``:`` was added to the characters that get changed to
+   underbar ``_`` when converting headings to labels; see
+   :ref:`heading_links@labels@conversion` .
+2. Sphinx warnings that ocurred while running xrst were not being reported.
+   This has been fixed.
+3. Two broken cross reference links (reported by sphinx warnings) were fixed.
 
 .. _2022@08-08:
 
@@ -119,9 +119,9 @@ Change the xrst command
 
 08-05
 *****
-1.  Add the :ref:`run_xrst@group_list` option to the command line.
-2.  Use the base part of :ref:`run_xrst@root_file` as the sphinx
-    project name.
+1. Add the :ref:`run_xrst@group_list` option to the command line.
+2. Use the base part of :ref:`run_xrst@root_file` as the sphinx
+   project name.
 
 .. _2022@08-04:
 
@@ -158,23 +158,23 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 
 07-30
 *****
-1.  Automatically create the file :ref:`auto_file@conf.py`.
-2.  Make all file names, except the
-    :ref:`run_xrst@root_file`,
-    relative to where the root file is located.
-3.  The  file names for :ref:`run_xrst@sphinx_dir@preamble.rst`,
-    :ref:`run_xrst@sphinx_dir@spelling`, and
-    :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
-    These names have bern removed from the ``xrst``
-    :ref:`run_xrst@syntax` and the corresponding files are optional
-    (no longer required).
+1. Automatically create the file :ref:`auto_file@conf.py`.
+2. Make all file names, except the
+   :ref:`run_xrst@root_file`,
+   relative to where the root file is located.
+3. The  file names for :ref:`run_xrst@sphinx_dir@preamble.rst`,
+   :ref:`run_xrst@sphinx_dir@spelling`, and
+   :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
+   These names have bern removed from the ``xrst``
+   :ref:`run_xrst@syntax` and the corresponding files are optional
+   (no longer required).
 
 .. _2022@07-28:
 
 07-28
 *****
-1.  Change ``xsrst`` to ``xrst``
-2.  Create the first :ref:`user_guide@pip_install` of xrst.
+1. Change ``xsrst`` to ``xrst``
+2. Create the first :ref:`user_guide@pip_install` of xrst.
 
 .. _2022@07-27:
 
@@ -187,34 +187,34 @@ interact; see :ref:`toc_cmd@children`.
 
 07-26
 *****
-1.  Change the heading level separator character from period ``.``
-    to at sign ``@``; see links to headings
-    :ref:`heading_links@labels@other_levels`.
-2.  Add period ``.`` to the list of valid characters in a
-    :ref:`begin_cmd@section_name`.
-3.  Change the following section names in the xrst documentation:
-    xrst_py -> xrst.py, conf_py -> conf.py.
+1. Change the heading level separator character from period ``.``
+   to at sign ``@``; see links to headings
+   :ref:`heading_links@labels@other_levels`.
+2. Add period ``.`` to the list of valid characters in a
+   :ref:`begin_cmd@section_name`.
+3. Change the following section names in the xrst documentation:
+   xrst_py -> xrst.py, conf_py -> conf.py.
 
 .. _2022@07-25:
 
 07-25
 *****
-1.  Require that the suspend and resume commands are in their own line; see
-    :ref:`@suspend_cmd`.
-2.  A problem was fixed the table corresponding to the
-    :ref:`run_xrst@rst_line` table.
-    To be specific, the indices in the rst file were one larger than
-    they should have been.
+1. Require that the suspend and resume commands are in their own line; see
+   :ref:`@suspend_cmd`.
+2. A problem was fixed the table corresponding to the
+   :ref:`run_xrst@rst_line` table.
+   To be specific, the indices in the rst file were one larger than
+   they should have been.
 
 .. _2022@07-24:
 
 07-24
 *****
-1.  Remove ignore spelling of latex commands from wish list (done).
-2.  Add :ref:`wish_list@standard_indent`,
-    Relative File Names, and
-    Git Repository entries to wish list.
-    Only the Standard Indent entry is outstanding.
+1. Remove ignore spelling of latex commands from wish list (done).
+2. Add :ref:`wish_list@standard_indent`,
+   Relative File Names, and
+   Git Repository entries to wish list.
+   Only the Standard Indent entry is outstanding.
 
 .. _2022@07-21:
 

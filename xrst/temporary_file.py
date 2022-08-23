@@ -47,75 +47,75 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #    is included at the end.
 #
 def temporary_file(
-    rst_line,
-    pseudo_heading,
-    file_in,
-    tmp_dir,
-    section_name,
-    data_in,
+   rst_line,
+   pseudo_heading,
+   file_in,
+   tmp_dir,
+   section_name,
+   data_in,
 ) :
-    assert type(rst_line) == int
-    assert type(pseudo_heading) == str
-    assert type(file_in) == str
-    assert type(section_name) == str
-    assert type(data_in) == str
-    #
-    # label
-    # label that displays section name (which is text in pseudo heading)
-    label = f'.. _{section_name}:\n\n'
-    #
-    # before
-    # start output by including preamble and then pesudo_heading
-    before  = '.. include:: xrst_preamble.rst\n\n'
-    before += label
-    before += pseudo_heading
-    before += f'xrst input file: ``{file_in}``\n\n'
-    #
-    # data_out
-    data_out = before + data_in
-    #
-    # data_out
-    # Convert three or more sequential emtpty lines to two empty lines.
-    data_out = pattern_line_number.sub('\n', data_out)
-    data_out = pattern_newline_3.sub('\n\n', data_out)
-    #
-    # data_out
-    # remove empty lines at the end
-    while data_out[-2 :] == '\n\n' :
-        data_out = data_out[: -1]
-    #
-    # data_out
-    # The last step removing line numbers. This is done last for two reasons:
-    # 1. So mapping from output to input line number is correct.
-    # 2. We are no longer able to give line numbers for errors after this.
-    data_out, line_pair = xrst.remove_line_numbers(data_out)
-    #
-    # data_out
-    data_out = data_out.replace( r'\{xrst_', '{xrst_' )
-    #
-    # after
-    # If line number increment is non-zero, include mapping from
-    # rst file line number to xrst file line number
-    if rst_line > 0 :
-        after  = '\n.. csv--targetable:: Line Number Mapping\n'
-        after += 4 * ' ' + ':header: rst file, xrst input\n'
-        after += 4 * ' ' + ':widths: 10, 10\n\n'
-        previous_line = None
-        for pair in line_pair :
-            if previous_line is None :
-                after        += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
-            elif pair[1] - previous_line >= rst_line :
-                after         += f'    {pair[0]}, {pair[1]}\n'
-                previous_line = pair[1]
-        #
-        data_out = data_out + after
-    #
-    # file_out
-    if section_name.endswith('.rst') :
-        file_out = tmp_dir + '/' + section_name
-    else :
-        file_out = tmp_dir + '/' + section_name + '.rst'
-    file_ptr = open(file_out, 'w')
-    file_ptr.write(data_out)
-    file_ptr.close()
+   assert type(rst_line) == int
+   assert type(pseudo_heading) == str
+   assert type(file_in) == str
+   assert type(section_name) == str
+   assert type(data_in) == str
+   #
+   # label
+   # label that displays section name (which is text in pseudo heading)
+   label = f'.. _{section_name}:\n\n'
+   #
+   # before
+   # start output by including preamble and then pesudo_heading
+   before  = '.. include:: xrst_preamble.rst\n\n'
+   before += label
+   before += pseudo_heading
+   before += f'xrst input file: ``{file_in}``\n\n'
+   #
+   # data_out
+   data_out = before + data_in
+   #
+   # data_out
+   # Convert three or more sequential emtpty lines to two empty lines.
+   data_out = pattern_line_number.sub('\n', data_out)
+   data_out = pattern_newline_3.sub('\n\n', data_out)
+   #
+   # data_out
+   # remove empty lines at the end
+   while data_out[-2 :] == '\n\n' :
+      data_out = data_out[: -1]
+   #
+   # data_out
+   # The last step removing line numbers. This is done last for two reasons:
+   # 1. So mapping from output to input line number is correct.
+   # 2. We are no longer able to give line numbers for errors after this.
+   data_out, line_pair = xrst.remove_line_numbers(data_out)
+   #
+   # data_out
+   data_out = data_out.replace( r'\{xrst_', '{xrst_' )
+   #
+   # after
+   # If line number increment is non-zero, include mapping from
+   # rst file line number to xrst file line number
+   if rst_line > 0 :
+      after  = '\n.. csv--targetable:: Line Number Mapping\n'
+      after += 4 * ' ' + ':header: rst file, xrst input\n'
+      after += 4 * ' ' + ':widths: 10, 10\n\n'
+      previous_line = None
+      for pair in line_pair :
+         if previous_line is None :
+            after        += f'    {pair[0]}, {pair[1]}\n'
+            previous_line = pair[1]
+         elif pair[1] - previous_line >= rst_line :
+            after         += f'    {pair[0]}, {pair[1]}\n'
+            previous_line = pair[1]
+      #
+      data_out = data_out + after
+   #
+   # file_out
+   if section_name.endswith('.rst') :
+      file_out = tmp_dir + '/' + section_name
+   else :
+      file_out = tmp_dir + '/' + section_name + '.rst'
+   file_ptr = open(file_out, 'w')
+   file_ptr.write(data_out)
+   file_ptr.close()

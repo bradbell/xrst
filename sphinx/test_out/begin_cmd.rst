@@ -96,17 +96,17 @@ Parent Section
 **************
 The following conditions hold for each *group_name*:
 
-#.  There can be at most one begin parent command in an input file.
-#.  If there is a begin parent command, it must be the first begin command
-    in the file and there must be other sections in the file.
-#.  The other sections are children of the parent section.
-#.  The parent section is a child
-    of the section that included this file using a
-    :ref:`toc command<toc_cmd>`.
-#.  If there is no begin parent command in an input file,
-    all the sections in the file are children
-    of the section that included this file using a
-    :ref:`toc command<toc_cmd>`.
+#. There can be at most one begin parent command in an input file.
+#. If there is a begin parent command, it must be the first begin command
+   in the file and there must be other sections in the file.
+#. The other sections are children of the parent section.
+#. The parent section is a child
+   of the section that included this file using a
+   :ref:`toc command<toc_cmd>`.
+#. If there is no begin parent command in an input file,
+   all the sections in the file are children
+   of the section that included this file using a
+   :ref:`toc command<toc_cmd>`.
 
 Note that there can be more than one begin parent command in a file if
 they have different group names. Also note that sections are only children

@@ -19,33 +19,33 @@ import xrst
 # line:          is the error line number when m_obj is None
 #
 def system_exit(
-    msg, file_name=None, section_name=None, m_obj=None, data=None, line=None
+   msg, file_name=None, section_name=None, m_obj=None, data=None, line=None
 ) :
-    assert type(msg)   == str
-    assert type(file_name) == str or file_name== None
-    assert type(section_name) == str or section_name== None
-    assert type(line)  in [ int, str ] or line == None
-    #
-    if m_obj :
-        assert type(data) == str
-    #
-    #
-    # extra
-    root_directory = os.getcwd()
-    extra          = f'\nroot_directory = {root_directory}\n'
-    #
-    if section_name :
-        extra += f'section = {section_name}\n'
-    if file_name :
-        extra += f'file = {file_name}\n'
-    if m_obj :
-        assert file_name != None
-        assert data != None
-        assert line == None
-        match_line  = xrst.pattern['line'].search( data[m_obj.start() :] )
-        assert match_line
-        line = match_line.group(1)
-    if line != None :
-        extra += f'line = {line}\n'
-    #
-    sys.exit('xrst: Error\n' + msg + extra)
+   assert type(msg)   == str
+   assert type(file_name) == str or file_name== None
+   assert type(section_name) == str or section_name== None
+   assert type(line)  in [ int, str ] or line == None
+   #
+   if m_obj :
+      assert type(data) == str
+   #
+   #
+   # extra
+   root_directory = os.getcwd()
+   extra          = f'\nroot_directory = {root_directory}\n'
+   #
+   if section_name :
+      extra += f'section = {section_name}\n'
+   if file_name :
+      extra += f'file = {file_name}\n'
+   if m_obj :
+      assert file_name != None
+      assert data != None
+      assert line == None
+      match_line  = xrst.pattern['line'].search( data[m_obj.start() :] )
+      assert match_line
+      line = match_line.group(1)
+   if line != None :
+      extra += f'line = {line}\n'
+   #
+   sys.exit('xrst: Error\n' + msg + extra)

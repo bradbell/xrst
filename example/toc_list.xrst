@@ -18,7 +18,7 @@ in the child_example_one section.
 toc_list Command
 ******************
 {xrst_toc_list
-        example/children.py
+      example/children.py
 }
 
 xrst_toc_list

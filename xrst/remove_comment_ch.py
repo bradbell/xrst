@@ -8,7 +8,7 @@
 """
 {xrst_begin comment_ch_cmd user}
 {xrst_spell
-    ch
+   ch
 }
 
 Comment Character Command
@@ -60,12 +60,12 @@ and the ``def`` token indented the same amount:
 
 .. code-block:: py
 
-    # Factorial
-    # ---------
-    def factorial(n) :
-        if n == 1 :
-            return 1
-        return n * factorial(n-1)
+   # Factorial
+   # ---------
+   def factorial(n) :
+      if n == 1 :
+         return 1
+      return n * factorial(n-1)
 
 
 Example
@@ -98,48 +98,48 @@ import xrst
 #
 # data_out =
 def remove_comment_ch(data_in, file_name) :
-    assert type(data_in) == str
-    assert type(file_name) == str
-    #
-    # m_obj
-    # need \{xrst_comment_ch so it does not match comment_ch command
-    pattern = re.compile(
-        r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
-    )
-    m_obj   = pattern.search(data_in)
-    #
-    # data_out
-    if not m_obj :
-        # need \{xrst_comment_ch so it does not match comment_ch command
-        pattern = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
-        m_error = pattern.search(data_in)
-        if m_error :
-            msg  = f'syntax_error in xrst comment_ch command'
-            line = data_in[: m_error.start() + 1].count('\n') + 1
-            xrst.system_exit(msg, file_name = file_name, line = line)
-        #
-        data_out = data_in
-    else :
-        #
-        # comment_ch
-        comment_ch = m_obj.group(2)
-        line       = data_in[: m_obj.start() ].count('\n') + 1
-        if len( comment_ch ) != 1 :
-            msg = 'Expected a single character argument to comment_ch command'
-            xrst.system_exit(msg, file_name=file_name, line=line)
-        if comment_ch == ']' :
-            msg  = 'Cannot use "]" as character in comment_ch command\n'
-            xrst.system_exit(msg, file_name=file_name, line=line)
-        #
-        # m_obj
-        data_rest  = data_in[ m_obj.end() : ]
-        m_rest     = pattern.search(data_rest)
-        if m_rest :
-            line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
-            msg = 'There are multiple comment_ch commands in this file'
-            xrst.system_exit(msg, file_name=file_name, line=line)
-        #
-        # data_out
-        pattern  = re.compile( r'\n[' + comment_ch + r'] ?' )
-        data_out = pattern.sub(r'\n', data_in)
-    return data_out
+   assert type(data_in) == str
+   assert type(file_name) == str
+   #
+   # m_obj
+   # need \{xrst_comment_ch so it does not match comment_ch command
+   pattern = re.compile(
+      r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
+   )
+   m_obj   = pattern.search(data_in)
+   #
+   # data_out
+   if not m_obj :
+      # need \{xrst_comment_ch so it does not match comment_ch command
+      pattern = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
+      m_error = pattern.search(data_in)
+      if m_error :
+         msg  = f'syntax_error in xrst comment_ch command'
+         line = data_in[: m_error.start() + 1].count('\n') + 1
+         xrst.system_exit(msg, file_name = file_name, line = line)
+      #
+      data_out = data_in
+   else :
+      #
+      # comment_ch
+      comment_ch = m_obj.group(2)
+      line       = data_in[: m_obj.start() ].count('\n') + 1
+      if len( comment_ch ) != 1 :
+         msg = 'Expected a single character argument to comment_ch command'
+         xrst.system_exit(msg, file_name=file_name, line=line)
+      if comment_ch == ']' :
+         msg  = 'Cannot use "]" as character in comment_ch command\n'
+         xrst.system_exit(msg, file_name=file_name, line=line)
+      #
+      # m_obj
+      data_rest  = data_in[ m_obj.end() : ]
+      m_rest     = pattern.search(data_rest)
+      if m_rest :
+         line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
+         msg = 'There are multiple comment_ch commands in this file'
+         xrst.system_exit(msg, file_name=file_name, line=line)
+      #
+      # data_out
+      pattern  = re.compile( r'\n[' + comment_ch + r'] ?' )
+      data_out = pattern.sub(r'\n', data_in)
+   return data_out

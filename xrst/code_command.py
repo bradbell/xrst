@@ -8,7 +8,7 @@
 """
 {xrst_begin code_cmd user}
 {xrst_spell
-    delimiters
+   delimiters
 }
 
 Code Command
@@ -85,89 +85,89 @@ import xrst
 #
 # data_out =
 def code_command(data_in, file_name, section_name) :
-    assert type(data_in) == str
-    assert type(file_name) == str
-    assert type(section_name) == str
-    #
-    # data_out
-    data_out = data_in
-    #
-    # m_begin
-    m_begin = xrst.pattern['code'].search(data_out)
-    #
-    if m_begin == None :
-        return data_out
-    #
-    while m_begin != None :
-        #
-        # m_end
-        start = m_begin.end()
-        m_end = xrst.pattern['code'].search(data_out, start)
-        #
-        # language
-        language  = m_begin.group(4).strip()
-        if language == '' :
-            msg = 'missing language in first command of a code block pair'
+   assert type(data_in) == str
+   assert type(file_name) == str
+   assert type(section_name) == str
+   #
+   # data_out
+   data_out = data_in
+   #
+   # m_begin
+   m_begin = xrst.pattern['code'].search(data_out)
+   #
+   if m_begin == None :
+      return data_out
+   #
+   while m_begin != None :
+      #
+      # m_end
+      start = m_begin.end()
+      m_end = xrst.pattern['code'].search(data_out, start)
+      #
+      # language
+      language  = m_begin.group(4).strip()
+      if language == '' :
+         msg = 'missing language in first command of a code block pair'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            section_name=section_name,
+            m_obj=m_begin,
+            data=data_out
+         )
+      for ch in language :
+         if ch < 'a' or 'z' < ch :
+            msg = 'code block language character not in a-z.'
             xrst.system_exit(msg,
-                file_name=file_name,
-                section_name=section_name,
-                m_obj=m_begin,
-                data=data_out
+               file_name=file_name,
+               section_name=section_name,
+               m_obj=m_begin,
+               data=data_out
             )
-        for ch in language :
-            if ch < 'a' or 'z' < ch :
-                msg = 'code block language character not in a-z.'
-                xrst.system_exit(msg,
-                    file_name=file_name,
-                    section_name=section_name,
-                    m_obj=m_begin,
-                    data=data_out
-                )
-        #
-        if m_end == None :
-            msg = 'Start code command does not have a corresponding stop'
-            xrst.system_exit(msg,
-                file_name=file_name,
-                section_name=section_name,
-                m_obj=m_begin,
-                data=data_out
-            )
-        if m_end.group(4).strip() != '' :
-            msg ='Stop code command has a non-empty language argument'
-            xrst.system_exit(msg,
-                file_name=file_name,
-                section_name=section_name,
-                m_obj=m_end,
-                data=section_rest
-            )
-        #
-        # language
-        # pygments does not recognize hpp so change it to cpp ?
-        if language == 'hpp' :
-            language = 'cpp'
-        #
-        # data_before
-        data_before  = data_out[ : m_begin.start() + 1]
-        assert data_before[-1] == '\n'
-        data_before += '\n'
-        #
-        # data_between
-        data_between  = data_out[m_begin.end() : m_end.start()]
-        data_between  = data_between.replace('\n', '\n    ')
-        data_between += '\n'
-        #
-        # data_after
-        data_after  = data_out[m_end.end() : ]
-        assert data_after[0] == '\n'
-        #
-        # data_out
-        data_out  = data_before
-        data_out += '.. code-block:: ' + language + '\n\n'
-        data_out += data_between
-        data_out += data_after
-        #
-        # m_begin
-        start   = m_end.end()
-        m_begin = xrst.pattern['code'].search(data_out, start)
-    #
-    return data_out
+      #
+      if m_end == None :
+         msg = 'Start code command does not have a corresponding stop'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            section_name=section_name,
+            m_obj=m_begin,
+            data=data_out
+         )
+      if m_end.group(4).strip() != '' :
+         msg ='Stop code command has a non-empty language argument'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            section_name=section_name,
+            m_obj=m_end,
+            data=section_rest
+         )
+      #
+      # language
+      # pygments does not recognize hpp so change it to cpp ?
+      if language == 'hpp' :
+         language = 'cpp'
+      #
+      # data_before
+      data_before  = data_out[ : m_begin.start() + 1]
+      assert data_before[-1] == '\n'
+      data_before += '\n'
+      #
+      # data_between
+      data_between  = data_out[m_begin.end() : m_end.start()]
+      data_between  = data_between.replace('\n', '\n   ')
+      data_between += '\n'
+      #
+      # data_after
+      data_after  = data_out[m_end.end() : ]
+      assert data_after[0] == '\n'
+      #
+      # data_out
+      data_out  = data_before
+      data_out += '.. code-block:: ' + language + '\n\n'
+      data_out += data_between
+      data_out += data_after
+      #
+      # m_begin
+      start   = m_end.end()
+      m_begin = xrst.pattern['code'].search(data_out, start)
+   #
+   return data_out

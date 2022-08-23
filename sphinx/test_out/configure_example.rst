@@ -23,12 +23,12 @@ Example Configuration Files
 These files are used to configure xrst to build its documentation:
 
 .. csv-table::
-    :header:  "Child", "Title"
-    :widths: auto
+   :header:  "Child", "Title"
+   :widths: auto
 
-    "spelling", :ref:`@spelling`
-    "keyword", :ref:`@keyword`
-    "preamble.rst", :ref:`@preamble.rst`
+   "spelling", :ref:`@spelling`
+   "keyword", :ref:`@keyword`
+   "preamble.rst", :ref:`@preamble.rst`
 
 .. meta::
    :keywords: xrst_literal
@@ -58,7 +58,7 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/configure.xrst
-    :language: rst
+   :language: rst
 
 .. toctree::
    :maxdepth: 1

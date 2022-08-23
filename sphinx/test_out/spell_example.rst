@@ -58,7 +58,7 @@ are automatically included as correct spelling.
 
 .. math::
 
-    z = \cos( \theta ) + {\rm i} \sin( \theta )
+   z = \cos( \theta ) + {\rm i} \sin( \theta )
 
 .. meta::
    :keywords: double, words
@@ -92,4 +92,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/spell.py
-    :language: py
+   :language: py

@@ -98,12 +98,12 @@ and the ``def`` token indented the same amount:
 
 .. code-block:: py
 
-    # Factorial
-    # ---------
-    def factorial(n) :
-        if n == 1 :
-            return 1
-        return n * factorial(n-1)
+   # Factorial
+   # ---------
+   def factorial(n) :
+      if n == 1 :
+         return 1
+      return n * factorial(n-1)
 
 .. _comment_ch_cmd@example:
 

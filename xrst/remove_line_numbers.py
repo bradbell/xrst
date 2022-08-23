@@ -27,54 +27,54 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 #
 # data_out, line_pair =
 def remove_line_numbers(data_in) :
-    assert type(data_in) == str
-    #
-    # m_error
-    m_error = pattern_error.search(data_in)
-    if m_error :
-        start = max(m_error.start() - 50, 0)
-        end   = min(m_error.end() + 50, len(data_in))
-        msg   = 'Program error: Line number tracking is confused:\n'
-        msg  += '\nText before the bad line number ='
-        msg  += '\n---------------------------------\n'
-        msg  +=  data_in[start : m_error.start()]
-        msg  += '\nText after the bad line number ='
-        msg  += '\n--------------------------------\n'
-        msg  +=  data_in[m_error.end() :  end]
-        xrst.system_exit(msg)
-    #
-    # previous_end
-    # index of the end of the previous match
-    previous_end  = 0
-    #
-    # line_out
-    # index of next line in data_out
-    line_out  = 1
-    #
-    # data_out, line_pair
-    data_out  = ''
-    line_pair = list()
-    #
-    # data_out, line_pair
-    for m_obj in xrst.pattern['line'].finditer(data_in) :
-        #
-        # start of this match
-        this_start = m_obj.start()
-        #
-        # before
-        # character from end of previous match to start of this match
-        before = data_in[previous_end  : this_start]
-        #
-        line_match = m_obj.group(1)
-        line_out  += before.count('\n')
-        line_out  -= before.count('{xrst_section_number}\n')
+   assert type(data_in) == str
+   #
+   # m_error
+   m_error = pattern_error.search(data_in)
+   if m_error :
+      start = max(m_error.start() - 50, 0)
+      end   = min(m_error.end() + 50, len(data_in))
+      msg   = 'Program error: Line number tracking is confused:\n'
+      msg  += '\nText before the bad line number ='
+      msg  += '\n---------------------------------\n'
+      msg  +=  data_in[start : m_error.start()]
+      msg  += '\nText after the bad line number ='
+      msg  += '\n--------------------------------\n'
+      msg  +=  data_in[m_error.end() :  end]
+      xrst.system_exit(msg)
+   #
+   # previous_end
+   # index of the end of the previous match
+   previous_end  = 0
+   #
+   # line_out
+   # index of next line in data_out
+   line_out  = 1
+   #
+   # data_out, line_pair
+   data_out  = ''
+   line_pair = list()
+   #
+   # data_out, line_pair
+   for m_obj in xrst.pattern['line'].finditer(data_in) :
+      #
+      # start of this match
+      this_start = m_obj.start()
+      #
+      # before
+      # character from end of previous match to start of this match
+      before = data_in[previous_end  : this_start]
+      #
+      line_match = m_obj.group(1)
+      line_out  += before.count('\n')
+      line_out  -= before.count('{xrst_section_number}\n')
 
-        line_pair.append( ( line_out, int(line_match) ) )
-        data_out += before
-        #
-        previous_end = m_obj.end()
-    #
-    # data_out
-    data_out += data_in[previous_end  :]
-    #
-    return data_out, line_pair
+      line_pair.append( ( line_out, int(line_match) ) )
+      data_out += before
+      #
+      previous_end = m_obj.end()
+   #
+   # data_out
+   data_out += data_in[previous_end  :]
+   #
+   return data_out, line_pair

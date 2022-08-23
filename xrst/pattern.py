@@ -20,7 +20,7 @@ pattern = dict()
 # group(3): the section name (without leading or trailing spaces or tabs)
 # group(4): the group name (with leading and trailing spaces and tabs)
 pattern['begin'] = re.compile(
-    r'(^|[^\\]){xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
+   r'(^|[^\\]){xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
 )
 #
 # pattern['toc']
@@ -28,12 +28,12 @@ pattern['begin'] = re.compile(
 # group(0): preceeding character + the command.
 # group(1): command name; i.e., hidden, list, or table
 # group(2): the rest of the command that comes after the command name.
-#           This is a list of file names with one name per line.
-#           The } at the end of the command is not included.
-#           This pattern may be empty.
+#        This is a list of file names with one name per line.
+#        The } at the end of the command is not included.
+#        This pattern may be empty.
 # If you change this pattern, check pattern_toc in process_children.py
 pattern['toc']   = re.compile(
-    r'[^\\]{xrst_toc_(hidden|list|table)([^}]*)}'
+   r'[^\\]{xrst_toc_(hidden|list|table)([^}]*)}'
 )
 #
 # pattern['code']
@@ -43,11 +43,11 @@ pattern['toc']   = re.compile(
 # group(2): on possiblity for group(1)
 # group(3): other possibility for group(1)
 # group(4): the language argument which is emtpy (just white space)
-#           for the second code command in each pair.
+#        for the second code command in each pair.
 # group(5): the line number for this line; see pattern['line'] above.
 pattern['code'] = re.compile(
-    r'((\n{xrst_code *)|(\n[^\n]*[^\n\\]\{xrst_code *))' +
-    r'([^}]*)}[^\n]*({xrst_line [0-9]+@)'
+   r'((\n{xrst_code *)|(\n[^\n]*[^\n\\]\{xrst_code *))' +
+   r'([^}]*)}[^\n]*({xrst_line [0-9]+@)'
 )
 #
 # pattern['end']
@@ -94,16 +94,16 @@ pattern['end'] = re.compile( r'[^\\]{xrst_end\s+([^}]*)}' )
 arg = r'([^{]*){xrst_line ([0-9]+)@\n'
 lin = r'[ \t]*{xrst_line ([0-9]+)@\n'
 pattern['literal_0'] = re.compile(
-    r'[^\\]{xrst_literal}' + lin
+   r'[^\\]{xrst_literal}' + lin
 )
 pattern['literal_1']  = re.compile(
-    r'[^\\]{xrst_literal' + lin + arg + r'[ \t]*}' + lin
+   r'[^\\]{xrst_literal' + lin + arg + r'[ \t]*}' + lin
 )
 pattern['literal_2']  = re.compile(
-    r'[^\\]{xrst_literal' + lin + arg + arg + r'[ \t]*}' + lin
+   r'[^\\]{xrst_literal' + lin + arg + arg + r'[ \t]*}' + lin
 )
 pattern['literal_3']  = re.compile(
-    r'[^\\]{xrst_literal' + lin + arg + arg + arg + r'[ \t]*}' + lin
+   r'[^\\]{xrst_literal' + lin + arg + arg + arg + r'[ \t]*}' + lin
 )
 #
 #

@@ -106,4 +106,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/heading.py
-    :language: py
+   :language: py

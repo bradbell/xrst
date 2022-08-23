@@ -62,7 +62,7 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/toc_list.xrst
-    :language: rst
+   :language: rst
 
 .. toctree::
    :maxdepth: 1

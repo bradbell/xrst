@@ -64,12 +64,12 @@ section name or section title. To be specific,
 the first input below will display the section name as the linking text,
 the second will display the section title as the linking text.
 
-1.  ``:ref:`` \` *section_name* \`
-2.  ``:ref:`` \` ``@`` *section_name* \`
+1. ``:ref:`` \` *section_name* \`
+2. ``:ref:`` \` ``@`` *section_name* \`
 
 You can also explicitly choose the linking text; e.g.
 
-3.  ``:ref:`` \` *linking_text* ``<`` *section_name* ``>`` \`
+3. ``:ref:`` \` *linking_text* ``<`` *section_name* ``>`` \`
 
 .. meta::
    :keywords: other, levels
@@ -96,9 +96,9 @@ Conversion
 ==========
 The conversion of a heading to a label does the following:
 
-1.  Letters are converted to lower case.
-2.  The following characters are converted to underbars ``_`` :
-    space ,  at signs ``@``, and colon ``:`` .
+1. Letters are converted to lower case.
+2. The following characters are converted to underbars ``_`` :
+   space ,  at signs ``@``, and colon ``:`` .
 
 For example, the label for the heading above is
 
@@ -113,19 +113,19 @@ For example, the label for the heading above is
 
 Discussion
 ==========
-1.  Note that at the first level one uses the *section_name* and not the
-    title; e.g., in the example above one uses ``heading_links``
-    and not ``heading_cross_reference_links`` .
-2.  The ``@`` and not ``.`` character is used to separate levels
-    because the ``.`` character is often used in titles and
-    section names; e.g. :ref:`auto_file@conf.py`.
-3.  Specifying all the levels for a heading may seem verbose,
-    but it avoids ambiguity when the same heading appears twice in one section;
-    e.g the heading Example might appears multiple times in different context.
-4.  Specifying all the levels also helps keep the links up to date.
-    If a heading changes, all the links to that heading, and all the
-    headings below it,  will break.  This identifies the links that should be
-    checked to make sure they are still valid.
+1. Note that at the first level one uses the *section_name* and not the
+   title; e.g., in the example above one uses ``heading_links``
+   and not ``heading_cross_reference_links`` .
+2. The ``@`` and not ``.`` character is used to separate levels
+   because the ``.`` character is often used in titles and
+   section names; e.g. :ref:`auto_file@conf.py`.
+3. Specifying all the levels for a heading may seem verbose,
+   but it avoids ambiguity when the same heading appears twice in one section;
+   e.g the heading Example might appears multiple times in different context.
+4. Specifying all the levels also helps keep the links up to date.
+   If a heading changes, all the links to that heading, and all the
+   headings below it,  will break.  This identifies the links that should be
+   checked to make sure they are still valid.
 
 .. _heading_links@example:
 

@@ -8,7 +8,7 @@
 """
 {xrst_begin suspend_example}
 {xrst_spell
-    iterable
+   iterable
 }
 
 Suspend Command Example
@@ -20,9 +20,9 @@ Factorial
 {xrst_suspend}
 """
 def factorial(n) :
-    if n == 1 :
-        return 1
-    return n * factorial(n-1)
+   if n == 1 :
+      return 1
+   return n * factorial(n-1)
 """
 {xrst_resume}
 
@@ -32,10 +32,10 @@ Product
 {xrst_suspend}
 """
 def product(itr) :
-    p = 1.0
-    for v in itr :
-        p *= v
-    return p
+   p = 1.0
+   for v in itr :
+      p *= v
+   return p
 """
 {xrst_resume}
 

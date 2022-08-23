@@ -9,9 +9,9 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
-    dir
-    rtd
-    furo
+   dir
+   rtd
+   furo
 }
 
 Run Extract Sphinx RST And Sphinx
@@ -19,13 +19,13 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` ( --version |  *root_file* )
-    [ ``--html`` *html_theme* ]
-    [ ``--rst`` *rst_line* ]
-    [ ``--group`` *group_list* ]
-    [ ``--target`` *target* ]
-    [ ``--output`` *output_dir* ]
-    [ ``--sphinx`` *sphinx_dir* ]
+-  ``xrst`` ( --version |  *root_file* )
+   [ ``--html`` *html_theme* ]
+   [ ``--rst`` *rst_line* ]
+   [ ``--group`` *group_list* ]
+   [ ``--target`` *target* ]
+   [ ``--output`` *output_dir* ]
+   [ ``--sphinx`` *sphinx_dir* ]
 
 version
 ********
@@ -84,13 +84,13 @@ group_list
 It is possible to select one or more groups of sections
 to include in the output using this optional argument.
 
-#.  The *group_list* is a comma separated list of
-    :ref:`group names<begin_cmd@group_name>`.
-#.  If *group_list* begins or ends with a comma, the empty group is included
-    along with the other groups specified by *group_list*.
-    Note that it is the group name and not the group that is empty.
-#.  The order of the groups determines their order in the resulting output.
-#.  The default value for *group_list* is ``,`` .
+#. The *group_list* is a comma separated list of
+   :ref:`group names<begin_cmd@group_name>`.
+#. If *group_list* begins or ends with a comma, the empty group is included
+   along with the other groups specified by *group_list*.
+   Note that it is the group name and not the group that is empty.
+#. The order of the groups determines their order in the resulting output.
+#. The default value for *group_list* is ``,`` .
 
 One use case for this is where the user documentation is a subset of the
 developer documentation. This enables the developer documentation to
@@ -134,7 +134,7 @@ The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
 
-    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
+   ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
 Example
 -------
@@ -215,21 +215,21 @@ import argparse
 import subprocess
 # ---------------------------------------------------------------------------
 def system_command(command) :
-    print(command)
-    command = command.split(' ')
-    result = subprocess.run(command, capture_output = True)
-    stderr = result.stderr.decode('utf-8')
-    ok     =  result.returncode == 0 and stderr == ''
-    if ok :
-        return
-    msg  = f'system command failed: stderr = \n{stderr}'
-    sys.exit(msg)
+   print(command)
+   command = command.split(' ')
+   result = subprocess.run(command, capture_output = True)
+   stderr = result.stderr.decode('utf-8')
+   ok     =  result.returncode == 0 and stderr == ''
+   if ok :
+      return
+   msg  = f'system command failed: stderr = \n{stderr}'
+   sys.exit(msg)
 # ---------------------------------------------------------------------------
 # sys.path
 # used so that we can test before installing
 if( os.getcwd().endswith('/xrst.git') ) :
-    if( os.path.isdir('xrst') ) :
-        sys.path.insert(0, os.getcwd() )
+   if( os.path.isdir('xrst') ) :
+      sys.path.insert(0, os.getcwd() )
 #
 import xrst
 #
@@ -239,369 +239,369 @@ import xrst
 version = '2022.8.22'
 #
 def run_xrst() :
-    #
-    # execution_directory
-    execution_directory = os.getcwd()
-    #
-    # parser
-    parser = argparse.ArgumentParser(
-        prog='xrst', description='extract Sphinx RST files'
-    )
-    parser.add_argument('--version', action='store_true',
-        help='just print version of xrst'
-    )
-    parser.add_argument('root_file', nargs='?', default=None,
-        help='file that contains root section (not required for --version)')
-    parser.add_argument(
-        '--html', metavar='html_theme', default='sphinx_rtd_theme',
-        help='sphinx html_theme that is used to display web pages',
-        choices=[ 'furo', 'sphinx_rtd_theme', 'sphinx_book_theme' ]
-    )
-    parser.add_argument(
-        '--rst', metavar='rst_line', type=int,
-        help='increment in table that converts sphinx error messages'
-    )
-    parser.add_argument(
-        '--group', metavar='group_list', default=',',
-        help='comma separated list of groups to include (default: ,)'
-    )
-    parser.add_argument(
-        '--target', metavar='target', choices=['html', 'pdf'], default='html',
-        help='type of output files, choices are html or pdf (default: html)'
-    )
-    parser.add_argument(
-        '--output', metavar='output_dir',
-        help= 'directory containing the sphinx output files ' +
-        '(default: sphinx_dir/html)'
-    )
-    parser.add_argument(
-        '--sphinx', metavar='sphinx_dir', default='sphinx',
-        help='directory containing configuration and xrst generated files ' +
-        '(default: sphinx)'
-    )
-    #
-    # arguments
-    arguments = parser.parse_args()
-    #
-    if arguments.version :
-        print(version)
-        sys.exit(0)
-    #
-    # root_file
-    # can not use system_exit until os.getcwd() returns root_directory
-    root_file = arguments.root_file
-    if root_file == None :
-        msg  = 'xsrst: Error\n'
-        msg += 'root_file is required when not using the --version option'
-        sys.exit(msg)
-    if not os.path.isfile(root_file) :
-        msg  = 'xsrst: Error\n'
-        msg += f'root_file = {root_file}\n'
-        if root_file[0] == '/' :
-            msg += 'is not a file\n'
-        else :
-            msg += f'is not a file relative to the execution directory\n'
-            msg += execution_directory
-        sys.exit(msg)
-    #
-    # root_directory
-    index = root_file.rfind('/')
-    if index < 0 :
-        root_directory = '.'
-    elif index == 0 :
-        root_directory = '/'
-    elif 0 < index :
-        root_directory = root_file[: index]
-    os.chdir(root_directory)
-    #
-    # html_theme
-    html_theme = arguments.html
-    #
-    # rst_line
-    rst_line = arguments.rst
-    if rst_line == None :
-        rst_line = 0
-    else :
-        if rst_line < 1 :
-            msg = 'rst_line is not a positive integer'
-            xrst.system_exit(msg)
-    #
-    # group_list
-    group_list = arguments.group
-    if group_list == ',' :
-        group_list = [ '' ]
-    else :
-        group_list = group_list.split(',')
-    #
-    # target
-    target = arguments.target
-    #
-    # sphinx_dir
-    sphinx_dir = arguments.sphinx
-    if not os.path.isdir(sphinx_dir) :
-        msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-        msg += 'is a valid directory path'
-        xrst.system_exit(msg)
-    if sphinx_dir[0] == '/' :
-        msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-        msg += 'must be a path relative to current workding directory'
-        xrst.system_exit(msg)
-    if 0 <= sphinx_dir.find('../') :
-        msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-        msg += 'cannot contain ../'
-        xrst.system_exit(msg)
-    #
-    # output_dir
-    output_dir = arguments.output
-    if output_dir == None :
-        output_dir = f'{sphinx_dir}/html'
-    #
-    # rst_dir
-    rst_dir = sphinx_dir + '/rst'
-    if not os.path.isdir(rst_dir) :
-        os.mkdir(rst_dir)
-    #
-    # tmp_dir
-    tmp_dir = rst_dir + '/tmp'
-    if os.path.isdir(tmp_dir) :
-        shutil.rmtree(tmp_dir)
-    os.mkdir(tmp_dir)
-    #
-    # spell_checker
-    spell_list  = list()
-    spell_file  = sphinx_dir + '/spelling'
-    if os.path.isfile( spell_file ) :
-        spell_list  = xrst.file2_list_str(spell_file)
-    spell_checker = xrst.create_spell_checker(spell_list)
-    #
-    # keyword_list
-    keyword_list = list()
-    keyword_file = sphinx_dir + '/keyword'
-    if os.path.isfile( keyword_file ) :
-        str_list = xrst.file2_list_str(keyword_file)
-        for regexp in str_list :
-            keyword_list.append( re.compile( regexp ) )
-    # -------------------------------------------------------------------------
-    #
-    # root_local
-    index = root_file.rfind('/')
-    if index < 0 :
-        root_local = root_file
-    else :
-        root_local = root_file[index + 1 :]
-    #
-    # project_name
-    project_name = root_local
-    index        = root_local.rfind('.')
-    if 0 < index :
-        project_name = root_local[: index]
-    #
-    # sinfo_list
-    # This list accumulates over all the group names
-    sinfo_list       = list()
-    #
-    # root_section_list
-    # Each group has a root secion (in root_file) at the top if its tree.
-    root_section_list = list()
-    #
-    # group_name
-    for group_name in group_list :
-        #
-        # finfo_stack, finfo_done
-        # This information is by file, not section
-        finfo_stack      = list()
-        finfo_done       = list()
-        finfo = {
-            'file_in'        : root_local,
-            'parent_file'    : None,
-            'parent_section' : None,
-        }
-        finfo_stack.append(finfo)
-        #
-        while 0 < len(finfo_stack) :
-            # pop first element is stack so that order in pdf file and
-            # table of contents is correct
-            finfo  = finfo_stack.pop(0)
+   #
+   # execution_directory
+   execution_directory = os.getcwd()
+   #
+   # parser
+   parser = argparse.ArgumentParser(
+      prog='xrst', description='extract Sphinx RST files'
+   )
+   parser.add_argument('--version', action='store_true',
+      help='just print version of xrst'
+   )
+   parser.add_argument('root_file', nargs='?', default=None,
+      help='file that contains root section (not required for --version)')
+   parser.add_argument(
+      '--html', metavar='html_theme', default='sphinx_rtd_theme',
+      help='sphinx html_theme that is used to display web pages',
+      choices=[ 'furo', 'sphinx_rtd_theme', 'sphinx_book_theme' ]
+   )
+   parser.add_argument(
+      '--rst', metavar='rst_line', type=int,
+      help='increment in table that converts sphinx error messages'
+   )
+   parser.add_argument(
+      '--group', metavar='group_list', default=',',
+      help='comma separated list of groups to include (default: ,)'
+   )
+   parser.add_argument(
+      '--target', metavar='target', choices=['html', 'pdf'], default='html',
+      help='type of output files, choices are html or pdf (default: html)'
+   )
+   parser.add_argument(
+      '--output', metavar='output_dir',
+      help= 'directory containing the sphinx output files ' +
+      '(default: sphinx_dir/html)'
+   )
+   parser.add_argument(
+      '--sphinx', metavar='sphinx_dir', default='sphinx',
+      help='directory containing configuration and xrst generated files ' +
+      '(default: sphinx)'
+   )
+   #
+   # arguments
+   arguments = parser.parse_args()
+   #
+   if arguments.version :
+      print(version)
+      sys.exit(0)
+   #
+   # root_file
+   # can not use system_exit until os.getcwd() returns root_directory
+   root_file = arguments.root_file
+   if root_file == None :
+      msg  = 'xsrst: Error\n'
+      msg += 'root_file is required when not using the --version option'
+      sys.exit(msg)
+   if not os.path.isfile(root_file) :
+      msg  = 'xsrst: Error\n'
+      msg += f'root_file = {root_file}\n'
+      if root_file[0] == '/' :
+         msg += 'is not a file\n'
+      else :
+         msg += f'is not a file relative to the execution directory\n'
+         msg += execution_directory
+      sys.exit(msg)
+   #
+   # root_directory
+   index = root_file.rfind('/')
+   if index < 0 :
+      root_directory = '.'
+   elif index == 0 :
+      root_directory = '/'
+   elif 0 < index :
+      root_directory = root_file[: index]
+   os.chdir(root_directory)
+   #
+   # html_theme
+   html_theme = arguments.html
+   #
+   # rst_line
+   rst_line = arguments.rst
+   if rst_line == None :
+      rst_line = 0
+   else :
+      if rst_line < 1 :
+         msg = 'rst_line is not a positive integer'
+         xrst.system_exit(msg)
+   #
+   # group_list
+   group_list = arguments.group
+   if group_list == ',' :
+      group_list = [ '' ]
+   else :
+      group_list = group_list.split(',')
+   #
+   # target
+   target = arguments.target
+   #
+   # sphinx_dir
+   sphinx_dir = arguments.sphinx
+   if not os.path.isdir(sphinx_dir) :
+      msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
+      msg += 'is a valid directory path'
+      xrst.system_exit(msg)
+   if sphinx_dir[0] == '/' :
+      msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
+      msg += 'must be a path relative to current workding directory'
+      xrst.system_exit(msg)
+   if 0 <= sphinx_dir.find('../') :
+      msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
+      msg += 'cannot contain ../'
+      xrst.system_exit(msg)
+   #
+   # output_dir
+   output_dir = arguments.output
+   if output_dir == None :
+      output_dir = f'{sphinx_dir}/html'
+   #
+   # rst_dir
+   rst_dir = sphinx_dir + '/rst'
+   if not os.path.isdir(rst_dir) :
+      os.mkdir(rst_dir)
+   #
+   # tmp_dir
+   tmp_dir = rst_dir + '/tmp'
+   if os.path.isdir(tmp_dir) :
+      shutil.rmtree(tmp_dir)
+   os.mkdir(tmp_dir)
+   #
+   # spell_checker
+   spell_list  = list()
+   spell_file  = sphinx_dir + '/spelling'
+   if os.path.isfile( spell_file ) :
+      spell_list  = xrst.file2_list_str(spell_file)
+   spell_checker = xrst.create_spell_checker(spell_list)
+   #
+   # keyword_list
+   keyword_list = list()
+   keyword_file = sphinx_dir + '/keyword'
+   if os.path.isfile( keyword_file ) :
+      str_list = xrst.file2_list_str(keyword_file)
+      for regexp in str_list :
+         keyword_list.append( re.compile( regexp ) )
+   # -------------------------------------------------------------------------
+   #
+   # root_local
+   index = root_file.rfind('/')
+   if index < 0 :
+      root_local = root_file
+   else :
+      root_local = root_file[index + 1 :]
+   #
+   # project_name
+   project_name = root_local
+   index        = root_local.rfind('.')
+   if 0 < index :
+      project_name = root_local[: index]
+   #
+   # sinfo_list
+   # This list accumulates over all the group names
+   sinfo_list       = list()
+   #
+   # root_section_list
+   # Each group has a root secion (in root_file) at the top if its tree.
+   root_section_list = list()
+   #
+   # group_name
+   for group_name in group_list :
+      #
+      # finfo_stack, finfo_done
+      # This information is by file, not section
+      finfo_stack      = list()
+      finfo_done       = list()
+      finfo = {
+         'file_in'        : root_local,
+         'parent_file'    : None,
+         'parent_section' : None,
+      }
+      finfo_stack.append(finfo)
+      #
+      while 0 < len(finfo_stack) :
+         # pop first element is stack so that order in pdf file and
+         # table of contents is correct
+         finfo  = finfo_stack.pop(0)
+         #
+         for finfo_tmp in finfo_done :
+            if finfo_tmp['file_in'] == finfo['file_in'] :
+               msg  = 'The file ' + finfo['file_in']
+               msg += '\nis included twice with '
+               msg += f'group_name = "{group_name}"\n'
+               msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
+               msg += 'and again in ' + finfo['parent_file'] + '\n'
+               xrst.system_exit(msg)
+         finfo_done.append(finfo)
+         #
+         file_in              = finfo['file_in']
+         parent_file          = finfo['parent_file']
+         parent_file_section  = finfo['parent_section']
+         assert os.path.isfile(file_in)
+         #
+         # get xrst docuemntation in this file
+         sinfo_file_in = xrst.get_file_info(
+            sinfo_list,
+            group_name,
+            parent_file,
+            file_in,
+         )
+         #
+         # root_section_list
+         if finfo['parent_file'] == None :
+            assert file_in == root_local
+            section_name = sinfo_file_in[0]['section_name']
+            root_section_list.append(section_name)
+         #
+         # parent_section_file_in
+         # index in sinfo_list of parent section for this file
+         parent_section_file_in = None
+         if sinfo_file_in[0]['is_parent'] :
+            parent_section_file_in = len(sinfo_list)
+         #
+         # add this files sections to sinfo_list
+         for i_section in range( len(sinfo_file_in) ) :
+            # ------------------------------------------------------------
+            # section_name, section_data, is_parent
+            section_name = sinfo_file_in[i_section]['section_name']
+            section_data = sinfo_file_in[i_section]['section_data']
+            is_parent    = sinfo_file_in[i_section]['is_parent']
+            is_child     = sinfo_file_in[i_section]['is_child']
             #
-            for finfo_tmp in finfo_done :
-                if finfo_tmp['file_in'] == finfo['file_in'] :
-                    msg  = 'The file ' + finfo['file_in']
-                    msg += '\nis included twice with '
-                    msg += f'group_name = "{group_name}"\n'
-                    msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
-                    msg += 'and again in ' + finfo['parent_file'] + '\n'
-                    xrst.system_exit(msg)
-            finfo_done.append(finfo)
+            # parent_section
+            if is_parent or parent_section_file_in is None :
+               parent_section = parent_file_section
+            else :
+               parent_section = parent_section_file_in
             #
-            file_in              = finfo['file_in']
-            parent_file          = finfo['parent_file']
-            parent_file_section  = finfo['parent_section']
-            assert os.path.isfile(file_in)
-            #
-            # get xrst docuemntation in this file
-            sinfo_file_in = xrst.get_file_info(
-                sinfo_list,
-                group_name,
-                parent_file,
-                file_in,
+            # sinfo_list
+            sinfo_list.append( {
+               'section_name'   : section_name,
+               'file_in'        : file_in,
+               'parent_section' : parent_section,
+               'in_parent_file' : is_child,
+            } )
+            # -------------------------------------------------------------
+            # spell_command
+            # do after suspend and before other commands to help ignore
+            # sections of text that do not need spell checking
+            section_data = xrst.spell_command(
+               section_data,
+               file_in,
+               section_name,
+               spell_checker,
+            )
+            # -------------------------------------------------------------
+            # toc commands
+            section_data, child_file, child_section_list = \
+               xrst.toc_commands(
+                  section_data,
+                  file_in,
+                  section_name,
             )
             #
-            # root_section_list
-            if finfo['parent_file'] == None :
-                assert file_in == root_local
-                section_name = sinfo_file_in[0]['section_name']
-                root_section_list.append(section_name)
-            #
-            # parent_section_file_in
-            # index in sinfo_list of parent section for this file
-            parent_section_file_in = None
-            if sinfo_file_in[0]['is_parent'] :
-                parent_section_file_in = len(sinfo_list)
-            #
-            # add this files sections to sinfo_list
-            for i_section in range( len(sinfo_file_in) ) :
-                # ------------------------------------------------------------
-                # section_name, section_data, is_parent
-                section_name = sinfo_file_in[i_section]['section_name']
-                section_data = sinfo_file_in[i_section]['section_data']
-                is_parent    = sinfo_file_in[i_section]['is_parent']
-                is_child     = sinfo_file_in[i_section]['is_child']
-                #
-                # parent_section
-                if is_parent or parent_section_file_in is None :
-                    parent_section = parent_file_section
-                else :
-                    parent_section = parent_section_file_in
-                #
-                # sinfo_list
-                sinfo_list.append( {
-                    'section_name'   : section_name,
-                    'file_in'        : file_in,
-                    'parent_section' : parent_section,
-                    'in_parent_file' : is_child,
-                } )
-                # -------------------------------------------------------------
-                # spell_command
-                # do after suspend and before other commands to help ignore
-                # sections of text that do not need spell checking
-                section_data = xrst.spell_command(
-                    section_data,
-                    file_in,
-                    section_name,
-                    spell_checker,
-                )
-                # -------------------------------------------------------------
-                # toc commands
-                section_data, child_file, child_section_list = \
-                    xrst.toc_commands(
-                        section_data,
-                        file_in,
-                        section_name,
-                )
-                #
-                # section_index, finfo_stack
-                section_index = len(sinfo_list) - 1
-                for file_tmp in child_file :
-                    finfo_stack.append( {
-                        'file_in'        : file_tmp,
-                        'parent_file'    : file_in,
-                        'parent_section' : section_index,
-                    } )
-                # ------------------------------------------------------------
-                # code commands
-                section_data = xrst.code_command(
-                    section_data,
-                    file_in,
-                    section_name,
-                )
-                # ------------------------------------------------------------
-                # literal command
-                section_data = xrst.literal_command(
-                    section_data,
-                    file_in,
-                    section_name,
-                    rst_dir,
-                )
-                # ------------------------------------------------------------
-                # process headings
-                # add labels and indices corresponding to headings
-                section_data, section_title, pseudo_heading = \
-                xrst.process_headings(
-                    html_theme,
-                    section_data,
-                    file_in,
-                    section_name,
-                    keyword_list,
-                )
-                # sinfo_list
-                # section title is used by table_of_contents
-                sinfo_list[section_index]['section_title'] = section_title
-                # -------------------------------------------------------------
-                # list_children
-                # section_name for each of the children of the current section
-                list_children = child_section_list
-                if is_parent :
-                    for i in range( len(sinfo_file_in) ) :
-                        if i != i_section :
-                            list_children.append(
-                                sinfo_file_in[i]['section_name']
-                            )
-                # -------------------------------------------------------------
-                # process children
-                # want this as late as possible to toctree at end of input
-                section_data = xrst.process_children(
-                    section_name,
-                    section_data,
-                    list_children,
-                )
-                # -------------------------------------------------------------
-                # write temporary file
-                xrst.temporary_file(
-                    rst_line,
-                    pseudo_heading,
-                    file_in,
-                    tmp_dir,
-                    section_name,
-                    section_data,
-                )
-    #
-    # auto_file
-    xrst.auto_file(
-        html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
-    )
-    #
-    # -------------------------------------------------------------------------
-    # overwrite rst files that have changed and then remove temporary files
-    tmp_list = os.listdir(tmp_dir)
-    rst_list = os.listdir(rst_dir)
-    for name in tmp_list :
-        src = tmp_dir + '/' + name
-        des = rst_dir + '/' + name
-        if name.endswith('.rst') :
-            if name not in rst_list :
+            # section_index, finfo_stack
+            section_index = len(sinfo_list) - 1
+            for file_tmp in child_file :
+               finfo_stack.append( {
+                  'file_in'        : file_tmp,
+                  'parent_file'    : file_in,
+                  'parent_section' : section_index,
+               } )
+            # ------------------------------------------------------------
+            # code commands
+            section_data = xrst.code_command(
+               section_data,
+               file_in,
+               section_name,
+            )
+            # ------------------------------------------------------------
+            # literal command
+            section_data = xrst.literal_command(
+               section_data,
+               file_in,
+               section_name,
+               rst_dir,
+            )
+            # ------------------------------------------------------------
+            # process headings
+            # add labels and indices corresponding to headings
+            section_data, section_title, pseudo_heading = \
+            xrst.process_headings(
+               html_theme,
+               section_data,
+               file_in,
+               section_name,
+               keyword_list,
+            )
+            # sinfo_list
+            # section title is used by table_of_contents
+            sinfo_list[section_index]['section_title'] = section_title
+            # -------------------------------------------------------------
+            # list_children
+            # section_name for each of the children of the current section
+            list_children = child_section_list
+            if is_parent :
+               for i in range( len(sinfo_file_in) ) :
+                  if i != i_section :
+                     list_children.append(
+                        sinfo_file_in[i]['section_name']
+                     )
+            # -------------------------------------------------------------
+            # process children
+            # want this as late as possible to toctree at end of input
+            section_data = xrst.process_children(
+               section_name,
+               section_data,
+               list_children,
+            )
+            # -------------------------------------------------------------
+            # write temporary file
+            xrst.temporary_file(
+               rst_line,
+               pseudo_heading,
+               file_in,
+               tmp_dir,
+               section_name,
+               section_data,
+            )
+   #
+   # auto_file
+   xrst.auto_file(
+      html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
+   )
+   #
+   # -------------------------------------------------------------------------
+   # overwrite rst files that have changed and then remove temporary files
+   tmp_list = os.listdir(tmp_dir)
+   rst_list = os.listdir(rst_dir)
+   for name in tmp_list :
+      src = tmp_dir + '/' + name
+      des = rst_dir + '/' + name
+      if name.endswith('.rst') :
+         if name not in rst_list :
                shutil.copyfile(src, des)
-            else :
-                if not filecmp.cmp(src, des, shallow=False) :
-                    os.replace(src, des)
-    for name in rst_list :
-        if name.endswith('.rst') :
-            if name not in tmp_list :
-                os.remove( rst_dir + '/' + name )
-    # reset tmp_dir because rmtree is such a dangerous command
-    tmp_dir = rst_dir + '/tmp'
-    shutil.rmtree(tmp_dir)
-    # -------------------------------------------------------------------------
-    if target == 'html' :
-        command = f'sphinx-build -b html {sphinx_dir} {output_dir}'
-        system_command(command)
-    else :
-        assert target == 'pdf'
-        #
-        latex_dir = f'{output_dir}/latex'
-        command = f'sphinx-build -b latex {sphinx_dir} {latex_dir}'
-        system_command(command)
-        #
-        command = f'make -C {latex_dir} {project_name}.pdf'
-        system_command(command)
-    # -------------------------------------------------------------------------
-    print('xrst: OK')
+         else :
+            if not filecmp.cmp(src, des, shallow=False) :
+               os.replace(src, des)
+   for name in rst_list :
+      if name.endswith('.rst') :
+         if name not in tmp_list :
+            os.remove( rst_dir + '/' + name )
+   # reset tmp_dir because rmtree is such a dangerous command
+   tmp_dir = rst_dir + '/tmp'
+   shutil.rmtree(tmp_dir)
+   # -------------------------------------------------------------------------
+   if target == 'html' :
+      command = f'sphinx-build -b html {sphinx_dir} {output_dir}'
+      system_command(command)
+   else :
+      assert target == 'pdf'
+      #
+      latex_dir = f'{output_dir}/latex'
+      command = f'sphinx-build -b latex {sphinx_dir} {latex_dir}'
+      system_command(command)
+      #
+      command = f'make -C {latex_dir} {project_name}.pdf'
+      system_command(command)
+   # -------------------------------------------------------------------------
+   print('xrst: OK')

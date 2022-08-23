@@ -20,7 +20,10 @@ operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
 
-file2literal
+space4to3:
+Change tab stop from 4 spaces to 3 spaces.
+
+file2literal:
 change xrst_file -> xrst_literal.
 
 child2toc:
@@ -45,6 +48,50 @@ Change :ref:`section_name<section_name>` -> :ref:`section_name`
 def abort(msg) :
     msg = '\nupdate_xstst.py: ' + msg
     sys.exit(msg)
+#
+# space4to3:
+def space4to3(data_in) :
+    # data_out
+    data_out = data_in
+    # ----------------------------------------------------------------------
+    # pattern
+    pattern = re.compile( r'(^|\n)([0-9#.]\.)  ([^ ])' )
+    #
+    # data_out
+    data_out = pattern.sub(r'\1\2 \3', data_out)
+    # ----------------------------------------------------------------------
+    # pattern
+    pattern = re.compile( r'(^|\n)-   ([^ ])' )
+    #
+    # data_out
+    data_out = pattern.sub(r'\1-  \2', data_out)
+    # ----------------------------------------------------------------------
+    # pattern
+    pattern = re.compile( r'(^|\n)([# ]   (    ){0,})[^ ]' )
+    #
+    # m_obj
+    m_obj   = pattern.search(data_out)
+    while m_obj :
+        #
+        # start, end
+        start = m_obj.start() + len( m_obj.group(1) )
+        end   = m_obj.end() - 1
+        assert end - start == len( m_obj.group(2) )
+        #
+        # n_indent
+        n_indent = int ( (end - start) / 4 )
+        assert (end - start) == n_indent * 4
+        #
+        # data_out
+        replace  = n_indent * '   '
+        if data_out[start] != ' ' :
+            replace = data_out[start] + replace[1 :]
+        data_out = data_out[: start] + replace + data_out[end :]
+        #
+        # m_obj
+        m_obj    = pattern.search(data_out, start + n_indent * 3 )
+    # -----------------------------------------------------------------------
+    return data_out
 #
 # fiile2literal:
 def file2literal(data_in) :
@@ -105,6 +152,7 @@ def main() :
     #
     # operation_dict
     operation_dict = {
+        'space4to3'    :  space4to3,
         'file2literal' :  file2literal,
         'child2toc'    :  child2toc,
         'dot2atsign'   :  dot2atsign,

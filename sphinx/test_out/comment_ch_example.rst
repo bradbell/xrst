@@ -36,10 +36,10 @@ function definition below:
 
 .. code-block:: py
 
-    def factorial(n) :
-        if n == 1 :
-            return 1
-        return n * factorial(n-1)
+   def factorial(n) :
+      if n == 1 :
+         return 1
+      return n * factorial(n-1)
 
 .. meta::
    :keywords: xrst_comment_ch
@@ -58,4 +58,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/comment_ch.py
-    :language: py
+   :language: py

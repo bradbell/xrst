@@ -31,8 +31,8 @@ factorial
 *********
 
 .. literalinclude:: ../../example/literal.cpp
-    :lines: 8-12
-    :language: cpp
+   :lines: 8-12
+   :language: cpp
 
 .. meta::
    :keywords: square
@@ -45,8 +45,8 @@ square
 ******
 
 .. literalinclude:: ../../example/literal.cpp
-    :lines: 16-16
-    :language: cpp
+   :lines: 16-16
+   :language: cpp
 
 .. meta::
    :keywords: xrst_literal
@@ -65,4 +65,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/literal.cpp
-    :language: cpp
+   :language: cpp

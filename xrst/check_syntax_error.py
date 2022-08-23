@@ -27,19 +27,19 @@ import xrst
 # is None or the name of this section (used for error reporting).
 #
 def check_syntax_error(command_name, data, file_name, section_name) :
-    assert type(data) == str
-    assert type(file_name) == str
-    assert type(section_name) == str or section_name == None
-    #
-    pattern = r'[^\\]{xrst_' + command_name + r'[^a-z]'
-    m_error = re.search(pattern, data)
-    if m_error :
-        msg = f'syntax error in xrst {command_name} command'
-        xrst.system_exit(msg,
-            file_name    = file_name ,
-            section_name = section_name ,
-            m_obj        = m_error ,
-            data         = data ,
-        )
-    #
-    return
+   assert type(data) == str
+   assert type(file_name) == str
+   assert type(section_name) == str or section_name == None
+   #
+   pattern = r'[^\\]{xrst_' + command_name + r'[^a-z]'
+   m_error = re.search(pattern, data)
+   if m_error :
+      msg = f'syntax error in xrst {command_name} command'
+      xrst.system_exit(msg,
+         file_name    = file_name ,
+         section_name = section_name ,
+         m_obj        = m_error ,
+         data         = data ,
+      )
+   #
+   return

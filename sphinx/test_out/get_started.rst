@@ -20,9 +20,9 @@ Getting Started
 .. contents::
    :local:
 
-#.  Use pip as follows to install xrst::
+#. Use pip as follows to install xrst::
 
-        pip install --index-url https://test.pypi.org/simple/ xrst
+      pip install --index-url https://test.pypi.org/simple/ xrst
 
 #. Create an empty directory and make it your current working directory.
 
@@ -33,7 +33,7 @@ Getting Started
 
 #. Execute the following command::
 
-        xrst get_started.xrst
+      xrst get_started.xrst
 
 #. Use your web browser to open the file ``sphinx/html/index.html`` .
    This location is relative to your workng directory.
@@ -45,4 +45,4 @@ This Example File
 The file below demonstrates the use of ``xrst_begin`` and ``xrst_end`` :
 
 .. literalinclude:: ../../example/get_started.xrst
-    :language: rst
+   :language: rst

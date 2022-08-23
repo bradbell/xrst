@@ -8,27 +8,27 @@
 # -----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
-    echo $*
-    eval $*
+   echo $*
+   eval $*
 }
 # -----------------------------------------------------------------------------
 if [ "$0" != 'bin/run_sphinx.sh' ]
 then
-    echo 'must execut bin/run_sphinx.sh from its parent directory'
-    exit 1
+   echo 'must execut bin/run_sphinx.sh from its parent directory'
+   exit 1
 fi
 # -----------------------------------------------------------------------------
 if [ "$1" != 'html' ] && [ "$1" != 'pdf' ]
 then
-    echo 'usage: bin/run_sphinx.sh (html|pdf) [rst_line]'
-    exit 1
+   echo 'usage: bin/run_sphinx.sh (html|pdf) [rst_line]'
+   exit 1
 fi
 target="$1"
 if [ "$2" == '' ]
 then
-    rst_line=''
+   rst_line=''
 else
-    rst_line="--rst $2"
+   rst_line="--rst $2"
 fi
 # -----------------------------------------------------------------------------
 # preamble
@@ -38,12 +38,12 @@ preamble='sphinx/preamble.rst'
 # -----------------------------------------------------------------------------
 if [ "$target" == 'html' ]
 then
-    echo_eval python -m xrst xrst.xrst \
-        --group ,user,app \
-        --output doc $rst_line \
-        --html sphinx_book_theme
-    echo 'run_sphinx.sh: OK'
-    exit 0
+   echo_eval python -m xrst xrst.xrst \
+      --group ,user,app \
+      --output doc $rst_line \
+      --html sphinx_book_theme
+   echo 'run_sphinx.sh: OK'
+   exit 0
 fi
 # -----------------------------------------------------------------------------
 # pdf
@@ -51,7 +51,7 @@ fi
 #
 # run xrst to create rst files and run sphinx
 echo_eval python -m xrst xrst.xrst --group ,user,app \
-        --target pdf --output doc $rst_line
+      --target pdf --output doc $rst_line
 #
 # -----------------------------------------------------------------------------
 echo 'run_sphinx.sh: OK'

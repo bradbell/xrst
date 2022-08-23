@@ -32,7 +32,7 @@ This Example File
 The spelling Example File
 #########################
 {xrst_literal
-    sphinx/spelling
+   sphinx/spelling
 }
 
 {xrst_end spelling}
@@ -42,7 +42,7 @@ The spelling Example File
 The keyword Example File
 ########################
 {xrst_literal
-    sphinx/keyword
+   sphinx/keyword
 }
 
 {xrst_end keyword}
@@ -52,7 +52,7 @@ The keyword Example File
 The preamble.rst Example File
 #############################
 {xrst_literal
-    sphinx/preamble.rst
+   sphinx/preamble.rst
 }
 
 {xrst_end preamble.rst}

@@ -12,9 +12,9 @@ image_link='https://bradbell.github.io/'
 # List of files, besides CMakeLists.txt, that have have a copy of the
 # version number (can be empty).
 version_files='
-    xrst.xrst
-    xrst/run_xrst.py
-    sphinx/test_out/user_guide.rst
+   xrst.xrst
+   xrst/run_xrst.py
+   sphinx/test_out/user_guide.rst
 '
 #
 # List of special files, for this repository, that the devel tools ignore.
@@ -25,17 +25,17 @@ version_files='
 # All other names are relavie paths somewhere below the top source directory.
 # BEGIN_SORT_THIS_LINE_PLUS_2
 ignore_files='
-    .gitignore
-    batch_edit.sed
-    bin/devel.sh
-    gpl-3.0.txt
-    readme.md
-    sphinx/conf.py
-    sphinx/keyword
-    sphinx/preamble.rst
-    sphinx/spelling
-    sphinx/test_out/
-    sphinx/xrst/
+   .gitignore
+   batch_edit.sed
+   bin/devel.sh
+   gpl-3.0.txt
+   readme.md
+   sphinx/conf.py
+   sphinx/keyword
+   sphinx/preamble.rst
+   sphinx/spelling
+   sphinx/test_out/
+   sphinx/xrst/
 '
 # END_SORT_THIS_LINE_MINUS_2
 # ----------------------------------------------------------------------------

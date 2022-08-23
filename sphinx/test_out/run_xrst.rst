@@ -24,13 +24,13 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--   ``xrst`` ( --version |  *root_file* )
-    [ ``--html`` *html_theme* ]
-    [ ``--rst`` *rst_line* ]
-    [ ``--group`` *group_list* ]
-    [ ``--target`` *target* ]
-    [ ``--output`` *output_dir* ]
-    [ ``--sphinx`` *sphinx_dir* ]
+-  ``xrst`` ( --version |  *root_file* )
+   [ ``--html`` *html_theme* ]
+   [ ``--rst`` *rst_line* ]
+   [ ``--group`` *group_list* ]
+   [ ``--target`` *target* ]
+   [ ``--output`` *output_dir* ]
+   [ ``--sphinx`` *sphinx_dir* ]
 
 .. meta::
    :keywords: version
@@ -130,13 +130,13 @@ group_list
 It is possible to select one or more groups of sections
 to include in the output using this optional argument.
 
-#.  The *group_list* is a comma separated list of
-    :ref:`group names<begin_cmd@group_name>`.
-#.  If *group_list* begins or ends with a comma, the empty group is included
-    along with the other groups specified by *group_list*.
-    Note that it is the group name and not the group that is empty.
-#.  The order of the groups determines their order in the resulting output.
-#.  The default value for *group_list* is ``,`` .
+#. The *group_list* is a comma separated list of
+   :ref:`group names<begin_cmd@group_name>`.
+#. If *group_list* begins or ends with a comma, the empty group is included
+   along with the other groups specified by *group_list*.
+   Note that it is the group name and not the group that is empty.
+#. The order of the groups determines their order in the resulting output.
+#. The default value for *group_list* is ``,`` .
 
 One use case for this is where the user documentation is a subset of the
 developer documentation. This enables the developer documentation to
@@ -208,7 +208,7 @@ The Latex macros in this file can be used by any section.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
 
-    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
+   ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
 .. _run_xrst@sphinx_dir@preamble.rst@example:
 
