@@ -26,6 +26,8 @@ xrst Release Notes for 2022
 3. Remove the :ref:`wish_list` subset documentation item.
    It was completed on :ref:`2022@08-05` when the
    :ref:`run_xrst@group_list` option was added.
+4. Change the standard for each level of indent from 4 to 3 spaces and
+   remove the corresponding wish list item.
 
 08-21
 *****
@@ -170,10 +172,10 @@ interact; see :ref:`toc_cmd@children`.
 07-24
 *****
 1. Remove ignore spelling of latex commands from wish list (done).
-2. Add :ref:`wish_list@standard_indent`,
+2. Add a standard indent,
    Relative File Names, and
    Git Repository entries to wish list.
-   Only the Standard Indent entry is outstanding.
+   All of these items have been completed.
 
 07-21
 *****

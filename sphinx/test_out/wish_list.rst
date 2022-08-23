@@ -26,18 +26,6 @@ The following is a wish list for future improvements to ``run_xrst``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
-   :keywords: standard, indent
-
-.. index:: standard, indent
-
-.. _wish_list@standard_indent:
-
-Standard Indent
-***************
-Change the number of spaces corresponding to a tab from 4 to 3 characters.
-This better aligns wih usage in sphinx rst files and saves output columns.
-
-.. meta::
    :keywords: spelling
 
 .. index:: spelling
