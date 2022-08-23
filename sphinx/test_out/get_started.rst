@@ -33,7 +33,7 @@ Getting Started
 
 #. Execute the following command::
 
-    xrst get_started.xrst
+        xrst get_started.xrst
 
 #. Use your web browser to open the file ``sphinx/html/index.html`` .
    This location is relative to your workng directory.
