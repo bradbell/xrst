@@ -53,19 +53,15 @@ def abort(msg) :
 def space4to3(data_in) :
    # data_out
    data_out = data_in
-   # ----------------------------------------------------------------------
-   # pattern
-   pattern = re.compile( r'(^|\n)([0-9#.]\.)  ([^ ])' )
    #
    # data_out
+   pattern  = re.compile( r'(^|\n)([0-9#.]\.)  ([^ ])' )
    data_out = pattern.sub(r'\1\2 \3', data_out)
-   # ----------------------------------------------------------------------
-   # pattern
-   pattern = re.compile( r'(^|\n)-   ([^ ])' )
    #
    # data_out
+   pattern = re.compile( r'(^|\n)-   ([^ ])' )
    data_out = pattern.sub(r'\1-  \2', data_out)
-   # ----------------------------------------------------------------------
+   #
    # pattern
    pattern = re.compile( r'(^|\n)([# ]   (    ){0,})[^ ]' )
    #
@@ -90,6 +86,12 @@ def space4to3(data_in) :
       #
       # m_obj
       m_obj    = pattern.search(data_out, start + n_indent * 3 )
+   #
+   # data_out
+   pattern  = re.compile( r'(\n# {8})(Copyright \(C\))' )
+   data_out = pattern.sub( r'\1   \2', data_out )
+   pattern  = re.compile( r'(\n {3})(GNU Affero General Public)' )
+   data_out = pattern.sub( r'\1 \2', data_out )
    # -----------------------------------------------------------------------
    return data_out
 #
