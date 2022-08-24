@@ -9,7 +9,7 @@ import xrst
 #
 # data:
 # is the data that we are searching for a heading in. The heading text must
-# have at least two character and be followed by an underline of at least the
+# have at least one character and be followed by an underline of at least the
 # same length. The heading text may be proceeded by an overline.
 #
 # data_index:
@@ -58,7 +58,7 @@ def next_heading(data, data_index) :
       # next_len
       next_len  = len(next_line)
       #
-      if next_len < 2 :
+      if next_len < 1 :
          # next_line cannot be an overline, heading, or underline
          state = 'before_overline'
       #

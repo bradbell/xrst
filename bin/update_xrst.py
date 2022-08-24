@@ -30,16 +30,16 @@ child2toc:
 Change xsrt_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
 and xrst_child_table -> xrst_toc_table.
 
+ref_section:
+Change :ref:`section_name` -> :ref:`@section_name`,
+Change :ref:`section_name<section_name>` -> :ref:`section_name`
+
 dot2atsign:
 Change the '.' to '@' character in all text of the form :ref:`text` and
 text of the form (at the betinning of a line) .. _text:
 
 xsrst2xrst:
 Change 'xsrst' to 'xrst' in all the text.
-
-ref_section:
-Change :ref:`section_name` -> :ref:`@section_name`,
-Change :ref:`section_name<section_name>` -> :ref:`section_name`
 
 '''
 #
@@ -122,11 +122,6 @@ def ref_section(data_in) :
    data_out  = data_out.replace(':ref:`@genindex`', ':ref:`genindex`')
    return data_out
 #
-# xsrst2xrst
-def xsrst2xrst(data_in) :
-   data_out = data_in.replace('xsrst', 'xrst')
-   return data_out
-#
 # dot2atsign
 def dot2atsign(data_in) :
    # pattern
@@ -147,6 +142,11 @@ def dot2atsign(data_in) :
    #
    return data_out
 #
+# xsrst2xrst
+def xsrst2xrst(data_in) :
+   data_out = data_in.replace('xsrst', 'xrst')
+   return data_out
+#
 # main
 def main() :
    if( len(sys.argv) != 4 ) :
@@ -157,9 +157,9 @@ def main() :
       'space4to3'    :  space4to3,
       'file2literal' :  file2literal,
       'child2toc'    :  child2toc,
+      'ref_section'  :  ref_section,
       'dot2atsign'   :  dot2atsign,
       'xsrst2xrst'   :  xsrst2xrst,
-      'ref_section'  : ref_section,
    }
    #
    # operation

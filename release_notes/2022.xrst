@@ -17,6 +17,14 @@
 xrst Release Notes for 2022
 ###########################
 
+08-24
+*****
+1. Allow headings to be just one character; e.g.,
+   :ref:`heading_example@another_second_level@x`
+   in the :ref:`heading_example` section.
+   Also fix the displayed labels in that example section
+   by changing ``.`` to ``@``.
+
 08-22
 *****
 1. Better detection and reporting of syntax errors in
