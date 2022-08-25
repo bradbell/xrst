@@ -24,6 +24,10 @@ xrst Release Notes for 2022
    in the :ref:`heading_example` section.
    Also fix the displayed labels in that example section
    by changing ``.`` to ``@``.
+2. When a character that is not a letter or white space appears in
+   the :ref:`spell_cmd` world list, the error used to report the line
+   number where the spell command started. Now it reports the line
+   where the bad character occurs.
 
 08-22
 *****

@@ -88,8 +88,12 @@ def space4to3(data_in) :
       m_obj    = pattern.search(data_out, start + n_indent * 3 )
    #
    # data_out
+   pattern = re.compile( r'(^|\n)((   ){0,}){   ([^ ])' )
+   data_out = pattern.sub( r'\1\2{  \4', data_out )
+   #
    pattern  = re.compile( r'(\n# {8})(Copyright \(C\))' )
    data_out = pattern.sub( r'\1   \2', data_out )
+   #
    pattern  = re.compile( r'(\n {3})(GNU Affero General Public)' )
    data_out = pattern.sub( r'\1 \2', data_out )
    # -----------------------------------------------------------------------

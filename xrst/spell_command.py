@@ -105,24 +105,24 @@ def spell_command(
       r'[^\\]{xrst_spell([^}]*)}' +
       r'([ \t]*{xrst_line [0-9]+@)?'
    )
-   pattern['word_list'] = re.compile( r'[A-Za-z \t\n]*' )
+   pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
    #
    # pattern
    # global pattern values used by spell command
-   pattern['toc']    = xrst.pattern['toc']
-   pattern['code']   = xrst.pattern['code']
+   pattern['toc']       = xrst.pattern['toc']
+   pattern['code']      = xrst.pattern['code']
    pattern['literal_2'] = xrst.pattern['literal_2']
    pattern['literal_3'] = xrst.pattern['literal_3']
-   pattern['line']   = xrst.pattern['line']
+   pattern['line']      = xrst.pattern['line']
    #
    # pattern
    # local pattern values only used by spell command
-   pattern['directive']   = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
-   pattern['http']  = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
-   pattern['ref_1'] = re.compile( r':ref:`[^\n<`]+`' )
-   pattern['ref_2'] = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
-   pattern['url_1'] = re.compile( r'`<[^\n>`]+>`_' )
-   pattern['url_2'] = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+   pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
+   pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
+   pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
+   pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
+   pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
+   pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
    #
    # The first choice is for line numbers which are not in original file.
    # The second is characters that are not letters, white space, or backslash.
@@ -146,30 +146,32 @@ def spell_command(
    if m_spell != None :
       #
       # check for multiple spell commands in one section
-      m_tmp  = pattern['spell'].search(data_in, m_spell.end() )
-      if m_tmp :
+      m_error  = pattern['spell'].search(data_in, m_spell.end() )
+      if m_error :
          msg  = 'There are two spell xrst commands in this section'
          xrst.system_exit(
             msg,
             file_name=file_name,
             section_name=section_name,
-            m_obj=m_tmp,
+            m_obj=m_error,
             data=data_in
          )
       #
       # word_list
       word_list = m_spell.group(1)
       word_list = pattern['line'].sub('', word_list)
-      m_tmp     = pattern['word_list'].search(word_list)
-      if m_tmp.group(0) != word_list :
+      m_error   = pattern['word_error'].search(word_list)
+      if m_error :
+         m_line = pattern['line'].search( data_in[m_spell.start() :] )
+         line   = int( m_line.group(1) )
+         line  += word_list[: m_error.start() ].count('\n')
          msg  = 'The word list in spell command contains '
          msg += 'charactes that are not letters or white space.'
          xrst.system_exit(
             msg,
             file_name=file_name,
             section_name=section_name,
-            m_obj=m_spell,
-            data=data_in
+            line = line,
          )
       #
       # special_used, double_used
