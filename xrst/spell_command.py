@@ -90,7 +90,7 @@ import xrst
 #
 # Spelling Warnings:
 # A spelling warning is reported for each word (and double word) that is not
-# in the spell_checker dictionary or the speical word list. A word is two or
+# in the spell_checker dictionary or the special word list. A word is two or
 # more letter characters. If a word is directly precceded by a backslash,
 # it is ignored (so that latex commands do not generate warnings).
 #

@@ -11,11 +11,11 @@ import spellchecker
 #
 # local_words:
 # a list of words that get addeed to the dictionary for this spell checker.
+# No need to add single letter words because they are considered correct
+# by spell_command routine.
 #
 # spell_checker:
 # The return spell_checker is a pyspellchecker spell checking object.
-# 1. All single letter words are in its dictionary.
-# 2. The latex command fo all the greek letters are in its dictionary.
 #
 # spell_checker =
 def create_spell_checker(local_words) :
