@@ -17,6 +17,14 @@
 xrst Release Notes for 2022
 ###########################
 
+08-27
+*****
+Fix build when :ref:`run_xrst@target` is pdf.
+To be specific, do not include
+:ref:`auto_file@rst/xrst_index.rst` in
+:ref:`auto_file@index.rst` .
+
+
 08-24
 *****
 1. Allow headings to be just one character; e.g.,
