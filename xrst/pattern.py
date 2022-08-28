@@ -50,11 +50,26 @@ pattern['code'] = re.compile(
    r'([^}]*)}[^\n]*({xrst_line [0-9]+@)'
 )
 #
+# pattern['comment_ch']
+# Pattern for comment_ch command
+# group(0): empty or character before comamnd + the command
+# group(1): is the character (matched as any number of not space, tab or }
+pattern['comment_ch'] = re.compile(
+      r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
+)
+#
 # pattern['end']
 # Pattern for end command
 # group(0): preeeding character + white space + the command.
 # group(1): the section name.
 pattern['end'] = re.compile( r'[^\\]{xrst_end\s+([^}]*)}' )
+#
+#
+# pattern['line']
+# Pattern for line numbers are added to the input by add_line_number
+# group(0): the line command.
+# group(1): the line_number.
+pattern['line'] = re.compile( r'{xrst_line ([0-9]+)@' )
 #
 # pattern['literal_0']
 # xrst_literal with no arguments
@@ -105,10 +120,3 @@ pattern['literal_2']  = re.compile(
 pattern['literal_3']  = re.compile(
    r'[^\\]{xrst_literal' + lin + arg + arg + arg + r'[ \t]*}' + lin
 )
-#
-#
-# pattern['line']
-# Pattern for line numbers are added to the input by add_line_number
-# group(0): the line command.
-# group(1): the line_number.
-pattern['line'] = re.compile( r'{xrst_line ([0-9]+)@' )

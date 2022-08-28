@@ -77,6 +77,10 @@ Example
 # ----------------------------------------------------------------------------
 import re
 import xrst
+pattern = dict()
+pattern['comment_ch'] = xrst.pattern['comment_ch']
+# need \{xrst_comment_ch so it does not match comment_ch command
+pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
 #
 # Removes the beginning of line comment character from file data.
 #
@@ -102,17 +106,11 @@ def remove_comment_ch(data_in, file_name) :
    assert type(file_name) == str
    #
    # m_obj
-   # need \{xrst_comment_ch so it does not match comment_ch command
-   pattern = re.compile(
-      r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
-   )
-   m_obj   = pattern.search(data_in)
+   m_obj   = pattern['comment_ch'].search(data_in)
    #
    # data_out
    if not m_obj :
-      # need \{xrst_comment_ch so it does not match comment_ch command
-      pattern = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
-      m_error = pattern.search(data_in)
+      m_error = pattern['error'].search(data_in)
       if m_error :
          msg  = f'syntax_error in xrst comment_ch command'
          line = data_in[: m_error.start() + 1].count('\n') + 1
@@ -133,13 +131,13 @@ def remove_comment_ch(data_in, file_name) :
       #
       # m_obj
       data_rest  = data_in[ m_obj.end() : ]
-      m_rest     = pattern.search(data_rest)
+      m_rest     = pattern['error'].search(data_rest)
       if m_rest :
          line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
          msg = 'There are multiple comment_ch commands in this file'
          xrst.system_exit(msg, file_name=file_name, line=line)
       #
       # data_out
-      pattern  = re.compile( r'\n[' + comment_ch + r'] ?' )
-      data_out = pattern.sub(r'\n', data_in)
+      pattern['replace']  = re.compile( r'\n[' + comment_ch + r'] ?' )
+      data_out = pattern['replace'].sub(r'\n', data_in)
    return data_out
