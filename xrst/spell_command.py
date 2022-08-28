@@ -68,6 +68,40 @@ import sys
 import re
 import xrst
 #
+# pattern
+pattern = dict()
+pattern['spell']     = re.compile(
+   r'[^\\]{xrst_spell([^}]*)}' +
+   r'([ \t]*{xrst_line [0-9]+@)?'
+)
+pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
+#
+# pattern
+# global pattern values used by spell command
+pattern['toc']       = xrst.pattern['toc']
+pattern['code']      = xrst.pattern['code']
+pattern['literal_2'] = xrst.pattern['literal_2']
+pattern['literal_3'] = xrst.pattern['literal_3']
+pattern['line']      = xrst.pattern['line']
+#
+# pattern
+# local pattern values only used by spell command
+pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
+pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
+pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
+pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
+pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
+pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+#
+# The first choice is for line numbers which are not in original file.
+# The second is characters that are not letters, white space, or backslash.
+# These character separate double words so they are not an error.
+# The third is for the actual words (plus a possible backlash at start).
+pattern['word']  = re.compile(
+   r'({xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)'
+)
+# -----------------------------------------------------------------------------
+#
 # Process the spell command for a section
 #
 # data_in:
@@ -98,38 +132,6 @@ import xrst
 def spell_command(
    data_in, file_name, section_name, spell_checker
 ) :
-   #
-   # pattern
-   pattern = dict()
-   pattern['spell']     = re.compile(
-      r'[^\\]{xrst_spell([^}]*)}' +
-      r'([ \t]*{xrst_line [0-9]+@)?'
-   )
-   pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
-   #
-   # pattern
-   # global pattern values used by spell command
-   pattern['toc']       = xrst.pattern['toc']
-   pattern['code']      = xrst.pattern['code']
-   pattern['literal_2'] = xrst.pattern['literal_2']
-   pattern['literal_3'] = xrst.pattern['literal_3']
-   pattern['line']      = xrst.pattern['line']
-   #
-   # pattern
-   # local pattern values only used by spell command
-   pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
-   pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
-   pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
-   pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
-   pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
-   pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
-   #
-   # The first choice is for line numbers which are not in original file.
-   # The second is characters that are not letters, white space, or backslash.
-   # These character separate double words so they are not an error.
-   # The third is for the actual words (plus a possible backlash at start).
-   pattern['word']  = re.compile(
-      r'({xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)' )
    #
    #
    # m_spell
