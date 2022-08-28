@@ -287,7 +287,7 @@ def get_file_info(
          section_data  = xrst.suspend_command(
             section_data, file_in, section_name
          )
-         section_data = xrst.remove_indent(
+         section_data, not_used = xrst.remove_indent(
             section_data, file_in, section_name
          )
          #

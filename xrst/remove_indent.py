@@ -42,7 +42,10 @@ import xrst
 # data_out:
 # is a copy of data_in with the indentation for this seciton removed.
 #
-# data_out =
+# indent:
+# is the white space that was removed from each line (except for empty lines)
+#
+# data_out, indent =
 def remove_indent(data_in, file_name, section_name) :
    assert type(data_in) == str
    assert type(file_name) == str
@@ -68,7 +71,7 @@ def remove_indent(data_in, file_name, section_name) :
    #
    # check if there is no indent to remove
    if num_remove == 0 :
-      return data_in
+      return data_in, ''
    #
    # indent_ch
    line      = 0
@@ -95,4 +98,7 @@ def remove_indent(data_in, file_name, section_name) :
    pattern  = re.compile( r'\n' + num_remove * indent_ch )
    data_out = pattern.sub('\n', data_in)
    #
-   return data_out
+   # indent
+   indent = num_remove * indent_ch
+   #
+   return data_out, indent
