@@ -26,21 +26,6 @@ The following is a wish list for future improvements to ``run_xrst``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
-   :keywords: spelling
-
-.. index:: spelling
-
-.. _wish_list@spelling:
-
-Spelling
-********
-Add a command that automatically fixes spelling warnings by changing
-the :ref:`@spell_cmd` in input sections. This is usefull when
-pyspellchecker changes, when the
-:ref:`run_xrst@sphinx_dir@spelling` file changes,
-and when run_xrst automatically ignores more words.
-
-.. meta::
    :keywords: tabs
 
 .. index:: tabs

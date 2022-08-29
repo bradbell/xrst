@@ -17,6 +17,11 @@
 xrst Release Notes for 2022
 ###########################
 
+08-29
+*****
+Add the :ref:`run_xrst@replace_spell_commands` option
+and remove the corresponding :ref:`wish_list` item.
+
 08-27
 *****
 Fix build when :ref:`run_xrst@target` is pdf.

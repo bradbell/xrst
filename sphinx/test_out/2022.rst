@@ -20,6 +20,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-29:
+
+08-29
+*****
+Add the :ref:`run_xrst@replace_spell_commands` option
+and remove the corresponding :ref:`wish_list` item.
+
 .. _2022@08-27:
 
 08-27

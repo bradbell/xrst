@@ -54,9 +54,11 @@ replace_spell_commands
 If this command is present on the command line, the source code
 :ref:`spell commands<spell_cmd>` a replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
-This useful when starts with no spelling warnings before a change
+This useful when there are no spelling warnings before a change
 to the :ref:`run_xrst@sphinx_dir@spelling` file or an update
-of the ``pyspellchecker`` package (which is used to do the spell checking).
+of the pyspellchecker_ package (which is used to do the spell checking).
+
+.. _pyspellchecker: https://pypi.org/project/pyspellchecker
 
 html_theme
 **********

@@ -159,7 +159,6 @@ Appendix
 ----------------------------------------------------------------------------
 {xrst_begin wish_list app}
 {xrst_spell
-   pyspellchecker
    stackoverflow
 }
 
@@ -169,14 +168,6 @@ The following is a wish list for future improvements to ``run_xrst``:
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
-
-Spelling
-********
-Add a command that automatically fixes spelling warnings by changing
-the :ref:`@spell_cmd` in input sections. This is usefull when
-pyspellchecker changes, when the
-:ref:`run_xrst@sphinx_dir@spelling` file changes,
-and when run_xrst automatically ignores more words.
 
 Tabs
 ****
