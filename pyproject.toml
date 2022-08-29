@@ -12,7 +12,7 @@ build-backend = 'hatchling.build'
 
 [project]
 name    = 'xrst'
-version = '2022.8.27'
+version = '2022.8.29'
 authors = [
   {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
 ]
