@@ -8,9 +8,9 @@
 # {xrst_comment_ch #}
 #
 # {xrst_begin comment_ch_example}
-# {xrst_spell
-#  ch
-# }
+  {xrst_spell
+     ch
+  }
 #
 # Comment Character Command Example
 # #################################

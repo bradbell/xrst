@@ -10,8 +10,8 @@
 {xrst_begin run_xrst user}
 {xrst_spell
    dir
-   rtd
    furo
+   rtd
 }
 
 Run Extract Sphinx RST And Sphinx
@@ -570,6 +570,9 @@ def run_xrst() :
    xrst.auto_file(
       html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
    )
+   #
+   # replace_spell
+   xrst.replace_spell(tmp_dir)
    #
    # -------------------------------------------------------------------------
    #

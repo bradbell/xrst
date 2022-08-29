@@ -30,9 +30,9 @@ user group name
 ----------------------------------------------------------------------------
 {xrst_begin_parent user_guide user}
 {xrst_spell
-   gsl
-   doxygen
    autodoc
+   doxygen
+   gsl
 }
 
 Extract Sphinx RST Files
@@ -159,8 +159,8 @@ Appendix
 ----------------------------------------------------------------------------
 {xrst_begin wish_list app}
 {xrst_spell
-   stackoverflow
    pyspellchecker
+   stackoverflow
 }
 
 Wish List

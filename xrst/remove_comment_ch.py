@@ -71,6 +71,7 @@ import re
 import xrst
 pattern = dict()
 pattern['comment_ch'] = xrst.pattern['comment_ch']
+#
 # need \{xrst_comment_ch so it does not match comment_ch command
 pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
 #

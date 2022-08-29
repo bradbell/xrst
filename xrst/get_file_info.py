@@ -8,8 +8,8 @@
 """
 {xrst_begin begin_cmd user}
 {xrst_spell
-   underbar
    dir
+   underbar
 }
 
 Begin and End Commands
