@@ -40,14 +40,6 @@ There must be at least one white space character
 between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
 
-Beginning of a Line
-*******************
-A sequence of characters *text* is at the beginning of a line if there
-are only space characters
-between the previous new line character and *text*.
-In addition, the special character *ch* can be the first character
-after the new line and before *text*.
-
 Input Stream
 ************
 The special character (and one space if present directly after)
