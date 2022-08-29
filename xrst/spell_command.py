@@ -72,7 +72,7 @@ import xrst
 pattern = dict()
 pattern['spell']     = re.compile(
    r'[^\\]{xrst_spell([^}]*)}' +
-   r'([ \t]*{xrst_line [0-9]+@)?'
+   r'([ \t]*{xrst_line ([0-9]+)@)?'
 )
 pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
 #
@@ -104,6 +104,22 @@ pattern['word']  = re.compile(
 #
 # Process the spell command for a section
 #
+# tmp_dir:
+# The file tmp_dir/spell.toml will contain the information below:
+# It can be used to replace the spell command for this section
+# in a way so that will have no spelling warnings.
+#     [file_name.section_name]
+#     begin_line  = integer line number for the begin command
+#     start_spell = integer line number where the spell command starts
+#     end_spell   = integer line nubmer where the spell command ends
+#     unknown     = array of strings (words)  that are not in dictionary
+# 1. file_name and section_name are strings
+# 2. Line numbers start are one and are in the file.
+# 3. The line number zero is used for start_spell and end_spell when
+#    there is no spell command for this section.
+# 4. The spell start and end lines to not overlap any begin lines
+#    of spell lines
+#
 # data_in:
 # is the data for this section before the spell command is removed.
 #
@@ -130,7 +146,7 @@ pattern['word']  = re.compile(
 #
 # data_out =
 def spell_command(
-   data_in, file_name, section_name, spell_checker
+   tmp_dir, data_in, file_name, section_name, spell_checker
 ) :
    #
    #
@@ -217,6 +233,9 @@ def spell_command(
    # previous_word
    previous_word = ''
    #
+   # unknown_word_list
+   unknown_word_list = list()
+   #
    # m_obj
    for m_obj in pattern['word'].finditer( data_tmp ) :
       #
@@ -228,6 +247,11 @@ def spell_command(
          #
          unknown = len( spell_checker.unknown( [word] ) ) > 0
          if unknown :
+            #
+            # unknown_word_list
+            if not word_lower in unknown_word_list :
+               unknown_word_list.append( word_lower )
+            #
             # word is not in the dictionary
             #
             if not word_lower in special_used :
@@ -260,6 +284,18 @@ def spell_command(
          double_word = word_lower == previous_word.lower()
          if double_word :
             # This is the second use of word with only white space between
+            #
+            # unknown_word_list
+            if not word_lower in unknown_word_list :
+               unknown_word_list.append( word_lower )
+               unknown_word_list.append( word_lower )
+            else :
+               index = unknown_word_list.find( word_lower )
+               if index + 1 < len(unknown_word_list) :
+                  if unknown_word_list[index + 1] != word_lower :
+                     unknown_word_list.insert(index, word_lower )
+               else :
+                  unknown_word_list.append(word_lower)
             #
             if not word_lower in double_used :
                # word is not in list of special double words
@@ -306,5 +342,36 @@ def spell_command(
          msg  = 'double word "' + word_lower + ' ' + word_lower
          msg += '" not needed\n'
          sys.stderr.write(msg)
+   #
+   # start_spell, end_spell
+   if m_spell :
+      m_line = pattern['line'].search(data_in, m_spell.start() )
+      start_spell = int( m_line.group(1) )
+      end_spell   = int( m_spell.group(3) )
+   else :
+      start_spell = 0
+      end_spell   = 0
+   #
+   # begin_line
+   m_line     = pattern['line'].search(data_in)
+   begin_line = int( m_line.group(1) )
+   #
+   # file_data
+   file_data  = f'[ "{file_name}"."{section_name}" ]\n'
+   file_data += f'begin_line = {begin_line}\n'
+   file_data += f'start_spell = {start_spell}\n'
+   file_data += f'end_spell = {end_spell}\n'
+   if len(unknown_word_list) == 0 :
+      file_data += f'unknown = []\n\n'
+   else :
+      file_data += f'unknown = [\n'
+      for word_lower in unknown_word_list :
+         file_data += f'   "{word_lower}",\n'
+      file_data += ']\n\n'
+   #
+   # spell.toml
+   file_ptr   = open(f'{tmp_dir}/spell.toml', 'a')
+   file_ptr.write(file_data)
+   file_ptr.close()
    #
    return data_out

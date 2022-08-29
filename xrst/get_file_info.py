@@ -110,9 +110,10 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #  2. If present in this file, the comment character and possilbe space
 #      after have been removed.
 #  3. The begin and end commands are not include in this data.
-#  4. The suspend / resume comands and data between such pairs
+#  4. The first (last) line number corresponds to the begin (end) command
+#  5. The suspend / resume comands and data between such pairs
 #      have been removed.
-#  5. If there is a common indentation for the entire section,
+#  6. If there is a common indentation for the entire section,
 #      it is removed.
 #
 #  info['is_parent']:

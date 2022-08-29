@@ -485,6 +485,7 @@ def run_xrst() :
             # do after suspend and before other commands to help ignore
             # sections of text that do not need spell checking
             section_data = xrst.spell_command(
+               tmp_dir,
                section_data,
                file_in,
                section_name,
@@ -571,12 +572,13 @@ def run_xrst() :
    )
    #
    # -------------------------------------------------------------------------
-   # overwrite rst files that have changed and then remove temporary files
+   #
+   # rst_dir/*.rst
    tmp_list = os.listdir(tmp_dir)
    rst_list = os.listdir(rst_dir)
    for name in tmp_list :
-      src = tmp_dir + '/' + name
-      des = rst_dir + '/' + name
+      src = f'{tmp_dir}/{name}'
+      des = f'{rst_dir}/{name}'
       if name.endswith('.rst') :
          if name not in rst_list :
                shutil.copyfile(src, des)
@@ -586,9 +588,16 @@ def run_xrst() :
    for name in rst_list :
       if name.endswith('.rst') :
          if name not in tmp_list :
-            os.remove( rst_dir + '/' + name )
+            os.remove( f'{rst_dir}/{name}' )
+   #
+   # sphinx_dir/spell.toml
+   src = f'{tmp_dir}/spell.toml'
+   des = f'{sphinx_dir}/spell.toml'
+   os.replace(src, des)
+   #
+   # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command
-   tmp_dir = rst_dir + '/tmp'
+   tmp_dir = f'{rst_dir}/tmp'
    shutil.rmtree(tmp_dir)
    # -------------------------------------------------------------------------
    if target == 'html' :

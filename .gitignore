@@ -5,6 +5,7 @@ temp.*
 /git_commit.sh
 /sphinx/index.rst
 /sphinx/conf.py
+/sphinx/spell.toml
 # used by gh_pages.sh to build documentation
 /build/
 # automatically created directories
