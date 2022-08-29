@@ -11,6 +11,7 @@
 {xrst_spell
    dir
    furo
+   pyspellchecker
    rtd
 }
 
@@ -20,6 +21,7 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -  ``xrst`` ( --version |  *root_file* )
+   [ ``--replace_spell_commands`` ]
    [ ``--html`` *html_theme* ]
    [ ``--rst`` *rst_line* ]
    [ ``--group`` *group_list* ]
@@ -46,6 +48,15 @@ project_name
 ============
 The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
+
+replace_spell_commands
+**********************
+If this command is present on the command line, the source code
+:ref:`spell commands<spell_cmd>` a replaced in such a way that the
+there will be no spelling warnings during future processing by xrst.
+This useful when starts with no spelling warnings before a change
+to the :ref:`run_xrst@sphinx_dir@spelling` file or an update
+of the ``pyspellchecker`` package (which is used to do the spell checking).
 
 html_theme
 **********
@@ -251,7 +262,11 @@ def run_xrst() :
       help='just print version of xrst'
    )
    parser.add_argument('root_file', nargs='?', default=None,
-      help='file that contains root section (not required for --version)')
+      help='file that contains root section (not required for --version'
+   )
+   parser.add_argument('--replace_spell_commands', action='store_true',
+      help='replace the xrst spell commands in source code files'
+   )
    parser.add_argument(
       '--html', metavar='html_theme', default='sphinx_rtd_theme',
       help='sphinx html_theme that is used to display web pages',
@@ -313,6 +328,20 @@ def run_xrst() :
    elif 0 < index :
       root_directory = root_file[: index]
    os.chdir(root_directory)
+   #
+   # replace_spell_commands
+   replace_spell_commands = arguments.replace_spell_commands
+   if replace_spell_commands :
+      cwd      = os.getcwd()
+      prompt   = '\nThe replace_spell_commands option will change some of \n'
+      prompt  += 'the files read by xrst. Make sure that you have a backup\n'
+      prompt  += f'of source files in {cwd}\n'
+      prompt  += 'before contining this operation: continue [yes/no] ? '
+      response = None
+      while response not in [ 'yes', 'no' ]:
+         response = input(prompt)
+      if response != 'yes' :
+         sys.exit('xrst: aborting replace_spell_commands')
    #
    # html_theme
    html_theme = arguments.html
@@ -571,9 +600,6 @@ def run_xrst() :
       html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
    )
    #
-   # replace_spell
-   xrst.replace_spell(tmp_dir)
-   #
    # -------------------------------------------------------------------------
    #
    # rst_dir/*.rst
@@ -593,10 +619,9 @@ def run_xrst() :
          if name not in tmp_list :
             os.remove( f'{rst_dir}/{name}' )
    #
-   # sphinx_dir/spell.toml
-   src = f'{tmp_dir}/spell.toml'
-   des = f'{sphinx_dir}/spell.toml'
-   os.replace(src, des)
+   # replace_spell
+   if replace_spell_commands :
+      xrst.replace_spell(tmp_dir)
    #
    # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command

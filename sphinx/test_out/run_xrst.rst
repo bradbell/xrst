@@ -25,6 +25,7 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 -  ``xrst`` ( --version |  *root_file* )
+   [ ``--replace_spell_commands`` ]
    [ ``--html`` *html_theme* ]
    [ ``--rst`` *rst_line* ]
    [ ``--group`` *group_list* ]
@@ -72,6 +73,22 @@ project_name
 ============
 The base part of *root_file*, without directories or file extension,
 is used as the sphinx project name.
+
+.. meta::
+   :keywords: replace_spell_commands
+
+.. index:: replace_spell_commands
+
+.. _run_xrst@replace_spell_commands:
+
+replace_spell_commands
+**********************
+If this command is present on the command line, the source code
+:ref:`spell commands<spell_cmd>` a replaced in such a way that the
+there will be no spelling warnings during future processing by xrst.
+This useful when starts with no spelling warnings before a change
+to the :ref:`run_xrst@sphinx_dir@spelling` file or an update
+of the ``pyspellchecker`` package (which is used to do the spell checking).
 
 .. meta::
    :keywords: html_theme
