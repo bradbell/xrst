@@ -36,7 +36,7 @@ Indent Example
 
 Discussion
 **********
-The file below demonstrates indenting an entire xrst section.
+The file below demonstrates indenting an entire xrst page.
 Note that underling headings works even though it is indented.
 
 .. _indent_example@this_example_file:

@@ -10,7 +10,7 @@ import xrst
 # Convert start,  stop text for a literal command to start, stop line numbers.
 #
 # page_name:
-# is the name of the section where the xrst_literal command appears.
+# is the name of the page where the xrst_literal command appears.
 #
 # file_cmd:
 # is the name of the file where the xrst_literal command appears.
@@ -20,7 +20,7 @@ import xrst
 # file_cmd, then it must have appeared in the xrst_literal command.
 #
 # cmd_line:
-# If file_cmd is equal to display_file, the section of the file between
+# If file_cmd is equal to display_file, the page of the file between
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
 # are in the xrst_literal command and are excluded from the search.
 #

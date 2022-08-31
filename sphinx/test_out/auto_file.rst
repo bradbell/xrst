@@ -36,7 +36,7 @@ The files in the ``rst`` subdirectory that do not change are not replaced.
 index.rst
 *********
 The sphinx index.rst file. This is root level in the documentation tree
-built by sphinx. It is one level above the first section in
+built by sphinx. It is one level above the first page in
 :ref:`run_xrst@root_file`.
 
 .. meta::
@@ -62,7 +62,7 @@ This is the sphinx configuration_ file.
 rst/xrst_table_of_contents.rst
 ******************************
 This file contains the table of contents for the last run of ``xrst``.
-You can link to the corresponding section with the following command::
+You can link to the corresponding page with the following command::
 
    :ref:`@xrst_table_of_contents`
 

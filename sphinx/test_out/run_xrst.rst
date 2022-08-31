@@ -56,10 +56,10 @@ argument.
 root_file
 *********
 The command line argument *root_file* is the name of a file
-containing the root section for the documentation tree.
+containing the root page for the documentation tree.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
-There must be at least one section in *root_file* that has each
+There must be at least one page in *root_file* that has each
 :ref:`begin_cmd@group_name` in the *group_list*.
 
 .. meta::
@@ -109,7 +109,7 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 .. _html_theme: https://sphinx-themes.org/
 
 The ``sphinx_rtd_theme`` theme includes a local table of contents for the
-headers at the top of each section.
+headers at the top of each page.
 The other themes include this information in the right side bar.
 
 .. meta::
@@ -146,7 +146,7 @@ The table at the bottom of that file maps line numbers in
 
 group_list
 **********
-It is possible to select one or more groups of sections
+It is possible to select one or more groups of pages
 to include in the output using this optional argument.
 
 #. The *group_list* is a comma separated list of
@@ -220,10 +220,10 @@ The default value for *sphinx_dir* is ``sphinx`` .
 preamble.rst
 ============
 The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
-If it exists, it is included at the beginning of every section.
+If it exists, it is included at the beginning of every page.
 It should only define things, it should not generate any output.
 For example, :ref:`@preamble.rst`.
-The Latex macros in this file can be used by any section.
+The Latex macros in this file can be used by any page.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
 
@@ -246,12 +246,12 @@ spelling
 ========
 The file *sphinx_dir* ``/spelling`` can be create by the user.
 If it exists, it contains a list of words
-that the spell checker will consider correct for all sections.
+that the spell checker will consider correct for all pages.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
 For example; see :ref:`@spelling`.
-Special words, for a particular section, are specified using the
+Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 
 .. _run_xrst@sphinx_dir@spelling@example:
@@ -293,13 +293,13 @@ Example
 :ref:`@keyword`
 
 .. meta::
-   :keywords: section, rst, files
+   :keywords: page, rst, files
 
-.. index:: section, rst, files
+.. index:: page, rst, files
 
-.. _run_xrst@sphinx_dir@section_rst_files:
+.. _run_xrst@sphinx_dir@page_rst_files:
 
-Section RST Files
+Page RST Files
 =================
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
@@ -308,7 +308,7 @@ For each :ref:`begin_cmd@page_name`, the file
 
 |space| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
-Is the RST file for the corresponding section. There is one exception
+Is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
 

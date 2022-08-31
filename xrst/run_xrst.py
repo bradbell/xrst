@@ -38,10 +38,10 @@ argument.
 root_file
 *********
 The command line argument *root_file* is the name of a file
-containing the root section for the documentation tree.
+containing the root page for the documentation tree.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
-There must be at least one section in *root_file* that has each
+There must be at least one page in *root_file* that has each
 :ref:`begin_cmd@group_name` in the *group_list*.
 
 project_name
@@ -70,7 +70,7 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 .. _html_theme: https://sphinx-themes.org/
 
 The ``sphinx_rtd_theme`` theme includes a local table of contents for the
-headers at the top of each section.
+headers at the top of each page.
 The other themes include this information in the right side bar.
 
 
@@ -94,7 +94,7 @@ The table at the bottom of that file maps line numbers in
 
 group_list
 **********
-It is possible to select one or more groups of sections
+It is possible to select one or more groups of pages
 to include in the output using this optional argument.
 
 #. The *group_list* is a comma separated list of
@@ -140,10 +140,10 @@ The default value for *sphinx_dir* is ``sphinx`` .
 preamble.rst
 ============
 The file *sphinx_dir* ``/preamble.rst`` can be create by the user.
-If it exists, it is included at the beginning of every section.
+If it exists, it is included at the beginning of every page.
 It should only define things, it should not generate any output.
 For example, :ref:`@preamble.rst`.
-The Latex macros in this file can be used by any section.
+The Latex macros in this file can be used by any page.
 There must be one macro definition per line and each such line must match the
 following python regular expression:
 
@@ -157,12 +157,12 @@ spelling
 ========
 The file *sphinx_dir* ``/spelling`` can be create by the user.
 If it exists, it contains a list of words
-that the spell checker will consider correct for all sections.
+that the spell checker will consider correct for all pages.
 A line that begins with :code:`#` is a comment (not included in the list).
 The words are one per line and
 leading and trailing white space in a word are ignored.
 For example; see :ref:`@spelling`.
-Special words, for a particular section, are specified using the
+Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 
 Example
@@ -192,7 +192,7 @@ Example
 -------
 :ref:`@keyword`
 
-Section RST Files
+Page RST Files
 =================
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
@@ -201,7 +201,7 @@ For each :ref:`begin_cmd@page_name`, the file
 
 |space| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
-Is the RST file for the corresponding section. There is one exception
+Is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
 
@@ -264,7 +264,7 @@ def run_xrst() :
       help='just print version of xrst'
    )
    parser.add_argument('root_file', nargs='?', default=None,
-      help='file that contains root section (not required for --version'
+      help='file that contains root page (not required for --version'
    )
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
@@ -439,13 +439,13 @@ def run_xrst() :
    for group_name in group_list :
       #
       # finfo_stack, finfo_done
-      # This information is by file, not section
+      # This information is by file, not page
       finfo_stack      = list()
       finfo_done       = list()
       finfo = {
          'file_in'        : root_local,
          'parent_file'    : None,
-         'parent_section' : None,
+         'parent_page' : None,
       }
       finfo_stack.append(finfo)
       #
@@ -466,7 +466,7 @@ def run_xrst() :
          #
          file_in              = finfo['file_in']
          parent_file          = finfo['parent_file']
-         parent_file_section  = finfo['parent_section']
+         parent_file_page  = finfo['parent_page']
          assert os.path.isfile(file_in)
          #
          # get xrst docuemntation in this file
@@ -484,37 +484,37 @@ def run_xrst() :
             root_page_list.append(page_name)
          #
          # parent_page_file_in
-         # index in sinfo_list of parent section for this file
+         # index in sinfo_list of parent page for this file
          parent_page_file_in = None
          if sinfo_file_in[0]['is_parent'] :
             parent_page_file_in = len(sinfo_list)
          #
-         # add this files sections to sinfo_list
-         for i_section in range( len(sinfo_file_in) ) :
+         # add this files pages to sinfo_list
+         for i_page in range( len(sinfo_file_in) ) :
             # ------------------------------------------------------------
             # page_name, page_data, is_parent
-            page_name = sinfo_file_in[i_section]['page_name']
-            page_data = sinfo_file_in[i_section]['page_data']
-            is_parent    = sinfo_file_in[i_section]['is_parent']
-            is_child     = sinfo_file_in[i_section]['is_child']
+            page_name = sinfo_file_in[i_page]['page_name']
+            page_data = sinfo_file_in[i_page]['page_data']
+            is_parent    = sinfo_file_in[i_page]['is_parent']
+            is_child     = sinfo_file_in[i_page]['is_child']
             #
-            # parent_section
+            # parent_page
             if is_parent or parent_page_file_in is None :
-               parent_section = parent_file_section
+               parent_page = parent_file_page
             else :
-               parent_section = parent_page_file_in
+               parent_page = parent_page_file_in
             #
             # sinfo_list
             sinfo_list.append( {
                'page_name'   : page_name,
                'file_in'        : file_in,
-               'parent_section' : parent_section,
+               'parent_page' : parent_page,
                'in_parent_file' : is_child,
             } )
             # -------------------------------------------------------------
             # spell_command
             # do after suspend and before other commands to help ignore
-            # sections of text that do not need spell checking
+            # pages of text that do not need spell checking
             page_data = xrst.spell_command(
                tmp_dir,
                page_data,
@@ -537,7 +537,7 @@ def run_xrst() :
                finfo_stack.append( {
                   'file_in'        : file_tmp,
                   'parent_file'    : file_in,
-                  'parent_section' : page_index,
+                  'parent_page' : page_index,
                } )
             # ------------------------------------------------------------
             # code commands
@@ -566,15 +566,15 @@ def run_xrst() :
                keyword_list,
             )
             # sinfo_list
-            # section title is used by table_of_contents
+            # page title is used by table_of_contents
             sinfo_list[page_index]['page_title'] = page_title
             # -------------------------------------------------------------
             # list_children
-            # page_name for each of the children of the current section
+            # page_name for each of the children of the current page
             list_children = child_page_list
             if is_parent :
                for i in range( len(sinfo_file_in) ) :
-                  if i != i_section :
+                  if i != i_page :
                      list_children.append(
                         sinfo_file_in[i]['page_name']
                      )

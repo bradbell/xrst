@@ -19,7 +19,7 @@ Index
 For each word in a heading,
 a link is included in the index from the word to the heading.
 In addition, each word is added to the html keyword meta data
-next to the section heading.
+next to the page heading.
 
 Labels
 ******
@@ -29,13 +29,13 @@ these labels are described below.
 
 First Level
 ===========
-Each :ref:`section<begin_cmd@section>` can have only one header at
-the first level which is a title for the section.
+Each :ref:`page<begin_cmd@page>` can have only one header at
+the first level which is a title for the page.
 The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
-section name or section title. To be specific,
-the first input below will display the section name as the linking text,
-the second will display the section title as the linking text.
+page name or page title. To be specific,
+the first input below will display the page name as the linking text,
+the second will display the page title as the linking text.
 
 1. ``:ref:`` \` *page_name* \`
 2. ``:ref:`` \` ``@`` *page_name* \`
@@ -72,9 +72,9 @@ Discussion
    and not ``heading_cross_reference_links`` .
 2. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
-   section names; e.g. :ref:`auto_file@conf.py`.
+   page names; e.g. :ref:`auto_file@conf.py`.
 3. Specifying all the levels for a heading may seem verbose,
-   but it avoids ambiguity when the same heading appears twice in one section;
+   but it avoids ambiguity when the same heading appears twice in one page;
    e.g the heading Example might appears multiple times in different context.
 4. Specifying all the levels also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
@@ -95,10 +95,10 @@ import xrst
 # is the xrst command line html_theme setting.
 #
 # data_in:
-# contains the data for a section before the headings are processed.
+# contains the data for a page before the headings are processed.
 #
 # file_name:
-# name of the file that contains the input data for this section.
+# name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
 # keyword_list:
@@ -108,23 +108,23 @@ import xrst
 # be generated for word.
 #
 # page_name:
-# is the name of this section.
+# is the name of this page.
 #
 # data_out:
 # is a copy of data_in with the following extra command added directly before
 # its corresponding heading: The command {xrst_page_number}\n
-# is placed directly before the the first heading for this section.
-# This is makes it easy to add the section number to the heading text.
+# is placed directly before the the first heading for this page.
+# This is makes it easy to add the page number to the heading text.
 #
 # page_title:
-# This is the heading text in the first heading for this section.
+# This is the heading text in the first heading for this page.
 # There can only be one heading at this level.
 #
 # pseudo_heading:
-# This is an automatically generated heading for this section. It is intended
+# This is an automatically generated heading for this page. It is intended
 # to come before the page_title heading.
 # It has three lines each termnated by a newline;
-# 1) an overline line, 2) a heading text line containig the section,
+# 1) an overline line, 2) a heading text line containig the page,
 # 3) and an underline line.
 #
 #
@@ -185,7 +185,7 @@ def process_headings(
       #
       # heading_list
       if len( heading_list ) == 0 :
-         # first heading in this section
+         # first heading in this page
          heading_list.append( heading )
       else :
          # level_zero
@@ -195,7 +195,7 @@ def process_headings(
          if level_zero :
             m_obj = \
                xrst.pattern['line'].search(data_out, heading_index)
-            msg = 'There are multiple titles for this section'
+            msg = 'There are multiple titles for this page'
             xrst.system_exit(
                msg,
                file_name=file_name,
@@ -278,7 +278,7 @@ def process_headings(
       data_tmp  += cmd
       #
       # data_tmp
-      # If level zero, put section number command just before heading
+      # If level zero, put page number command just before heading
       if len(heading_list) == 1 :
          data_tmp += '{xrst_page_number}\n'
       #
@@ -304,7 +304,7 @@ def process_headings(
          xrst.next_heading(data_out, data_index)
    #
    if len(heading_list) == 0 :
-      msg = 'There are no headings in this section'
+      msg = 'There are no headings in this page'
       xrst.system_exit(msg, file_name=file_name, page_name=page_name)
    #
    # pseudo_heading

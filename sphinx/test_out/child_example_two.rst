@@ -9,18 +9,18 @@ child_example_two
 xrst input file: ``example/children.py``
 
 .. meta::
-   :keywords: child_example_two, section, child
+   :keywords: child_example_two, page, child
 
-.. index:: child_example_two, section, child
+.. index:: child_example_two, page, child
 
 .. _@child_example_two:
 
-Section Child
+Page Child
 #############
 .. contents::
    :local:
 
-This section is the second child in this file.
+This page is the second child in this file.
 
 .. meta::
    :keywords: link, first, child

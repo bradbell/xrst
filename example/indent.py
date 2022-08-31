@@ -20,7 +20,7 @@
 
    Discussion
    **********
-   The file below demonstrates indenting an entire xrst section.
+   The file below demonstrates indenting an entire xrst page.
    Note that underling headings works even though it is indented.
 
    This Example File

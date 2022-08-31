@@ -17,14 +17,14 @@ import xrst
 # where {command_name} is repalaced by the command name
 #
 # data:
-# is the data for this section. This includes line numbers added by
+# is the data for this page. This includes line numbers added by
 # add_line_numbers.
 #
 # file_name:
-# is the input that this section appears in (used for error reporting).
+# is the input that this page appears in (used for error reporting).
 #
 # page_name:
-# is None or the name of this section (used for error reporting).
+# is None or the name of this page (used for error reporting).
 #
 def check_syntax_error(command_name, data, file_name, page_name) :
    assert type(data) == str

@@ -21,7 +21,7 @@ Indentation
    :local:
 
 If there are a number of spaces (or tabs) before
-all of the xrst documentation for a section,
+all of the xrst documentation for a page,
 those characters are not included in the xrst output.
 This enables one to indent the
 xrst so it is grouped with the proper code block in the source.

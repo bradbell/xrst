@@ -22,7 +22,7 @@ The files in the ``rst`` subdirectory that do not change are not replaced.
 index.rst
 *********
 The sphinx index.rst file. This is root level in the documentation tree
-built by sphinx. It is one level above the first section in
+built by sphinx. It is one level above the first page in
 :ref:`run_xrst@root_file`.
 
 
@@ -35,7 +35,7 @@ This is the sphinx configuration_ file.
 rst/xrst_table_of_contents.rst
 ******************************
 This file contains the table of contents for the last run of ``xrst``.
-You can link to the corresponding section with the following command::
+You can link to the corresponding page with the following command::
 
    :ref:`@xrst_table_of_contents`
 
@@ -152,23 +152,23 @@ def preamble_macros(sphinx_dir) :
 # is html or pdf
 #
 # sinfo_list:
-# is a list with length equal to the number of sections.
-# The value section[page_index] is a dictionary for this seciton
+# is a list with length equal to the number of pages.
+# The value page[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# page_name   a str continaing the name of this section.
-# page_title  a str containing the title for this section.
-# parent_section an int index in sinfo_list for the parent of this section.
-# in_parent_file is this section in same input file as its parent.
+# page_name   a str continaing the name of this page.
+# page_title  a str containing the title for this page.
+# parent_page an int index in sinfo_list for the parent of this page.
+# in_parent_file is this page in same input file as its parent.
 #
 # root_page_list:
-# is a list of the root section names (one for each group) in the order
+# is a list of the root page names (one for each group) in the order
 # they will appear in the table of contents.
 #
 # tmp_dir/xrst_table_of_contents.rst
 # This file creates is the table of contents for the documentation.
 # It has the lable xrst_table_of_contents which can be used to link
-# to this section.
+# to this page.
 #
 # tmp_dir/xrst_preamble.rst
 # This is a copy of the sphinx_dir/preamble.rst file. If target is
@@ -256,9 +256,9 @@ def auto_file(
    conf_py += '# Latex used when sphinx builds  pdf\n'
    conf_py += 'latex_elements = {\n'
    conf_py += "    'preamble' :\n"
-   conf_py += "    r'\\renewcommand{\\thesection}{{\\hspace{-1em}}} ' + \n"
-   conf_py += "    r'\\renewcommand{\\thesubsection}{{\\hspace{-1em}}} ' + \n"
-   conf_py += "    r'\\renewcommand{\\thesubsubsection}{{\\hspace{-1em}}}'"
+   conf_py += "    r'\\renewcommand{\\thepage}{{\\hspace{-1em}}} ' + \n"
+   conf_py += "    r'\\renewcommand{\\thesubpage}{{\\hspace{-1em}}} ' + \n"
+   conf_py += "    r'\\renewcommand{\\thesubsubpage}{{\\hspace{-1em}}}'"
    #
    # latex
    latex = ''

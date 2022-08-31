@@ -29,15 +29,15 @@ Syntax
 - ``{xrst_end``          *page_name* :code:`}`
 
 .. meta::
-   :keywords: section
+   :keywords: page
 
-.. index:: section
+.. index:: page
 
-.. _begin_cmd@section:
+.. _begin_cmd@page:
 
-Section
+Page
 *******
-The start (end) of a section of the input file is indicated by a
+The start (end) of a page of the input file is indicated by a
 begin (end) command.
 
 .. meta::
@@ -52,9 +52,9 @@ page_name
 The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xrst_``.
-A link is included in the index under the section name
-to the first heading the section.
-The section name is also added to the html keyword meta data.
+A link is included in the index under the page name
+to the first heading the page.
+The page name is also added to the html keyword meta data.
 
 .. meta::
    :keywords: group_name
@@ -65,9 +65,9 @@ The section name is also added to the html keyword meta data.
 
 group_name
 **********
-This is the group that this section belongs to; see
+This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
-If *group_name* is empty, this section is part of the empty group.
+If *group_name* is empty, this page is part of the empty group.
 Note that it is the group name and not the group that is empty.
 
 .. meta::
@@ -86,28 +86,28 @@ The output file corresponding to *page_name* is
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
 .. meta::
-   :keywords: parent, section
+   :keywords: parent, page
 
-.. index:: parent, section
+.. index:: parent, page
 
-.. _begin_cmd@parent_section:
+.. _begin_cmd@parent_page:
 
-Parent Section
+Parent Page
 **************
 The following conditions hold for each *group_name*:
 
 #. There can be at most one begin parent command in an input file.
 #. If there is a begin parent command, it must be the first begin command
-   in the file and there must be other sections in the file.
-#. The other sections are children of the parent section.
-#. The parent section is a child
-   of the section that included this file using a
+   in the file and there must be other pages in the file.
+#. The other pages are children of the parent page.
+#. The parent page is a child
+   of the page that included this file using a
    :ref:`toc command<toc_cmd>`.
 #. If there is no begin parent command in an input file,
-   all the sections in the file are children
-   of the section that included this file using a
+   all the pages in the file are children
+   of the page that included this file using a
    :ref:`toc command<toc_cmd>`.
 
 Note that there can be more than one begin parent command in a file if
-they have different group names. Also note that sections are only children
-of sections that have the same group name.
+they have different group names. Also note that pages are only children
+of pages that have the same group name.

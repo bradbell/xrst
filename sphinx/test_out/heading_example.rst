@@ -9,21 +9,21 @@ heading_example
 xrst input file: ``example/heading.py``
 
 .. meta::
-   :keywords: heading_example, title, heading, section
+   :keywords: heading_example, title, heading, page
 
-.. index:: heading_example, title, heading, section
+.. index:: heading_example, title, heading, page
 
 .. _@heading_example:
 
-Title Heading for This Section
+Title Heading for This Page
 ##############################
 .. contents::
    :local:
 
-The label for the section title is the ``@``
-character followed by the section name; i.e., ``@heading_example``.
+The label for the page title is the ``@``
+character followed by the page name; i.e., ``@heading_example``.
 The label ``heading_example`` displays ``heading_example``
-instead of the section title.
+instead of the page title.
 
 .. meta::
    :keywords: second, level
@@ -92,7 +92,7 @@ The label for this heading is
 
 Links
 *****
-These links would also work from any other section because the section name
+These links would also work from any other page because the page name
 (``heading_example`` in this case)
 is included at the beginning of the target for the link:
 

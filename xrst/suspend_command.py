@@ -18,7 +18,7 @@ Syntax
 
 Purpose
 *******
-It is possible to suspend (resume) the xrst extraction during a section.
+It is possible to suspend (resume) the xrst extraction during a page.
 One begins (ends) the suspension with a line that only contains spaces,
 tabs and a suspend command (resume command).
 Note that this will also suspend all other xrst processing; e.g.,
@@ -45,13 +45,13 @@ pattern_resume  = re.compile(
 # Remove text specified by suspend / resume pairs.
 #
 # data_in
-# is the data for this section.
+# is the data for this page.
 #
 # file_name
-# is the input file corresponding to this section.
+# is the input file corresponding to this page.
 #
 # page_name
-# is the name of this section.
+# is the name of this page.
 #
 # data_out
 # The return data_out is a copy of data_in except that the text between

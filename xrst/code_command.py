@@ -65,10 +65,10 @@ Example
 # ----------------------------------------------------------------------------
 import xrst
 #
-# Process the xrst code commands for a section.
+# Process the xrst code commands for a page.
 #
 # data_in:
-# is the data for the section before the code commands have been processed.
+# is the data for the page before the code commands have been processed.
 # Line numbers have been added to this data: see add_line_numbers.
 #
 # file_name:
@@ -76,7 +76,7 @@ import xrst
 # for error reporting.
 #
 # page_name:
-# is the name of the section that this data is in. This is only used
+# is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # data_out:
@@ -138,7 +138,7 @@ def code_command(data_in, file_name, page_name) :
             file_name=file_name,
             page_name=page_name,
             m_obj=m_end,
-            data=section_rest
+            data=page_rest
          )
       #
       # language

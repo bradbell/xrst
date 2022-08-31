@@ -11,13 +11,13 @@ Table of Contents
 |  |space| :ref:`1.3<toc_list_example>` toc_list Command Example
 |
 |  |space|  |space| :ref:`1.3.1<child_example_one>` First Child
-|  |space|  |space| :ref:`1.3.2<child_example_two>` Section Child
+|  |space|  |space| :ref:`1.3.2<child_example_two>` Page Child
 |
 |  |space| :ref:`1.4<spell_example>` Spell Command Example
 |  |space| :ref:`1.5<suspend_example>` Suspend Command Example
 |  |space| :ref:`1.6<code_example>` Code Command Example
 |  |space| :ref:`1.7<comment_ch_example>` Comment Character Command Example
-|  |space| :ref:`1.8<heading_example>` Title Heading for This Section
+|  |space| :ref:`1.8<heading_example>` Title Heading for This Page
 |  |space| :ref:`1.9<indent_example>` Indent Example
 |  |space| :ref:`1.10<configure_example>` Example Configuration Files
 |

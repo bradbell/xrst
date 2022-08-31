@@ -5,24 +5,24 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-# Replace {xrst_page_number} by it section number or empty string.
+# Replace {xrst_page_number} by it page number or empty string.
 #
 # data_in:
 # data before replacement. This must contain \n{xrst_page_number}
 # which is referred to as the command below. There must be a
-# section title after the command (starting with a newline).
-# This section title may have an rst overline directly before the heading text
+# page title after the command (starting with a newline).
+# This page title may have an rst overline directly before the heading text
 # and must have an underline directly after it.
 # If both an overline and underline follow, they must be equal.
 #
 # page_number:
-# This is a section number that is placed infront of the heading text.
+# This is a page number that is placed infront of the heading text.
 # This may be empty; i.e., the replacement text is the empty string.
 # The underline (and overline if present) are exended to by the number of
 # characters added to the heading text.
 #
 # data_out:
-# the return data_out is the data after replacement. The section number is
+# the return data_out is the data after replacement. The page number is
 # added (see above) and he command is removed.
 #
 # data_out =
@@ -66,7 +66,7 @@ def replace_page_number(data_in, page_number) :
          overline = True
    #
    if not overline :
-      # If no overline the section title follows the command and then
+      # If no overline the page title follows the command and then
       # an underline after the title.
       assert second_line[0] in punctuation
       #

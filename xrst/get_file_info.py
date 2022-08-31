@@ -21,9 +21,9 @@ Syntax
 - ``\{xrst_begin``        *page_name* *group_name* :code:`}`
 - ``\{xrst_end``          *page_name* :code:`}`
 
-Section
+Page
 *******
-The start (end) of a section of the input file is indicated by a
+The start (end) of a page of the input file is indicated by a
 begin (end) command.
 
 page_name
@@ -31,15 +31,15 @@ page_name
 The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xrst_``.
-A link is included in the index under the section name
-to the first heading the section.
-The section name is also added to the html keyword meta data.
+A link is included in the index under the page name
+to the first heading the page.
+The page name is also added to the html keyword meta data.
 
 group_name
 **********
-This is the group that this section belongs to; see
+This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
-If *group_name* is empty, this section is part of the empty group.
+If *group_name* is empty, this page is part of the empty group.
 Note that it is the group name and not the group that is empty.
 
 Output File
@@ -50,25 +50,25 @@ The output file corresponding to *page_name* is
 
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
-Parent Section
+Parent Page
 **************
 The following conditions hold for each *group_name*:
 
 #. There can be at most one begin parent command in an input file.
 #. If there is a begin parent command, it must be the first begin command
-   in the file and there must be other sections in the file.
-#. The other sections are children of the parent section.
-#. The parent section is a child
-   of the section that included this file using a
+   in the file and there must be other pages in the file.
+#. The other pages are children of the parent page.
+#. The parent page is a child
+   of the page that included this file using a
    :ref:`toc command<toc_cmd>`.
 #. If there is no begin parent command in an input file,
-   all the sections in the file are children
-   of the section that included this file using a
+   all the pages in the file are children
+   of the page that included this file using a
    :ref:`toc command<toc_cmd>`.
 
 Note that there can be more than one begin parent command in a file if
-they have different group names. Also note that sections are only children
-of sections that have the same group name.
+they have different group names. Also note that pages are only children
+of pages that have the same group name.
 
 {xrst_end begin_cmd}
 """
@@ -82,14 +82,14 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # Get all the information for a file.
 #
 # page_info:
-# a list of the information for sections that came before this file.
+# a list of the information for pages that came before this file.
 # We use infor below for one eleemnt of this list:
 #
 #  info['page_name']
 #  is an str containing the name of a seciton that came before this file.
 #
 # group_name:
-# We are only retrieving information for sections in this group.
+# We are only retrieving information for pages in this group.
 #
 # parent_file:
 # name of the file that included file_in.
@@ -99,7 +99,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #
 # file_info:
 # The value file_info is a list of dict. Each dict contains the information
-# for one section in this file. We use info below for one element of the list:
+# for one page in this file. We use info below for one element of the list:
 #
 #  info['page_name']:
 #  is an str containing the name of a seciton in this file.
@@ -113,17 +113,17 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #  4. The first (last) line number corresponds to the begin (end) command
 #  5. The suspend / resume comands and data between such pairs
 #      have been removed.
-#  6. If there is a common indentation for the entire section,
+#  6. If there is a common indentation for the entire page,
 #      it is removed.
 #
 #  info['is_parent']:
-#  is true (false) if this is (is not) the parent section for the other
-#  sections in this file. The parent section must be the first, and hence
-#  have index zero in file_info. In addition, if there is a parent section,
-#  there must be at least one other section; i.e., len(file_info) >= 2.
+#  is true (false) if this is (is not) the parent page for the other
+#  pages in this file. The parent page must be the first, and hence
+#  have index zero in file_info. In addition, if there is a parent page,
+#  there must be at least one other page; i.e., len(file_info) >= 2.
 #
 #  info['is_child']:
-#  is true (false) if this is (is not) a child of the first section in
+#  is true (false) if this is (is not) a child of the first page in
 #  this file.
 #
 # file_info =
@@ -159,7 +159,7 @@ def get_file_info(
    # found_group_name
    found_group_name = False
    #
-   # for each section in this file
+   # for each page in this file
    while data_index < len(file_data) :
       #
       # m_begin
@@ -194,12 +194,12 @@ def get_file_info(
             xrst.system_exit(msg, file_name=file_in)
          #
          # data_index
-         # set so that the section loop for this file terminates
+         # set so that the page loop for this file terminates
          data_index = len(file_data)
       elif this_group_name != group_name :
          #
          # data_index
-         # place to start search for next section
+         # place to start search for next page
          data_index += m_begin.end()
       else :
          #
@@ -221,7 +221,7 @@ def get_file_info(
          # check if page_name appears multiple times in this file
          for info in file_info :
             if page_name == info['page_name'] :
-               msg  = 'xrst_begin: section appears multiple times'
+               msg  = 'xrst_begin: page appears multiple times'
                xrst.system_exit(msg,
                   file_name      = file_in,
                   page_name   = page_name,
@@ -238,7 +238,7 @@ def get_file_info(
                msg += 'Again in file ' + info['file_in'] + '\n'
                xrst.system_exit(msg)
          #
-         # check if parent sections is the first seciton in this file
+         # check if parent pages is the first seciton in this file
          if is_parent :
             if len(file_info) != 0 :
                msg  = 'xrst_begin_parent'
@@ -270,7 +270,7 @@ def get_file_info(
                msg, file_name=file_in, page_name=page_name
             )
          if m_end.group(1) != page_name :
-            msg = 'begin and end section names do not match\n'
+            msg = 'begin and end page names do not match\n'
             msg += 'begin name = ' + page_name + '\n'
             msg += 'end name   = ' + m_end.group(1)
             xrst.system_exit(msg,
@@ -280,9 +280,9 @@ def get_file_info(
             )
          #
          # page_data
-         section_start = data_index
-         section_end   = data_index + m_end.start() + 1
-         page_data  = file_data[ section_start : section_end ]
+         page_start = data_index
+         page_end   = data_index + m_end.start() + 1
+         page_data  = file_data[ page_start : page_end ]
          #
          # page_data
          page_data  = xrst.suspend_command(
@@ -301,7 +301,7 @@ def get_file_info(
          } )
          #
          # data_index
-         # place to start search for next section
+         # place to start search for next page
          data_index += m_end.end()
    #
    if parent_page_name != None and len(file_info) < 2 :
@@ -310,7 +310,7 @@ def get_file_info(
          msg += 'the empty group name\n'
       else :
          msg += f'group_name = {group_name}\n'
-      msg += 'and this file only has one section with that group name.'
+      msg += 'and this file only has one page with that group name.'
       xrst.system_exit(
          msg, file_name=file_in, page_name=parent_page_name
       )

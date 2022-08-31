@@ -30,7 +30,7 @@ Spell Command Example
 Text
 ****
 The word ``iterable`` is not in the dictionary,
-so we have included it in the special words for this section.
+so we have included it in the special words for this page.
 
 .. meta::
    :keywords: spelling
@@ -42,7 +42,7 @@ so we have included it in the special words for this section.
 Spelling File
 *************
 The word ``xrst`` is included by the spelling file used to build this
-documentation and hence need not be in the special words for this section.
+documentation and hence need not be in the special words for this page.
 
 .. meta::
    :keywords: math
@@ -73,7 +73,7 @@ It is consider an error to have only white space between
 two occurrences of the same word; e.g.,
 no no would be an error if there
 were not two occurrences of :code:`no` next to each other in the
-spelling command for this section.
+spelling command for this page.
 
 .. meta::
    :keywords: xrst_spell

@@ -16,7 +16,7 @@ def page_name2index(sinfo_list, page_name) :
 
 # ----------------------------------------------------------------------------
 # Create the table of contents and replace the '{xrst_page_number}'
-# for this section and all its child sections.
+# for this page and all its child pages.
 #
 # tmp_dir
 # is the temporary directory whre the rst files are written.
@@ -24,33 +24,33 @@ def page_name2index(sinfo_list, page_name) :
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
 # tmp_dir/page_name.rst the text {xrst_page_number}
-# is replaced by the section number which includes the counter for each level.
+# is replaced by the page number which includes the counter for each level.
 # If target is 'html', {xrst_page_number} is removed with not replacement.
 #
 # count:
 # is a list where each element is a non-negative int.
-# count[-1] is the number of sections before this section.
-# count[-1] is the number of sections before this secions parent.
+# count[-1] is the number of pages before this page.
+# count[-1] is the number of pages before this secions parent.
 # ...
-# If this list is empty, this section is the root of the table of
+# If this list is empty, this page is the root of the table of
 # contents tree.
 #
 # page_index:
-# is the index of this section in sinfo_list
+# is the index of this page in sinfo_list
 #
 # sinfo_list:
-# is a list with length equal to the number of sections.
-# The value section[page_index] is a dictionary for this seciton
+# is a list with length equal to the number of pages.
+# The value page[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# page_name   a str continaing the name of this section.
-# page_title  a str containing the title for this section.
-# parent_section an int index in page_info for the parent of this section.
-# in_parent_file True if this section in same input file as its parent.
+# page_name   a str continaing the name of this page.
+# page_title  a str containing the title for this page.
+# parent_page an int index in page_info for the parent of this page.
+# in_parent_file True if this page in same input file as its parent.
 #
 # content:
-# The return content is the table of contents entries for this section
-# and all the sections below this section.
+# The return content is the table of contents entries for this page
+# and all the pages below this page.
 #
 # content =
 def page_table_of_contents(
@@ -91,7 +91,7 @@ def page_table_of_contents(
       content  += page_title + '\n'
    #
    # file_name
-   # temporary file corresponding to this section name
+   # temporary file corresponding to this page name
    if page_name.endswith('.rst') :
       file_name = tmp_dir + '/' + page_name
    else :
@@ -115,7 +115,7 @@ def page_table_of_contents(
    in_parent_file_list = list()
    in_toc_cmd_list   = list()
    for child_index in range( len( sinfo_list ) ) :
-      if sinfo_list[child_index]['parent_section'] == page_index :
+      if sinfo_list[child_index]['parent_page'] == page_index :
          if sinfo_list[child_index]['in_parent_file'] :
             in_parent_file_list.append(child_index)
          else :
@@ -150,7 +150,7 @@ def page_table_of_contents(
    return content
 # ----------------------------------------------------------------------------
 # Create the table of contents and replace the '{xrst_page_number}'
-# for all sections in sinfo_list.
+# for all pages in sinfo_list.
 #
 # tmp_dir
 # is the temporary directory whre the rst files are written.
@@ -158,21 +158,21 @@ def page_table_of_contents(
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
 # tmp_dir/page_name.rst the text {xrst_page_number}
-# is replaced by the section number which includes the counter for each level.
+# is replaced by the page number which includes the counter for each level.
 # If target is 'html', {xrst_page_number} is removed with not replacement.
 #
 # sinfo_list:
-# is a list with length equal to the number of sections.
-# The value section[page_index] is a dictionary for this seciton
+# is a list with length equal to the number of pages.
+# The value page[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# page_name   a str continaing the name of this section.
-# page_title  a str containing the title for this section.
-# parent_section an int index in sinfo_list for the parent of this section.
-# in_parent_file is this section in same input file as its parent.
+# page_name   a str continaing the name of this page.
+# page_title  a str containing the title for this page.
+# parent_page an int index in sinfo_list for the parent of this page.
+# in_parent_file is this page in same input file as its parent.
 #
 # content:
-# The return content is the table of contents entries for all the sections.
+# The return content is the table of contents entries for all the pages.
 # The title Table of Contents and the label xrst_tble_of_contents
 # are placed at the beginning of the of content.
 #

@@ -20,9 +20,9 @@ First Child
 .. contents::
    :local:
 
-This section is the first child in this file.
+This page is the first child in this file.
 This file does not contain a begin parent command,
-so all its sections are children of the section that includes this file.
+so all its pages are children of the page that includes this file.
 
 .. meta::
    :keywords: link, second, child

@@ -38,4 +38,4 @@ Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`@code_cmd` and :ref:`@literal_cmd`.
 Perhaps it would be good to support tabs as a method for
-indenting xrst input sections.
+indenting xrst input pages.

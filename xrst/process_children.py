@@ -16,14 +16,14 @@ pattern_toc = re.compile(
 # patttern_rst_extension
 pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
-# Add child information to this section
+# Add child information to this page
 #
 # data_in
-# is the data for this section after the child_command funcion has processed
+# is the data for this page after the child_command funcion has processed
 # the toc commands.
 #
 # list_children
-# is a list of the section names for the children of this section.
+# is a list of the page names for the children of this page.
 # If this list is empty, data_out is equal to data_in.
 #
 # data_out
@@ -62,7 +62,7 @@ def process_children(
       # type of toc command
       toc_type = m_child.group(1)
       #
-      # There chould be at most one toc command per section created by
+      # There chould be at most one toc command per page created by
       # the xrst.child_command routine
       m_tmp = pattern_toc.search(data_in, m_child.end())
       assert m_tmp == None
@@ -96,8 +96,8 @@ def process_children(
       data_out += '\n'
    #
    # data_out
-   # If there is no toc command in this section, automatically generate
-   # links to the child sections at the end of the section.
+   # If there is no toc command in this page, automatically generate
+   # links to the child pages at the end of the page.
    if not page_has_child_command :
       data_out += '.. csv-table::\n'
       data_out += '   :header: "Child", "Title"\n'
@@ -108,7 +108,7 @@ def process_children(
       data_out += '\n'
    #
    # data_out
-   # put hidden toctree at end of section
+   # put hidden toctree at end of page
    toctree  = '.. toctree::\n'
    toctree += '   :maxdepth: 1\n'
    toctree += '   :hidden:\n\n'

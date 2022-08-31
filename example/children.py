@@ -10,9 +10,9 @@
 
 First Child
 ###########
-This section is the first child in this file.
+This page is the first child in this file.
 This file does not contain a begin parent command,
-so all its sections are children of the section that includes this file.
+so all its pages are children of the page that includes this file.
 
 Link to Second Child
 ********************
@@ -28,9 +28,9 @@ This Example File
 """
 {xrst_begin child_example_two}
 
-Section Child
+Page Child
 #############
-This section is the second child in this file.
+This page is the second child in this file.
 
 Link to First Child
 *******************

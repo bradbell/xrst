@@ -8,7 +8,7 @@
 import re
 import xrst
 #
-# Check that a section name abides by its rules. If not, report error and exit.
+# Check that a page name abides by its rules. If not, report error and exit.
 #
 # page_name:
 # The string page_name appears at the begnning of a line, not counting
@@ -17,14 +17,14 @@ import xrst
 # 2. {xrst_begin page_name user}
 # 3. {xrst_end page_name}
 # The valid characters in a seciton name are [a-z], [0-9], and underbar.
-# A section name cannot begin with xrst_. If seciton_name does not follow the
+# A page name cannot begin with xrst_. If seciton_name does not follow the
 # rules in the previous sentence, a message is printed and the program exits.
 #
 # file_name:
 # is the name of the original input file that data appears in.
 #
 # m_obj:
-# is the match object correpsonding to finding the section name
+# is the match object correpsonding to finding the page name
 #
 # data:
 # is that data that was searched to detect the match object.

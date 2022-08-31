@@ -77,26 +77,26 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #. The rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
    while also having long descriptive titles.
-#. Each section (rst file) has a contents tree for its headings
-   that is separate from the contents tree for the sections. This makes it
-   easy to move sections to different places in the sections contents tree.
+#. Each page (rst file) has a contents tree for its headings
+   that is separate from the contents tree for the pages. This makes it
+   easy to move pages to different places in the pages contents tree.
 #. Puts a jump table to headings that is a contents tree at the top of each
-   section because the navigation bar does not include this information.
+   page because the navigation bar does not include this information.
 #. Makes it easy to put documentation in source code comments
    when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd` .
-#. Allows the documentation for one section to span multiple locations
+#. Allows the documentation for one page to span multiple locations
    in source code; see :ref:`suspend_cmd`.
-#. Allows for multiple sections to be specified by one
-   input file. One section can be the parent for the
-   other sections in the same file; see :ref:`begin_cmd` .
+#. Allows for multiple pages to be specified by one
+   input file. One page can be the parent for the
+   other pages in the same file; see :ref:`begin_cmd` .
 #. Allows one to build subsets of the documentation; e.g., user, developer,
-   examples. Sections for different subsets can be in the
+   examples. Pages for different subsets can be in the
    same input file; see :ref:`run_xrst@group_list`.
 #. Unlike doxygen and autodoc, xrst organizes  the contents tree
-   for sections using commands that include files;
+   for pages using commands that include files;
    see :ref:`toc_cmd`. This enables one to group functions or classes
-   into one section of the documentation.
+   into one page of the documentation.
 #. Includes a configurable spell checker; see
    :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .
    The spell checker catches double word errors.
@@ -111,7 +111,7 @@ in separate files from the corresponding source code; see `gsl doc`_ .
    to signify start and stop of the inclusion.
    This makes it easy to move things, like function prototypes,
    to different places in the documentation.
-#. Automatically generates labels for linking to a heading in any section.
+#. Automatically generates labels for linking to a heading in any page.
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
    ``:ref:`heading_links@labels@discussion``

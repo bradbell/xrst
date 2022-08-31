@@ -11,7 +11,7 @@
 Indentation
 ###########
 If there are a number of spaces (or tabs) before
-all of the xrst documentation for a section,
+all of the xrst documentation for a page,
 those characters are not included in the xrst output.
 This enables one to indent the
 xrst so it is grouped with the proper code block in the source.
@@ -27,17 +27,17 @@ Example
 import re
 import xrst
 #
-# Remove indentation that is at the front of all lines for a section
+# Remove indentation that is at the front of all lines for a page
 #
 # data_in:
-# is the data for this section. This includes line numbers added by
+# is the data for this page. This includes line numbers added by
 # add_line_numbers.
 #
 # file_name:
-# is the input that this section appears in (used for error reporting).
+# is the input that this page appears in (used for error reporting).
 #
 # page_name:
-# is the name of this section (used for error reporting).
+# is the name of this page (used for error reporting).
 #
 # data_out:
 # is a copy of data_in with the indentation for this seciton removed.
@@ -88,7 +88,7 @@ def remove_indent(data_in, file_name, page_name) :
       while next_ < end :
          if data_in[next_] not in check_ch :
             msg  = 'mixing both spaces and tabs for '
-            msg += 'white space that indents this section.'
+            msg += 'white space that indents this page.'
             xrst.system_exit(
                msg, file_name=file_name, page_name=page_name
             )

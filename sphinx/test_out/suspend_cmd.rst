@@ -31,7 +31,7 @@ Syntax
 
 Purpose
 *******
-It is possible to suspend (resume) the xrst extraction during a section.
+It is possible to suspend (resume) the xrst extraction during a page.
 One begins (ends) the suspension with a line that only contains spaces,
 tabs and a suspend command (resume command).
 Note that this will also suspend all other xrst processing; e.g.,

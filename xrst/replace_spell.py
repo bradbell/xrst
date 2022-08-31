@@ -33,7 +33,7 @@ def replace_spell(tmp_dir) :
          page_list.append( pair )
       #
       # page_list
-      order_fun    = lambda section_pair : section_pair[1]['begin_line']
+      order_fun    = lambda page_pair : page_pair[1]['begin_line']
       page_list = sorted(page_list, key = order_fun )
       #
       # data_in

@@ -32,7 +32,7 @@ Index
 For each word in a heading,
 a link is included in the index from the word to the heading.
 In addition, each word is added to the html keyword meta data
-next to the section heading.
+next to the page heading.
 
 .. meta::
    :keywords: labels
@@ -56,13 +56,13 @@ these labels are described below.
 
 First Level
 ===========
-Each :ref:`section<begin_cmd@section>` can have only one header at
-the first level which is a title for the section.
+Each :ref:`page<begin_cmd@page>` can have only one header at
+the first level which is a title for the page.
 The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
-section name or section title. To be specific,
-the first input below will display the section name as the linking text,
-the second will display the section title as the linking text.
+page name or page title. To be specific,
+the first input below will display the page name as the linking text,
+the second will display the page title as the linking text.
 
 1. ``:ref:`` \` *page_name* \`
 2. ``:ref:`` \` ``@`` *page_name* \`
@@ -118,9 +118,9 @@ Discussion
    and not ``heading_cross_reference_links`` .
 2. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
-   section names; e.g. :ref:`auto_file@conf.py`.
+   page names; e.g. :ref:`auto_file@conf.py`.
 3. Specifying all the levels for a heading may seem verbose,
-   but it avoids ambiguity when the same heading appears twice in one section;
+   but it avoids ambiguity when the same heading appears twice in one page;
    e.g the heading Example might appears multiple times in different context.
 4. Specifying all the levels also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the

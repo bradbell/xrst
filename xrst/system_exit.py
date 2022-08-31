@@ -9,11 +9,11 @@ import sys
 import os
 import xrst
 #
-# Add file name, section name, and line number to a message in a system exit
+# Add file name, page name, and line number to a message in a system exit
 #
 # msg:           error message
 # file_name:     original input file that that data appeared in.
-# page_name:  section name
+# page_name:  page name
 # m_obj:         match object indicating where in data the error is detected
 # data:          is the input data that was matched when m_obj is not None
 # line:          is the error line number when m_obj is None
@@ -35,7 +35,7 @@ def system_exit(
    extra          = f'\nroot_directory = {root_directory}\n'
    #
    if page_name :
-      extra += f'section = {page_name}\n'
+      extra += f'page = {page_name}\n'
    if file_name :
       extra += f'file = {file_name}\n'
    if m_obj :

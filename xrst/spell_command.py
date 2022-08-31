@@ -18,7 +18,7 @@ Syntax
 ******
 ``\{xrst_spell`` *word_1* ...  *word_n* :code:`}`
 
-Here *word_1*, ..., *word_n* is the special word list for this section.
+Here *word_1*, ..., *word_n* is the special word list for this page.
 In the syntax above the list of words is all in one line.
 They could be on different lines which helps when displaying
 the difference between  versions of the corresponding file.
@@ -32,13 +32,13 @@ Purpose
 *******
 You can specify a special list of words
 (not normally considered correct spelling)
-for the current section using the command above.
+for the current page using the command above.
 
 spelling
 ********
 The list of words in
 :ref:`spelling<run_xrst@sphinx_dir@spelling>`
-are considered correct spellings for all sections.
+are considered correct spellings for all pages.
 The latex commands corresponding to the letters in the greek alphabet
 are automatically added to this list.
 
@@ -102,11 +102,11 @@ pattern['word']  = re.compile(
 )
 # -----------------------------------------------------------------------------
 #
-# Process the spell command for a section
+# Process the spell command for a page
 #
 # tmp_dir:
 # The file tmp_dir/spell.toml will contain the information below:
-# It can be used to replace the spell command for this section
+# It can be used to replace the spell command for this page
 # in a way so that will have no spelling warnings.
 #     [file_name.page_name]
 #     begin_line  = integer line number for the begin command
@@ -116,26 +116,26 @@ pattern['word']  = re.compile(
 # 1. file_name and page_name are strings
 # 2. Line numbers start are one and are in the file.
 # 3. The line number zero is used for start_spell and end_spell when
-#    there is no spell command for this section.
+#    there is no spell command for this page.
 # 4. The spell start and end lines to not overlap any begin lines
 #    of spell lines
 #
 # data_in:
-# is the data for this section before the spell command is removed.
+# is the data for this page before the spell command is removed.
 #
 # file_name:
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
 # page_name:
-# is the name of the section that this data is in. This is only used
+# is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # spell_checker:
 # Is the pyspellchecker object used for error checking.
 #
 # data_out:
-# is the data for this section after the spell command (if it exists)
+# is the data for this page after the spell command (if it exists)
 # is removed.
 #
 # Spelling Warnings:
@@ -163,10 +163,10 @@ def spell_command(
    # special_used, double_used
    if m_spell != None :
       #
-      # check for multiple spell commands in one section
+      # check for multiple spell commands in one page
       m_error  = pattern['spell'].search(data_in, m_spell.end() )
       if m_error :
-         msg  = 'There are two spell xrst commands in this section'
+         msg  = 'There are two spell xrst commands in this page'
          xrst.system_exit(
             msg,
             file_name=file_name,
@@ -218,7 +218,7 @@ def spell_command(
    data_tmp = pattern['http'].sub('', data_tmp)
    data_tmp = pattern['directive'].sub('', data_tmp)
    #
-   # command with section names and headings as arguments
+   # command with page names and headings as arguments
    data_tmp = pattern['ref_1'].sub('', data_tmp)
    data_tmp = pattern['ref_2'].sub(r'\1', data_tmp)
    data_tmp = pattern['code'].sub('', data_tmp)
@@ -260,7 +260,7 @@ def spell_command(
                # first_spell_error
                if first_spell_error :
                   msg  = '\nwarning: file = ' + file_name
-                  msg += ', section = ' + page_name + '\n'
+                  msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_error = False
                #
@@ -303,7 +303,7 @@ def spell_command(
                # first_spell_error
                if first_spell_error :
                   msg  = 'warning: file = ' + file_name
-                  msg += ', section = ' + page_name + '\n'
+                  msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_error = False
                #
@@ -327,7 +327,7 @@ def spell_command(
       if not (special_used[word_lower] or word_lower in double_used) :
          if first_spell_error :
             msg  = '\nwarning: file = ' + file_name
-            msg += ', section = ' + page_name + '\n'
+            msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_error = False
          msg = 'spelling word "' + word_lower + '" not needed\n'
@@ -336,7 +336,7 @@ def spell_command(
       if not double_used[word_lower] :
          if first_spell_error :
             msg  = '\nwarning: file = ' + file_name
-            msg += ', section = ' + page_name + '\n'
+            msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_error = False
          msg  = 'double word "' + word_lower + ' ' + word_lower

@@ -17,7 +17,7 @@ pattern = dict()
 # group(0): preceeding character or empty + the command.
 # group(1); preceeding character or empty
 # group(2): begin or begin_parent
-# group(3): the section name (without leading or trailing spaces or tabs)
+# group(3): the page name (without leading or trailing spaces or tabs)
 # group(4): the group name (with leading and trailing spaces and tabs)
 pattern['begin'] = re.compile(
    r'(^|[^\\]){xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
@@ -61,7 +61,7 @@ pattern['comment_ch'] = re.compile(
 # pattern['end']
 # Pattern for end command
 # group(0): preeeding character + white space + the command.
-# group(1): the section name.
+# group(1): the page name.
 pattern['end'] = re.compile( r'[^\\]{xrst_end\s+([^}]*)}' )
 #
 #

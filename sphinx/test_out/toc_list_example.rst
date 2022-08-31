@@ -30,7 +30,7 @@ toc_list Command Example
 children.py File
 ****************
 see :ref:`child_example_one@this_example_file`
-in the child_example_one section.
+in the child_example_one page.
 
 .. meta::
    :keywords: toc_list

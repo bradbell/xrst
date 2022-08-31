@@ -107,10 +107,10 @@ def file_extension(display_file) :
    return extension
 # ----------------------------------------------------------------------------
 #
-# Process the literal commands in a section.
+# Process the literal commands in a page.
 #
 # data_in:
-# is the data for a section before the literal commands have been removed.
+# is the data for a page before the literal commands have been removed.
 #
 # file_name:
 # is the name of the file that this data comes from. This is used
@@ -118,7 +118,7 @@ def file_extension(display_file) :
 # is not incuded in the command).
 #
 # page_name:
-# is the name of the section that this data is in. This is only used
+# is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # rst_dir:
@@ -189,7 +189,7 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
          # m_file
          m_file  = xrst.pattern[key].search(data_out)
          if m_file and key == 'literal_0' :
-            msg  = 'More than one {xrst_literal} command in this section.\n'
+            msg  = 'More than one {xrst_literal} command in this page.\n'
             msg += 'This command includes the entire current input file.'
             xrst.system_exit(msg,
                file_name    = file_name,

@@ -10,30 +10,30 @@ import xrst
 pattern_line_number = re.compile( r'\n[ \t]*{xrst_line [0-9]+@' )
 pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # ----------------------------------------------------------------------------
-# Write the temporary RST file for a section.
+# Write the temporary RST file for a page.
 #
 # rst_line:
 # is an int version of the rst_line arguemnt to the xrst program
 # (with None replaced by zero).
 #
 # pseudo_heading:
-# is the pseudoc heading for this section. This is the section name
+# is the pseudoc heading for this page. This is the page name
 # surrounded by headding indicators. `It is placed before
-# all the other headings in this section.
+# all the other headings in this page.
 # A label is added just before the pseudo heading that
-# links to it using the section name.
+# links to it using the page name.
 #
 # file_in:
-# is the name of the xrst input file for this section.
+# is the name of the xrst input file for this page.
 #
 # tmp_dir
 # is the directory where the output file will be saved.
 #
 # page_name
-# is the name of this section.  The output file is tmp_dir/page_name.rst.
+# is the name of this page.  The output file is tmp_dir/page_name.rst.
 #
 # data_in
-# is the data for this section with all the xrst commands coverted to
+# is the data for this page with all the xrst commands coverted to
 # their sphinx RST values, except the {xrst_page_number} command.
 # The following is added to this deta before writing it to the output file:
 # #. The preamble is included at the beginning.
@@ -61,7 +61,7 @@ def temporary_file(
    assert type(data_in) == str
    #
    # label
-   # label that displays section name (which is text in pseudo heading)
+   # label that displays page name (which is text in pseudo heading)
    label = f'.. _{page_name}:\n\n'
    #
    # before
