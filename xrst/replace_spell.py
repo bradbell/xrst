@@ -28,8 +28,8 @@ def replace_spell(tmp_dir) :
       #
       # section_list
       section_list = list()
-      for section_name in spell_toml[file_name] :
-         pair = (section_name , spell_toml[file_name][section_name] )
+      for page_name in spell_toml[file_name] :
+         pair = (page_name , spell_toml[file_name][page_name] )
          section_list.append( pair )
       #
       # section_list
@@ -54,7 +54,7 @@ def replace_spell(tmp_dir) :
       line_number = 0
       for m_newline in re.finditer( r'(^|\n)',  data_in) :
          line_number += 1
-         for section_name, section_info in section_list :
+         for page_name, section_info in section_list :
             if section_info['begin_line'] + 1 == line_number :
                section_info['begin_index'] = m_newline.start() + 1
             if section_info['start_spell'] == line_number :
@@ -71,12 +71,12 @@ def replace_spell(tmp_dir) :
       data_out      = ''
       data_in_index = 0
       #
-      # section_name, section_info
-      for section_name, section_info in section_list :
+      # page_name, section_info
+      for page_name, section_info in section_list :
          #
          # m_begin
          m_begin = xrst.pattern['begin'].search(data_copy)
-         while m_begin.group(3) != section_name :
+         while m_begin.group(3) != page_name :
             m_begin = xrst.pattern['begin'].search(data_copy, m_begin.end())
          #
          # m_end
@@ -87,7 +87,7 @@ def replace_spell(tmp_dir) :
          #
          # indent
          not_used, indent = xrst.remove_indent(
-            section_data, file_name, section_name
+            section_data, file_name, page_name
          )
          if comment_ch != None :
             indent = comment_ch + ' '

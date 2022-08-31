@@ -23,13 +23,13 @@ import xrst
 # file_name:
 # is the input that this section appears in (used for error reporting).
 #
-# section_name:
+# page_name:
 # is None or the name of this section (used for error reporting).
 #
-def check_syntax_error(command_name, data, file_name, section_name) :
+def check_syntax_error(command_name, data, file_name, page_name) :
    assert type(data) == str
    assert type(file_name) == str
-   assert type(section_name) == str or section_name == None
+   assert type(page_name) == str or page_name == None
    #
    pattern = r'[^\\]{xrst_' + command_name + r'[^a-z]'
    m_error = re.search(pattern, data)
@@ -37,7 +37,7 @@ def check_syntax_error(command_name, data, file_name, section_name) :
       msg = f'syntax error in xrst {command_name} command'
       xrst.system_exit(msg,
          file_name    = file_name ,
-         section_name = section_name ,
+         page_name = page_name ,
          m_obj        = m_error ,
          data         = data ,
       )

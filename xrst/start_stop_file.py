@@ -9,7 +9,7 @@ import xrst
 #
 # Convert start,  stop text for a literal command to start, stop line numbers.
 #
-# section_name:
+# page_name:
 # is the name of the section where the xrst_literal command appears.
 #
 # file_cmd:
@@ -45,14 +45,14 @@ import xrst
 #
 # start_line, stop_line =
 def start_stop_file(
-   section_name = None,
+   page_name = None,
    file_cmd     = None,
    display_file  = None,
    cmd_line     = None,
    start_text   = None,
    stop_text    = None
 ) :
-   assert type(section_name) == str
+   assert type(page_name) == str
    assert type(file_cmd) == str
    assert type(display_file) == str
    assert type(cmd_line[0]) == int
@@ -74,22 +74,22 @@ def start_stop_file(
    if start_text == '' :
       msg += ' start is empty'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    if stop_text == '' :
       msg += ' stop is empty'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    if 0 <= start_text.find('\n') :
       msg += ' a newline appears in start'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    if 0 <= stop_text.find('\n') :
       msg += ' a newline appears in stop'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    #
    # data
@@ -113,7 +113,7 @@ def start_stop_file(
       if file_cmd == display_file :
          msg += ' not counting the literal command'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    #
    # stop_line
@@ -132,7 +132,7 @@ def start_stop_file(
       if file_cmd == display_file :
          msg += ' not counting the literal command'
       xrst.system_exit(msg,
-         file_name=file_cmd, section_name=section_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    #
    return start_line, stop_line

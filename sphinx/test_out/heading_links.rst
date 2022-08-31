@@ -58,18 +58,18 @@ First Level
 ===========
 Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
-The :ref:`section_name<begin_cmd@section_name>`
+The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
 section name or section title. To be specific,
 the first input below will display the section name as the linking text,
 the second will display the section title as the linking text.
 
-1. ``:ref:`` \` *section_name* \`
-2. ``:ref:`` \` ``@`` *section_name* \`
+1. ``:ref:`` \` *page_name* \`
+2. ``:ref:`` \` ``@`` *page_name* \`
 
 You can also explicitly choose the linking text; e.g.
 
-3. ``:ref:`` \` *linking_text* ``<`` *section_name* ``>`` \`
+3. ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
 
 .. meta::
    :keywords: other, levels
@@ -113,7 +113,7 @@ For example, the label for the heading above is
 
 Discussion
 ==========
-1. Note that at the first level one uses the *section_name* and not the
+1. Note that at the first level one uses the *page_name* and not the
    title; e.g., in the example above one uses ``heading_links``
    and not ``heading_cross_reference_links`` .
 2. The ``@`` and not ``.`` character is used to separate levels

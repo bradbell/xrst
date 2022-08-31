@@ -29,8 +29,8 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # tmp_dir
 # is the directory where the output file will be saved.
 #
-# section_name
-# is the name of this section.  The output file is tmp_dir/section_name.rst.
+# page_name
+# is the name of this section.  The output file is tmp_dir/page_name.rst.
 #
 # data_in
 # is the data for this section with all the xrst commands coverted to
@@ -51,18 +51,18 @@ def temporary_file(
    pseudo_heading,
    file_in,
    tmp_dir,
-   section_name,
+   page_name,
    data_in,
 ) :
    assert type(rst_line) == int
    assert type(pseudo_heading) == str
    assert type(file_in) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    assert type(data_in) == str
    #
    # label
    # label that displays section name (which is text in pseudo heading)
-   label = f'.. _{section_name}:\n\n'
+   label = f'.. _{page_name}:\n\n'
    #
    # before
    # start output by including preamble and then pesudo_heading
@@ -112,10 +112,10 @@ def temporary_file(
       data_out = data_out + after
    #
    # file_out
-   if section_name.endswith('.rst') :
-      file_out = tmp_dir + '/' + section_name
+   if page_name.endswith('.rst') :
+      file_out = tmp_dir + '/' + page_name
    else :
-      file_out = tmp_dir + '/' + section_name + '.rst'
+      file_out = tmp_dir + '/' + page_name + '.rst'
    file_ptr = open(file_out, 'w')
    file_ptr.write(data_out)
    file_ptr.close()

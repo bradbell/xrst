@@ -45,5 +45,5 @@ For changes before 2021-09-26; see
 09-27
 *****
 Improve the error messaging when the
-:ref:`begin_cmd@section_name` in a begin command
+:ref:`begin_cmd@page_name` in a begin command
 has an invalid character; e.g. a period.

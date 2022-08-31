@@ -127,7 +127,7 @@ import xrst
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
-# section_name:
+# page_name:
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
@@ -149,10 +149,10 @@ import xrst
 # sections in the file are in child_section_list.
 #
 # data_out, file_list, section_list =
-def toc_commands(data_in, file_name, section_name) :
+def toc_commands(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    #
    # data_out
    data_out = data_in
@@ -169,7 +169,7 @@ def toc_commands(data_in, file_name, section_name) :
          command_name    = 'toc',
          data            = data_out,
          file_name       = file_name,
-         section_name    = section_name,
+         page_name    = page_name,
       )
       return data_out, file_list, section_list
    #
@@ -179,7 +179,7 @@ def toc_commands(data_in, file_name, section_name) :
       msg = 'More than one children or toc_list command in a section.'
       xrst.system_exit(msg,
          file_name=file_name,
-         section_name=section_name,
+         page_name=page_name,
          m_obj=m_tmp,
          data=data_out[m_obj.end():]
       )
@@ -218,7 +218,7 @@ def toc_commands(data_in, file_name, section_name) :
          msg  = 'The file ' + child_file + '\n'
          msg += 'in the ' + command + ' command does not exist'
          xrst.system_exit(msg,
-            file_name=file_name, section_name=section_name, line=child_line
+            file_name=file_name, page_name=page_name, line=child_line
          )
       #
       # file_data
@@ -237,7 +237,7 @@ def toc_commands(data_in, file_name, section_name) :
          msg += 'in the ' + command + ' command does not contain any '
          msg += 'begin commands.\n'
          xrst.system_exit(msg,
-            file_name=file_name, section_name=section_name, line=child_line
+            file_name=file_name, page_name=page_name, line=child_line
          )
       #
       # list_children
@@ -255,7 +255,7 @@ def toc_commands(data_in, file_name, section_name) :
             msg += ' not the first begin command in this file'
             xrst.system_exit(msg,
                file_name=child_file,
-               section_name=section_name,
+               page_name=page_name,
                m_obj=m_obj,
                data=file_data
             )
@@ -274,6 +274,6 @@ def toc_commands(data_in, file_name, section_name) :
       command_name    = 'toc',
       data            = data_out,
       file_name       = file_name,
-      section_name    = section_name,
+      page_name    = page_name,
    )
    return data_out, file_list, section_list

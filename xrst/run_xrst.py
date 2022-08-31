@@ -197,12 +197,12 @@ Section RST Files
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
 and correspond to last time that ``xrst`` was executed.
-For each :ref:`begin_cmd@section_name`, the file
+For each :ref:`begin_cmd@page_name`, the file
 
-|space| *sphinx_dir*\ ``/xrst/``\ *section_name*\ ``.rst``
+|space| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
 Is the RST file for the corresponding section. There is one exception
-to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
+to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
 
 Other Generated Files
@@ -480,8 +480,8 @@ def run_xrst() :
          # root_section_list
          if finfo['parent_file'] == None :
             assert file_in == root_local
-            section_name = sinfo_file_in[0]['section_name']
-            root_section_list.append(section_name)
+            page_name = sinfo_file_in[0]['page_name']
+            root_section_list.append(page_name)
          #
          # parent_section_file_in
          # index in sinfo_list of parent section for this file
@@ -492,8 +492,8 @@ def run_xrst() :
          # add this files sections to sinfo_list
          for i_section in range( len(sinfo_file_in) ) :
             # ------------------------------------------------------------
-            # section_name, section_data, is_parent
-            section_name = sinfo_file_in[i_section]['section_name']
+            # page_name, section_data, is_parent
+            page_name = sinfo_file_in[i_section]['page_name']
             section_data = sinfo_file_in[i_section]['section_data']
             is_parent    = sinfo_file_in[i_section]['is_parent']
             is_child     = sinfo_file_in[i_section]['is_child']
@@ -506,7 +506,7 @@ def run_xrst() :
             #
             # sinfo_list
             sinfo_list.append( {
-               'section_name'   : section_name,
+               'page_name'   : page_name,
                'file_in'        : file_in,
                'parent_section' : parent_section,
                'in_parent_file' : is_child,
@@ -519,7 +519,7 @@ def run_xrst() :
                tmp_dir,
                section_data,
                file_in,
-               section_name,
+               page_name,
                spell_checker,
             )
             # -------------------------------------------------------------
@@ -528,7 +528,7 @@ def run_xrst() :
                xrst.toc_commands(
                   section_data,
                   file_in,
-                  section_name,
+                  page_name,
             )
             #
             # section_index, finfo_stack
@@ -544,14 +544,14 @@ def run_xrst() :
             section_data = xrst.code_command(
                section_data,
                file_in,
-               section_name,
+               page_name,
             )
             # ------------------------------------------------------------
             # literal command
             section_data = xrst.literal_command(
                section_data,
                file_in,
-               section_name,
+               page_name,
                rst_dir,
             )
             # ------------------------------------------------------------
@@ -562,7 +562,7 @@ def run_xrst() :
                html_theme,
                section_data,
                file_in,
-               section_name,
+               page_name,
                keyword_list,
             )
             # sinfo_list
@@ -570,19 +570,19 @@ def run_xrst() :
             sinfo_list[section_index]['section_title'] = section_title
             # -------------------------------------------------------------
             # list_children
-            # section_name for each of the children of the current section
+            # page_name for each of the children of the current section
             list_children = child_section_list
             if is_parent :
                for i in range( len(sinfo_file_in) ) :
                   if i != i_section :
                      list_children.append(
-                        sinfo_file_in[i]['section_name']
+                        sinfo_file_in[i]['page_name']
                      )
             # -------------------------------------------------------------
             # process children
             # want this as late as possible to toctree at end of input
             section_data = xrst.process_children(
-               section_name,
+               page_name,
                section_data,
                list_children,
             )
@@ -593,7 +593,7 @@ def run_xrst() :
                pseudo_heading,
                file_in,
                tmp_dir,
-               section_name,
+               page_name,
                section_data,
             )
    #

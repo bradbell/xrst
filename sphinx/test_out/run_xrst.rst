@@ -304,12 +304,12 @@ Section RST Files
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
 and correspond to last time that ``xrst`` was executed.
-For each :ref:`begin_cmd@section_name`, the file
+For each :ref:`begin_cmd@page_name`, the file
 
-|space| *sphinx_dir*\ ``/xrst/``\ *section_name*\ ``.rst``
+|space| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
 Is the RST file for the corresponding section. There is one exception
-to this rule. If *section_name* ends with ``.rst``, the extra ``.rst``
+to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
 
 .. meta::

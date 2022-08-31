@@ -17,18 +17,18 @@ Begin and End Commands
 
 Syntax
 ******
-- ``\{xrst_begin_parent`` *section_name* *group_name* :code:`}`
-- ``\{xrst_begin``        *section_name* *group_name* :code:`}`
-- ``\{xrst_end``          *section_name* :code:`}`
+- ``\{xrst_begin_parent`` *page_name* *group_name* :code:`}`
+- ``\{xrst_begin``        *page_name* *group_name* :code:`}`
+- ``\{xrst_end``          *page_name* :code:`}`
 
 Section
 *******
 The start (end) of a section of the input file is indicated by a
 begin (end) command.
 
-section_name
+page_name
 ************
-The *section_name* is a non-empty sequence of the following characters:
+The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xrst_``.
 A link is included in the index under the section name
@@ -44,9 +44,9 @@ Note that it is the group name and not the group that is empty.
 
 Output File
 ***********
-The output file corresponding to *section_name* is
+The output file corresponding to *page_name* is
 
-| |tab| *sphinx_dir*\ ``/xrst/``\ *section_name*\ ``.rst``
+| |tab| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
@@ -85,7 +85,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # a list of the information for sections that came before this file.
 # We use infor below for one eleemnt of this list:
 #
-#  info['section_name']
+#  info['page_name']
 #  is an str containing the name of a seciton that came before this file.
 #
 # group_name:
@@ -101,7 +101,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # The value file_info is a list of dict. Each dict contains the information
 # for one section in this file. We use info below for one element of the list:
 #
-#  info['section_name']:
+#  info['page_name']:
 #  is an str containing the name of a seciton in this file.
 #
 #  info['section_data']:
@@ -149,8 +149,8 @@ def get_file_info(
    # file_info
    file_info = list()
    #
-   # parent_section_name
-   parent_section_name = None
+   # parent_page_name
+   parent_page_name = None
    #
    # data_index
    # index to start search for next pattern in file_data
@@ -206,33 +206,33 @@ def get_file_info(
          # found_group_name
          found_group_name = True
          #
-         # section_name, is_parent
-         section_name = m_begin.group(3)
+         # page_name, is_parent
+         page_name = m_begin.group(3)
          is_parent    = m_begin.group(2) == 'begin_parent'
          #
-         # check_section_name
-         xrst.check_section_name(
-            section_name,
+         # check_page_name
+         xrst.check_page_name(
+            page_name,
             file_name     = file_in,
             m_obj         = m_begin,
             data          = data_rest
          )
          #
-         # check if section_name appears multiple times in this file
+         # check if page_name appears multiple times in this file
          for info in file_info :
-            if section_name == info['section_name'] :
+            if page_name == info['page_name'] :
                msg  = 'xrst_begin: section appears multiple times'
                xrst.system_exit(msg,
                   file_name      = file_in,
-                  section_name   = section_name,
+                  page_name   = page_name,
                   m_obj          = m_begin,
                   data           = data_rest
                )
          #
-         # check if section_name appears in another file
+         # check if page_name appears in another file
          for info in section_info :
-            if section_name == info['section_name'] :
-               msg  = f'section_name = "{section_name}", '
+            if page_name == info['page_name'] :
+               msg  = f'page_name = "{page_name}", '
                msg += f'group_name = {group_name} appears twice\n'
                msg += 'Once  in file ' + file_in + '\n'
                msg += 'Again in file ' + info['file_in'] + '\n'
@@ -245,16 +245,16 @@ def get_file_info(
                msg += ' is not the first begin command in this file'
                xrst.system_exit(msg,
                   file_name     = file_in,
-                  section_name  = section_name,
+                  page_name  = page_name,
                   m_obj         = m_begin,
                   data          = data_rest
                )
             #
-            # parent_section_name
-            parent_section_name = section_name
+            # parent_page_name
+            parent_page_name = page_name
          #
          # is_child
-         is_child = (not is_parent) and (parent_section_name != None)
+         is_child = (not is_parent) and (parent_page_name != None)
          #
          # data_index
          data_index += m_begin.end()
@@ -265,13 +265,13 @@ def get_file_info(
          #
          if m_end == None :
             msg  = 'Expected the followig text at start of a line:\n'
-            msg += '    {xrst_end section_name}'
+            msg += '    {xrst_end page_name}'
             xrst.system_exit(
-               msg, file_name=file_in, section_name=section_name
+               msg, file_name=file_in, page_name=page_name
             )
-         if m_end.group(1) != section_name :
+         if m_end.group(1) != page_name :
             msg = 'begin and end section names do not match\n'
-            msg += 'begin name = ' + section_name + '\n'
+            msg += 'begin name = ' + page_name + '\n'
             msg += 'end name   = ' + m_end.group(1)
             xrst.system_exit(msg,
                file_name = file_in,
@@ -286,15 +286,15 @@ def get_file_info(
          #
          # section_data
          section_data  = xrst.suspend_command(
-            section_data, file_in, section_name
+            section_data, file_in, page_name
          )
          section_data, not_used = xrst.remove_indent(
-            section_data, file_in, section_name
+            section_data, file_in, page_name
          )
          #
          # file_info
          file_info.append( {
-            'section_name' : section_name,
+            'page_name' : page_name,
             'section_data' : section_data,
             'is_parent'    : is_parent,
             'is_child'     : is_child,
@@ -304,7 +304,7 @@ def get_file_info(
          # place to start search for next section
          data_index += m_end.end()
    #
-   if parent_section_name != None and len(file_info) < 2 :
+   if parent_page_name != None and len(file_info) < 2 :
       msg  = 'begin_parent command appears with '
       if group_name == '' :
          msg += 'the empty group name\n'
@@ -312,7 +312,7 @@ def get_file_info(
          msg += f'group_name = {group_name}\n'
       msg += 'and this file only has one section with that group name.'
       xrst.system_exit(
-         msg, file_name=file_in, section_name=parent_section_name
+         msg, file_name=file_in, page_name=parent_page_name
       )
    #
    # file_data
@@ -324,7 +324,7 @@ def get_file_info(
          command_name   = command_name,
          data           = file_data,
          file_name      = file_in,
-         section_name   = None,
+         page_name   = None,
       )
    #
    return file_info

@@ -75,7 +75,7 @@ import xrst
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
-# section_name:
+# page_name:
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
@@ -84,10 +84,10 @@ import xrst
 # sphinx command.
 #
 # data_out =
-def code_command(data_in, file_name, section_name) :
+def code_command(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    #
    # data_out
    data_out = data_in
@@ -110,7 +110,7 @@ def code_command(data_in, file_name, section_name) :
          msg = 'missing language in first command of a code block pair'
          xrst.system_exit(msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             m_obj=m_begin,
             data=data_out
          )
@@ -119,7 +119,7 @@ def code_command(data_in, file_name, section_name) :
             msg = 'code block language character not in a-z.'
             xrst.system_exit(msg,
                file_name=file_name,
-               section_name=section_name,
+               page_name=page_name,
                m_obj=m_begin,
                data=data_out
             )
@@ -128,7 +128,7 @@ def code_command(data_in, file_name, section_name) :
          msg = 'Start code command does not have a corresponding stop'
          xrst.system_exit(msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             m_obj=m_begin,
             data=data_out
          )
@@ -136,7 +136,7 @@ def code_command(data_in, file_name, section_name) :
          msg ='Stop code command has a non-empty language argument'
          xrst.system_exit(msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             m_obj=m_end,
             data=section_rest
          )

@@ -156,7 +156,7 @@ def preamble_macros(sphinx_dir) :
 # The value section[section_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# section_name   a str continaing the name of this section.
+# page_name   a str continaing the name of this section.
 # section_title  a str containing the title for this section.
 # parent_section an int index in sinfo_list for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
@@ -328,8 +328,8 @@ def auto_file(
    file_data += '   :maxdepth: 1\n'
    file_data += '\n'
    file_data += '   rst/xrst_table_of_contents\n'
-   for section_name in root_section_list :
-      file_data += '   rst/' + section_name + '\n'
+   for page_name in root_section_list :
+      file_data += '   rst/' + page_name + '\n'
    if target == 'html' :
       file_data += '   rst/xrst_index\n'
    #

@@ -8,9 +8,9 @@
 import xrst
 # ----------------------------------------------------------------------------
 # section_index =
-def section_name2index(sinfo_list, section_name) :
+def page_name2index(sinfo_list, page_name) :
    for (section_index, info) in enumerate(sinfo_list) :
-      if info['section_name'] == section_name :
+      if info['page_name'] == page_name :
          return section_index
    return None
 
@@ -23,7 +23,7 @@ def section_name2index(sinfo_list, section_name) :
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/section_name.rst the text {xrst_section_number}
+# tmp_dir/page_name.rst the text {xrst_section_number}
 # is replaced by the section number which includes the counter for each level.
 # If target is 'html', {xrst_section_number} is removed with not replacement.
 #
@@ -43,7 +43,7 @@ def section_name2index(sinfo_list, section_name) :
 # The value section[section_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# section_name   a str continaing the name of this section.
+# page_name   a str continaing the name of this section.
 # section_title  a str containing the title for this section.
 # parent_section an int index in section_info for the parent of this section.
 # in_parent_file True if this section in same input file as its parent.
@@ -64,8 +64,8 @@ def section_table_of_contents(
    #
    assert target in [ 'html', 'pdf' ]
    #
-   # section_name, section_title
-   section_name   = sinfo_list[section_index]['section_name']
+   # page_name, section_title
+   page_name   = sinfo_list[section_index]['page_name']
    section_title  = sinfo_list[section_index]['section_title']
    #
    # section_number, content
@@ -85,17 +85,17 @@ def section_table_of_contents(
    #
    # content
    if len(count) == 0 :
-      content  += f':ref:`@{section_name}`' '\n\n'
+      content  += f':ref:`@{page_name}`' '\n\n'
    else :
-      content  += f':ref:`{section_number}<{section_name}>` '
+      content  += f':ref:`{section_number}<{page_name}>` '
       content  += section_title + '\n'
    #
    # file_name
    # temporary file corresponding to this section name
-   if section_name.endswith('.rst') :
-      file_name = tmp_dir + '/' + section_name
+   if page_name.endswith('.rst') :
+      file_name = tmp_dir + '/' + page_name
    else :
-      file_name = tmp_dir + '/' + section_name + '.rst'
+      file_name = tmp_dir + '/' + page_name + '.rst'
    #
    # file_data
    file_ptr  = open(file_name, 'r')
@@ -157,7 +157,7 @@ def section_table_of_contents(
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/section_name.rst the text {xrst_section_number}
+# tmp_dir/page_name.rst the text {xrst_section_number}
 # is replaced by the section number which includes the counter for each level.
 # If target is 'html', {xrst_section_number} is removed with not replacement.
 #
@@ -166,7 +166,7 @@ def section_table_of_contents(
 # The value section[section_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# section_name   a str continaing the name of this section.
+# page_name   a str continaing the name of this section.
 # section_title  a str containing the title for this section.
 # parent_section an int index in sinfo_list for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
@@ -195,15 +195,15 @@ def table_of_contents(
    # content
    if len(root_section_list) == 1 :
       count = []
-      section_name  = root_section_list[0]
-      section_index = section_name2index(sinfo_list, section_name)
+      page_name  = root_section_list[0]
+      section_index = page_name2index(sinfo_list, page_name)
       content += section_table_of_contents(
          tmp_dir, target, count, sinfo_list, section_index
       )
    else :
       count = [0]
-      for section_name in  root_section_list :
-         section_index = section_name2index(sinfo_list, section_name)
+      for page_name in  root_section_list :
+         section_index = page_name2index(sinfo_list, page_name)
          count[0]     += 1
          content      += section_table_of_contents(
             tmp_dir, target, count, sinfo_list, section_index

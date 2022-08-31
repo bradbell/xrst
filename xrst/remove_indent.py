@@ -36,7 +36,7 @@ import xrst
 # file_name:
 # is the input that this section appears in (used for error reporting).
 #
-# section_name:
+# page_name:
 # is the name of this section (used for error reporting).
 #
 # data_out:
@@ -46,10 +46,10 @@ import xrst
 # is the white space that was removed from each line (except for empty lines)
 #
 # data_out, indent =
-def remove_indent(data_in, file_name, section_name) :
+def remove_indent(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    #
    # len_data
    len_data   = len(data_in)
@@ -90,7 +90,7 @@ def remove_indent(data_in, file_name, section_name) :
             msg  = 'mixing both spaces and tabs for '
             msg += 'white space that indents this section.'
             xrst.system_exit(
-               msg, file_name=file_name, section_name=section_name
+               msg, file_name=file_name, page_name=page_name
             )
          next_ += 1
    #

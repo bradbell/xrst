@@ -39,7 +39,7 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #
 # data_out =
 def process_children(
-   section_name,
+   page_name,
    data_in,
    list_children,
 ) :

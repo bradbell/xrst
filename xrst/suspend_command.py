@@ -50,7 +50,7 @@ pattern_resume  = re.compile(
 # file_name
 # is the input file corresponding to this section.
 #
-# section_name
+# page_name
 # is the name of this section.
 #
 # data_out
@@ -58,10 +58,10 @@ pattern_resume  = re.compile(
 # and including each suspend / resume pair has been removed.
 #
 # data_out =
-def suspend_command(data_in, file_name, section_name) :
+def suspend_command(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    #
    # data_out
    data_out = data_in
@@ -81,7 +81,7 @@ def suspend_command(data_in, file_name, section_name) :
          msg += 'corresponding resume commannd.'
          xrst.system_exit(msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             m_obj=m_suspend,
             data=data_out
          )
@@ -97,7 +97,7 @@ def suspend_command(data_in, file_name, section_name) :
             msg += 'resume command between them.'
             xrst.system_exit(msg,
                file_name=file_name,
-               section_name=section_name,
+               page_name=page_name,
                m_obj=m_obj,
                data=data_rest
             )

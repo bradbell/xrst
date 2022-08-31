@@ -9,7 +9,7 @@
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
-from .check_section_name     import check_section_name
+from .check_page_name     import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .create_spell_checker   import create_spell_checker

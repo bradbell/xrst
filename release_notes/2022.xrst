@@ -138,8 +138,8 @@ command line arguments with default values; see the new xrst
 The heading links at the
 :ref:`heading_links@labels@first_level` were changed
 to make it easier to display the section name as the linking text.
-You must change ``:ref:`` ` *section_name* `
-to ``:ref:`` ` @ *section_name* ` to get the linking text to be the title
+You must change ``:ref:`` ` *page_name* `
+to ``:ref:`` ` @ *page_name* ` to get the linking text to be the title
 (as it was before this change).
 The following can be used to convert
 *file_name* to this new convention:
@@ -181,7 +181,7 @@ interact; see :ref:`toc_cmd@children`.
    to at sign ``@``; see links to headings
    :ref:`heading_links@labels@other_levels`.
 2. Add period ``.`` to the list of valid characters in a
-   :ref:`begin_cmd@section_name`.
+   :ref:`begin_cmd@page_name`.
 3. Change the following section names in the xrst documentation:
    xrst_py -> xrst.py, conf_py -> conf.py.
 

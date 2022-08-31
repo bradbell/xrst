@@ -13,17 +13,17 @@ import xrst
 #
 # msg:           error message
 # file_name:     original input file that that data appeared in.
-# section_name:  section name
+# page_name:  section name
 # m_obj:         match object indicating where in data the error is detected
 # data:          is the input data that was matched when m_obj is not None
 # line:          is the error line number when m_obj is None
 #
 def system_exit(
-   msg, file_name=None, section_name=None, m_obj=None, data=None, line=None
+   msg, file_name=None, page_name=None, m_obj=None, data=None, line=None
 ) :
    assert type(msg)   == str
    assert type(file_name) == str or file_name== None
-   assert type(section_name) == str or section_name== None
+   assert type(page_name) == str or page_name== None
    assert type(line)  in [ int, str ] or line == None
    #
    if m_obj :
@@ -34,8 +34,8 @@ def system_exit(
    root_directory = os.getcwd()
    extra          = f'\nroot_directory = {root_directory}\n'
    #
-   if section_name :
-      extra += f'section = {section_name}\n'
+   if page_name :
+      extra += f'section = {page_name}\n'
    if file_name :
       extra += f'file = {file_name}\n'
    if m_obj :

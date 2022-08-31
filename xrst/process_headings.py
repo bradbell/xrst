@@ -31,18 +31,18 @@ First Level
 ===========
 Each :ref:`section<begin_cmd@section>` can have only one header at
 the first level which is a title for the section.
-The :ref:`section_name<begin_cmd@section_name>`
+The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
 section name or section title. To be specific,
 the first input below will display the section name as the linking text,
 the second will display the section title as the linking text.
 
-1. ``:ref:`` \` *section_name* \`
-2. ``:ref:`` \` ``@`` *section_name* \`
+1. ``:ref:`` \` *page_name* \`
+2. ``:ref:`` \` ``@`` *page_name* \`
 
 You can also explicitly choose the linking text; e.g.
 
-3. ``:ref:`` \` *linking_text* ``<`` *section_name* ``>`` \`
+3. ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
 
 
 Other Levels
@@ -67,7 +67,7 @@ For example, the label for the heading above is
 
 Discussion
 ==========
-1. Note that at the first level one uses the *section_name* and not the
+1. Note that at the first level one uses the *page_name* and not the
    title; e.g., in the example above one uses ``heading_links``
    and not ``heading_cross_reference_links`` .
 2. The ``@`` and not ``.`` character is used to separate levels
@@ -107,7 +107,7 @@ import xrst
 # pattern.fullmatch(word) returns a match, a cross-reference index will not
 # be generated for word.
 #
-# section_name:
+# page_name:
 # is the name of this section.
 #
 # data_out:
@@ -130,12 +130,12 @@ import xrst
 #
 # data_out, section_title, pseudo_heading =
 def process_headings(
-      html_theme, data_in, file_name, section_name, keyword_list
+      html_theme, data_in, file_name, page_name, keyword_list
 ) :
    assert type(html_theme) == str
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    assert type(keyword_list) == list
    #
    # data_out
@@ -199,7 +199,7 @@ def process_headings(
             xrst.system_exit(
                msg,
                file_name=file_name,
-               section_name=section_name,
+               page_name=page_name,
                m_obj=m_obj,
                data=data_out
             )
@@ -228,16 +228,16 @@ def process_headings(
       label = ''
       for level in range( len(heading_list) ) :
          if level == 0 :
-            label = section_name.lower()
+            label = page_name.lower()
             label = label.replace(' ', '_')
             label = label.replace('@', '_')
             label = label.replace(':', '_')
-            assert label == section_name
+            assert label == page_name
             # label for link that displays the title
             if len(heading_list) == 1 :
-               label = '@' + section_name
+               label = '@' + page_name
             else :
-               label = section_name
+               label = page_name
          else :
             heading     = heading_list[level]
             conversion  = heading['text'].lower()
@@ -248,7 +248,7 @@ def process_headings(
       #
       # index_entries
       if len(heading_list) == 1 :
-         index_entries = section_name
+         index_entries = page_name
       else :
          index_entries = ''
       for word in heading_list[-1]['text'].lower().split() :
@@ -305,7 +305,7 @@ def process_headings(
    #
    if len(heading_list) == 0 :
       msg = 'There are no headings in this section'
-      xrst.system_exit(msg, file_name=file_name, section_name=section_name)
+      xrst.system_exit(msg, file_name=file_name, page_name=page_name)
    #
    # pseudo_heading
    i = 0
@@ -315,10 +315,10 @@ def process_headings(
          msg  = 'more than ' + len(punctuation) - 1
          msg += ' overlined heading levels'
          xrst.system_exit(
-            msg, file_name=file_name, section_name=section_name
+            msg, file_name=file_name, page_name=page_name
          )
-   line           = len(section_name) * punctuation[i] + '\n'
-   pseudo_heading = line + section_name + '\n' + line + '\n'
+   line           = len(page_name) * punctuation[i] + '\n'
+   pseudo_heading = line + page_name + '\n' + line + '\n'
    #
    # section_title
    section_title = heading_list[0]['text']

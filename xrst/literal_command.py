@@ -117,7 +117,7 @@ def file_extension(display_file) :
 # for error reporting and for the display file (when the display file
 # is not incuded in the command).
 #
-# section_name:
+# page_name:
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
@@ -129,10 +129,10 @@ def file_extension(display_file) :
 # Each xrst literal command is convertd to its corresponding sphinx commands.
 #
 # data_out =
-def literal_command(data_in, file_name, section_name, rst_dir) :
+def literal_command(data_in, file_name, page_name, rst_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
-   assert type(section_name) == str
+   assert type(page_name) == str
    assert type(rst_dir) == str
    #
    assert xrst.pattern['literal_0'].groups == 1
@@ -164,7 +164,7 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
                msg += f'display_file = {display_file}'
                xrst.system_exit(msg,
                   file_name    = file_name,
-                  section_name = section_name,
+                  page_name = page_name,
                   m_obj        = m_file,
                   data         = data_out
                )
@@ -193,7 +193,7 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
             msg += 'This command includes the entire current input file.'
             xrst.system_exit(msg,
                file_name    = file_name,
-               section_name = section_name,
+               page_name = page_name,
                m_obj        = m_file,
                data         = data_out
             )
@@ -229,7 +229,7 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
                msg += f'display_file = {display_file}'
                xrst.system_exit(msg,
                   file_name    = file_name,
-                  section_name = section_name,
+                  page_name = page_name,
                   m_obj        = m_file,
                   data         = data_out
                )
@@ -239,7 +239,7 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
          #
          # start_line, stop_line
          start_line, stop_line = xrst.start_stop_file(
-            section_name = section_name,
+            page_name = page_name,
             file_cmd     = file_name,
             display_file = display_file,
             cmd_line     = cmd_line,
@@ -280,6 +280,6 @@ def literal_command(data_in, file_name, section_name, rst_dir) :
       command_name    = 'literal',
       data            = data_out,
       file_name       = file_name,
-      section_name    = section_name,
+      page_name    = page_name,
    )
    return data_out

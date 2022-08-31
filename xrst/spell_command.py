@@ -108,12 +108,12 @@ pattern['word']  = re.compile(
 # The file tmp_dir/spell.toml will contain the information below:
 # It can be used to replace the spell command for this section
 # in a way so that will have no spelling warnings.
-#     [file_name.section_name]
+#     [file_name.page_name]
 #     begin_line  = integer line number for the begin command
 #     start_spell = integer line number where the spell command starts
 #     end_spell   = integer line nubmer where the spell command ends
 #     unknown     = array of strings (words)  that are not in dictionary
-# 1. file_name and section_name are strings
+# 1. file_name and page_name are strings
 # 2. Line numbers start are one and are in the file.
 # 3. The line number zero is used for start_spell and end_spell when
 #    there is no spell command for this section.
@@ -127,7 +127,7 @@ pattern['word']  = re.compile(
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
-# section_name:
+# page_name:
 # is the name of the section that this data is in. This is only used
 # for error reporting.
 #
@@ -146,7 +146,7 @@ pattern['word']  = re.compile(
 #
 # data_out =
 def spell_command(
-   tmp_dir, data_in, file_name, section_name, spell_checker
+   tmp_dir, data_in, file_name, page_name, spell_checker
 ) :
    #
    #
@@ -170,7 +170,7 @@ def spell_command(
          xrst.system_exit(
             msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             m_obj=m_error,
             data=data_in
          )
@@ -188,7 +188,7 @@ def spell_command(
          xrst.system_exit(
             msg,
             file_name=file_name,
-            section_name=section_name,
+            page_name=page_name,
             line = line,
          )
       #
@@ -260,7 +260,7 @@ def spell_command(
                # first_spell_error
                if first_spell_error :
                   msg  = '\nwarning: file = ' + file_name
-                  msg += ', section = ' + section_name + '\n'
+                  msg += ', section = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_error = False
                #
@@ -303,7 +303,7 @@ def spell_command(
                # first_spell_error
                if first_spell_error :
                   msg  = 'warning: file = ' + file_name
-                  msg += ', section = ' + section_name + '\n'
+                  msg += ', section = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_error = False
                #
@@ -327,7 +327,7 @@ def spell_command(
       if not (special_used[word_lower] or word_lower in double_used) :
          if first_spell_error :
             msg  = '\nwarning: file = ' + file_name
-            msg += ', section = ' + section_name + '\n'
+            msg += ', section = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_error = False
          msg = 'spelling word "' + word_lower + '" not needed\n'
@@ -336,7 +336,7 @@ def spell_command(
       if not double_used[word_lower] :
          if first_spell_error :
             msg  = '\nwarning: file = ' + file_name
-            msg += ', section = ' + section_name + '\n'
+            msg += ', section = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_error = False
          msg  = 'double word "' + word_lower + ' ' + word_lower
@@ -357,7 +357,7 @@ def spell_command(
    begin_line = int( m_line.group(1) )
    #
    # file_data
-   file_data  = f'[ "{file_name}"."{section_name}" ]\n'
+   file_data  = f'[ "{file_name}"."{page_name}" ]\n'
    file_data += f'begin_line = {begin_line}\n'
    file_data += f'start_spell = {start_spell}\n'
    file_data += f'end_spell = {end_spell}\n'

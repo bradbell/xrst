@@ -24,9 +24,9 @@ Begin and End Commands
 
 Syntax
 ******
-- ``{xrst_begin_parent`` *section_name* *group_name* :code:`}`
-- ``{xrst_begin``        *section_name* *group_name* :code:`}`
-- ``{xrst_end``          *section_name* :code:`}`
+- ``{xrst_begin_parent`` *page_name* *group_name* :code:`}`
+- ``{xrst_begin``        *page_name* *group_name* :code:`}`
+- ``{xrst_end``          *page_name* :code:`}`
 
 .. meta::
    :keywords: section
@@ -41,15 +41,15 @@ The start (end) of a section of the input file is indicated by a
 begin (end) command.
 
 .. meta::
-   :keywords: section_name
+   :keywords: page_name
 
-.. index:: section_name
+.. index:: page_name
 
-.. _begin_cmd@section_name:
+.. _begin_cmd@page_name:
 
-section_name
+page_name
 ************
-The *section_name* is a non-empty sequence of the following characters:
+The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xrst_``.
 A link is included in the index under the section name
@@ -79,9 +79,9 @@ Note that it is the group name and not the group that is empty.
 
 Output File
 ***********
-The output file corresponding to *section_name* is
+The output file corresponding to *page_name* is
 
-| |tab| *sphinx_dir*\ ``/xrst/``\ *section_name*\ ``.rst``
+| |tab| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
