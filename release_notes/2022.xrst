@@ -17,6 +17,11 @@
 xrst Release Notes for 2022
 ###########################
 
+08-30
+*****
+Change 'section' to 'page' because section is used in sphinx to refer
+to text grouped by headings.
+
 08-29
 *****
 Add the :ref:`run_xrst@replace_spell_commands` option
