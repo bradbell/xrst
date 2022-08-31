@@ -81,7 +81,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #
 # Get all the information for a file.
 #
-# section_info:
+# page_info:
 # a list of the information for sections that came before this file.
 # We use infor below for one eleemnt of this list:
 #
@@ -104,7 +104,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #  info['page_name']:
 #  is an str containing the name of a seciton in this file.
 #
-#  info['section_data']:
+#  info['page_data']:
 #  is an str containing the data for this seciton.
 #  1. Line numbers have been added using add_line_numbers.
 #  2. If present in this file, the comment character and possilbe space
@@ -128,12 +128,12 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #
 # file_info =
 def get_file_info(
-      section_info,
+      page_info,
       group_name,
       parent_file,
       file_in,
 ) :
-   assert type(section_info) == list
+   assert type(page_info) == list
    assert type(group_name) == str
    assert type(file_in) == str
    #
@@ -230,7 +230,7 @@ def get_file_info(
                )
          #
          # check if page_name appears in another file
-         for info in section_info :
+         for info in page_info :
             if page_name == info['page_name'] :
                msg  = f'page_name = "{page_name}", '
                msg += f'group_name = {group_name} appears twice\n'
@@ -279,23 +279,23 @@ def get_file_info(
                data      = data_rest
             )
          #
-         # section_data
+         # page_data
          section_start = data_index
          section_end   = data_index + m_end.start() + 1
-         section_data  = file_data[ section_start : section_end ]
+         page_data  = file_data[ section_start : section_end ]
          #
-         # section_data
-         section_data  = xrst.suspend_command(
-            section_data, file_in, page_name
+         # page_data
+         page_data  = xrst.suspend_command(
+            page_data, file_in, page_name
          )
-         section_data, not_used = xrst.remove_indent(
-            section_data, file_in, page_name
+         page_data, not_used = xrst.remove_indent(
+            page_data, file_in, page_name
          )
          #
          # file_info
          file_info.append( {
             'page_name' : page_name,
-            'section_data' : section_data,
+            'page_data' : page_data,
             'is_parent'    : is_parent,
             'is_child'     : is_child,
          } )

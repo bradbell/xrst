@@ -141,14 +141,14 @@ import xrst
 # The second return file_list is the list of files in the toc command
 # (and in same order as in the toc command).
 #
-# child_section_list:
+# child_page_list:
 # Is the a list of section names corresponding to the children of the
 # this section that are in the files specified by file_list.
 # If a file in file_list has a begin_parent command, it only has
-# one section in child_section_list for that file. Otherwise all of the
-# sections in the file are in child_section_list.
+# one section in child_page_list for that file. Otherwise all of the
+# sections in the file are in child_page_list.
 #
-# data_out, file_list, section_list =
+# data_out, file_list, page_list =
 def toc_commands(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
@@ -157,10 +157,10 @@ def toc_commands(data_in, file_name, page_name) :
    # data_out
    data_out = data_in
    #
-   # file_list, file_line, section_list
+   # file_list, file_line, page_list
    file_list    = list()
    file_line    = list()
-   section_list = list()
+   page_list = list()
    #
    # m_obj
    m_obj        = xrst.pattern['toc'].search(data_out)
@@ -171,7 +171,7 @@ def toc_commands(data_in, file_name, page_name) :
          file_name       = file_name,
          page_name    = page_name,
       )
-      return data_out, file_list, section_list
+      return data_out, file_list, page_list
    #
    # m_tmp
    m_tmp = xrst.pattern['toc'].search(data_out[m_obj.end() :] )
@@ -207,8 +207,8 @@ def toc_commands(data_in, file_name, page_name) :
             file_list.append(child_file)
             file_line.append(line_number)
    #
-   # section_list
-   assert len(section_list) == 0
+   # page_list
+   assert len(page_list) == 0
    for i in range( len(file_list) ) :
       #
       # child_file, child_line
@@ -267,8 +267,8 @@ def toc_commands(data_in, file_name, page_name) :
          # m_obj
          m_obj   = xrst.pattern['begin'].search(file_data, m_obj.end() )
       #
-      # section_list
-      section_list += list_children
+      # page_list
+      page_list += list_children
    #
    xrst.check_syntax_error(
       command_name    = 'toc',
@@ -276,4 +276,4 @@ def toc_commands(data_in, file_name, page_name) :
       file_name       = file_name,
       page_name    = page_name,
    )
-   return data_out, file_list, section_list
+   return data_out, file_list, page_list

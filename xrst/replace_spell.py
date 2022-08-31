@@ -26,15 +26,15 @@ def replace_spell(tmp_dir) :
    # file_name
    for file_name in spell_toml :
       #
-      # section_list
-      section_list = list()
+      # page_list
+      page_list = list()
       for page_name in spell_toml[file_name] :
          pair = (page_name , spell_toml[file_name][page_name] )
-         section_list.append( pair )
+         page_list.append( pair )
       #
-      # section_list
+      # page_list
       order_fun    = lambda section_pair : section_pair[1]['begin_line']
-      section_list = sorted(section_list, key = order_fun )
+      page_list = sorted(page_list, key = order_fun )
       #
       # data_in
       file_ptr = open(file_name, 'r')
@@ -49,18 +49,18 @@ def replace_spell(tmp_dir) :
       else :
          comment_ch = None
       #
-      # section_list
+      # page_list
       # add begin_index, start_index, end_index
       line_number = 0
       for m_newline in re.finditer( r'(^|\n)',  data_in) :
          line_number += 1
-         for page_name, section_info in section_list :
-            if section_info['begin_line'] + 1 == line_number :
-               section_info['begin_index'] = m_newline.start() + 1
-            if section_info['start_spell'] == line_number :
-               section_info['start_index'] = m_newline.start() + 1
-            if section_info['end_spell'] + 1 == line_number :
-               section_info['end_index'] = m_newline.start() + 1
+         for page_name, page_info in page_list :
+            if page_info['begin_line'] + 1 == line_number :
+               page_info['begin_index'] = m_newline.start() + 1
+            if page_info['start_spell'] == line_number :
+               page_info['start_index'] = m_newline.start() + 1
+            if page_info['end_spell'] + 1 == line_number :
+               page_info['end_index'] = m_newline.start() + 1
       #
       # data_copy
       data_copy = data_in
@@ -71,8 +71,8 @@ def replace_spell(tmp_dir) :
       data_out      = ''
       data_in_index = 0
       #
-      # page_name, section_info
-      for page_name, section_info in section_list :
+      # page_name, page_info
+      for page_name, page_info in page_list :
          #
          # m_begin
          m_begin = xrst.pattern['begin'].search(data_copy)
@@ -82,23 +82,23 @@ def replace_spell(tmp_dir) :
          # m_end
          m_end = xrst.pattern['end'].search(data_copy, m_begin.end() )
          #
-         # section_data
-         section_data = data_copy[m_begin.end() : m_end.start() ]
+         # page_data
+         page_data = data_copy[m_begin.end() : m_end.start() ]
          #
          # indent
          not_used, indent = xrst.remove_indent(
-            section_data, file_name, page_name
+            page_data, file_name, page_name
          )
          if comment_ch != None :
             indent = comment_ch + ' '
          #
          # data_out, data_in_index
-         begin_index   = section_info['begin_index']
+         begin_index   = page_info['begin_index']
          data_out     += data_in[data_in_index : begin_index]
          data_in_index = begin_index
          #
          # data_out
-         unknown = section_info['unknown']
+         unknown = page_info['unknown']
          if len(unknown) > 0 :
             data_out += indent + '{xrst_spell\n'
             unknown   = sorted(unknown)
@@ -114,9 +114,9 @@ def replace_spell(tmp_dir) :
             data_out += indent + '}\n'
          #
          # data_out, data_in_index
-         if 'start_index' in section_info :
-            start_index  = section_info['start_index']
-            end_index    = section_info['end_index']
+         if 'start_index' in page_info :
+            start_index  = page_info['start_index']
+            end_index    = page_info['end_index']
             #
             data_out     += data_in[data_in_index : start_index]
             data_in_index = end_index

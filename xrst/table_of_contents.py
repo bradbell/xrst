@@ -7,15 +7,15 @@
 # ----------------------------------------------------------------------------
 import xrst
 # ----------------------------------------------------------------------------
-# section_index =
+# page_index =
 def page_name2index(sinfo_list, page_name) :
-   for (section_index, info) in enumerate(sinfo_list) :
+   for (page_index, info) in enumerate(sinfo_list) :
       if info['page_name'] == page_name :
-         return section_index
+         return page_index
    return None
 
 # ----------------------------------------------------------------------------
-# Create the table of contents and replace the '{xrst_section_number}'
+# Create the table of contents and replace the '{xrst_page_number}'
 # for this section and all its child sections.
 #
 # tmp_dir
@@ -23,9 +23,9 @@ def page_name2index(sinfo_list, page_name) :
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/page_name.rst the text {xrst_section_number}
+# tmp_dir/page_name.rst the text {xrst_page_number}
 # is replaced by the section number which includes the counter for each level.
-# If target is 'html', {xrst_section_number} is removed with not replacement.
+# If target is 'html', {xrst_page_number} is removed with not replacement.
 #
 # count:
 # is a list where each element is a non-negative int.
@@ -35,17 +35,17 @@ def page_name2index(sinfo_list, page_name) :
 # If this list is empty, this section is the root of the table of
 # contents tree.
 #
-# section_index:
+# page_index:
 # is the index of this section in sinfo_list
 #
 # sinfo_list:
 # is a list with length equal to the number of sections.
-# The value section[section_index] is a dictionary for this seciton
+# The value section[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
 # page_name   a str continaing the name of this section.
-# section_title  a str containing the title for this section.
-# parent_section an int index in section_info for the parent of this section.
+# page_title  a str containing the title for this section.
+# parent_section an int index in page_info for the parent of this section.
 # in_parent_file True if this section in same input file as its parent.
 #
 # content:
@@ -53,23 +53,23 @@ def page_name2index(sinfo_list, page_name) :
 # and all the sections below this section.
 #
 # content =
-def section_table_of_contents(
-   tmp_dir, target, count, sinfo_list, section_index
+def page_table_of_contents(
+   tmp_dir, target, count, sinfo_list, page_index
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
    assert type(count) == list
    assert type(sinfo_list) == list
-   assert type(section_index) == int
+   assert type(page_index) == int
    #
    assert target in [ 'html', 'pdf' ]
    #
-   # page_name, section_title
-   page_name   = sinfo_list[section_index]['page_name']
-   section_title  = sinfo_list[section_index]['section_title']
+   # page_name, page_title
+   page_name   = sinfo_list[page_index]['page_name']
+   page_title  = sinfo_list[page_index]['page_title']
    #
-   # section_number, content
-   section_number = ''
+   # page_number, content
+   page_number = ''
    if 0 == len(count) :
       content = ''
    else :
@@ -79,16 +79,16 @@ def section_table_of_contents(
       for i in range( len(count) - 1 ) :
          content += ' |space| '
       for (i, c) in enumerate(count) :
-         section_number += str(c)
+         page_number += str(c)
          if i + 1 < len(count) :
-            section_number += '.'
+            page_number += '.'
    #
    # content
    if len(count) == 0 :
       content  += f':ref:`@{page_name}`' '\n\n'
    else :
-      content  += f':ref:`{section_number}<{page_name}>` '
-      content  += section_title + '\n'
+      content  += f':ref:`{page_number}<{page_name}>` '
+      content  += page_title + '\n'
    #
    # file_name
    # temporary file corresponding to this section name
@@ -102,9 +102,9 @@ def section_table_of_contents(
    file_data = file_ptr.read()
    file_ptr.close()
    if target == 'pdf' :
-      file_data = xrst.replace_section_number(file_data, section_number)
+      file_data = xrst.replace_page_number(file_data, page_number)
    else :
-      file_data = xrst.replace_section_number(file_data, '')
+      file_data = xrst.replace_page_number(file_data, '')
    #
    # file_name
    file_ptr  = open(file_name, 'w')
@@ -115,7 +115,7 @@ def section_table_of_contents(
    in_parent_file_list = list()
    in_toc_cmd_list   = list()
    for child_index in range( len( sinfo_list ) ) :
-      if sinfo_list[child_index]['parent_section'] == section_index :
+      if sinfo_list[child_index]['parent_section'] == page_index :
          if sinfo_list[child_index]['in_parent_file'] :
             in_parent_file_list.append(child_index)
          else :
@@ -131,7 +131,7 @@ def section_table_of_contents(
       #
       # child_count
       child_count[-1] += 1
-      child_content += section_table_of_contents(
+      child_content += page_table_of_contents(
          tmp_dir, target, child_count, sinfo_list, child_index
       )
    #
@@ -149,7 +149,7 @@ def section_table_of_contents(
    #
    return content
 # ----------------------------------------------------------------------------
-# Create the table of contents and replace the '{xrst_section_number}'
+# Create the table of contents and replace the '{xrst_page_number}'
 # for all sections in sinfo_list.
 #
 # tmp_dir
@@ -157,17 +157,17 @@ def section_table_of_contents(
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/page_name.rst the text {xrst_section_number}
+# tmp_dir/page_name.rst the text {xrst_page_number}
 # is replaced by the section number which includes the counter for each level.
-# If target is 'html', {xrst_section_number} is removed with not replacement.
+# If target is 'html', {xrst_page_number} is removed with not replacement.
 #
 # sinfo_list:
 # is a list with length equal to the number of sections.
-# The value section[section_index] is a dictionary for this seciton
+# The value section[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
 # page_name   a str continaing the name of this section.
-# section_title  a str containing the title for this section.
+# page_title  a str containing the title for this section.
 # parent_section an int index in sinfo_list for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
 #
@@ -178,12 +178,12 @@ def section_table_of_contents(
 #
 # content =
 def table_of_contents(
-   tmp_dir, target, sinfo_list, root_section_list
+   tmp_dir, target, sinfo_list, root_page_list
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
-   assert type(root_section_list) == list
-   assert type(root_section_list[0]) == str
+   assert type(root_page_list) == list
+   assert type(root_page_list[0]) == str
    #
    assert target in [ 'html', 'pdf']
    #
@@ -193,20 +193,20 @@ def table_of_contents(
    content += '*****************\n'
    #
    # content
-   if len(root_section_list) == 1 :
+   if len(root_page_list) == 1 :
       count = []
-      page_name  = root_section_list[0]
-      section_index = page_name2index(sinfo_list, page_name)
-      content += section_table_of_contents(
-         tmp_dir, target, count, sinfo_list, section_index
+      page_name  = root_page_list[0]
+      page_index = page_name2index(sinfo_list, page_name)
+      content += page_table_of_contents(
+         tmp_dir, target, count, sinfo_list, page_index
       )
    else :
       count = [0]
-      for page_name in  root_section_list :
-         section_index = page_name2index(sinfo_list, page_name)
+      for page_name in  root_page_list :
+         page_index = page_name2index(sinfo_list, page_name)
          count[0]     += 1
-         content      += section_table_of_contents(
-            tmp_dir, target, count, sinfo_list, section_index
+         content      += page_table_of_contents(
+            tmp_dir, target, count, sinfo_list, page_index
          )
    #
    return content

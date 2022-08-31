@@ -112,23 +112,23 @@ import xrst
 #
 # data_out:
 # is a copy of data_in with the following extra command added directly before
-# its corresponding heading: The command {xrst_section_number}\n
+# its corresponding heading: The command {xrst_page_number}\n
 # is placed directly before the the first heading for this section.
 # This is makes it easy to add the section number to the heading text.
 #
-# section_title:
+# page_title:
 # This is the heading text in the first heading for this section.
 # There can only be one heading at this level.
 #
 # pseudo_heading:
 # This is an automatically generated heading for this section. It is intended
-# to come before the section_title heading.
+# to come before the page_title heading.
 # It has three lines each termnated by a newline;
 # 1) an overline line, 2) a heading text line containig the section,
 # 3) and an underline line.
 #
 #
-# data_out, section_title, pseudo_heading =
+# data_out, page_title, pseudo_heading =
 def process_headings(
       html_theme, data_in, file_name, page_name, keyword_list
 ) :
@@ -280,7 +280,7 @@ def process_headings(
       # data_tmp
       # If level zero, put section number command just before heading
       if len(heading_list) == 1 :
-         data_tmp += '{xrst_section_number}\n'
+         data_tmp += '{xrst_page_number}\n'
       #
       # data_tmp
       # add data from stat to end of heading
@@ -320,7 +320,7 @@ def process_headings(
    line           = len(page_name) * punctuation[i] + '\n'
    pseudo_heading = line + page_name + '\n' + line + '\n'
    #
-   # section_title
-   section_title = heading_list[0]['text']
+   # page_title
+   page_title = heading_list[0]['text']
    #
-   return data_out, section_title, pseudo_heading
+   return data_out, page_title, pseudo_heading

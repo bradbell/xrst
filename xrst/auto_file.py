@@ -153,15 +153,15 @@ def preamble_macros(sphinx_dir) :
 #
 # sinfo_list:
 # is a list with length equal to the number of sections.
-# The value section[section_index] is a dictionary for this seciton
+# The value section[page_index] is a dictionary for this seciton
 # with the following key, value pairs (all the keys are strings:
 # key            value
 # page_name   a str continaing the name of this section.
-# section_title  a str containing the title for this section.
+# page_title  a str containing the title for this section.
 # parent_section an int index in sinfo_list for the parent of this section.
 # in_parent_file is this section in same input file as its parent.
 #
-# root_section_list:
+# root_page_list:
 # is a list of the root section names (one for each group) in the order
 # they will appear in the table of contents.
 #
@@ -186,14 +186,14 @@ def preamble_macros(sphinx_dir) :
 #
 #
 def auto_file(
-   html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
+   html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_page_list
    ) :
    assert type(html_theme) == str
    assert type(sphinx_dir) == str
    assert type(tmp_dir) == str
    assert type(target) == str
    assert type(sinfo_list) == list
-   assert type(root_section_list) == list
+   assert type(root_page_list) == list
    #
    # project_name
    project_name = sinfo_list[0]['file_in']
@@ -213,9 +213,9 @@ def auto_file(
    # file_data
    level         = 1
    count         = list()
-   section_index = 0
+   page_index = 0
    file_data  += xrst.table_of_contents(
-      tmp_dir, target, sinfo_list, root_section_list
+      tmp_dir, target, sinfo_list, root_page_list
    )
    #
    # xrst_table_of_contents.rst
@@ -328,7 +328,7 @@ def auto_file(
    file_data += '   :maxdepth: 1\n'
    file_data += '\n'
    file_data += '   rst/xrst_table_of_contents\n'
-   for page_name in root_section_list :
+   for page_name in root_page_list :
       file_data += '   rst/' + page_name + '\n'
    if target == 'html' :
       file_data += '   rst/xrst_index\n'

@@ -22,7 +22,7 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # line_pair
 # The second return line_pair is a list of two element tuples.
 # The first element is the line number in data_out note counting the
-# {xrst_section_number}\n lines. The second element is the corresponding
+# {xrst_page_number}\n lines. The second element is the corresponding
 # line number that has been removed.
 #
 # data_out, line_pair =
@@ -67,7 +67,7 @@ def remove_line_numbers(data_in) :
       #
       line_match = m_obj.group(1)
       line_out  += before.count('\n')
-      line_out  -= before.count('{xrst_section_number}\n')
+      line_out  -= before.count('{xrst_page_number}\n')
 
       line_pair.append( ( line_out, int(line_match) ) )
       data_out += before

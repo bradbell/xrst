@@ -34,7 +34,7 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #
 # data_in
 # is the data for this section with all the xrst commands coverted to
-# their sphinx RST values, except the {xrst_section_number} command.
+# their sphinx RST values, except the {xrst_page_number} command.
 # The following is added to this deta before writing it to the output file:
 # #. The preamble is included at the beginning.
 # #. The pseudo heading and its label are added next.

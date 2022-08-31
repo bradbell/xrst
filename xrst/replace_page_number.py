@@ -5,17 +5,17 @@
 #              GNU General Public License version 3.0 or later see
 #                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
-# Replace {xrst_section_number} by it section number or empty string.
+# Replace {xrst_page_number} by it section number or empty string.
 #
 # data_in:
-# data before replacement. This must contain \n{xrst_section_number}
+# data before replacement. This must contain \n{xrst_page_number}
 # which is referred to as the command below. There must be a
 # section title after the command (starting with a newline).
 # This section title may have an rst overline directly before the heading text
 # and must have an underline directly after it.
 # If both an overline and underline follow, they must be equal.
 #
-# section_number:
+# page_number:
 # This is a section number that is placed infront of the heading text.
 # This may be empty; i.e., the replacement text is the empty string.
 # The underline (and overline if present) are exended to by the number of
@@ -26,13 +26,13 @@
 # added (see above) and he command is removed.
 #
 # data_out =
-def replace_section_number(data_in, section_number) :
+def replace_page_number(data_in, page_number) :
    assert type(data_in) == str
-   assert type(section_number) == str
+   assert type(page_number) == str
    #
    # pattern
-   pattern   = '\n{xrst_section_number}'
-   if section_number == '' :
+   pattern   = '\n{xrst_page_number}'
+   if page_number == '' :
       # data_out
       return data_in.replace(pattern,'')
    #
@@ -71,9 +71,9 @@ def replace_section_number(data_in, section_number) :
       assert second_line[0] in punctuation
       #
       # new version of first and second lines
-      if section_number != '' :
-         first_line   = section_number + ' ' + first_line
-         second_line += second_line[0] * ( len(section_number) + 1 )
+      if page_number != '' :
+         first_line   = page_number + ' ' + first_line
+         second_line += second_line[0] * ( len(page_number) + 1 )
       #
    else :
       # fourth_newline
@@ -84,9 +84,9 @@ def replace_section_number(data_in, section_number) :
       assert first_line == third_line
       #
       # new version of first, second, and third lines
-      if section_number != '' :
-         first_line += first_line[0] * ( len(section_number) + 1 )
-         second_line = section_number + ' ' + second_line
+      if page_number != '' :
+         first_line += first_line[0] * ( len(page_number) + 1 )
+         second_line = page_number + ' ' + second_line
          third_line  = first_line
    #
    # data_out

@@ -24,7 +24,7 @@ from .process_headings       import process_headings
 from .remove_comment_ch      import remove_comment_ch
 from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
-from .replace_section_number import replace_section_number
+from .replace_page_number import replace_page_number
 from .replace_spell          import replace_spell
 from .run_xrst               import run_xrst
 from .spell_command          import spell_command

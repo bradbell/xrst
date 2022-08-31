@@ -431,9 +431,9 @@ def run_xrst() :
    # This list accumulates over all the group names
    sinfo_list       = list()
    #
-   # root_section_list
+   # root_page_list
    # Each group has a root secion (in root_file) at the top if its tree.
-   root_section_list = list()
+   root_page_list = list()
    #
    # group_name
    for group_name in group_list :
@@ -477,32 +477,32 @@ def run_xrst() :
             file_in,
          )
          #
-         # root_section_list
+         # root_page_list
          if finfo['parent_file'] == None :
             assert file_in == root_local
             page_name = sinfo_file_in[0]['page_name']
-            root_section_list.append(page_name)
+            root_page_list.append(page_name)
          #
-         # parent_section_file_in
+         # parent_page_file_in
          # index in sinfo_list of parent section for this file
-         parent_section_file_in = None
+         parent_page_file_in = None
          if sinfo_file_in[0]['is_parent'] :
-            parent_section_file_in = len(sinfo_list)
+            parent_page_file_in = len(sinfo_list)
          #
          # add this files sections to sinfo_list
          for i_section in range( len(sinfo_file_in) ) :
             # ------------------------------------------------------------
-            # page_name, section_data, is_parent
+            # page_name, page_data, is_parent
             page_name = sinfo_file_in[i_section]['page_name']
-            section_data = sinfo_file_in[i_section]['section_data']
+            page_data = sinfo_file_in[i_section]['page_data']
             is_parent    = sinfo_file_in[i_section]['is_parent']
             is_child     = sinfo_file_in[i_section]['is_child']
             #
             # parent_section
-            if is_parent or parent_section_file_in is None :
+            if is_parent or parent_page_file_in is None :
                parent_section = parent_file_section
             else :
-               parent_section = parent_section_file_in
+               parent_section = parent_page_file_in
             #
             # sinfo_list
             sinfo_list.append( {
@@ -515,41 +515,41 @@ def run_xrst() :
             # spell_command
             # do after suspend and before other commands to help ignore
             # sections of text that do not need spell checking
-            section_data = xrst.spell_command(
+            page_data = xrst.spell_command(
                tmp_dir,
-               section_data,
+               page_data,
                file_in,
                page_name,
                spell_checker,
             )
             # -------------------------------------------------------------
             # toc commands
-            section_data, child_file, child_section_list = \
+            page_data, child_file, child_page_list = \
                xrst.toc_commands(
-                  section_data,
+                  page_data,
                   file_in,
                   page_name,
             )
             #
-            # section_index, finfo_stack
-            section_index = len(sinfo_list) - 1
+            # page_index, finfo_stack
+            page_index = len(sinfo_list) - 1
             for file_tmp in child_file :
                finfo_stack.append( {
                   'file_in'        : file_tmp,
                   'parent_file'    : file_in,
-                  'parent_section' : section_index,
+                  'parent_section' : page_index,
                } )
             # ------------------------------------------------------------
             # code commands
-            section_data = xrst.code_command(
-               section_data,
+            page_data = xrst.code_command(
+               page_data,
                file_in,
                page_name,
             )
             # ------------------------------------------------------------
             # literal command
-            section_data = xrst.literal_command(
-               section_data,
+            page_data = xrst.literal_command(
+               page_data,
                file_in,
                page_name,
                rst_dir,
@@ -557,21 +557,21 @@ def run_xrst() :
             # ------------------------------------------------------------
             # process headings
             # add labels and indices corresponding to headings
-            section_data, section_title, pseudo_heading = \
+            page_data, page_title, pseudo_heading = \
             xrst.process_headings(
                html_theme,
-               section_data,
+               page_data,
                file_in,
                page_name,
                keyword_list,
             )
             # sinfo_list
             # section title is used by table_of_contents
-            sinfo_list[section_index]['section_title'] = section_title
+            sinfo_list[page_index]['page_title'] = page_title
             # -------------------------------------------------------------
             # list_children
             # page_name for each of the children of the current section
-            list_children = child_section_list
+            list_children = child_page_list
             if is_parent :
                for i in range( len(sinfo_file_in) ) :
                   if i != i_section :
@@ -581,9 +581,9 @@ def run_xrst() :
             # -------------------------------------------------------------
             # process children
             # want this as late as possible to toctree at end of input
-            section_data = xrst.process_children(
+            page_data = xrst.process_children(
                page_name,
-               section_data,
+               page_data,
                list_children,
             )
             # -------------------------------------------------------------
@@ -594,12 +594,12 @@ def run_xrst() :
                file_in,
                tmp_dir,
                page_name,
-               section_data,
+               page_data,
             )
    #
    # auto_file
    xrst.auto_file(
-      html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_section_list
+      html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_page_list
    )
    #
    # -------------------------------------------------------------------------

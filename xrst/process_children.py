@@ -55,9 +55,9 @@ def process_children(
    # m_child
    m_child = pattern_toc.search(data_out)
    #
-   # section_has_child_command
-   section_has_child_command =  m_child != None
-   if section_has_child_command :
+   # page_has_child_command
+   page_has_child_command =  m_child != None
+   if page_has_child_command :
       #
       # type of toc command
       toc_type = m_child.group(1)
@@ -98,7 +98,7 @@ def process_children(
    # data_out
    # If there is no toc command in this section, automatically generate
    # links to the child sections at the end of the section.
-   if not section_has_child_command :
+   if not page_has_child_command :
       data_out += '.. csv-table::\n'
       data_out += '   :header: "Child", "Title"\n'
       data_out += '   :widths: 20, 80\n\n'
