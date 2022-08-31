@@ -31,7 +31,7 @@ factorial
 *********
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 8-12
+   :lines: 5-9
    :language: cpp
 
 .. meta::
@@ -45,7 +45,7 @@ square
 ******
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 16-16
+   :lines: 13-13
    :language: cpp
 
 .. meta::

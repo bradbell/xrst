@@ -20,6 +20,14 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@08-31:
+
+08-31
+*****
+Change copyright and license notice to use spdx_ .
+
+.. _spdx: https://spdx.dev/resources/use/
+
 .. _2022@08-30:
 
 08-30
