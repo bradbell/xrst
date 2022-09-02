@@ -25,9 +25,9 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@version_2022.8.31:
+.. _user_guide@version_2022.9.2:
 
-Version 2022.8.31
+Version 2022.9.2
 ******************
 
 .. meta::
