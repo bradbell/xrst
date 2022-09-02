@@ -16,6 +16,9 @@ operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
 
+literal_order:
+{xrst_literal start stop display_file}->{xrst_literal display_file start stop}
+
 space4to3:
 Change tab stop from 4 spaces to 3 spaces.
 
@@ -23,7 +26,7 @@ file2literal:
 change xrst_file -> xrst_literal.
 
 child2toc:
-Change xsrt_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
+Change xrst_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
 and xrst_child_table -> xrst_toc_table.
 
 ref_section:
@@ -44,6 +47,38 @@ Change 'xsrst' to 'xrst' in all the text.
 def abort(msg) :
    msg = '\nupdate_xstst.py: ' + msg
    sys.exit(msg)
+#
+# literal_order:
+def literal_order(data_in) :
+   # data_out
+   data_out = data_in
+   #
+   # pattern
+   pattern = re.compile(
+      r'{xrst_literal[ \t]*\n([^}\n]*)\n([^}\n]*)\n([^}\n]*)\n([^}]*)}'
+   )
+   #
+   # m_obj
+   m_obj = pattern.search(data_out)
+   while m_obj :
+      #
+      # command
+      command  = '{xrst_literal\n'
+      command += m_obj.group(3) + '\n'
+      command += m_obj.group(1) + '\n'
+      command += m_obj.group(2) + '\n'
+      command += m_obj.group(4) + '}'
+      #
+      # data_out, data_left
+      data_before = data_out[:  m_obj.start()]
+      data_left   = data_before + command
+      data_after  = data_out[m_obj.end() :]
+      data_out    = data_before + command + data_after
+      #
+      # m_obj
+      m_obj = pattern.search(data_out, len(data_left) )
+   #
+   return data_out
 #
 # space4to3:
 def space4to3(data_in) :
@@ -154,12 +189,13 @@ def main() :
    #
    # operation_dict
    operation_dict = {
-      'space4to3'    :  space4to3,
-      'file2literal' :  file2literal,
-      'child2toc'    :  child2toc,
-      'ref_section'  :  ref_section,
-      'dot2atsign'   :  dot2atsign,
-      'xsrst2xrst'   :  xsrst2xrst,
+      'literal_order' :  literal_order,
+      'space4to3'     :  space4to3,
+      'file2literal'  :  file2literal,
+      'child2toc'     :  child2toc,
+      'ref_section'   :  ref_section,
+      'dot2atsign'    :  dot2atsign,
+      'xsrst2xrst'    :  xsrst2xrst,
    }
    #
    # operation

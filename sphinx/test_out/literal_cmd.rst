@@ -37,9 +37,9 @@ Syntax
 | :code:`}`
 |
 | ``{xrst_literal``
+| |tab| *display_file*
 | |tab| *start*
 | |tab| *stop*
-| |tab| *display_file*
 | :code:`}`
 
 .. _literal_cmd@purpose:

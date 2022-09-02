@@ -14,6 +14,11 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 xrst Release Notes for 2022
 ###########################
 
+09-02
+*****
+Change :ref:`literal_cmd` so that display file is always first
+(when it appears in the syntax).
+
 08-31
 *****
 Change copyright and license notice to use spdx_ .

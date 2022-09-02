@@ -1,5 +1,9 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+# -----------------------------------------------------------------------------
+#                      xrst: Extract Sphinx RST Files
+#          Copyright (C) 2020-22 Bradley M. Bell (bradbell@seanet.com)
+#              This program is distributed under the terms of the
+#              GNU General Public License version 3.0 or later see
+#                    https://www.gnu.org/licenses/gpl-3.0.txt
 # ----------------------------------------------------------------------------
 import re
 #
@@ -94,12 +98,12 @@ pattern['line'] = re.compile( r'{xrst_line ([0-9]+)@' )
 # xrst_literal with start, stop, display_file
 # group(0): preceeding character + the command.
 # group(1): the line number where this command starts
-# group(2): the start text + surrounding white space
-# group(3): line number where start text appears
-# group(4): the stop text + surrounding white space
-# group(5): the line number where stop text appears
-# group(6): the display file
-# group(7): line number where display file appears
+# group(2): the display file
+# group(3): line number where display file appears
+# group(4): the start text + surrounding white space
+# group(5): line number where start text appears
+# group(6): the stop text + surrounding white space
+# group(7): the line number where stop text appears
 # group(8): line number where } at end of command appears
 #
 arg = r'([^{]*){xrst_line ([0-9]+)@\n'

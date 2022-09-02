@@ -22,9 +22,9 @@ Syntax
 | :code:`}`
 |
 | ``\{xrst_literal``
+| |tab| *display_file*
 | |tab| *start*
 | |tab| *stop*
-| |tab| *display_file*
 | :code:`}`
 
 Purpose
@@ -156,7 +156,7 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
          else :
             display_file = m_file.group(2).strip()
             if not os.path.isfile(display_file) :
-               msg  = 'file_comand: can not find the display_file.\n'
+               msg  = 'literal command: can not find the display_file.\n'
                msg += f'display_file = {display_file}'
                xrst.system_exit(msg,
                   file_name    = file_name,
@@ -201,27 +201,19 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
       m_file  = xrst.pattern[key].search(data_out)
       while m_file != None :
          #
-         # cmd_line
-         cmd_start_line = int( m_file.group(1) )
+         # display_file, start_text, stop_text, display_file, cmd_line
          if key == 'literal_2' :
+            display_file  = file_name
+            start_text    = m_file.group(2).strip()
+            stop_text     = m_file.group(4) .strip()
             cmd_stop_line = int( m_file.group(6) )
          else :
+            display_file  = m_file.group(2).strip()
+            start_text    = m_file.group(4).strip()
+            stop_text     = m_file.group(6) .strip()
             cmd_stop_line = int( m_file.group(8) )
-         cmd_line = (cmd_start_line, cmd_stop_line)
-         #
-         # start_text
-         start_text = m_file.group(2).strip()
-         #
-         # stop_text
-         stop_text = m_file.group(4) .strip()
-         #
-         # display_file
-         if key == 'literal_2' :
-            display_file = file_name
-         else :
-            display_file = m_file.group(6).strip()
             if not os.path.isfile(display_file) :
-               msg  = 'file_comand: can not find the display_file.\n'
+               msg  = 'literal command: can not find the display_file.\n'
                msg += f'display_file = {display_file}'
                xrst.system_exit(msg,
                   file_name    = file_name,
@@ -232,6 +224,8 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
             same_file   = os.path.samefile(display_file, file_name)
             if same_file :
                display_file = file_name
+         cmd_start_line = int( m_file.group(1) )
+         cmd_line       = (cmd_start_line, cmd_stop_line)
          #
          # start_line, stop_line
          start_line, stop_line = xrst.start_stop_file(

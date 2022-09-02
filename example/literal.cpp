@@ -3,16 +3,21 @@
 // ----------------------------------------------------------------------------
 // BEGIN_FACTORIAL
 template<class T> factorial(const T& n)
+// END_FACTORIAL
 {   if n == static_cast<T>(1)
       return n;
    return n * factorial(n - 1);
 }
-// END_FACTORIAL
 //
 // BEGIN_SQUARE
 template<class T> square(const T& x)
 // END_SQUARE
 {   return x * x;
+}
+// BEGIN_TANGENT
+template<class T> tangent(const T& x)
+// END_TANGENT
+{  return sin(x) / cos(x);
 }
 /*
 ------------------------------------------------------------------------------
@@ -34,6 +39,15 @@ square
    // BEGIN_SQUARE
    // END_SQUARE
 }
+
+tangent
+*******
+{xrst_literal
+   example/literal.cpp
+   // BEGIN_TANGENT
+   // END_TANGENT
+}
+
 
 xrst_literal
 ************
