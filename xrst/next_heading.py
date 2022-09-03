@@ -12,6 +12,14 @@ import xrst
 # is the index in the data where the search starts. This must be zero
 # or directly after a newline.
 #
+# file_name:
+# name of the file that contains the input data for this page.
+# This is only used for error reporting.
+#
+# page_name:
+# is the name of this page.
+# This is only used for error reporting.
+#
 # heading_index:
 # If there is an overline, this is the index in data of the beginning of the
 # overline. Otherwise, it is the index of the beginning of the heading text.
@@ -27,7 +35,7 @@ import xrst
 # If there is an overline present, it is the same as the underline text.
 #
 # heading_index, heading_text, underline_text =
-def next_heading(data, data_index) :
+def next_heading(data, data_index, file_name, page_name) :
    assert type(data) == str
    assert type(data_index) == int
    if data_index != 0 :
@@ -81,16 +89,31 @@ def next_heading(data, data_index) :
       #
       elif state == 'before_underline' :
          underline_ch = next_line[0]
-         if len(next_line) < len(heading_text) :
-            state = 'before_overline'
-         elif overline_text is not None and overline_text != next_line:
-            state = 'before_overline'
-         elif underline_ch not in punctuation :
+         if underline_ch not in punctuation :
             state = 'before_overline'
          elif next_line != underline_ch * next_len :
             state = 'before_overline'
+         elif len(next_line) < len(heading_text) :
+            state = 'before_overline'
          else :
+            msg = ''
+            if len(heading_text) < len(next_line) :
+               msg = 'underline text is longer than line above it'
+            elif overline_text is not None and overline_text != next_line:
+               msg = 'overline text is non-empty and not equal underline text'
+            if msg != '' :
+               m_line = xrst.pattern['line'].search(data[next_start :])
+               line   = m_line.group(1)
+               xrst.system_exit(
+                     msg,
+                     file_name = file_name,
+                     page_name = page_name,
+                     line      = line,
+               )
+            #
+            # underline_text
             underline_text = next_line
+            #
             return heading_index, heading_text, underline_text
       #
       # next_start, next_newline

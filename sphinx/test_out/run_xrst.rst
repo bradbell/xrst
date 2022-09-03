@@ -41,7 +41,7 @@ Syntax
 .. _run_xrst@version:
 
 version
-********
+*******
 If ``--version`` is present on the command line, there are no other arguments
 and the version of xrst is printed. Otherwise *root_file* is a required
 argument.
@@ -300,7 +300,7 @@ Example
 .. _run_xrst@sphinx_dir@page_rst_files:
 
 Page RST Files
-=================
+==============
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
 and correspond to last time that ``xrst`` was executed.

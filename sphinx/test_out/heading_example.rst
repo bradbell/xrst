@@ -16,7 +16,7 @@ xrst input file: ``example/heading.py``
 .. _@heading_example:
 
 Title Heading for This Page
-##############################
+###########################
 .. contents::
    :local:
 

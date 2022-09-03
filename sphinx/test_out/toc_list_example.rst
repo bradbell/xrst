@@ -40,7 +40,7 @@ in the child_example_one page.
 .. _toc_list_example@toc_list_command:
 
 toc_list Command
-******************
+****************
 
 -  :ref:`@child_example_one`
 -  :ref:`@child_example_two`

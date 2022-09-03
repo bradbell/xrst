@@ -24,8 +24,10 @@ xrst Release Notes for 2022
 
 09-02
 *****
-Change :ref:`literal_cmd` so that display file is always first
-(when it appears in the syntax).
+1. Change :ref:`literal_cmd` so that display file is always first
+   (when it appears in the syntax).
+2. Exit with an error message when an heading underline is longer than
+   the heading text above or when the overline is different from the underline.
 
 .. _2022@08-31:
 

@@ -16,7 +16,7 @@ xrst input file: ``example/children.py``
 .. _@child_example_two:
 
 Page Child
-#############
+##########
 .. contents::
    :local:
 

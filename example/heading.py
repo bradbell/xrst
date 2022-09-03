@@ -5,7 +5,7 @@
 {xrst_begin heading_example}
 
 Title Heading for This Page
-##############################
+###########################
 The label for the page title is the ``@``
 character followed by the page name; i.e., ``@heading_example``.
 The label ``heading_example`` displays ``heading_example``

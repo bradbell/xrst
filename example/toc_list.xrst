@@ -12,7 +12,7 @@ see :ref:`child_example_one@this_example_file`
 in the child_example_one page.
 
 toc_list Command
-******************
+****************
 {xrst_toc_list
       example/children.py
 }

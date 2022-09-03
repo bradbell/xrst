@@ -25,7 +25,7 @@ This Example File
 {xrst_begin child_example_two}
 
 Page Child
-#############
+##########
 This page is the second child in this file.
 
 Link to First Child

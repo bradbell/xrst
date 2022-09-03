@@ -18,12 +18,12 @@ Syntax
 - ``\{xrst_end``          *page_name* :code:`}`
 
 Page
-*******
+****
 The start (end) of a page of the input file is indicated by a
 begin (end) command.
 
 page_name
-************
+*********
 The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
 It can not begin with the characters ``xrst_``.
@@ -47,7 +47,7 @@ The output file corresponding to *page_name* is
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
 Parent Page
-**************
+***********
 The following conditions hold for each *group_name*:
 
 #. There can be at most one begin parent command in an input file.

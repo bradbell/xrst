@@ -97,14 +97,14 @@ import xrst
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
+# page_name:
+# is the name of this page.
+#
 # keyword_list:
 # is a list of compiled reglar expressions. If pattern is an entry in this list,
 # and word is a lower case verison of a word in the heading text, if
 # pattern.fullmatch(word) returns a match, a cross-reference index will not
 # be generated for word.
-#
-# page_name:
-# is the name of this page.
 #
 # data_out:
 # is a copy of data_in with the following extra command added directly before
@@ -148,7 +148,7 @@ def process_headings(
    heading_list     = list()
    data_index       = 0
    heading_index, heading_text, underline_text = \
-      xrst.next_heading(data_out, data_index)
+      xrst.next_heading(data_out, data_index, file_name, page_name)
    #
    while 0 <= heading_index :
       if 0 < heading_index :
@@ -297,7 +297,7 @@ def process_headings(
       # next heading
       data_index = len(data_tmp) + 1
       heading_index, heading_text, underline_text = \
-         xrst.next_heading(data_out, data_index)
+         xrst.next_heading(data_out, data_index, file_name, page_name)
    #
    if len(heading_list) == 0 :
       msg = 'There are no headings in this page'
