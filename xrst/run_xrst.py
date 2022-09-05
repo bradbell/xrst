@@ -615,7 +615,8 @@ def run_xrst() :
    for name in rst_list :
       if name.endswith('.rst') :
          if name not in tmp_list :
-            os.remove( f'{rst_dir}/{name}' )
+            if name != 'index.rst' :
+               os.remove( f'{rst_dir}/{name}' )
    #
    # replace_spell
    if replace_spell_commands :
@@ -627,13 +628,13 @@ def run_xrst() :
    shutil.rmtree(tmp_dir)
    # -------------------------------------------------------------------------
    if target == 'html' :
-      command = f'sphinx-build -b html {sphinx_dir} {output_dir}'
+      command = f'sphinx-build -b html {sphinx_dir}/rst {output_dir}'
       system_command(command)
    else :
       assert target == 'pdf'
       #
       latex_dir = f'{output_dir}/latex'
-      command = f'sphinx-build -b latex {sphinx_dir} {latex_dir}'
+      command = f'sphinx-build -b latex {sphinx_dir}/rst {latex_dir}'
       system_command(command)
       #
       command = f'make -C {latex_dir} {project_name}.pdf'

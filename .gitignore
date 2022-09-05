@@ -3,8 +3,6 @@ temp
 temp.*
 # automatically created files
 /git_commit.sh
-/sphinx/index.rst
-/sphinx/conf.py
 # used by gh_pages.sh to build documentation
 /build/
 # automatically created directories

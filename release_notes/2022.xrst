@@ -15,6 +15,11 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 xrst Release Notes for 2022
 ###########################
 
+09-04
+*****
+Change the location of the output html files do they are in the
+:ref:`run_xrst@output_dir` instead of its ``rst`` subdirectory.
+
 09-02
 *****
 1. Change :ref:`literal_cmd` so that display file is always first
@@ -42,7 +47,7 @@ and remove the corresponding :ref:`wish_list` item.
 *****
 Fix build when :ref:`run_xrst@target` is pdf.
 To be specific, do not include
-:ref:`auto_file@rst/xrst_index.rst` in
+:ref:`auto_file@xrst_index.rst` in
 :ref:`auto_file@index.rst` .
 
 

@@ -51,7 +51,8 @@ page_name
 *********
 The *page_name* is a non-empty sequence of the following characters:
 period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
-It can not begin with the characters ``xrst_``.
+The page name can not be ``index``
+and it can not begin with the characters ``xrst_``.
 A link is included in the index under the page name
 to the first heading the page.
 The page name is also added to the html keyword meta data.

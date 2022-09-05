@@ -44,3 +44,8 @@ def check_page_name(page_name, file_name, m_obj, data) :
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )
+   if page_name == 'index' :
+      msg = 'page_name cannot be index'
+      xrst.system_exit(msg,
+         file_name=file_name, m_obj=m_obj, data=data
+      )

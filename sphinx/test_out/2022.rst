@@ -20,6 +20,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-04:
+
+09-04
+*****
+Change the location of the output html files do they are in the
+:ref:`run_xrst@output_dir` instead of its ``rst`` subdirectory.
+
 .. _2022@09-02:
 
 09-02
@@ -57,7 +64,7 @@ and remove the corresponding :ref:`wish_list` item.
 *****
 Fix build when :ref:`run_xrst@target` is pdf.
 To be specific, do not include
-:ref:`auto_file@rst/xrst_index.rst` in
+:ref:`auto_file@xrst_index.rst` in
 :ref:`auto_file@index.rst` .
 
 .. _2022@08-24:
