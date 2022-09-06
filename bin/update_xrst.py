@@ -19,6 +19,9 @@ file_out:  is the name of the updated file. It can be the samle as file_in.
 literal_order:
 {xrst_literal start stop display_file}->{xrst_literal display_file start stop}
 
+tab4to3:
+Change tabs to 3 spaces.
+
 space4to3:
 Change tab stop from 4 spaces to 3 spaces.
 
@@ -77,6 +80,51 @@ def literal_order(data_in) :
       #
       # m_obj
       m_obj = pattern.search(data_out, len(data_left) )
+   #
+   return data_out
+#
+# tab3space:
+def tab3space(data_in) :
+   # data_out
+   data_out = data_in
+   #
+   # pattern
+   # group(1): start of line
+   # group(2): one or more of tabs
+   pattern  = re.compile( r'(^|\n)(\t{1,})' )
+   #
+   # m_obj
+   m_obj   = pattern.search(data_out)
+   #
+   # data_out
+   while m_obj :
+      #
+      # n_tab
+      n_tab = len( m_obj.group(2) )
+      #
+      # replace
+      replace  = m_obj.group(1) + n_tab * (3 * ' ')
+      #
+      # data_left, data_out
+      data_left  = data_out[: m_obj.start()] + replace
+      data_right = data_out[m_obj.end() :]
+      data_out   = data_left + data_right
+      #
+      # m_obj
+      m_obj    = pattern.search(data_out, len(data_left) )
+   #
+   # pattern
+   # group(1): one non newline or tab
+   # group(2): one tab
+   pattern  = re.compile( r'([^\n\t])\t' )
+   #
+   # data_out
+   replace = r'\1' + 2 * ' '
+   data_out = pattern.sub(replace, data_out)
+   #
+   if 0 <= data_out.find('\t') :
+      msg = 'update_xrst.py tab3space: not all tabs have been replaced'
+      assert False, msg
    #
    return data_out
 #
@@ -190,6 +238,7 @@ def main() :
    # operation_dict
    operation_dict = {
       'literal_order' :  literal_order,
+      'tab3space'     :  tab3space,
       'space4to3'     :  space4to3,
       'file2literal'  :  file2literal,
       'child2toc'     :  child2toc,
