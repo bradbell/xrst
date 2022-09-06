@@ -1,4 +1,4 @@
-.. include:: xrst_preamble.rst
+.. |space| unicode:: 0xA0
 
 .. _@xrst_table_of_contents:
 

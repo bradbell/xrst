@@ -20,6 +20,14 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-05:
+
+09-05
+*****
+The :ref:`@xrst_table_of_contents` did not build properly unless ``|space|``
+was defined in the :ref:`run_xrst@sphinx_dir@preamble.rst` file.
+This has been fixed.
+
 .. _2022@09-04:
 
 09-04

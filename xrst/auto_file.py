@@ -202,7 +202,7 @@ def auto_file(
    # tmp_dir/xrst_table_of_contents.rst
    #
    # file_data
-   file_data = '.. include:: xrst_preamble.rst\n'
+   file_data = '.. |space| unicode:: 0xA0\n'
    #
    # file_data
    level         = 1
