@@ -15,6 +15,12 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 xrst Release Notes for 2022
 ###########################
 
+09-08
+*****
+There was a bug in the
+:ref:`run_xrst@replace_spell_commands` option when generating
+double words exceptions. This has been fixed.
+
 09-05
 *****
 The :ref:`@xrst_table_of_contents` did not build properly unless ``|space|``

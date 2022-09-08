@@ -286,7 +286,8 @@ def spell_command(
                unknown_word_list.append( word_lower )
                unknown_word_list.append( word_lower )
             else :
-               index = unknown_word_list.find( word_lower )
+               index = unknown_word_list.index( word_lower )
+               assert 0 < index
                if index + 1 < len(unknown_word_list) :
                   if unknown_word_list[index + 1] != word_lower :
                      unknown_word_list.insert(index, word_lower )

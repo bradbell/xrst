@@ -90,8 +90,9 @@ def tab3space(data_in) :
    #
    # pattern
    # group(1): start of line
-   # group(2): one or more of tabs
-   pattern  = re.compile( r'(^|\n)(\t{1,})' )
+   # group(2): possible newline_ch character
+   # group(3): one or more of tabs
+   pattern  = re.compile( r'(^|\n)([^\n\t]?)(\t{1,})' )
    #
    # m_obj
    m_obj   = pattern.search(data_out)
@@ -100,10 +101,15 @@ def tab3space(data_in) :
    while m_obj :
       #
       # n_tab
-      n_tab = len( m_obj.group(2) )
+      n_tab = len( m_obj.group(3) )
+      assert 0 < n_tab
       #
       # replace
-      replace  = m_obj.group(1) + n_tab * (3 * ' ')
+      if m_obj.group(1) == '' :
+         replace  = m_obj.group(1) + n_tab * (3 * ' ')
+      else :
+         replace  = m_obj.group(1) + m_obj.group(2) + 2 * ' '
+         replace += (n_tab - 1) * (3 * ' ')
       #
       # data_left, data_out
       data_left  = data_out[: m_obj.start()] + replace

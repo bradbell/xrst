@@ -20,6 +20,14 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-08:
+
+09-08
+*****
+There was a bug in the
+:ref:`run_xrst@replace_spell_commands` option when generating
+double words exceptions. This has been fixed.
+
 .. _2022@09-05:
 
 09-05
