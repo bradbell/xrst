@@ -20,6 +20,15 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-09:
+
+09-09
+*****
+There was a problem with the
+:ref:`toc_cmd@child_links` at the end of a page when there was no xrst
+toc command in the page.
+This has been fixed.
+
 .. _2022@09-08:
 
 09-08

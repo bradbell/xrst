@@ -105,7 +105,7 @@ def process_children(
    #
    # data_out
    # put hidden toctree at end of page
-   toctree  = '.. toctree::\n'
+   toctree  = '\n.. toctree::\n'
    toctree += '   :maxdepth: 1\n'
    toctree += '   :hidden:\n\n'
    for child in list_children :
