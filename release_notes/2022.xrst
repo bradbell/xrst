@@ -10,6 +10,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    xsrst
    spdx
    overline
+   newline
 }
 
 xrst Release Notes for 2022
@@ -17,10 +18,14 @@ xrst Release Notes for 2022
 
 09-09
 *****
-There was a problem with the
-:ref:`toc_cmd@child_links` at the end of a page when there was no xrst
-toc command in the page.
-This has been fixed.
+
+1. There was a problem with the
+   :ref:`toc_cmd@child_links` at the end of a page when there was no xrst
+   toc command in the page.  This has been fixed.
+2. The line numbers reported by error messages was wrong when a file
+   began with a newline. This also caused the
+   :ref:`run_xrst@replace_spell_commands` option to not work.
+   These problems have been fixed.
 
 09-08
 *****

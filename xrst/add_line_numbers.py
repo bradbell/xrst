@@ -24,10 +24,15 @@ pattern = re.compile( r'^\n[ \t]*' )
 def add_line_numbers(data_in) :
    assert type(data_in) == str
    #
-   # newline_list, data_out, previous
+   # newline_list, line_start
    newline_list = xrst.newline_indices(data_in)
    if newline_list[0] == 0 :
+      line_start = 2
       newline_list .pop(0)
+   else :
+      line_start = 1
+   #
+   # data_out, previous
    data_out     = ""
    previous     = 0
    #
@@ -52,7 +57,7 @@ def add_line_numbers(data_in) :
       if empty_line :
          line = '\n'
       else :
-         line += '{xrst_line ' + str(i + 1) + '@'
+         line += '{xrst_line ' + str(i + line_start) + '@'
       #
       # data_out, previous
       data_out  += line
