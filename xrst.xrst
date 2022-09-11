@@ -14,7 +14,7 @@ Examples
    example/spell.py
    example/suspend.py
    example/code.py
-   example/comment_ch.py
+   example/comment_ch.m
    example/heading.py
    example/indent.py
    example/configure.xrst
@@ -35,7 +35,7 @@ Extract Sphinx RST Files
 ########################
 
 Version 2022.9.11
-****************
+*****************
 
 Git Repository
 **************

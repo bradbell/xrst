@@ -52,8 +52,8 @@ pattern['code'] = re.compile(
 #
 # pattern['comment_ch']
 # Pattern for comment_ch command
-# group(0): empty or character before comamnd + the command
-# group(1): is the character (matched as any number of not space, tab or }
+# group(1): empty or character before comamnd + the command
+# group(2): is the character (matched as any number of not space, tab or }
 pattern['comment_ch'] = re.compile(
       r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
 )

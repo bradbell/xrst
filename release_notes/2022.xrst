@@ -5,16 +5,22 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 {xrst_spell
    conf
    includeliteral
+   matlab
+   newline
+   overline
+   spdx
    toctree
    underbar
    xsrst
-   spdx
-   overline
-   newline
 }
 
 xrst Release Notes for 2022
 ###########################
+
+09-11
+*****
+Change :ref:`comment_ch_example` to be a matlab / octave input
+file example.
 
 09-09
 *****

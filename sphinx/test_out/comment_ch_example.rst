@@ -6,7 +6,7 @@
 comment_ch_example
 !!!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/comment_ch.py``
+xrst input file: ``example/comment_ch.m``
 
 .. meta::
    :keywords: comment_ch_example, comment, character
@@ -29,17 +29,19 @@ Comment Character Command Example
 
 Discussion
 **********
-The ``#`` at the beginning of a line,
-and space directly after it, are removed.
+The ``%`` at the beginning of a line,
+and space directly after it (if it exists), are removed.
 The remaining text lines up with the first line in the
 function definition below:
 
-.. code-block:: py
+.. code-block:: matlab
 
-   def factorial(n) :
-      if n == 1 :
-         return 1
-      return n * factorial(n-1)
+   function n_fac = factorial(n)
+      if( n == 0 )
+         n_fac = 1;
+      else
+         n_fac =  n * factorial(n-1);
+      end
 
 .. meta::
    :keywords: xrst_comment_ch
@@ -57,5 +59,5 @@ The file below demonstrates the use of ``xrst_comment_ch`` .
 This Example File
 *****************
 
-.. literalinclude:: ../../example/comment_ch.py
-   :language: py
+.. literalinclude:: ../../example/comment_ch.m
+   :language: matlab

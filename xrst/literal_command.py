@@ -96,10 +96,13 @@ def file_extension(display_file) :
    extension = ''
    if 0 <= index and index + 1 < len(display_file) :
       extension = display_file[index + 1 :]
+      # fix cases that pygments has trouble with
       if extension == 'xrst' :
          extension = 'rst'
       elif extension == 'hpp' :
-         extension = 'cpp' # pygments does not recognize hpp ?
+         extension = 'cpp'
+      elif extension == 'm' :
+         extension = 'matlab'
    return extension
 # ----------------------------------------------------------------------------
 #

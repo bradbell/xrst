@@ -138,9 +138,11 @@ def code_command(data_in, file_name, page_name) :
          )
       #
       # language
-      # pygments does not recognize hpp so change it to cpp ?
+      # fix cases that pygments has trouble with ?
       if language == 'hpp' :
          language = 'cpp'
+      if language == 'm' :
+         language = 'matlab'
       #
       # data_before
       data_before  = data_out[ : m_begin.start() + 1]

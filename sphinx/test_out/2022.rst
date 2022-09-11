@@ -20,6 +20,13 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-11:
+
+09-11
+*****
+Change :ref:`comment_ch_example` to be a matlab / octave input
+file example.
+
 .. _2022@09-09:
 
 09-09

@@ -114,8 +114,8 @@ def remove_comment_ch(data_in, file_name) :
       if len( comment_ch ) != 1 :
          msg = 'Expected a single character argument to comment_ch command'
          xrst.system_exit(msg, file_name=file_name, line=line)
-      if comment_ch == ']' :
-         msg  = 'Cannot use "]" as character in comment_ch command\n'
+      if comment_ch in '.:]' :
+         msg  = f'Cannot use {comment_ch} as character in comment_ch command\n'
          xrst.system_exit(msg, file_name=file_name, line=line)
       #
       # m_obj
