@@ -105,7 +105,7 @@ def tab3space(data_in) :
       assert 0 < n_tab
       #
       # replace
-      if m_obj.group(1) == '' :
+      if m_obj.group(2) == '' :
          replace  = m_obj.group(1) + n_tab * (3 * ' ')
       else :
          replace  = m_obj.group(1) + m_obj.group(2) + 2 * ' '
@@ -121,12 +121,31 @@ def tab3space(data_in) :
    #
    # pattern
    # group(1): one non newline or tab
-   # group(2): one tab
-   pattern  = re.compile( r'([^\n\t])\t' )
+   # group(2): one or more tabs
+   pattern  = re.compile( r'([^\n\t])(\t{1,})' )
+   #
+   # m_obj
+   m_obj = pattern.search(data_out)
    #
    # data_out
-   replace = r'\1' + 2 * ' '
-   data_out = pattern.sub(replace, data_out)
+   while m_obj :
+      #
+      # n_tab
+      n_tab = len( m_obj.group(2) )
+      assert 0 < n_tab
+      #
+      # replace
+      replace  = m_obj.group(1) + 2 * ' '
+      replace += (n_tab - 1) * (3 * ' ')
+      #
+      #
+      # data_left, data_out
+      data_left  = data_out[: m_obj.start()] + replace
+      data_right = data_out[m_obj.end() :]
+      data_out   = data_left + data_right
+      #
+      # m_obj
+      m_obj    = pattern.search(data_out, len(data_left) )
    #
    if 0 <= data_out.find('\t') :
       msg = 'update_xrst.py tab3space: not all tabs have been replaced'
