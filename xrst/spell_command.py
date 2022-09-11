@@ -179,8 +179,12 @@ def spell_command(
          m_line = pattern['line'].search( data_in[m_spell.start() :] )
          line   = int( m_line.group(1) )
          line  += word_list[: m_error.start() ].count('\n')
-         msg  = 'The word list in spell command contains '
-         msg += 'charactes that are not letters or white space.'
+         ch         = word_list[m_error.start()]
+         ascii_code = ord(ch)
+         msg  = 'The word list in spell command contains a character\n'
+         msg += 'that is not a letter or white space.\n'
+         msg += f'ascii code = {ascii_code}, character = {ch}.'
+         breakpoint()
          xrst.system_exit(
             msg,
             file_name=file_name,

@@ -16,14 +16,15 @@ Table of Contents
 |  |space| :ref:`1.4<spell_example>` Spell Command Example
 |  |space| :ref:`1.5<suspend_example>` Suspend Command Example
 |  |space| :ref:`1.6<code_example>` Code Command Example
-|  |space| :ref:`1.7<comment_ch_example>` Comment Character Command Example
-|  |space| :ref:`1.8<heading_example>` Title Heading for This Page
-|  |space| :ref:`1.9<indent_example>` Indent Example
-|  |space| :ref:`1.10<configure_example>` Example Configuration Files
+|  |space| :ref:`1.7<comment_example>` Comment Command Example
+|  |space| :ref:`1.8<comment_ch_example>` Comment Character Command Example
+|  |space| :ref:`1.9<heading_example>` Title Heading for This Page
+|  |space| :ref:`1.10<indent_example>` Indent Example
+|  |space| :ref:`1.11<configure_example>` Example Configuration Files
 |
-|  |space|  |space| :ref:`1.10.1<spelling>` The spelling Example File
-|  |space|  |space| :ref:`1.10.2<keyword>` The keyword Example File
-|  |space|  |space| :ref:`1.10.3<preamble.rst>` The preamble.rst Example File
+|  |space|  |space| :ref:`1.11.1<spelling>` The spelling Example File
+|  |space|  |space| :ref:`1.11.2<keyword>` The keyword Example File
+|  |space|  |space| :ref:`1.11.3<preamble.rst>` The preamble.rst Example File
 |
 | :ref:`2<user_guide>` Extract Sphinx RST Files
 |
@@ -36,7 +37,8 @@ Table of Contents
 |  |space|  |space| :ref:`2.2.4<suspend_cmd>` Suspend and Resume Commands
 |  |space|  |space| :ref:`2.2.5<code_cmd>` Code Command
 |  |space|  |space| :ref:`2.2.6<literal_cmd>` Literal Command
-|  |space|  |space| :ref:`2.2.7<comment_ch_cmd>` Comment Character Command
+|  |space|  |space| :ref:`2.2.7<comment_cmd>` Comment Command
+|  |space|  |space| :ref:`2.2.8<comment_ch_cmd>` Comment Character Command
 |
 |  |space| :ref:`2.3<automatic>` Automatic Processing
 |

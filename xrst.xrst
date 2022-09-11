@@ -14,6 +14,7 @@ Examples
    example/spell.py
    example/suspend.py
    example/code.py
+   example/comment.r
    example/comment_ch.m
    example/heading.py
    example/indent.py
@@ -125,6 +126,7 @@ These commands are described in the pages below:
    xrst/suspend_command.py
    xrst/code_command.py
    xrst/literal_command.py
+   xrst/comment_command.py
    xrst/get_comment_ch.py
 }
 

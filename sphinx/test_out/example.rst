@@ -26,6 +26,7 @@ Examples
 -  :ref:`@spell_example`
 -  :ref:`@suspend_example`
 -  :ref:`@code_example`
+-  :ref:`@comment_example`
 -  :ref:`@comment_ch_example`
 -  :ref:`@heading_example`
 -  :ref:`@indent_example`
@@ -41,6 +42,7 @@ Examples
    spell_example
    suspend_example
    code_example
+   comment_example
    comment_ch_example
    heading_example
    indent_example

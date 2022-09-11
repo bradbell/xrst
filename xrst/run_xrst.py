@@ -502,11 +502,14 @@ def run_xrst() :
             #
             # sinfo_list
             sinfo_list.append( {
-               'page_name'   : page_name,
+               'page_name'      : page_name,
                'file_in'        : file_in,
-               'parent_page' : parent_page,
+               'parent_page'    : parent_page,
                'in_parent_file' : is_child,
             } )
+            # -------------------------------------------------------------
+            # comment_command
+            page_data = xrst.comment_command(page_data)
             # -------------------------------------------------------------
             # spell_command
             # do after suspend and before other commands to help ignore

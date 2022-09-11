@@ -1,0 +1,63 @@
+.. include:: xrst_preamble.rst
+
+.. _comment_example:
+
+!!!!!!!!!!!!!!!
+comment_example
+!!!!!!!!!!!!!!!
+
+xrst input file: ``example/comment.r``
+
+.. meta::
+   :keywords: comment_example, comment
+
+.. index:: comment_example, comment
+
+.. _@comment_example:
+
+Comment Command Example
+#######################
+.. contents::
+   :local:
+
+This sentence has an inline comment .
+This sentence has a multiple line comment directly after it.
+The multiple line comment is directly before this sentence.
+
+.. meta::
+   :keywords: factorial
+
+.. index:: factorial
+
+.. _comment_example@factorial:
+
+Factorial
+*********
+
+.. code-block:: r
+
+   factorial <- function(n)
+   {  if( n == 0 )
+         return(1)
+      else
+         return( n * factorial(n-1) )
+   }
+
+.. meta::
+   :keywords: xrst_comment
+
+.. index:: xrst_comment
+
+.. _comment_example@xrst_comment:
+
+xrst_comment
+************
+The file below demonstrates the use of ``xrst_comment`` .
+
+.. _comment_example@this_example_file:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../example/comment.r
+   :language: r

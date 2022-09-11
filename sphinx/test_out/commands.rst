@@ -31,6 +31,7 @@ These commands are described in the pages below:
 -  :ref:`@suspend_cmd`
 -  :ref:`@code_cmd`
 -  :ref:`@literal_cmd`
+-  :ref:`@comment_cmd`
 -  :ref:`@comment_ch_cmd`
 
 .. toctree::
@@ -43,4 +44,5 @@ These commands are described in the pages below:
    suspend_cmd
    code_cmd
    literal_cmd
+   comment_cmd
    comment_ch_cmd

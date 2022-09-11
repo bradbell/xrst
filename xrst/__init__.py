@@ -11,6 +11,7 @@ from .auto_file              import auto_file
 from .check_page_name        import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
+from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
 from .get_comment_ch         import get_comment_ch
