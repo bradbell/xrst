@@ -141,7 +141,7 @@ def get_file_info(
    #
    # file_data
    file_data = xrst.add_line_numbers(file_data)
-   file_data = xrst.remove_comment_ch(file_data, file_in)
+   file_data = xrst.get_comment_ch(file_data, file_in)
    #
    # file_info
    file_info = list()

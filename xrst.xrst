@@ -125,7 +125,7 @@ These commands are described in the pages below:
    xrst/suspend_command.py
    xrst/code_command.py
    xrst/literal_command.py
-   xrst/remove_comment_ch.py
+   xrst/get_comment_ch.py
 }
 
 {xrst_end commands}

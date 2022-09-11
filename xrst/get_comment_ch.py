@@ -90,7 +90,7 @@ pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
 # comment character, it is also removed.
 #
 # data_out =
-def remove_comment_ch(data_in, file_name) :
+def get_comment_ch(data_in, file_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    #

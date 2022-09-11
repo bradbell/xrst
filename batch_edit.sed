@@ -12,17 +12,15 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
-#  gpl-3.0.txt
-#  bin/update_xrst.py
-#  release_notes/2022.xrst
-#  release_notes/2021.xrst
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#  xrst/remove_comment_ch.py
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
+#  s|remove_comment_ch|get_comment_ch|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -34,5 +32,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|section|page|g
-s|Section|Page|g
+s|remove_comment_ch|get_comment_ch|g
