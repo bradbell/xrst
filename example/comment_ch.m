@@ -5,7 +5,7 @@
 %
 % {xrst_begin comment_ch_example}
 % {xrst_spell
-%  ch
+%     ch
 % }
 %
 % Comment Character Command Example

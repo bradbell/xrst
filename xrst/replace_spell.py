@@ -38,10 +38,11 @@ def replace_spell(tmp_dir) :
       file_ptr.close()
       #
       # comment_ch
-      # m_comment.group(1) is checked duriung remove_comment_ch
       m_comment = xrst.pattern['comment_ch'].search(data_in)
       if m_comment :
-         comment_ch = m_comment.group(1)
+         comment_ch = m_comment.group(2)
+         # comment_ch checked duriung remove_comment_ch
+         assert len(comment_ch) == 1
       else :
          comment_ch = None
       #
@@ -52,7 +53,7 @@ def replace_spell(tmp_dir) :
          line_number += 1
          for page_name, page_info in page_list :
             if page_info['begin_line'] + 1 == line_number :
-               page_info['begin_index'] = m_newline.start() + 1
+               page_info['begin_index'] = m_newline.start()
             if page_info['start_spell'] == line_number :
                page_info['start_index'] = m_newline.start() + 1
             if page_info['end_spell'] + 1 == line_number :
@@ -85,8 +86,14 @@ def replace_spell(tmp_dir) :
          not_used, indent = xrst.remove_indent(
             page_data, file_name, page_name
          )
-         if comment_ch != None :
-            indent = comment_ch + ' '
+         #
+         # begin_line, indent_line
+         if comment_ch :
+            begin_line  = '\n' + indent + comment_ch + ' '
+            indent_line = begin_line + 4 * ' '
+         else :
+            begin_line  = '\n' + indent
+            indent_line = begin_line + 3 * ' '
          #
          # data_out, data_in_index
          begin_index   = page_info['begin_index']
@@ -96,18 +103,18 @@ def replace_spell(tmp_dir) :
          # data_out
          unknown = page_info['unknown']
          if len(unknown) > 0 :
-            data_out += indent + '{xrst_spell\n'
+            data_out += begin_line + '{xrst_spell'
             unknown   = sorted(unknown)
             i         = 0
             while i < len(unknown) :
                word = unknown[i]
                if i + 1 < len(unknown) and word == unknown[i+1] :
-                  data_out += indent + 3 * ' ' + word + ' ' + word + '\n'
+                  data_out += indent_line + word + ' ' + word
                   i         = i + 2
                else :
-                  data_out += indent + 3 * ' ' + word + '\n'
+                  data_out += indent_line + word
                   i         = i + 1
-            data_out += indent + '}\n'
+            data_out += begin_line + '}'
          #
          # data_out, data_in_index
          if 'start_index' in page_info :
