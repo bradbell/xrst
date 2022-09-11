@@ -2,25 +2,27 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 #
+# Must import pattern first because it is used by some of the other imports
+from .pattern                import pattern
+#
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
-from .check_page_name     import check_page_name
+from .check_page_name        import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
+from .get_comment_ch         import get_comment_ch
 from .get_file_info          import get_file_info
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading
-from .pattern                import pattern
 from .process_children       import process_children
 from .process_headings       import process_headings
-from .get_comment_ch      import get_comment_ch
 from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
-from .replace_page_number import replace_page_number
+from .replace_page_number    import replace_page_number
 from .replace_spell          import replace_spell
 from .run_xrst               import run_xrst
 from .spell_command          import spell_command

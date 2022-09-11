@@ -141,7 +141,9 @@ def get_file_info(
    #
    # file_data
    file_data = xrst.add_line_numbers(file_data)
-   file_data = xrst.get_comment_ch(file_data, file_in)
+   #
+   # comment_ch
+   comment_ch = xrst.get_comment_ch(file_data, file_in)
    #
    # file_info
    file_info = list()
@@ -282,12 +284,16 @@ def get_file_info(
          page_data  = file_data[ page_start : page_end ]
          #
          # page_data
+         # order of these operations is important
          page_data  = xrst.suspend_command(
             page_data, file_in, page_name
          )
          page_data, not_used = xrst.remove_indent(
             page_data, file_in, page_name
          )
+         if comment_ch :
+            pattern_ch  = re.compile( r'\n[' + comment_ch + r'] ?' )
+            page_data   = pattern_ch.sub(r'\n', page_data)
          #
          # file_info
          file_info.append( {

@@ -28,6 +28,8 @@ xrst Release Notes for 2022
    file example.
 2. The :ref:`run_xrst@replace_spell_commands` option did not work properly
    in files that contained a :ref:`comment_ch_cmd`.  This has been fixed.
+3. The :ref:`indent` did not work properly in files that contained
+   :ref:`comment_ch_cmd`. This has been fixed.
 
 .. _2022@09-09:
 

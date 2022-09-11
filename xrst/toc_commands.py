@@ -224,7 +224,6 @@ def toc_commands(data_in, file_name, page_name) :
       file_data   = file_ptr.read()
       file_ptr.close()
       file_index  = 0
-      file_data   = xrst.get_comment_ch(file_data, child_file)
       #
       # m_obj
       m_obj  = xrst.pattern['begin'].search(file_data)

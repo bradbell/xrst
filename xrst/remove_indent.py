@@ -16,7 +16,8 @@ you use mix tabs and spaces for the indentation.
 
 Example
 *******
-:ref:`indent_example`
+:ref:`indent_example`, and
+:ref:`comment_ch_example@indent`.
 
 {xrst_end indent}
 """

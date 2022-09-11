@@ -38,13 +38,7 @@ def replace_spell(tmp_dir) :
       file_ptr.close()
       #
       # comment_ch
-      m_comment = xrst.pattern['comment_ch'].search(data_in)
-      if m_comment :
-         comment_ch = m_comment.group(2)
-         # comment_ch checked duriung get_comment_ch
-         assert len(comment_ch) == 1
-      else :
-         comment_ch = None
+      comment_ch = xrst.get_comment_ch(data_in,  file_name)
       #
       # page_list
       # add begin_index, start_index, end_index
@@ -62,7 +56,6 @@ def replace_spell(tmp_dir) :
       # data_copy
       data_copy = data_in
       data_copy = xrst.add_line_numbers(data_copy)
-      data_copy = xrst.get_comment_ch(data_copy, file_name)
       #
       # data_out
       data_out      = ''

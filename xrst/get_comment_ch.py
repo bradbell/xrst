@@ -65,52 +65,51 @@ Example
 # ----------------------------------------------------------------------------
 import re
 import xrst
-pattern = dict()
-pattern['comment_ch'] = xrst.pattern['comment_ch']
 #
+# pattern
+pattern = dict()
 # need \{xrst_comment_ch so it does not match comment_ch command
 pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
+pattern['comment_ch'] = xrst.pattern['comment_ch']
 #
-# Removes the beginning of line comment character from file data.
+# Returns the beginning of line comment character for a file.
 #
 # Comment Character:
 # The comment character is specified by \{xrst_comment_ch ch} where ch
 # is a single character after leading and trailing white space is removed.
 #
-# data_in:
+# file_data:
 # is the original data in this file as one disk. Line numbers may, or may not
 # have been added.
 #
 # file_name:
 # is the name of this file (used for error reporting).
 #
-# data_out:
-# is a copy of data_in with occurences of the comment character at the
-# beginning of each line removed. If there is a space directly after the
-# comment character, it is also removed.
+# comment_ch:
+# is a the comment character for this file. It is None when the
+# is no comment character command for the file.
 #
-# data_out =
-def get_comment_ch(data_in, file_name) :
-   assert type(data_in) == str
+# comment_ch =
+def get_comment_ch(file_data, file_name) :
+   assert type(file_data) == str
    assert type(file_name) == str
    #
    # m_obj
-   m_obj   = pattern['comment_ch'].search(data_in)
-   #
-   # data_out
+   m_obj   = pattern['comment_ch'].search(file_data)
    if not m_obj :
-      m_error = pattern['error'].search(data_in)
+      m_error = pattern['error'].search(file_data)
       if m_error :
          msg  = f'syntax_error in xrst comment_ch command'
-         line = data_in[: m_error.start() + 1].count('\n') + 1
+         line = file_data[: m_error.start() + 1].count('\n') + 1
          xrst.system_exit(msg, file_name = file_name, line = line)
       #
-      data_out = data_in
+      # comment_ch
+      comment_ch = None
    else :
       #
       # comment_ch
       comment_ch = m_obj.group(2)
-      line       = data_in[: m_obj.start() ].count('\n') + 1
+      line       = file_data[: m_obj.start() ].count('\n') + 1
       if len( comment_ch ) != 1 :
          msg = 'Expected a single character argument to comment_ch command'
          xrst.system_exit(msg, file_name=file_name, line=line)
@@ -118,15 +117,12 @@ def get_comment_ch(data_in, file_name) :
          msg  = f'Cannot use {comment_ch} as character in comment_ch command\n'
          xrst.system_exit(msg, file_name=file_name, line=line)
       #
-      # m_obj
-      data_rest  = data_in[ m_obj.end() : ]
+      # m_rest
+      data_rest  = file_data[ m_obj.end() : ]
       m_rest     = pattern['error'].search(data_rest)
       if m_rest :
-         line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
+         line = file_data[: m_obj.end() + m_rest.start() ].count('\n') + 1
          msg = 'There are multiple comment_ch commands in this file'
          xrst.system_exit(msg, file_name=file_name, line=line)
-      #
-      # data_out
-      pattern['replace']  = re.compile( r'\n[' + comment_ch + r'] ?' )
-      data_out = pattern['replace'].sub(r'\n', data_in)
-   return data_out
+   #
+   return comment_ch

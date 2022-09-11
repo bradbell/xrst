@@ -44,6 +44,18 @@ function definition below:
       end
 
 .. meta::
+   :keywords: indent
+
+.. index:: indent
+
+.. _comment_ch_example@indent:
+
+Indent
+******
+Note that the special character ``%`` has the same indent as
+the source code in this page.
+
+.. meta::
    :keywords: xrst_comment_ch
 
 .. index:: xrst_comment_ch
