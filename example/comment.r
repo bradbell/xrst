@@ -10,7 +10,7 @@
 # This sentence has an inline comment {xrst_comment This comment is inline}.
 # This sentence has a multiple line comment directly after it.
 # {xrst_comment
-#     This comemnt spans multiple lines
+#     This comment spans multiple lines
 # }
 # The multiple line comment is directly before this sentence.
 #

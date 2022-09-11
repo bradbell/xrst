@@ -28,7 +28,7 @@ import xrst
 #
 # pattern
 pattern = re.compile(
-   r'([^\n]*[^\\]){xrst_comment\s[^}]*}([^\n]*\n)'
+   r'([^\n]*[^\\]){xrst_comment[^a-z_][^}]*}([^\n]*\n)'
 )
 #
 # Remove all comment commands
