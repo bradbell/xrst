@@ -158,14 +158,13 @@ def code_command(data_in, file_name, page_name) :
       data_after  = data_out[m_end.end() : ]
       assert data_after[0] == '\n'
       #
-      # data_out
-      data_out  = data_before
-      data_out += '.. code-block:: ' + language + '\n\n'
-      data_out += data_between
-      data_out += data_after
+      # data_left, data_after
+      data_left  = data_before
+      data_left += '.. code-block:: ' + language + '\n\n'
+      data_left += data_between
+      data_out   = data_left + data_after
       #
       # m_begin
-      start   = m_end.end()
-      m_begin = xrst.pattern['code'].search(data_out, start)
+      m_begin = xrst.pattern['code'].search(data_out, len(data_left) )
    #
    return data_out
