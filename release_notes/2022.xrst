@@ -26,6 +26,8 @@ xrst Release Notes for 2022
 3. The :ref:`indent` did not work properly in files that contained
    :ref:`comment_ch_cmd`. This has been fixed.
 4. The comment command was added; see :ref:`comment_example`.
+5. Add an error message when :ref:`comment_ch_cmd` is present but not
+   used before the :ref:`begin_cmd` for a page.
 
 09-09
 *****
