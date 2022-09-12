@@ -162,8 +162,7 @@ def get_file_info(
    while data_index < len(file_data) :
       #
       # m_begin
-      data_rest   = file_data[data_index : ]
-      m_begin = xrst.pattern['begin'].search(data_rest)
+      m_begin = xrst.pattern['begin'].search(file_data, data_index)
       #
       # this_group_name
       if m_begin != None :
@@ -180,7 +179,7 @@ def get_file_info(
                xrst.system_exit(msg,
                   file_name = file_in,
                   m_obj     = m_begin,
-                  data      = data_rest,
+                  data      = file_data,
                )
       if m_begin == None :
          if not found_group_name :
@@ -199,7 +198,7 @@ def get_file_info(
          #
          # data_index
          # place to start search for next page
-         data_index += m_begin.end()
+         data_index = m_begin.end()
       else :
          #
          # found_group_name
@@ -207,14 +206,14 @@ def get_file_info(
          #
          # page_name, is_parent
          page_name = m_begin.group(3)
-         is_parent    = m_begin.group(2) == 'begin_parent'
+         is_parent = m_begin.group(2) == 'begin_parent'
          #
          # check_page_name
          xrst.check_page_name(
             page_name,
             file_name     = file_in,
             m_obj         = m_begin,
-            data          = data_rest
+            data          = file_data
          )
          #
          # check if page_name appears multiple times in this file
@@ -225,7 +224,7 @@ def get_file_info(
                   file_name      = file_in,
                   page_name   = page_name,
                   m_obj          = m_begin,
-                  data           = data_rest
+                  data           = file_data
                )
          #
          # check if page_name appears in another file
@@ -246,7 +245,7 @@ def get_file_info(
                   file_name     = file_in,
                   page_name  = page_name,
                   m_obj         = m_begin,
-                  data          = data_rest
+                  data          = file_data
                )
             #
             # parent_page_name
@@ -256,11 +255,10 @@ def get_file_info(
          is_child = (not is_parent) and (parent_page_name != None)
          #
          # data_index
-         data_index += m_begin.end()
+         data_index = m_begin.end()
          #
          # m_end
-         data_rest = file_data[data_index : ]
-         m_end     = xrst.pattern['end'].search(data_rest)
+         m_end     = xrst.pattern['end'].search(file_data, data_index)
          #
          if m_end == None :
             msg  = 'Expected the followig text at start of a line:\n'
@@ -275,12 +273,12 @@ def get_file_info(
             xrst.system_exit(msg,
                file_name = file_in,
                m_obj     = m_end,
-               data      = data_rest
+               data      = file_data
             )
          #
          # page_data
          page_start = data_index
-         page_end   = data_index + m_end.start() + 1
+         page_end   = m_end.start() + 1
          page_data  = file_data[ page_start : page_end ]
          #
          # page_data
@@ -305,7 +303,7 @@ def get_file_info(
          #
          # data_index
          # place to start search for next page
-         data_index += m_end.end()
+         data_index = m_end.end()
    #
    if parent_page_name != None and len(file_info) < 2 :
       msg  = 'begin_parent command appears with '

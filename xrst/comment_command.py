@@ -58,7 +58,7 @@ def comment_command(data_in) :
       text_after  = m_obj.group(2).lstrip(' \t')
       #
       # data_before, text_before
-      if text_before[-1] == '\n' :
+      if text_before.endswith('\n') :
          data_before += text_before
          text_before  = ''
       #
