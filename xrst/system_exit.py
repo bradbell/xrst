@@ -7,12 +7,12 @@ import xrst
 #
 # Add file name, page name, and line number to a message in a system exit
 #
-# msg:           error message
-# file_name:     original input file that that data appeared in.
+# msg:        error message
+# file_name:  original input file that that data appeared in.
 # page_name:  page name
-# m_obj:         match object indicating where in data the error is detected
-# data:          is the input data that was matched when m_obj is not None
-# line:          is the error line number when m_obj is None
+# m_obj:      match object indicating where in data the error is detected
+# data:       is the input data that was matched when m_obj is not None
+# line:       is the error line number when m_obj is None
 #
 def system_exit(
    msg, file_name=None, page_name=None, m_obj=None, data=None, line=None
