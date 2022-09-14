@@ -34,7 +34,7 @@ This has been fixed.
 #. The comment command was added; see :ref:`comment_example`.
 #. Add an error message when :ref:`comment_ch_cmd` is present but not
    used before the :ref:`begin_cmd` for a page.
-#. The was a bug when there was more then on :ref:`code_cmd` pair
+#. There was a bug when there was more then one :ref:`code_cmd` pair
    in a page. This has been fixed.
 
 09-09
