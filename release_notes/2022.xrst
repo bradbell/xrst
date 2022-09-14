@@ -17,6 +17,12 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 xrst Release Notes for 2022
 ###########################
 
+09-13
+*****
+There was a crash during the error message when the language was included
+in the :ref:`\{xrst_code}<code_cmd>` that terminated a code command.
+This has been fixed.
+
 09-11
 *****
 #. Change :ref:`comment_ch_example` to be a matlab / octave input

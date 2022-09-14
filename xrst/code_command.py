@@ -134,7 +134,7 @@ def code_command(data_in, file_name, page_name) :
             file_name=file_name,
             page_name=page_name,
             m_obj=m_end,
-            data=page_rest
+            data=data_out
          )
       #
       # language
