@@ -81,7 +81,7 @@ def page_table_of_contents(
    #
    # content
    if len(count) == 0 :
-      content  += f':ref:`@{page_name}`' '\n\n'
+      content  += f':ref:`{page_name}-0`' '\n\n'
    else :
       content  += f':ref:`{page_number}<{page_name}>` '
       content  += page_title + '\n'
@@ -184,7 +184,7 @@ def table_of_contents(
    assert target in [ 'html', 'pdf']
    #
    # content
-   content  = '\n.. _@xrst_table_of_contents:\n\n'
+   content  = '\n.. _xrst_table_of_contents-0:\n\n'
    content += 'Table of Contents\n'
    content += '*****************\n'
    #

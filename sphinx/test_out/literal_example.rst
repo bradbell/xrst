@@ -13,7 +13,7 @@ xrst input file: ``example/literal.cpp``
 
 .. index:: literal_example, literal
 
-.. _@literal_example:
+.. _literal_example-0:
 
 Literal Command Example
 #######################

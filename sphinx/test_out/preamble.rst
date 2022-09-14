@@ -13,7 +13,7 @@ xrst input file: ``example/configure.xrst``
 
 .. index:: preamble.rst, preamble.rst
 
-.. _@preamble.rst:
+.. _preamble.rst-0:
 
 The preamble.rst Example File
 #############################

@@ -13,7 +13,7 @@ xrst input file: ``release_notes/2021.xrst``
 
 .. index:: 2021, xrst, release, notes, 2021
 
-.. _@2021:
+.. _2021-0:
 
 xrst Release Notes for 2021
 ###########################

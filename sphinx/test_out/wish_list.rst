@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: wish_list, wish, list
 
-.. _@wish_list:
+.. _wish_list-0:
 
 Wish List
 #########
@@ -36,6 +36,6 @@ Tabs
 ****
 Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`@code_cmd` and :ref:`@literal_cmd`.
+displayed by :ref:`code_cmd-0` and :ref:`literal_cmd-0`.
 Perhaps it would be good to support tabs as a method for
 indenting xrst input pages.

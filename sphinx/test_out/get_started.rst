@@ -13,7 +13,7 @@ xrst input file: ``example/get_started.xrst``
 
 .. index:: get_started, getting, started
 
-.. _@get_started:
+.. _get_started-0:
 
 Getting Started
 ###############

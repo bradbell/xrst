@@ -13,7 +13,7 @@ xrst input file: ``xrst/code_command.py``
 
 .. index:: code_cmd, code
 
-.. _@code_cmd:
+.. _code_cmd-0:
 
 Code Command
 ############

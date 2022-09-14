@@ -13,7 +13,7 @@ xrst input file: ``example/children.py``
 
 .. index:: child_example_one, first, child
 
-.. _@child_example_one:
+.. _child_example_one-0:
 
 First Child
 ###########

@@ -13,24 +13,24 @@ xrst input file: ``xrst.xrst``
 
 .. index:: example, examples
 
-.. _@example:
+.. _example-0:
 
 Examples
 ########
 .. contents::
    :local:
 
--  :ref:`@get_started`
--  :ref:`@literal_example`
--  :ref:`@toc_list_example`
--  :ref:`@spell_example`
--  :ref:`@suspend_example`
--  :ref:`@code_example`
--  :ref:`@comment_example`
--  :ref:`@comment_ch_example`
--  :ref:`@heading_example`
--  :ref:`@indent_example`
--  :ref:`@configure_example`
+-  :ref:`get_started-0`
+-  :ref:`literal_example-0`
+-  :ref:`toc_list_example-0`
+-  :ref:`spell_example-0`
+-  :ref:`suspend_example-0`
+-  :ref:`code_example-0`
+-  :ref:`comment_example-0`
+-  :ref:`comment_ch_example-0`
+-  :ref:`heading_example-0`
+-  :ref:`indent_example-0`
+-  :ref:`configure_example-0`
 
 .. toctree::
    :maxdepth: 1

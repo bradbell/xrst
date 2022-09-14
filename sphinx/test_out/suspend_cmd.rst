@@ -13,7 +13,7 @@ xrst input file: ``xrst/suspend_command.py``
 
 .. index:: suspend_cmd, suspend, resume, commands
 
-.. _@suspend_cmd:
+.. _suspend_cmd-0:
 
 Suspend and Resume Commands
 ###########################

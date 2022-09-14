@@ -13,7 +13,7 @@ xrst input file: ``xrst/toc_commands.py``
 
 .. index:: toc_cmd, table, children, commands
 
-.. _@toc_cmd:
+.. _toc_cmd-0:
 
 Table of Children Commands
 ##########################

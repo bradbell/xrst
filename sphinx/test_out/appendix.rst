@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: appendix, appendix
 
-.. _@appendix:
+.. _appendix-0:
 
 Appendix
 ########
@@ -24,8 +24,8 @@ Appendix
    :header: "Child", "Title"
    :widths: 20, 80
 
-   "wish_list", :ref:`@wish_list`
-   "release_notes", :ref:`@release_notes`
+   "wish_list", :ref:`wish_list-0`
+   "release_notes", :ref:`release_notes-0`
 
 .. toctree::
    :maxdepth: 1

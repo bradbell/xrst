@@ -13,7 +13,7 @@ xrst input file: ``example/code.py``
 
 .. index:: code_example, code
 
-.. _@code_example:
+.. _code_example-0:
 
 Code Command Example
 ####################

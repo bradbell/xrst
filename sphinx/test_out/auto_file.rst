@@ -13,7 +13,7 @@ xrst input file: ``xrst/auto_file.py``
 
 .. index:: auto_file, automatically, generated, files
 
-.. _@auto_file:
+.. _auto_file-0:
 
 Automatically Generated Files
 #############################
@@ -66,10 +66,10 @@ xrst_table_of_contents.rst
 This file contains the table of contents for the last run of ``xrst``.
 You can link to the corresponding page with the following command::
 
-   :ref:`@xrst_table_of_contents`
+   :ref:`xrst_table_of_contents-0`
 
 The result of this command in this documentation is
-:ref:`@xrst_table_of_contents` .
+:ref:`xrst_table_of_contents-0` .
 
 .. meta::
    :keywords: xrst_index.rst

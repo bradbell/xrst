@@ -13,7 +13,7 @@ xrst input file: ``example/spell.py``
 
 .. index:: spell_example, spell
 
-.. _@spell_example:
+.. _spell_example-0:
 
 Spell Command Example
 #####################

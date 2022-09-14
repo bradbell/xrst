@@ -13,7 +13,7 @@ xrst input file: ``xrst/process_headings.py``
 
 .. index:: heading_links, heading, cross, reference, links
 
-.. _@heading_links:
+.. _heading_links-0:
 
 Heading Cross Reference Links
 #############################
@@ -48,14 +48,14 @@ from anywhere to a heading. The details of how to use
 these labels are described below.
 
 .. meta::
-   :keywords: first, level
+   :keywords: level, zero
 
-.. index:: first, level
+.. index:: level, zero
 
-.. _heading_links@labels@first_level:
+.. _heading_links@labels@level_zero:
 
-First Level
-===========
+Level Zero
+==========
 Each :ref:`page<begin_cmd@page>` can have only one header at
 the first level which is a title for the page.
 The :ref:`page_name<begin_cmd@page_name>`
@@ -65,7 +65,7 @@ the first input below will display the page name as the linking text,
 the second will display the page title as the linking text.
 
 1. ``:ref:`` \` *page_name* \`
-2. ``:ref:`` \` ``@`` *page_name* \`
+2. ``:ref:`` \` *page_name* ``-0`` \`
 
 You can also explicitly choose the linking text; e.g.
 

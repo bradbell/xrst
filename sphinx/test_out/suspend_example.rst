@@ -13,7 +13,7 @@ xrst input file: ``example/suspend.py``
 
 .. index:: suspend_example, suspend
 
-.. _@suspend_example:
+.. _suspend_example-0:
 
 Suspend Command Example
 #######################

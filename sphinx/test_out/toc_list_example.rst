@@ -13,7 +13,7 @@ xrst input file: ``example/toc_list.xrst``
 
 .. index:: toc_list_example, toc_list
 
-.. _@toc_list_example:
+.. _toc_list_example-0:
 
 toc_list Command Example
 ########################
@@ -42,8 +42,8 @@ in the child_example_one page.
 toc_list Command
 ****************
 
--  :ref:`@child_example_one`
--  :ref:`@child_example_two`
+-  :ref:`child_example_one-0`
+-  :ref:`child_example_two-0`
 
 .. meta::
    :keywords: xrst_toc_list

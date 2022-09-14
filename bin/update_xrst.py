@@ -16,6 +16,9 @@ operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
 
+ref_section_2:
+Change :ref:`section_name-0` -> :ref:`section_name-0`,
+
 literal_order:
 {xrst_literal start stop display_file}->{xrst_literal display_file start stop}
 
@@ -33,7 +36,7 @@ Change xrst_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
 and xrst_child_table -> xrst_toc_table.
 
 ref_section:
-Change :ref:`section_name` -> :ref:`@section_name`,
+Change :ref:`section_name` -> :ref:`section_name-0`,
 Change :ref:`section_name<section_name>` -> :ref:`section_name`
 
 dot2atsign:
@@ -50,6 +53,16 @@ Change 'xsrst' to 'xrst' in all the text.
 def abort(msg) :
    msg = '\nupdate_xstst.py: ' + msg
    sys.exit(msg)
+#
+# ref_section_2
+def ref_section_2(data_in) :
+   #
+   # pattern
+   pattern = re.compile( r':ref:`@([._a-z0-9]+)`' )
+   #
+   # data_out
+   data_out  = pattern.sub( r':ref:`\1-0`', data_in)
+   return data_out
 #
 # literal_order:
 def literal_order(data_in) :
@@ -227,7 +240,7 @@ def ref_section(data_in) :
    data_out  = data_in
    data_out  = pattern['title'].sub( r':ref:`@\1`', data_out)
    data_out  = pattern['section_name'].sub( r':ref:`\1`', data_out)
-   data_out  = data_out.replace(':ref:`@genindex`', ':ref:`genindex`')
+   data_out  = data_out.replace(':ref:`genindex-0`', ':ref:`genindex`')
    return data_out
 #
 # dot2atsign
@@ -262,6 +275,7 @@ def main() :
    #
    # operation_dict
    operation_dict = {
+      'ref_section_2' :  ref_section_2,
       'literal_order' :  literal_order,
       'tab3space'     :  tab3space,
       'space4to3'     :  space4to3,

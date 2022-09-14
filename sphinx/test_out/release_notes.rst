@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: release_notes, xrst, release, notes, year
 
-.. _@release_notes:
+.. _release_notes-0:
 
 xrst Release Notes By Year
 ##########################

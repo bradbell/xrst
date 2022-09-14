@@ -13,7 +13,7 @@ xrst input file: ``xrst/get_comment_ch.py``
 
 .. index:: comment_ch_cmd, comment, character
 
-.. _@comment_ch_cmd:
+.. _comment_ch_cmd-0:
 
 Comment Character Command
 #########################
@@ -76,7 +76,7 @@ Input Stream
 The special character (and one space if present directly after)
 is removed from the input stream before any xrst processing; e.g.,
 calculating the amount of
-:ref:`@indent` for the current page.
+:ref:`indent-0` for the current page.
 For example, if :code:`#` is the special character,
 the following input has the heading Factorial
 and the ``def`` token indented the same amount:
