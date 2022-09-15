@@ -28,6 +28,8 @@ xrst Release Notes for 2022
    automatically creating labels; see :ref:`heading_links@Labels@Conversion_`
    for heading links. This makes these labels work more link the
    automatic standard rst labels.
+#. There was a bug in the reported line number when a
+   :ref:`begin_cmd@page_name` was not valid. This has been fixed
 
 
 09-13

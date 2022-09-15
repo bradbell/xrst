@@ -31,8 +31,8 @@ def check_page_name(page_name, file_name, m_obj, data) :
    assert m_obj
    assert type(data) == str
    #
-   m_obj = re.search('[._a-z0-9]+', page_name)
-   if m_obj.group(0) != page_name :
+   m_page_name = re.search('[._a-z0-9]+', page_name)
+   if m_page_name.group(0) != page_name :
       msg  = f'in begin comamnd page_name = "{page_name}"'
       msg += '\nIt must be non-empty and only contain the following'
       msg += ' characters: ., _, a-z, 0-9'
