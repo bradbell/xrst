@@ -20,10 +20,29 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
-.. _2022@09-14:
+.. meta::
+   :keywords: mm-dd
+
+.. index:: mm-dd
+
+.. _2022@mm-dd:
+
+mm-dd
+*****
+
+.. _2022@mm-dd@09-15:
+
+09-15
+=====
+Put the dates in the release notes below the heading :ref:`2022@mm-dd` .
+This makes the corresponding automatically generated links work better
+because they use the date instead of an id number that changes with
+each change to the release notes.
+
+.. _2022@mm-dd@09-14:
 
 09-14
-*****
+=====
 #. Change the link to the title for a page from ``@`` *page_name* to
    *page_name* ``-0`` ; see :ref:`heading_links@Labels@Level Zero`
    heading links.
@@ -36,18 +55,18 @@ xrst Release Notes for 2022
 #. There was a bug in the reported line number when a
    :ref:`begin_cmd@page_name` was not valid. This has been fixed
 
-.. _2022@09-13:
+.. _2022@mm-dd@09-13:
 
 09-13
-*****
+=====
 There was a crash during the error message when the language was included
 in the :ref:`{xrst_code}<code_cmd>` that terminated a code command.
 This has been fixed.
 
-.. _2022@09-11:
+.. _2022@mm-dd@09-11:
 
 09-11
-*****
+=====
 #. Change :ref:`comment_ch_example` to be a matlab / octave input
    file example.
 #. The :ref:`run_xrst@replace_spell_commands` option did not work properly
@@ -60,10 +79,10 @@ This has been fixed.
 #. There was a bug when there was more then one :ref:`code_cmd` pair
    in a page. This has been fixed.
 
-.. _2022@09-09:
+.. _2022@mm-dd@09-09:
 
 09-09
-*****
+=====
 1. There was a problem with the
    :ref:`toc_cmd@Child Links` at the end of a page when there was no xrst
    toc command in the page.  This has been fixed.
@@ -72,73 +91,73 @@ This has been fixed.
    :ref:`run_xrst@replace_spell_commands` option to not work.
    These problems have been fixed.
 
-.. _2022@09-08:
+.. _2022@mm-dd@09-08:
 
 09-08
-*****
+=====
 There was a bug in the
 :ref:`run_xrst@replace_spell_commands` option when generating
 double words exceptions. This has been fixed.
 
-.. _2022@09-05:
+.. _2022@mm-dd@09-05:
 
 09-05
-*****
+=====
 The :ref:`xrst_table_of_contents-0` did not build properly unless ``|space|``
 was defined in the :ref:`run_xrst@sphinx_dir@preamble.rst` file.
 This has been fixed.
 
-.. _2022@09-04:
+.. _2022@mm-dd@09-04:
 
 09-04
-*****
+=====
 Change the location of the output html files do they are in the
 :ref:`run_xrst@output_dir` instead of its ``rst`` subdirectory.
 
-.. _2022@09-02:
+.. _2022@mm-dd@09-02:
 
 09-02
-*****
+=====
 1. Change :ref:`literal_cmd` so that display file is always first
    (when it appears in the syntax).
 2. Exit with an error message when an heading underline is longer than
    the heading text above or when the overline is different from the underline.
 
-.. _2022@08-31:
+.. _2022@mm-dd@08-31:
 
 08-31
-*****
+=====
 Change copyright and license notice to use spdx_ .
 
 .. _spdx: https://spdx.dev/resources/use/
 
-.. _2022@08-30:
+.. _2022@mm-dd@08-30:
 
 08-30
-*****
+=====
 Change 'section' to 'page' because section is used in sphinx to refer
 to text grouped by headings.
 
-.. _2022@08-29:
+.. _2022@mm-dd@08-29:
 
 08-29
-*****
+=====
 Add the :ref:`run_xrst@replace_spell_commands` option
 and remove the corresponding :ref:`wish_list` item.
 
-.. _2022@08-27:
+.. _2022@mm-dd@08-27:
 
 08-27
-*****
+=====
 Fix build when :ref:`run_xrst@target` is pdf.
 To be specific, do not include
 :ref:`auto_file@xrst_index.rst` in
 :ref:`auto_file@index.rst` .
 
-.. _2022@08-24:
+.. _2022@mm-dd@08-24:
 
 08-24
-*****
+=====
 1. Allow headings to be just one character; e.g.,
    :ref:`heading_example@Another Level One@x`
    in the :ref:`heading_example` section.
@@ -149,24 +168,24 @@ To be specific, do not include
    number where the spell command started. Now it reports the line
    where the bad character occurs.
 
-.. _2022@08-22:
+.. _2022@mm-dd@08-22:
 
 08-22
-*****
+=====
 1. Better detection and reporting of syntax errors in
    :ref:`commands` .
 2. Add ``sphinx_book_theme`` to the possible choices for
    :ref:`run_xrst@html_theme`.
 3. Remove the :ref:`wish_list` subset documentation item.
-   It was completed on :ref:`2022@08-05` when the
+   It was completed on :ref:`2022@mm-dd@08-05` when the
    :ref:`run_xrst@group_list` option was added.
 4. Change the standard for each level of indent from 4 to 3 spaces and
    remove the corresponding wish list item.
 
-.. _2022@08-21:
+.. _2022@mm-dd@08-21:
 
 08-21
-*****
+=====
 1. Change the command names listed below;
    see :ref:`toc_cmd` and :ref:`literal_cmd` .
    This was done because the child commands act like sphinx toctree commands
@@ -185,35 +204,35 @@ To be specific, do not include
    at the beginning of a line. (The :ref:`code_cmd` never had
    this restriction.)
 
-.. _2022@08-20:
+.. _2022@mm-dd@08-20:
 
 08-20
-*****
+=====
 1. Add the :ref:`run_xrst@html_theme` option to the
    xrst command line.
 2. Make some minor corrections to the documentation for labels under
    :ref:`heading_links@Labels@Level Zero` and the first item under
    :ref:`heading_links@Labels@Discussion` .
 
-.. _2022@08-17:
+.. _2022@mm-dd@08-17:
 
 08-17
-*****
+=====
 Change the xrst command
 :ref:`run_xrst@Syntax` to use more descriptive flags; e.g.
 ``-v`` was changed to ``--version``.
 
-.. _2022@08-15:
+.. _2022@mm-dd@08-15:
 
 08-15
-*****
+=====
 1. Add ``deprecated`` to the xrst dictionary.
 2. Extend :ref:`keyword` file to remove version number from index.
 
-.. _2022@08-09:
+.. _2022@mm-dd@08-09:
 
 08-09
-*****
+=====
 1. The colon ``:`` was added to the characters that get changed to
    underbar ``_`` when converting headings to labels; see
    :ref:`heading_links@Labels@Conversion_` .
@@ -221,52 +240,52 @@ Change the xrst command
    This has been fixed.
 3. Two broken cross reference links (reported by sphinx warnings) were fixed.
 
-.. _2022@08-08:
+.. _2022@mm-dd@08-08:
 
 08-08
-*****
+=====
 1. Fix documentation for relative location of :ref:`literal_cmd@display_file`
    in literal command and :ref:`toc_cmd@File Names` in toc commands.
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
-   is located on :ref:`2022@07-30` .
+   is located on :ref:`2022@mm-dd@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
    improve :ref:`keyword` .
 
-.. _2022@08-07:
+.. _2022@mm-dd@08-07:
 
 08-07
-*****
+=====
 1. Add the :ref:`run_xrst@version` option which prints the version of xrst.
 2. Put :ref:`run_xrst@root_file@project_name` at top of html documentation.
 
-.. _2022@08-06:
+.. _2022@mm-dd@08-06:
 
 08-06
-*****
+=====
 1. Automatically run sphinx after xrst has created the sphinx input file.
 2. Add the :ref:`run_xrst@output_dir` option to the command line.
 3. Add the :ref:`literal_cmd@No start or stop` syntax to the literal command.
 
-.. _2022@08-05:
+.. _2022@mm-dd@08-05:
 
 08-05
-*****
+=====
 1. Add the :ref:`run_xrst@group_list` option to the command line.
 2. Use the base part of :ref:`run_xrst@root_file` as the sphinx
    project name.
 
-.. _2022@08-04:
+.. _2022@mm-dd@08-04:
 
 08-04
-*****
+=====
 Make :ref:`run_xrst@target` and :ref:`run_xrst@sphinx_dir` optional
 command line arguments with default values; see the new xrst
 :ref:`run_xrst@Syntax`.
 
-.. _2022@08-03:
+.. _2022@mm-dd@08-03:
 
 08-03
-*****
+=====
 The heading links at the
 :ref:`heading_links@Labels@Level Zero` were changed
 to make it easier to display the section name as the linking text.
@@ -278,18 +297,18 @@ The following can be used to convert
 
 |    bin/update_xrst.py ref_section *file_name* *file_name*
 
-.. _2022@07-31:
+.. _2022@mm-dd@07-31:
 
 07-31
-*****
+=====
 Move the hidden toctree commands in rst files from beginning to end
 of sections. This puts the parent sections before their children in the
 pdf version of the documentation (see :ref:`run_xrst@target` .
 
-.. _2022@07-30:
+.. _2022@mm-dd@07-30:
 
 07-30
-*****
+=====
 1. Automatically create the file :ref:`auto_file@conf.py`.
 2. Make all file names, except the
    :ref:`run_xrst@root_file`,
@@ -301,24 +320,24 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
    :ref:`run_xrst@Syntax` and the corresponding files are optional
    (no longer required).
 
-.. _2022@07-28:
+.. _2022@mm-dd@07-28:
 
 07-28
-*****
+=====
 1. Change ``xsrst`` to ``xrst``
 2. Create the first :ref:`user_guide@Pip Install` of xrst.
 
-.. _2022@07-27:
+.. _2022@mm-dd@07-27:
 
 07-27
-*****
+=====
 Improve the specification of how the toc commands and begin_parent command
 interact; see :ref:`toc_cmd@Children`.
 
-.. _2022@07-26:
+.. _2022@mm-dd@07-26:
 
 07-26
-*****
+=====
 1. Change the heading level separator character from period ``.``
    to at sign ``@``; see links to headings
    :ref:`heading_links@Labels@Other Levels`.
@@ -327,10 +346,10 @@ interact; see :ref:`toc_cmd@Children`.
 3. Change the following section names in the xrst documentation:
    xrst_py -> xrst.py, conf_py -> conf.py.
 
-.. _2022@07-25:
+.. _2022@mm-dd@07-25:
 
 07-25
-*****
+=====
 1. Require that the suspend and resume commands are in their own line; see
    :ref:`suspend_cmd-0`.
 2. A problem was fixed the table corresponding to the
@@ -338,19 +357,19 @@ interact; see :ref:`toc_cmd@Children`.
    To be specific, the indices in the rst file were one larger than
    they should have been.
 
-.. _2022@07-24:
+.. _2022@mm-dd@07-24:
 
 07-24
-*****
+=====
 1. Remove ignore spelling of latex commands from wish list (done).
 2. Add a standard indent,
    Relative File Names, and
    Git Repository entries to wish list.
    All of these items have been completed.
 
-.. _2022@07-21:
+.. _2022@mm-dd@07-21:
 
 07-21
-*****
+=====
 Ignore the spelling of all words that are preceded by a backslash
 (this ignores all latex commands); see :ref:`spell_cmd-0`.
