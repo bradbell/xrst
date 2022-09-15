@@ -20,7 +20,7 @@ Run Extract Sphinx RST And Sphinx
 .. contents::
    :local:
 
-.. _run_xrst@syntax:
+.. _run_xrst@Syntax:
 
 Syntax
 ******
@@ -229,7 +229,7 @@ following python regular expression:
 
    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
-.. _run_xrst@sphinx_dir@preamble.rst@example:
+.. _run_xrst@sphinx_dir@preamble.rst@Example:
 
 Example
 -------
@@ -254,7 +254,7 @@ For example; see :ref:`spelling-0`.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 
-.. _run_xrst@sphinx_dir@spelling@example:
+.. _run_xrst@sphinx_dir@spelling@Example:
 
 Example
 -------
@@ -286,7 +286,7 @@ A line that begins with :code:`#` is a comment
 (not included in the list of python regular expressions).
 For example; see :ref:`keyword-0`.
 
-.. _run_xrst@sphinx_dir@keyword@example:
+.. _run_xrst@sphinx_dir@keyword@Example:
 
 Example
 -------
@@ -297,7 +297,7 @@ Example
 
 .. index:: page, rst, files
 
-.. _run_xrst@sphinx_dir@page_rst_files:
+.. _run_xrst@sphinx_dir@Page RST Files:
 
 Page RST Files
 ==============
@@ -317,7 +317,7 @@ is not added at the end.
 
 .. index:: other, generated, files
 
-.. _run_xrst@sphinx_dir@other_generated_files:
+.. _run_xrst@sphinx_dir@Other Generated Files:
 
 Other Generated Files
 =====================

@@ -27,7 +27,7 @@ This page is the second child in this file.
 
 .. index:: link, first, child
 
-.. _child_example_two@link_to_first_child:
+.. _child_example_two@Link to First Child:
 
 Link to First Child
 *******************

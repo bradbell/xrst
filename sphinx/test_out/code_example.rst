@@ -25,7 +25,7 @@ Code Command Example
 
 .. index:: factorial
 
-.. _code_example@factorial:
+.. _code_example@Factorial:
 
 Factorial
 *********
@@ -48,7 +48,7 @@ xrst_code
 *********
 The file below demonstrates the use of ``xrst_code`` .
 
-.. _code_example@this_example_file:
+.. _code_example@This Example File:
 
 This Example File
 *****************

@@ -25,7 +25,7 @@ Spell Command Example
 
 .. index:: text
 
-.. _spell_example@text:
+.. _spell_example@Text:
 
 Text
 ****
@@ -37,7 +37,7 @@ so we have included it in the special words for this page.
 
 .. index:: spelling
 
-.. _spell_example@spelling_file:
+.. _spell_example@Spelling File:
 
 Spelling File
 *************
@@ -49,7 +49,7 @@ documentation and hence need not be in the special words for this page.
 
 .. index:: math
 
-.. _spell_example@math:
+.. _spell_example@Math:
 
 Math
 ****
@@ -65,7 +65,7 @@ are automatically included as correct spelling.
 
 .. index:: double, words
 
-.. _spell_example@double_words:
+.. _spell_example@Double Words:
 
 Double Words
 ************
@@ -86,7 +86,7 @@ xrst_spell
 **********
 The file below demonstrates the use of ``xrst_spell``
 
-.. _spell_example@this_example_file:
+.. _spell_example@This Example File:
 
 This Example File
 *****************

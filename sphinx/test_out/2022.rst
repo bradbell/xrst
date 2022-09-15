@@ -20,6 +20,20 @@ xrst Release Notes for 2022
 .. contents::
    :local:
 
+.. _2022@09-14:
+
+09-14
+*****
+#. Change the link to the title for a page from ``@`` *page_name* to
+   *page_name* ``-0`` ; see :ref:`heading_links@Labels@Level Zero`
+   heading links.
+   This has the advantage that the html link uses the page name instead of
+   an id number.
+#. Do not map characters (except for ``:`` and ``@`` ) when
+   automatically creating labels; see :ref:`heading_links@Labels@Conversion_`
+   for heading links. This makes these labels work more link the
+   automatic standard rst labels.
+
 .. _2022@09-13:
 
 09-13
@@ -49,7 +63,7 @@ This has been fixed.
 09-09
 *****
 1. There was a problem with the
-   :ref:`toc_cmd@child_links` at the end of a page when there was no xrst
+   :ref:`toc_cmd@Child Links` at the end of a page when there was no xrst
    toc command in the page.  This has been fixed.
 2. The line numbers reported by error messages was wrong when a file
    began with a newline. This also caused the
@@ -124,7 +138,7 @@ To be specific, do not include
 08-24
 *****
 1. Allow headings to be just one character; e.g.,
-   :ref:`heading_example@another_level_one@x`
+   :ref:`heading_example@Another Level One@x`
    in the :ref:`heading_example` section.
    Also fix the displayed labels in that example section
    by changing ``.`` to ``@``.
@@ -176,15 +190,15 @@ To be specific, do not include
 1. Add the :ref:`run_xrst@html_theme` option to the
    xrst command line.
 2. Make some minor corrections to the documentation for labels under
-   :ref:`heading_links@labels@level_zero` and the first item under
-   :ref:`heading_links@labels@discussion` .
+   :ref:`heading_links@Labels@Level Zero` and the first item under
+   :ref:`heading_links@Labels@Discussion` .
 
 .. _2022@08-17:
 
 08-17
 *****
 Change the xrst command
-:ref:`run_xrst@syntax` to use more descriptive flags; e.g.
+:ref:`run_xrst@Syntax` to use more descriptive flags; e.g.
 ``-v`` was changed to ``--version``.
 
 .. _2022@08-15:
@@ -200,7 +214,7 @@ Change the xrst command
 *****
 1. The colon ``:`` was added to the characters that get changed to
    underbar ``_`` when converting headings to labels; see
-   :ref:`heading_links@labels@conversion` .
+   :ref:`heading_links@Labels@Conversion_` .
 2. Sphinx warnings that ocurred while running xrst were not being reported.
    This has been fixed.
 3. Two broken cross reference links (reported by sphinx warnings) were fixed.
@@ -210,7 +224,7 @@ Change the xrst command
 08-08
 *****
 1. Fix documentation for relative location of :ref:`literal_cmd@display_file`
-   in literal command and :ref:`toc_cmd@file_names` in toc commands.
+   in literal command and :ref:`toc_cmd@File Names` in toc commands.
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
    is located on :ref:`2022@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
@@ -229,7 +243,7 @@ Change the xrst command
 *****
 1. Automatically run sphinx after xrst has created the sphinx input file.
 2. Add the :ref:`run_xrst@output_dir` option to the command line.
-3. Add the :ref:`literal_cmd@no_start_or_stop` syntax to the literal command.
+3. Add the :ref:`literal_cmd@No start or stop` syntax to the literal command.
 
 .. _2022@08-05:
 
@@ -245,14 +259,14 @@ Change the xrst command
 *****
 Make :ref:`run_xrst@target` and :ref:`run_xrst@sphinx_dir` optional
 command line arguments with default values; see the new xrst
-:ref:`run_xrst@syntax`.
+:ref:`run_xrst@Syntax`.
 
 .. _2022@08-03:
 
 08-03
 *****
 The heading links at the
-:ref:`heading_links@labels@level_zero` were changed
+:ref:`heading_links@Labels@Level Zero` were changed
 to make it easier to display the section name as the linking text.
 You must change ``:ref:`` ` *page_name* `
 to ``:ref:`` ` @ *page_name* ` to get the linking text to be the title
@@ -282,7 +296,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
    :ref:`run_xrst@sphinx_dir@spelling`, and
    :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
    These names have bern removed from the ``xrst``
-   :ref:`run_xrst@syntax` and the corresponding files are optional
+   :ref:`run_xrst@Syntax` and the corresponding files are optional
    (no longer required).
 
 .. _2022@07-28:
@@ -290,14 +304,14 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 07-28
 *****
 1. Change ``xsrst`` to ``xrst``
-2. Create the first :ref:`user_guide@pip_install` of xrst.
+2. Create the first :ref:`user_guide@Pip Install` of xrst.
 
 .. _2022@07-27:
 
 07-27
 *****
 Improve the specification of how the toc commands and begin_parent command
-interact; see :ref:`toc_cmd@children`.
+interact; see :ref:`toc_cmd@Children`.
 
 .. _2022@07-26:
 
@@ -305,9 +319,9 @@ interact; see :ref:`toc_cmd@children`.
 *****
 1. Change the heading level separator character from period ``.``
    to at sign ``@``; see links to headings
-   :ref:`heading_links@labels@other_levels`.
+   :ref:`heading_links@Labels@Other Levels`.
 2. Add period ``.`` to the list of valid characters in a
-   :ref:`begin_cmd@page_name`.
+   :ref:`begin_cmd@Page_name`.
 3. Change the following section names in the xrst documentation:
    xrst_py -> xrst.py, conf_py -> conf.py.
 

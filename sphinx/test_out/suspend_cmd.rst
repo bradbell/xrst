@@ -20,14 +20,14 @@ Suspend and Resume Commands
 .. contents::
    :local:
 
-.. _suspend_cmd@syntax:
+.. _suspend_cmd@Syntax:
 
 Syntax
 ******
 - ``{xrst_suspend}``
 - ``{xrst_resume}``
 
-.. _suspend_cmd@purpose:
+.. _suspend_cmd@Purpose:
 
 Purpose
 *******
@@ -37,7 +37,7 @@ tabs and a suspend command (resume command).
 Note that this will also suspend all other xrst processing; e.g.,
 spell checking.
 
-.. _suspend_cmd@example:
+.. _suspend_cmd@Example:
 
 Example
 *******

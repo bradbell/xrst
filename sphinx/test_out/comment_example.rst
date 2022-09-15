@@ -29,7 +29,7 @@ The multiple line comment is directly before this sentence.
 
 .. index:: factorial
 
-.. _comment_example@factorial:
+.. _comment_example@Factorial:
 
 Factorial
 *********
@@ -54,7 +54,7 @@ xrst_comment
 ************
 The file below demonstrates the use of ``xrst_comment`` .
 
-.. _comment_example@this_example_file:
+.. _comment_example@This Example File:
 
 This Example File
 *****************

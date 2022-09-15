@@ -25,7 +25,7 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@version_2022.9.14:
+.. _user_guide@Version 2022.9.14:
 
 Version 2022.9.14
 *****************
@@ -35,7 +35,7 @@ Version 2022.9.14
 
 .. index:: git, repository
 
-.. _user_guide@git_repository:
+.. _user_guide@Git Repository:
 
 Git Repository
 **************
@@ -46,7 +46,7 @@ https://github.com/bradbell/xrst
 
 .. index:: pip, install
 
-.. _user_guide@pip_install:
+.. _user_guide@Pip Install:
 
 Pip Install
 ***********
@@ -57,13 +57,13 @@ Pip Install
 
 .. index:: run, program
 
-.. _user_guide@run_program:
+.. _user_guide@Run Program:
 
 Run Program
 ***********
 :ref:`run_xrst-0`
 
-.. _user_guide@purpose:
+.. _user_guide@Purpose:
 
 Purpose
 *******
@@ -114,16 +114,16 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #. Automatically generates labels for linking to a heading in any page.
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
-   ``:ref:`heading_links@labels@discussion``
+   ``:ref:`heading_links@Labels@Discussion``
    generates the following link (which discusses these labels)
-   :ref:`heading_links@labels@discussion`.
+   :ref:`heading_links@Labels@Discussion`.
 
 .. meta::
    :keywords: contents
 
 .. index:: contents
 
-.. _user_guide@contents:
+.. _user_guide@Contents:
 
 Contents
 ********

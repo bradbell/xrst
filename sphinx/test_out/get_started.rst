@@ -38,7 +38,7 @@ Getting Started
 #. Use your web browser to open the file ``sphinx/html/index.html`` .
    This location is relative to your workng directory.
 
-.. _get_started@this_example_file:
+.. _get_started@This Example File:
 
 This Example File
 *****************

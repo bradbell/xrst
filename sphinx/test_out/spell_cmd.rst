@@ -20,7 +20,7 @@ Spell Command
 .. contents::
    :local:
 
-.. _spell_cmd@syntax:
+.. _spell_cmd@Syntax:
 
 Syntax
 ******
@@ -36,7 +36,7 @@ You need not include latex commands in special word list because
 words with a backslash directly before them are not include in spell checking.
 The line containing the ``}`` must have nothing but white space after it.
 
-.. _spell_cmd@purpose:
+.. _spell_cmd@Purpose:
 
 Purpose
 *******
@@ -64,7 +64,7 @@ are automatically added to this list.
 
 .. index:: capital, letters
 
-.. _spell_cmd@capital_letters:
+.. _spell_cmd@Capital Letters:
 
 Capital Letters
 ***************
@@ -80,7 +80,7 @@ special word list; e.g., the word list entry ``CppAD`` is the same as ``Cpp``.
 
 .. index:: double, words
 
-.. _spell_cmd@double_words:
+.. _spell_cmd@Double Words:
 
 Double Words
 ************
@@ -88,7 +88,7 @@ It is considered an error to have only white space between two occurrences
 of the same word. You can make an exception for this by entering
 the same word twice (next to each other) in the special word list.
 
-.. _spell_cmd@example:
+.. _spell_cmd@Example:
 
 Example
 *******

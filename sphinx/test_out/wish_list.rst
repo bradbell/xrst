@@ -30,7 +30,7 @@ The following is a wish list for future improvements to ``run_xrst``:
 
 .. index:: tabs
 
-.. _wish_list@tabs:
+.. _wish_list@Tabs:
 
 Tabs
 ****

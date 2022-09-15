@@ -25,7 +25,7 @@ Suspend Command Example
 
 .. index:: factorial
 
-.. _suspend_example@factorial:
+.. _suspend_example@Factorial:
 
 Factorial
 *********
@@ -36,7 +36,7 @@ Factorial
 
 .. index:: product
 
-.. _suspend_example@product:
+.. _suspend_example@Product:
 
 Product
 *******
@@ -64,7 +64,7 @@ xrst_resume
 ***********
 The file below demonstrates the use of ``xrst_resume`` .
 
-.. _suspend_example@this_example_file:
+.. _suspend_example@This Example File:
 
 This Example File
 *****************

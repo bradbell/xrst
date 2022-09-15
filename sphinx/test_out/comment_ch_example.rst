@@ -25,7 +25,7 @@ Comment Character Command Example
 
 .. index:: discussion
 
-.. _comment_ch_example@discussion:
+.. _comment_ch_example@Discussion:
 
 Discussion
 **********
@@ -48,7 +48,7 @@ function definition below:
 
 .. index:: indent
 
-.. _comment_ch_example@indent:
+.. _comment_ch_example@Indent:
 
 Indent
 ******
@@ -66,7 +66,7 @@ xrst_comment_ch
 ***************
 The file below demonstrates the use of ``xrst_comment_ch`` .
 
-.. _comment_ch_example@this_example_file:
+.. _comment_ch_example@This Example File:
 
 This Example File
 *****************

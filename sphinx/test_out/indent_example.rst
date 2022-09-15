@@ -32,14 +32,14 @@ Indent Example
 
 .. index:: discussion
 
-.. _indent_example@discussion:
+.. _indent_example@Discussion:
 
 Discussion
 **********
 The file below demonstrates indenting an entire xrst page.
 Note that underling headings works even though it is indented.
 
-.. _indent_example@this_example_file:
+.. _indent_example@This Example File:
 
 This Example File
 *****************

@@ -20,13 +20,13 @@ Comment Character Command
 .. contents::
    :local:
 
-.. _comment_ch_cmd@syntax:
+.. _comment_ch_cmd@Syntax:
 
 Syntax
 ******
 ``{xrst_comment_ch`` *ch* :code:`}`
 
-.. _comment_ch_cmd@purpose:
+.. _comment_ch_cmd@Purpose:
 
 Purpose
 *******
@@ -41,7 +41,7 @@ not end up in your ``.rst`` output file.
 
 .. index:: location
 
-.. _comment_ch_cmd@command_location:
+.. _comment_ch_cmd@Command Location:
 
 Command Location
 ****************
@@ -69,7 +69,7 @@ Leading and trailing white space around *ch* is ignored.
 
 .. index:: input, stream
 
-.. _comment_ch_cmd@input_stream:
+.. _comment_ch_cmd@Input Stream:
 
 Input Stream
 ************
@@ -90,7 +90,7 @@ and the ``def`` token indented the same amount:
          return 1
       return n * factorial(n-1)
 
-.. _comment_ch_cmd@example:
+.. _comment_ch_cmd@Example:
 
 Example
 *******

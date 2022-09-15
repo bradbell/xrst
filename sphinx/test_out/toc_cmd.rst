@@ -20,7 +20,7 @@ Table of Children Commands
 .. contents::
    :local:
 
-.. _toc_cmd@syntax:
+.. _toc_cmd@Syntax:
 
 Syntax
 ******
@@ -30,7 +30,7 @@ Syntax
 
 .. index:: hidden
 
-.. _toc_cmd@syntax@hidden:
+.. _toc_cmd@Syntax@hidden:
 
 hidden
 ======
@@ -45,7 +45,7 @@ hidden
 
 .. index:: list
 
-.. _toc_cmd@syntax@list:
+.. _toc_cmd@Syntax@list:
 
 list
 ====
@@ -60,7 +60,7 @@ list
 
 .. index:: table
 
-.. _toc_cmd@syntax@table:
+.. _toc_cmd@Syntax@table:
 
 table
 =====
@@ -75,7 +75,7 @@ table
 
 .. index:: table, contents
 
-.. _toc_cmd@table_of_contents:
+.. _toc_cmd@Table of Contents:
 
 Table of Contents
 *****************
@@ -88,7 +88,7 @@ next level in the table of contents.
 
 .. index:: names
 
-.. _toc_cmd@file_names:
+.. _toc_cmd@File Names:
 
 File Names
 **********
@@ -105,13 +105,13 @@ that move files and automatically change references to them.
 
 .. index:: children
 
-.. _toc_cmd@children:
+.. _toc_cmd@Children:
 
 Children
 ********
-Each of the files may contain multiple :ref:`pages<begin_cmd@page>`.
+Each of the files may contain multiple :ref:`pages<begin_cmd@Page>`.
 The first of these pages may use a
-:ref:`parent begin<begin_cmd@parent_page>` command.
+:ref:`parent begin<begin_cmd@Parent Page>` command.
 
 #. The first page in a file is always a child of the
    page where the toc command appears..
@@ -135,7 +135,7 @@ The first of these pages may use a
 
 .. index:: child, links
 
-.. _toc_cmd@child_links:
+.. _toc_cmd@Child Links:
 
 Child Links
 ***********
@@ -170,7 +170,7 @@ This command replaces the sphinx ``toctree`` directive.
 A ``toctree`` directive is automatically generated and includes each
 page that is a child of the current page.
 
-.. _toc_cmd@example:
+.. _toc_cmd@Example:
 
 Example
 *******

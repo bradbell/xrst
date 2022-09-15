@@ -25,7 +25,7 @@ Heading Cross Reference Links
 
 .. index:: index
 
-.. _heading_links@index:
+.. _heading_links@Index:
 
 Index
 *****
@@ -39,7 +39,7 @@ next to the page heading.
 
 .. index:: labels
 
-.. _heading_links@labels:
+.. _heading_links@Labels:
 
 Labels
 ******
@@ -52,7 +52,7 @@ these labels are described below.
 
 .. index:: level, zero
 
-.. _heading_links@labels@level_zero:
+.. _heading_links@Labels@Level Zero:
 
 Level Zero
 ==========
@@ -76,7 +76,7 @@ You can also explicitly choose the linking text; e.g.
 
 .. index:: other, levels
 
-.. _heading_links@labels@other_levels:
+.. _heading_links@Labels@Other Levels:
 
 Other Levels
 ============
@@ -86,30 +86,27 @@ plus the conversion for this heading.
 These labels do not begin with ``@``.
 
 .. meta::
-   :keywords: conversion
+   :keywords: conversion:
 
-.. index:: conversion
+.. index:: conversion:
 
-.. _heading_links@labels@conversion:
+.. _heading_links@Labels@Conversion_:
 
-Conversion
-==========
-The conversion of a heading to a label does the following:
-
-1. Letters are converted to lower case.
-2. The following characters are converted to underbars ``_`` :
-   space ,  at signs ``@``, and colon ``:`` .
+Conversion:
+===========
+The conversion of a heading to a label changes the at sign ``@``
+and colon ``:`` to underbars ``_``.
 
 For example, the label for the heading above is
 
-|tab| ``heading_links@labels@conversion``
+|tab| ``heading_links@Labels@Conversion_``
 
 .. meta::
    :keywords: discussion
 
 .. index:: discussion
 
-.. _heading_links@labels@discussion:
+.. _heading_links@Labels@Discussion:
 
 Discussion
 ==========
@@ -127,7 +124,7 @@ Discussion
    headings below it,  will break.  This identifies the links that should be
    checked to make sure they are still valid.
 
-.. _heading_links@example:
+.. _heading_links@Example:
 
 Example
 *******

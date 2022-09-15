@@ -20,20 +20,20 @@ Comment Command
 .. contents::
    :local:
 
-.. _comment_cmd@syntax:
+.. _comment_cmd@Syntax:
 
 Syntax
 ******
 - ``{xrst_comment`` *text* :code:`}`
 
-.. _comment_cmd@purpose:
+.. _comment_cmd@Purpose:
 
 Purpose
 *******
 This command adds *text* to the xrst input file that
 does not appear in the rst output file.
 
-.. _comment_cmd@example:
+.. _comment_cmd@Example:
 
 Example
 *******

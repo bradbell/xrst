@@ -20,7 +20,7 @@ Begin and End Commands
 .. contents::
    :local:
 
-.. _begin_cmd@syntax:
+.. _begin_cmd@Syntax:
 
 Syntax
 ******
@@ -33,7 +33,7 @@ Syntax
 
 .. index:: page
 
-.. _begin_cmd@page:
+.. _begin_cmd@Page:
 
 Page
 ****
@@ -76,7 +76,7 @@ Note that it is the group name and not the group that is empty.
 
 .. index:: output
 
-.. _begin_cmd@output_file:
+.. _begin_cmd@Output File:
 
 Output File
 ***********
@@ -91,7 +91,7 @@ see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 
 .. index:: parent, page
 
-.. _begin_cmd@parent_page:
+.. _begin_cmd@Parent Page:
 
 Parent Page
 ***********

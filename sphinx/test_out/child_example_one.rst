@@ -29,13 +29,13 @@ so all its pages are children of the page that includes this file.
 
 .. index:: link, second, child
 
-.. _child_example_one@link_to_second_child:
+.. _child_example_one@Link to Second Child:
 
 Link to Second Child
 ********************
 :ref:`child_example_two`
 
-.. _child_example_one@this_example_file:
+.. _child_example_one@This Example File:
 
 This Example File
 *****************

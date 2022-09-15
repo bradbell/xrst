@@ -14,26 +14,26 @@ as the linking text.)
 
 Level One
 *********
-The label for this heading is ``heading_example@level_one``.
+The label for this heading is ``heading_example@Level One``.
 
 Level Two
 =========
-The label for this heading is ``heading_example@level_one@level_two``.
+The label for this heading is ``heading_example@Level One@Level Two``.
 
 Another Level One
 *****************
-The label for this heading is ``heading_example@another_level_one``.
+The label for this heading is ``heading_example@Another Level One``.
 
 Level Two
 =========
 The label for this heading is
-``heading_example@another_level_one@level_two``.
+``heading_example@Another Level One@Level Two``.
 
 x
 =
 A heading can have just one character.
 The label for this heading is
-``heading_example@another_level_one@x``.
+``heading_example@Another Level One@x``.
 
 Links
 *****
@@ -43,11 +43,11 @@ is included at the beginning of the target for the link:
 
 #. :ref:`heading_example`
 #. :ref:`heading_example-0`
-#. :ref:`heading_example@level_one`
-#. :ref:`heading_example@level_one@level_two`
-#. :ref:`heading_example@another_level_one`
-#. :ref:`heading_example@another_level_one@level_two`
-#. :ref:`heading_example@another_level_one@x`
+#. :ref:`heading_example@Level One`
+#. :ref:`heading_example@Level One@Level Two`
+#. :ref:`heading_example@Another Level One`
+#. :ref:`heading_example@Another Level One@Level Two`
+#. :ref:`heading_example@Another Level One@x`
 
 Linking Headings Using :ref:
 ****************************

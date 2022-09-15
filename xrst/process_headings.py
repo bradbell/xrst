@@ -48,17 +48,14 @@ for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
 These labels do not begin with ``@``.
 
-Conversion
-==========
-The conversion of a heading to a label does the following:
-
-1. Letters are converted to lower case.
-2. The following characters are converted to underbars ``_`` :
-   space ,  at signs ``@``, and colon ``:`` .
+Conversion:
+===========
+The conversion of a heading to a label changes the at sign ``@``
+and colon ``:`` to underbars ``_``.
 
 For example, the label for the heading above is
 
-|tab| ``heading_links@labels@conversion``
+|tab| ``heading_links@Labels@Conversion_``
 
 
 Discussion
@@ -133,6 +130,10 @@ def process_headings(
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(keyword_list) == list
+   #
+   # old2new_label
+   # 2DO: remove this when done converting labels
+   old2new_label = dict()
    #
    # data_out
    data_out = data_in
@@ -220,8 +221,9 @@ def process_headings(
             # this heading at a higher level
             heading_list.append( heading )
       #
-      # label
-      label = ''
+      # label, old_label, old2new_label
+      # 2DO: remove old_label and old2new_lable when done converting labels.
+      label = None
       for level in range( len(heading_list) ) :
          if level == 0 :
             label = page_name.lower()
@@ -234,13 +236,17 @@ def process_headings(
                label = page_name + '-0'
             else :
                label = page_name
+            old_label = label;
          else :
-            heading     = heading_list[level]
-            conversion  = heading['text'].lower()
-            conversion  = conversion.replace(' ', '_')
+            conversion  = heading_list[level]['text']
             conversion  = conversion.replace('@', '_')
             conversion  = conversion.replace(':', '_')
-            label += '@' + conversion
+            label      += '@' + conversion
+            conversion  = conversion.lower()
+            conversion  = conversion.replace(' ', '_')
+            old_label += '@' + conversion
+      if old_label != label :
+         old2new_label[old_label] = label;
       #
       # index_entries
       if len(heading_list) == 1 :
@@ -318,5 +324,22 @@ def process_headings(
    #
    # page_title
    page_title = heading_list[0]['text']
+   #
+   # tmp_dir/label.sed
+   # 2DO: remove this code when done converting labels.
+   tmp_dir   = 'sphinx/rst/tmp'
+   file_data = ''
+   if len( old2new_label ) == 0 :
+      order = list()
+   else :
+      order = list( old2new_label.keys() )
+      order.reverse()
+   for old_label in order :
+         new_label = old2new_label[old_label]
+         file_data += f's/{old_label}/{new_label}/g\n'
+   # spell.toml
+   file_ptr   = open(f'{tmp_dir}/label.sed', 'a')
+   file_ptr.write(file_data)
+   file_ptr.close()
    #
    return data_out, page_title, pseudo_heading

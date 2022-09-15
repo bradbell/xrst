@@ -625,6 +625,10 @@ def run_xrst() :
    if replace_spell_commands :
       xrst.replace_spell(tmp_dir)
    #
+   # label.sed
+   # 2DO: remove this when done converting labels
+   shutil.copyfile( f'{tmp_dir}/label.sed', f'{sphinx_dir}/label.sed' )
+   #
    # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command
    tmp_dir = f'{rst_dir}/tmp'

@@ -52,7 +52,7 @@ xrst_begin_parent
 *****************
 The file below demonstrates the used of ``xrst_begin_parent`` .
 
-.. _configure_example@this_example_file:
+.. _configure_example@This Example File:
 
 This Example File
 *****************

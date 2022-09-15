@@ -99,9 +99,9 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 #. Automatically generates labels for linking to a heading in any page.
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
-   ``:ref:`heading_links@labels@discussion``
+   ``:ref:`heading_links@Labels@Discussion``
    generates the following link (which discusses these labels)
-   :ref:`heading_links@labels@discussion`.
+   :ref:`heading_links@Labels@Discussion`.
 
 Contents
 ********

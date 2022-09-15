@@ -20,14 +20,14 @@ Code Command
 .. contents::
    :local:
 
-.. _code_cmd@syntax:
+.. _code_cmd@Syntax:
 
 Syntax
 ******
 - ``{xrst_code`` *language* :code:`}`
 - ``{xrst_code}``
 
-.. _code_cmd@purpose:
+.. _code_cmd@Purpose:
 
 Purpose
 *******
@@ -45,7 +45,7 @@ This has the following advantage over sphinx code block:
 
 .. index:: requirements
 
-.. _code_cmd@requirements:
+.. _code_cmd@Requirements:
 
 Requirements
 ************
@@ -71,7 +71,7 @@ for highlighting the code block.
 
 .. index:: rest, line
 
-.. _code_cmd@rest_of_line:
+.. _code_cmd@Rest of Line:
 
 Rest of Line
 ************
@@ -85,7 +85,7 @@ without having the comment characters in the xrst output.
 
 .. index:: spell, checking
 
-.. _code_cmd@spell_checking:
+.. _code_cmd@Spell Checking:
 
 Spell Checking
 **************
@@ -94,7 +94,7 @@ spell checking is done for these code blocks.
 (Spell checking is not done for code blocks included using the
 :ref:`literal command<literal_cmd>` .)
 
-.. _code_cmd@example:
+.. _code_cmd@Example:
 
 Example
 *******

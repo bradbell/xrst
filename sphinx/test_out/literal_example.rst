@@ -73,7 +73,7 @@ xrst_literal
 ************
 The file below demonstrates the use of ``xrst_literal`` .
 
-.. _literal_example@this_example_file:
+.. _literal_example@This Example File:
 
 This Example File
 *****************

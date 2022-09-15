@@ -25,11 +25,11 @@ toc_list Command Example
 
 .. index:: children.py
 
-.. _toc_list_example@children.py_file:
+.. _toc_list_example@children.py File:
 
 children.py File
 ****************
-see :ref:`child_example_one@this_example_file`
+see :ref:`child_example_one@This Example File`
 in the child_example_one page.
 
 .. meta::
@@ -37,7 +37,7 @@ in the child_example_one page.
 
 .. index:: toc_list
 
-.. _toc_list_example@toc_list_command:
+.. _toc_list_example@toc_list Command:
 
 toc_list Command
 ****************
@@ -56,7 +56,7 @@ xrst_toc_list
 *************
 The file below demonstrates the use of ``xrst_toc_list`` .
 
-.. _toc_list_example@this_example_file:
+.. _toc_list_example@This Example File:
 
 This Example File
 *****************

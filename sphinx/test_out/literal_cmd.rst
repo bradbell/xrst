@@ -20,7 +20,7 @@ Literal Command
 .. contents::
    :local:
 
-.. _literal_cmd@syntax:
+.. _literal_cmd@Syntax:
 
 Syntax
 ******
@@ -42,7 +42,7 @@ Syntax
 | |tab| *stop*
 | :code:`}`
 
-.. _literal_cmd@purpose:
+.. _literal_cmd@Purpose:
 
 Purpose
 *******
@@ -54,7 +54,7 @@ can be included by the command above.
 
 .. index:: white, space
 
-.. _literal_cmd@white_space:
+.. _literal_cmd@White Space:
 
 White Space
 ***********
@@ -85,7 +85,7 @@ that move files and automatically change references to them.
 
 .. index:: no, start, or, stop
 
-.. _literal_cmd@no_start_or_stop:
+.. _literal_cmd@No start or stop:
 
 No start or stop
 ****************
@@ -131,13 +131,13 @@ not counting the command itself when the files are the same.
 
 .. index:: spell, checking
 
-.. _literal_cmd@spell_checking:
+.. _literal_cmd@Spell Checking:
 
 Spell Checking
 **************
 Spell checking is **not** done for these code blocks.
 
-.. _literal_cmd@example:
+.. _literal_cmd@Example:
 
 Example
 *******

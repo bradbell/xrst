@@ -56,9 +56,9 @@ that move files and automatically change references to them.
 
 Children
 ********
-Each of the files may contain multiple :ref:`pages<begin_cmd@page>`.
+Each of the files may contain multiple :ref:`pages<begin_cmd@Page>`.
 The first of these pages may use a
-:ref:`parent begin<begin_cmd@parent_page>` command.
+:ref:`parent begin<begin_cmd@Parent Page>` command.
 
 #. The first page in a file is always a child of the
    page where the toc command appears..

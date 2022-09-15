@@ -31,65 +31,65 @@ as the linking text.)
 
 .. index:: level, one
 
-.. _heading_example@level_one:
+.. _heading_example@Level One:
 
 Level One
 *********
-The label for this heading is ``heading_example@level_one``.
+The label for this heading is ``heading_example@Level One``.
 
 .. meta::
    :keywords: level, two
 
 .. index:: level, two
 
-.. _heading_example@level_one@level_two:
+.. _heading_example@Level One@Level Two:
 
 Level Two
 =========
-The label for this heading is ``heading_example@level_one@level_two``.
+The label for this heading is ``heading_example@Level One@Level Two``.
 
 .. meta::
    :keywords: another, level, one
 
 .. index:: another, level, one
 
-.. _heading_example@another_level_one:
+.. _heading_example@Another Level One:
 
 Another Level One
 *****************
-The label for this heading is ``heading_example@another_level_one``.
+The label for this heading is ``heading_example@Another Level One``.
 
 .. meta::
    :keywords: level, two
 
 .. index:: level, two
 
-.. _heading_example@another_level_one@level_two:
+.. _heading_example@Another Level One@Level Two:
 
 Level Two
 =========
 The label for this heading is
-``heading_example@another_level_one@level_two``.
+``heading_example@Another Level One@Level Two``.
 
 .. meta::
    :keywords: x
 
 .. index:: x
 
-.. _heading_example@another_level_one@x:
+.. _heading_example@Another Level One@x:
 
 x
 =
 A heading can have just one character.
 The label for this heading is
-``heading_example@another_level_one@x``.
+``heading_example@Another Level One@x``.
 
 .. meta::
    :keywords: links
 
 .. index:: links
 
-.. _heading_example@links:
+.. _heading_example@Links:
 
 Links
 *****
@@ -99,24 +99,24 @@ is included at the beginning of the target for the link:
 
 #. :ref:`heading_example`
 #. :ref:`heading_example-0`
-#. :ref:`heading_example@level_one`
-#. :ref:`heading_example@level_one@level_two`
-#. :ref:`heading_example@another_level_one`
-#. :ref:`heading_example@another_level_one@level_two`
-#. :ref:`heading_example@another_level_one@x`
+#. :ref:`heading_example@Level One`
+#. :ref:`heading_example@Level One@Level Two`
+#. :ref:`heading_example@Another Level One`
+#. :ref:`heading_example@Another Level One@Level Two`
+#. :ref:`heading_example@Another Level One@x`
 
 .. meta::
    :keywords: linking, headings, using, :ref:
 
 .. index:: linking, headings, using, :ref:
 
-.. _heading_example@linking_headings_using__ref_:
+.. _heading_example@Linking Headings Using _ref_:
 
 Linking Headings Using :ref:
 ****************************
 The file below demonstrates linking to headings using ``:ref:`` .
 
-.. _heading_example@this_example_file:
+.. _heading_example@This Example File:
 
 This Example File
 *****************

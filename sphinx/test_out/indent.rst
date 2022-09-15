@@ -28,9 +28,9 @@ xrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use mix tabs and spaces for the indentation.
 
-.. _indent@example:
+.. _indent@Example:
 
 Example
 *******
 :ref:`indent_example`, and
-:ref:`comment_ch_example@indent`.
+:ref:`comment_ch_example@Indent`.
