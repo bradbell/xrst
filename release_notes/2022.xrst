@@ -22,6 +22,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-17
+=====
+Report an error when the underbar character ``_`` is at the end of
+a heading (becasue Sphinx does not handle this case).
+
 09-15
 =====
 Put the dates in the release notes below the heading :ref:`2022@mm-dd` .

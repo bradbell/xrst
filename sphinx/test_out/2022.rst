@@ -30,6 +30,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-17:
+
+09-17
+=====
+Report an error when the underbar character ``_`` is at the end of
+a heading (becasue Sphinx does not handle this case).
+
 .. _2022@mm-dd@09-15:
 
 09-15
