@@ -165,6 +165,13 @@ def code_command(data_in, file_name, page_name) :
       #
       # data_between
       data_between  = data_out[m_begin.end() : m_end.start()]
+      xrst.check_indent(
+         file_name    = file_name,
+         page_name    = page_name,
+         command_name = 'code',
+         data         = data_between,
+         indent       = indent_begin
+      )
       data_between  = data_between.replace('\n', '\n' + 3 * ' ')
       data_between += '\n'
       #

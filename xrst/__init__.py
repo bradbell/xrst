@@ -8,6 +8,7 @@ from .pattern                import pattern
 # BEGIN_SORT_THIS_LINE_PLUS_1
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
+from .check_indent           import check_indent
 from .check_page_name        import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
