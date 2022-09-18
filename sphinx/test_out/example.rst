@@ -31,6 +31,7 @@ Examples
 -  :ref:`heading_example-0`
 -  :ref:`indent_example-0`
 -  :ref:`configure_example-0`
+-  :ref:`list_example-0`
 
 .. toctree::
    :maxdepth: 1
@@ -47,3 +48,4 @@ Examples
    heading_example
    indent_example
    configure_example
+   list_example

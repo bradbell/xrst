@@ -22,6 +22,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-18
+=====
+Fix the indentation when an xsrst code command in a list item and
+add an example that demonstrates this case; see
+:ref:`list_example@Code Command`.
+
 09-17
 =====
 Report an error when the underbar character ``_`` is at the end of

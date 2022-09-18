@@ -26,6 +26,8 @@ Table of Contents
 |  |space|  |space| :ref:`1.11.2<keyword>` The keyword Example File
 |  |space|  |space| :ref:`1.11.3<preamble.rst>` The preamble.rst Example File
 |
+|  |space| :ref:`1.12<list_example>` Example using Commands in a List
+|
 | :ref:`2<user_guide>` Extract Sphinx RST Files
 |
 |  |space| :ref:`2.1<run_xrst>` Run Extract Sphinx RST And Sphinx

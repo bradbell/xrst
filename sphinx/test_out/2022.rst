@@ -30,6 +30,14 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-18:
+
+09-18
+=====
+Fix the indentation when an xsrst code command in a list item and
+add an example that demonstrates this case; see
+:ref:`list_example@Code Command`.
+
 .. _2022@mm-dd@09-17:
 
 09-17

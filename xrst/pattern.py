@@ -38,15 +38,16 @@ pattern['toc']   = re.compile(
 #
 # pattern['code']
 # Pattern for code command.
-# group(0): the entire line for the command (newline at front).
-# group(1): the characters before the language argument including white space
-# group(2): on possiblity for group(1)
-# group(3): other possibility for group(1)
+# group(0): the entire line for the command with newline at front.
+# group(1): the indent for the command (spaces and tabs)
+# group(2): is the command with or without characters in front
+# group(3): This is the non space characters after the indent and before
+#           command (or None)
 # group(4): the language argument which is emtpy (just white space)
-#        for the second code command in each pair.
+#           for the second code command in each pair.
 # group(5): the line number for this line; see pattern['line'] above.
 pattern['code'] = re.compile(
-   r'((\n{xrst_code *)|(\n[^\n]*[^\n\\]\{xrst_code *))' +
+   r'\n([ \t]*)({xrst_code *|([^\n]*[^\n\\]){xrst_code *)' +
    r'([^}]*)}[^\n]*({xrst_line [0-9]+@)'
 )
 #

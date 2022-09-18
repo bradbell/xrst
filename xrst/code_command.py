@@ -137,6 +137,20 @@ def code_command(data_in, file_name, page_name) :
             data=data_out
          )
       #
+      # indent_begin
+      indent_begin = m_begin.group(1)
+      indent_end   = m_end.group(1)
+      if indent_begin != indent_end :
+         msg  = "Start code command indent is not equal it's stop indent."
+         msg += f"start indent = '{indent_begin}'\n"
+         msg += f"stop  indent = '{indent_end}'"
+         xrst.system_exit(msg,
+            file_name=file_name,
+            page_name=page_name,
+            m_obj=m_start,
+            data=data_out
+         )
+      #
       # language
       # fix cases that pygments has trouble with ?
       if language == 'hpp' :
@@ -151,7 +165,7 @@ def code_command(data_in, file_name, page_name) :
       #
       # data_between
       data_between  = data_out[m_begin.end() : m_end.start()]
-      data_between  = data_between.replace('\n', '\n   ')
+      data_between  = data_between.replace('\n', '\n' + 3 * ' ')
       data_between += '\n'
       #
       # data_after
@@ -160,7 +174,7 @@ def code_command(data_in, file_name, page_name) :
       #
       # data_left, data_after
       data_left  = data_before
-      data_left += '.. code-block:: ' + language + '\n\n'
+      data_left += indent_begin + '.. code-block:: ' + language + '\n\n'
       data_left += data_between
       data_out   = data_left + data_after
       #
