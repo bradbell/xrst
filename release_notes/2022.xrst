@@ -24,9 +24,10 @@ mm-dd
 
 09-18
 =====
-Fix the indentation when an xsrst code command in a list item and
-add an example that demonstrates this case; see
-:ref:`list_example@Code Command`.
+1. Fix the indentation when an xsrst code command in a list item and
+   add an example that demonstrates this case; see
+   :ref:`list_example@Code Command`.
+2. Add four new items to the :ref:`wish_list` (and edit the Tabs item).
 
 09-17
 =====
