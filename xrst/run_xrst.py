@@ -651,7 +651,17 @@ def run_xrst() :
    # see https://stackoverflow.com/questions/23211695/
    #  modifying-content-width-of-the-sphinx-theme-read-the-docs
    if html_theme == 'sphinx_rtd_theme' :
-      pattern   = re.compile( r'([.]wy-nav-content[{][^}]*;max-width):[^;]*;' )
+      pattern = dict()
+      pattern['content'] = re.compile(
+         r'([.]wy-nav-content[{][^}]*;max-width):[^;]*;'
+      )
+      pattern['sidebar'] = re.compile(
+         r'([.]wy-nav-side[{][^}]*;width):[^;]*;'
+      )
+      pattern['search'] = re.compile(
+         r'([.]wy-side-nav-search[{][^}]*;width):[^;]*;'
+      )
+      new_value = { 'content':'100%', 'sidebar':'250px', 'search':'250px' }
       file_name = f'{output_dir}/_static/css/theme.css'
       try :
          file_obj  = open(file_name, 'r')
@@ -661,16 +671,23 @@ def run_xrst() :
       if ok :
          data_in   = file_obj.read()
          file_obj.close()
-         m_obj     = pattern.search(data_in)
-         ok        = m_obj != None
+         match     = dict()
+         for key in pattern :
+            match[key] = pattern[key].search(data_in)
+            ok         = match[key] != None
       if ok :
-         m_obj     = pattern.search(data_in, m_obj.end())
-         ok        = m_obj == None
+         for key in pattern :
+            match[key] = pattern[key].search(data_in, match[key].end())
+            ok        = match[key] == None
       if ok :
-         data_out  = pattern.sub(r'\1:100%;', data_in)
-         ok        = data_in != data_out
+         data_out = data_in
+         for key in pattern :
+            data_tmp  = data_out
+            value     = new_value[key]
+            data_out  = pattern[key].sub( f'\\1:{value};', data_tmp)
+            ok        = data_out != data_tmp
       if not ok :
-         msg       = 'warning: cannot modify max-width for sphinx_rtd_theme\n'
+         msg       = 'warning: cannot modify widths in sphinx_rtd_theme\n'
          sys.stderr.write(msg)
       else :
          file_obj  = open(file_name, 'w')

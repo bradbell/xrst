@@ -36,7 +36,8 @@ mm-dd
 =====
 If :ref:`run_xrst@html_theme` is sphinx_rtd_theme,
 modify the theme.css file so that the full width of display window
-is used.
+is used and the navigation sidebar takes less space.
+(The navigation side bar does not need as much space when using xrst.)
 
 .. _2022@mm-dd@09-18:
 
