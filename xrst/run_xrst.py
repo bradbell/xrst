@@ -47,12 +47,14 @@ is used as the sphinx project name.
 
 replace_spell_commands
 **********************
-If this command is present on the command line, the source code
+If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd>` a replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
-This useful when there are no spelling warnings before a change
+This is useful when there are no spelling warnings before a change
 to the :ref:`run_xrst@sphinx_dir@spelling` file or an update
 of the pyspellchecker_ package (which is used to do the spell checking).
+If this option is present,
+none of the output files are created; e.g., the \*.rst and \*.html files.
 
 .. _pyspellchecker: https://pypi.org/project/pyspellchecker
 
@@ -72,8 +74,8 @@ The other themes include this information in the right side bar.
 
 rst_line
 ********
-This optional argument helps find the source of errors reported by sphinx.
-If the argument *rst_line* is (is not) present,
+This option helps find the source of errors reported by sphinx.
+If *rst_line* is (is not) present,
 a table is (is not) generated at the end of each output file.
 This table maps line numbers in the rst output files to
 line numbers in the corresponding xrst input file.
@@ -596,6 +598,17 @@ def run_xrst() :
                page_data,
             )
    #
+   # replace_spell
+   if replace_spell_commands :
+      xrst.replace_spell(tmp_dir)
+      #
+      # tmp_dir
+      # reset tmp_dir because rmtree is such a dangerous command
+      tmp_dir = f'{rst_dir}/tmp'
+      shutil.rmtree(tmp_dir)
+      print('xrst --replace_spell_commands: OK')
+      return
+   #
    # auto_file
    xrst.auto_file(
       html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_page_list
@@ -620,10 +633,6 @@ def run_xrst() :
          if name not in tmp_list :
             if name != 'index.rst' :
                os.remove( f'{rst_dir}/{name}' )
-   #
-   # replace_spell
-   if replace_spell_commands :
-      xrst.replace_spell(tmp_dir)
    #
    # label.sed
    # 2DO: remove this when done converting labels
