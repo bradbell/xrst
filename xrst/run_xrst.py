@@ -647,4 +647,34 @@ def run_xrst() :
       command = f'make -C {latex_dir} {project_name}.pdf'
       system_command(command)
    # -------------------------------------------------------------------------
+   # output_dir/_static/css/theme.css
+   # see https://stackoverflow.com/questions/23211695/
+   #  modifying-content-width-of-the-sphinx-theme-read-the-docs
+   if html_theme == 'sphinx_rtd_theme' :
+      pattern   = re.compile( r'([.]wy-nav-content[{][^}]*;max-width):[^;]*;' )
+      file_name = f'{output_dir}/_static/css/theme.css'
+      try :
+         file_obj  = open(file_name, 'r')
+         ok        = True
+      except :
+         ok        = False
+      if ok :
+         data_in   = file_obj.read()
+         file_obj.close()
+         m_obj     = pattern.search(data_in)
+         ok        = m_obj != None
+      if ok :
+         m_obj     = pattern.search(data_in, m_obj.end())
+         ok        = m_obj == None
+      if ok :
+         data_out  = pattern.sub(r'\1:100%;', data_in)
+         ok        = data_in != data_out
+      if not ok :
+         msg       = 'warning: cannot modify max-width for sphinx_rtd_theme\n'
+         sys.stderr.write(msg)
+      else :
+         file_obj  = open(file_name, 'w')
+         file_obj.write(data_out)
+         file_obj.close()
+   # -------------------------------------------------------------------------
    print('xrst: OK')

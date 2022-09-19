@@ -14,6 +14,8 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    toctree
    underbar
    xsrst
+   rtd
+   css
 }
 
 xrst Release Notes for 2022
@@ -21,6 +23,12 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+09-19
+=====
+If :ref:`run_xrst@html_theme` is sphinx_rtd_theme,
+modify the theme.css file so that the full width of display window
+is used.
 
 09-18
 =====

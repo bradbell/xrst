@@ -26,6 +26,70 @@ The following is a wish list for future improvements to ``run_xrst``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
+   :keywords: path
+
+.. index:: path
+
+.. _wish_list@Path:
+
+Path
+****
+It would be nice to have a way, in sphinx, to make file names relative
+to the directory where the :ref:`run_xrst@root_file` is located
+so it would be the same as for xrst commands.
+
+.. meta::
+   :keywords: configuration
+
+.. index:: configuration
+
+.. _wish_list@Configuration:
+
+Configuration
+*************
+It would be nice to have a *sphinx_dir* ``/conf.toml`` file that
+could be used for more complicated cases that can be handled by the
+command line arguments.
+
+.. meta::
+   :keywords: sphinx, error, messages
+
+.. index:: sphinx, error, messages
+
+.. _wish_list@Sphinx Error Messages:
+
+Sphinx Error Messages
+*********************
+It would be nice to have a way to translate sphinx error messages
+to the corresponding xrst input file and line number.
+
+.. meta::
+   :keywords: developer, documentation
+
+.. index:: developer, documentation
+
+.. _wish_list@Developer Documentation:
+
+Developer Documentation
+***********************
+Now that xrst has a :ref:`run_xrst@group_list` option,
+it would be nice to convert the developer documentation
+to xrst with a group name that does not get included when
+building the user documentation; e.g. ``devel`` .
+
+.. meta::
+   :keywords: search
+
+.. index:: search
+
+.. _wish_list@Search:
+
+Search
+******
+It would be nice for a search to display all of the index words for each
+web page that matches the search.
+
+.. meta::
    :keywords: tabs
 
 .. index:: tabs
@@ -34,8 +98,7 @@ The following is a wish list for future improvements to ``run_xrst``:
 
 Tabs
 ****
-Tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
+Tabs in xrst input is not tested because
+tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
 It would be nice to have a way to control the size of tabs in the code blocks
 displayed by :ref:`code_cmd-0` and :ref:`literal_cmd-0`.
-Perhaps it would be good to support tabs as a method for
-indenting xrst input pages.

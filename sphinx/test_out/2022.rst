@@ -30,13 +30,22 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-19:
+
+09-19
+=====
+If :ref:`run_xrst@html_theme` is sphinx_rtd_theme,
+modify the theme.css file so that the full width of display window
+is used.
+
 .. _2022@mm-dd@09-18:
 
 09-18
 =====
-Fix the indentation when an xsrst code command in a list item and
-add an example that demonstrates this case; see
-:ref:`list_example@Code Command`.
+1. Fix the indentation when an xsrst code command in a list item and
+   add an example that demonstrates this case; see
+   :ref:`list_example@Code Command`.
+2. Add four new items to the :ref:`wish_list` (and edit the Tabs item).
 
 .. _2022@mm-dd@09-17:
 
