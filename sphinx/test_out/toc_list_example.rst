@@ -21,14 +21,14 @@ toc_list Command Example
    :local:
 
 .. meta::
-   :keywords: children.py
+   :keywords: children.xrst
 
-.. index:: children.py
+.. index:: children.xrst
 
-.. _toc_list_example@children.py File:
+.. _toc_list_example@children.xrst File:
 
-children.py File
-****************
+children.xrst File
+******************
 see :ref:`child_example_one@This Example File`
 in the child_example_one page.
 

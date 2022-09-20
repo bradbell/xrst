@@ -6,7 +6,7 @@
 child_example_two
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/children.py``
+xrst input file: ``example/children.xrst``
 
 .. meta::
    :keywords: child_example_two, page, child

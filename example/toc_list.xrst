@@ -6,15 +6,15 @@
 toc_list Command Example
 ########################
 
-children.py File
-****************
+children.xrst File
+******************
 see :ref:`child_example_one@This Example File`
 in the child_example_one page.
 
 toc_list Command
 ****************
 {xrst_toc_list
-      example/children.py
+      example/children.xrst
 }
 
 xrst_toc_list

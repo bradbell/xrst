@@ -6,7 +6,7 @@
 child_example_one
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/children.py``
+xrst input file: ``example/children.xrst``
 
 .. meta::
    :keywords: child_example_one, first, child
@@ -40,5 +40,5 @@ Link to Second Child
 This Example File
 *****************
 
-.. literalinclude:: ../../example/children.py
-   :language: py
+.. literalinclude:: ../../example/children.xrst
+   :language: rst
