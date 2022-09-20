@@ -8,16 +8,18 @@ echo_eval() {
    eval $*
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/upload.sh" ]
+if [ "$0" != "bin/check_all.sh" ]
 then
-   echo "bin/upload.sh: must be executed from its parent directory"
+   echo "bin/check_all.sh: must be executed from its parent directory"
    exit 1
 fi
-if [ -e dist ]
-then
-   rm -r dist
-fi
-echo_eval python -m build
-echo_eval twine upload --repository testpypi dist/*
-echo 'upload.sh: OK'
+for check in $( ls bin/check_* )
+do
+   if [ "$check" != 'bin/check_all.sh' ]
+   then
+      echo_eval $check
+   fi
+done
+#
+echo 'check_all.sh: OK'
 exit 0

@@ -8,16 +8,24 @@ echo_eval() {
    eval $*
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/upload.sh" ]
+if [ "$0" != "bin/check_tab.sh" ]
 then
-   echo "bin/upload.sh: must be executed from its parent directory"
+   echo "bin/check_tab.sh: must be executed from its parent directory"
    exit 1
 fi
-if [ -e dist ]
+ok='yes'
+for file in $(git ls-files)
+do
+   if grep -P '\t' $file > /dev/null
+   then
+      echo "$file has a tab"
+      ok='no'
+   fi
+done
+if [ "$ok" != 'yes' ]
 then
-   rm -r dist
+   echo 'check_tab: Error'
+   exit 1
 fi
-echo_eval python -m build
-echo_eval twine upload --repository testpypi dist/*
-echo 'upload.sh: OK'
+echo 'check_tab.sh: OK'
 exit 0
