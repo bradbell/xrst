@@ -18,6 +18,7 @@ Examples
    example/comment_ch.m
    example/heading.py
    example/indent.py
+   example/docstring.py
    example/configure.xrst
    example/list.py
 }

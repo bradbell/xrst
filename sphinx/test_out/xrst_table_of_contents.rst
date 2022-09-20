@@ -20,13 +20,14 @@ Table of Contents
 |  |space| :ref:`1.8<comment_ch_example>` Comment Character Command Example
 |  |space| :ref:`1.9<heading_example>` The Page Title is Level Zero
 |  |space| :ref:`1.10<indent_example>` Indent Example
-|  |space| :ref:`1.11<configure_example>` Example Configuration Files
+|  |space| :ref:`1.11<docstring_example>` Docstring Example
+|  |space| :ref:`1.12<configure_example>` Example Configuration Files
 |
-|  |space|  |space| :ref:`1.11.1<spelling>` The spelling Example File
-|  |space|  |space| :ref:`1.11.2<keyword>` The keyword Example File
-|  |space|  |space| :ref:`1.11.3<preamble.rst>` The preamble.rst Example File
+|  |space|  |space| :ref:`1.12.1<spelling>` The spelling Example File
+|  |space|  |space| :ref:`1.12.2<keyword>` The keyword Example File
+|  |space|  |space| :ref:`1.12.3<preamble.rst>` The preamble.rst Example File
 |
-|  |space| :ref:`1.12<list_example>` Example using Commands in a List
+|  |space| :ref:`1.13<list_example>` Example using Commands in a List
 |
 | :ref:`2<user_guide>` Extract Sphinx RST Files
 |

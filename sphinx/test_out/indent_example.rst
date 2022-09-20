@@ -41,9 +41,10 @@ Note that underling headings works even though it is indented.
 
 Python Docstring
 ****************
-This example is the python docstring for the factorial function
+This example input is a python docstring for the factorial function
 defined in this file, but it is documenting indentation instead
-of the function.
+of the function. See :ref:`docstring_example` for an alternative
+way to construct a docstring.
 
 .. _indent_example@This Example File:
 

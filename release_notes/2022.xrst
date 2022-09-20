@@ -27,7 +27,8 @@ mm-dd
 
 09-20
 =====
-Change :ref:`indent_example` so that it is also a python docstring.
+Change :ref:`indent_example` so that it is also a python docstring
+and add the :ref:`docstring_example`.
 The :ref:`spell_example` was moved from spell.py to spell.xrst because
 it does not have any python code in it.
 

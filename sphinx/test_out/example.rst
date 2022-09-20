@@ -30,6 +30,7 @@ Examples
 -  :ref:`comment_ch_example-0`
 -  :ref:`heading_example-0`
 -  :ref:`indent_example-0`
+-  :ref:`docstring_example-0`
 -  :ref:`configure_example-0`
 -  :ref:`list_example-0`
 
@@ -47,5 +48,6 @@ Examples
    comment_ch_example
    heading_example
    indent_example
+   docstring_example
    configure_example
    list_example
