@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
-"""
 {xrst_begin spell_example}
 {xrst_spell
    iterable
@@ -47,4 +46,3 @@ This Example File
 {xrst_literal}
 
 {xrst_end spell_example}
-"""

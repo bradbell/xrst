@@ -6,7 +6,7 @@
 spell_example
 !!!!!!!!!!!!!
 
-xrst input file: ``example/spell.py``
+xrst input file: ``example/spell.xrst``
 
 .. meta::
    :keywords: spell_example, spell
@@ -91,5 +91,5 @@ The file below demonstrates the use of ``xrst_spell``
 This Example File
 *****************
 
-.. literalinclude:: ../../example/spell.py
-   :language: py
+.. literalinclude:: ../../example/spell.xrst
+   :language: rst

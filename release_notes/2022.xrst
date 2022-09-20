@@ -16,6 +16,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    xsrst
    rtd
    css
+   docstring
 }
 
 xrst Release Notes for 2022
@@ -23,6 +24,12 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+09-20
+=====
+Change :ref:`indent_example` so that it is also a python docstring.
+The :ref:`spell_example` was moved from spell.py to spell.xrst because
+it does not have any python code in it.
 
 09-19
 =====

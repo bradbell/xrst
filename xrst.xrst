@@ -11,7 +11,7 @@ Examples
    example/get_started.xrst
    example/literal.cpp
    example/toc_list.xrst
-   example/spell.py
+   example/spell.xrst
    example/suspend.py
    example/code.py
    example/comment.r

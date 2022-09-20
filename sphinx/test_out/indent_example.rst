@@ -20,13 +20,6 @@ Indent Example
 .. contents::
    :local:
 
-.. code-block:: py
-
-   def factorial(n) :
-      if n == 1 :
-         return 1
-      return n * factorial(n-1)
-
 .. meta::
    :keywords: discussion
 
@@ -38,6 +31,19 @@ Discussion
 **********
 The file below demonstrates indenting an entire xrst page.
 Note that underling headings works even though it is indented.
+
+.. meta::
+   :keywords: python, docstring
+
+.. index:: python, docstring
+
+.. _indent_example@Python Docstring:
+
+Python Docstring
+****************
+This example is the python docstring for the factorial function
+defined in this file, but it is documenting indentation instead
+of the function.
 
 .. _indent_example@This Example File:
 
