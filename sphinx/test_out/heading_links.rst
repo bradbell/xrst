@@ -119,7 +119,7 @@ Discussion
 3. Specifying all the levels for a heading may seem verbose,
    but it avoids ambiguity when the same heading appears twice in one page;
    e.g the heading Example might appears multiple times in different context.
-4. Specifying all the levels also helps keep the links up to date.
+   This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
    headings below it,  will break.  This identifies the links that should be
    checked to make sure they are still valid.

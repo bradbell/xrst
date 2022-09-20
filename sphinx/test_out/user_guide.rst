@@ -130,7 +130,7 @@ Features
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
    ``:ref:`heading_links@Labels@Discussion``
-   generates the line :ref:`heading_links@Labels@Discussion`.
+   generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels.
 
 .. meta::
