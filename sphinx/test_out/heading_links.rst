@@ -112,7 +112,7 @@ Discussion
 ==========
 1. Note that at the first level one uses the *page_name* and not the
    title; e.g., in the example above one uses ``heading_links``
-   and not ``heading_cross_reference_links`` .
+   and not ``Heading Cross Reference Links`` .
 2. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
    page names; e.g. :ref:`auto_file@conf.py`.

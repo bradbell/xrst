@@ -73,7 +73,6 @@ conf_py_general = '''#
 # General configuration
 extensions = [
    'sphinx.ext.mathjax',
-   'sphinx_rtd_theme',
 ]
 '''
 #
