@@ -73,10 +73,10 @@ Leading and trailing white space around *ch* is ignored.
 
 Input Stream
 ************
-The special character (and one space if present directly after)
-is removed from the input stream before any xrst processing; e.g.,
-calculating the amount of
-:ref:`indent-0` for the current page.
+Spaces and tabs before the special character,
+the special character,
+and one space directory after the special character (if present),
+are removed from the input stream before any xrst processing.
 For example, if :code:`#` is the special character,
 the following input has the heading Factorial
 and the ``def`` token indented the same amount:
@@ -89,6 +89,18 @@ and the ``def`` token indented the same amount:
       if n == 1 :
          return 1
       return n * factorial(n-1)
+
+.. meta::
+   :keywords: indent
+
+.. index:: indent
+
+.. _comment_ch_cmd@Indent:
+
+Indent
+******
+The :ref:`indent` is calculated before removing the special character
+and its white space.
 
 .. _comment_ch_cmd@Example:
 

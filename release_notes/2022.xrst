@@ -25,6 +25,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-21
+=====
+Add the ``dev`` group to the xrst documentation.
+This group contains the developer documentation; see
+:ref:`run_xrst@group_list` .
+
 09-20
 =====
 Change :ref:`indent_example` so that it is also a python docstring

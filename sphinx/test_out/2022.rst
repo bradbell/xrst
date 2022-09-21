@@ -30,6 +30,14 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-21:
+
+09-21
+=====
+Add the ``dev`` group to the xrst documentation.
+This group contains the developer documentation; see
+:ref:`run_xrst@group_list` .
+
 .. _2022@mm-dd@09-20:
 
 09-20

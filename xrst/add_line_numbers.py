@@ -3,26 +3,43 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
+# {xrst_comment_ch #}
 #
 # pattern
 pattern = re.compile( r'^\n[ \t]*' )
 #
-# Add line numbers to a string in a way that is useful for reporting errors
-# (for modified versions of string) using line number in the origianl string.
+# {xrst_begin add_line_numbers dev}
+# {xrst_spell
+#  newlines
+# }
 #
-# data_in:
+# Add Line Numbers to File Data
+# #############################
+# Add line numbers to a string in a way that is useful for reporting errors
+# (for modified versions of string) using line number in the original string.
+#
+# data_in
+# *******
 # The original string.  An empty line is a line with just spaces or tabs.
 # line_number is the number of newlines before a line plus one; i.e.,
 # the first line is number one.
 #
-# data_out:
+# data_out
+# ********
 # The return data_out is a modified version of data_in. The text
-# {xrst_line line_number@ is added at the end of each non-empty line.
+#
+#  | ``\{xrst_line`` *line_number@*
+#
+# is added at the end of each non-empty line.
 # Spaces and tabs in empty lines are removed (so they are truely empty).
 #
+# {xrst_code py}
 # data_out =
 def add_line_numbers(data_in) :
    assert type(data_in) == str
+   # assert type(data_out) == str
+   # {xrst_code}
+   # {xrst_end add_line_numbers}
    #
    # newline_list, line_start
    newline_list = xrst.newline_indices(data_in)

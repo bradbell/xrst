@@ -1,6 +1,18 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
+# {xrst_comment_ch #}
+#
+# {xrst_begin module dev}
+#
+# The xrst Module
+# ###############
+#
+# {xrst_toc_table
+#  xrst/add_line_numbers.py
+# }
+#
+# {xrst_end module}
 #
 # Must import pattern first because it is used by some of the other imports
 from .pattern                import pattern

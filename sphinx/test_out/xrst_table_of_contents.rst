@@ -57,3 +57,6 @@ Table of Contents
 |  |space|  |space| :ref:`3.2.1<2022>` xrst Release Notes for 2022
 |  |space|  |space| :ref:`3.2.2<2021>` xrst Release Notes for 2021
 |
+| :ref:`4<devel>` Developer Documentation
+|  |space| :ref:`4.1<module>` The xrst Module
+|  |space|  |space| :ref:`4.1.1<add_line_numbers>` Add Line Numbers to File Data

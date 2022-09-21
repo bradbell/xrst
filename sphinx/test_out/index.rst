@@ -10,4 +10,5 @@ xrst
    example
    user_guide
    appendix
+   devel
    xrst_index

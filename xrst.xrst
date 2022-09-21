@@ -227,3 +227,14 @@ xrst Release Notes By Year
 
 {xrst_end release_notes}
 ----------------------------------------------------------------------------
+dev group name
+----------------------------------------------------------------------------
+{xrst_begin devel dev}
+
+Developer Documentation
+#######################
+
+{xrst_toc_table
+   xrst/__init__.py
+}
+{xrst_end devel}

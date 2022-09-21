@@ -261,8 +261,8 @@ def get_file_info(
          m_end     = xrst.pattern['end'].search(file_data, data_index)
          #
          if m_end == None :
-            msg  = 'Expected the followig text at start of a line:\n'
-            msg += '    {xrst_end page_name}'
+            msg  = 'Could not find the followig text:\n'
+            msg += '    {xrst_end ' + page_name + '}'
             xrst.system_exit(
                msg, file_name=file_in, page_name=page_name
             )
@@ -303,7 +303,7 @@ def get_file_info(
                   line      = line,
                )
             #
-            pattern_ch  = re.compile( r'\n[' + comment_ch + r'] ?' )
+            pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
             page_data   = pattern_ch.sub(r'\n', page_data)
          #
          # file_info

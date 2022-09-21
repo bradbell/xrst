@@ -4,3 +4,6 @@
 cpp
 py
 rst
+#
+# python types
+str
