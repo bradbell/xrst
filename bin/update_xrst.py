@@ -6,6 +6,7 @@
 import sys
 import re
 import os
+import xrst
 #
 # usage
 usage = \
@@ -15,6 +16,9 @@ usage: update_xrst.py operation file_in file_out
 operation: is one of the following: dot2atsign
 file_in:   is the name of the file we are updating.
 file_out:  is the name of the updated file. It can be the samle as file_in.
+
+comment_ch:
+Change comment_ch command from file scope to page scope.
 
 ref_section_2:
 Change :ref:`section_name-0` -> :ref:`section_name-0`,
@@ -62,6 +66,51 @@ def ref_section_2(data_in) :
    #
    # data_out
    data_out  = pattern.sub( r':ref:`\1-0`', data_in)
+   return data_out
+#
+# comment_ch:
+def comment_ch(data_in) :
+   # data_out
+   data_out = data_in
+   #
+   # command
+   pattern = re.compile(
+      r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
+   )
+   m_obj = pattern.search(data_out)
+   if m_obj == None :
+      return data_out
+   comment_ch = m_obj.group(2)
+   command    = comment_ch + ' {xrst_comment_ch ' + comment_ch + '}\n'
+   #
+   # data_out
+   start = m_obj.start() - 1
+   while start > 0 and data_out[start] in '[ \t]' :
+      start -= 1
+   assert data_out[start] == comment_ch
+   end   = m_obj.end()
+   while data_out[end] in '[ \t]' :
+      end += 1
+   assert data_out[end] == '\n'
+   data_out = data_out[: start] + data_out[end +1 :]
+   #
+   # pattern
+   pattern = re.compile(
+      r'([^\\]{xrst_(begin|begin_parent)[ \t]+[^}]*}[^\n]*\n)([ \t]*)'
+   )
+   #
+   # m_begin
+   m_begin = pattern.search(data_out)
+   while m_begin :
+      #
+      # indent
+      indent = m_begin.group(3)
+      #
+      # data_out
+      end      = m_begin.end()
+      data_out = data_out[: end] + command + indent + data_out[end :]
+      #
+      m_begin = pattern.search(data_in, end + len(command))
    return data_out
 #
 # literal_order:
@@ -275,6 +324,7 @@ def main() :
    #
    # operation_dict
    operation_dict = {
+      'comment_ch'    :  comment_ch,
       'ref_section_2' :  ref_section_2,
       'literal_order' :  literal_order,
       'tab3space'     :  tab3space,

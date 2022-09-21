@@ -37,20 +37,6 @@ you need to inform xrst of the special character so it does
 not end up in your ``.rst`` output file.
 
 .. meta::
-   :keywords: location
-
-.. index:: location
-
-.. _comment_ch_cmd@Command Location:
-
-Command Location
-****************
-There can be only one occurrence of this command within a file,
-it's effect lasts for the entire file, and
-it must come before the first :ref:`begin command<begin_cmd>` in the file.
-All the other xrst commands must occur between a begin / end command pair.
-
-.. meta::
    :keywords: ch
 
 .. index:: ch

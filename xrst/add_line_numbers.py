@@ -3,12 +3,12 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
-# {xrst_comment_ch #}
 #
 # pattern
 pattern = re.compile( r'^\n[ \t]*' )
 #
 # {xrst_begin add_line_numbers dev}
+# {xrst_comment_ch #}
 # {xrst_spell
 #  newlines
 # }

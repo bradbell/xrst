@@ -8,6 +8,8 @@ comment_example
 
 xrst input file: ``example/comment.r``
 
+{xrst_comment_ch #}
+
 .. meta::
    :keywords: comment_example, comment
 

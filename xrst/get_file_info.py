@@ -142,9 +142,6 @@ def get_file_info(
    # file_data
    file_data = xrst.add_line_numbers(file_data)
    #
-   # comment_ch
-   comment_ch = xrst.get_comment_ch(file_data, file_in)
-   #
    # file_info
    file_info = list()
    #
@@ -289,20 +286,10 @@ def get_file_info(
          page_data, indent = xrst.remove_indent(
             page_data, file_in, page_name
          )
+         #
+         # page_data
+         comment_ch = xrst.get_comment_ch(page_data, file_in, page_name)
          if comment_ch :
-            data_before = file_data[: m_begin.start()]
-            index       = data_before.rfind('\n')
-            if data_before.find(comment_ch, index) < 0 :
-               line = data_before.count('\n') + 1
-               msg  = f'In line {line} in file {file_in}\n'
-               msg += 'This line does not contain the comment character '
-               msg += comment_ch + '\n'
-               msg += 'before the begin command in that line.'
-               xrst.system_exit(msg,
-                  file_name = file_in,
-                  line      = line,
-               )
-            #
             pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
             page_data   = pattern_ch.sub(r'\n', page_data)
          #

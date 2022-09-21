@@ -227,6 +227,9 @@ def spell_command(
    data_tmp = pattern['url_1'].sub('', data_tmp)
    data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
    #
+   # any left over xrst commands
+   data_tmp = re.sub( r'{xrst_[a-z_]*' , '', data_tmp)
+   #
    # first_spell_error
    first_spell_error = True
    #
