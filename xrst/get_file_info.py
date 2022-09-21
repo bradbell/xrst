@@ -288,7 +288,9 @@ def get_file_info(
          )
          #
          # page_data
-         comment_ch = xrst.get_comment_ch(page_data, file_in, page_name)
+         page_data, comment_ch = xrst.get_comment_ch(
+            page_data, file_in, page_name
+         )
          if comment_ch :
             pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
             page_data   = pattern_ch.sub(r'\n', page_data)

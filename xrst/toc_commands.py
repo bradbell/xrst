@@ -193,7 +193,9 @@ def toc_commands(data_in, file_name, page_name) :
    data_out = xrst.pattern['toc'].sub(replace, data_out)
    #
    # file_list, file_line
-   for child_line in m_obj.group(2).split('\n') :
+   child_list =  m_obj.group(2).split('\n')
+   child_list = child_list[: -1]
+   for child_line in child_list :
       if child_line != '' :
          m_child = xrst.pattern['line'].search(child_line)
          assert m_child != None

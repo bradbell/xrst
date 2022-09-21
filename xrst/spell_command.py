@@ -184,7 +184,6 @@ def spell_command(
          msg  = 'The word list in spell command contains a character\n'
          msg += 'that is not a letter or white space.\n'
          msg += f'ascii code = {ascii_code}, character = {ch}.'
-         breakpoint()
          xrst.system_exit(
             msg,
             file_name=file_name,
@@ -228,7 +227,7 @@ def spell_command(
    data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
    #
    # any left over xrst commands
-   data_tmp = re.sub( r'{xrst_[a-z_]*' , '', data_tmp)
+   data_tmp = re.sub( r'{xrst_comment_ch' , '', data_tmp)
    #
    # first_spell_error
    first_spell_error = True

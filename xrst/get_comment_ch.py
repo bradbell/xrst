@@ -78,6 +78,9 @@ pattern['comment_ch'] = xrst.pattern['comment_ch']
 # data_in:
 # is the data for this page.
 #
+# data_out:
+# is a copy of data_in with the comment command removed.
+#
 # file_name:
 # is the name of this file (used for error reporting).
 #
@@ -88,7 +91,7 @@ pattern['comment_ch'] = xrst.pattern['comment_ch']
 # is a the comment character for this file. It is None when the
 # is no comment character command for the file.
 #
-# comment_ch =
+# data_out, comment_ch =
 def get_comment_ch(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
@@ -108,6 +111,9 @@ def get_comment_ch(data_in, file_name, page_name) :
             m_obj     = m_error,
             data      = data_in,
          )
+      #
+      # data_out
+      data_out = data_in
       #
       # comment_ch
       comment_ch = None
@@ -142,5 +148,9 @@ def get_comment_ch(data_in, file_name, page_name) :
             m_obj     = m_rest,
             data      = data_in,
          )
+      #
+      # data_out
+      data_out= data_in[: m_obj.start()] + data_in[ m_obj.end() :]
+      #
    #
-   return comment_ch
+   return data_out, comment_ch

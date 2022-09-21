@@ -8,8 +8,6 @@ comment_ch_example
 
 xrst input file: ``example/comment_ch.m``
 
-{xrst_comment_ch %}
-
 .. meta::
    :keywords: comment_ch_example, comment, character
 

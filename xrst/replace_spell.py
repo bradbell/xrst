@@ -38,6 +38,7 @@ def replace_spell(tmp_dir) :
       file_ptr.close()
       #
       # comment_ch
+      assert False, '2DO: fix replace_spell because comment_ch is page local'
       comment_ch = xrst.get_comment_ch(data_in,  file_name)
       #
       # page_list
