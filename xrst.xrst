@@ -162,11 +162,11 @@ Appendix
 ----------------------------------------------------------------------------
 {xrst_begin wish_list app}
 {xrst_spell
-   stackoverflow
-   dir
    conf
-   toml
    devel
+   dir
+   stackoverflow
+   toml
 }
 
 Wish List

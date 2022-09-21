@@ -37,10 +37,6 @@ def replace_spell(tmp_dir) :
       data_in  = file_ptr.read()
       file_ptr.close()
       #
-      # comment_ch
-      assert False, '2DO: fix replace_spell because comment_ch is page local'
-      comment_ch = xrst.get_comment_ch(data_in,  file_name)
-      #
       # page_list
       # add begin_index, start_index, end_index
       line_number = 0
@@ -78,6 +74,11 @@ def replace_spell(tmp_dir) :
          #
          # indent
          not_used, indent = xrst.remove_indent(
+            page_data, file_name, page_name
+         )
+         #
+         # comment_ch
+         not_used, comment_ch = xrst.get_comment_ch(
             page_data, file_name, page_name
          )
          #

@@ -3,10 +3,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 % ----------------------------------------------------------------------------
 %
    % {xrst_begin comment_ch_example}
-   % {xrst_comment_ch %}
    % {xrst_spell
    %     ch
    % }
+   % {xrst_comment_ch %}
    %
    % Comment Character Command Example
    % #################################
