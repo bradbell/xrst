@@ -25,6 +25,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-22
+=====
+The code command would not include the
+:ref:`comment character <comment_ch_cmd>` in it's displayed output.
+This has been fixed.
+
 09-21
 =====
 1. Add the ``dev`` group to the xrst documentation.

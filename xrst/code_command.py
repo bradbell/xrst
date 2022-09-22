@@ -75,15 +75,23 @@ import xrst
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
+# rst_dir:
+# is the directory, relative to the current working directory,
+# where xrst will place the final rst files.
+#
 # data_out:
 # is a copy of data_in with the xrst code commands replaced by corrsponding
 # sphinx command.
 #
 # data_out =
-def code_command(data_in, file_name, page_name) :
+def code_command(data_in, file_name, page_name, rst_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
+   #
+   # work_dir
+   depth    = rst_dir.count('/') + 1
+   work_dir = depth * '../'
    #
    # data_out
    data_out = data_in
@@ -137,20 +145,6 @@ def code_command(data_in, file_name, page_name) :
             data=data_out
          )
       #
-      # indent_begin
-      indent_begin = m_begin.group(1)
-      indent_end   = m_end.group(1)
-      if indent_begin != indent_end :
-         msg  = "Start code command indent is not equal it's stop indent."
-         msg += f"start indent = '{indent_begin}'\n"
-         msg += f"stop  indent = '{indent_end}'"
-         xrst.system_exit(msg,
-            file_name=file_name,
-            page_name=page_name,
-            m_obj=m_begin,
-            data=data_out
-         )
-      #
       # language
       # fix cases that pygments has trouble with ?
       if language == 'hpp' :
@@ -158,31 +152,27 @@ def code_command(data_in, file_name, page_name) :
       if language == 'm' :
          language = 'matlab'
       #
-      # data_before
-      data_before  = data_out[ : m_begin.start() + 1]
-      assert data_before[-1] == '\n'
-      data_before += '\n'
-      #
-      # data_between
-      data_between  = data_out[m_begin.end() : m_end.start()]
-      xrst.check_indent(
-         file_name    = file_name,
-         page_name    = page_name,
-         command_name = 'code',
-         data         = data_between,
-         indent       = indent_begin
-      )
-      data_between  = data_between.replace('\n', '\n' + 3 * ' ')
-      data_between += '\n'
-      #
-      # data_after
+      # data_before, data_after
+      data_before = data_out[: m_begin.start()]
       data_after  = data_out[m_end.end() : ]
-      assert data_after[0] == '\n'
+      #
+      # start_line, stop_line
+      assert data_out[m_begin.end()] == '\n'
+      assert data_out[m_end.end()] == '\n'
+      start_line = int(m_begin.group(5)) + 1
+      stop_line  = int(m_end.group(5)) - 1
+      #
+      # cmd
+      command  = f'.. literalinclude:: {work_dir}{file_name}\n'
+      command += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+      command += 3 * ' ' + f':language: {language}\n'
+      command = '\n' + command + '\n'
+      assert data_after.startswith('\n')
+      if not data_before.strip(' ').endswith('\n') :
+         command = '\n' + command
       #
       # data_left, data_after
-      data_left  = data_before
-      data_left += indent_begin + '.. code-block:: ' + language + '\n\n'
-      data_left += data_between
+      data_left  = data_before + command
       data_out   = data_left + data_after
       #
       # m_begin

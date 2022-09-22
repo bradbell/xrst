@@ -52,9 +52,6 @@ The return data_out is a modified version of data_in. The text
 is added at the end of each non-empty line.
 Spaces and tabs in empty lines are removed (so they are truely empty).
 
-.. code-block:: py
-
-   data_out =
-   def add_line_numbers(data_in) :
-      assert type(data_in) == str
-   assert type(data_out) == str
+.. literalinclude:: ../../xrst/add_line_numbers.py
+   :lines: 37-40
+   :language: py

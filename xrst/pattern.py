@@ -48,7 +48,7 @@ pattern['toc']   = re.compile(
 # group(5): the line number for this line; see pattern['line'] above.
 pattern['code'] = re.compile(
    r'\n([ \t]*)({xrst_code *|([^\n]*[^\n\\]){xrst_code *)' +
-   r'([^}]*)}[^\n]*({xrst_line [0-9]+@)'
+   r'([^}]*)}[^\n]*{xrst_line ([0-9]+)@'
 )
 #
 # pattern['comment_ch']

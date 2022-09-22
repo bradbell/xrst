@@ -30,18 +30,24 @@ Comment Character Command Example
 Discussion
 **********
 The ``%`` at the beginning of a line,
-and space directly after it (if it exists), are removed.
-The remaining text lines up with the first line in the
-function definition below:
+and space directly after it (if it exists), are removed before
+processing xrst commands.
 
-.. code-block:: matlab
+.. meta::
+   :keywords: xrst_code
 
-   function n_fac = factorial(n)
-      if( n == 0 )
-         n_fac = 1;
-      else
-         n_fac =  n * factorial(n-1);
-      end
+.. index:: xrst_code
+
+.. _comment_ch_example@xrst_code:
+
+xrst_code
+*********
+The xrst_code command reports the orignal source code, before removing
+the comment character or the indentation.
+
+.. literalinclude:: ../../example/comment_ch.m
+   :lines: 25-32
+   :language: matlab
 
 .. meta::
    :keywords: indent
@@ -52,7 +58,7 @@ function definition below:
 
 Indent
 ******
-Note that the special character ``%`` has the same indent as
+Note that the special character ``%`` has the same indentation as
 the source code in this page.
 
 .. meta::

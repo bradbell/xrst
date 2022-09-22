@@ -31,12 +31,9 @@ Code Command
 ************
 #. The ``{xrst_code py}`` cannot be on the first line of a list item.
 
-   .. code-block:: py
-
-      def factorial(n) :
-         if n == 1 :
-            return 1
-         return n * factorial(n-1)
+.. literalinclude:: ../../example/list.py
+   :lines: 14-17
+   :language: py
 
 #. This is the first line of the next list item.
 

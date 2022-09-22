@@ -14,11 +14,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
    % Discussion
    % **********
    % The ``%`` at the beginning of a line,
-   % and space directly after it (if it exists), are removed.
-   % The remaining text lines up with the first line in the
-   % function definition below:
+   % and space directly after it (if it exists), are removed before
+   % processing xrst commands.
    %
+   % xrst_code
+   % *********
+   % The xrst_code command reports the orignal source code, before removing
+   % the comment character or the indentation.
    % {xrst_code m}
+   %
+   % set n_fac = n !
    function n_fac = factorial(n)
       if( n == 0 )
          n_fac = 1;
@@ -29,7 +34,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    %
    % Indent
    % ******
-   % Note that the special character ``%`` has the same indent as
+   % Note that the special character ``%`` has the same indentation as
    % the source code in this page.
    %
    % xrst_comment_ch

@@ -546,6 +546,7 @@ def run_xrst() :
                page_data,
                file_in,
                page_name,
+               rst_dir,
             )
             # ------------------------------------------------------------
             # literal command

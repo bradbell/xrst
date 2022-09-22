@@ -30,12 +30,9 @@ Code Command Example
 Factorial
 *********
 
-.. code-block:: py
-
-   def factorial(n) :
-      if n == 1 :
-         return 1
-      return n * factorial(n-1)
+.. literalinclude:: ../../example/code.py
+   :lines: 13-16
+   :language: py
 
 .. meta::
    :keywords: xrst_code

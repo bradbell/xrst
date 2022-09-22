@@ -34,14 +34,9 @@ The multiple line comment is directly before this sentence.
 Factorial
 *********
 
-.. code-block:: r
-
-   factorial <- function(n)
-   {  if( n == 0 )
-         return(1)
-      else
-         return( n * factorial(n-1) )
-   }
+.. literalinclude:: ../../example/comment.r
+   :lines: 20-25
+   :language: r
 
 .. meta::
    :keywords: xrst_comment
