@@ -27,9 +27,10 @@ mm-dd
 
 09-22
 =====
-The code command would not include the
-:ref:`comment character <comment_ch_cmd>` in it's displayed output.
-This has been fixed.
+1. The code command would not include the
+   :ref:`comment character <comment_ch_cmd>` in it's displayed output.
+   This has been fixed.
+2. An :ref:`list_example@RST Directive` was added to the list example.
 
 09-21
 =====

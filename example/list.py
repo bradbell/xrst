@@ -3,7 +3,9 @@
 # ----------------------------------------------------------------------------
 """
 {xrst_begin list_example}
-
+{xrst_spell
+   csv
+}
 Example using Commands in a List
 ################################
 
@@ -16,11 +18,19 @@ Code Command
          return 1
       return n * factorial(n-1)
    """{xrst_code}
-#. This is the first line of the next list item.
+#. This is the second item for this list
 
-Lists
-*****
-The file below demonstrates using xrst commands in a list item.
+RST Directive
+*************
+#. This list demonstrates using an rst directive in a list
+   .. csv_table::
+
+      a11, a12
+      a21, a22
+
+#. This is the second item for this list
+
+
 
 This Example File
 *****************

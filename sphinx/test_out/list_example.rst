@@ -32,21 +32,27 @@ Code Command
 #. The ``{xrst_code py}`` cannot be on the first line of a list item.
 
 .. literalinclude:: ../../example/list.py
-   :lines: 14-17
+   :lines: 16-19
    :language: py
 
-#. This is the first line of the next list item.
+#. This is the second item for this list
 
 .. meta::
-   :keywords: lists
+   :keywords: rst, directive
 
-.. index:: lists
+.. index:: rst, directive
 
-.. _list_example@Lists:
+.. _list_example@RST Directive:
 
-Lists
-*****
-The file below demonstrates using xrst commands in a list item.
+RST Directive
+*************
+#. This list demonstrates using an rst directive in a list
+   .. csv_table::
+
+      a11, a12
+      a21, a22
+
+#. This is the second item for this list
 
 .. _list_example@This Example File:
 
