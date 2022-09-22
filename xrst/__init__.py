@@ -13,6 +13,8 @@
 #  xrst/auto_file.py
 #  xrst/check_page_name.py
 #  xrst/check_syntax_error.py
+#  xrst/code_command.py
+#  xrst/comment_command.py
 # }
 #
 # {xrst_end module}
@@ -29,7 +31,7 @@ from .code_command           import code_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
-from .comment_ch_command         import comment_ch_command
+from .comment_ch_command     import comment_ch_command
 from .get_file_info          import get_file_info
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices

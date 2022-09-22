@@ -30,18 +30,30 @@ import xrst
 pattern = re.compile(
    r'([^\n]*[^\\]){xrst_comment[^a-z_][^}]*}([^\n]*\n)'
 )
+# {xrst_begin comment_cmd_dev dev}
+# {xrst_spell
+# }
+# {xrst_comment_ch #}
 #
 # Remove all comment commands
+# ###########################
 #
 # data_in
+# *******
 # is the data for this page.
 #
 # data_out
+# ********
 # The return data_out is a copy of data_in except that the comment
 # commands have been removed.
 #
+# {xrst_code py}
 # data_out =
 def comment_command(data_in) :
+   assert type(data_in) == str
+   # assert type(data_out) == str
+   # {xrst_code}
+   # {xrst_end comment_cmd_dev}
    #
    # data_out
    data_out = data_in

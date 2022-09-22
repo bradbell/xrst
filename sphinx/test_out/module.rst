@@ -28,6 +28,8 @@ The xrst Module
    "auto_file_dev", :ref:`auto_file_dev-0`
    "check_page_name", :ref:`check_page_name-0`
    "check_syntax_error", :ref:`check_syntax_error-0`
+   "code_cmd_dev", :ref:`code_cmd_dev-0`
+   "comment_cmd_dev", :ref:`comment_cmd_dev-0`
 
 .. toctree::
    :maxdepth: 1
@@ -37,3 +39,5 @@ The xrst Module
    auto_file_dev
    check_page_name
    check_syntax_error
+   code_cmd_dev
+   comment_cmd_dev

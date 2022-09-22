@@ -54,34 +54,51 @@ Example
 """
 # ----------------------------------------------------------------------------
 import xrst
+# {xrst_begin code_cmd_dev dev}
+# {xrst_spell
+#  dir
+# }
+# {xrst_comment_ch #}
 #
-# Process the xrst code commands for a page.
+# Process the xrst code commands for a page
+# #########################################
 #
-# data_in:
-# is the data for the page before the code commands have been processed.
-# Line numbers have been added to this data: see add_line_numbers.
+# data_in
+# *******
+# is the data for the page before the
+# :ref:`code commands <code_cmd>` have been processed.
+# Line numbers have been added to this data: see :ref:`add_line_numbers`.
 #
-# file_name:
+# file_name
+# *********
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
-# page_name:
+# page_name
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# rst_dir:
+# rst_dir
+# *******
 # is the directory, relative to the current working directory,
 # where xrst will place the final rst files.
 #
-# data_out:
-# is a copy of data_in with the xrst code commands replaced by corrsponding
+# data_out
+# ********
+# is a copy of data_in with the xrst code commands replaced by a corresponding
 # sphinx command.
 #
+# {xrst_code py}
 # data_out =
 def code_command(data_in, file_name, page_name, rst_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
+   assert type(rst_dir) == str
+   # assert type(data_out) == str
+   # {xrst_code}
+   # {xrst_end code_cmd_dev}
    #
    # work_dir
    depth    = rst_dir.count('/') + 1
