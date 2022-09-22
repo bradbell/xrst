@@ -1,20 +1,38 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
-# Convert lines in a file to a list of strings.
+# {xrst_begin file2_list_str dev}
+# {xrst_spell
+#  newline
+#  len
+# }
+# {xrst_comment_ch #}
 #
-# file_name:
+# Convert lines in a file to a list of strings
+# ############################################
+#
+# file_name
+# *********
 # is the name of the file that we are converting.
 #
-# list_str:
+# list_str
+# ********
 # the return value is a list of str, one for each line of the file.
-# 1. Lines that begin with the # character are not included.
-# 2. Leading and traiiling spaces ' ', tabs '\t', and the newline '\n'
-#    are not included.
-# 3. Empty lines, after step 2, are not included.
 #
+# #. Lines that begin with the # character are not included.
+# #. Leading and trailing spaces ' ', tabs '\t', and the newline '\n'
+#    are not included.
+# #. Empty lines, after step 2, are not included.
+#
+# {xrst_code py}
 # list_str =
 def file2_list_str(file_name) :
+   assert type(file_name) == str
+   # assert type(list_str) == list
+   # if len(list_str) > 0 :
+   #    assert type( list_str[0] ) == str
+   # {xrst_code}
+   # {xrst_end file2_list_str}
    file_ptr  = open(file_name, 'r')
    list_str  = list()
    for line in file_ptr :

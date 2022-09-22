@@ -16,6 +16,7 @@
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/create_spell_checker.py
+#  xrst/file2_list_str.py
 # }
 #
 # {xrst_end module}

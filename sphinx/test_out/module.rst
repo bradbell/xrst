@@ -31,6 +31,7 @@ The xrst Module
    "code_cmd_dev", :ref:`code_cmd_dev-0`
    "comment_cmd_dev", :ref:`comment_cmd_dev-0`
    "create_spell_checker", :ref:`create_spell_checker-0`
+   "file2_list_str", :ref:`file2_list_str-0`
 
 .. toctree::
    :maxdepth: 1
@@ -43,3 +44,4 @@ The xrst Module
    code_cmd_dev
    comment_cmd_dev
    create_spell_checker
+   file2_list_str
