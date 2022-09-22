@@ -6,7 +6,7 @@
 comment_ch_cmd
 !!!!!!!!!!!!!!
 
-xrst input file: ``xrst/get_comment_ch.py``
+xrst input file: ``xrst/comment_ch_command.py``
 
 .. meta::
    :keywords: comment_ch_cmd, comment, character

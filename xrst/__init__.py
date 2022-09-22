@@ -28,7 +28,7 @@ from .code_command           import code_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
-from .get_comment_ch         import get_comment_ch
+from .comment_ch_command         import comment_ch_command
 from .get_file_info          import get_file_info
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices

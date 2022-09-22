@@ -78,7 +78,7 @@ def replace_spell(tmp_dir) :
          )
          #
          # comment_ch
-         not_used, comment_ch = xrst.get_comment_ch(
+         not_used, comment_ch = xrst.comment_ch_command(
             page_data, file_name, page_name
          )
          #

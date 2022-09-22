@@ -289,7 +289,7 @@ def get_file_info(
          )
          #
          # page_data
-         page_data, comment_ch = xrst.get_comment_ch(
+         page_data, comment_ch = xrst.comment_ch_command(
             page_data, file_in, page_name
          )
          if comment_ch :

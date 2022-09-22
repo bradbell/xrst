@@ -92,7 +92,7 @@ pattern['comment_ch'] = xrst.pattern['comment_ch']
 # is no comment character command for the file.
 #
 # data_out, comment_ch =
-def get_comment_ch(data_in, file_name, page_name) :
+def comment_ch_command(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str

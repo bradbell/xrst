@@ -132,7 +132,7 @@ These commands are described in the pages below:
    xrst/code_command.py
    xrst/literal_command.py
    xrst/comment_command.py
-   xrst/get_comment_ch.py
+   xrst/comment_ch_command.py
 }
 
 {xrst_end commands}
