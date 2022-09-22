@@ -240,7 +240,7 @@ def get_file_info(
                msg += ' is not the first begin command in this file'
                xrst.system_exit(msg,
                   file_name     = file_in,
-                  page_name  = page_name,
+                  page_name     = page_name,
                   m_obj         = m_begin,
                   data          = file_data
                )
@@ -264,6 +264,7 @@ def get_file_info(
                msg, file_name=file_in, page_name=page_name
             )
          if m_end.group(1) != page_name :
+            breakpoint()
             msg = 'begin and end page names do not match\n'
             msg += 'begin name = ' + page_name + '\n'
             msg += 'end name   = ' + m_end.group(1)

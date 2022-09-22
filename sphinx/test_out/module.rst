@@ -26,6 +26,7 @@ The xrst Module
 
    "add_line_numbers", :ref:`add_line_numbers-0`
    "auto_file_dev", :ref:`auto_file_dev-0`
+   "check_page_name", :ref:`check_page_name-0`
 
 .. toctree::
    :maxdepth: 1
@@ -33,3 +34,4 @@ The xrst Module
 
    add_line_numbers
    auto_file_dev
+   check_page_name
