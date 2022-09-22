@@ -2,22 +2,34 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 import spellchecker
+# {xrst_begin create_spell_checker dev}
+# {xrst_spell
+#  pyspellchecker
+#  len
+# }
+# {xrst_comment_ch #}
 #
 # Create a pyspellchecker object
+# ##############################
 #
-# local_words:
-# a list of words that get addeed to the dictionary for this spell checker.
+# local_words
+# ***********
+# a list of words that get added to the dictionary for this spell checker.
 # No need to add single letter words because they are considered correct
 # by spell_command routine.
 #
-# spell_checker:
+# spell_checker
+# *************
 # The return spell_checker is a pyspellchecker spell checking object.
 #
+# {xrst_code py}
 # spell_checker =
 def create_spell_checker(local_words) :
    assert type(local_words) == list
    if len(local_words) > 0 :
       assert type(local_words[0]) == str
+   # {xrst_code}
+   # {xrst_end create_spell_checker}
    #
    # spell_checker
    spell_checker = spellchecker.SpellChecker(distance=1)

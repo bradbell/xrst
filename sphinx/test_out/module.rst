@@ -30,6 +30,7 @@ The xrst Module
    "check_syntax_error", :ref:`check_syntax_error-0`
    "code_cmd_dev", :ref:`code_cmd_dev-0`
    "comment_cmd_dev", :ref:`comment_cmd_dev-0`
+   "create_spell_checker", :ref:`create_spell_checker-0`
 
 .. toctree::
    :maxdepth: 1
@@ -41,3 +42,4 @@ The xrst Module
    check_syntax_error
    code_cmd_dev
    comment_cmd_dev
+   create_spell_checker

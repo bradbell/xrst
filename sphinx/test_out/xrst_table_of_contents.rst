@@ -66,4 +66,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.4<check_syntax_error>` Check that an xrst command has been removed
 |  |space|  |space| :ref:`4.1.5<code_cmd_dev>` Process the xrst code commands for a page
 |  |space|  |space| :ref:`4.1.6<comment_cmd_dev>` Remove all comment commands
+|  |space|  |space| :ref:`4.1.7<create_spell_checker>` Create a pyspellchecker object
 |

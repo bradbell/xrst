@@ -15,6 +15,7 @@
 #  xrst/check_syntax_error.py
 #  xrst/code_command.py
 #  xrst/comment_command.py
+#  xrst/create_spell_checker.py
 # }
 #
 # {xrst_end module}
