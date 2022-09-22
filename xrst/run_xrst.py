@@ -530,6 +530,7 @@ def run_xrst() :
                   page_data,
                   file_in,
                   page_name,
+                  group_name,
             )
             #
             # page_index, finfo_stack

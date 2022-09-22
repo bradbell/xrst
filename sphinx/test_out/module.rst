@@ -25,9 +25,11 @@ The xrst Module
    :widths: auto
 
    "add_line_numbers", :ref:`add_line_numbers-0`
+   "auto_file_dev", :ref:`auto_file_dev-0`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    add_line_numbers
+   auto_file_dev

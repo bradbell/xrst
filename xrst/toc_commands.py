@@ -112,6 +112,7 @@ Example
 # ---------------------------------------------------------------------------
 import os
 import xrst
+import re
 #
 # process toc commands
 #
@@ -126,6 +127,9 @@ import xrst
 # page_name:
 # is the name of the page that this data is in. This is only used
 # for error reporting.
+#
+# group_name:
+# We are only retrieving information for pages in this group.
 #
 # data_out:
 # The first retrun data_out is a copy of data_in with the
@@ -145,10 +149,11 @@ import xrst
 # pages in the file are in child_page_list.
 #
 # data_out, file_list, page_list =
-def toc_commands(data_in, file_name, page_name) :
+def toc_commands(data_in, file_name, page_name, group_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
+   assert type(group_name) == str
    #
    # data_out
    data_out = data_in
@@ -158,34 +163,34 @@ def toc_commands(data_in, file_name, page_name) :
    file_line    = list()
    page_list = list()
    #
-   # m_obj
-   m_obj        = xrst.pattern['toc'].search(data_out)
-   if m_obj is None :
+   # m_toc
+   m_toc        = xrst.pattern['toc'].search(data_out)
+   if m_toc is None :
       xrst.check_syntax_error(
          command_name    = 'toc',
          data            = data_out,
          file_name       = file_name,
-         page_name    = page_name,
+         page_name       = page_name,
       )
       return data_out, file_list, page_list
    #
    # m_tmp
-   m_tmp = xrst.pattern['toc'].search(data_out[m_obj.end() :] )
+   m_tmp = xrst.pattern['toc'].search(data_out[m_toc.end() :] )
    if m_tmp is not None :
       msg = 'More than one children or toc_list command in a page.'
       xrst.system_exit(msg,
          file_name=file_name,
          page_name=page_name,
          m_obj=m_tmp,
-         data=data_out[m_obj.end():]
+         data=data_out[m_toc.end():]
       )
    #
    # command
-   command = m_obj.group(1)
+   command = m_toc.group(1)
    assert command in [ 'hidden', 'list', 'table']
    #
    # preceeding_character
-   preceeding_character = data_out[ m_obj.start() ]
+   preceeding_character = data_out[ m_toc.start() ]
    assert preceeding_character != '\\'
    #
    # data_out
@@ -193,7 +198,7 @@ def toc_commands(data_in, file_name, page_name) :
    data_out = xrst.pattern['toc'].sub(replace, data_out)
    #
    # file_list, file_line
-   child_list =  m_obj.group(2).split('\n')
+   child_list =  m_toc.group(2).split('\n')
    child_list = child_list[: -1]
    for child_line in child_list :
       if child_line != '' :
@@ -219,50 +224,64 @@ def toc_commands(data_in, file_name, page_name) :
             file_name=file_name, page_name=page_name, line=child_line
          )
       #
-      # file_data
+      # child_data
       # errors in the begin and end commands will be detected later
       # when this file is processed.
       file_ptr    = open(child_file, 'r')
-      file_data   = file_ptr.read()
+      child_data  = file_ptr.read()
       file_ptr.close()
       file_index  = 0
       #
-      # m_obj
-      m_obj  = xrst.pattern['begin'].search(file_data)
-      if m_obj is None :
+      # m_begin
+      m_begin         = xrst.pattern['begin'].search(child_data)
+      if m_begin is None :
          msg  = 'The file ' + child_file + '\n'
          msg += 'in the ' + command + ' command does not contain any '
-         msg += 'begin commands.\n'
+         msg += 'begin commands.'
          xrst.system_exit(msg,
             file_name=file_name, page_name=page_name, line=child_line
          )
+      this_group_name = m_begin.group(4).strip(' \t')
+      while this_group_name != group_name :
+         m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
+         if m_begin == None :
+            msg  = 'The file ' + child_file + '\n'
+            msg += 'in the toc ' + command + ' command does not contain any '
+            msg += f'begin commands with group name {group_name}.'
+            xrst.system_exit(msg,
+               file_name=file_name, page_name=page_name, line=child_line
+            )
+         this_group_name = m_begin.group(4).strip(' \t')
       #
       # list_children
-      found_parent  = m_obj.group(2) == 'begin_parent'
-      child_name    = m_obj.group(3)
+      found_parent  = m_begin.group(2) == 'begin_parent'
+      child_name    = m_begin.group(3)
       list_children = [ child_name ]
       #
-      # m_obj
-      m_obj = xrst.pattern['begin'].search(file_data, m_obj.end() )
+      # m_begin
+      m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
       #
-      while not found_parent and m_obj != None :
-         is_parent = m_obj.group(2) == 'begin_parent'
-         if is_parent :
-            msg  = 'Found a begin_parent command that is'
-            msg += ' not the first begin command in this file'
-            xrst.system_exit(msg,
-               file_name=child_file,
-               page_name=page_name,
-               m_obj=m_obj,
-               data=file_data
-            )
-         child_name = m_obj.group(3)
+      while not found_parent and m_begin != None :
+         this_group_name = m_begin.group(4).strip(' \t')
+         if this_group_name == group_name :
+            is_parent       = m_begin.group(2) == 'begin_parent'
+            if is_parent :
+               msg  = 'Found a begin_parent command that is'
+               msg += ' not the first begin command in this file'
+               msg += f' for group name {group_name}'
+               xrst.system_exit(msg,
+                  file_name=child_file,
+                  page_name=page_name,
+                  m_obj=m_begin,
+                  data=child_data
+               )
+            child_name = m_begin.group(3)
+            #
+            # list_children
+            list_children.append( child_name )
          #
-         # list_children
-         list_children.append( child_name )
-         #
-         # m_obj
-         m_obj   = xrst.pattern['begin'].search(file_data, m_obj.end() )
+         # m_begin
+         m_begin   = xrst.pattern['begin'].search(child_data, m_begin.end() )
       #
       # page_list
       page_list += list_children
@@ -271,6 +290,6 @@ def toc_commands(data_in, file_name, page_name) :
       command_name    = 'toc',
       data            = data_out,
       file_name       = file_name,
-      page_name    = page_name,
+      page_name       = page_name,
    )
    return data_out, file_list, page_list

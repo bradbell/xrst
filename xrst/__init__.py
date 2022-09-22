@@ -10,6 +10,7 @@
 #
 # {xrst_toc_table
 #  xrst/add_line_numbers.py
+#  xrst/auto_file.py
 # }
 #
 # {xrst_end module}

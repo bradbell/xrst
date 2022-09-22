@@ -128,56 +128,82 @@ def preamble_macros(sphinx_dir) :
    #
    return macro_list
 # ----------------------------------------------------------------------------
+# {xrst_begin auto_file_dev dev}
+# {xrst_spell
+#  dir
+#  tmp
+#  sinfo
+#  bool
+#  genindex
+#  conf
+# }
+# {xrst_comment_ch #}
 #
 # Create the automatically generated files
+# ########################################
 #
-# html_theme:
+# html_theme
+# **********
 # The html_theme as on the xrst command line.
 #
-# sphinx_dir:
-# is the name of xrst command line line argument *sphinx_dir*.
+# sphinx_dir
+# **********
+# is the name of xrst command line argument *sphinx_dir*.
 #
-# tmp_dir:
+# tmp_dir
+# *******
 # is the name of the directory where xrst creates a temporary copy of
 # the sphinx_dir/rst directory. We need not add a comment that these files
 # are automatically generated because all files in sphinx_dir/rst are.
 #
-# target:
+# target
+# ******
 # is html or pdf
 #
-# sinfo_list:
+# sinfo_list
+# **********
 # is a list with length equal to the number of pages.
-# The value page[page_index] is a dictionary for this seciton
-# with the following key, value pairs (all the keys are strings:
-# key            value
-# page_name   a str continaing the name of this page.
-# page_title  a str containing the title for this page.
-# parent_page an int index in sinfo_list for the parent of this page.
-# in_parent_file is this page in same input file as its parent.
+# The value page[page_index] is a dictionary for this page
+# with the following key, value pairs (all the keys are strings):
 #
-# root_page_list:
+# .. csv-table::
+#     :header: key, value
+#
+#     page_name, (str) containing the name of this page.
+#     page_title,  (str) containing the title for this page.
+#     parent_page, (int) index in sinfo_list for the parent of this page.
+#     in_parent_file, (bool) is this page in same input file as its parent.
+#
+# root_page_list
+# **************
 # is a list of the root page names (one for each group) in the order
 # they will appear in the table of contents.
 #
 # tmp_dir/xrst_table_of_contents.rst
+# **********************************
 # This file creates is the table of contents for the documentation.
-# It has the lable xrst_table_of_contents which can be used to link
+# It has the label xrst_table_of_contents which can be used to link
 # to this page.
 #
 # tmp_dir/xrst_preamble.rst
+# *************************
 # This is a copy of the sphinx_dir/preamble.rst file. If target is
 # pdf (html) the latex macros are (are not) removed.
 #
 # tmp_dir/xrst_index.rst
-# This file just contians a link to the genindex.rst file.
+# **********************
+# This file just contains a link to the genindex.rst file.
 # It is (is not) included if target is html (pdf).
 #
 # sphinx_dir/rst/conf.py
-# This is the configuration file used by sphinx to build the docuementation.
+# **********************
+# This is the configuration file used by sphinx to build the documentation.
 #
 # sphinx_dir/rst/index.rst
+# ************************
 # This is the root level in the sphinx documentation tree.
 #
+# {xrst_code py}
 def auto_file(
    html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_page_list
    ) :
@@ -187,6 +213,8 @@ def auto_file(
    assert type(target) == str
    assert type(sinfo_list) == list
    assert type(root_page_list) == list
+   # {xrst_code}
+   # {xrst_end auto_file_dev}
    #
    # project_name
    project_name = sinfo_list[0]['file_in']

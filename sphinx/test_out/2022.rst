@@ -38,6 +38,9 @@ mm-dd
    :ref:`comment character <comment_ch_cmd>` in it's displayed output.
    This has been fixed.
 2. An :ref:`list_example@RST Directive` was added to the list example.
+3. All the pages were being included by the :ref:`toc_cmd`.
+   This has been fixed; i.e., only child pages with the same
+   :ref:`begin_cmd@group_name` are included.
 
 .. _2022@mm-dd@09-21:
 
