@@ -12,6 +12,7 @@
 #  xrst/add_line_numbers.py
 #  xrst/auto_file.py
 #  xrst/check_page_name.py
+#  xrst/check_syntax_error.py
 # }
 #
 # {xrst_end module}

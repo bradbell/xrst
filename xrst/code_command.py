@@ -172,4 +172,12 @@ def code_command(data_in, file_name, page_name, rst_dir) :
       # m_begin
       m_begin = xrst.pattern['code'].search(data_out, len(data_left) )
    #
+   # check_syntax_error
+   xrst.check_syntax_error(
+      command_name  = 'code',
+      data          = data_out,
+      file_name     = file_name,
+      page_name     = page_name,
+   )
+   #
    return data_out

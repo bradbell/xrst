@@ -76,4 +76,7 @@ def comment_command(data_in) :
       # m_obj
       m_obj = pattern.search(data_out, m_obj.start())
    #
+   # check_syntax_error
+   # Cannot check for a syntax error in this command unless
+   # the comment_ch commands have already been processed.
    return data_out

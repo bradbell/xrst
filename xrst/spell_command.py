@@ -377,4 +377,12 @@ def spell_command(
    file_ptr.write(file_data)
    file_ptr.close()
    #
+   # check_syntax_error
+   xrst.check_syntax_error(
+      command_name  = 'spell',
+      data          = data_out,
+      file_name     = file_name,
+      page_name     = page_name,
+   )
+   #
    return data_out

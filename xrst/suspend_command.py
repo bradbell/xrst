@@ -105,4 +105,13 @@ def suspend_command(data_in, file_name, page_name) :
       #
       # m_suspend
       m_suspend = pattern_suspend.search(data_out)
+   #
+   # check_syntax_error
+   for command_name in [ 'suspend', 'resume' ] :
+      xrst.check_syntax_error(
+         command_name  = command_name,
+         data          = data_out,
+         file_name     = file_name,
+         page_name     = page_name,
+      )
    return data_out

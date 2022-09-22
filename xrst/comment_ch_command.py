@@ -153,4 +153,12 @@ def comment_ch_command(data_in, file_name, page_name) :
       data_out= data_in[: m_obj.start()] + data_in[ m_obj.end() :]
       #
    #
+   # check_syntax_error
+   xrst.check_syntax_error(
+      command_name  = 'comment_ch',
+      data          = data_out,
+      file_name     = file_name,
+      page_name     = page_name,
+   )
+   #
    return data_out, comment_ch

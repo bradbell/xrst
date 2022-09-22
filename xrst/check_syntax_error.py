@@ -3,29 +3,43 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
+# {xrst_begin check_syntax_error dev}
+# {xrst_spell
+# }
+# {xrst_comment_ch #}
 #
-# Check for an xrst command that should have been removed and if not,
-# report a syntax error.
 #
-# command_name:
-# is the name of the xrst command; i.e., the following characters
-# constitute a match for the command [^\\]{xrst_{command_name}[^z-a].
-# where {command_name} is repalaced by the command name
+# Check that an xrst command has been removed
+# ###########################################
 #
-# data:
+# command_name
+# ************
+# is the name of the xrst command; i.e., the following pattern
+# constitute a match for this command
+#
+# - ``[^\\]\{xrst_`` *command_name* ``[^z-a]``
+#
+# data
+# ****
 # is the data for this page. This includes line numbers added by
 # add_line_numbers.
 #
-# file_name:
+# file_name
+# *********
 # is the input that this page appears in (used for error reporting).
 #
-# page_name:
-# is None or the name of this page (used for error reporting).
+# page_name
+# *********
+# is ``None`` or the name of this page (used for error reporting).
 #
+# {xrst_code py}
 def check_syntax_error(command_name, data, file_name, page_name) :
+   assert type(command_name) == str
    assert type(data) == str
    assert type(file_name) == str
    assert type(page_name) == str or page_name == None
+   # {xrst_code}
+   # {xrst_end check_syntax_error}
    #
    pattern = r'[^\\]{xrst_' + command_name + r'[^a-z]'
    m_error = re.search(pattern, data)
@@ -33,7 +47,7 @@ def check_syntax_error(command_name, data, file_name, page_name) :
       msg = f'syntax error in xrst {command_name} command'
       xrst.system_exit(msg,
          file_name    = file_name ,
-         page_name = page_name ,
+         page_name    = page_name ,
          m_obj        = m_error ,
          data         = data ,
       )
