@@ -68,4 +68,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.6<comment_cmd_dev>` Remove all comment commands
 |  |space|  |space| :ref:`4.1.7<create_spell_checker>` Create a pyspellchecker object
 |  |space|  |space| :ref:`4.1.8<file2_list_str>` Convert lines in a file to a list of strings
+|  |space|  |space| :ref:`4.1.9<get_file_info>` Get information for all pages in a file
 |

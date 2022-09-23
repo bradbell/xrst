@@ -8,6 +8,7 @@
 # The xrst Module
 # ###############
 #
+# {xrst_comment BEGIN_SORT_THIS_LINE_PLUS_2}
 # {xrst_toc_table
 #  xrst/add_line_numbers.py
 #  xrst/auto_file.py
@@ -17,7 +18,9 @@
 #  xrst/comment_command.py
 #  xrst/create_spell_checker.py
 #  xrst/file2_list_str.py
+#  xrst/get_file_info.py
 # }
+# {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #
 # {xrst_end module}
 #
@@ -30,10 +33,10 @@ from .auto_file              import auto_file
 from .check_page_name        import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
+from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
 from .file2_list_str         import file2_list_str
-from .comment_ch_command     import comment_ch_command
 from .get_file_info          import get_file_info
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices

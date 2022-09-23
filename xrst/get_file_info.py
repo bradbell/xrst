@@ -75,54 +75,73 @@ import re
 pattern_group_name  = re.compile( r'[^ \t]+' )
 pattern_group_valid = re.compile( r'[a-z]+' )
 # ---------------------------------------------------------------------------
+# {xrst_begin get_file_info dev}
+# {xrst_spell
+#  dict
+#  len
+# }
+# {xrst_comment_ch #}
 #
-# Get all the information for a file.
+# Get information for all pages in a file
+# #######################################
 #
-# page_info:
-# a list of the information for pages that came before this file.
-# We use infor below for one eleemnt of this list:
+# page_info
+# *********
+# a list of with information for pages that came before this file.
+# For each list index, page_info[index] is a dict and
+# page_info[index]['page_name'] is an str
+# containing the name of a pager that came before this file.
+# This includes pages for all the groups that came before this group.
 #
-#  info['page_name']
-#  is an str containing the name of a seciton that came before this file.
-#
-# group_name:
+# group_name
+# **********
 # We are only retrieving information for pages in this group.
 #
-# parent_file:
+# parent_file
+# ***********
 # name of the file that included file_in.
 #
-# file_in:
+# file_in
+# *******
 # is the name of the file we are getting all the information for.
 #
-# file_info:
+# file_info
+# *********
 # The value file_info is a list of dict. Each dict contains the information
 # for one page in this file. We use info below for one element of the list:
 #
-#  info['page_name']:
-#  is an str containing the name of a seciton in this file.
+# info['page_name']
+# =================
+# is an str containing the name of a page in this file.
 #
-#  info['page_data']:
-#  is an str containing the data for this seciton.
-#  1. Line numbers have been added using add_line_numbers.
-#  2. If present in this file, the comment character and possilbe space
-#      after have been removed.
-#  3. The begin and end commands are not include in this data.
-#  4. The first (last) line number corresponds to the begin (end) command
-#  5. The suspend / resume comands and data between such pairs
-#      have been removed.
-#  6. If there is a common indentation for the entire page,
-#      it is removed.
+# info['page_data']
+# =================
+# is an str containing the data for this page.
 #
-#  info['is_parent']:
-#  is true (false) if this is (is not) the parent page for the other
-#  pages in this file. The parent page must be the first, and hence
-#  have index zero in file_info. In addition, if there is a parent page,
-#  there must be at least one other page; i.e., len(file_info) >= 2.
+# #. Line numbers have been added using :ref:`add_line_numbers` .
+# #. If present for this page, the comment character and possible space
+#    after have been removed.
+# #. The xrst begin and end commands are not include in this data.
+# #. The first (last) line number corresponds to the begin (end) command
+# #. The suspend / resume commands and data between such pairs
+#    have been removed.
+# #. If there is a common :ref`indent` for the entire page,
+#    it has been removed.
 #
-#  info['is_child']:
-#  is true (false) if this is (is not) a child of the first page in
-#  this file.
+# info['is_parent']
+# =================
+# is true (false) if this is (is not) the parent page for the other
+# pages in this file. The parent page must be the first for this group,
+# and hence have index zero in file_info. In addition,
+# if there is a parent page, there must be at least one other page;
+# i.e., len(file_info) >= 2.
 #
+# info['is_child']
+# ================
+# is true (false) if this is (is not) a child of the first page in
+# this file.
+#
+# {xrst_code py}
 # file_info =
 def get_file_info(
       page_info,
@@ -132,7 +151,11 @@ def get_file_info(
 ) :
    assert type(page_info) == list
    assert type(group_name) == str
+   assert type(parent_file) == str or parent_file == None
    assert type(file_in) == str
+   # assert type(file_info) == list
+   # {xrst_code}
+   # {xrst_end get_file_info}
    #
    # file_data
    file_ptr   = open(file_in, 'r')
@@ -233,7 +256,7 @@ def get_file_info(
                msg += 'Again in file ' + info['file_in'] + '\n'
                xrst.system_exit(msg)
          #
-         # check if parent pages is the first seciton in this file
+         # check if parent pages is the first page in this file
          if is_parent :
             if len(file_info) != 0 :
                msg  = 'xrst_begin_parent'
