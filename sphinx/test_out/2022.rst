@@ -34,9 +34,10 @@ mm-dd
 
 09-23
 =====
-The error message when a file specified by a :ref:`toc_cmd`
-did not correctly state the command with the error.
-This has been fixed.
+1. The error message when a file specified by a :ref:`toc_cmd`
+   did not correctly state the command with the error.
+   This has been fixed.
+2. Modify the wish list :ref:`wish_list@Tabs` entry.
 
 .. _2022@mm-dd@09-22:
 

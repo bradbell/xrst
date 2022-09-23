@@ -26,6 +26,21 @@ The following is a wish list for future improvements to ``run_xrst``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
+   :keywords: tabs
+
+.. index:: tabs
+
+.. _wish_list@Tabs:
+
+Tabs
+****
+Tabs in xrst input is not tested because
+tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
+Perhaps we should add a command line option that sets the tab stops,
+convert the tabs to spaces when a file is read,
+and not include tabs in any of the processing after that.
+
+.. meta::
    :keywords: path
 
 .. index:: path
@@ -88,17 +103,3 @@ Search
 ******
 It would be nice for a search to display all of the index words for each
 web page that matches the search.
-
-.. meta::
-   :keywords: tabs
-
-.. index:: tabs
-
-.. _wish_list@Tabs:
-
-Tabs
-****
-Tabs in xrst input is not tested because
-tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd-0` and :ref:`literal_cmd-0`.

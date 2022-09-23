@@ -76,4 +76,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.14<process_children>` Add child information to a page
 |  |space|  |space| :ref:`4.1.15<process_headings>` Add labels and index entries for headings
 |  |space|  |space| :ref:`4.1.16<remove_indent>` Remove indentation for a page
+|  |space|  |space| :ref:`4.1.17<remove_line_numbers>` Remove the number numbers
 |

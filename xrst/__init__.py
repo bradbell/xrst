@@ -26,6 +26,7 @@
 #  xrst/process_children.py
 #  xrst/process_headings.py
 #  xrst/remove_indent.py
+#  xrst/remove_line_numbers.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #

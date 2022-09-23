@@ -176,6 +176,14 @@ The following is a wish list for future improvements to ``run_xrst``:
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
 
+Tabs
+****
+Tabs in xrst input is not tested because
+tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
+Perhaps we should add a command line option that sets the tab stops,
+convert the tabs to spaces when a file is read,
+and not include tabs in any of the processing after that.
+
 Path
 ****
 It would be nice to have a way, in sphinx, to make file names relative
@@ -205,12 +213,6 @@ Search
 It would be nice for a search to display all of the index words for each
 web page that matches the search.
 
-Tabs
-****
-Tabs in xrst input is not tested because
-tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-It would be nice to have a way to control the size of tabs in the code blocks
-displayed by :ref:`code_cmd-0` and :ref:`literal_cmd-0`.
 
 {xrst_end wish_list}
 ----------------------------------------------------------------------------
