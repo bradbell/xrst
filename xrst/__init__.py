@@ -22,6 +22,7 @@
 #  xrst/literal_command.py
 #  xrst/newline_indices.py
 #  xrst/next_heading.py
+#  xrst/pattern.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #

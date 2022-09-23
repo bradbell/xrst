@@ -36,6 +36,7 @@ The xrst Module
    "literal_cmd_dev", :ref:`literal_cmd_dev-0`
    "newline_indices", :ref:`newline_indices-0`
    "next_heading", :ref:`next_heading-0`
+   "xrst.pattern", :ref:`xrst.pattern-0`
 
 .. toctree::
    :maxdepth: 1
@@ -53,3 +54,4 @@ The xrst Module
    literal_cmd_dev
    newline_indices
    next_heading
+   xrst.pattern

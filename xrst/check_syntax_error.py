@@ -43,6 +43,7 @@ def check_syntax_error(command_name, data, file_name, page_name) :
    pattern = r'[^\\]{xrst_' + command_name + r'[^a-z]'
    m_error = re.search(pattern, data)
    if m_error :
+      breakpoint()
       msg = f'syntax error in xrst {command_name} command'
       xrst.system_exit(msg,
          file_name    = file_name ,

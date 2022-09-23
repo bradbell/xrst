@@ -72,4 +72,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.10<literal_cmd_dev>` Process the literal commands in a page
 |  |space|  |space| :ref:`4.1.11<newline_indices>` Find index of all the newlines in a string
 |  |space|  |space| :ref:`4.1.12<next_heading>` Return location of the next heading in a page
+|  |space|  |space| :ref:`4.1.13<xrst.pattern>` The xrst.pattern Dictionary
 |
