@@ -105,34 +105,49 @@ def file_extension(display_file) :
          extension = 'matlab'
    return extension
 # ----------------------------------------------------------------------------
+# {xrst_begin literal_cmd_dev dev}
+# {xrst_spell
+#  dir
+# }
+# {xrst_comment_ch #}
 #
-# Process the literal commands in a page.
+# Process the literal commands in a page
+# ######################################
 #
-# data_in:
-# is the data for a page before the literal commands have been removed.
+# data_in
+# *******
+# is the data for a page before the
+# :ref:`literal commands <literal_cmd>` have been removed.
 #
-# file_name:
+# file_name
+# *********
 # is the name of the file that this data comes from. This is used
 # for error reporting and for the display file (when the display file
-# is not incuded in the command).
+# is not included in the command).
 #
-# page_name:
+# page_name
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# rst_dir:
+# rst_dir
+# *******
 # is the directory, relative to the current working directory,
 # where xrst will place the final rst files.
 #
-# data_out:
-# Each xrst literal command is convertd to its corresponding sphinx commands.
+# data_out
+# ********
+# Each xrst literal command is converted to its corresponding sphinx commands.
 #
+# {xrst_code py}
 # data_out =
 def literal_command(data_in, file_name, page_name, rst_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(rst_dir) == str
+   # {xrst_code}
+   # {xrst_end literal_cmd_dev}
    #
    assert xrst.pattern['literal_0'].groups == 1
    assert xrst.pattern['literal_1'].groups == 4

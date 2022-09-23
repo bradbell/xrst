@@ -33,6 +33,7 @@ The xrst Module
    "create_spell_checker", :ref:`create_spell_checker-0`
    "file2_list_str", :ref:`file2_list_str-0`
    "get_file_info", :ref:`get_file_info-0`
+   "literal_cmd_dev", :ref:`literal_cmd_dev-0`
 
 .. toctree::
    :maxdepth: 1
@@ -47,3 +48,4 @@ The xrst Module
    create_spell_checker
    file2_list_str
    get_file_info
+   literal_cmd_dev

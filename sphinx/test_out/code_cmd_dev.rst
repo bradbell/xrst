@@ -31,7 +31,6 @@ data_in
 *******
 is the data for the page before the
 :ref:`code commands <code_cmd>` have been processed.
-Line numbers have been added to this data: see :ref:`add_line_numbers`.
 
 .. meta::
    :keywords: file_name
@@ -82,5 +81,5 @@ is a copy of data_in with the xrst code commands replaced by a corresponding
 sphinx command.
 
 .. literalinclude:: ../../xrst/code_command.py
-   :lines: 93-99
+   :lines: 92-98
    :language: py

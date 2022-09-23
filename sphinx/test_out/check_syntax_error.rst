@@ -43,8 +43,7 @@ constitute a match for this command
 
 data
 ****
-is the data for this page. This includes line numbers added by
-add_line_numbers.
+is the data for this page.
 
 .. meta::
    :keywords: file_name
@@ -69,5 +68,5 @@ page_name
 is ``None`` or the name of this page (used for error reporting).
 
 .. literalinclude:: ../../xrst/check_syntax_error.py
-   :lines: 36-40
+   :lines: 35-39
    :language: py

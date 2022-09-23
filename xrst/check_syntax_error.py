@@ -21,8 +21,7 @@ import xrst
 #
 # data
 # ****
-# is the data for this page. This includes line numbers added by
-# add_line_numbers.
+# is the data for this page.
 #
 # file_name
 # *********

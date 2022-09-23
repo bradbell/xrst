@@ -19,6 +19,7 @@
 #  xrst/create_spell_checker.py
 #  xrst/file2_list_str.py
 #  xrst/get_file_info.py
+#  xrst/literal_command.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #
