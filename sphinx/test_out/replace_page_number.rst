@@ -21,14 +21,24 @@ Replace page number commands
    :local:
 
 .. meta::
+   :keywords: arguments
+
+.. index:: arguments
+
+.. _replace_page_number@Arguments:
+
+Arguments
+*********
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _replace_page_number@data_in:
+.. _replace_page_number@Arguments@data_in:
 
 data_in
-*******
+=======
 data for a page before replacement.
 
  #. data_in must contain '\n{xrst_page_number}'
@@ -44,27 +54,41 @@ data for a page before replacement.
 
 .. index:: page_number
 
-.. _replace_page_number@page_number:
+.. _replace_page_number@Arguments@page_number:
 
 page_number
-***********
+===========
 This is a page number that is placed infront of the heading text.
 This may be empty; i.e., the replacement text is the empty string.
 The underline (and overline if present) are extended by the number of
 characters added to the heading text.
 
 .. meta::
+   :keywords: returns
+
+.. index:: returns
+
+.. _replace_page_number@Returns:
+
+Returns
+*******
+
+.. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _replace_page_number@data_out:
+.. _replace_page_number@Returns@data_out:
 
 data_out
-********
+========
 the return data_out is the data after replacement. The page number is
 added (see above) and the command is removed.
 
 .. literalinclude:: ../../xrst/replace_page_number.py
-   :lines: 39-43
+   :lines: 45-47
+   :language: py
+
+.. literalinclude:: ../../xrst/replace_page_number.py
+   :lines: 124-126
    :language: py

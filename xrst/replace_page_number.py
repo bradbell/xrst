@@ -11,8 +11,11 @@
 # Replace page number commands
 # ############################
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # data for a page before replacement.
 #
 #  #. data_in must contain '\n\{xrst_page_number}'
@@ -24,24 +27,29 @@
 #  #. If both an overline and underline follow, they must be equal.
 #
 # page_number
-# ***********
+# ===========
 # This is a page number that is placed infront of the heading text.
 # This may be empty; i.e., the replacement text is the empty string.
 # The underline (and overline if present) are extended by the number of
 # characters added to the heading text.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # the return data_out is the data after replacement. The page number is
 # added (see above) and the command is removed.
 #
 # {xrst_code py}
-# data_out =
 def replace_page_number(data_in, page_number) :
    assert type(data_in) == str
    assert type(page_number) == str
-   # assert type(data_out) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end replace_page_number}
    #
    # pattern
@@ -112,5 +120,8 @@ def replace_page_number(data_in, page_number) :
       data_out += data_in[fourth_newline :]
    else :
       data_out += data_in[third_newline :]
+   # BEGIN_return
+   assert type(data_out) == str
    #
    return data_out
+   # END_return
