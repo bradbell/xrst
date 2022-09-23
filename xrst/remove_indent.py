@@ -23,30 +23,42 @@ Example
 """
 import re
 import xrst
+# {xrst_begin remove_indent dev}
+# {xrst_comment_ch #}
 #
-# Remove indentation that is at the front of all lines for a page
+# Remove indentation for a page
+# #############################
 #
-# data_in:
-# is the data for this page. This includes line numbers added by
-# add_line_numbers.
+# data_in
+# *******
+# is the data for this page.
 #
-# file_name:
+# file_name
+# *********
 # is the input that this page appears in (used for error reporting).
 #
-# page_name:
+# page_name
+# *********
 # is the name of this page (used for error reporting).
 #
-# data_out:
-# is a copy of data_in with the indentation for this seciton removed.
+# data_out
+# ********
+# is a copy of data_in with the indentation for this section removed.
 #
-# indent:
+# indent
+# ******
 # is the white space that was removed from each line (except for empty lines)
 #
+# {xrst_code py}
 # data_out, indent =
 def remove_indent(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
+   # assert type(data_out) == str
+   # assert type(indent) == str
+   # {xrst_code}
+   # {xrst_end remove_indent}
    #
    # len_data
    len_data   = len(data_in)

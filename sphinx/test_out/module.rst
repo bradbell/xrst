@@ -39,6 +39,7 @@ The xrst Module
    "xrst.pattern", :ref:`xrst.pattern-0`
    "process_children", :ref:`process_children-0`
    "process_headings", :ref:`process_headings-0`
+   "remove_indent", :ref:`remove_indent-0`
 
 .. toctree::
    :maxdepth: 1
@@ -59,3 +60,4 @@ The xrst Module
    xrst.pattern
    process_children
    process_headings
+   remove_indent

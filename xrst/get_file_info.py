@@ -118,15 +118,18 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # =================
 # is an str containing the data for this page.
 #
-# #. Line numbers have been added using :ref:`add_line_numbers` .
-# #. If present for this page, the comment character and possible space
-#    after have been removed.
-# #. The xrst begin and end commands are not include in this data.
-# #. The first (last) line number corresponds to the begin (end) command
-# #. The suspend / resume commands and data between such pairs
-#    have been removed.
-# #. If there is a common :ref`indent` for the entire page,
-#    it has been removed.
+#  #. Line numbers have been added using :ref:`add_line_numbers` .
+#     This is the first operation done on a page and other operations
+#     assume that line numbers are present. They are removed near the end
+#     when the temporary file corresponding to a page is created.
+#  #. If present for this page, the comment character and possible space
+#     after have been removed.
+#  #. The xrst begin and end commands are not include in this data.
+#  #. The first (last) line number corresponds to the begin (end) command
+#  #. The suspend / resume commands and data between such pairs
+#     have been removed.
+#  #. If there is a common :ref`indent` for the entire page,
+#     it has been removed.
 #
 # info['is_parent']
 # =================
