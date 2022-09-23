@@ -2,44 +2,65 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 import xrst
+# {xrst_begin next_heading dev}
+# {xrst_spell
+#  overline
+#  newline
+# }
+# {xrst_comment_ch #}
 #
-# data:
+# Return location of the next heading in a page
+# #############################################
+#
+# data
+# ****
 # is the data that we are searching for a heading in. The heading text must
 # have at least one character and be followed by an underline of at least the
 # same length. The heading text may be proceeded by an overline.
 #
-# data_index:
+# data_index
+# **********
 # is the index in the data where the search starts. This must be zero
 # or directly after a newline.
 #
-# file_name:
+# file_name
+# *********
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
-# page_name:
+# page_name
+# *********
 # is the name of this page.
 # This is only used for error reporting.
 #
-# heading_index:
+# heading_index
+# *************
 # If there is an overline, this is the index in data of the beginning of the
 # overline. Otherwise, it is the index of the beginning of the heading text.
 # If 0 < heading_index, there is a newline just before heading_index; i.e.,
 # data[heading_index]=='\n'.  If heading_index is -1, there is no heading
 # in data that begins at or after data_index.
 #
-# heading_text:
+# heading_text
+# ************
 # if 0 <= heading_index, this is the heading text.
 #
-# underline_text:
+# underline_text
+# **************
 # if 0 <= heading_index, this is the underline text.
 # If there is an overline present, it is the same as the underline text.
 #
+# {xrst_code py}
 # heading_index, heading_text, underline_text =
 def next_heading(data, data_index, file_name, page_name) :
    assert type(data) == str
    assert type(data_index) == int
    if data_index != 0 :
       assert data[data_index-1] == '\n'
+   assert type(file_name) == str
+   assert type(page_name) == str
+   # {xrst_code}
+   # {xrst_end next_heading}
    #
    # punctuation
    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'

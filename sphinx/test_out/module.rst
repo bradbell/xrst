@@ -35,6 +35,7 @@ The xrst Module
    "get_file_info", :ref:`get_file_info-0`
    "literal_cmd_dev", :ref:`literal_cmd_dev-0`
    "newline_indices", :ref:`newline_indices-0`
+   "next_heading", :ref:`next_heading-0`
 
 .. toctree::
    :maxdepth: 1
@@ -51,3 +52,4 @@ The xrst Module
    get_file_info
    literal_cmd_dev
    newline_indices
+   next_heading
