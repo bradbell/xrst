@@ -2,62 +2,86 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 import xrst
+# {xrst_begin start_stop_file dev}
+# {xrst_spell
+#  cmd
+#  newlines
+# }
+# {xrst_comment_ch #}
 #
-# Convert start,  stop text for a literal command to start, stop line numbers.
+# Convert literal command start, stop from text to line numbers
+# #############################################################
 #
-# page_name:
-# is the name of the page where the xrst_literal command appears.
+# Arguments
+# *********
 #
-# file_cmd:
+# file_cmd
+# ========
 # is the name of the file where the xrst_literal command appears.
 #
-# display_file:
+# page_name
+# =========
+# is the name of the page where the xrst_literal command appears.
+#
+# display_file
+# ============
 # is the name of the file that we are displaying. If it is not the same as
 # file_cmd, then it must have appeared in the xrst_literal command.
 #
-# cmd_line:
-# If file_cmd is equal to display_file, the page of the file between
+# cmd_line
+# ========
+# If file_cmd is equal to display_file, the lines of the file
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
 # are in the xrst_literal command and are excluded from the search.
 #
-# start_text:
+# start_text
+# ==========
 # is the starting text. There must be one and only one copy of this text in the
 # file (not counting the excluded text). This text has no newlines and cannot
 # be empty.  If not, an the error is reported and the program stops.
 #
-# stop_text:
+# stop_text
+# =========
 # is the stopping text. There must be one and only one copy of this text in the
 # file (not counting the excluded text). This text has no newlines and cannot
 # be empty.  Furthermore, the stopping text must come after the end of the
 # starting text. If not, an the error is reported and the program stops.
 #
-# start_line:
-# The first element of the return start_line is the line number where
-# start_text appears.
+# Returns
+# *******
 #
-# stop_line:
-# The second element of the return stop_line is the line number where
-# stop_text appears.
+# start_line
+# ==========
+# is the line number where start_text appears.
 #
-# start_line, stop_line =
+# stop_line
+# =========
+# is the line number where stop_text appears.
+#
+# {xrst_code py}
 def start_stop_file(
-   page_name = None,
-   file_cmd     = None,
-   display_file  = None,
-   cmd_line     = None,
-   start_text   = None,
-   stop_text    = None
+   file_cmd,
+   page_name,
+   display_file,
+   cmd_line,
+   start_text,
+   stop_text
 ) :
-   assert type(page_name) == str
    assert type(file_cmd) == str
+   assert type(page_name) == str
    assert type(display_file) == str
    assert type(cmd_line[0]) == int
    assert type(cmd_line[1]) == int
+   assert cmd_line[0] <= cmd_line[1]
    assert type(start_text) == str
    assert type(stop_text) == str
-   #
-   assert cmd_line[0] <= cmd_line[1]
-   #
+   # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
+   # {xrst_end start_stop_file}
+   # ------------------------------------------------------------------------
    # exclude_line
    if file_cmd == display_file :
       exclude_line = cmd_line
@@ -130,5 +154,10 @@ def start_stop_file(
       xrst.system_exit(msg,
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
+   # ------------------------------------------------------------------------
+   # BEGIN_return
+   assert type(start_line) == int
+   assert type(stop_line) == int
    #
    return start_line, stop_line
+   # END_return

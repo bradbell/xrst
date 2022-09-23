@@ -80,4 +80,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.18<replace_page_number>` Replace page number commands
 |  |space|  |space| :ref:`4.1.19<replace_spell>` Replace spelling commands
 |  |space|  |space| :ref:`4.1.20<spell_cmd_dev>` Process the spell command for a page
+|  |space|  |space| :ref:`4.1.21<start_stop_file>` Convert literal command start, stop from text to line numbers
 |

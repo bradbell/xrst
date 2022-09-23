@@ -247,8 +247,8 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
          #
          # start_line, stop_line
          start_line, stop_line = xrst.start_stop_file(
-            page_name = page_name,
             file_cmd     = file_name,
+            page_name = page_name,
             display_file = display_file,
             cmd_line     = cmd_line,
             start_text   = start_text,
