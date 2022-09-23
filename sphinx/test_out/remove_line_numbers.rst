@@ -21,26 +21,46 @@ Remove the number numbers
    :local:
 
 .. meta::
+   :keywords: arguments
+
+.. index:: arguments
+
+.. _remove_line_numbers@Arguments:
+
+Arguments
+*********
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _remove_line_numbers@data_in:
+.. _remove_line_numbers@Arguments@data_in:
 
 data_in
-*******
+=======
 is a string with line numbers added by :ref:`add_line_numbers` .
 These have the form: ``{xrst_line`` *number* ``@`` .
+
+.. meta::
+   :keywords: returns
+
+.. index:: returns
+
+.. _remove_line_numbers@Returns:
+
+Returns
+*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _remove_line_numbers@data_out:
+.. _remove_line_numbers@Returns@data_out:
 
 data_out
-********
+========
 The return data_out is a copy of data_in with the line numbers removed.
 
 .. meta::
@@ -48,14 +68,19 @@ The return data_out is a copy of data_in with the line numbers removed.
 
 .. index:: line_pair
 
-.. _remove_line_numbers@line_pair:
+.. _remove_line_numbers@Returns@line_pair:
 
 line_pair
-*********
+=========
 The second return line_pair is a list of two element tuples.
-The first element is the line number in data_out not counting the\n lines. The second element is the corresponding
-line number that has been removed.
+The first element is the line number in data_out not counting the
+{ ``xrst_page_number`` } lines. The second element is the corresponding
+line number (not line) that has was removed.
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 36-43
+   :lines: 41-42
+   :language: py
+
+.. literalinclude:: ../../xrst/remove_line_numbers.py
+   :lines: 99-106
    :language: py

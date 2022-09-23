@@ -8,7 +8,6 @@ import xrst
 pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # {xrst_begin remove_line_numbers dev}
 # {xrst_spell
-#  tuple
 #  tuples
 # }
 # {xrst_comment_ch #}
@@ -16,32 +15,36 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # Remove the number numbers
 # #########################
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # is a string with line numbers added by :ref:`add_line_numbers` .
 # These have the form: ``{xrst_line`` *number* ``@`` .
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # The return data_out is a copy of data_in with the line numbers removed.
 #
 # line_pair
-# *********
+# =========
 # The second return line_pair is a list of two element tuples.
 # The first element is the line number in data_out not counting the
-# {xrst_page_number}\n lines. The second element is the corresponding
-# line number that has been removed.
+# { ``xrst_page_number`` } lines. The second element is the corresponding
+# line number (not line) that has was removed.
 #
 # {xrst_code py}
-# data_out, line_pair =
 def remove_line_numbers(data_in) :
    assert type(data_in) == str
-   # assert type(data_out) == str
-   # assert type(line_pair) == list
-   # assert type(line_pair[i]) == tuple
-   # assert type(line_pair[i][0]) == int
-   # assert type(line_pair[i][1]) == int
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end remove_line_numbers}
    #
    # m_error
@@ -92,4 +95,13 @@ def remove_line_numbers(data_in) :
    # data_out
    data_out += data_in[previous_end  :]
    #
+   # BEGIN_return
+   assert type(data_out) == str
+   assert type(line_pair) == list
+   if 0 < len(line_pair) :
+      assert type(line_pair[0]) == tuple
+      assert type(line_pair[0][0]) == int
+      assert type(line_pair[0][1]) == int
+   #
    return data_out, line_pair
+   # END_return

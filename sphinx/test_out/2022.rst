@@ -37,7 +37,8 @@ mm-dd
 1. The error message when a file specified by a :ref:`toc_cmd`
    did not correctly state the command with the error.
    This has been fixed.
-2. Modify the wish list :ref:`wish_list@Tabs` entry.
+2. Modify the wish list :ref:`wish_list@Tabs` item.
+   Add the :ref:`wish_list@xrst_page_number` wish list item.
 
 .. _2022@mm-dd@09-22:
 
