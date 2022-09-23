@@ -153,7 +153,9 @@ def get_file_info(
    assert type(group_name) == str
    assert type(parent_file) == str or parent_file == None
    assert type(file_in) == str
+   # assert type(page_info[i]) == dict
    # assert type(file_info) == list
+   # assert type(file_info[i]) == dict
    # {xrst_code}
    # {xrst_end get_file_info}
    #

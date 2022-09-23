@@ -70,4 +70,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.8<file2_list_str>` Convert lines in a file to a list of strings
 |  |space|  |space| :ref:`4.1.9<get_file_info>` Get information for all pages in a file
 |  |space|  |space| :ref:`4.1.10<literal_cmd_dev>` Process the literal commands in a page
+|  |space|  |space| :ref:`4.1.11<newline_indices>` Find index of all the newlines in a string
 |

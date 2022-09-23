@@ -140,5 +140,5 @@ is true (false) if this is (is not) a child of the first page in
 this file.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 145-156
+   :lines: 145-158
    :language: py
