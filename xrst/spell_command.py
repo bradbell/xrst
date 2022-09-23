@@ -108,32 +108,38 @@ pattern['word']  = re.compile(
 # Process the spell command for a page
 # ####################################
 #
+# Arguments
+# *********
+#
 # tmp_dir
-# *******
+# =======
 # The file :ref:`replace_spell@tmp_dir@spell.toml`
 # is written in the tmp_dir directory by the spell_command function.
 #
 # data_in
-# *******
+# =======
 # is the data for this page before the spell command is removed.
 #
 # file_name
-# *********
+# =========
 # is the name of the file that the data came from. This is only used
 # for error reporting.
 #
 # page_name
-# *********
+# =========
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # spell_checker
-# *************
+# =============
 # Is the pyspellchecker object used for error checking; see
 # :ref:`create_spell_checker`.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # is the data for this page after the spell command (if it exists)
 # is removed.
 #
@@ -145,7 +151,6 @@ pattern['word']  = re.compile(
 # it is ignored (so that latex commands do not generate warnings).
 #
 # {xrst_code py}
-# data_out =
 def spell_command(
    tmp_dir, data_in, file_name, page_name, spell_checker
 ) :
@@ -154,6 +159,10 @@ def spell_command(
    assert type(file_name) == str
    assert type(page_name) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end spell_cmd_dev}
    #
    # m_spell
@@ -395,4 +404,8 @@ def spell_command(
       page_name     = page_name,
    )
    #
+   # BEGIN_return
+   assert type(data_out) == str
+   #
    return data_out
+   # END_return
