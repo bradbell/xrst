@@ -21,14 +21,24 @@ Remove indentation for a page
    :local:
 
 .. meta::
+   :keywords: arguments
+
+.. index:: arguments
+
+.. _remove_indent@Arguments:
+
+Arguments
+*********
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _remove_indent@data_in:
+.. _remove_indent@Arguments@data_in:
 
 data_in
-*******
+=======
 is the data for this page.
 
 .. meta::
@@ -36,10 +46,10 @@ is the data for this page.
 
 .. index:: file_name
 
-.. _remove_indent@file_name:
+.. _remove_indent@Arguments@file_name:
 
 file_name
-*********
+=========
 is the input that this page appears in (used for error reporting).
 
 .. meta::
@@ -47,21 +57,31 @@ is the input that this page appears in (used for error reporting).
 
 .. index:: page_name
 
-.. _remove_indent@page_name:
+.. _remove_indent@Arguments@page_name:
 
 page_name
-*********
+=========
 is the name of this page (used for error reporting).
+
+.. meta::
+   :keywords: returns
+
+.. index:: returns
+
+.. _remove_indent@Returns:
+
+Returns
+*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _remove_indent@data_out:
+.. _remove_indent@Returns@data_out:
 
 data_out
-********
+========
 is a copy of data_in with the indentation for this section removed.
 
 .. meta::
@@ -69,12 +89,16 @@ is a copy of data_in with the indentation for this section removed.
 
 .. index:: indent
 
-.. _remove_indent@indent:
+.. _remove_indent@Returns@indent:
 
 indent
-******
+======
 is the white space that was removed from each line (except for empty lines)
 
 .. literalinclude:: ../../xrst/remove_indent.py
-   :lines: 53-59
+   :lines: 59-62
+   :language: py
+
+.. literalinclude:: ../../xrst/remove_indent.py
+   :lines: 120-123
    :language: py

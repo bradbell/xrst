@@ -29,35 +29,42 @@ import xrst
 # Remove indentation for a page
 # #############################
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # is the data for this page.
 #
 # file_name
-# *********
+# =========
 # is the input that this page appears in (used for error reporting).
 #
 # page_name
-# *********
+# =========
 # is the name of this page (used for error reporting).
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # is a copy of data_in with the indentation for this section removed.
 #
 # indent
-# ******
+# ======
 # is the white space that was removed from each line (except for empty lines)
 #
 # {xrst_code py}
-# data_out, indent =
 def remove_indent(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   # assert type(data_out) == str
-   # assert type(indent) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end remove_indent}
    #
    # len_data
@@ -109,5 +116,9 @@ def remove_indent(data_in, file_name, page_name) :
    #
    # indent
    indent = num_remove * indent_ch
+   # BEGIN_return
+   assert type(data_out) == str
+   assert type(indent) == str
    #
    return data_out, indent
+   # END_return
