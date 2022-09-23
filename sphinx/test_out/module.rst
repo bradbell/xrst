@@ -41,6 +41,7 @@ The xrst Module
    "process_headings", :ref:`process_headings-0`
    "remove_indent", :ref:`remove_indent-0`
    "remove_line_numbers", :ref:`remove_line_numbers-0`
+   "replace_page_number", :ref:`replace_page_number-0`
 
 .. toctree::
    :maxdepth: 1
@@ -63,3 +64,4 @@ The xrst Module
    process_headings
    remove_indent
    remove_line_numbers
+   replace_page_number

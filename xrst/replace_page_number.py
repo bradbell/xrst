@@ -1,30 +1,48 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
-# Replace {xrst_page_number} by it page number or empty string.
+# {xrst_begin replace_page_number dev}
+# {xrst_spell
+#  newline
+#  overline
+# }
+# {xrst_comment_ch #}
 #
-# data_in:
-# data before replacement. This must contain \n{xrst_page_number}
-# which is referred to as the command below. There must be a
-# page title after the command (starting with a newline).
-# This page title may have an rst overline directly before the heading text
-# and must have an underline directly after it.
-# If both an overline and underline follow, they must be equal.
+# Replace page number commands
+# ############################
 #
-# page_number:
+# data_in
+# *******
+# data for a page before replacement.
+#
+#  #. data_in must contain '\n\{xrst_page_number}'
+#     which is referred to as the command below.
+#  #. The page title must come directly after the command
+#     and start with a newline.
+#  #. The page title may have an rst overline directly before the
+#     heading text and must have an underline directly after it.
+#  #. If both an overline and underline follow, they must be equal.
+#
+# page_number
+# ***********
 # This is a page number that is placed infront of the heading text.
 # This may be empty; i.e., the replacement text is the empty string.
-# The underline (and overline if present) are exended to by the number of
+# The underline (and overline if present) are extended by the number of
 # characters added to the heading text.
 #
-# data_out:
+# data_out
+# ********
 # the return data_out is the data after replacement. The page number is
-# added (see above) and he command is removed.
+# added (see above) and the command is removed.
 #
+# {xrst_code py}
 # data_out =
 def replace_page_number(data_in, page_number) :
    assert type(data_in) == str
    assert type(page_number) == str
+   # assert type(data_out) == str
+   # {xrst_code}
+   # {xrst_end replace_page_number}
    #
    # pattern
    pattern   = '\n{xrst_page_number}'
