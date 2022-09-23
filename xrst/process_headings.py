@@ -81,7 +81,12 @@ Example
 {xrst_end heading_links}
 """
 import xrst
-# {xrst_begin process_headings}
+# {xrst_begin process_headings dev}
+# {xrst_spell
+#  fullmatch
+#  overline
+#  newline
+# }
 # {xrst_comment_ch #}
 #
 # Add labels and index entries for headings
@@ -106,8 +111,8 @@ import xrst
 #
 # keyword_list
 # ************
-# is a list of compiled reglar expressions. If pattern is in this list,
-# *word* is a lower case verison of a word in the heading text, and
+# is a list of compiled regular expressions. If pattern is in this list,
+# *word* is a lower case version of a word in the heading text, and
 # pattern.fullmatch( *word* ) returns a match, an index entry is not
 # generated for word.
 #
@@ -130,13 +135,13 @@ import xrst
 # **************
 # This is an automatically generated heading for this page. It is intended
 # to come before the page_title heading.
-# It has three lines each termnated by a newline:
+# It has three lines each terminated by a newline:
 #
 #  1. an overline line
-#  2. heading text line for this page
-#  3. an underline line.
+#  2. heading text line for this page title
+#  3. an underline line
 #
-# {xrst_code}
+# {xrst_code py}
 # data_out, page_title, pseudo_heading =
 def process_headings(
       html_theme, data_in, file_name, page_name, keyword_list
