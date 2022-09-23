@@ -78,4 +78,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.16<remove_indent>` Remove indentation for a page
 |  |space|  |space| :ref:`4.1.17<remove_line_numbers>` Remove the number numbers
 |  |space|  |space| :ref:`4.1.18<replace_page_number>` Replace page number commands
+|  |space|  |space| :ref:`4.1.19<replace_spell>` Replace spelling commands
 |
