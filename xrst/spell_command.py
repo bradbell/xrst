@@ -97,54 +97,64 @@ pattern['word']  = re.compile(
    r'({xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)'
 )
 # -----------------------------------------------------------------------------
+# {xrst_begin spell_cmd_dev dev}
+# {xrst_spell
+#  tmp
+#  dir
+#  pyspellchecker
+# }
+# {xrst_comment_ch #}
 #
 # Process the spell command for a page
+# ####################################
 #
-# tmp_dir:
-# The file tmp_dir/spell.toml will contain the information below:
-# It can be used to replace the spell command for this page
-# in a way so that will have no spelling warnings.
-#     [file_name.page_name]
-#     begin_line  = integer line number for the begin command
-#     start_spell = integer line number where the spell command starts
-#     end_spell   = integer line nubmer where the spell command ends
-#     unknown     = array of strings (words)  that are not in dictionary
-# 1. file_name and page_name are strings
-# 2. Line numbers start are one and are in the file.
-# 3. The line number zero is used for start_spell and end_spell when
-#    there is no spell command for this page.
-# 4. The spell start and end lines to not overlap any begin lines
-#    of spell lines
+# tmp_dir
+# *******
+# The file :ref:`replace_spell@tmp_dir@spell.toml`
+# is written in the tmp_dir directory by the spell_command function.
 #
-# data_in:
+# data_in
+# *******
 # is the data for this page before the spell command is removed.
 #
-# file_name:
-# is the name of the file that this data comes from. This is only used
+# file_name
+# *********
+# is the name of the file that the data came from. This is only used
 # for error reporting.
 #
-# page_name:
+# page_name
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# spell_checker:
-# Is the pyspellchecker object used for error checking.
+# spell_checker
+# *************
+# Is the pyspellchecker object used for error checking; see
+# :ref:`create_spell_checker`.
 #
-# data_out:
+# data_out
+# ********
 # is the data for this page after the spell command (if it exists)
 # is removed.
 #
-# Spelling Warnings:
+# Spelling Warnings
+# *****************
 # A spelling warning is reported for each word (and double word) that is not
 # in the spell_checker dictionary or the special word list. A word is two or
-# more letter characters. If a word is directly precceded by a backslash,
+# more letter characters. If a word is directly preceded by a backslash,
 # it is ignored (so that latex commands do not generate warnings).
 #
+# {xrst_code py}
 # data_out =
 def spell_command(
    tmp_dir, data_in, file_name, page_name, spell_checker
 ) :
-   #
+   assert type(tmp_dir) == str
+   assert type(data_in) == str
+   assert type(file_name) == str
+   assert type(page_name) == str
+   # {xrst_code}
+   # {xrst_end spell_cmd_dev}
    #
    # m_spell
    m_spell       = pattern['spell'].search(data_in)

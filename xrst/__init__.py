@@ -29,6 +29,7 @@
 #  xrst/remove_line_numbers.py
 #  xrst/replace_page_number.py
 #  xrst/replace_spell.py
+#  xrst/spell_command.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #

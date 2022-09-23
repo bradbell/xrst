@@ -43,6 +43,7 @@ The xrst Module
    "remove_line_numbers", :ref:`remove_line_numbers-0`
    "replace_page_number", :ref:`replace_page_number-0`
    "replace_spell", :ref:`replace_spell-0`
+   "spell_cmd_dev", :ref:`spell_cmd_dev-0`
 
 .. toctree::
    :maxdepth: 1
@@ -67,3 +68,4 @@ The xrst Module
    remove_line_numbers
    replace_page_number
    replace_spell
+   spell_cmd_dev

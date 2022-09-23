@@ -21,12 +21,12 @@ import xrst
 #
 # spell.toml
 # ==========
-# The file tmp_dir/spell.toml contains the following information:
+# The file *tmp_dir* ``/spell.toml`` contains the information below.
 # For each file that was included in the documentation,
 # for each page in that file::
 #
 #     [file_name.page_name]
-#     begin_line  = integer line number for the begin command
+#     begin_line  = integer line number where begin command is located
 #     start_spell = integer line number where the spell command starts
 #     end_spell   = integer line number where the spell command ends
 #     unknown     = array of strings (words) that are not in dictionary
