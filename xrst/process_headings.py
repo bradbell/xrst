@@ -81,46 +81,62 @@ Example
 {xrst_end heading_links}
 """
 import xrst
+# {xrst_begin process_headings}
+# {xrst_comment_ch #}
 #
-# Add labels and indices for headings
+# Add labels and index entries for headings
+# #########################################
 #
-# html_theme:
+# html_theme
+# **********
 # is the xrst command line html_theme setting.
 #
-# data_in:
+# data_in
+# *******
 # contains the data for a page before the headings are processed.
 #
-# file_name:
+# file_name
+# *********
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
-# page_name:
+# page_name
+# *********
 # is the name of this page.
 #
-# keyword_list:
-# is a list of compiled reglar expressions. If pattern is an entry in this list,
-# and word is a lower case verison of a word in the heading text, if
-# pattern.fullmatch(word) returns a match, a cross-reference index will not
-# be generated for word.
+# keyword_list
+# ************
+# is a list of compiled reglar expressions. If pattern is in this list,
+# *word* is a lower case verison of a word in the heading text, and
+# pattern.fullmatch( *word* ) returns a match, an index entry is not
+# generated for word.
 #
-# data_out:
-# is a copy of data_in with the following extra command added directly before
-# its corresponding heading: The command {xrst_page_number}\n
-# is placed directly before the the first heading for this page.
-# This is makes it easy to add the page number to the heading text.
+# data_out
+# ********
+# is a copy of data_in with the following extra command added:
 #
-# page_title:
+#  #. The index entries, and meta keyword entries (same as index),
+#     and the :ref:`heading_links@Labels` for this page.
+#  #. The command '\{xrst_page_number}\n' is placed directly before the
+#     first heading for this page; i.e. its title.
+#     This is makes it easy to add the page number to the heading text.
+#
+# page_title
+# **********
 # This is the heading text in the first heading for this page.
 # There can only be one heading at this level.
 #
-# pseudo_heading:
+# pseudo_heading
+# **************
 # This is an automatically generated heading for this page. It is intended
 # to come before the page_title heading.
-# It has three lines each termnated by a newline;
-# 1) an overline line, 2) a heading text line containig the page,
-# 3) and an underline line.
+# It has three lines each termnated by a newline:
 #
+#  1. an overline line
+#  2. heading text line for this page
+#  3. an underline line.
 #
+# {xrst_code}
 # data_out, page_title, pseudo_heading =
 def process_headings(
       html_theme, data_in, file_name, page_name, keyword_list
@@ -130,6 +146,11 @@ def process_headings(
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(keyword_list) == list
+   # assert type(data_out) == str
+   # assert type(page_title) == str
+   # assert type(pseudo_heading) == str
+   # {xrst_code}
+   # {xrst_end process_headings}
    #
    # old2new_label
    # 2DO: remove this when done converting labels

@@ -25,6 +25,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-23
+=====
+The error message when a file specified by a :ref:`toc_cmd`
+did not correctly state the command with the error.
+This has been fixed.
+
 09-22
 =====
 1. The code command would not include the

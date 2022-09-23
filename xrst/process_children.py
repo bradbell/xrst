@@ -12,33 +12,55 @@ pattern_toc = re.compile(
 # patttern_rst_extension
 pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
-# Add child information to this page
+# {xrst_begin process_children dev}
+# {xrst_spell
+#  toctree
+#  len
+# }
+# {xrst_comment_ch #}
+#
+# Add child information to a page
+# ###############################
 #
 # data_in
-# is the data for this page after the child_command funcion has processed
+# *******
+# is the data for this page after the toc_command function has processed
 # the toc commands.
 #
 # list_children
+# *************
 # is a list of the page names for the children of this page.
 # If this list is empty, data_out is equal to data_in.
 #
 # data_out
+# ********
 # The return value data_out has the child information added.
-# This includes a hidden table of contents (toctree) for the children at the
-# end of data_out. If the TOC command in data_in is {xrst_TOC_list} or
-# {xrst_TOC_table} of table with the corresponding links will replace the
-# comand. If the child comamnd is {xrst_TOC_hidden}, the command is removed,
-# but no table of links is added.
-# If there is no TOC command and list_children is non-empty,
-# the toc_table style is used for the links to the children which is placed
-# at the end of the data_out (before the toctree).
 #
+#  #. A hidden table of contents (toctree) for the children is added at the
+#     end of data_out.
+#  #. If the TOC command in data_in is {xrst_TOC_list} or {xrst_TOC_table},
+#     the corresponding links will replace the command.
+#  #. If the child command is {xrst_TOC_hidden}, the command is removed
+#     and no table of links is added.
+#  #. If there is no TOC command and list_children is non-empty,
+#     the toc_table style is used for the links to the children which are
+#     placed at the end of the data_out (before the toctree).
+#
+# {xrst_code py}
 # data_out =
 def process_children(
    page_name,
    data_in,
    list_children,
 ) :
+   assert type(page_name) == str
+   assert type(data_in) == str
+   assert type(list_children) == list
+   if len(list_children) > 0 :
+      assert type(list_children[0]) == str
+   # assert type(data_out) == str
+   # {xrst_code}
+   # {xrst_end process_children}
    #
    if len(list_children) == 0 :
       m_child = pattern_toc.search(data_in)

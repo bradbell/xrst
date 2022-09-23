@@ -37,6 +37,7 @@ The xrst Module
    "newline_indices", :ref:`newline_indices-0`
    "next_heading", :ref:`next_heading-0`
    "xrst.pattern", :ref:`xrst.pattern-0`
+   "process_children", :ref:`process_children-0`
 
 .. toctree::
    :maxdepth: 1
@@ -55,3 +56,4 @@ The xrst Module
    newline_indices
    next_heading
    xrst.pattern
+   process_children
