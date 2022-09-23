@@ -92,32 +92,38 @@ import xrst
 # Add labels and index entries for headings
 # #########################################
 #
+# Arguments
+# *********
+#
 # html_theme
-# **********
+# ==========
 # is the xrst command line html_theme setting.
 #
 # data_in
-# *******
+# =======
 # contains the data for a page before the headings are processed.
 #
 # file_name
-# *********
+# =========
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
 # page_name
-# *********
+# =========
 # is the name of this page.
 #
 # keyword_list
-# ************
+# ============
 # is a list of compiled regular expressions. If pattern is in this list,
 # *word* is a lower case version of a word in the heading text, and
 # pattern.fullmatch( *word* ) returns a match, an index entry is not
 # generated for word.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # is a copy of data_in with the following extra command added:
 #
 #  #. The index entries, and meta keyword entries (same as index),
@@ -127,12 +133,12 @@ import xrst
 #     This is makes it easy to add the page number to the heading text.
 #
 # page_title
-# **********
+# ==========
 # This is the heading text in the first heading for this page.
 # There can only be one heading at this level.
 #
 # pseudo_heading
-# **************
+# ==============
 # This is an automatically generated heading for this page. It is intended
 # to come before the page_title heading.
 # It has three lines each terminated by a newline:
@@ -142,7 +148,6 @@ import xrst
 #  3. an underline line
 #
 # {xrst_code py}
-# data_out, page_title, pseudo_heading =
 def process_headings(
       html_theme, data_in, file_name, page_name, keyword_list
 ) :
@@ -151,10 +156,11 @@ def process_headings(
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(keyword_list) == list
-   # assert type(data_out) == str
-   # assert type(page_title) == str
-   # assert type(pseudo_heading) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end process_headings}
    #
    # old2new_label
@@ -368,4 +374,10 @@ def process_headings(
    file_ptr.write(file_data)
    file_ptr.close()
    #
+   # BEGIN_return
+   assert type(data_out) == str
+   assert type(page_title) == str
+   assert type(pseudo_heading) == str
+   #
    return data_out, page_title, pseudo_heading
+   # END_return
