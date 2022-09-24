@@ -85,8 +85,11 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # Get information for all pages in a file
 # #######################################
 #
-# page_info
+# Arguments
 # *********
+#
+# page_info
+# =========
 # a list of with information for pages that came before this file.
 # For each list index, page_info[index] is a dict and
 # page_info[index]['page_name'] is an str
@@ -94,28 +97,31 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # This includes pages for all the groups that came before this group.
 #
 # group_name
-# **********
+# ==========
 # We are only retrieving information for pages in this group.
 #
 # parent_file
-# ***********
+# ===========
 # name of the file that included file_in.
 #
 # file_in
-# *******
+# =======
 # is the name of the file we are getting all the information for.
 #
+# Returns
+# *******
+#
 # file_info
-# *********
+# =========
 # The value file_info is a list of dict. Each dict contains the information
 # for one page in this file. We use info below for one element of the list:
 #
 # info['page_name']
-# =================
+# -----------------
 # is an str containing the name of a page in this file.
 #
 # info['page_data']
-# =================
+# -----------------
 # is an str containing the data for this page.
 #
 #  #. Line numbers have been added using :ref:`add_line_numbers` .
@@ -132,7 +138,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #     it has been removed.
 #
 # info['is_parent']
-# =================
+# -----------------
 # is true (false) if this is (is not) the parent page for the other
 # pages in this file. The parent page must be the first for this group,
 # and hence have index zero in file_info. In addition,
@@ -140,12 +146,11 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # i.e., len(file_info) >= 2.
 #
 # info['is_child']
-# ================
+# ----------------
 # is true (false) if this is (is not) a child of the first page in
 # this file.
 #
 # {xrst_code py}
-# file_info =
 def get_file_info(
       page_info,
       group_name,
@@ -153,13 +158,16 @@ def get_file_info(
       file_in,
 ) :
    assert type(page_info) == list
+   if 0 < len(page_info) :
+      type( page_info[0] ) == dict
    assert type(group_name) == str
    assert type(parent_file) == str or parent_file == None
    assert type(file_in) == str
-   # assert type(page_info[i]) == dict
-   # assert type(file_info) == list
-   # assert type(file_info[i]) == dict
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end get_file_info}
    #
    # file_data
@@ -358,4 +366,9 @@ def get_file_info(
          page_name   = None,
       )
    #
+   # BEGIN_return
+   assert type(file_info) == list
+   assert type(file_info[0]) == dict
+   #
    return file_info
+   # END_return

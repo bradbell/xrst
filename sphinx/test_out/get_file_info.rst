@@ -21,14 +21,24 @@ Get information for all pages in a file
    :local:
 
 .. meta::
+   :keywords: arguments
+
+.. index:: arguments
+
+.. _get_file_info@Arguments:
+
+Arguments
+*********
+
+.. meta::
    :keywords: page_info
 
 .. index:: page_info
 
-.. _get_file_info@page_info:
+.. _get_file_info@Arguments@page_info:
 
 page_info
-*********
+=========
 a list of with information for pages that came before this file.
 For each list index, page_info[index] is a dict and
 page_info[index]['page_name'] is an str
@@ -40,10 +50,10 @@ This includes pages for all the groups that came before this group.
 
 .. index:: group_name
 
-.. _get_file_info@group_name:
+.. _get_file_info@Arguments@group_name:
 
 group_name
-**********
+==========
 We are only retrieving information for pages in this group.
 
 .. meta::
@@ -51,10 +61,10 @@ We are only retrieving information for pages in this group.
 
 .. index:: parent_file
 
-.. _get_file_info@parent_file:
+.. _get_file_info@Arguments@parent_file:
 
 parent_file
-***********
+===========
 name of the file that included file_in.
 
 .. meta::
@@ -62,21 +72,31 @@ name of the file that included file_in.
 
 .. index:: file_in
 
-.. _get_file_info@file_in:
+.. _get_file_info@Arguments@file_in:
 
 file_in
-*******
+=======
 is the name of the file we are getting all the information for.
+
+.. meta::
+   :keywords: returns
+
+.. index:: returns
+
+.. _get_file_info@Returns:
+
+Returns
+*******
 
 .. meta::
    :keywords: file_info
 
 .. index:: file_info
 
-.. _get_file_info@file_info:
+.. _get_file_info@Returns@file_info:
 
 file_info
-*********
+=========
 The value file_info is a list of dict. Each dict contains the information
 for one page in this file. We use info below for one element of the list:
 
@@ -85,10 +105,10 @@ for one page in this file. We use info below for one element of the list:
 
 .. index:: info['page_name']
 
-.. _get_file_info@file_info@info['page_name']:
+.. _get_file_info@Returns@file_info@info['page_name']:
 
 info['page_name']
-=================
+-----------------
 is an str containing the name of a page in this file.
 
 .. meta::
@@ -96,10 +116,10 @@ is an str containing the name of a page in this file.
 
 .. index:: info['page_data']
 
-.. _get_file_info@file_info@info['page_data']:
+.. _get_file_info@Returns@file_info@info['page_data']:
 
 info['page_data']
-=================
+-----------------
 is an str containing the data for this page.
 
  #. Line numbers have been added using :ref:`add_line_numbers` .
@@ -120,10 +140,10 @@ is an str containing the data for this page.
 
 .. index:: info['is_parent']
 
-.. _get_file_info@file_info@info['is_parent']:
+.. _get_file_info@Returns@file_info@info['is_parent']:
 
 info['is_parent']
-=================
+-----------------
 is true (false) if this is (is not) the parent page for the other
 pages in this file. The parent page must be the first for this group,
 and hence have index zero in file_info. In addition,
@@ -135,13 +155,17 @@ i.e., len(file_info) >= 2.
 
 .. index:: info['is_child']
 
-.. _get_file_info@file_info@info['is_child']:
+.. _get_file_info@Returns@file_info@info['is_child']:
 
 info['is_child']
-================
+----------------
 is true (false) if this is (is not) a child of the first page in
 this file.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 148-161
+   :lines: 154-165
+   :language: py
+
+.. literalinclude:: ../../xrst/get_file_info.py
+   :lines: 370-373
    :language: py
