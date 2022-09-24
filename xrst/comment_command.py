@@ -38,21 +38,29 @@ pattern = re.compile(
 # Remove all comment commands
 # ###########################
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # is the data for this page.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # The return data_out is a copy of data_in except that the comment
 # commands have been removed.
 #
 # {xrst_code py}
-# data_out =
 def comment_command(data_in) :
    assert type(data_in) == str
-   # assert type(data_out) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end comment_cmd_dev}
    #
    # data_out
@@ -91,4 +99,8 @@ def comment_command(data_in) :
    # check_syntax_error
    # Cannot check for a syntax error in this command unless
    # the comment_ch commands have already been processed.
+   #
+   # BEGIN_return
+   assert type(data_out) == str
    return data_out
+   # END_return
