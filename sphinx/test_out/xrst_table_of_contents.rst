@@ -85,4 +85,5 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.23<system_exit>` Form error message and exit
 |  |space|  |space| :ref:`4.1.24<table_of_contents>` Create the table of contents
 |  |space|  |space| :ref:`4.1.25<temporary_file>` Write the temporary RST file for a page
+|  |space|  |space| :ref:`4.1.26<toc_cmd_dev>` Get file and page names for children of this page
 |

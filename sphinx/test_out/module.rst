@@ -49,6 +49,7 @@ The xrst Module
    "system_exit", :ref:`system_exit-0`
    "table_of_contents", :ref:`table_of_contents-0`
    "temporary_file", :ref:`temporary_file-0`
+   "toc_cmd_dev", :ref:`toc_cmd_dev-0`
 
 .. toctree::
    :maxdepth: 1
@@ -79,3 +80,4 @@ The xrst Module
    system_exit
    table_of_contents
    temporary_file
+   toc_cmd_dev

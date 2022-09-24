@@ -35,6 +35,7 @@
 #  xrst/system_exit.py
 #  xrst/table_of_contents.py
 #  xrst/temporary_file.py
+#  xrst/toc_commands.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #

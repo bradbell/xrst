@@ -113,55 +113,79 @@ Example
 import os
 import xrst
 import re
+# {xrst_begin toc_cmd_dev dev}
+# {xrst_spell
+#  newline
+# }
+# {xrst_comment_ch #}
 #
-# process toc commands
+# Get file and page names for children of this page
+# #################################################
 #
-# data_in:
+# Arguments
+# *********
+#
+# data_in
+# =======
 # is the data for the page before the toc commands have been processed.
-# Line numbers have been added to this data: see add_line_numbers.
 #
-# file_name:
+# file_name
+# =========
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
-# page_name:
+# page_name
+# =========
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# group_name:
-# We are only retrieving information for pages in this group.
+# group_name
+# ==========
+# We are only including information for pages in this group.
 #
-# data_out:
-# The first retrun data_out is a copy of data_in with the
-# toc commands replaced by  {xrst_command} where comamnd is TOC_hidden,
-# TOC_list, or TOC_table depending on which command was in data_in.
-# There is a newline directly before and after the {xrst_command}.
+# Returns
+# *******
 #
-# file_list:
-# The second return file_list is the list of files in the toc command
+# data_out
+# ========
+# is a copy of data_in with the toc commands replaced by \{xrst_command}
+# where command is TOC_hidden, TOC_list, or TOC_table depending on
+# which command was in data_in.
+# There is a newline directly before and after the \{xrst_command}.
+#
+# file_list
+# =========
+# is the list of files in the toc command
 # (and in same order as in the toc command).
 #
-# child_page_list:
+# child_page_list
+# ===============
 # Is the a list of page names corresponding to the children of the
 # this page that are in the files specified by file_list.
-# If a file in file_list has a begin_parent command, it only has
+# If a file in file_list has a begin_parent command, there is only
 # one page in child_page_list for that file. Otherwise all of the
 # pages in the file are in child_page_list.
 #
-# data_out, file_list, page_list =
+# {xrst_code py}
 def toc_commands(data_in, file_name, page_name, group_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(group_name) == str
+   # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
+   # {xrst_end toc_cmd_dev}
    #
    # data_out
    data_out = data_in
    #
-   # file_list, file_line, page_list
-   file_list    = list()
-   file_line    = list()
-   page_list = list()
+   # file_list, file_line, child_page_list
+   file_list       = list()
+   file_line       = list()
+   child_page_list = list()
    #
    # m_toc
    m_toc        = xrst.pattern['toc'].search(data_out)
@@ -172,7 +196,7 @@ def toc_commands(data_in, file_name, page_name, group_name) :
          file_name       = file_name,
          page_name       = page_name,
       )
-      return data_out, file_list, page_list
+      return data_out, file_list, child_page_list
    #
    # m_tmp
    m_tmp = xrst.pattern['toc'].search(data_out[m_toc.end() :] )
@@ -210,8 +234,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
             file_list.append(child_file)
             file_line.append(line_number)
    #
-   # page_list
-   assert len(page_list) == 0
+   # child_page_list
+   assert len(child_page_list) == 0
    for i in range( len(file_list) ) :
       #
       # child_file, child_line
@@ -284,8 +308,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
          # m_begin
          m_begin   = xrst.pattern['begin'].search(child_data, m_begin.end() )
       #
-      # page_list
-      page_list += list_children
+      # child_page_list
+      child_page_list += list_children
    #
    xrst.check_syntax_error(
       command_name    = 'toc',
@@ -293,4 +317,16 @@ def toc_commands(data_in, file_name, page_name, group_name) :
       file_name       = file_name,
       page_name       = page_name,
    )
-   return data_out, file_list, page_list
+   # We know that the lists are no-empty for this return,
+   # but use asserts that work for both retures becase in documentation.
+   # BEGIN_return
+   assert type(data_out) == str
+   assert type(file_list) == list
+   if 0 < len(file_list) :
+      assert type(file_list[0]) == str
+   assert type(child_page_list) == list
+   if 0 < len(child_page_list) :
+      assert type(child_page_list[0]) == str
+   #
+   return data_out, file_list, child_page_list
+   # END_return
