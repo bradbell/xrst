@@ -83,4 +83,6 @@ Table of Contents
 |  |space|  |space| :ref:`4.1.21<start_stop_file>` Convert literal command start, stop from text to line numbers
 |  |space|  |space| :ref:`4.1.22<suspend_cmd_dev>` Remove text specified by suspend / resume pairs
 |  |space|  |space| :ref:`4.1.23<system_exit>` Form error message and exit
+|  |space|  |space| :ref:`4.1.24<table_of_contents>` Create the table of contents
+|  |space|  |space| :ref:`4.1.25<temporary_file>` Write the temporary RST file for a page
 |

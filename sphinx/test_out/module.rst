@@ -47,6 +47,8 @@ The xrst Module
    "start_stop_file", :ref:`start_stop_file-0`
    "suspend_cmd_dev", :ref:`suspend_cmd_dev-0`
    "system_exit", :ref:`system_exit-0`
+   "table_of_contents", :ref:`table_of_contents-0`
+   "temporary_file", :ref:`temporary_file-0`
 
 .. toctree::
    :maxdepth: 1
@@ -75,3 +77,5 @@ The xrst Module
    start_stop_file
    suspend_cmd_dev
    system_exit
+   table_of_contents
+   temporary_file
