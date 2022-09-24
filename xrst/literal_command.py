@@ -114,39 +114,48 @@ def file_extension(display_file) :
 # Process the literal commands in a page
 # ######################################
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # is the data for a page before the
 # :ref:`literal commands <literal_cmd>` have been removed.
 #
 # file_name
-# *********
+# =========
 # is the name of the file that this data comes from. This is used
 # for error reporting and for the display file (when the display file
 # is not included in the command).
 #
 # page_name
-# *********
+# =========
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # rst_dir
-# *******
+# =======
 # is the directory, relative to the current working directory,
 # where xrst will place the final rst files.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # Each xrst literal command is converted to its corresponding sphinx commands.
 #
 # {xrst_code py}
-# data_out =
 def literal_command(data_in, file_name, page_name, rst_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(rst_dir) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end literal_cmd_dev}
    #
    assert xrst.pattern['literal_0'].groups == 1
@@ -290,4 +299,8 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
       file_name       = file_name,
       page_name    = page_name,
    )
+   # BEGIN_return
+   assert type(data_out) == str
+   #
    return data_out
+   # END_return

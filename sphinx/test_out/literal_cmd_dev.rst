@@ -21,14 +21,24 @@ Process the literal commands in a page
    :local:
 
 .. meta::
+   :keywords: arguments
+
+.. index:: arguments
+
+.. _literal_cmd_dev@Arguments:
+
+Arguments
+*********
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _literal_cmd_dev@data_in:
+.. _literal_cmd_dev@Arguments@data_in:
 
 data_in
-*******
+=======
 is the data for a page before the
 :ref:`literal commands <literal_cmd>` have been removed.
 
@@ -37,10 +47,10 @@ is the data for a page before the
 
 .. index:: file_name
 
-.. _literal_cmd_dev@file_name:
+.. _literal_cmd_dev@Arguments@file_name:
 
 file_name
-*********
+=========
 is the name of the file that this data comes from. This is used
 for error reporting and for the display file (when the display file
 is not included in the command).
@@ -50,10 +60,10 @@ is not included in the command).
 
 .. index:: page_name
 
-.. _literal_cmd_dev@page_name:
+.. _literal_cmd_dev@Arguments@page_name:
 
 page_name
-*********
+=========
 is the name of the page that this data is in. This is only used
 for error reporting.
 
@@ -62,24 +72,38 @@ for error reporting.
 
 .. index:: rst_dir
 
-.. _literal_cmd_dev@rst_dir:
+.. _literal_cmd_dev@Arguments@rst_dir:
 
 rst_dir
-*******
+=======
 is the directory, relative to the current working directory,
 where xrst will place the final rst files.
+
+.. meta::
+   :keywords: returns
+
+.. index:: returns
+
+.. _literal_cmd_dev@Returns:
+
+Returns
+*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _literal_cmd_dev@data_out:
+.. _literal_cmd_dev@Returns@data_out:
 
 data_out
-********
+========
 Each xrst literal command is converted to its corresponding sphinx commands.
 
 .. literalinclude:: ../../xrst/literal_command.py
-   :lines: 143-148
+   :lines: 149-153
+   :language: py
+
+.. literalinclude:: ../../xrst/literal_command.py
+   :lines: 303-305
    :language: py
