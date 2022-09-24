@@ -46,6 +46,7 @@ The xrst Module
    "spell_cmd_dev", :ref:`spell_cmd_dev-0`
    "start_stop_file", :ref:`start_stop_file-0`
    "suspend_cmd_dev", :ref:`suspend_cmd_dev-0`
+   "system_exit", :ref:`system_exit-0`
 
 .. toctree::
    :maxdepth: 1
@@ -73,3 +74,4 @@ The xrst Module
    spell_cmd_dev
    start_stop_file
    suspend_cmd_dev
+   system_exit
