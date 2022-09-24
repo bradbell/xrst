@@ -12,27 +12,40 @@ import re
 # Find index of all the newlines in a string
 # ##########################################
 #
+# Arguments
+# *********
+#
 # data
-# ****
+# ====
 # The string we are searching for newlines.
 #
+# Results
+# *******
+#
 # newline_list
-# ************
+# ============
 # The return newline_list is the list of indices in data that
 # represent all of the newlines; i.e. '\n'.
 #
 # {xrst_code py}
-# newline_list =
 def newline_indices(data) :
    assert type(data) == str
-   # assert type(newline_indices) == list
-   # assert type(newline_indices[i]) == int
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end newline_indices}
+
    pattern_newline  = re.compile( r'\n')
    newline_itr      = pattern_newline.finditer(data)
    newline_list     = list()
    for m_obj in newline_itr :
       next_index = m_obj.start()
       newline_list.append( next_index )
+   # BEGIN_return
+   assert type(newline_list) == list
+   if 0 < len( newline_list) :
+      assert type(newline_list[0]) == int
    return newline_list
+   # END_return
