@@ -93,18 +93,18 @@ def page_table_of_contents(
    else :
       file_name = tmp_dir + '/' + page_name + '.rst'
    #
-   # file_data
+   # page_data
    file_ptr  = open(file_name, 'r')
-   file_data = file_ptr.read()
+   page_data = file_ptr.read()
    file_ptr.close()
    if target == 'pdf' :
-      file_data = xrst.replace_page_number(file_data, page_number)
+      page_data = xrst.replace_page_number(page_data, page_number, page_name)
    else :
-      file_data = xrst.replace_page_number(file_data, '')
+      page_data = xrst.replace_page_number(page_data, '', page_name)
    #
    # file_name
    file_ptr  = open(file_name, 'w')
-   file_ptr.write(file_data)
+   file_ptr.write(page_data)
    file_ptr.close()
    #
    # in_parent_file_list, in_toc_cmd_list

@@ -39,9 +39,9 @@ Arguments
 
 data_in
 =======
-data for a page before replacement.
+data for this page before replacement.
 
- #. data_in must contain '\n{xrst_page_number}'
+ #. data_in must contain '\\n{xrst_page_number}'
     which is referred to as the command below.
  #. The page title must come directly after the command
     and start with a newline.
@@ -62,6 +62,17 @@ This is a page number that is placed infront of the heading text.
 This may be empty; i.e., the replacement text is the empty string.
 The underline (and overline if present) are extended by the number of
 characters added to the heading text.
+
+.. meta::
+   :keywords: page_name
+
+.. index:: page_name
+
+.. _replace_page_number@Arguments@page_name:
+
+page_name
+=========
+name of this page (only used to report errors).
 
 .. meta::
    :keywords: returns
@@ -86,9 +97,9 @@ the return data_out is the data after replacement. The page number is
 added (see above) and the command is removed.
 
 .. literalinclude:: ../../xrst/replace_page_number.py
-   :lines: 45-47
+   :lines: 52-54
    :language: py
 
 .. literalinclude:: ../../xrst/replace_page_number.py
-   :lines: 124-126
+   :lines: 141-143
    :language: py

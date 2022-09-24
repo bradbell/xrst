@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
+import re
+import xrst
+#
 # {xrst_begin replace_page_number dev}
 # {xrst_spell
 #  newline
@@ -16,9 +19,9 @@
 #
 # data_in
 # =======
-# data for a page before replacement.
+# data for this page before replacement.
 #
-#  #. data_in must contain '\n\{xrst_page_number}'
+#  #. data_in must contain '\\n\{xrst_page_number}'
 #     which is referred to as the command below.
 #  #. The page title must come directly after the command
 #     and start with a newline.
@@ -33,6 +36,10 @@
 # The underline (and overline if present) are extended by the number of
 # characters added to the heading text.
 #
+# page_name
+# =========
+# name of this page (only used to report errors).
+#
 # Returns
 # *******
 #
@@ -42,7 +49,7 @@
 # added (see above) and the command is removed.
 #
 # {xrst_code py}
-def replace_page_number(data_in, page_number) :
+def replace_page_number(data_in, page_number, page_name) :
    assert type(data_in) == str
    assert type(page_number) == str
    # {xrst_code}
@@ -54,9 +61,6 @@ def replace_page_number(data_in, page_number) :
    #
    # pattern
    pattern   = '\n{xrst_page_number}'
-   if page_number == '' :
-      # data_out
-      return data_in.replace(pattern,'')
    #
    # punctuation
    # Headings uses repeated copies of one of these characters
@@ -65,6 +69,19 @@ def replace_page_number(data_in, page_number) :
    # start_cmd
    start_cmd = data_in.find(pattern)
    assert 0 <= start_cmd
+   index = data_in.find(pattern, start_cmd + len(pattern))
+   if 0 <= index :
+      pattern_source = r'\nxrst input file: ``([^`]*)``'
+      m_source       = re.search(pattern_source, data_in)
+      # make sure that pattern_source is still valid
+      assert m_source != None
+      file_name = m_source.group(1)
+      msg = '{xrst_page_number} cannot appear at beginning of a line'
+      xrst.system_exit(msg, file_name = file_name, page_name = page_name)
+   #
+   # data_out
+   if page_number == '' :
+      return data_in.replace(pattern,'')
    #
    # first_newline
    first_newline = start_cmd + len(pattern)

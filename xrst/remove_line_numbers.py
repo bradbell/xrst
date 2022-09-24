@@ -33,8 +33,8 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # line_pair
 # =========
 # The second return line_pair is a list of two element tuples.
-# The first element is the line number in data_out not counting the
-# { ``xrst_page_number`` } lines. The second element is the corresponding
+# The first element is the line number in data_out not counting
+# the {xrst_page_number} lines. The second element is the corresponding
 # line number (not line) that has was removed.
 #
 # {xrst_code py}
