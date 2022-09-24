@@ -9,6 +9,7 @@
    furo
    pyspellchecker
    rtd
+   xrst xrst
 }
 
 Run Extract Sphinx RST And Sphinx
@@ -24,6 +25,7 @@ Syntax
    [ ``--target`` *target* ]
    [ ``--output`` *output_dir* ]
    [ ``--sphinx`` *sphinx_dir* ]
+
 
 version
 *******
@@ -103,11 +105,31 @@ to include in the output using this optional argument.
 #. The order of the groups determines their order in the resulting output.
 #. The default value for *group_list* is ``,`` .
 
-One use case for this is where the user documentation is a subset of the
-developer documentation. This enables the developer documentation to
-easily link to the specific paragraphs in the user documentation.
-It also enables the same source code file to provide both the developer
-and user documentation for the actions it provides.
+The xrst examples are a subset of its user documentation
+and its user documentation is a subset of its developer documentation.
+For each command, the same source code file provides both the
+user and developer documentation. In addition, the developer documentation
+has links to the user documentation and the user documentation has links
+to the examples.
+
+Example
+=======
+
+#. The xrst examples use the empty group name
+   and their documentation can be built using
+
+   | xrst xrst.xrst --group ,
+
+#. The xrst user documentation uses the empty, user, and app group names
+   and its documentation can be built using
+
+   | xrst xrst.xrst --group ,user,app
+
+#. The xrst developer documentation uses the empty, user, app, and dev
+   group names and its documentation can be built using
+
+   | xrst xrst.xrst --group ,user,app,dev
+
 
 target
 ******

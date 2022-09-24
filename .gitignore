@@ -11,6 +11,7 @@ temp.*
 /doc/
 /sphinx/rst/
 /sphinx/latex/
+/sphinx/html/
 /new/
 /new.[0-9]*/
 __pycache__/

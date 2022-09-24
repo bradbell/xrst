@@ -34,8 +34,10 @@ mm-dd
 
 09-24
 =====
-Remove the xrst_page_number wish list item because
-it was completed.
+1. Remove the xrst_page_number wish list item because
+   it was completed.
+2. Add :ref:`examples <run_xrst@group_list@Example>` showing how to use
+   group list option.
 
 .. _2022@mm-dd@09-23:
 
