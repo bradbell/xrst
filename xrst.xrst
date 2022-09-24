@@ -176,12 +176,6 @@ The following is a wish list for future improvements to ``run_xrst``:
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
 
-xrst_page_number
-****************
-Putting a backslash in front { ``xrst_page_number`` } does not work because
-the backslash is removed before the command is interpreted. This should
-be fixed.
-
 Tabs
 ****
 Tabs in xrst input is not tested because

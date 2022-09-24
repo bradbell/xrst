@@ -21,7 +21,7 @@ import xrst
 # =======
 # data for this page before replacement.
 #
-#  #. data_in must contain '\\n\{xrst_page_number}'
+#  #. data_in must contain '\\n{xrst_page_number}'
 #     which is referred to as the command below.
 #  #. The page title must come directly after the command
 #     and start with a newline.

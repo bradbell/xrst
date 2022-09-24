@@ -44,7 +44,7 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # data_in
 # *******
 # is the data for this page with all the xrst commands converted to
-# their sphinx RST values, except the ``{`` xrst_page_number ``}`` command.
+# their sphinx RST values, except the \\n{xrst_page_number} command.
 # The following is added to this data before writing it to the output file:
 #
 # #. The preamble is included at the beginning.

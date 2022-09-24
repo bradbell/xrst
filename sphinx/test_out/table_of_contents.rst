@@ -20,8 +20,6 @@ Create the table of contents
 .. contents::
    :local:
 
-and replace the '{xrst_page_number}' for all pages in pinfo_list.
-
 .. meta::
    :keywords: arguments
 
@@ -55,9 +53,9 @@ target
 is either 'html' or 'pdf'.
 
  #. If target is 'pdf',  in the file
-    tmp_dir/page_name.rst the text { ``xrst_page_number`` }
+    tmp_dir/page_name.rst the text \\n{xrst_page_number}
     is replaced by the page number which includes the counter for each level.
- #. If target is 'html', { ``xrst_page_number`` } is removed with not
+ #. If target is 'html', \\n{xrst_page_number} is removed with no
     replacement.
 
 .. meta::
@@ -118,9 +116,9 @@ The title Table of Contents and the label xrst_table_of_contents
 are placed at the beginning of the of content.
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 209-218
+   :lines: 208-217
    :language: py
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 249-250
+   :lines: 248-249
    :language: py

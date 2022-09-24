@@ -25,13 +25,18 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-24
+=====
+Remove the xrst_page_number wish list item because
+it was completed.
+
 09-23
 =====
 1. The error message when a file specified by a :ref:`toc_cmd`
    did not correctly state the command with the error.
    This has been fixed.
 2. Modify the wish list :ref:`wish_list@Tabs` item.
-   Add the :ref:`wish_list@xrst_page_number` wish list item.
+   Add the xrst_page_number wish list item.
 
 09-22
 =====

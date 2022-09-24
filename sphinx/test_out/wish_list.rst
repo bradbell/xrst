@@ -26,19 +26,6 @@ The following is a wish list for future improvements to ``run_xrst``:
    sphinx-documentation-tool-set-tab-width-in-output
 
 .. meta::
-   :keywords: xrst_page_number
-
-.. index:: xrst_page_number
-
-.. _wish_list@xrst_page_number:
-
-xrst_page_number
-****************
-Putting a backslash in front { ``xrst_page_number`` } does not work because
-the backslash is removed before the command is interpreted. This should
-be fixed.
-
-.. meta::
    :keywords: tabs
 
 .. index:: tabs
