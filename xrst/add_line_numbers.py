@@ -18,14 +18,20 @@ pattern = re.compile( r'^\n[ \t]*' )
 # Add line numbers to a string in a way that is useful for reporting errors
 # (for modified versions of string) using line number in the original string.
 #
+# Arguments
+# *********
+#
 # data_in
-# *******
+# =======
 # The original string.  An empty line is a line with just spaces or tabs.
 # line_number is the number of newlines before a line plus one; i.e.,
 # the first line is number one.
 #
+# Returns
+# *******
+#
 # data_out
-# ********
+# ========
 # The return data_out is a modified version of data_in. The text
 #
 #  | ``\{xrst_line`` *line_number@*
@@ -34,11 +40,13 @@ pattern = re.compile( r'^\n[ \t]*' )
 # Spaces and tabs in empty lines are removed (so they are truely empty).
 #
 # {xrst_code py}
-# data_out =
 def add_line_numbers(data_in) :
    assert type(data_in) == str
-   # assert type(data_out) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end add_line_numbers}
    #
    # newline_list, line_start
@@ -84,4 +92,7 @@ def add_line_numbers(data_in) :
    assert previous == len(data_in) - 1
    data_out += '\n'
    #
+   # BEGIN_return
+   assert type(data_out) == str
    return data_out
+   # END_return
