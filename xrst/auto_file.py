@@ -277,16 +277,15 @@ def auto_file(
    conf_py += '# Latex used when sphinx builds  pdf\n'
    conf_py += 'latex_elements = {\n'
    conf_py += "    'preamble' :\n"
-   conf_py += "    r'\\renewcommand{\\thepage}{{\\hspace{-1em}}} ' + \n"
-   conf_py += "    r'\\renewcommand{\\thesubpage}{{\\hspace{-1em}}} ' + \n"
-   conf_py += "    r'\\renewcommand{\\thesubsubpage}{{\\hspace{-1em}}}'"
    #
    # latex
    latex = ''
    macro_list = preamble_macros(sphinx_dir)
-   for macro in macro_list :
-      latex += ' + \n'
+   for (i, macro) in enumerate(macro_list) :
       latex += "    r'" + macro + "'"
+      if i + 1 < len(macro_list) :
+         latex += ' +'
+      latex += '\n'
    #
    # conf_py
    conf_py += latex + '\n}\n'

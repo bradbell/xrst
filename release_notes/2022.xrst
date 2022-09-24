@@ -31,6 +31,10 @@ mm-dd
    it was completed.
 2. Add :ref:`examples <run_xrst@group_list@Example>` showing how to use
    group list option.
+3. Fix a problem with build the pdf :ref:`run_xrst@target` on sphinx 4.1.2,
+   to be specific::
+
+      ! LaTeX Error: Command \thesubpage undefined.
 
 09-23
 =====
