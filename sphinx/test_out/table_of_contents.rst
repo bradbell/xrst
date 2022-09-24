@@ -20,7 +20,7 @@ Create the table of contents
 .. contents::
    :local:
 
-and replace the '{xrst_page_number}' for all pages in sinfo_list.
+and replace the '{xrst_page_number}' for all pages in pinfo_list.
 
 .. meta::
    :keywords: arguments
@@ -61,16 +61,16 @@ is either 'html' or 'pdf'.
     replacement.
 
 .. meta::
-   :keywords: sinfo_list
+   :keywords: pinfo_list
 
-.. index:: sinfo_list
+.. index:: pinfo_list
 
-.. _table_of_contents@Arguments@sinfo_list:
+.. _table_of_contents@Arguments@pinfo_list:
 
-sinfo_list
+pinfo_list
 ==========
 is a list with length equal to the number of pages.
-The value sinfo_list[page_index] is a dictionary for this page
+The value pinfo_list[page_index] is a dictionary for this page
 with the following key, value pairs (all the keys are strings):
 
 ..  csv-table::
@@ -78,7 +78,7 @@ with the following key, value pairs (all the keys are strings):
 
     page_name, contains the name of this page, str
     page_title,  contains the title for this page, str
-    parent_page, index in sinfo_list for the parent of this page, int
+    parent_page, index in pinfo_list for the parent of this page, int
     in_parent_file, is this page in same input file as its parent, bool
 
 .. meta::

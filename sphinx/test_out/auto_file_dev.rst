@@ -67,13 +67,13 @@ target
 is html or pdf
 
 .. meta::
-   :keywords: sinfo_list
+   :keywords: pinfo_list
 
-.. index:: sinfo_list
+.. index:: pinfo_list
 
-.. _auto_file_dev@sinfo_list:
+.. _auto_file_dev@pinfo_list:
 
-sinfo_list
+pinfo_list
 **********
 is a list with length equal to the number of pages.
 The value page[page_index] is a dictionary for this page
@@ -84,7 +84,7 @@ with the following key, value pairs (all the keys are strings):
 
     page_name, (str) containing the name of this page.
     page_title,  (str) containing the title for this page.
-    parent_page, (int) index in sinfo_list for the parent of this page.
+    parent_page, (int) index in pinfo_list for the parent of this page.
     in_parent_file, (bool) is this page in same input file as its parent.
 
 .. meta::

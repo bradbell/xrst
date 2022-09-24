@@ -15,12 +15,10 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#  xrst/get_comment_ch.py
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#  s|get_comment_ch|comment_ch_command|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -32,4 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|get_comment_ch|comment_ch_command|g
+s|sinfo_list|pinfo_list|g
+s|#\( *\)sinfo$|#\1pinfo|

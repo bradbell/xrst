@@ -132,7 +132,7 @@ def preamble_macros(sphinx_dir) :
 # {xrst_spell
 #  dir
 #  tmp
-#  sinfo
+#  pinfo
 #  bool
 #  genindex
 #  conf
@@ -160,7 +160,7 @@ def preamble_macros(sphinx_dir) :
 # ******
 # is html or pdf
 #
-# sinfo_list
+# pinfo_list
 # **********
 # is a list with length equal to the number of pages.
 # The value page[page_index] is a dictionary for this page
@@ -171,7 +171,7 @@ def preamble_macros(sphinx_dir) :
 #
 #     page_name, (str) containing the name of this page.
 #     page_title,  (str) containing the title for this page.
-#     parent_page, (int) index in sinfo_list for the parent of this page.
+#     parent_page, (int) index in pinfo_list for the parent of this page.
 #     in_parent_file, (bool) is this page in same input file as its parent.
 #
 # root_page_list
@@ -205,19 +205,19 @@ def preamble_macros(sphinx_dir) :
 #
 # {xrst_code py}
 def auto_file(
-   html_theme, sphinx_dir, tmp_dir, target, sinfo_list, root_page_list
+   html_theme, sphinx_dir, tmp_dir, target, pinfo_list, root_page_list
    ) :
    assert type(html_theme) == str
    assert type(sphinx_dir) == str
    assert type(tmp_dir) == str
    assert type(target) == str
-   assert type(sinfo_list) == list
+   assert type(pinfo_list) == list
    assert type(root_page_list) == list
    # {xrst_code}
    # {xrst_end auto_file_dev}
    #
    # project_name
-   project_name = sinfo_list[0]['file_in']
+   project_name = pinfo_list[0]['file_in']
    index   = project_name.rfind('/')
    if 0 <= index and index + 1 < len(project_name) :
       project_name = project_name[index + 1 :]
@@ -236,7 +236,7 @@ def auto_file(
    count         = list()
    page_index = 0
    file_data  += xrst.table_of_contents(
-      tmp_dir, target, sinfo_list, root_page_list
+      tmp_dir, target, pinfo_list, root_page_list
    )
    #
    # xrst_table_of_contents.rst
