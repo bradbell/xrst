@@ -33,6 +33,7 @@
 #  xrst/start_stop_file.py
 #  xrst/suspend_command.py
 #  xrst/system_exit.py
+#  xrst/table_of_contents.py
 #  xrst/temporary_file.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}

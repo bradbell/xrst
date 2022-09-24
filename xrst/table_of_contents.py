@@ -36,7 +36,7 @@ def page_name2index(sinfo_list, page_name) :
 #
 # sinfo_list:
 # is a list with length equal to the number of pages.
-# The value page[page_index] is a dictionary for this seciton
+# The value sinfo_list[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings:
 # key            value
 # page_name   a str continaing the name of this page.
@@ -145,43 +145,83 @@ def page_table_of_contents(
    #
    return content
 # ----------------------------------------------------------------------------
-# Create the table of contents and replace the '{xrst_page_number}'
-# for all pages in sinfo_list.
+# {xrst_begin table_of_contents dev}
+# {xrst_spell
+#  tmp
+#  dir
+#  sinfo
+#  bool
+#  dict
+# }
+# {xrst_comment_ch #}
+#
+# Create the table of contents
+# ############################
+# and replace the '{xrst_page_number}' for all pages in sinfo_list.
+#
+# Arguments
+# *********
 #
 # tmp_dir
+# =======
 # is the temporary directory whre the rst files are written.
 #
-# target:
-# is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/page_name.rst the text {xrst_page_number}
-# is replaced by the page number which includes the counter for each level.
-# If target is 'html', {xrst_page_number} is removed with not replacement.
+# target
+# ======
+# is either 'html' or 'pdf'.
 #
-# sinfo_list:
+#  #. If target is 'pdf',  in the file
+#     tmp_dir/page_name.rst the text { ``xrst_page_number`` }
+#     is replaced by the page number which includes the counter for each level.
+#  #. If target is 'html', { ``xrst_page_number`` } is removed with not
+#     replacement.
+#
+# sinfo_list
+# ==========
 # is a list with length equal to the number of pages.
-# The value page[page_index] is a dictionary for this seciton
-# with the following key, value pairs (all the keys are strings:
-# key            value
-# page_name   a str continaing the name of this page.
-# page_title  a str containing the title for this page.
-# parent_page an int index in sinfo_list for the parent of this page.
-# in_parent_file is this page in same input file as its parent.
+# The value sinfo_list[page_index] is a dictionary for this page
+# with the following key, value pairs (all the keys are strings):
 #
-# content:
+# ..  csv-table::
+#     :header: key, value, type
+#
+#     page_name, contains the name of this page, str
+#     page_title,  contains the title for this page, str
+#     parent_page, index in sinfo_list for the parent of this page, int
+#     in_parent_file, is this page in same input file as its parent, bool
+#
+# root_page_list
+# ==============
+# is a list of strings containing the root page name for each group.
+# The order of the root page names determine the order of the groups
+# int the table of contents.
+#
+# Returns
+# *******
+#
+# content
+# =======
 # The return content is the table of contents entries for all the pages.
-# The title Table of Contents and the label xrst_tble_of_contents
+# The title Table of Contents and the label xrst_table_of_contents
 # are placed at the beginning of the of content.
 #
-# content =
+# {xrst_code py}
 def table_of_contents(
    tmp_dir, target, sinfo_list, root_page_list
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
+   assert target in [ 'html', 'pdf']
+   assert type(sinfo_list) == list
+   assert type(sinfo_list[0]) == dict
    assert type(root_page_list) == list
    assert type(root_page_list[0]) == str
-   #
-   assert target in [ 'html', 'pdf']
+   # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
+   # {xrst_end table_of_contents}
    #
    # content
    content  = '\n.. _xrst_table_of_contents-0:\n\n'
@@ -205,4 +245,7 @@ def table_of_contents(
             tmp_dir, target, count, sinfo_list, page_index
          )
    #
+   # BEGIN_return
+   assert type(content) == str
    return content
+   # END_return
