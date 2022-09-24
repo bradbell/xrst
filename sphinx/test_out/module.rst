@@ -45,6 +45,7 @@ The xrst Module
    "replace_spell", :ref:`replace_spell-0`
    "spell_cmd_dev", :ref:`spell_cmd_dev-0`
    "start_stop_file", :ref:`start_stop_file-0`
+   "suspend_cmd_dev", :ref:`suspend_cmd_dev-0`
 
 .. toctree::
    :maxdepth: 1
@@ -71,3 +72,4 @@ The xrst Module
    replace_spell
    spell_cmd_dev
    start_stop_file
+   suspend_cmd_dev

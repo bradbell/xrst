@@ -31,6 +31,7 @@
 #  xrst/replace_spell.py
 #  xrst/spell_command.py
 #  xrst/start_stop_file.py
+#  xrst/suspend_command.py
 # }
 # {xrst_comment END_SORT_THIS_LINE_MINUS_2}
 #
