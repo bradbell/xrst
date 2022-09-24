@@ -12,23 +12,32 @@ import spellchecker
 # Create a pyspellchecker object
 # ##############################
 #
+# Arguments
+# *********
+#
 # local_words
-# ***********
+# ===========
 # a list of words that get added to the dictionary for this spell checker.
 # No need to add single letter words because they are considered correct
 # by spell_command routine.
 #
+# Returns
+# *******
+#
 # spell_checker
-# *************
+# =============
 # The return spell_checker is a pyspellchecker spell checking object.
 #
 # {xrst_code py}
-# spell_checker =
 def create_spell_checker(local_words) :
    assert type(local_words) == list
    if len(local_words) > 0 :
       assert type(local_words[0]) == str
    # {xrst_code}
+   # {xrst_literal
+   #  BEGIN_return
+   #  END_return
+   # }
    # {xrst_end create_spell_checker}
    #
    # spell_checker
@@ -128,4 +137,6 @@ def create_spell_checker(local_words) :
    # Add local spelling list to dictionary at end (never removed)
    spell_checker.word_frequency.load_words(local_words)
    #
+   # BEGIN_return
    return spell_checker
+   # END_return
