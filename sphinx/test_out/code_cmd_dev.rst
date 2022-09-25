@@ -105,5 +105,5 @@ sphinx command.
    :language: py
 
 .. literalinclude:: ../../xrst/code_command.py
-   :lines: 207-208
+   :lines: 211-212
    :language: py

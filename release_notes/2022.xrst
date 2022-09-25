@@ -36,6 +36,11 @@ mm-dd
 
       ! LaTeX Error: Command \thesubpage undefined.
 
+4. There was a problem with the :ref:`code_cmd` when it was inside a list.
+   This has been fixed and the corresponding
+   :ref:`list_example@Code Command` example now displays properly.
+   To be specific,  its second item starts with 2 instead of 1.
+
 09-23
 =====
 1. The error message when a file specified by a :ref:`toc_cmd`

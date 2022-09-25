@@ -38,6 +38,15 @@ mm-dd
    it was completed.
 2. Add :ref:`examples <run_xrst@group_list@Example>` showing how to use
    group list option.
+3. Fix a problem with build the pdf :ref:`run_xrst@target` on sphinx 4.1.2,
+   to be specific::
+
+      ! LaTeX Error: Command \thesubpage undefined.
+
+4. There was a problem with the :ref:`code_cmd` when it was inside a list.
+   This has been fixed and the corresponding
+   :ref:`list_example@Code Command` example now displays properly.
+   To be specific,  its second item starts with 2 instead of 1.
 
 .. _2022@mm-dd@09-23:
 

@@ -170,9 +170,13 @@ def code_command(data_in, file_name, page_name, rst_dir) :
       if language == 'm' :
          language = 'matlab'
       #
-      # data_before, data_after
-      data_before = data_out[: m_begin.start()]
-      data_after  = data_out[m_end.end() : ]
+      # data_before, data_between,  data_after
+      data_before  = data_out[: m_begin.start()]
+      data_between = data_out[ m_begin.start() : m_end.end() ]
+      data_after   = data_out[m_end.end() : ]
+      #
+      # indent
+      not_used, indent = xrst.remove_indent(data_between, file_name, page_name)
       #
       # start_line, stop_line
       assert data_out[m_begin.end()] == '\n'
@@ -181,9 +185,9 @@ def code_command(data_in, file_name, page_name, rst_dir) :
       stop_line  = int(m_end.group(5)) - 1
       #
       # cmd
-      command  = f'.. literalinclude:: {work_dir}{file_name}\n'
-      command += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
-      command += 3 * ' ' + f':language: {language}\n'
+      command  = indent + f'.. literalinclude:: {work_dir}{file_name}\n'
+      command += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+      command += indent + 3 * ' ' + f':language: {language}\n'
       command = '\n' + command + '\n'
       assert data_after.startswith('\n')
       if not data_before.strip(' ').endswith('\n') :
