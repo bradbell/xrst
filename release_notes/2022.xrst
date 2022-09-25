@@ -40,6 +40,8 @@ mm-dd
    This has been fixed and the corresponding
    :ref:`list_example@Code Command` example now displays properly.
    To be specific,  its second item starts with 2 instead of 1.
+5. Remove the latex generated section numbers from the pdf output because
+   xrst includes its own value for the section numbering.
 
 09-23
 =====

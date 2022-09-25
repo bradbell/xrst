@@ -258,6 +258,37 @@ def system_command(command) :
    msg  = f'system command failed: stderr = \n{stderr}'
    sys.exit(msg)
 # ---------------------------------------------------------------------------
+def fix_latex(latex_dir, project_name) :
+   assert type(latex_dir) == str
+   assert type(project_name) == str
+   #
+   # file_name
+   file_name = f'{latex_dir}/{project_name}.tex'
+   #
+   # file_data
+   file_ptr  = open(file_name, 'r')
+   file_data = file_ptr.read()
+   file_ptr.close()
+   #
+   # file_data
+   pattern   = re.compile( r'\n\\section{' )
+   file_data = pattern.sub( r'\n\\section*{', file_data)
+   #
+   # file_data
+   pattern   = re.compile( r'\n\\subsection{' )
+   file_data = pattern.sub( r'\n\\subsection*{', file_data)
+   #
+   # file_data
+   pattern   = re.compile( r'\n\\subsubsection{' )
+   file_data = pattern.sub( r'\n\\subsubsection*{', file_data)
+   #
+   # file_name
+   file_ptr  = open(file_name, 'w')
+   file_ptr.write(file_data)
+   file_ptr.close()
+   #
+   return
+# ---------------------------------------------------------------------------
 # sys.path
 # used so that we can test before installing
 if( os.getcwd().endswith('/xrst.git') ) :
@@ -677,13 +708,16 @@ def run_xrst() :
       command = f'sphinx-build -b latex {sphinx_dir}/rst {latex_dir}'
       system_command(command)
       #
+      # latex_dir/project_name.tex
+      fix_latex(latex_dir, project_name)
+      #
       command = f'make -C {latex_dir} {project_name}.pdf'
       system_command(command)
    # -------------------------------------------------------------------------
    # output_dir/_static/css/theme.css
    # see https://stackoverflow.com/questions/23211695/
    #  modifying-content-width-of-the-sphinx-theme-read-the-docs
-   if html_theme == 'sphinx_rtd_theme' :
+   if html_theme == 'sphinx_rtd_theme' and target == 'html' :
       pattern = dict()
       pattern['content'] = re.compile(
          r'([.]wy-nav-content[{][^}]*;max-width):[^;]*;'
