@@ -30,6 +30,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-25:
+
+09-25
+=====
+The ``conf.py`` file has an error when there were no macros in the
+:ref:`run_xrst@sphinx_dir@preamble.rst` file. This has been fixed.
+
 .. _2022@mm-dd@09-24:
 
 09-24

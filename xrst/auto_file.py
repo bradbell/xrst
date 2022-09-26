@@ -273,10 +273,6 @@ def auto_file(
    conf_py +=  "author = ''\n"
    conf_py += conf_py_general
    conf_py += theme_temp
-   conf_py += '#\n'
-   conf_py += '# Latex used when sphinx builds  pdf\n'
-   conf_py += 'latex_elements = {\n'
-   conf_py += "    'preamble' :\n"
    #
    # latex
    latex = ''
@@ -288,7 +284,12 @@ def auto_file(
       latex += '\n'
    #
    # conf_py
-   conf_py += latex + '\n}\n'
+   if latex != '' :
+      conf_py += '#\n'
+      conf_py += '# Latex used when sphinx builds  pdf\n'
+      conf_py += 'latex_elements = {\n'
+      conf_py += "    'preamble' :\n"
+      conf_py += latex + '\n}\n'
    #
    # sphinx_dir/conf.py
    file_out    = sphinx_dir + '/rst/conf.py'

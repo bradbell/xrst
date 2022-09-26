@@ -242,8 +242,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
       child_file = file_list[i]
       child_line = file_line[i]
       if not os.path.isfile(child_file) :
-         msg  = 'The file ' + child_file + '\n'
-         msg += 'used a the toc_' + command + ' command does not exist'
+         msg  = 'The file ' + child_file + ' does not exist\n'
+         msg += 'It was used by a toc_' + command + ' command'
          xrst.system_exit(msg,
             file_name=file_name, page_name=page_name, line=child_line
          )
