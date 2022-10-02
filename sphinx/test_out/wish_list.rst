@@ -79,20 +79,6 @@ It would be nice to have a way to translate sphinx error messages
 to the corresponding xrst input file and line number.
 
 .. meta::
-   :keywords: developer, documentation
-
-.. index:: developer, documentation
-
-.. _wish_list@Developer Documentation:
-
-Developer Documentation
-***********************
-Now that xrst has a :ref:`run_xrst@group_list` option,
-it would be nice to convert the developer documentation
-to xrst with a group name that does not get included when
-building the user documentation; e.g. ``devel`` .
-
-.. meta::
    :keywords: search
 
 .. index:: search

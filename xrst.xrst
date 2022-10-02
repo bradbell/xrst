@@ -163,7 +163,6 @@ Appendix
 {xrst_begin wish_list app}
 {xrst_spell
    conf
-   devel
    dir
    stackoverflow
    toml
@@ -200,13 +199,6 @@ Sphinx Error Messages
 *********************
 It would be nice to have a way to translate sphinx error messages
 to the corresponding xrst input file and line number.
-
-Developer Documentation
-***********************
-Now that xrst has a :ref:`run_xrst@group_list` option,
-it would be nice to convert the developer documentation
-to xrst with a group name that does not get included when
-building the user documentation; e.g. ``devel`` .
 
 Search
 ******

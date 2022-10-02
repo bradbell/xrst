@@ -30,6 +30,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@10-02:
+
+10-02
+=====
+Remove the developer documentation wish list item
+because it was completed on 09-21_ .
+
 .. _2022@mm-dd@09-26:
 
 09-26
