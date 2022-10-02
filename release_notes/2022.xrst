@@ -25,6 +25,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+09-26
+=====
+An Underbar can be used at the end of a title
+if it is escaped with a backslash.
+So remove the error message for this case; see
+:ref:`2022@mm-dd@09-17` .
+
 09-25
 =====
 The ``conf.py`` file has an error when there were no macros in the

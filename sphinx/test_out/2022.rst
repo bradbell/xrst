@@ -30,6 +30,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@09-26:
+
+09-26
+=====
+An Underbar can be used at the end of a title
+if it is escaped with a backslash.
+So remove the error message for this case; see
+:ref:`2022@mm-dd@09-17` .
+
 .. _2022@mm-dd@09-25:
 
 09-25

@@ -132,5 +132,5 @@ If there is an overline present, it is the same as the underline text.
    :language: py
 
 .. literalinclude:: ../../xrst/next_heading.py
-   :lines: 162-166
+   :lines: 159-163
    :language: py

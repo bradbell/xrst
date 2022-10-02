@@ -133,9 +133,6 @@ def next_heading(data, data_index, file_name, page_name) :
                msg = 'underline text is longer than line above it'
             elif overline_text is not None and overline_text != next_line:
                msg = 'overline text is non-empty and not equal underline text'
-            elif heading_text.endswith('_') :
-               msg  = 'Sphinx does not handle headings that end with underbar'
-               line = int(line) - 1
             if msg != '' :
                xrst.system_exit(
                      msg,
