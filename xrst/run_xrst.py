@@ -691,7 +691,7 @@ def run_xrst() :
    #
    # label.sed
    # 2DO: remove this when done converting labels
-   shutil.copyfile( f'{tmp_dir}/label.sed', f'{sphinx_dir}/label.sed' )
+   shutil.copyfile( f'{tmp_dir}/label.sed', f'{rst_dir}/label.sed' )
    #
    # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command
