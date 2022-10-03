@@ -17,8 +17,6 @@ xrst input file: ``xrst.xrst``
 
 xrst Release Notes By Year
 ##########################
-.. contents::
-   :local:
 
 :ref:`2022`,
 :ref:`2021`

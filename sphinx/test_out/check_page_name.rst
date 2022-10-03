@@ -17,6 +17,7 @@ xrst input file: ``xrst/check_page_name.py``
 
 Check the rules for a page name
 ###############################
+
 .. contents::
    :local:
 

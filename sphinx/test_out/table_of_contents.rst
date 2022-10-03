@@ -17,6 +17,7 @@ xrst input file: ``xrst/table_of_contents.py``
 
 Create the table of contents
 ############################
+
 .. contents::
    :local:
 

@@ -17,6 +17,7 @@ xrst input file: ``example/comment_ch.m``
 
 Comment Character Command Example
 #################################
+
 .. contents::
    :local:
 

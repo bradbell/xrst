@@ -17,9 +17,6 @@ xrst input file: ``xrst.xrst``
 
 Automatic Processing
 ####################
-.. contents::
-   :local:
-
 The processing described below happens without any commands:
 
 -  :ref:`indent-0`

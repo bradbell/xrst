@@ -17,14 +17,14 @@ xrst input file: ``example/heading.py``
 
 The Page Title is Level Zero
 ############################
-.. contents::
-   :local:
-
 The label for the page title is the page name followed by ``-0``.
 For example, the label ``heading_example-0`` displays
 ``The Page Title is Level Zero`` as the linking text.
 (The label ``heading_example`` displays ``heading_example``
 as the linking text.)
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: level, one

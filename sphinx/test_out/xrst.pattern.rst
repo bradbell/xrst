@@ -17,6 +17,7 @@ xrst input file: ``xrst/pattern.py``
 
 The xrst.pattern Dictionary
 ###########################
+
 .. contents::
    :local:
 

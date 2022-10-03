@@ -17,6 +17,7 @@ xrst input file: ``xrst/toc_commands.py``
 
 Get file and page names for children of this page
 #################################################
+
 .. contents::
    :local:
 

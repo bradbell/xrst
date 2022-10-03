@@ -17,9 +17,6 @@ xrst input file: ``example/configure.xrst``
 
 Example Configuration Files
 ###########################
-.. contents::
-   :local:
-
 These files are used to configure xrst to build its documentation:
 
 .. csv-table::
@@ -29,6 +26,9 @@ These files are used to configure xrst to build its documentation:
    "spelling", :ref:`spelling-0`
    "keyword", :ref:`keyword-0`
    "preamble.rst", :ref:`preamble.rst-0`
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: xrst_literal

@@ -17,6 +17,7 @@ xrst input file: ``xrst/get_file_info.py``
 
 Begin and End Commands
 ######################
+
 .. contents::
    :local:
 

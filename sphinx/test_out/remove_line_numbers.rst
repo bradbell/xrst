@@ -17,6 +17,7 @@ xrst input file: ``xrst/remove_line_numbers.py``
 
 Remove the number numbers
 #########################
+
 .. contents::
    :local:
 

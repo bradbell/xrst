@@ -17,6 +17,7 @@ xrst input file: ``xrst/literal_command.py``
 
 Literal Command
 ###############
+
 .. contents::
    :local:
 

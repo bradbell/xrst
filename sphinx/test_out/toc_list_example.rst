@@ -17,6 +17,7 @@ xrst input file: ``example/toc_list.xrst``
 
 toc_list Command Example
 ########################
+
 .. contents::
    :local:
 

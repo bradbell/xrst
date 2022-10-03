@@ -17,6 +17,7 @@ xrst input file: ``xrst/suspend_command.py``
 
 Remove text specified by suspend / resume pairs
 ###############################################
+
 .. contents::
    :local:
 

@@ -17,6 +17,7 @@ xrst input file: ``xrst/get_file_info.py``
 
 Get information for all pages in a file
 #######################################
+
 .. contents::
    :local:
 

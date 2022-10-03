@@ -17,11 +17,11 @@ xrst input file: ``xrst/add_line_numbers.py``
 
 Add Line Numbers to File Data
 #############################
-.. contents::
-   :local:
-
 Add line numbers to a string in a way that is useful for reporting errors
 (for modified versions of string) using line number in the original string.
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: arguments

@@ -17,6 +17,7 @@ xrst input file: ``xrst/process_headings.py``
 
 Heading Cross Reference Links
 #############################
+
 .. contents::
    :local:
 

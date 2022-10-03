@@ -17,6 +17,7 @@ xrst input file: ``example/spell.xrst``
 
 Spell Command Example
 #####################
+
 .. contents::
    :local:
 

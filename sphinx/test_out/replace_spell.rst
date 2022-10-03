@@ -17,6 +17,7 @@ xrst input file: ``xrst/replace_spell.py``
 
 Replace spelling commands
 #########################
+
 .. contents::
    :local:
 

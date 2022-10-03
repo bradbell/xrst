@@ -17,6 +17,7 @@ xrst input file: ``xrst/create_spell_checker.py``
 
 Create a pyspellchecker object
 ##############################
+
 .. contents::
    :local:
 

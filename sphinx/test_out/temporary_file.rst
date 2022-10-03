@@ -17,6 +17,7 @@ xrst input file: ``xrst/temporary_file.py``
 
 Write the temporary RST file for a page
 #######################################
+
 .. contents::
    :local:
 

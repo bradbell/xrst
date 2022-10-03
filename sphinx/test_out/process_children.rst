@@ -17,6 +17,7 @@ xrst input file: ``xrst/process_children.py``
 
 Add child information to a page
 ###############################
+
 .. contents::
    :local:
 

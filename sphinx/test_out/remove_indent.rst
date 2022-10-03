@@ -17,6 +17,7 @@ xrst input file: ``xrst/remove_indent.py``
 
 Remove indentation for a page
 #############################
+
 .. contents::
    :local:
 

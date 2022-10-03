@@ -17,9 +17,6 @@ xrst input file: ``xrst.xrst``
 
 Commands
 ########
-.. contents::
-   :local:
-
 If the text ``\{xrst_`` appears in the input, the backslash is removed
 form the xrst output and the text does not start an xrst command.
 Otherwise the text ``{xrst_`` is reserved for the beginning of an xrst command.

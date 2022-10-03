@@ -17,8 +17,6 @@ xrst input file: ``xrst.xrst``
 
 Examples
 ########
-.. contents::
-   :local:
 
 -  :ref:`get_started-0`
 -  :ref:`literal_example-0`

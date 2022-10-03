@@ -17,8 +17,6 @@ xrst input file: ``example/get_started.xrst``
 
 Getting Started
 ###############
-.. contents::
-   :local:
 
 #. Use pip as follows to install xrst::
 
@@ -37,6 +35,9 @@ Getting Started
 
 #. Use your web browser to open the file ``sphinx/html/index.html`` .
    This location is relative to your workng directory.
+
+.. contents::
+   :local:
 
 .. _get_started@This Example File:
 

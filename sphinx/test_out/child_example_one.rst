@@ -17,12 +17,12 @@ xrst input file: ``example/children.xrst``
 
 First Child
 ###########
-.. contents::
-   :local:
-
 This page is the first child in this file.
 This file does not contain a begin parent command,
 so all its pages are children of the page that includes this file.
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: link, second, child

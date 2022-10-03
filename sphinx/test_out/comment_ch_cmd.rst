@@ -17,6 +17,7 @@ xrst input file: ``xrst/comment_ch_command.py``
 
 Comment Character Command
 #########################
+
 .. contents::
    :local:
 

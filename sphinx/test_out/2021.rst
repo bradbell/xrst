@@ -17,6 +17,7 @@ xrst input file: ``release_notes/2021.xrst``
 
 xrst Release Notes for 2021
 ###########################
+
 .. contents::
    :local:
 

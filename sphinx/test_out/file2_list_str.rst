@@ -17,6 +17,7 @@ xrst input file: ``xrst/file2_list_str.py``
 
 Convert lines in a file to a list of strings
 ############################################
+
 .. contents::
    :local:
 

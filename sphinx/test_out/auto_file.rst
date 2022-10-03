@@ -17,14 +17,14 @@ xrst input file: ``xrst/auto_file.py``
 
 Automatically Generated Files
 #############################
-.. contents::
-   :local:
-
 These files are located in the *sphinx_dir* ``/rst`` directory; see
 :ref:`run_xrst@sphinx_dir`.
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: conf.py

@@ -17,8 +17,6 @@ xrst input file: ``xrst/__init__.py``
 
 The xrst Module
 ###############
-.. contents::
-   :local:
 
 .. csv-table::
    :header:  "Child", "Title"

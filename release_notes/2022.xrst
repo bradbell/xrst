@@ -25,6 +25,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+10-03
+=====
+The local table of contents was moved after the text below the title
+amd just before the first heading link
+(when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
+
 10-02
 =====
 Remove the developer documentation wish list item

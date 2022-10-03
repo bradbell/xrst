@@ -177,6 +177,9 @@ def process_headings(
    # overline_used
    overline_used = set()
    #
+   # found_level_one_heading
+   found_level_one_heading = False
+   #
    # heading_list, heading_index, heading_text, underline_text
    heading_list     = list()
    data_index       = 0
@@ -302,6 +305,15 @@ def process_headings(
       data_tmp   = data_out[: heading_index]
       #
       # data_tmp
+      # If first level one heading and sphinx_rtd_theme,
+      # put jump table command before heading
+      if len(heading_list) == 2 and not found_level_one_heading :
+         found_level_one_heading = True
+         if html_theme in [ 'sphinx_rtd_theme' ] :
+            data_tmp += '\n.. contents::\n'
+            data_tmp += 3 * ' ' + ':local:\n\n'
+      #
+      # data_tmp
       # add sphnix keyword, index, and label commnds
       cmd  = ''
       if index_entries != '' :
@@ -320,13 +332,6 @@ def process_headings(
       # add data from stat to end of heading
       assert data_out[underline_end] == '\n'
       data_tmp  += data_out[heading_index : underline_end]
-      #
-      # data_tmp
-      # If level zero, put jump table command just after heading
-      if len(heading_list) == 1 :
-         if html_theme in [ 'sphinx_rtd_theme' ] :
-            data_tmp += '\n.. contents::\n'
-            data_tmp += 3 * ' ' + ':local:\n\n'
       #
       # data_out
       data_right = data_out[underline_end : ]

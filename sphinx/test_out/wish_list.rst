@@ -17,13 +17,13 @@ xrst input file: ``xrst.xrst``
 
 Wish List
 #########
-.. contents::
-   :local:
-
 The following is a wish list for future improvements to ``run_xrst``:
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: tabs

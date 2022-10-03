@@ -17,6 +17,7 @@ xrst input file: ``example/code.py``
 
 Code Command Example
 ####################
+
 .. contents::
    :local:
 

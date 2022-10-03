@@ -17,9 +17,6 @@ xrst input file: ``xrst/remove_indent.py``
 
 Indentation
 ###########
-.. contents::
-   :local:
-
 If there are a number of spaces (or tabs) before
 all of the xrst documentation for a page,
 those characters are not included in the xrst output.
@@ -27,6 +24,9 @@ This enables one to indent the
 xrst so it is grouped with the proper code block in the source.
 An error message will result if
 you use mix tabs and spaces for the indentation.
+
+.. contents::
+   :local:
 
 .. _indent@Example:
 

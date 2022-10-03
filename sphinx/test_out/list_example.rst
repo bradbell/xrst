@@ -17,6 +17,7 @@ xrst input file: ``example/list.py``
 
 Example using Commands in a List
 ################################
+
 .. contents::
    :local:
 

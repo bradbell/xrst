@@ -17,6 +17,7 @@ xrst input file: ``example/indent.py``
 
 Indent Example
 ##############
+
 .. contents::
    :local:
 

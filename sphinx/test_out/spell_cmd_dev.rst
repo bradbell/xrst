@@ -17,6 +17,7 @@ xrst input file: ``xrst/spell_command.py``
 
 Process the spell command for a page
 ####################################
+
 .. contents::
    :local:
 

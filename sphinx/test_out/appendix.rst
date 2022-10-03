@@ -17,8 +17,6 @@ xrst input file: ``xrst.xrst``
 
 Appendix
 ########
-.. contents::
-   :local:
 
 .. csv-table::
    :header: "Child", "Title"

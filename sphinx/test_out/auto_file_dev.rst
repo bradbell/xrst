@@ -17,6 +17,7 @@ xrst input file: ``xrst/auto_file.py``
 
 Create the automatically generated files
 ########################################
+
 .. contents::
    :local:
 

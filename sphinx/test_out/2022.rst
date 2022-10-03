@@ -17,6 +17,7 @@ xrst input file: ``release_notes/2022.xrst``
 
 xrst Release Notes for 2022
 ###########################
+
 .. contents::
    :local:
 
@@ -29,6 +30,14 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+.. _2022@mm-dd@10-03:
+
+10-03
+=====
+The local table of contents was moved after the text below the title
+amd just before the first heading link
+(when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
 
 .. _2022@mm-dd@10-02:
 

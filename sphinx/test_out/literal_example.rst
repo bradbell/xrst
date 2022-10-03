@@ -17,6 +17,7 @@ xrst input file: ``example/literal.cpp``
 
 Literal Command Example
 #######################
+
 .. contents::
    :local:
 

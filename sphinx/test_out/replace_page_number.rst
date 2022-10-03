@@ -17,6 +17,7 @@ xrst input file: ``xrst/replace_page_number.py``
 
 Replace page number commands
 ############################
+
 .. contents::
    :local:
 

@@ -17,6 +17,7 @@ xrst input file: ``xrst/check_syntax_error.py``
 
 Check that an xrst command has been removed
 ###########################################
+
 .. contents::
    :local:
 

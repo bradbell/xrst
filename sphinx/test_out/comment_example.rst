@@ -17,12 +17,12 @@ xrst input file: ``example/comment.r``
 
 Comment Command Example
 #######################
-.. contents::
-   :local:
-
 This sentence has an inline comment .
 This sentence has a multiple line comment directly after it.
 The multiple line comment is directly before this sentence.
+
+.. contents::
+   :local:
 
 .. meta::
    :keywords: factorial

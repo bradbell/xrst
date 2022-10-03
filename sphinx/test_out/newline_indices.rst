@@ -17,6 +17,7 @@ xrst input file: ``xrst/newline_indices.py``
 
 Find index of all the newlines in a string
 ##########################################
+
 .. contents::
    :local:
 

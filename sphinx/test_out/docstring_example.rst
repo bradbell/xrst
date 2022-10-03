@@ -17,6 +17,7 @@ xrst input file: ``example/docstring.py``
 
 Docstring Example
 #################
+
 .. contents::
    :local:
 

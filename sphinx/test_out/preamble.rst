@@ -17,8 +17,6 @@ xrst input file: ``example/configure.xrst``
 
 The preamble.rst Example File
 #############################
-.. contents::
-   :local:
 
 .. literalinclude:: ../../sphinx/preamble.rst
    :language: rst

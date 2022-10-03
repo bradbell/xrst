@@ -17,6 +17,7 @@ xrst input file: ``xrst.xrst``
 
 Extract Sphinx RST Files
 ########################
+
 .. contents::
    :local:
 

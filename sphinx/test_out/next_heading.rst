@@ -17,6 +17,7 @@ xrst input file: ``xrst/next_heading.py``
 
 Return location of the next heading in a page
 #############################################
+
 .. contents::
    :local:
 

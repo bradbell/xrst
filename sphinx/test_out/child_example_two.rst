@@ -17,10 +17,10 @@ xrst input file: ``example/children.xrst``
 
 Page Child
 ##########
+This page is the second child in this file.
+
 .. contents::
    :local:
-
-This page is the second child in this file.
 
 .. meta::
    :keywords: link, first, child

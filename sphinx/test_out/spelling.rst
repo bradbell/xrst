@@ -17,7 +17,5 @@ xrst input file: ``example/configure.xrst``
 
 The spelling Example File
 #########################
-.. contents::
-   :local:
 
 .. literalinclude:: ../../sphinx/spelling

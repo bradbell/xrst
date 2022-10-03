@@ -17,6 +17,7 @@ xrst input file: ``example/suspend.py``
 
 Suspend Command Example
 #######################
+
 .. contents::
    :local:
 
