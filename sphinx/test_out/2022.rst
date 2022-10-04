@@ -39,6 +39,8 @@ mm-dd
    to not convert colons ``:`` .
 2. The example :ref:`preamble.rst` file was chage to use three
    (instead of four) spaces for a tab.
+3. Add a :ref:`preamble.rst@Substitution` and :ref:`preamble.rst@Latex Macro`
+   as example uses of the  preamble file.
 
 .. _2022@mm-dd@10-03:
 

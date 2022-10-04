@@ -47,6 +47,31 @@ The keyword Example File
 
 The preamble.rst Example File
 #############################
+
+Substitution
+************
+The example preamble defines ``|tab|`` so that the input:
+
+``|tab| indented line``
+
+generates the output:
+
+|tab| indented line
+
+Latex Macro
+***********
+The example preamble defines ``\B`` and ``\R`` so that the input:
+
+``:math:` f : \B{R} \rightarrow \B{R} \; \R{by} \; f(x) = x^2`` `````
+
+generates the output:
+
+
+:math:`f : \B{R} \rightarrow \B{R} \; \R{by} \; f(x) = x^2`
+
+
+Example File
+************
 {xrst_literal
    sphinx/preamble.rst
 }
