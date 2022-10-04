@@ -5,6 +5,7 @@
 {xrst_begin heading_links user}
 {xrst_spell
    underbars
+   backslashes
 }
 
 Heading Cross Reference Links
@@ -48,10 +49,11 @@ for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
 These labels do not begin with ``@``.
 
-Conversion:
+Conversion@
 ===========
-The conversion of a heading to a label changes the at sign ``@``
-and colon ``:`` to underbars ``_``.
+The conversion of a heading to a label
+removes all backslashes ``\`` and changes the at signs ``@``
+to underbars ``_``.
 
 For example, the label for the heading above is
 
@@ -257,7 +259,7 @@ def process_headings(
       for level in range( len(heading_list) ) :
          if level == 0 :
             label = page_name.lower()
-            label = label.replace(' ', '_')
+            label = label.replace('\\', '')
             label = label.replace('@', '_')
             label = label.replace(':', '_')
             assert label == page_name
@@ -267,6 +269,7 @@ def process_headings(
             else :
                label = page_name
          else :
+            conversion  = label.replace('\\', '')
             conversion  = heading_list[level]['text']
             conversion  = conversion.replace('@', '_')
             conversion  = conversion.replace(':', '_')

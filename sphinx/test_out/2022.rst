@@ -35,9 +35,11 @@ mm-dd
 
 10-03
 =====
-The local table of contents was moved after the text below the title
-amd just before the first heading link
-(when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
+1. The local table of contents was moved after the text below the title
+   amd just before the first heading link
+   (when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
+2. The :ref:`heading_links@Labels@Conversion_` of headings was changed
+   to remove backslashes from labels.
 
 .. _2022@mm-dd@10-02:
 

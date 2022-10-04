@@ -87,16 +87,17 @@ plus the conversion for this heading.
 These labels do not begin with ``@``.
 
 .. meta::
-   :keywords: conversion:
+   :keywords: conversion@
 
-.. index:: conversion:
+.. index:: conversion@
 
 .. _heading_links@Labels@Conversion_:
 
-Conversion:
+Conversion@
 ===========
-The conversion of a heading to a label changes the at sign ``@``
-and colon ``:`` to underbars ``_``.
+The conversion of a heading to a label
+removes all backslashes ``\`` and changes the at signs ``@``
+to underbars ``_``.
 
 For example, the label for the heading above is
 

@@ -24,10 +24,14 @@ Another Level One
 *****************
 The label for this heading is ``heading_example@Another Level One``.
 
-Level Two
-=========
+Level Two\_
+===========
 The label for this heading is
-``heading_example@Another Level One@Level Two``.
+``heading_example@Another Level One@Level Two_``.
+Note that the backslash in the heading keeps ``Two_``
+from being interpreted as a link.
+Also note that the backslash does not appear in the
+display of the heading or in the corresponding label.
 
 x
 =
@@ -46,7 +50,7 @@ is included at the beginning of the target for the link:
 #. :ref:`heading_example@Level One`
 #. :ref:`heading_example@Level One@Level Two`
 #. :ref:`heading_example@Another Level One`
-#. :ref:`heading_example@Another Level One@Level Two`
+#. :ref:`heading_example@Another Level One@Level Two_`
 #. :ref:`heading_example@Another Level One@x`
 
 Linking Headings Using :ref:
