@@ -84,7 +84,7 @@ Other Levels
 The label for linking a heading that is not at the first level is the label
 for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
-These labels do not begin with ``@``.
+These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
 
 .. meta::
    :keywords: conversion@
@@ -96,7 +96,7 @@ These labels do not begin with ``@``.
 Conversion@
 ===========
 The conversion of a heading to a label
-removes all backslashes ``\`` and changes the at signs ``@``
+removes all backslashes ``\`` and changes at signs ``@``
 to underbars ``_``.
 
 For example, the label for the heading above is

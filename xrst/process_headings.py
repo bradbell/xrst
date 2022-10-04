@@ -47,12 +47,12 @@ Other Levels
 The label for linking a heading that is not at the first level is the label
 for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
-These labels do not begin with ``@``.
+These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
 
 Conversion@
 ===========
 The conversion of a heading to a label
-removes all backslashes ``\`` and changes the at signs ``@``
+removes all backslashes ``\`` and changes at signs ``@``
 to underbars ``_``.
 
 For example, the label for the heading above is
@@ -261,7 +261,6 @@ def process_headings(
             label = page_name.lower()
             label = label.replace('\\', '')
             label = label.replace('@', '_')
-            label = label.replace(':', '_')
             assert label == page_name
             # label for link that displays the title
             if len(heading_list) == 1 :
@@ -272,8 +271,11 @@ def process_headings(
             conversion  = label.replace('\\', '')
             conversion  = heading_list[level]['text']
             conversion  = conversion.replace('@', '_')
-            conversion  = conversion.replace(':', '_')
             label      += '@' + conversion
+      #
+      # label
+      if label.endswith(':') :
+         label = label[:-1] + '\\:'
       #
       # index_entries
       if len(heading_list) == 1 :

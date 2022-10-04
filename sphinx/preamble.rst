@@ -1,7 +1,7 @@
 .. comment xrst preamble.rst
 
 .. |space| unicode:: 0xA0
-.. |tab| replace:: |space| |space| |space| |space|
+.. |tab| replace:: |space| |space| |space|
 
 .. comment: These Latex macros can be used by any section. Each maco must be
    defined on its own line and the line must match the regular expression
