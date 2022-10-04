@@ -689,10 +689,6 @@ def run_xrst() :
             if name != 'index.rst' :
                os.remove( f'{rst_dir}/{name}' )
    #
-   # label.sed
-   # 2DO: remove this when done converting labels
-   shutil.copyfile( f'{tmp_dir}/label.sed', f'{rst_dir}/label.sed' )
-   #
    # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command
    tmp_dir = f'{rst_dir}/tmp'

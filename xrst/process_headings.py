@@ -163,10 +163,6 @@ def process_headings(
    # }
    # {xrst_end process_headings}
    #
-   # old2new_label
-   # 2DO: remove this when done converting labels
-   old2new_label = dict()
-   #
    # data_out
    data_out = data_in
    #
@@ -256,8 +252,7 @@ def process_headings(
             # this heading at a higher level
             heading_list.append( heading )
       #
-      # label, old_label, old2new_label
-      # 2DO: remove old_label and old2new_lable when done converting labels.
+      # label
       label = None
       for level in range( len(heading_list) ) :
          if level == 0 :
@@ -271,17 +266,11 @@ def process_headings(
                label = page_name + '-0'
             else :
                label = page_name
-            old_label = label;
          else :
             conversion  = heading_list[level]['text']
             conversion  = conversion.replace('@', '_')
             conversion  = conversion.replace(':', '_')
             label      += '@' + conversion
-            conversion  = conversion.lower()
-            conversion  = conversion.replace(' ', '_')
-            old_label += '@' + conversion
-      if old_label != label :
-         old2new_label[old_label] = label;
       #
       # index_entries
       if len(heading_list) == 1 :
@@ -361,23 +350,6 @@ def process_headings(
    #
    # page_title
    page_title = heading_list[0]['text']
-   #
-   # tmp_dir/label.sed
-   # 2DO: remove this code when done converting labels.
-   tmp_dir   = 'sphinx/rst/tmp'
-   file_data = ''
-   if len( old2new_label ) == 0 :
-      order = list()
-   else :
-      order = list( old2new_label.keys() )
-      order.reverse()
-   for old_label in order :
-         new_label = old2new_label[old_label]
-         file_data += f's/{old_label}/{new_label}/g\n'
-   # spell.toml
-   file_ptr   = open(f'{tmp_dir}/label.sed', 'a')
-   file_ptr.write(file_data)
-   file_ptr.close()
    #
    # BEGIN_return
    assert type(data_out) == str

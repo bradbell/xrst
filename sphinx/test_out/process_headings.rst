@@ -151,5 +151,5 @@ It has three lines each terminated by a newline:
    :language: py
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 383-387
+   :lines: 355-359
    :language: py
