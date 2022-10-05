@@ -8,9 +8,10 @@
 import re
 # {xrst_begin xrst.pattern dev}
 # {xrst_spell
-#  newline
-#  dict
-#  ch
+#     arg
+#     ch
+#     dict
+#     newline
 # }
 # {xrst_comment_ch #}
 #

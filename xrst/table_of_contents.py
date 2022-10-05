@@ -147,11 +147,11 @@ def page_table_of_contents(
 # ----------------------------------------------------------------------------
 # {xrst_begin table_of_contents dev}
 # {xrst_spell
-#  tmp
-#  dir
-#  pinfo
-#  bool
-#  dict
+#     bool
+#     dict
+#     dir
+#     pinfo
+#     tmp
 # }
 # {xrst_comment_ch #}
 #

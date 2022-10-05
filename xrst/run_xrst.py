@@ -7,6 +7,7 @@
 {xrst_spell
    dir
    furo
+   macros
    pyspellchecker
    rtd
    xrst xrst

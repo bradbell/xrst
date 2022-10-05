@@ -4,8 +4,8 @@
 import spellchecker
 # {xrst_begin create_spell_checker dev}
 # {xrst_spell
-#  pyspellchecker
-#  len
+#     len
+#     pyspellchecker
 # }
 # {xrst_comment_ch #}
 #
@@ -125,8 +125,10 @@ def create_spell_checker(local_words) :
       'partials',
       'pdf',
       'piecewise',
+      'subdirectory',
       'unary',
       'unicode',
+      'verbose',
       'wiki',
       'wikipedia',
       'xrst',

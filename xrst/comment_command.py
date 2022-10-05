@@ -31,8 +31,6 @@ pattern = re.compile(
    r'([^\n]*[^\\]){xrst_comment[^a-z_][^}]*}([^\n]*\n)'
 )
 # {xrst_begin comment_cmd_dev dev}
-# {xrst_spell
-# }
 # {xrst_comment_ch #}
 #
 # Remove all comment commands

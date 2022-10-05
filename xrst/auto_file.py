@@ -5,7 +5,9 @@
 {xrst_begin auto_file user}
 {xrst_spell
    conf
+   config
    dir
+   macros
 }
 
 Automatically Generated Files
@@ -130,12 +132,13 @@ def preamble_macros(sphinx_dir) :
 # ----------------------------------------------------------------------------
 # {xrst_begin auto_file_dev dev}
 # {xrst_spell
-#  dir
-#  tmp
-#  pinfo
-#  bool
-#  genindex
-#  conf
+#     bool
+#     conf
+#     dir
+#     genindex
+#     macros
+#     pinfo
+#     tmp
 # }
 # {xrst_comment_ch #}
 #

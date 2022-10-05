@@ -4,8 +4,8 @@
 import re
 # {xrst_begin newline_indices dev}
 # {xrst_spell
-#  newline
-#  newlines
+#     newline
+#     newlines
 # }
 # {xrst_comment_ch #}
 #

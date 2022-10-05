@@ -8,7 +8,7 @@ import xrst
 pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # {xrst_begin remove_line_numbers dev}
 # {xrst_spell
-#  tuples
+#     tuples
 # }
 # {xrst_comment_ch #}
 #

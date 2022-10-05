@@ -4,8 +4,8 @@
 import xrst
 # {xrst_begin start_stop_file dev}
 # {xrst_spell
-#  cmd
-#  newlines
+#     cmd
+#     newlines
 # }
 # {xrst_comment_ch #}
 #

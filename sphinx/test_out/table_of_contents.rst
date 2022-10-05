@@ -40,7 +40,7 @@ Arguments
 
 tmp_dir
 =======
-is the temporary directory whre the rst files are written.
+is the temporary directory where the rst files are written.
 
 .. meta::
    :keywords: target

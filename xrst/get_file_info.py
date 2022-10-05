@@ -77,8 +77,8 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # ---------------------------------------------------------------------------
 # {xrst_begin get_file_info dev}
 # {xrst_spell
-#  dict
-#  len
+#     dict
+#     len
 # }
 # {xrst_comment_ch #}
 #

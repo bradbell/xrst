@@ -4,8 +4,6 @@
 import re
 import xrst
 # {xrst_begin check_syntax_error dev}
-# {xrst_spell
-# }
 # {xrst_comment_ch #}
 #
 #

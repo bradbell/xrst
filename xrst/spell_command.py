@@ -99,9 +99,9 @@ pattern['word']  = re.compile(
 # -----------------------------------------------------------------------------
 # {xrst_begin spell_cmd_dev dev}
 # {xrst_spell
-#  tmp
-#  dir
-#  pyspellchecker
+#     dir
+#     pyspellchecker
+#     tmp
 # }
 # {xrst_comment_ch #}
 #

@@ -56,7 +56,7 @@ Example
 import xrst
 # {xrst_begin code_cmd_dev dev}
 # {xrst_spell
-#  dir
+#     dir
 # }
 # {xrst_comment_ch #}
 #

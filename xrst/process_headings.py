@@ -4,8 +4,8 @@
 """
 {xrst_begin heading_links user}
 {xrst_spell
-   underbars
    backslashes
+   underbars
 }
 
 Heading Cross Reference Links
@@ -85,9 +85,9 @@ Example
 import xrst
 # {xrst_begin process_headings dev}
 # {xrst_spell
-#  fullmatch
-#  overline
-#  newline
+#     fullmatch
+#     newline
+#     overline
 # }
 # {xrst_comment_ch #}
 #

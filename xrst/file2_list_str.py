@@ -3,8 +3,8 @@
 # ----------------------------------------------------------------------------
 # {xrst_begin file2_list_str dev}
 # {xrst_spell
-#  newline
-#  len
+#     len
+#     newline
 # }
 # {xrst_comment_ch #}
 #

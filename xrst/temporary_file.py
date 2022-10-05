@@ -8,9 +8,9 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
-#  tmp
-#  dir
-#  file file
+#     dir
+#     file file
+#     tmp
 # }
 # {xrst_comment_ch #}
 #

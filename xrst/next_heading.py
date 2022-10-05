@@ -4,8 +4,8 @@
 import xrst
 # {xrst_begin next_heading dev}
 # {xrst_spell
-#  overline
-#  newline
+#     newline
+#     overline
 # }
 # {xrst_comment_ch #}
 #

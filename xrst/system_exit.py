@@ -6,8 +6,8 @@ import os
 import xrst
 # {xrst_begin system_exit dev}
 # {xrst_spell
-#  msg
-#  obj
+#     msg
+#     obj
 # }
 # {xrst_comment_ch #}
 #

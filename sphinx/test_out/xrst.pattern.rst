@@ -34,7 +34,7 @@ This dictionary contains compiled regular expressions.
 It does not change after its initial setting when this file is imported.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 25-25
+   :lines: 26-26
    :language: py
 
 .. meta::
@@ -55,7 +55,7 @@ Pattern for the begin command.
 4. the group name (with leading and trailing spaces and tabs)
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 39-41
+   :lines: 40-42
    :language: py
 
 .. meta::
@@ -79,7 +79,7 @@ Patterns for the toc_hidden, toc_list, and toc_table commands.
 If you change this pattern, check pattern_toc in process_children.py
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 57-59
+   :lines: 58-60
    :language: py
 
 .. meta::
@@ -103,7 +103,7 @@ Pattern for code command.
 5. the line number for this line; see pattern['line'] above.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 76-79
+   :lines: 77-80
    :language: py
 
 .. meta::
@@ -121,7 +121,7 @@ Pattern for comment_ch command
 2. is the character (matched as any number of not space, tab or }
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 90-92
+   :lines: 91-93
    :language: py
 
 .. meta::
@@ -139,7 +139,7 @@ Pattern for end command
 1. the page name.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 103-103
+   :lines: 104-104
    :language: py
 
 .. meta::
@@ -157,7 +157,7 @@ Pattern for line numbers are added to the input by add_line_number
 1. the line_number.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 115-115
+   :lines: 116-116
    :language: py
 
 .. meta::
@@ -185,7 +185,7 @@ xrst_literal with no arguments
 1. line number where } at end of command appears
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 129-132
+   :lines: 130-133
    :language: py
 
 .. meta::
@@ -206,7 +206,7 @@ xrst_literal with display_file
 4. line number where } at end of command appears
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 146-149
+   :lines: 147-150
    :language: py
 
 .. meta::
@@ -229,7 +229,7 @@ xrst_literal with start, stop
 6. line number where } at end of command appears
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 165-167
+   :lines: 166-168
    :language: py
 
 .. meta::
@@ -254,5 +254,5 @@ xrst_literal with start, stop, display_file
 8. line number where } at end of command appears
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 185-187
+   :lines: 186-188
    :language: py

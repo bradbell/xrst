@@ -70,7 +70,7 @@ The return data_out is a modified version of data_in. The text
  | ``{xrst_line`` *line_number@*
 
 is added at the end of each non-empty line.
-Spaces and tabs in empty lines are removed (so they are truely empty).
+Spaces and tabs in empty lines are removed (so they are truly empty).
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
    :lines: 43-44

@@ -70,5 +70,5 @@ The return spell_checker is a pyspellchecker spell checking object.
    :language: py
 
 .. literalinclude:: ../../xrst/create_spell_checker.py
-   :lines: 141-141
+   :lines: 143-143
    :language: py

@@ -115,7 +115,7 @@ import xrst
 import re
 # {xrst_begin toc_cmd_dev dev}
 # {xrst_spell
-#  newline
+#     newline
 # }
 # {xrst_comment_ch #}
 #

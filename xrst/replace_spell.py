@@ -6,9 +6,9 @@ import toml
 import xrst
 # {xrst_begin replace_spell dev}
 # {xrst_spell
-#  tmp
-#  dir
-#  toml
+#     dir
+#     tmp
+#     toml
 # }
 # {xrst_comment_ch #}
 #

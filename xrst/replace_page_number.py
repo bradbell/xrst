@@ -6,8 +6,8 @@ import xrst
 #
 # {xrst_begin replace_page_number dev}
 # {xrst_spell
-#  newline
-#  overline
+#     newline
+#     overline
 # }
 # {xrst_comment_ch #}
 #

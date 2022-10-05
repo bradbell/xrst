@@ -5,8 +5,8 @@ import re
 import xrst
 # {xrst_begin check_page_name dev}
 # {xrst_spell
-#  obj
-#  underbar
+#     obj
+#     underbar
 # }
 # {xrst_comment_ch #}
 #
