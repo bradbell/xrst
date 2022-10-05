@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    %
    % xrst_code
    % *********
-   % The xrst_code command reports the orignal source code, before removing
+   % The xrst_code command reports the original source code, before removing
    % the comment character or the indentation.
    % {xrst_code m}
    %

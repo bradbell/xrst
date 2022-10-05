@@ -293,7 +293,7 @@ def spell_command(
                # msg
                msg  = 'spelling = ' + word
                suggest = spell_checker.correction(word)
-               if suggest != word :
+               if suggest != None :
                   msg += ', suggest = ' + suggest
                msg += ', line ' + line_number + '\n'
                #

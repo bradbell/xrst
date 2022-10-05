@@ -15,7 +15,7 @@ def page_name2index(pinfo_list, page_name) :
 # for this page and all its child pages.
 #
 # tmp_dir
-# is the temporary directory whre the rst files are written.
+# is the temporary directory where the rst files are written.
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
@@ -163,7 +163,7 @@ def page_table_of_contents(
 #
 # tmp_dir
 # =======
-# is the temporary directory whre the rst files are written.
+# is the temporary directory where the rst files are written.
 #
 # target
 # ======

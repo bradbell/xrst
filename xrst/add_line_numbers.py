@@ -37,7 +37,7 @@ pattern = re.compile( r'^\n[ \t]*' )
 #  | ``\{xrst_line`` *line_number@*
 #
 # is added at the end of each non-empty line.
-# Spaces and tabs in empty lines are removed (so they are truely empty).
+# Spaces and tabs in empty lines are removed (so they are truly empty).
 #
 # {xrst_code py}
 def add_line_numbers(data_in) :

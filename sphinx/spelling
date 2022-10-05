@@ -1,9 +1,12 @@
 # xrst spelling file
 #
-# File extensions
+# File extensions used in xrst documentation
 cpp
 py
 rst
 #
-# python types
+# python types used in xrst documentation
 str
+#
+# special words used in xrst documentation
+factorial
