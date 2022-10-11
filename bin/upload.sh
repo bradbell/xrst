@@ -13,11 +13,16 @@ then
    echo "bin/upload.sh: must be executed from its parent directory"
    exit 1
 fi
+if [ "$PASSWORD" == '' ]
+then
+   echo 'bin/upload.sh: Must set PASSWORD environment variable before running'
+   exit 1
+fi
 if [ -e dist ]
 then
    rm -r dist
 fi
 echo_eval python -m build
-echo_eval twine upload --repository testpypi dist/*
+echo_eval twine upload --repository testpypi dist/* -u$USER -p$PASSWORD
 echo 'upload.sh: OK'
 exit 0
