@@ -30,6 +30,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+10-11
+=====
+Add an :ref:`comment_example@rst Comments` example
+and compare it to :ref:`comment_example@xrst Comments` .
+
 10-05
 =====
 Fix some spelling errors found when changing pyspellchecker from

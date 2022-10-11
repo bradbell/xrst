@@ -31,6 +31,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@10-11:
+
+10-11
+=====
+Add an :ref:`comment_example@rst Comments` example
+and compare it to :ref:`comment_example@xrst Comments` .
+
 .. _2022@mm-dd@10-05:
 
 10-05

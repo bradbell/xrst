@@ -17,12 +17,38 @@ xrst input file: ``example/comment.r``
 
 Comment Command Example
 #######################
-This sentence has an inline comment .
-This sentence has a multiple line comment directly after it.
-The multiple line comment is directly before this sentence.
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: xrst, comments
+
+.. index:: xrst, comments
+
+.. _comment_example@xrst Comments:
+
+xrst Comments
+*************
+This sentence has an inline xrst comment .
+This sentence has a multiple line xrst comment directly after it.
+The multiple line xrst comment is directly before this sentence.
+
+.. meta::
+   :keywords: rst, comments
+
+.. index:: rst, comments
+
+.. _comment_example@rst Comments:
+
+rst Comments
+************
+This sentence has a multiple line rst comment directly after it.
+
+.. comment:
+    This rst comment spans multiple lines
+
+The multiple line rst comment is directly before this sentence.
 
 .. meta::
    :keywords: factorial
@@ -35,7 +61,7 @@ Factorial
 *********
 
 .. literalinclude:: ../../example/comment.r
-   :lines: 20-25
+   :lines: 32-37
    :language: r
 
 .. meta::
