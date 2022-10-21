@@ -117,9 +117,9 @@ The title Table of Contents and the label xrst_table_of_contents
 are placed at the beginning of the of content.
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 208-217
+   :lines: 196-205
    :language: py
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 248-249
+   :lines: 236-237
    :language: py

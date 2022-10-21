@@ -73,7 +73,7 @@ def page_table_of_contents(
    if 0 < len(count) :
       assert type( count[-1] ) == int
       for i in range( len(count) - 1 ) :
-         content += ' |space| '
+         content += 3 * ' '
       for (i, c) in enumerate(count) :
          page_number += str(c)
          if i + 1 < len(count) :
@@ -117,12 +117,9 @@ def page_table_of_contents(
          else :
             in_toc_cmd_list.append(child_index)
    #
-   #
-   # child_count, child_content
-   child_count   = count + [0]
+   # child_content
    child_content = ''
-   #
-   # child_count, child_content
+   child_count   = count + [0]
    for child_index in in_toc_cmd_list + in_parent_file_list :
       #
       # child_count
@@ -130,15 +127,6 @@ def page_table_of_contents(
       child_content += page_table_of_contents(
          tmp_dir, target, child_count, pinfo_list, child_index
       )
-   #
-   # child_content
-   # if the number of children greater than one, put a blank line before
-   # and after the child table of contents
-   if 1 < child_count[-1] :
-      if not child_content.startswith('|\n') :
-         child_content = '|\n' + child_content
-      if not child_content.endswith('|\n') :
-         child_content = child_content + '|\n'
    #
    # content
    content += child_content
