@@ -83,7 +83,7 @@ Output File
 ***********
 The output file corresponding to *page_name* is
 
-| |tab| *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
+   *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
 
 see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
 

@@ -30,6 +30,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+10-21
+=====
+When there is more than one version of the syntax for a command
+use a list to separate the different versions of the syntax; e.g.,
+see :ref:`toc_cmd@Syntax` for the toc command.
+
 10-11
 =====
 Add an :ref:`comment_example@rst Comments` example

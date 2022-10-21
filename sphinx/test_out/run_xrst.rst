@@ -25,14 +25,14 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
--  ``xrst`` ( --version |  *root_file* )
-   [ ``--replace_spell_commands`` ]
-   [ ``--html`` *html_theme* ]
-   [ ``--rst`` *rst_line* ]
-   [ ``--group`` *group_list* ]
-   [ ``--target`` *target* ]
-   [ ``--output`` *output_dir* ]
-   [ ``--sphinx`` *sphinx_dir* ]
+``xrst`` ( ``--version`` |  *root_file* )
+[ ``--replace_spell_commands`` ]
+[ ``--html`` *html_theme* ]
+[ ``--rst`` *rst_line* ]
+[ ``--group`` *group_list* ]
+[ ``--target`` *target* ]
+[ ``--output`` *output_dir* ]
+[ ``--sphinx`` *sphinx_dir* ]
 
 .. meta::
    :keywords: version
@@ -134,7 +134,7 @@ difference between xrst input line numbers for entries in the table.
 The value ``1`` will give the maximum resolution.
 For example, the sphinx warning
 
-| |tab| ... ``/xrst/children_exam.rst:30: WARNING:`` ...
+   ... ``/xrst/children_exam.rst:30: WARNING:`` ...
 
 corresponds to line number 30 in the file ``children_exam.rst``.
 The table at the bottom of that file maps line numbers in

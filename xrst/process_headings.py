@@ -57,7 +57,7 @@ to underbars ``_``.
 
 For example, the label for the heading above is
 
-|tab| ``heading_links@Labels@Conversion_``
+   ``heading_links@Labels@Conversion_``
 
 
 Discussion

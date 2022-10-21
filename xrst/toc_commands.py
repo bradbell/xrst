@@ -13,30 +13,23 @@ Table of Children Commands
 Syntax
 ******
 
-hidden
-======
-| ``\{xrst_toc_hidden``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
+-  | ``\{xrst_toc_hidden``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
+-  | ``\{xrst_toc_list``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
-list
-====
-| ``\{xrst_toc_list``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
-
-table
-=====
-| ``\{xrst_toc_table``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
+-  | ``\{xrst_toc_table``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
 Table of Contents
 *****************

@@ -26,22 +26,22 @@ Literal Command
 Syntax
 ******
 
-| ``{xrst_literal}``
-|
-| ``{xrst_literal``
-| |tab| *display_file*
-| :code:`}`
-|
-| ``{xrst_literal``
-| |tab| *start*
-| |tab| *stop*
-| :code:`}`
-|
-| ``{xrst_literal``
-| |tab| *display_file*
-| |tab| *start*
-| |tab| *stop*
-| :code:`}`
+-  ``{xrst_literal}``
+
+-  | ``{xrst_literal``
+   |     *display_file*
+   | :code:`}`
+
+-  | ``{xrst_literal``
+   |     *start*
+   |     *stop*
+   | :code:`}`
+
+-  | ``{xrst_literal``
+   |     *display_file*
+   |     *start*
+   |     *stop*
+   | :code:`}`
 
 .. _literal_cmd@Purpose:
 

@@ -9,7 +9,7 @@ Comment Command
 
 Syntax
 ******
-- ``\{xrst_comment`` *text* :code:`}`
+``\{xrst_comment`` *text* :code:`}`
 
 Purpose
 *******

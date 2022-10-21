@@ -26,50 +26,23 @@ Table of Children Commands
 Syntax
 ******
 
-.. meta::
-   :keywords: hidden
+-  | ``{xrst_toc_hidden``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
-.. index:: hidden
+-  | ``{xrst_toc_list``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
-.. _toc_cmd@Syntax@hidden:
-
-hidden
-======
-| ``{xrst_toc_hidden``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
-
-.. meta::
-   :keywords: list
-
-.. index:: list
-
-.. _toc_cmd@Syntax@list:
-
-list
-====
-| ``{xrst_toc_list``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
-
-.. meta::
-   :keywords: table
-
-.. index:: table
-
-.. _toc_cmd@Syntax@table:
-
-table
-=====
-| ``{xrst_toc_table``
-|   *file_1*
-|   ...
-|   *file_n*
-| :code:`}`
+-  | ``{xrst_toc_table``
+   |   *file_1*
+   |   ...
+   |   *file_n*
+   | :code:`}`
 
 .. meta::
    :keywords: table, contents
