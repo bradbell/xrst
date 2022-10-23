@@ -12,31 +12,44 @@ Spell Command
 
 Syntax
 ******
-``\{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+- ``\{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+- ``\{xrst_spell_off}``
+- ``\{xrst_spell_on}``
 
-Here *word_1*, ..., *word_n* is the special word list for this page.
-In the syntax above the list of words is all in one line.
-They could be on different lines which helps when displaying
-the difference between  versions of the corresponding file.
+The lines containing the ``{`` ( ``}`` ) character
+must have nothing but white space before ( after )  it.
+
+Purpose
+*******
+By default xrst does spell checking.
+You can turn spell checking off and back on using the corresponding command.
+You can also specify special words to include as correct spelling for
+this page.
+
+Words
+*****
 Each word is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
 You need not include latex commands in special word list because
 words with a backslash directly before them are not include in spell checking.
-The line containing the ``}`` must have nothing but white space after it.
 
-Purpose
-*******
-You can specify a special list of words
-(not normally considered correct spelling)
-for the current page using the command above.
+Special Words
+*************
+You can specify a special word list
+
+| *word_1* ... *word_n*
+
+These words are considered correct spelling even though
+they are not in the dictionary.
+In the syntax above the special words are all in one line.
+They could be on different lines which helps when displaying
+the difference between  versions of the corresponding file.
 
 spelling
 ********
 The list of words in
 :ref:`spelling<run_xrst@sphinx_dir@spelling>`
 are considered correct spellings for all pages.
-The latex commands corresponding to the letters in the greek alphabet
-are automatically added to this list.
 
 Capital Letters
 ***************
@@ -67,7 +80,7 @@ import xrst
 # pattern
 pattern = dict()
 pattern['spell']     = re.compile(
-   r'[^\\]{xrst_spell([^}]*)}' +
+   r'[^\\]{xrst_spell([^_a-z][^}]*)}' +
    r'([ \t]*{xrst_line ([0-9]+)@)?'
 )
 pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
@@ -88,7 +101,14 @@ pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
 pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+pattern['spell_on']   = re.compile( r'[^\\]{xrst_spell_on}' )
 #
+# pattern['spell_on'], pattern['spell_off']
+lin = r'[ \t]*\{xrst_line ([0-9]+)@'
+pattern['spell_on']  = re.compile( r'\n[ \t]*\{xrst_spell_on}' + lin )
+pattern['spell_off'] = re.compile( r'\n[ \t]*\{xrst_spell_off}' + lin )
+#
+# pattern['word']
 # The first choice is for line numbers which are not in original file.
 # The second is characters that are not letters, white space, or backslash.
 # These character separate double words so they are not an error.
@@ -118,7 +138,7 @@ pattern['word']  = re.compile(
 #
 # data_in
 # =======
-# is the data for this page before the spell command is removed.
+# is the data for this page before the spell commands are removed.
 #
 # file_name
 # =========
@@ -228,6 +248,51 @@ def spell_command(
    # data_tmp
    # version of data_in with certain commands removed
    data_tmp = data_out
+   #
+   # m_off
+   m_off = pattern['spell_off'].search(data_tmp)
+   while m_off :
+      #
+      # m_on
+      m_on = pattern['spell_on'].search(data_tmp, m_off.end() )
+      #
+      #
+      off = m_off.start()
+      #
+      # on
+      if m_on == None :
+         on = len( data_tmp )
+         m_off = pattern['spell_off'].search(data_tmp, off)
+         if m_off :
+            msg  = 'There are two spell_off commands '
+            msg += 'without a spell_on command between them'
+            xrst.system_exit(
+               msg,
+               file_name=file_name,
+               page_name=page_name,
+               m_obj=m_off,
+               data=data_tmp
+            )
+      else :
+         on = m_on.end()
+      #
+      # data_tmp
+      data_tmp = data_tmp[: off ] + data_tmp[on : ]
+      #
+      # m_off
+      m_off = pattern['spell_off'].search(data_tmp, off)
+   #
+   m_on = pattern['spell_on'].search(data_tmp)
+   if m_on :
+      msg  = 'There is a spell_on command '
+      msg += 'without a spell_off command before it'
+      xrst.system_exit(
+         msg,
+         file_name=file_name,
+         page_name=page_name,
+         m_obj=m_on,
+         data=data_tmp
+      )
    #
    # commands with file names as arugments
    data_tmp = pattern['literal_2'].sub('', data_tmp)
@@ -395,6 +460,10 @@ def spell_command(
    file_ptr   = open(f'{tmp_dir}/spell.toml', 'a')
    file_ptr.write(file_data)
    file_ptr.close()
+   #
+   # data_out
+   data_out = pattern['spell_off'].sub( '', data_out)
+   data_out = pattern['spell_on'].sub( '', data_out)
    #
    # check_syntax_error
    xrst.check_syntax_error(

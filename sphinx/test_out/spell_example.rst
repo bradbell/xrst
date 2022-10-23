@@ -77,6 +77,19 @@ were not two occurrences of :code:`no` next to each other in the
 spelling command for this page.
 
 .. meta::
+   :keywords: off, on
+
+.. index:: off, on
+
+.. _spell_example@Off and On:
+
+Off and On
+**********
+In some cases it is better to turn spell checking.
+For example when displaying the git hash code:
+7c35a3ce607a14953f070f0f83b5d74c2296ef93
+
+.. meta::
    :keywords: xrst_spell
 
 .. index:: xrst_spell

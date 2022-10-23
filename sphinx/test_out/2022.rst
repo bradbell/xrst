@@ -31,6 +31,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@10-23:
+
+10-23
+=====
+Add ``{xrst_spell_off}`` and ``{xrst_spell_on}`` to the
+spell :ref:`spell_cmd@Syntax` .
+
 .. _2022@mm-dd@10-21:
 
 10-21

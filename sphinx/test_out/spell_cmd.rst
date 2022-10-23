@@ -25,25 +25,54 @@ Spell Command
 
 Syntax
 ******
-``{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+- ``{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+- ``{xrst_spell_off}``
+- ``{xrst_spell_on}``
 
-Here *word_1*, ..., *word_n* is the special word list for this page.
-In the syntax above the list of words is all in one line.
-They could be on different lines which helps when displaying
-the difference between  versions of the corresponding file.
-Each word is a sequence of letters.
-Upper case letters start a new word (even when preceded by a letter).
-You need not include latex commands in special word list because
-words with a backslash directly before them are not include in spell checking.
-The line containing the ``}`` must have nothing but white space after it.
+The lines containing the ``{`` ( ``}`` ) character
+must have nothing but white space before ( after )  it.
 
 .. _spell_cmd@Purpose:
 
 Purpose
 *******
-You can specify a special list of words
-(not normally considered correct spelling)
-for the current page using the command above.
+By default xrst does spell checking.
+You can turn spell checking off and back on using the corresponding command.
+You can also specify special words to include as correct spelling for
+this page.
+
+.. meta::
+   :keywords: words
+
+.. index:: words
+
+.. _spell_cmd@Words:
+
+Words
+*****
+Each word is a sequence of letters.
+Upper case letters start a new word (even when preceded by a letter).
+You need not include latex commands in special word list because
+words with a backslash directly before them are not include in spell checking.
+
+.. meta::
+   :keywords: special, words
+
+.. index:: special, words
+
+.. _spell_cmd@Special Words:
+
+Special Words
+*************
+You can specify a special word list
+
+| *word_1* ... *word_n*
+
+These words are considered correct spelling even though
+they are not in the dictionary.
+In the syntax above the special words are all in one line.
+They could be on different lines which helps when displaying
+the difference between  versions of the corresponding file.
 
 .. meta::
    :keywords: spelling
@@ -57,8 +86,6 @@ spelling
 The list of words in
 :ref:`spelling<run_xrst@sphinx_dir@spelling>`
 are considered correct spellings for all pages.
-The latex commands corresponding to the letters in the greek alphabet
-are automatically added to this list.
 
 .. meta::
    :keywords: capital, letters

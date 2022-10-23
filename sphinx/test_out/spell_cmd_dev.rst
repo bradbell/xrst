@@ -52,7 +52,7 @@ is written in the tmp_dir directory by the spell_command function.
 
 data_in
 =======
-is the data for this page before the spell command is removed.
+is the data for this page before the spell commands are removed.
 
 .. meta::
    :keywords: file_name
@@ -127,9 +127,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 154-160
+   :lines: 174-180
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 408-410
+   :lines: 477-479
    :language: py

@@ -30,6 +30,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+10-23
+=====
+Add ``\{xrst_spell_off}`` and ``\{xrst_spell_on}`` to the
+spell :ref:`spell_cmd@Syntax` .
+
 10-21
 =====
 When there is more than one version of the syntax for a command
