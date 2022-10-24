@@ -19,23 +19,29 @@ Syntax
 The lines containing the ``{`` ( ``}`` ) character
 must have nothing but white space before ( after )  it.
 
-Purpose
-*******
+spell_off
+*********
 By default xrst does spell checking.
-You can turn spell checking off and back on using the corresponding command.
-You can also specify special words to include as correct spelling for
-this page.
+You can turn spell checking off using this command.
+
+spell_on
+********
+If spell checking has been turned off,
+you can turn it back on using this command.
+
+spell
+*****
+You can specify special words to include as correct spelling for
+this page using this command.
 
 Words
 *****
-Each word is a sequence of letters.
+Each word, that is checked for spelling, is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
-You need not include latex commands in special word list because
-words with a backslash directly before them are not include in spell checking.
 
 Special Words
 *************
-You can specify a special word list
+In the syntax above, the special word list is
 
 | *word_1* ... *word_n*
 
@@ -44,11 +50,14 @@ they are not in the dictionary.
 In the syntax above the special words are all in one line.
 They could be on different lines which helps when displaying
 the difference between  versions of the corresponding file.
+Latex commands should not be in the special word list because
+words that have a backslash directly before them
+are not include in spell checking.
 
-spelling
-********
-The list of words in
-:ref:`spelling<run_xrst@sphinx_dir@spelling>`
+spelling File
+*************
+The list of words in the
+:ref:`spelling<run_xrst@sphinx_dir@spelling>` file
 are considered correct spellings for all pages.
 
 Capital Letters

@@ -36,6 +36,20 @@ Factorial
    :language: py
 
 .. meta::
+   :keywords: git, hash
+
+.. index:: git, hash
+
+.. _code_example@Git Hash:
+
+Git Hash
+********
+
+.. literalinclude:: ../../example/code.py
+   :lines: 23-23
+   :language: py
+
+.. meta::
    :keywords: xrst_code
 
 .. index:: xrst_code
@@ -45,6 +59,18 @@ Factorial
 xrst_code
 *********
 The file below demonstrates the use of ``xrst_code`` .
+
+.. meta::
+   :keywords: xrst_spell_off,, xrst_spell_on
+
+.. index:: xrst_spell_off,, xrst_spell_on
+
+.. _code_example@xrst_spell_off, xrst_spell_on:
+
+xrst_spell_off, xrst_spell_on
+*****************************
+The file below demonstrates the use of ``xrst_spell_off``
+and ``xrst_spell_on`` .
 
 .. _code_example@This Example File:
 

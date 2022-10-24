@@ -89,8 +89,11 @@ Spell Checking
 **************
 Code blocks as usually small and
 spell checking is done for these code blocks.
-(Spell checking is not done for code blocks included using the
-:ref:`literal command<literal_cmd>` .)
+You can turn off this spell checking by putting
+:ref:`spell_cmd@spell_off` before and :ref:`spell_cmd@spell_on` after
+a code block.
+Spell checking is not done for code blocks included using the
+:ref:`literal command<literal_cmd>` .
 
 .. _code_cmd@Example:
 
