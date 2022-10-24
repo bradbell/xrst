@@ -131,5 +131,5 @@ it is ignored (so that latex commands do not generate warnings).
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 486-488
+   :lines: 488-490
    :language: py

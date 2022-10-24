@@ -303,24 +303,26 @@ def spell_command(
          data=data_tmp
       )
    #
+   # data_tmp
    # commands with file names as arugments
-   data_tmp = pattern['literal_2'].sub('', data_tmp)
-   data_tmp = pattern['literal_3'].sub('', data_tmp)
-   data_tmp = pattern['toc'].sub('', data_tmp)
-   data_tmp = pattern['http'].sub('', data_tmp)
-   data_tmp = pattern['directive'].sub('', data_tmp)
+   # Use @ character to avoid mistaken double word errors
+   data_tmp = pattern['literal_2'].sub('@', data_tmp)
+   data_tmp = pattern['literal_3'].sub('@', data_tmp)
+   data_tmp = pattern['toc'].sub('@', data_tmp)
+   data_tmp = pattern['http'].sub('@', data_tmp)
+   data_tmp = pattern['directive'].sub('@', data_tmp)
    #
    # command with page names and headings as arguments
-   data_tmp = pattern['ref_1'].sub('', data_tmp)
+   data_tmp = pattern['ref_1'].sub('@', data_tmp)
    data_tmp = pattern['ref_2'].sub(r'\1', data_tmp)
-   data_tmp = pattern['code'].sub('', data_tmp)
+   data_tmp = pattern['code'].sub('@', data_tmp)
    #
    # commands with external urls as arguments
-   data_tmp = pattern['url_1'].sub('', data_tmp)
+   data_tmp = pattern['url_1'].sub('@', data_tmp)
    data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
    #
    # any left over xrst commands
-   data_tmp = re.sub( r'{xrst_comment_ch' , '', data_tmp)
+   data_tmp = re.sub( r'{xrst_comment_ch' , '@', data_tmp)
    #
    # first_spell_error
    first_spell_error = True

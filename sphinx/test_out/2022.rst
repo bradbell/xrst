@@ -31,6 +31,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@10-24:
+
+10-24
+=====
+1. Improve :ref:`spell command <spell_cmd>` documentation and
+   :ref:`code_cmd@Spell Checking` documentation in the code command.
+2. Fix mistaken report of double word error when there was a command,
+   that does not get checked for spelling, between the two words.
+
 .. _2022@mm-dd@10-23:
 
 10-23
