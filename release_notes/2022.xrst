@@ -16,11 +16,13 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    mm
    newline
    overline
+   pyproject
    pyspellchecker
    rtd
    selectable
    spdx
    toctree
+   toml
    underbar
    xsrst
 }
@@ -40,7 +42,9 @@ mm-dd
          assert previous == len(data_in) - 1
 
 2. The list example was removed and the :ref:`test_example` was added.
-
+3. The required packages were not being automatically installed because they
+   were under the wrong heading in the pyproject.toml file.
+   This has been fixed.
 
 10-24
 =====

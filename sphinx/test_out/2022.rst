@@ -42,6 +42,9 @@ mm-dd
          assert previous == len(data_in) - 1
 
 2. The list example was removed and the :ref:`test_example` was added.
+3. The required packages were not being automatically installed because they
+   were under the wrong heading in the pyproject.toml file.
+   This has been fixed.
 
 .. _2022@mm-dd@10-24:
 
