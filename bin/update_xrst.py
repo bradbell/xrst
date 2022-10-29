@@ -26,7 +26,7 @@ Change :ref:`section_name-0` -> :ref:`section_name-0`,
 literal_order:
 {xrst_literal start stop display_file}->{xrst_literal display_file start stop}
 
-tab4to3:
+tab3space:
 Change tabs to 3 spaces.
 
 space4to3:

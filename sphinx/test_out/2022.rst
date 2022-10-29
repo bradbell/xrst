@@ -31,6 +31,18 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@10-29:
+
+10-29
+=====
+1. The program used to generate the assert below when there was no newline
+   at the end of an input file. This has been fixed::
+
+      File .. add_line_numbers.py ...
+         assert previous == len(data_in) - 1
+
+2. The list example was removed and the :ref:`test_example` was added.
+
 .. _2022@mm-dd@10-24:
 
 10-24
@@ -128,7 +140,7 @@ The ``conf.py`` file has an error when there were no macros in the
 
 4. There was a problem with the :ref:`code_cmd` when it was inside a list.
    This has been fixed and the corresponding
-   :ref:`list_example@Code Command` example now displays properly.
+   :ref:`test_example@Code Command in List` example now displays properly.
    To be specific,  its second item starts with 2 instead of 1.
 5. Remove the latex generated section numbers from the pdf output because
    xrst includes its own value for the section numbering.
@@ -150,7 +162,8 @@ The ``conf.py`` file has an error when there were no macros in the
 1. The code command would not include the
    :ref:`comment character <comment_ch_cmd>` in it's displayed output.
    This has been fixed.
-2. An :ref:`list_example@RST Directive` was added to the list example.
+2. An RST Directive was added to the list example.
+   (This has been removed because it did not function properly.)
 3. All the pages were being included by the :ref:`toc_cmd`.
    This has been fixed; i.e., only child pages with the same
    :ref:`begin_cmd@group_name` are included.
@@ -188,7 +201,7 @@ is used and the navigation sidebar takes less space.
 =====
 1. Fix the indentation when an xsrst code command in a list item and
    add an example that demonstrates this case; see
-   :ref:`list_example@Code Command`.
+   :ref:`test_example@Code Command in List` .
 2. Add four new items to the :ref:`wish_list` (and edit the Tabs item).
 
 .. _2022@mm-dd@09-17:

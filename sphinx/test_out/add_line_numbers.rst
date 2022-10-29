@@ -77,5 +77,5 @@ Spaces and tabs in empty lines are removed (so they are truly empty).
    :language: py
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 96-97
+   :lines: 101-102
    :language: py

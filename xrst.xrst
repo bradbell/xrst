@@ -20,7 +20,7 @@ Examples
    example/indent.py
    example/docstring.py
    example/configure.xrst
-   example/list.py
+   example/test.py
 }
 
 {xrst_end example}

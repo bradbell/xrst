@@ -1,16 +1,17 @@
+# vim:nofixeol
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 """
-{xrst_begin list_example}
+{xrst_begin test_example}
 {xrst_spell
-   csv
+   newline
 }
-Example using Commands in a List
-################################
+Test Special Conditions
+#######################
 
-Code Command
-************
+Code Command in List
+********************
 #. The ``\{xrst_code py}`` cannot be on the first line of a list item.
    {xrst_code py}"""
    def factorial(n) :
@@ -20,21 +21,13 @@ Code Command
    """{xrst_code}
 #. This is the second item for this list
 
-RST Directive
-*************
-#. This list demonstrates using an rst directive in a list
-   .. csv_table::
-
-      a11, a12
-      a21, a22
-
-#. This is the second item for this list
-
-
+No Newline at End of File
+*************************
+This example file does not have a newline at the end.
 
 This Example File
 *****************
 {xrst_literal}
 
-{xrst_end list_example}
+{xrst_end test_example}
 """

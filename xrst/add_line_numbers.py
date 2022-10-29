@@ -49,8 +49,13 @@ def add_line_numbers(data_in) :
    # }
    # {xrst_end add_line_numbers}
    #
+   # data_extend
+   data_extend = data_in
+   if data_extend[-1] != '\n' :
+      data_extend += '\n'
+   #
    # newline_list, line_start
-   newline_list = xrst.newline_indices(data_in)
+   newline_list = xrst.newline_indices(data_extend)
    if newline_list[0] == 0 :
       line_start = 2
       newline_list .pop(0)
@@ -68,7 +73,7 @@ def add_line_numbers(data_in) :
       assert previous < current
       #
       # line
-      line = data_in[previous : current]
+      line = data_extend[previous : current]
       #
       # empty_line
       if previous == 0 :
@@ -89,7 +94,7 @@ def add_line_numbers(data_in) :
       previous = current
    #
    # data_out
-   assert previous == len(data_in) - 1
+   assert previous == len(data_extend) - 1
    data_out += '\n'
    #
    # BEGIN_return

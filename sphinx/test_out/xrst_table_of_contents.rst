@@ -22,7 +22,7 @@ Table of Contents
 |       :ref:`1.12.1<spelling>` The spelling Example File
 |       :ref:`1.12.2<keyword>` The keyword Example File
 |       :ref:`1.12.3<preamble.rst>` The preamble.rst Example File
-|    :ref:`1.13<list_example>` Example using Commands in a List
+|    :ref:`1.13<test_example>` Test Special Conditions
 | :ref:`2<user_guide>` Extract Sphinx RST Files
 |    :ref:`2.1<run_xrst>` Run Extract Sphinx RST And Sphinx
 |    :ref:`2.2<commands>` Commands
