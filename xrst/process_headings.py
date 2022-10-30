@@ -49,15 +49,36 @@ for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
 These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
 
-Conversion@
-===========
+Heading@To@Label
+================
 The conversion of a heading to a label
 removes all backslashes ``\`` and changes at signs ``@``
 to underbars ``_``.
 
 For example, the label for the heading above is
 
-   ``heading_links@Labels@Conversion_``
+:ref:`heading_links@Labels@Heading_To_Label`
+<heading_links@Labels@- Heading_To_Label>`
+
+The label corresponding to a header is used to reference the header
+using the ``:ref:`` role.
+
+Label To Anchor
+===============
+There is a further conversion to create the
+HTML anchor corresponding to a label.  To be specific:
+
+1. The anchor is converted to lower case.
+2. The page name is removed.
+3. Characters that are not letters or decimal digits are converted to dashes.
+4. Multiple dashes are converted to one dash.
+5. The beginning of the anchor is trimmed until a letter is reached.
+6. The end of the anchor is trimmed until a letter or digit is reached.
+
+If for one page, these anchors are not unique, xrst reports an error.
+This keeps the html links valid as long as one does not change the
+corresponding headers. This is useful when answering questions by sending
+a link to a particular heading in the documentation.
 
 
 Discussion
@@ -81,8 +102,48 @@ Example
 :ref:`heading_example`
 
 {xrst_end heading_links}
+-------------------------------------------------------------------------------
 """
+import re
 import xrst
+# -----------------------------------------------------------------------------
+def check_label(label, line, file_name, previous_anchor) :
+   assert type(label) == str
+   assert type(line) == str
+   assert type(file_name) == str
+   assert type(previous_anchor)==dict
+   #
+   # page_name, anchor
+   # skp page name at beginning of label
+   if '@' not in label :
+      return
+   index = label.find('@')
+   assert index + 1 < len(label)
+   page_name  = label[: index]
+   anchor     = label[index + 1:]
+   #
+   # anchor
+   # convert to the following pattern: [a-z](-?[a-z0-9]+)*
+   anchor = anchor.lower()
+   anchor = re.sub( r'[^a-z0-9]', '-', anchor)
+   anchor = re.sub( r'-+',        '-', anchor)
+   anchor = re.sub( r'-$',        '',  anchor)
+   anchor = re.sub( r'^[^a-z]',   '',  anchor)
+   #
+   # check for duplicate label
+   if anchor in previous_anchor :
+      first_line = previous_anchor[anchor]
+      msg        = 'Two headers have the same HTML anchor.\n'
+      msg       += f'page_name  = {page_name}\n'
+      msg       += f'file_name  = {file_name}\n'
+      msg       += f'first line = {first_line}, second line = {line}\n'
+      msg       += f'label      = {label}\n'
+      msg       += f'anchor     = {anchor}'
+      assert False, msg
+   #
+   # previous_anchor
+   previous_anchor[anchor] = line
+# -----------------------------------------------------------------------------
 # {xrst_begin process_headings dev}
 # {xrst_spell
 #     fullmatch
@@ -165,6 +226,9 @@ def process_headings(
    # }
    # {xrst_end process_headings}
    #
+   # previous_anchor
+   previous_anchor = dict()
+   #
    # data_out
    data_out = data_in
    #
@@ -187,9 +251,12 @@ def process_headings(
    while 0 <= heading_index :
       if 0 < heading_index :
          assert data_out[heading_index-1] == '\n'
+      #
+      # m_line
+      m_line = xrst.pattern['line'].search(data_out, heading_index)
+      #
       # overline
-      m_obj = xrst.pattern['line'].search(data_out, heading_index)
-      index = m_obj.start()
+      index = m_line.start()
       overline = underline_text == data_out[heading_index : index]
       #
       # character
@@ -223,15 +290,12 @@ def process_headings(
          if level_zero :
             level_zero = character == heading_list[0]['character']
          if level_zero :
-            m_obj = \
-               xrst.pattern['line'].search(data_out, heading_index)
             msg = 'There are multiple titles for this page'
             xrst.system_exit(
                msg,
-               file_name=file_name,
-               page_name=page_name,
-               m_obj=m_obj,
-               data=data_out
+               file_name = file_name,
+               page_name = page_name,
+               line      = m_line.group(1),
             )
          #
          # found_level
@@ -268,14 +332,19 @@ def process_headings(
             else :
                label = page_name
          else :
-            conversion  = label.replace('\\', '')
             conversion  = heading_list[level]['text']
-            conversion  = conversion.replace('@', '_')
+            conversion  = conversion.replace('\\', '')
+            conversion  = conversion.replace('@',  '_')
             label      += '@' + conversion
       #
       # label
       if label.endswith(':') :
          label = label[:-1] + '\\:'
+      if label.startswith('_') :
+         label = '\\' + label
+      #
+      # check_label
+      check_label(label, m_line.group(1), file_name, previous_anchor)
       #
       # index_entries
       if len(heading_list) == 1 :

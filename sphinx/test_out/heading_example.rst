@@ -64,7 +64,7 @@ The label for this heading is ``heading_example@Another Level One``.
 
 .. index:: level, two\_
 
-.. _heading_example@Another Level One@Level Two\_:
+.. _heading_example@Another Level One@Level Two_:
 
 Level Two\_
 ===========

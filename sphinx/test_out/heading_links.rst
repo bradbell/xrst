@@ -87,21 +87,49 @@ plus the conversion for this heading.
 These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
 
 .. meta::
-   :keywords: conversion@
+   :keywords: heading@to@label
 
-.. index:: conversion@
+.. index:: heading@to@label
 
-.. _heading_links@Labels@Conversion_:
+.. _heading_links@Labels@Heading_To_Label:
 
-Conversion@
-===========
+Heading@To@Label
+================
 The conversion of a heading to a label
 removes all backslashes ``\`` and changes at signs ``@``
 to underbars ``_``.
 
 For example, the label for the heading above is
 
-   ``heading_links@Labels@Conversion_``
+:ref:`heading_links@Labels@Heading_To_Label`
+<heading_links@Labels@- Heading_To_Label>`
+
+The label corresponding to a header is used to reference the header
+using the ``:ref:`` role.
+
+.. meta::
+   :keywords: label, anchor
+
+.. index:: label, anchor
+
+.. _heading_links@Labels@Label To Anchor:
+
+Label To Anchor
+===============
+There is a further conversion to create the
+HTML anchor corresponding to a label.  To be specific:
+
+1. The anchor is converted to lower case.
+2. The page name is removed.
+3. Characters that are not letters or decimal digits are converted to dashes.
+4. Multiple dashes are converted to one dash.
+5. The beginning of the anchor is trimmed until a letter is reached.
+6. The end of the anchor is trimmed until a letter or digit is reached.
+
+If for one page, these anchors are not unique, xrst reports an error.
+This keeps the html links valid as long as one does not change the
+corresponding headers. This is useful when answering questions by sending
+a link to a particular heading in the documentation.
 
 .. meta::
    :keywords: discussion

@@ -33,6 +33,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+10-30
+=====
+Add a description of the conversion of
+:ref:`heading_links@Labels@Label To Anchor`
+and make it an error for two labels the have the same anchor.
+
 10-29
 =====
 1. The program used to generate the assert below when there was no newline
@@ -76,7 +82,7 @@ version 0.6.3 to 0.7.0.
 
 10-04
 =====
-1. The :ref:`heading_links@Labels@Conversion_` of headings was changed
+1. The :ref:`heading_links@Labels@Heading_To_Label` of headings was changed
    to not convert colons ``:`` .
 2. The example :ref:`preamble.rst` file was change to use three
    (instead of four) spaces for a tab.
@@ -88,7 +94,7 @@ version 0.6.3 to 0.7.0.
 1. The local table of contents was moved after the text below the title
    amd just before the first heading link
    (when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
-2. The :ref:`heading_links@Labels@Conversion_` of headings was changed
+2. The :ref:`heading_links@Labels@Heading_To_Label` of headings was changed
    to remove backslashes from labels.
 
 10-02
@@ -193,7 +199,8 @@ each change to the release notes.
    This has the advantage that the html link uses the page name instead of
    an id number.
 #. Do not map characters (except for ``:`` and ``@`` ) when
-   automatically creating labels; see :ref:`heading_links@Labels@Conversion_`
+   automatically creating labels; see
+   :ref:`heading_links@Labels@Heading_To_Label`
    for heading links. This makes these labels work more link the
    automatic standard rst labels.
 #. There was a bug in the reported line number when a
@@ -345,7 +352,7 @@ Change the xrst command
 =====
 1. The colon ``:`` was added to the characters that get changed to
    underbar ``_`` when converting headings to labels; see
-   :ref:`heading_links@Labels@Conversion_` .
+   :ref:`heading_links@Labels@Heading_To_Label` .
 2. Sphinx warnings that occurred while running xrst were not being reported.
    This has been fixed.
 3. Two broken cross reference links (reported by sphinx warnings) were fixed.
