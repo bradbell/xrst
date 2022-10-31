@@ -6,8 +6,8 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 xrst Release Notes By Year
 ##########################
 {xrst_toc_hidden
-   release_notes/2022.xrst
-   release_notes/2021.xrst
+   user/2022.xrst
+   user/2021.xrst
 }
 :ref:`2022`,
 :ref:`2021`

@@ -15,10 +15,13 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#  release_notes/2021.xrst
+#  release_notes/2022.xrst
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
+#  s|release_notes|user|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -30,5 +33,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|sinfo_list|pinfo_list|g
-s|#\( *\)sinfo$|#\1pinfo|
+s|release_notes/2021.xrst|user/2021.xrst|
+s|release_notes/2022.xrst|user/2022.xrst|

@@ -6,7 +6,7 @@
 2022
 !!!!
 
-xrst input file: ``release_notes/2022.xrst``
+xrst input file: ``user/2022.xrst``
 
 .. meta::
    :keywords: 2022, xrst, release, notes, 2022
