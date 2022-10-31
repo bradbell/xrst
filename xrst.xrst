@@ -27,7 +27,7 @@ Examples
 ----------------------------------------------------------------------------
 user group name
 ----------------------------------------------------------------------------
-{xrst_begin_parent user_guide user}
+{xrst_begin user_guide user}
 {xrst_spell
    autodoc
    doxygen
@@ -112,114 +112,13 @@ Contents
 ********
 {xrst_toc_list
    xrst/run_xrst.py
+   user/commands.xrst
+   user/automatic.xrst
+   user/wish_list.xrst
+   user/release_notes.xrst
 }
 
 {xrst_end user_guide}
-----------------------------------------------------------------------------
-{xrst_begin commands user}
-
-Commands
-########
-If the text ``\\{xrst_`` appears in the input, the backslash is removed
-form the xrst output and the text does not start an xrst command.
-Otherwise the text ``{xrst_`` is reserved for the beginning of an xrst command.
-These commands are described in the pages below:
-{xrst_toc_list
-   xrst/get_file_info.py
-   xrst/toc_commands.py
-   xrst/spell_command.py
-   xrst/suspend_command.py
-   xrst/code_command.py
-   xrst/literal_command.py
-   xrst/comment_command.py
-   xrst/comment_ch_command.py
-}
-
-{xrst_end commands}
-----------------------------------------------------------------------------
-{xrst_begin automatic user}
-
-Automatic Processing
-####################
-The processing described below happens without any commands:
-{xrst_toc_list
-   xrst/remove_indent.py
-   xrst/process_headings.py
-   xrst/auto_file.py
-}
-
-
-{xrst_end automatic}
-----------------------------------------------------------------------------
-app group name
-----------------------------------------------------------------------------
-{xrst_begin_parent appendix app}
-
-Appendix
-########
-
-{xrst_end appendix}
-----------------------------------------------------------------------------
-{xrst_begin wish_list app}
-{xrst_spell
-   conf
-   dir
-   stackoverflow
-   toml
-}
-
-Wish List
-#########
-The following is a wish list for future improvements to ``run_xrst``:
-
-.. _stackoverflow: https://stackoverflow.com/questions/1686837/
-   sphinx-documentation-tool-set-tab-width-in-output
-
-Tabs
-****
-Tabs in xrst input is not tested because
-tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-Perhaps we should add a command line option that sets the tab stops,
-convert the tabs to spaces when a file is read,
-and not include tabs in any of the processing after that.
-
-Path
-****
-It would be nice to have a way, in sphinx, to make file names relative
-to the directory where the :ref:`run_xrst@root_file` is located
-so it would be the same as for xrst commands.
-
-Configuration
-*************
-It would be nice to have a *sphinx_dir* ``/conf.toml`` file that
-could be used for more complicated cases that can be handled by the
-command line arguments.
-
-Sphinx Error Messages
-*********************
-It would be nice to have a way to translate sphinx error messages
-to the corresponding xrst input file and line number.
-
-Search
-******
-It would be nice for a search to display all of the index words for each
-web page that matches the search.
-
-
-{xrst_end wish_list}
-----------------------------------------------------------------------------
-{xrst_begin release_notes app}
-
-xrst Release Notes By Year
-##########################
-{xrst_toc_hidden
-   release_notes/2022.xrst
-   release_notes/2021.xrst
-}
-:ref:`2022`,
-:ref:`2021`
-
-{xrst_end release_notes}
 ----------------------------------------------------------------------------
 dev group name
 ----------------------------------------------------------------------------

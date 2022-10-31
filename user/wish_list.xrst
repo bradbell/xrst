@@ -1,19 +1,13 @@
-.. include:: xrst_preamble.rst
-
-.. _wish_list:
-
-!!!!!!!!!
-wish_list
-!!!!!!!!!
-
-xrst input file: ``user/wish_list.xrst``
-
-.. meta::
-   :keywords: wish_list, wish, list
-
-.. index:: wish_list, wish, list
-
-.. _wish_list-0:
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+----------------------------------------------------------------------------
+{xrst_begin wish_list user}
+{xrst_spell
+   conf
+   dir
+   stackoverflow
+   toml
+}
 
 Wish List
 #########
@@ -21,16 +15,6 @@ The following is a wish list for future improvements to ``run_xrst``:
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
-
-.. contents::
-   :local:
-
-.. meta::
-   :keywords: tabs
-
-.. index:: tabs
-
-.. _wish_list@Tabs:
 
 Tabs
 ****
@@ -40,25 +24,11 @@ Perhaps we should add a command line option that sets the tab stops,
 convert the tabs to spaces when a file is read,
 and not include tabs in any of the processing after that.
 
-.. meta::
-   :keywords: path
-
-.. index:: path
-
-.. _wish_list@Path:
-
 Path
 ****
 It would be nice to have a way, in sphinx, to make file names relative
 to the directory where the :ref:`run_xrst@root_file` is located
 so it would be the same as for xrst commands.
-
-.. meta::
-   :keywords: configuration
-
-.. index:: configuration
-
-.. _wish_list@Configuration:
 
 Configuration
 *************
@@ -66,26 +36,15 @@ It would be nice to have a *sphinx_dir* ``/conf.toml`` file that
 could be used for more complicated cases that can be handled by the
 command line arguments.
 
-.. meta::
-   :keywords: sphinx, error, messages
-
-.. index:: sphinx, error, messages
-
-.. _wish_list@Sphinx Error Messages:
-
 Sphinx Error Messages
 *********************
 It would be nice to have a way to translate sphinx error messages
 to the corresponding xrst input file and line number.
 
-.. meta::
-   :keywords: search
-
-.. index:: search
-
-.. _wish_list@Search:
-
 Search
 ******
 It would be nice for a search to display all of the index words for each
 web page that matches the search.
+
+
+{xrst_end wish_list}

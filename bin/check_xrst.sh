@@ -42,7 +42,7 @@ fi
 mkdir doc
 cd    doc
 #
-for group_list in ',' ',user,app,dev'
+for group_list in ',' ',user,dev'
 do
    if [ -e ../sphinx/rst ]
    then

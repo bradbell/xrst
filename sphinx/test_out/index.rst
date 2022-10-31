@@ -9,6 +9,5 @@ xrst
    xrst_table_of_contents
    example
    user_guide
-   appendix
    devel
    xrst_index

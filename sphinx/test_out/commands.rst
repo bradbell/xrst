@@ -6,7 +6,7 @@
 commands
 !!!!!!!!
 
-xrst input file: ``xrst.xrst``
+xrst input file: ``user/commands.xrst``
 
 .. meta::
    :keywords: commands, commands
