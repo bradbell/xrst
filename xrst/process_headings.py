@@ -128,21 +128,30 @@ def check_label(label, line, file_name, previous_anchor) :
    anchor = re.sub( r'[^a-z0-9]', '-', anchor)
    anchor = re.sub( r'-+',        '-', anchor)
    anchor = re.sub( r'-$',        '',  anchor)
-   anchor = re.sub( r'^[^a-z]',   '',  anchor)
+   anchor = re.sub( r'^[^a-z]*',  '',  anchor)
+   if anchor == '' :
+      msg  = 'The anchor correspnding to a header is empty.\n'
+      msg += f'label = {label}'
+      xrst.system_exit(
+         msg, file_name = file_name, page_name = page_name, line = line,
+      )
    #
    # check for duplicate label
    if anchor in previous_anchor :
-      first_line = previous_anchor[anchor]
-      msg        = 'Two headers have the same HTML anchor.\n'
-      msg       += f'page_name  = {page_name}\n'
-      msg       += f'file_name  = {file_name}\n'
-      msg       += f'first line = {first_line}, second line = {line}\n'
-      msg       += f'label      = {label}\n'
-      msg       += f'anchor     = {anchor}'
+      previous_line  = previous_anchor[anchor]['line']
+      previous_label = previous_anchor[anchor]['label']
+      msg  = 'A previous header has the same HTML anchor.\n'
+      msg += f'previous_line  = {previous_line}\n'
+      msg += f'previous_label = {previous_label}\n'
+      msg += f'label  = {label}\n'
+      msg += f'anchor = {anchor}'
+      xrst.system_exit(
+         msg, file_name = file_name, page_name = page_name, line = line,
+      )
       assert False, msg
    #
    # previous_anchor
-   previous_anchor[anchor] = line
+   previous_anchor[anchor] = { 'line' : line, 'label' : label }
 # -----------------------------------------------------------------------------
 # {xrst_begin process_headings dev}
 # {xrst_spell
