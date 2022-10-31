@@ -127,9 +127,6 @@ HTML anchor corresponding to a label.  To be specific:
 6. The end of the anchor is trimmed until a letter or digit is reached.
 
 If for one page, these anchors are not unique, xrst reports an error.
-This keeps the html links valid as long as one does not change the
-corresponding headers. This is useful when answering questions by sending
-a link to a particular heading in the documentation.
 
 .. meta::
    :keywords: discussion
@@ -146,13 +143,17 @@ Discussion
 2. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
    page names; e.g. :ref:`auto_file@conf.py`.
-3. Specifying all the levels for a heading may seem verbose,
+3. Including all the levels above a heading in its label may seem verbose,
    but it avoids ambiguity when the same heading appears twice in one page;
    e.g the heading Example might appears multiple times in different context.
    This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
    headings below it,  will break.  This identifies the links that should be
    checked to make sure they are still valid.
+4. It is an error for two headings have the same HTML anchor.
+   This makes the html links to a heading valid as long as its label
+   does not change. This is useful when posting the answer to a questions
+   using a link to a particular heading.
 
 .. _heading_links@Example:
 
