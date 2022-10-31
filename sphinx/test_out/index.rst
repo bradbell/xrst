@@ -8,6 +8,7 @@ xrst
 
    xrst_table_of_contents
    example
+   purpose
    user_guide
    devel
    xrst_index

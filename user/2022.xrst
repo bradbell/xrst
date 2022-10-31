@@ -39,6 +39,10 @@ mm-dd
    :ref:`heading_links@Labels@Label To Anchor`
    and make it an error for two labels the have the same anchor.
 2. Improve the group list :ref:`run_xrst@group_list@Example` .
+3. If for a single group there was more then on page in the
+   :ref:`run_xrst@root_file` and the first such page not a parent
+   for the others, the other pages were not included in the documentation.
+   This has been fixed.
 
 10-29
 =====

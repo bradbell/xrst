@@ -506,7 +506,7 @@ def run_xrst() :
       finfo_stack.append(finfo)
       #
       while 0 < len(finfo_stack) :
-         # pop first element is stack so that order in pdf file and
+         # pop first element of stack so that order in pdf file and
          # table of contents is correct
          finfo  = finfo_stack.pop(0)
          #
@@ -536,8 +536,13 @@ def run_xrst() :
          # root_page_list
          if finfo['parent_file'] == None :
             assert file_in == root_local
-            page_name = sinfo_file_in[0]['page_name']
-            root_page_list.append(page_name)
+            if sinfo_file_in[0]['is_parent'] :
+               n_page = 1
+            else :
+               n_page = len( sinfo_file_in )
+            for i_page in range( n_page ) :
+               page_name = sinfo_file_in[i_page]['page_name']
+               root_page_list.append(page_name)
          #
          # parent_page_file_in
          # index in pinfo_list of parent page for this file

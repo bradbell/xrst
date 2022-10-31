@@ -1,38 +1,19 @@
-SPDX-License-Identifier: GPL-3.0-or-later
-SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
-----------------------------------------------------------------------------
-empty group name
-----------------------------------------------------------------------------
-{xrst_begin example}
+.. include:: xrst_preamble.rst
 
-Examples
-########
-{xrst_toc_list
-   example/get_started.xrst
-   example/literal.cpp
-   example/toc_list.xrst
-   example/spell.xrst
-   example/suspend.py
-   example/code.py
-   example/comment.r
-   example/comment_ch.m
-   example/heading.py
-   example/indent.py
-   example/docstring.py
-   example/configure.xrst
-   example/test.py
-}
+.. _purpose:
 
-{xrst_end example}
-----------------------------------------------------------------------------
-user group name
-----------------------------------------------------------------------------
-{xrst_begin purpose user}
-{xrst_spell
-   autodoc
-   doxygen
-   gsl
-}
+!!!!!!!
+purpose
+!!!!!!!
+
+xrst input file: ``xrst.xrst``
+
+.. meta::
+   :keywords: purpose, need, xrst
+
+.. index:: purpose, need, xrst
+
+.. _purpose-0:
 
 The Need for xrst
 #################
@@ -46,6 +27,16 @@ language and has some of the benefits of doxygen and autodoc without
 some of the drawbacks.
 
 .. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+
+.. contents::
+   :local:
+
+.. meta::
+   :keywords: features
+
+.. index:: features
+
+.. _purpose@Features:
 
 Features
 ********
@@ -90,49 +81,3 @@ Features
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels.
-
-{xrst_end purpose}
-----------------------------------------------------------------------------
-{xrst_begin user_guide user}
-
-Extract Sphinx RST Files
-########################
-
-Version 2022.10.31
-******************
-
-Git Repository
-**************
-https://github.com/bradbell/xrst
-
-Pip Install
-***********
--  ``pip install --index-url https://test.pypi.org/simple/ xrst``
-
-Run Program
-***********
-:ref:`run_xrst-0`
-
-Contents
-********
-{xrst_toc_list
-   xrst/run_xrst.py
-   user/commands.xrst
-   user/automatic.xrst
-   user/wish_list.xrst
-   user/release_notes.xrst
-}
-
-{xrst_end user_guide}
-----------------------------------------------------------------------------
-dev group name
-----------------------------------------------------------------------------
-{xrst_begin devel dev}
-
-Developer Documentation
-#######################
-
-{xrst_toc_table
-   xrst/__init__.py
-}
-{xrst_end devel}
