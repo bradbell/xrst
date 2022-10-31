@@ -115,21 +115,25 @@ to the examples.
 
 Example
 =======
+The examples commands below assume you have cloned the
+`xrst git repository <https://github.com/bradbell/xrst>`_
+and it is your current working directory.
 
-#. The xrst examples use the empty group name
+
+#. The xrst examples use the empty group
    and their documentation can be built using
 
-   | xrst xrst.xrst --group ,
+      ``xrst xrst.xrst --group ,``
 
-#. The xrst user documentation uses the empty, user, and app group names
+#. The xrst user documentation uses the empty and user groups
    and its documentation can be built using
 
-   | xrst xrst.xrst --group ,user,app
+      ``xrst xrst.xrst --group ,user``
 
-#. The xrst developer documentation uses the empty, user, app, and dev
-   group names and its documentation can be built using
+#. The xrst developer documentation uses the empty, user, and dev
+   groups and its documentation can be built using
 
-   | xrst xrst.xrst --group ,user,app,dev
+      ``xrst xrst.xrst --group ,user,dev``
 
 
 target
