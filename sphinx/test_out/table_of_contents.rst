@@ -13,7 +13,7 @@ xrst input file: ``xrst/table_of_contents.py``
 
 .. index:: table_of_contents, create, table, contents
 
-.. _table_of_contents-0:
+.. _table_of_contents-title:
 
 Create the table of contents
 ############################

@@ -13,7 +13,7 @@ xrst input file: ``example/comment.r``
 
 .. index:: comment_example, comment
 
-.. _comment_example-0:
+.. _comment_example-title:
 
 Comment Command Example
 #######################

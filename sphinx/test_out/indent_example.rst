@@ -13,7 +13,7 @@ xrst input file: ``example/indent.py``
 
 .. index:: indent_example, indent
 
-.. _indent_example-0:
+.. _indent_example-title:
 
 Indent Example
 ##############

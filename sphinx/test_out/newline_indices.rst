@@ -13,7 +13,7 @@ xrst input file: ``xrst/newline_indices.py``
 
 .. index:: newline_indices, find, index, all, newlines, in, string
 
-.. _newline_indices-0:
+.. _newline_indices-title:
 
 Find index of all the newlines in a string
 ##########################################

@@ -13,7 +13,7 @@ xrst input file: ``xrst/comment_command.py``
 
 .. index:: comment_cmd_dev, remove, all, comment, commands
 
-.. _comment_cmd_dev-0:
+.. _comment_cmd_dev-title:
 
 Remove all comment commands
 ###########################

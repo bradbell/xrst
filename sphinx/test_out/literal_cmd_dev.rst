@@ -13,7 +13,7 @@ xrst input file: ``xrst/literal_command.py``
 
 .. index:: literal_cmd_dev, process, literal, commands, in, page
 
-.. _literal_cmd_dev-0:
+.. _literal_cmd_dev-title:
 
 Process the literal commands in a page
 ######################################

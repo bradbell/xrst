@@ -13,7 +13,7 @@ xrst input file: ``xrst/suspend_command.py``
 
 .. index:: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
 
-.. _suspend_cmd_dev-0:
+.. _suspend_cmd_dev-title:
 
 Remove text specified by suspend / resume pairs
 ###############################################

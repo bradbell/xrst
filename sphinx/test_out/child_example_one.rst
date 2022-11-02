@@ -13,7 +13,7 @@ xrst input file: ``example/children.xrst``
 
 .. index:: child_example_one, first, child
 
-.. _child_example_one-0:
+.. _child_example_one-title:
 
 First Child
 ###########

@@ -97,7 +97,7 @@ def process_children(
       if toc_type ==  'list' :
          cmd = '\n\n'
          for child in list_children :
-            cmd += '-  :ref:`' + child + '-0`\n'
+            cmd += '-  :ref:`' + child + '-title`\n'
          cmd += '\n\n'
       elif toc_type == 'table' :
          cmd  = '\n\n'
@@ -106,7 +106,7 @@ def process_children(
          cmd += '   :widths: auto\n\n'
          for child in list_children :
             cmd += '   "' + child + '"'
-            cmd += ', :ref:`' + child + '-0`\n'
+            cmd += ', :ref:`' + child + '-title`\n'
       else :
          assert toc_type == 'hidden'
          cmd = '\n'
@@ -130,7 +130,7 @@ def process_children(
       data_out += '   :widths: 20, 80\n\n'
       for child in list_children :
          data_out += '   "' + child + '"'
-         data_out += ', :ref:`' + child + '-0`\n'
+         data_out += ', :ref:`' + child + '-title`\n'
       data_out += '\n'
    #
    # data_out

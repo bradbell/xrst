@@ -13,7 +13,7 @@ xrst input file: ``xrst/process_headings.py``
 
 .. index:: heading_links, heading, cross, reference, links
 
-.. _heading_links-0:
+.. _heading_links-title:
 
 Heading Cross Reference Links
 #############################
@@ -61,16 +61,46 @@ Each :ref:`page<begin_cmd@page>` can have only one header at
 the first level which is a title for the page.
 The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
-page name or page title. To be specific,
-the first input below will display the page name as the linking text,
-the second will display the page title as the linking text.
+page name or page title.
 
-1. ``:ref:`` \` *page_name* \`
-2. ``:ref:`` \` *page_name* ``-0`` \`
+.. meta::
+   :keywords: page_name
 
-You can also explicitly choose the linking text; e.g.
+.. index:: page_name
 
-3. ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
+.. _heading_links@Labels@Level Zero@page_name:
+
+page_name
+---------
+The input below will display the page name as the linking text:
+
+  ``:ref:`` \` *page_name* \`
+
+.. meta::
+   :keywords: page_title
+
+.. index:: page_title
+
+.. _heading_links@Labels@Level Zero@page_title:
+
+page_title
+----------
+The input below will display the page title as the linking text:
+
+    ``:ref:`` \` *page_name* ``-title`` \`
+
+.. meta::
+   :keywords: linking, text
+
+.. index:: linking, text
+
+.. _heading_links@Labels@Level Zero@Linking Text:
+
+Linking Text
+------------
+You can also explicitly choose the linking text using:
+
+   ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
 
 .. meta::
    :keywords: other, levels
@@ -81,10 +111,11 @@ You can also explicitly choose the linking text; e.g.
 
 Other Levels
 ============
-The label for linking a heading that is not at the first level is the label
+The label for linking a heading that is not at level zero is the label
 for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
-These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
+These labels use the *page_name*
+(not *page_name* ``-title`` ) for level zero.
 
 .. meta::
    :keywords: heading@to@label
@@ -101,10 +132,10 @@ to underbars ``_``.
 
 For example, the label for the heading above is
 
-:ref:`heading_links@Labels@Heading_To_Label`
-<heading_links@Labels@- Heading_To_Label>`
+   :ref:`heading_links@Labels@Heading_To_Label
+   <heading_links@Labels@Heading_To_Label>`
 
-The label corresponding to a header is used to reference the header
+The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.
 
 .. meta::

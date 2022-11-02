@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: user_guide, extract, sphinx, rst, files
 
-.. _user_guide-0:
+.. _user_guide-title:
 
 Extract Sphinx RST Files
 ########################
@@ -62,7 +62,7 @@ Pip Install
 
 Run Program
 ***********
-:ref:`run_xrst-0`
+:ref:`run_xrst-title`
 
 .. meta::
    :keywords: contents
@@ -74,11 +74,11 @@ Run Program
 Contents
 ********
 
--  :ref:`run_xrst-0`
--  :ref:`commands-0`
--  :ref:`automatic-0`
--  :ref:`wish_list-0`
--  :ref:`release_notes-0`
+-  :ref:`run_xrst-title`
+-  :ref:`commands-title`
+-  :ref:`automatic-title`
+-  :ref:`wish_list-title`
+-  :ref:`release_notes-title`
 
 .. toctree::
    :maxdepth: 1

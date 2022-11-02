@@ -12,11 +12,10 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
+#  bin/update_xrst.py
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#  release_notes/2021.xrst
-#  release_notes/2022.xrst
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
@@ -33,5 +32,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|release_notes/2021.xrst|user/2021.xrst|
-s|release_notes/2022.xrst|user/2022.xrst|
+s|-0`|-title`|g
+s|-0:|-title:|g

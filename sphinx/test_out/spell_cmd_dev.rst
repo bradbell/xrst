@@ -13,7 +13,7 @@ xrst input file: ``xrst/spell_command.py``
 
 .. index:: spell_cmd_dev, process, spell, page
 
-.. _spell_cmd_dev-0:
+.. _spell_cmd_dev-title:
 
 Process the spell command for a page
 ####################################

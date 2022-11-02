@@ -1,6 +1,6 @@
 .. |space| unicode:: 0xA0
 
-.. _xrst_table_of_contents-0:
+.. _xrst_table_of_contents-title:
 
 Table of Contents
 *****************
@@ -15,7 +15,7 @@ Table of Contents
 |    :ref:`1.6<code_example>` Code Command Example
 |    :ref:`1.7<comment_example>` Comment Command Example
 |    :ref:`1.8<comment_ch_example>` Comment Character Command Example
-|    :ref:`1.9<heading_example>` The Page Title is Level Zero
+|    :ref:`1.9<heading_example>` Heading and Link Example
 |    :ref:`1.10<indent_example>` Indent Example
 |    :ref:`1.11<docstring_example>` Docstring Example
 |    :ref:`1.12<configure_example>` Example Configuration Files

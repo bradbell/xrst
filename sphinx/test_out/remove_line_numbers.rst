@@ -13,7 +13,7 @@ xrst input file: ``xrst/remove_line_numbers.py``
 
 .. index:: remove_line_numbers, remove, number, numbers
 
-.. _remove_line_numbers-0:
+.. _remove_line_numbers-title:
 
 Remove the number numbers
 #########################

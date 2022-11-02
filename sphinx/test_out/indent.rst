@@ -13,7 +13,7 @@ xrst input file: ``xrst/remove_indent.py``
 
 .. index:: indent, indentation
 
-.. _indent-0:
+.. _indent-title:
 
 Indentation
 ###########

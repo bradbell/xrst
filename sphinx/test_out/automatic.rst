@@ -13,15 +13,15 @@ xrst input file: ``user/automatic.xrst``
 
 .. index:: automatic, automatic, processing
 
-.. _automatic-0:
+.. _automatic-title:
 
 Automatic Processing
 ####################
 The processing described below happens without any commands:
 
--  :ref:`indent-0`
--  :ref:`heading_links-0`
--  :ref:`auto_file-0`
+-  :ref:`indent-title`
+-  :ref:`heading_links-title`
+-  :ref:`auto_file-title`
 
 .. toctree::
    :maxdepth: 1

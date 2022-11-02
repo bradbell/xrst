@@ -13,7 +13,7 @@ xrst input file: ``example/configure.xrst``
 
 .. index:: spelling, spelling
 
-.. _spelling-0:
+.. _spelling-title:
 
 The spelling Example File
 #########################

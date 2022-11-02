@@ -13,7 +13,7 @@ xrst input file: ``xrst/code_command.py``
 
 .. index:: code_cmd_dev, process, xrst, code, commands, page
 
-.. _code_cmd_dev-0:
+.. _code_cmd_dev-title:
 
 Process the xrst code commands for a page
 #########################################

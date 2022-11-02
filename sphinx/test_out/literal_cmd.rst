@@ -13,7 +13,7 @@ xrst input file: ``xrst/literal_command.py``
 
 .. index:: literal_cmd, literal
 
-.. _literal_cmd-0:
+.. _literal_cmd-title:
 
 Literal Command
 ###############

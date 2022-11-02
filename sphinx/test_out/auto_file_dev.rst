@@ -13,7 +13,7 @@ xrst input file: ``xrst/auto_file.py``
 
 .. index:: auto_file_dev, create, automatically, generated, files
 
-.. _auto_file_dev-0:
+.. _auto_file_dev-title:
 
 Create the automatically generated files
 ########################################

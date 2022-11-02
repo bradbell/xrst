@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: purpose, need, xrst
 
-.. _purpose-0:
+.. _purpose-title:
 
 The Need for xrst
 #################

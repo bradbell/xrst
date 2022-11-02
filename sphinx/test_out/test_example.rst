@@ -13,7 +13,7 @@ xrst input file: ``example/test.py``
 
 .. index:: test_example, test, special, conditions
 
-.. _test_example-0:
+.. _test_example-title:
 
 Test Special Conditions
 #######################

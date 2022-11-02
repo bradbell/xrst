@@ -13,7 +13,7 @@ xrst input file: ``xrst/spell_command.py``
 
 .. index:: spell_cmd, spell
 
-.. _spell_cmd-0:
+.. _spell_cmd-title:
 
 Spell Command
 #############

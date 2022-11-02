@@ -13,7 +13,7 @@ xrst input file: ``xrst/get_file_info.py``
 
 .. index:: get_file_info, get, information, all, pages, in
 
-.. _get_file_info-0:
+.. _get_file_info-title:
 
 Get information for all pages in a file
 #######################################

@@ -9,19 +9,26 @@ heading_example
 xrst input file: ``example/heading.py``
 
 .. meta::
-   :keywords: heading_example, page, title, is, level, zero
+   :keywords: heading_example, heading, link
 
-.. index:: heading_example, page, title, is, level, zero
+.. index:: heading_example, heading, link
 
-.. _heading_example-0:
+.. _heading_example-title:
 
-The Page Title is Level Zero
-############################
-The label for the page title is the page name followed by ``-0``.
-For example, the label ``heading_example-0`` displays
-``The Page Title is Level Zero`` as the linking text.
-(The label ``heading_example`` displays ``heading_example``
-as the linking text.)
+Heading and Link Example
+########################
+Both the page name and page title are level zero headings for a page.
+Using the *page_name* label displays the page name as its linking text;
+e.g. for this page both the label and linking text are::
+
+   heading_example
+
+The *page_name*  name followed by ``-title`` displays the page title
+as its linking text;
+e.g. for this page the label is ``heading_example-title``
+and linking text is::
+
+   Heading and Link Example
 
 .. contents::
    :local:
@@ -102,7 +109,7 @@ These links would also work from any other page because the page name
 is included at the beginning of the target for the link:
 
 #. :ref:`heading_example`
-#. :ref:`heading_example-0`
+#. :ref:`heading_example-title`
 #. :ref:`heading_example@Level One`
 #. :ref:`heading_example@Level One@Level Two`
 #. :ref:`heading_example@Another Level One`

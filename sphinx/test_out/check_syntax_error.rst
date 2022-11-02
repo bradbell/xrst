@@ -13,7 +13,7 @@ xrst input file: ``xrst/check_syntax_error.py``
 
 .. index:: check_syntax_error, check, that, an, xrst, has, been, removed
 
-.. _check_syntax_error-0:
+.. _check_syntax_error-title:
 
 Check that an xrst command has been removed
 ###########################################

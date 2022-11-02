@@ -13,7 +13,7 @@ xrst input file: ``xrst/process_headings.py``
 
 .. index:: process_headings, add, labels, index, entries, headings
 
-.. _process_headings-0:
+.. _process_headings-title:
 
 Add labels and index entries for headings
 #########################################
@@ -147,9 +147,9 @@ It has three lines each terminated by a newline:
  3. an underline line
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 224-231
+   :lines: 234-241
    :language: py
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 439-443
+   :lines: 449-453
    :language: py

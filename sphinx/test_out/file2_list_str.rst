@@ -13,7 +13,7 @@ xrst input file: ``xrst/file2_list_str.py``
 
 .. index:: file2_list_str, convert, lines, in, list, strings
 
-.. _file2_list_str-0:
+.. _file2_list_str-title:
 
 Convert lines in a file to a list of strings
 ############################################

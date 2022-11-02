@@ -13,7 +13,7 @@ xrst input file: ``xrst/replace_page_number.py``
 
 .. index:: replace_page_number, replace, page, number, commands
 
-.. _replace_page_number-0:
+.. _replace_page_number-title:
 
 Replace page number commands
 ############################

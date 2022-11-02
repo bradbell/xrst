@@ -13,7 +13,7 @@ xrst input file: ``xrst/add_line_numbers.py``
 
 .. index:: add_line_numbers, add, line, numbers, data
 
-.. _add_line_numbers-0:
+.. _add_line_numbers-title:
 
 Add Line Numbers to File Data
 #############################

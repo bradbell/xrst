@@ -38,10 +38,10 @@ xrst_table_of_contents.rst
 This file contains the table of contents for the last run of ``xrst``.
 You can link to the corresponding page with the following command::
 
-   :ref:`xrst_table_of_contents-0`
+   :ref:`xrst_table_of_contents-title`
 
 The result of this command in this documentation is
-:ref:`xrst_table_of_contents-0` .
+:ref:`xrst_table_of_contents-title` .
 
 xrst_index.rst
 **************

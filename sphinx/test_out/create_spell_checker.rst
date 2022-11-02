@@ -13,7 +13,7 @@ xrst input file: ``xrst/create_spell_checker.py``
 
 .. index:: create_spell_checker, create, pyspellchecker, object
 
-.. _create_spell_checker-0:
+.. _create_spell_checker-title:
 
 Create a pyspellchecker object
 ##############################

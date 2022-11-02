@@ -13,7 +13,7 @@ xrst input file: ``user/2022.xrst``
 
 .. index:: 2022, xrst, release, notes, 2022
 
-.. _2022-0:
+.. _2022-title:
 
 xrst Release Notes for 2022
 ###########################
@@ -31,6 +31,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-01:
+
+11-01
+=====
+1. Change the label for a page title from *page_name* ``-0`` to
+   *page_name* ``-title`` .
+2. Improve the :ref:`heading_links` and :ref:`heading_example`
+   discussion of the labels that display the page name and page title
+
 .. _2022@mm-dd@10-31:
 
 10-31
@@ -39,6 +48,10 @@ mm-dd
    :ref:`heading_links@Labels@Label To Anchor`
    and make it an error for two labels the have the same anchor.
 2. Improve the group list :ref:`run_xrst@group_list@Example` .
+3. If for a single group there was more then on page in the
+   :ref:`run_xrst@root_file` and the first such page not a parent
+   for the others, the other pages were not included in the documentation.
+   This has been fixed.
 
 .. _2022@mm-dd@10-29:
 
@@ -237,7 +250,7 @@ each change to the release notes.
 09-14
 =====
 #. Change the link to the title for a page from ``@`` *page_name* to
-   *page_name* ``-0`` ; see :ref:`heading_links@Labels@Level Zero`
+   *page_name* ``-title`` ; see :ref:`heading_links@Labels@Level Zero`
    heading links.
    This has the advantage that the html link uses the page name instead of
    an id number.
@@ -297,7 +310,7 @@ double words exceptions. This has been fixed.
 
 09-05
 =====
-The :ref:`xrst_table_of_contents-0` did not build properly unless ``|space|``
+The :ref:`xrst_table_of_contents-title` did not build properly unless ``|space|``
 was defined in the :ref:`run_xrst@sphinx_dir@preamble.rst` file.
 This has been fixed.
 
@@ -545,7 +558,7 @@ interact; see :ref:`toc_cmd@Children`.
 07-25
 =====
 1. Require that the suspend and resume commands are in their own line; see
-   :ref:`suspend_cmd-0`.
+   :ref:`suspend_cmd-title`.
 2. A problem was fixed the table corresponding to the
    :ref:`run_xrst@rst_line` table.
    To be specific, the indices in the rst file were one larger than
@@ -566,4 +579,4 @@ interact; see :ref:`toc_cmd@Children`.
 07-21
 =====
 Ignore the spelling of all words that are preceded by a backslash
-(this ignores all latex commands); see :ref:`spell_cmd-0`.
+(this ignores all latex commands); see :ref:`spell_cmd-title`.

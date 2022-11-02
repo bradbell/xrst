@@ -13,7 +13,7 @@ xrst input file: ``xrst/remove_indent.py``
 
 .. index:: remove_indent, remove, indentation, page
 
-.. _remove_indent-0:
+.. _remove_indent-title:
 
 Remove indentation for a page
 #############################

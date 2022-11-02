@@ -13,7 +13,7 @@ xrst input file: ``xrst/temporary_file.py``
 
 .. index:: temporary_file, write, temporary, rst, page
 
-.. _temporary_file-0:
+.. _temporary_file-title:
 
 Write the temporary RST file for a page
 #######################################

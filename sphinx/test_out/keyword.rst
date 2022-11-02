@@ -13,7 +13,7 @@ xrst input file: ``example/configure.xrst``
 
 .. index:: keyword, keyword
 
-.. _keyword-0:
+.. _keyword-title:
 
 The keyword Example File
 ########################

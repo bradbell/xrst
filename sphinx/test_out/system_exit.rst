@@ -13,7 +13,7 @@ xrst input file: ``xrst/system_exit.py``
 
 .. index:: system_exit, form, error, message, exit
 
-.. _system_exit-0:
+.. _system_exit-title:
 
 Form error message and exit
 ###########################

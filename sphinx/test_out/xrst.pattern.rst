@@ -13,7 +13,7 @@ xrst input file: ``xrst/pattern.py``
 
 .. index:: xrst.pattern, xrst.pattern, dictionary
 
-.. _xrst.pattern-0:
+.. _xrst.pattern-title:
 
 The xrst.pattern Dictionary
 ###########################

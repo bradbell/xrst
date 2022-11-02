@@ -30,24 +30,34 @@ Each :ref:`page<begin_cmd@page>` can have only one header at
 the first level which is a title for the page.
 The :ref:`page_name<begin_cmd@page_name>`
 is automatically used as a label for a link that displays the
-page name or page title. To be specific,
-the first input below will display the page name as the linking text,
-the second will display the page title as the linking text.
+page name or page title.
 
-1. ``:ref:`` \` *page_name* \`
-2. ``:ref:`` \` *page_name* ``-0`` \`
+page_name
+---------
+The input below will display the page name as the linking text:
 
-You can also explicitly choose the linking text; e.g.
+  ``:ref:`` \` *page_name* \`
 
-3. ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
+page_title
+----------
+The input below will display the page title as the linking text:
+
+    ``:ref:`` \` *page_name* ``-title`` \`
+
+Linking Text
+------------
+You can also explicitly choose the linking text using:
+
+   ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
 
 
 Other Levels
 ============
-The label for linking a heading that is not at the first level is the label
+The label for linking a heading that is not at level zero is the label
 for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
-These labels use the *page_name* (not *page_name* ``-0`` ) for level zero.
+These labels use the *page_name*
+(not *page_name* ``-title`` ) for level zero.
 
 Heading@To@Label
 ================
@@ -57,10 +67,10 @@ to underbars ``_``.
 
 For example, the label for the heading above is
 
-:ref:`heading_links@Labels@Heading_To_Label`
-<heading_links@Labels@- Heading_To_Label>`
+   :ref:`heading_links@Labels@Heading_To_Label
+   <heading_links@Labels@Heading_To_Label>`
 
-The label corresponding to a header is used to reference the header
+The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.
 
 Label To Anchor
@@ -338,7 +348,7 @@ def process_headings(
             assert label == page_name
             # label for link that displays the title
             if len(heading_list) == 1 :
-               label = page_name + '-0'
+               label = page_name + '-title'
             else :
                label = page_name
          else :

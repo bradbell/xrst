@@ -13,7 +13,7 @@ xrst input file: ``example/docstring.py``
 
 .. index:: docstring_example, docstring
 
-.. _docstring_example-0:
+.. _docstring_example-title:
 
 Docstring Example
 #################

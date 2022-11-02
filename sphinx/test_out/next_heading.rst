@@ -13,7 +13,7 @@ xrst input file: ``xrst/next_heading.py``
 
 .. index:: next_heading, return, location, next, heading, in, page
 
-.. _next_heading-0:
+.. _next_heading-title:
 
 Return location of the next heading in a page
 #############################################

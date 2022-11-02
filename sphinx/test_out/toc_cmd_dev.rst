@@ -13,7 +13,7 @@ xrst input file: ``xrst/toc_commands.py``
 
 .. index:: toc_cmd_dev, get, page, names, children, page
 
-.. _toc_cmd_dev-0:
+.. _toc_cmd_dev-title:
 
 Get file and page names for children of this page
 #################################################

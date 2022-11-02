@@ -13,7 +13,7 @@ xrst input file: ``xrst/get_file_info.py``
 
 .. index:: begin_cmd, begin, end, commands
 
-.. _begin_cmd-0:
+.. _begin_cmd-title:
 
 Begin and End Commands
 ######################

@@ -13,7 +13,7 @@ xrst input file: ``example/spell.xrst``
 
 .. index:: spell_example, spell
 
-.. _spell_example-0:
+.. _spell_example-title:
 
 Spell Command Example
 #####################

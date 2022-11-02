@@ -13,7 +13,7 @@ xrst input file: ``xrst/replace_spell.py``
 
 .. index:: replace_spell, replace, spelling, commands
 
-.. _replace_spell-0:
+.. _replace_spell-title:
 
 Replace spelling commands
 #########################

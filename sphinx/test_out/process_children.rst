@@ -13,7 +13,7 @@ xrst input file: ``xrst/process_children.py``
 
 .. index:: process_children, add, child, information, page
 
-.. _process_children-0:
+.. _process_children-title:
 
 Add child information to a page
 ###############################

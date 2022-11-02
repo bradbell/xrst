@@ -13,7 +13,7 @@ xrst input file: ``xrst/comment_command.py``
 
 .. index:: comment_cmd, comment
 
-.. _comment_cmd-0:
+.. _comment_cmd-title:
 
 Comment Command
 ###############

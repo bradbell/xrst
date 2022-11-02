@@ -13,7 +13,7 @@ xrst input file: ``xrst.xrst``
 
 .. index:: devel, developer, documentation
 
-.. _devel-0:
+.. _devel-title:
 
 Developer Documentation
 #######################
@@ -22,7 +22,7 @@ Developer Documentation
    :header:  "Child", "Title"
    :widths: auto
 
-   "module", :ref:`module-0`
+   "module", :ref:`module-title`
 
 .. toctree::
    :maxdepth: 1

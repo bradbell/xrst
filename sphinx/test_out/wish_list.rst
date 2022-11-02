@@ -13,7 +13,7 @@ xrst input file: ``user/wish_list.xrst``
 
 .. index:: wish_list, wish, list
 
-.. _wish_list-0:
+.. _wish_list-title:
 
 Wish List
 #########

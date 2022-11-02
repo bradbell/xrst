@@ -13,7 +13,7 @@ xrst input file: ``xrst/check_page_name.py``
 
 .. index:: check_page_name, check, rules, page, name
 
-.. _check_page_name-0:
+.. _check_page_name-title:
 
 Check the rules for a page name
 ###############################

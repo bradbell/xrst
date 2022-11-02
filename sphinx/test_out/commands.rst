@@ -13,7 +13,7 @@ xrst input file: ``user/commands.xrst``
 
 .. index:: commands, commands
 
-.. _commands-0:
+.. _commands-title:
 
 Commands
 ########
@@ -22,14 +22,14 @@ form the xrst output and the text does not start an xrst command.
 Otherwise the text ``{xrst_`` is reserved for the beginning of an xrst command.
 These commands are described in the pages below:
 
--  :ref:`begin_cmd-0`
--  :ref:`toc_cmd-0`
--  :ref:`spell_cmd-0`
--  :ref:`suspend_cmd-0`
--  :ref:`code_cmd-0`
--  :ref:`literal_cmd-0`
--  :ref:`comment_cmd-0`
--  :ref:`comment_ch_cmd-0`
+-  :ref:`begin_cmd-title`
+-  :ref:`toc_cmd-title`
+-  :ref:`spell_cmd-title`
+-  :ref:`suspend_cmd-title`
+-  :ref:`code_cmd-title`
+-  :ref:`literal_cmd-title`
+-  :ref:`comment_cmd-title`
+-  :ref:`comment_ch_cmd-title`
 
 .. toctree::
    :maxdepth: 1

@@ -13,7 +13,7 @@ xrst input file: ``xrst/start_stop_file.py``
 
 .. index:: start_stop_file, convert, literal, start,, stop, from, text, line, numbers
 
-.. _start_stop_file-0:
+.. _start_stop_file-title:
 
 Convert literal command start, stop from text to line numbers
 #############################################################

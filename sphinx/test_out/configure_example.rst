@@ -13,7 +13,7 @@ xrst input file: ``example/configure.xrst``
 
 .. index:: configure_example, configuration, files
 
-.. _configure_example-0:
+.. _configure_example-title:
 
 Example Configuration Files
 ###########################
@@ -23,9 +23,9 @@ These files are used to configure xrst to build its documentation:
    :header:  "Child", "Title"
    :widths: auto
 
-   "spelling", :ref:`spelling-0`
-   "keyword", :ref:`keyword-0`
-   "preamble.rst", :ref:`preamble.rst-0`
+   "spelling", :ref:`spelling-title`
+   "keyword", :ref:`keyword-title`
+   "preamble.rst", :ref:`preamble.rst-title`
 
 .. contents::
    :local:
