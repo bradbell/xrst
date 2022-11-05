@@ -4,6 +4,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 {xrst_begin 2022 user}
 {xrst_spell
    backslashes
+   breakpoint
    colons
    conf
    css
@@ -32,6 +33,11 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+11-05
+=====
+There as a python breakpoint just before the call to display an xrst syntax error
+(so the error message was not displayed). This has been fixed.
 
 11-01
 =====
