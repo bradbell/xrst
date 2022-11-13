@@ -40,8 +40,10 @@ Arguments
 
 data_in
 =======
-is a string with line numbers added by :ref:`add_line_numbers` .
-These have the form: ``{xrst_line`` *number* ``@`` .
+is a string with line number markers added by :ref:`add_line_numbers` .
+These lines number markers have the form:
+
+    ``{xrst_line`` *line_number* ``@`` .
 
 .. meta::
    :keywords: returns
@@ -62,7 +64,8 @@ Returns
 
 data_out
 ========
-The return data_out is a copy of data_in with the line numbers removed.
+The return data_out is a copy of data_in with the
+line number markers removed.
 
 .. meta::
    :keywords: line_pair
@@ -74,14 +77,19 @@ The return data_out is a copy of data_in with the line numbers removed.
 line_pair
 =========
 The second return line_pair is a list of two element tuples.
-The first element is the line number in data_out not counting
-the \\n{xrst_page_number} lines. The second element is the corresponding
-line number (not line) that has was removed.
+
+-   The first element is the line number in data_out corresponding to
+    the line number marker that was removed.
+    These line numbers, in data_out, do not count
+    lines that only contain ``{xrst_page_number}`` .
+
+-   The second element is the *line_number*, in the line number marker,
+    that was removed.
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 41-42
+   :lines: 49-50
    :language: py
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 99-106
+   :lines: 107-114
    :language: py
