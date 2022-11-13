@@ -78,7 +78,19 @@ is the directory where the output file will be saved.
 
 page_name
 *********
-is the name of this page.  The output file is tmp_dir/page_name.rst.
+is the name of this page.
+
+.. meta::
+   :keywords: file_out
+
+.. index:: file_out
+
+.. _temporary_file@file_out:
+
+file_out
+********
+The temporary file written by the routine, *file_out* , is
+tmp_dir/page_name.rst.
 
 .. meta::
    :keywords: data_in
@@ -103,6 +115,31 @@ The following is added to this data before writing it to the output file:
 #. if rst_line > 0, a mapping from RST line numbers to file_in line numbers
    is included at the end.
 
+.. meta::
+   :keywords: line_pair
+
+.. index:: line_pair
+
+.. _temporary_file@line_pair:
+
+line_pair
+*********
+This is the value returned by ``temporary_file`` .
+For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
+
+-   The first number in a pair is a line number in *file_out*
+    These line numbers to not count `{xrst_page_number}` lines
+    because they are removed before the final rst output is created.
+
+-   The second number in a pair is the corresponding line number in *file_in*
+
+-   The first (second) line number is increasing (no-decreasing)
+    with respect to *index* .
+
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 61-73
+   :lines: 80-93
+   :language: py
+
+.. literalinclude:: ../../xrst/temporary_file.py
+   :lines: 163-168
    :language: py

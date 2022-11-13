@@ -39,7 +39,12 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #
 # page_name
 # *********
-# is the name of this page.  The output file is tmp_dir/page_name.rst.
+# is the name of this page.
+#
+# file_out
+# ********
+# The temporary file written by the routine, *file_out* , is
+# tmp_dir/page_name.rst.
 #
 # data_in
 # *******
@@ -57,7 +62,22 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # #. if rst_line > 0, a mapping from RST line numbers to file_in line numbers
 #    is included at the end.
 #
+# line_pair
+# *********
+# This is the value returned by ``temporary_file`` .
+# For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
+#
+# -   The first number in a pair is a line number in *file_out*
+#     These line numbers to not count `{xrst_page_number}` lines
+#     because they are removed before the final rst output is created.
+#
+# -   The second number in a pair is the corresponding line number in *file_in*
+#
+# -   The first (second) line number is increasing (no-decreasing)
+#     with respect to *index* .
+#
 # {xrst_code py}
+# line_pair =
 def temporary_file(
    rst_line,
    pseudo_heading,
@@ -72,6 +92,11 @@ def temporary_file(
    assert type(page_name) == str
    assert type(data_in) == str
    # {xrst_code}
+   #
+   # {xrst_literal
+   #  BEGIN_RETURN
+   #  END_RETURN
+   # }
    # {xrst_end temporary_file}
    #
    # label
@@ -133,3 +158,12 @@ def temporary_file(
    file_ptr = open(file_out, 'w')
    file_ptr.write(data_out)
    file_ptr.close()
+   #
+   # BEGIN_RETURN
+   assert type(line_pair) == list
+   assert type( line_pair[0] ) == tuple
+   assert len( line_pair[0] ) == 2
+   assert type( line_pair[0][0] ) == int
+   assert type( line_pair[0][1] ) == int
+   return line_pair
+   # END_RETURN
