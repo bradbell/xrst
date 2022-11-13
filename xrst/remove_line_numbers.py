@@ -45,6 +45,9 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # -   The second element is the *line_number*, in the line number marker,
 #     that was removed.
 #
+# -   The data_out line numbers are in increasing order and
+#     the maker line numbers are non-decreasing.
+#
 # {xrst_code py}
 def remove_line_numbers(data_in) :
    assert type(data_in) == str
