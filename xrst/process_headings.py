@@ -246,7 +246,7 @@ def process_headings(
    #
    # previous_anchor
    for label in internal_line :
-      line = internal_line[label_lower]
+      line = internal_line[label]
       check_anchor(
          label, line, file_name, page_name, previous_anchor, exteranl_line
       )

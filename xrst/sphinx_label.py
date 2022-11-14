@@ -5,10 +5,10 @@ import re
 import xrst
 #
 pattern_declare = re.compile(
-   r'\n\.\. _([^:]+):([^\n]*)\{xrst_line ([0-9]+)@'
+   r'\n\.\. _([^:\n]+):([^\n]*)\{xrst_line ([0-9]+)@'
 )
 pattern_use = re.compile(
-   r'`([^<]+)(<[^>]*>)`_[^\n]*\{xrst_line ([0-9]+)@'
+   r'`([^<\n]+)(<[^>\n]*>)`_[^\n]*\{xrst_line ([0-9]+)@'
 )
 # ----------------------------------------------------------------------------
 # {xrst_begin sphinx_label dev}
@@ -79,7 +79,7 @@ def sphinx_label(data_in, file_name, page_name) :
          #
          # label_lower, line
          label       = m_label.group(1).strip(' ')
-         label_lower = label
+         label_lower = label.lower()
          destination = m_label.group(2).strip(' ')
          line        = m_label.group(3)
          #
