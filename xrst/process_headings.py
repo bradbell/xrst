@@ -117,19 +117,11 @@ Example
 import re
 import xrst
 # -----------------------------------------------------------------------------
-def check_label(label, line, file_name, previous_anchor) :
+def check_anchor( label, line, file_name, page_name, previous_anchor) :
    assert type(label) == str
    assert type(line) == str
    assert type(file_name) == str
-   assert type(previous_anchor)==dict
-   #
-   # page_name
-   if '@' not in label :
-      page_name = label
-   else :
-      index = label.find('@')
-      assert index + 1 < len(label)
-      page_name  = label[: index]
+   assert type(previous_anchor) == dict
    #
    # anchor
    # convert to the following pattern: [a-z](-?[a-z0-9]+)*
@@ -247,6 +239,18 @@ def process_headings(
    # previous_anchor
    previous_anchor = dict()
    #
+   # external_line, internal_line
+   external_line, internal_line = xrst.sphinx_label(
+      data_in, file_name, page_name
+   )
+   #
+   # previous_anchor
+   for label in internal_line :
+      line = internal_line[label_lower]
+      check_anchor(
+         label, line, file_name, page_name, previous_anchor, exteranl_line
+      )
+   #
    # data_out
    data_out = data_in
    #
@@ -361,8 +365,16 @@ def process_headings(
       if label.startswith('_') :
          label = '\\' + label
       #
-      # check_label
-      check_label(label, m_line.group(1), file_name, previous_anchor)
+      # check external labels
+      if label.lower() in external_line :
+         other_line = external_line[ label.lower() ]
+         msg  = 'This label has same lower case representation as anotheer\n'
+         msg += 'other line = {other_line}'
+         xrst.system_exit(msg, file_name = file_name, page_name = page_name)
+      #
+      # check_anchor
+      line = m_line.group(1)
+      check_anchor(label, line, file_name, page_name, previous_anchor)
       #
       # index_entries
       if len(heading_list) == 1 :

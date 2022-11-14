@@ -65,9 +65,10 @@ Table of Contents
 |       :ref:`4.1.18<replace_page_number>` Replace page number commands
 |       :ref:`4.1.19<replace_spell>` Replace spelling commands
 |       :ref:`4.1.20<spell_cmd_dev>` Process the spell command for a page
-|       :ref:`4.1.21<start_stop_file>` Convert literal command start, stop from text to line numbers
-|       :ref:`4.1.22<suspend_cmd_dev>` Remove text specified by suspend / resume pairs
-|       :ref:`4.1.23<system_exit>` Form error message and exit
-|       :ref:`4.1.24<table_of_contents>` Create the table of contents
-|       :ref:`4.1.25<temporary_file>` Write the temporary RST file for a page
-|       :ref:`4.1.26<toc_cmd_dev>` Get file and page names for children of this page
+|       :ref:`4.1.21<sphinx_label>` Get Labels Declared Using Sphinx Commands
+|       :ref:`4.1.22<start_stop_file>` Convert literal command start, stop from text to line numbers
+|       :ref:`4.1.23<suspend_cmd_dev>` Remove text specified by suspend / resume pairs
+|       :ref:`4.1.24<system_exit>` Form error message and exit
+|       :ref:`4.1.25<table_of_contents>` Create the table of contents
+|       :ref:`4.1.26<temporary_file>` Write the temporary RST file for a page
+|       :ref:`4.1.27<toc_cmd_dev>` Get file and page names for children of this page

@@ -40,6 +40,8 @@ mm-dd
    changed to include the page name in the anchor.
    This reduced the chance of headings having the same anchor.
 2. The error message when two labels have the same anchor was improved.
+   This includes labels defined by sphinx commands and automatically
+   generated xrst :ref:`heading_links@Labels` for each heading.
 
 11-13
 =====

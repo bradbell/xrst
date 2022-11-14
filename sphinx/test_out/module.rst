@@ -42,6 +42,7 @@ The xrst Module
    "replace_page_number", :ref:`replace_page_number-title`
    "replace_spell", :ref:`replace_spell-title`
    "spell_cmd_dev", :ref:`spell_cmd_dev-title`
+   "sphinx_label", :ref:`sphinx_label-title`
    "start_stop_file", :ref:`start_stop_file-title`
    "suspend_cmd_dev", :ref:`suspend_cmd_dev-title`
    "system_exit", :ref:`system_exit-title`
@@ -73,6 +74,7 @@ The xrst Module
    replace_page_number
    replace_spell
    spell_cmd_dev
+   sphinx_label
    start_stop_file
    suspend_cmd_dev
    system_exit

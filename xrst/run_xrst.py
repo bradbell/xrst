@@ -671,7 +671,8 @@ def run_xrst() :
             )
             # ------------------------------------------------------------
             # process headings
-            # add labels and indices corresponding to headings
+            #
+            # pseudo_heading, pinfo_list
             page_data, page_title, pseudo_heading = \
             xrst.process_headings(
                html_theme,
