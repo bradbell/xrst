@@ -151,7 +151,6 @@ There is a further conversion to create the
 HTML anchor corresponding to a label.  To be specific:
 
 1. The anchor is converted to lower case.
-2. The page name is removed.
 3. Characters that are not letters or decimal digits are converted to dashes.
 4. Multiple dashes are converted to one dash.
 5. The beginning of the anchor is trimmed until a letter is reached.

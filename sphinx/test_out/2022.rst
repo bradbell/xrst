@@ -31,6 +31,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-14:
+
+11-14
+=====
+1. The :ref:`heading_links@Labels@Label To Anchor` conversion was
+   changed to include the page name in the anchor.
+   This reduced the chance of headings having the same anchor.
+2. The error message when two labels have the same anchor was improved.
+
 .. _2022@mm-dd@11-13:
 
 11-13

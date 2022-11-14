@@ -79,7 +79,6 @@ There is a further conversion to create the
 HTML anchor corresponding to a label.  To be specific:
 
 1. The anchor is converted to lower case.
-2. The page name is removed.
 3. Characters that are not letters or decimal digits are converted to dashes.
 4. Multiple dashes are converted to one dash.
 5. The beginning of the anchor is trimmed until a letter is reached.
@@ -124,18 +123,17 @@ def check_label(label, line, file_name, previous_anchor) :
    assert type(file_name) == str
    assert type(previous_anchor)==dict
    #
-   # page_name, anchor
-   # skp page name at beginning of label
+   # page_name
    if '@' not in label :
-      return
-   index = label.find('@')
-   assert index + 1 < len(label)
-   page_name  = label[: index]
-   anchor     = label[index + 1:]
+      page_name = label
+   else :
+      index = label.find('@')
+      assert index + 1 < len(label)
+      page_name  = label[: index]
    #
    # anchor
    # convert to the following pattern: [a-z](-?[a-z0-9]+)*
-   anchor = anchor.lower()
+   anchor = label.lower()
    anchor = re.sub( r'[^a-z0-9]', '-', anchor)
    anchor = re.sub( r'-+',        '-', anchor)
    anchor = re.sub( r'-$',        '',  anchor)
@@ -152,10 +150,10 @@ def check_label(label, line, file_name, previous_anchor) :
       previous_line  = previous_anchor[anchor]['line']
       previous_label = previous_anchor[anchor]['label']
       msg  = 'A previous header has the same HTML anchor.\n'
-      msg += f'previous_line  = {previous_line}\n'
+      msg += f'label          = {label}\n'
       msg += f'previous_label = {previous_label}\n'
-      msg += f'label  = {label}\n'
-      msg += f'anchor = {anchor}'
+      msg += f'anchor         = {anchor}\n'
+      msg += f'previous_line  = {previous_line}'
       xrst.system_exit(
          msg, file_name = file_name, page_name = page_name, line = line,
       )
