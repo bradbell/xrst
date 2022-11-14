@@ -34,10 +34,17 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+11-13
+=====
+The sphinx error messages were using line numbers in the
+rst files created by xrst. These line numbers have been converted
+to the original xrst input files.
+
 11-05
 =====
-There as a python breakpoint just before the call to display an xrst syntax error
-(so the error message was not displayed). This has been fixed.
+There was a python breakpoint just before the call to display
+an xrst syntax error (so the error message was not displayed).
+This has been fixed.
 
 11-01
 =====

@@ -252,7 +252,16 @@ import filecmp
 import argparse
 import subprocess
 # ---------------------------------------------------------------------------
-def system_command(command) :
+def system_command(
+      command                    ,
+      page_name2line_pair = None ,
+      page_name2file_in   = None ,
+) :
+   assert type(command) == str
+   if type(page_name2line_pair) == dict :
+      assert type(page_name2file_in) == dict
+   #
+   # subprocess.run, stderr
    print(command)
    command = command.split(' ')
    result = subprocess.run(command, capture_output = True)
@@ -260,8 +269,75 @@ def system_command(command) :
    ok     =  result.returncode == 0 and stderr == ''
    if ok :
       return
-   msg  = f'system command failed: stderr = \n{stderr}'
-   sys.exit(msg)
+   if page_name2line_pair == None :
+      message  = f'system command failed: stderr = \n{stderr}'
+      sys.exit(message)
+   #
+   # pattern_error
+   pattern_error = re.compile( r'.*/rst/([a-z0-9_.]+).rst:([0-9]+):' )
+   #
+   # message
+   message = ''
+   #
+   # error
+   stderr_list = stderr.split('\n')
+   for error in stderr_list :
+      #
+      # m_rst_error
+      m_rst_error = pattern_error.search(error)
+      if m_rst_error == None :
+            if error != '' :
+               # This should not happen
+               # breakpoint()
+               pass
+      else :
+         #
+         # page_name
+         page_name = m_rst_error.group(1)
+         if not page_name in page_name2line_pair :
+            assert page_name == 'xrst_table_of_contents'
+         else :
+            #
+            # rst_line
+            rst_line  = int( m_rst_error.group(2) )
+            #
+            # file_in, line_pair
+            file_in   = page_name2file_in[page_name]
+            line_pair = page_name2line_pair[page_name]
+            #
+            # n_pair
+            n_pair = len(line_pair)
+            #
+            # index
+            index  = 0
+            while index < n_pair and line_pair[index][0] < rst_line :
+                  index += 1
+            #
+            # line_before, line_after
+            if index == n_pair :
+               line_before = str( line_pair[n_pair-1][1] )
+               line_after  = '?'
+            elif line_pair[index][0] == rst_line :
+               line_before = line_pair[index][1]
+               line_after  = line_pair[index][1]
+            elif 0 == index :
+               line_before = '?'
+               line_after  = line_pair[index][1]
+            else :
+               line_before = line_pair[index-1][1]
+               line_after  = line_pair[index][1]
+            #
+            # error
+            msg   = error[ m_rst_error.end()  : ]
+            if line_before == line_after :
+               error = f'{file_in}:{line_before}:{msg}'
+            else :
+               error = f'{file_in}:{line_before}-{line_after}:{msg}'
+      #
+      # message
+      message += '\n' + error
+   #
+   sys.exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
    assert type(latex_dir) == str
@@ -491,6 +567,12 @@ def run_xrst() :
    # Each group has a root secion (in root_file) at the top if its tree.
    root_page_list = list()
    #
+   # page_name2line_pair, page_name2file_in
+   # Each rst page name has a corresponding input file and mapping from
+   # rst file line nubmers to input file line numbers.
+   page_name2line_pair = dict()
+   page_name2file_in   = dict()
+   #
    # group_name
    for group_name in group_list :
       #
@@ -653,8 +735,9 @@ def run_xrst() :
                list_children,
             )
             # -------------------------------------------------------------
-            # write temporary file
-            xrst.temporary_file(
+            #
+            # line_pair and file tmp_dir/page_name.rst
+            line_pair = xrst.temporary_file(
                rst_line,
                pseudo_heading,
                file_in,
@@ -662,6 +745,10 @@ def run_xrst() :
                page_name,
                page_data,
             )
+            #
+            # page_name2line_pair, page_name2file_in
+            page_name2line_pair[page_name] = line_pair
+            page_name2file_in[page_name]   = file_in
    #
    # replace_spell
    if replace_spell_commands :
@@ -706,7 +793,7 @@ def run_xrst() :
    # -------------------------------------------------------------------------
    if target == 'html' :
       command = f'sphinx-build -b html {sphinx_dir}/rst {output_dir}'
-      system_command(command)
+      system_command(command, page_name2line_pair, page_name2file_in)
    else :
       assert target == 'pdf'
       #
