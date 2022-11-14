@@ -36,9 +36,12 @@ mm-dd
 
 11-13
 =====
-The sphinx error messages were using line numbers in the
-rst files created by xrst. These line numbers have been converted
-to the original xrst input files.
+1. The sphinx error messages were using line numbers in the
+   rst files created by xrst. These line numbers have been converted
+   to the original xrst input files.
+2. The command line argument *rst_line* was removed because the error
+   line numbers are now automatically converted and so there is no need
+   for a conversion table.
 
 11-05
 =====
@@ -471,9 +474,11 @@ interact; see :ref:`toc_cmd@Children`.
 1. Require that the suspend and resume commands are in their own line; see
    :ref:`suspend_cmd-title`.
 2. A problem was fixed the table corresponding to the
-   :ref:`run_xrst@rst_line` table.
+   *rst_line* command line argument.
    To be specific, the indices in the rst file were one larger than
    they should have been.
+   (This command line argument has been removed; see
+   :ref:`2022@mm-dd@11-13` .)
 
 07-24
 =====

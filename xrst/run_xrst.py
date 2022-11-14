@@ -21,7 +21,6 @@ Syntax
 ``xrst`` ( ``--version`` |  *root_file* )
 [ ``--replace_spell_commands`` ]
 [ ``--html`` *html_theme* ]
-[ ``--rst`` *rst_line* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
 [ ``--output`` *output_dir* ]
@@ -73,25 +72,6 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 The ``sphinx_rtd_theme`` theme includes a local table of contents for the
 headers at the top of each page.
 The other themes include this information in the right side bar.
-
-
-rst_line
-********
-This option helps find the source of errors reported by sphinx.
-If *rst_line* is (is not) present,
-a table is (is not) generated at the end of each output file.
-This table maps line numbers in the rst output files to
-line numbers in the corresponding xrst input file.
-The argument *rst_line* is a positive integer specifying the minimum
-difference between xrst input line numbers for entries in the table.
-The value ``1`` will give the maximum resolution.
-For example, the sphinx warning
-
-   ... ``/xrst/children_exam.rst:30: WARNING:`` ...
-
-corresponds to line number 30 in the file ``children_exam.rst``.
-The table at the bottom of that file maps line numbers in
-``children_exam.rst`` to line numbers in the corresponding xrst input file.
 
 group_list
 **********
@@ -407,10 +387,6 @@ def run_xrst() :
       choices=[ 'furo', 'sphinx_rtd_theme', 'sphinx_book_theme' ]
    )
    parser.add_argument(
-      '--rst', metavar='rst_line', type=int,
-      help='increment in table that converts sphinx error messages'
-   )
-   parser.add_argument(
       '--group', metavar='group_list', default=',',
       help='comma separated list of groups to include (default: ,)'
    )
@@ -479,15 +455,6 @@ def run_xrst() :
    #
    # html_theme
    html_theme = arguments.html
-   #
-   # rst_line
-   rst_line = arguments.rst
-   if rst_line == None :
-      rst_line = 0
-   else :
-      if rst_line < 1 :
-         msg = 'rst_line is not a positive integer'
-         xrst.system_exit(msg)
    #
    # group_list
    group_list = arguments.group
@@ -738,7 +705,6 @@ def run_xrst() :
             #
             # line_pair and file tmp_dir/page_name.rst
             line_pair = xrst.temporary_file(
-               rst_line,
                pseudo_heading,
                file_in,
                tmp_dir,

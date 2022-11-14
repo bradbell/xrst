@@ -28,7 +28,6 @@ Syntax
 ``xrst`` ( ``--version`` |  *root_file* )
 [ ``--replace_spell_commands`` ]
 [ ``--html`` *html_theme* ]
-[ ``--rst`` *rst_line* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
 [ ``--output`` *output_dir* ]
@@ -114,31 +113,6 @@ The default value for *html_theme* is ``sphinx_rtd_theme`` .
 The ``sphinx_rtd_theme`` theme includes a local table of contents for the
 headers at the top of each page.
 The other themes include this information in the right side bar.
-
-.. meta::
-   :keywords: rst_line
-
-.. index:: rst_line
-
-.. _run_xrst@rst_line:
-
-rst_line
-********
-This option helps find the source of errors reported by sphinx.
-If *rst_line* is (is not) present,
-a table is (is not) generated at the end of each output file.
-This table maps line numbers in the rst output files to
-line numbers in the corresponding xrst input file.
-The argument *rst_line* is a positive integer specifying the minimum
-difference between xrst input line numbers for entries in the table.
-The value ``1`` will give the maximum resolution.
-For example, the sphinx warning
-
-   ... ``/xrst/children_exam.rst:30: WARNING:`` ...
-
-corresponds to line number 30 in the file ``children_exam.rst``.
-The table at the bottom of that file maps line numbers in
-``children_exam.rst`` to line numbers in the corresponding xrst input file.
 
 .. meta::
    :keywords: group_list

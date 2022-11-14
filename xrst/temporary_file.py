@@ -17,11 +17,6 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # Write the temporary RST file for a page
 # #######################################
 #
-# rst_line
-# ********
-# is an int version of the :ref:`run_xrst@rst_line`
-# argument to the xrst program (with None represented by zero).
-#
 # pseudo_heading
 # **************
 # is the :ref:`process_headings@Returns@pseudo_heading` for this page.
@@ -59,8 +54,6 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # #. Empty lines at the end are removed
 # #. The line numbers are removed.
 # #. The text ``\\{xrst_`` is replaced by ``\{xrst_`` .
-# #. if rst_line > 0, a mapping from RST line numbers to file_in line numbers
-#    is included at the end.
 #
 # line_pair
 # *********
@@ -79,14 +72,12 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # {xrst_code py}
 # line_pair =
 def temporary_file(
-   rst_line,
    pseudo_heading,
    file_in,
    tmp_dir,
    page_name,
    data_in,
 ) :
-   assert type(rst_line) == int
    assert type(pseudo_heading) == str
    assert type(file_in) == str
    assert type(page_name) == str
@@ -131,24 +122,6 @@ def temporary_file(
    #
    # data_out
    data_out = data_out.replace( r'\{xrst_', '{xrst_' )
-   #
-   # after
-   # If line number increment is non-zero, include mapping from
-   # rst file line number to xrst file line number
-   if rst_line > 0 :
-      after  = '\n.. csv--targetable:: Line Number Mapping\n'
-      after += 4 * ' ' + ':header: rst file, xrst input\n'
-      after += 4 * ' ' + ':widths: 10, 10\n\n'
-      previous_line = None
-      for pair in line_pair :
-         if previous_line is None :
-            after        += f'    {pair[0]}, {pair[1]}\n'
-            previous_line = pair[1]
-         elif pair[1] - previous_line >= rst_line :
-            after         += f'    {pair[0]}, {pair[1]}\n'
-            previous_line = pair[1]
-      #
-      data_out = data_out + after
    #
    # file_out
    if page_name.endswith('.rst') :

@@ -22,18 +22,6 @@ Write the temporary RST file for a page
    :local:
 
 .. meta::
-   :keywords: rst_line
-
-.. index:: rst_line
-
-.. _temporary_file@rst_line:
-
-rst_line
-********
-is an int version of the :ref:`run_xrst@rst_line`
-argument to the xrst program (with None represented by zero).
-
-.. meta::
    :keywords: pseudo_heading
 
 .. index:: pseudo_heading
@@ -112,8 +100,6 @@ The following is added to this data before writing it to the output file:
 #. Empty lines at the end are removed
 #. The line numbers are removed.
 #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
-#. if rst_line > 0, a mapping from RST line numbers to file_in line numbers
-   is included at the end.
 
 .. meta::
    :keywords: line_pair
@@ -137,9 +123,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 80-93
+   :lines: 73-84
    :language: py
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 163-168
+   :lines: 136-141
    :language: py
