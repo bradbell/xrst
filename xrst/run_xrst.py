@@ -20,6 +20,7 @@ Syntax
 ******
 ``xrst`` ( ``--version`` |  *root_file* )
 [ ``--replace_spell_commands`` ]
+[ ``--rst_line_numbers`` ]
 [ ``--html`` *html_theme* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
@@ -59,6 +60,15 @@ If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
 .. _pyspellchecker: https://pypi.org/project/pyspellchecker
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using source code line numbers.
 
 html_theme
 **********
@@ -381,6 +391,9 @@ def run_xrst() :
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
    )
+   parser.add_argument('--rst_line_numbers', action='store_true',
+      help='report sphinx erros and warnings using rst file line numbers'
+   )
    parser.add_argument(
       '--html', metavar='html_theme', default='sphinx_rtd_theme',
       help='sphinx html_theme that is used to display web pages',
@@ -452,6 +465,9 @@ def run_xrst() :
          response = input(prompt)
       if response != 'yes' :
          sys.exit('xrst: aborting replace_spell_commands')
+   #
+   # rst_line_numbers
+   rst_line_numbers = arguments.rst_line_numbers
    #
    # html_theme
    html_theme = arguments.html
@@ -760,7 +776,10 @@ def run_xrst() :
    # -------------------------------------------------------------------------
    if target == 'html' :
       command = f'sphinx-build -b html {sphinx_dir}/rst {output_dir}'
-      system_command(command, page_name2line_pair, page_name2file_in)
+      if rst_line_numbers :
+         system_command(command)
+      else :
+         system_command(command, page_name2line_pair, page_name2file_in)
    else :
       assert target == 'pdf'
       #

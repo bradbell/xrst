@@ -27,6 +27,7 @@ Syntax
 ******
 ``xrst`` ( ``--version`` |  *root_file* )
 [ ``--replace_spell_commands`` ]
+[ ``--rst_line_numbers`` ]
 [ ``--html`` *html_theme* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
@@ -93,6 +94,22 @@ If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
 .. _pyspellchecker: https://pypi.org/project/pyspellchecker
+
+.. meta::
+   :keywords: rst_line_numbers
+
+.. index:: rst_line_numbers
+
+.. _run_xrst@rst_line_numbers:
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using source code line numbers.
 
 .. meta::
    :keywords: html_theme
