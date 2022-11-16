@@ -34,6 +34,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+11-16
+=====
+The xrst spell checking was including the  *display_file*
+name in the one argument :ref:`literal_cmd-title` .
+This has been fixed; i.e., *display_file* is no longer checked for
+spelling errors.
+
 11-15
 =====
 1. Add the :ref:`run_xrst@rst_line_numbers` option.
