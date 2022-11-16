@@ -69,6 +69,9 @@ If this option is present, these messages are reported
 using the line numbers in the RST files created by xrst.
 This may be helpful if you have an error or warning for a sphinx command
 and it does not make sense using source code line numbers.
+It is also helpful for determining if a line number error is due to
+sphinx or xrst.
+
 
 html_theme
 **********
@@ -486,7 +489,7 @@ def run_xrst() :
    sphinx_dir = arguments.sphinx
    if not os.path.isdir(sphinx_dir) :
       msg  = 'sphinx_dir = ' + sphinx_dir + '\n'
-      msg += 'is a valid directory path'
+      msg += 'is not a valid directory path'
       xrst.system_exit(msg)
    if sphinx_dir[0] == '/' :
       msg  = 'sphinx_dir = ' + sphinx_dir + '\n'

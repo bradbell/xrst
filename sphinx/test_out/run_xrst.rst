@@ -110,6 +110,8 @@ If this option is present, these messages are reported
 using the line numbers in the RST files created by xrst.
 This may be helpful if you have an error or warning for a sphinx command
 and it does not make sense using source code line numbers.
+It is also helpful for determining if a line number error is due to
+sphinx or xrst.
 
 .. meta::
    :keywords: html_theme
