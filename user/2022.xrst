@@ -37,8 +37,14 @@ mm-dd
 11-15
 =====
 1. Add the :ref:`run_xrst@rst_line_numbers` option.
-2. There was a problem with colons in headers that has been fixed.
-   For example, see :ref:`get_started@Heading: Links to this Page` .
+2. There was a problem when a space followed a colon in a header.
+   This has been fixed; for example see
+   :ref:`get_started@Heading: Links to this Page` .
+3. In the :ref:`heading to label <heading_links@Labels@Heading-To-Label>`
+   the at sing ``@`` is converted to a dash ``-``
+   (it used to be converted to an underbar ``_`` ).
+   This makes it more link that
+   :ref:`heading_links@Labels@Label To Anchor` conversion.
 
 11-14
 =====
@@ -125,7 +131,7 @@ version 0.6.3 to 0.7.0.
 
 10-04
 =====
-1. The :ref:`heading_links@Labels@Heading_To_Label` of headings was changed
+1. The :ref:`heading_links@Labels@Heading-To-Label` of headings was changed
    to not convert colons ``:`` .
 2. The example :ref:`preamble.rst` file was change to use three
    (instead of four) spaces for a tab.
@@ -137,7 +143,7 @@ version 0.6.3 to 0.7.0.
 1. The local table of contents was moved after the text below the title
    amd just before the first heading link
    (when :ref:`run_xrst@html_theme` is ``sphinx_rtd_theme`` ).
-2. The :ref:`heading_links@Labels@Heading_To_Label` of headings was changed
+2. The :ref:`heading_links@Labels@Heading-To-Label` of headings was changed
    to remove backslashes from labels.
 
 10-02
@@ -243,7 +249,7 @@ each change to the release notes.
    an id number.
 #. Do not map characters (except for ``:`` and ``@`` ) when
    automatically creating labels; see
-   :ref:`heading_links@Labels@Heading_To_Label`
+   :ref:`heading_links@Labels@Heading-To-Label`
    for heading links. This makes these labels work more link the
    automatic standard rst labels.
 #. There was a bug in the reported line number when a
@@ -394,8 +400,8 @@ Change the xrst command
 08-09
 =====
 1. The colon ``:`` was added to the characters that get changed to
-   underbar ``_`` when converting headings to labels; see
-   :ref:`heading_links@Labels@Heading_To_Label` .
+   underbar ``_`` when converting headings to labels. This has been change;
+   see :ref:`2022@mm-dd@11-15` .
 2. Sphinx warnings that occurred while running xrst were not being reported.
    This has been fixed.
 3. Two broken cross reference links (reported by sphinx warnings) were fixed.

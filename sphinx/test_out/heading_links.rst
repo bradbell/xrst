@@ -122,18 +122,18 @@ These labels use the *page_name*
 
 .. index:: heading@to@label
 
-.. _heading_links@Labels@Heading_To_Label:
+.. _heading_links@Labels@Heading-To-Label:
 
 Heading@To@Label
 ================
 The conversion of a heading to a label
 removes all backslashes ``\`` and changes at signs ``@``
-to underbars ``_``.
+to dashes ``-``.
 
 For example, the label for the heading above is
 
-   :ref:`heading_links@Labels@Heading_To_Label
-   <heading_links@Labels@Heading_To_Label>`
+   :ref:`heading_links@Labels@Heading-To-Label
+   <heading_links@Labels@Heading-To-Label>`
 
 The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.

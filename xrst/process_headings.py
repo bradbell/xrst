@@ -5,7 +5,6 @@
 {xrst_begin heading_links user}
 {xrst_spell
    backslashes
-   underbars
 }
 
 Heading Cross Reference Links
@@ -63,12 +62,12 @@ Heading@To@Label
 ================
 The conversion of a heading to a label
 removes all backslashes ``\`` and changes at signs ``@``
-to underbars ``_``.
+to dashes ``-``.
 
 For example, the label for the heading above is
 
-   :ref:`heading_links@Labels@Heading_To_Label
-   <heading_links@Labels@Heading_To_Label>`
+   :ref:`heading_links@Labels@Heading-To-Label
+   <heading_links@Labels@Heading-To-Label>`
 
 The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.
@@ -359,7 +358,7 @@ def process_headings(
          else :
             conversion  = heading_list[level]['text']
             conversion  = conversion.replace('\\', '')
-            conversion  = conversion.replace('@',  '_')
+            conversion  = conversion.replace('@',  '-')
             conversion  = pattern_colon_space.sub( '\\:\\1', conversion)
             label      += '@' + conversion
       #
