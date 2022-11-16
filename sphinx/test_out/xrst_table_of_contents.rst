@@ -5,7 +5,7 @@
 Table of Contents
 *****************
 | :ref:`1<example>` Examples
-|    :ref:`1.1<get_started>` Getting Started
+|    :ref:`1.1<get_started>` Page Title: Getting Started
 |    :ref:`1.2<literal_example>` Literal Command Example
 |    :ref:`1.3<toc_list_example>` toc_list Command Example
 |       :ref:`1.3.1<child_example_one>` First Child

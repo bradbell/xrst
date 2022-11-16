@@ -236,6 +236,9 @@ def process_headings(
    # }
    # {xrst_end process_headings}
    #
+   # pattern_colon_in_label
+   pattern_colon_space = re.compile( r':(\s)' )
+   #
    # previous_anchor
    previous_anchor = dict()
    #
@@ -357,6 +360,7 @@ def process_headings(
             conversion  = heading_list[level]['text']
             conversion  = conversion.replace('\\', '')
             conversion  = conversion.replace('@',  '_')
+            conversion  = pattern_colon_space.sub( '\\:\\1', conversion)
             label      += '@' + conversion
       #
       # label

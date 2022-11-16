@@ -9,14 +9,14 @@ get_started
 xrst input file: ``example/get_started.xrst``
 
 .. meta::
-   :keywords: get_started, getting, started
+   :keywords: get_started, page, title:, getting, started
 
-.. index:: get_started, getting, started
+.. index:: get_started, page, title:, getting, started
 
 .. _get_started-title:
 
-Getting Started
-###############
+Page Title: Getting Started
+###########################
 
 #. Use pip as follows to install xrst::
 
@@ -39,10 +39,33 @@ Getting Started
 .. contents::
    :local:
 
-.. _get_started@This Example File:
+.. meta::
+   :keywords: heading:, links, page
 
-This Example File
-*****************
+.. index:: heading:, links, page
+
+.. _get_started@Heading\: Links to this Page:
+
+Heading: Links to this Page
+***************************
+
+- :ref:`get_started`
+
+- :ref:`get_started-title`
+
+- :ref:`get_started@Heading: Links to this Page`
+
+- :ref:`get_started@Heading: This Example File`
+
+.. meta::
+   :keywords: heading:
+
+.. index:: heading:
+
+.. _get_started@Heading\: This Example File:
+
+Heading: This Example File
+**************************
 The file below demonstrates the use of ``xrst_begin`` and ``xrst_end`` :
 
 .. literalinclude:: ../../example/get_started.xrst

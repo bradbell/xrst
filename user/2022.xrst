@@ -36,7 +36,9 @@ mm-dd
 
 11-15
 =====
-Add the :ref:`run_xrst@rst_line_numbers` option.
+1. Add the :ref:`run_xrst@rst_line_numbers` option.
+2. There was a problem with colons in headers that has been fixed.
+   For example, see :ref:`get_started@Heading: Links to this Page` .
 
 11-14
 =====
