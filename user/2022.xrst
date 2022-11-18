@@ -37,8 +37,12 @@ mm-dd
 
 11-18
 =====
-The :ref:`literal_cmd` has been extended to work with the file extension
-\*.txt (it is mapped to no highlighting).
+1. The :ref:`literal_cmd` has been extended to work with the file extension
+   \*.txt (it is mapped to no highlighting).
+2. The discussion of :ref:`double word <spell_cmd@Double Words>` errors
+   was improved.
+3. The detection of duplicate labels in a page was detecting label
+   definitions inside of literal blocks. This was an error and has been fixed.
 
 11-16
 =====

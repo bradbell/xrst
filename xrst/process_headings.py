@@ -136,7 +136,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
          msg, file_name = file_name, page_name = page_name, line = line,
       )
    #
-   # check for duplicate label
+   # check for duplicate anchor
    if anchor in previous_anchor :
       previous_line  = previous_anchor[anchor]['line']
       previous_label = previous_anchor[anchor]['label']

@@ -144,6 +144,16 @@ It is considered an error to have only white space between two occurrences
 of the same word. You can make an exception for this by entering
 the same word twice (next to each other) in the special word list.
 
+Double words errors occur in the output the user sees.
+for example, the input:
+::
+
+   `python package index <https://pypi.org/>`_ index.
+
+results in the double word 'index index' in the output the user sees; i.e.,
+the following output:
+`python package index <https://pypi.org/>`_ index.
+
 .. _spell_cmd@Example:
 
 Example

@@ -4,6 +4,8 @@
 import re
 import xrst
 #
+pattern_start_literal = re.compile( r'\n::{xrst_line [0-9]+@\n\n' )
+pattern_end_literal   = re.compile( r'\n[^ \t]')
 pattern_declare = re.compile(
    r'\n\.\. _([^:\n]+):([^\n]*)\{xrst_line ([0-9]+)@'
 )
@@ -70,11 +72,32 @@ def sphinx_label(data_in, file_name, page_name) :
    external_line  = dict()
    internal_line  = dict()
    #
+   # data
+   data = data_in
+   #
+   # m_start
+   # remove literal blocks because no labels defined there
+   m_start = pattern_start_literal.search(data)
+   while m_start :
+      #
+      # m_end
+      m_end = pattern_end_literal.search(data_in, m_start.end() )
+      #
+      # data, m_start
+      if m_end == None :
+         data    = data[: m_start.start() ]
+         m_start = None
+      else :
+         data_before = data[: m_start.start() ]
+         data_after  = data[m_end.end() : ]
+         data        = data_before + data_after
+         m_start     = pattern_start_literal.search(data, len(data_before) )
+   #
    # pattern
    for pattern in [ pattern_declare, pattern_use ] :
       #
       # m_label
-      m_label    = pattern.search(data_in)
+      m_label    = pattern.search(data)
       while m_label :
          #
          # label_lower, line
@@ -107,7 +130,7 @@ def sphinx_label(data_in, file_name, page_name) :
             internal_line[label] = line
          #
          # m_label
-         m_label = pattern.search(data_in, m_label.end())
+         m_label = pattern.search(data, m_label.end())
    # BEGIN_return
    for result in [ external_line, internal_line ] :
       assert type(result) == dict
