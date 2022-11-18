@@ -24,6 +24,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    spdx
    toctree
    toml
+   txt
    underbar
    xsrst
 }
@@ -33,6 +34,11 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+11-18
+=====
+The :ref:`literal_cmd` has been extended to work with the file extension
+\*.txt (it is mapped to no highlighting).
 
 11-16
 =====

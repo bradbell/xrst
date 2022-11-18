@@ -91,18 +91,22 @@ import re
 import xrst
 #
 # ----------------------------------------------------------------------------
+#
+# extension_map
+# map cases that pygments has trouble with
+extension_map = {
+   'xrst' : 'rst'    ,
+   'hpp'  : 'cpp'    ,
+   'm'    : 'matlab' ,
+   'txt'  : ''       ,
+}
 def file_extension(display_file) :
    index = display_file.rfind('.')
    extension = ''
    if 0 <= index and index + 1 < len(display_file) :
       extension = display_file[index + 1 :]
-      # fix cases that pygments has trouble with
-      if extension == 'xrst' :
-         extension = 'rst'
-      elif extension == 'hpp' :
-         extension = 'cpp'
-      elif extension == 'm' :
-         extension = 'matlab'
+      if extension in extension_map :
+         extension = extension_map[extension]
    return extension
 # ----------------------------------------------------------------------------
 # {xrst_begin literal_cmd_dev dev}
