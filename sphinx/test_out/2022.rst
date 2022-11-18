@@ -41,6 +41,9 @@ mm-dd
    was improved.
 3. The detection of duplicate labels in a page was detecting label
    definitions inside of literal blocks. This was an error and has been fixed.
+4. Mention the difference between the xrst literal
+   :ref:`literal_cmd@display_file` name and the sphinx
+   ``literalinclude`` file name.
 
 .. _2022@mm-dd@11-16:
 
@@ -460,7 +463,7 @@ To be specific, do not include
 1. Change the command names listed below;
    see :ref:`toc_cmd` and :ref:`literal_cmd` .
    This was done because the child commands act like sphinx toctree commands
-   and the file command acts like a sphinx includeliteral command.
+   and the file command acts like a sphinx literalinclude command.
 
    .. csv-table::
       :widths: auto

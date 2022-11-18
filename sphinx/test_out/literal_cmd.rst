@@ -78,8 +78,12 @@ the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
 The file name *display_file* is relative to the directory
 where the :ref:`run_xrst@root_file` is located.
-This may seem verbose, but it makes it easier to write scripts
-that move files and automatically change references to them.
+
+1. This may seem verbose, but it makes it easier to write scripts
+   that move files and automatically change references to them.
+2. Note that if you use the sphinx ``literalinclude`` directive,
+   the corresponding file name will be relative to the
+   :ref:`run_xrst@sphinx_dir@RST Directory` .
 
 .. meta::
    :keywords: no, start, or, stop

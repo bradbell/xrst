@@ -313,14 +313,14 @@ Example
 :ref:`keyword-title`
 
 .. meta::
-   :keywords: page, rst, files
+   :keywords: rst, directory
 
-.. index:: page, rst, files
+.. index:: rst, directory
 
-.. _run_xrst@sphinx_dir@Page RST Files:
+.. _run_xrst@sphinx_dir@RST Directory:
 
-Page RST Files
-==============
+RST Directory
+=============
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
 and correspond to last time that ``xrst`` was executed.

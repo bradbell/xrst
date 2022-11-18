@@ -210,8 +210,8 @@ Example
 -------
 :ref:`keyword-title`
 
-Page RST Files
-==============
+RST Directory
+=============
 The directory *sphinx_dir*\ :code:`/rst` is managed by ``xrst`` .
 It contains all the rst files that were extracted from the source code,
 and correspond to last time that ``xrst`` was executed.
