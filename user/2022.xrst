@@ -422,7 +422,7 @@ Change the xrst command
 08-15
 =====
 1. Add ``deprecated`` to the xrst dictionary.
-2. Extend :ref:`keyword` file to remove version number from index.
+2. Extend keyword file to remove version number from index.
 
 08-09
 =====
@@ -440,7 +440,7 @@ Change the xrst command
    This changed from where xrst is execute to where :ref:`run_xrst@root_file`
    is located on :ref:`2022@mm-dd@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
-   improve :ref:`keyword` .
+   improve keyword file documentation.
 
 08-07
 =====
@@ -490,8 +490,8 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 2. Make all file names, except the
    :ref:`run_xrst@root_file`,
    relative to where the root file is located.
-3. The  file names for preamble.rst, spelling, and
-   :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
+3. The  file names for preamble.rst, spelling, and keyword
+   are no longer user selectable.
    These names have been removed from the ``xrst``
    :ref:`run_xrst@Syntax` and the corresponding files are optional
    (no longer required).

@@ -57,7 +57,7 @@ Features
    into one page of the documentation.
 #. Words in each heading are automatically included in the
    keyword index in a way that can be configured;
-   see :ref:`run_xrst@sphinx_dir@keyword` .
+   see :ref:`xrst.toml@not_keyword` .
 #. Includes a configurable spell checker; see
    :ref:`spell_cmd` and :ref:`xrst.toml@project_dictionary` .
    The spell checker catches double word errors.
