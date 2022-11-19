@@ -14,7 +14,7 @@ image_link='https://bradbell.github.io/'
 version_files='
    xrst.xrst
    xrst/run_xrst.py
-   sphinx/test_out/user_guide.rst
+   test_rst/user_guide.rst
 '
 #
 # List of special files, for this repository, that the devel tools ignore.
@@ -34,7 +34,7 @@ ignore_files='
    sphinx/keyword
    sphinx/preamble.rst
    sphinx/spelling
-   sphinx/test_out/
+   test_rst/
    sphinx/xrst/
 '
 # END_SORT_THIS_LINE_MINUS_2

@@ -16,21 +16,23 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#  sphinx/test_out
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#  s|release_notes|user|
+#  s|sphinx/test_out|test_rst|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
+#  bin/devel.sh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # extra_seds='
+#  s|sphinx/test_out|test_rst|g
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|-0`|-title`|g
-s|-0:|-title:|g
+s|sphinx/test_out|test_rst|g

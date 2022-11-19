@@ -70,36 +70,36 @@ cd ..
 file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
 for file in $file_list
 do
-   if [ ! -e sphinx/test_out/$file ]
+   if [ ! -e test_rst/$file ]
    then
-      echo "The output file sphinx/test_out/$file does not exist."
+      echo "The output file test_rst/$file does not exist."
       echo 'Should we use the following command to fix this'
-      echo "    cp sphinx/rst/$file sphinx/test_out/$file"
+      echo "    cp sphinx/rst/$file test_rst/$file"
       continue_yes_no
-      cp sphinx/rst/$file sphinx/test_out/$file
-   elif ! diff sphinx/rst/$file sphinx/test_out/$file
+      cp sphinx/rst/$file test_rst/$file
+   elif ! diff sphinx/rst/$file test_rst/$file
    then
       echo "sphinx/rst/$file changed; above is output of"
-      echo "    diff sphinx/rst/$file sphinx/test_out/$file"
+      echo "    diff sphinx/rst/$file test_rst/$file"
       echo 'Should we use the following command to fix this'
-      echo "    cp sphinx/rst/$file sphinx/test_out/$file"
+      echo "    cp sphinx/rst/$file test_rst/$file"
       continue_yes_no
-      cp sphinx/rst/$file sphinx/test_out/$file
+      cp sphinx/rst/$file test_rst/$file
    else
       echo "$file: OK"
    fi
 done
 # -----------------------------------------------------------------------------
-file_list=$(ls sphinx/test_out/*.rst | sed -e 's|^sphinx/test_out/||' )
+file_list=$(ls test_rst/*.rst | sed -e 's|^test_rst/||' )
 for file in $file_list
 do
    if [ ! -e sphinx/rst/$file ]
    then
       echo "The output file sphinx/rst/$file does not exist."
       echo 'Should we use the following command to fix this'
-      echo "    git rm -f sphinx/test_out/$file"
+      echo "    git rm -f test_rst/$file"
       continue_yes_no
-      git rm -f sphinx/test_out/$file
+      git rm -f test_rst/$file
    fi
 done
 # -----------------------------------------------------------------------------
