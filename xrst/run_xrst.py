@@ -137,7 +137,7 @@ The default value for *target* is ``html`` .
 
 output_dir
 **********
-The optional command line argument *sphinx_dir* is a directory relative to
+The optional command line argument *output_dir* is a directory relative to
 of the directory where *root_file* is located.
 If *target* is ``html``, the html files are placed in this directory.
 If *target* is ``pdf``, the output file is
@@ -145,7 +145,7 @@ If *target* is ``pdf``, the output file is
 | *output_dir*\ ``/latex/``\ *project_name*\ ``.pdf``
 
 see :ref:`run_xrst@root_file@project_name` .
-The default value for *output_dir* is *sphinx_dir* ``/html`` .
+The default value for *output_dir* is *output_dir* ``/html`` .
 
 sphinx_dir
 **********
