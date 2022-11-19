@@ -21,28 +21,28 @@ Table of Contents
 |    :ref:`1.12<configure_example>` Example Configuration Files
 |       :ref:`1.12.1<spelling>` The spelling Example File
 |       :ref:`1.12.2<keyword>` The keyword Example File
-|       :ref:`1.12.3<preamble.rst>` The preamble.rst Example File
 |    :ref:`1.13<test_example>` Test Special Conditions
 | :ref:`2<purpose>` The Need for xrst
 | :ref:`3<user_guide>` Extract Sphinx RST Files
-|    :ref:`3.1<run_xrst>` Run Extract Sphinx RST And Sphinx
-|    :ref:`3.2<commands>` Commands
-|       :ref:`3.2.1<begin_cmd>` Begin and End Commands
-|       :ref:`3.2.2<toc_cmd>` Table of Children Commands
-|       :ref:`3.2.3<spell_cmd>` Spell Command
-|       :ref:`3.2.4<suspend_cmd>` Suspend and Resume Commands
-|       :ref:`3.2.5<code_cmd>` Code Command
-|       :ref:`3.2.6<literal_cmd>` Literal Command
-|       :ref:`3.2.7<comment_cmd>` Comment Command
-|       :ref:`3.2.8<comment_ch_cmd>` Comment Character Command
-|    :ref:`3.3<automatic>` Automatic Processing
-|       :ref:`3.3.1<indent>` Indentation
-|       :ref:`3.3.2<heading_links>` Heading Cross Reference Links
-|       :ref:`3.3.3<auto_file>` Automatically Generated Files
-|    :ref:`3.4<wish_list>` Wish List
-|    :ref:`3.5<release_notes>` xrst Release Notes By Year
-|       :ref:`3.5.1<2022>` xrst Release Notes for 2022
-|       :ref:`3.5.2<2021>` xrst Release Notes for 2021
+|    :ref:`3.1<xrst.toml>` Configuration File for xrst
+|    :ref:`3.2<run_xrst>` Run Extract Sphinx RST And Sphinx
+|    :ref:`3.3<commands>` Commands
+|       :ref:`3.3.1<begin_cmd>` Begin and End Commands
+|       :ref:`3.3.2<toc_cmd>` Table of Children Commands
+|       :ref:`3.3.3<spell_cmd>` Spell Command
+|       :ref:`3.3.4<suspend_cmd>` Suspend and Resume Commands
+|       :ref:`3.3.5<code_cmd>` Code Command
+|       :ref:`3.3.6<literal_cmd>` Literal Command
+|       :ref:`3.3.7<comment_cmd>` Comment Command
+|       :ref:`3.3.8<comment_ch_cmd>` Comment Character Command
+|    :ref:`3.4<automatic>` Automatic Processing
+|       :ref:`3.4.1<indent>` Indentation
+|       :ref:`3.4.2<heading_links>` Heading Cross Reference Links
+|       :ref:`3.4.3<auto_file>` Automatically Generated Files
+|    :ref:`3.5<wish_list>` Wish List
+|    :ref:`3.6<release_notes>` xrst Release Notes By Year
+|       :ref:`3.6.1<2022>` xrst Release Notes for 2022
+|       :ref:`3.6.2<2021>` xrst Release Notes for 2021
 | :ref:`4<devel>` Developer Documentation
 |    :ref:`4.1<module>` The xrst Module
 |       :ref:`4.1.1<add_line_numbers>` Add Line Numbers to File Data

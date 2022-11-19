@@ -160,5 +160,5 @@ sphinx_dir/rst/index.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 210-218
+   :lines: 214-222
    :language: py

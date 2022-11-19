@@ -25,7 +25,6 @@ These files are used to configure xrst to build its documentation:
 
    "spelling", :ref:`spelling-title`
    "keyword", :ref:`keyword-title`
-   "preamble.rst", :ref:`preamble.rst-title`
 
 .. contents::
    :local:
@@ -66,4 +65,3 @@ This Example File
 
    spelling
    keyword
-   preamble

@@ -55,10 +55,9 @@ This file is not created when target is pdf.
 
 xrst_preamble.rst
 *****************
-If :ref:`run_xrst@sphinx_dir@preamble.rst` does not exist,
+If :ref:`xrst.toml@preamble` does not exist,
 this file is empty.
-Otherwise this file is a copy of the
-:ref:`run_xrst@sphinx_dir@preamble.rst` file.
+Otherwise this file is a copy of the string corresponding to preamble.
 If the
 :ref:`run_xrst@target` argument is
 ``pdf``, the latex macros have been removed.
@@ -68,6 +67,7 @@ If the
 # ----------------------------------------------------------------------------
 import re
 import os
+import toml
 import xrst
 #
 # conf_py_general
@@ -102,20 +102,24 @@ if html_theme == 'sphinx_book_theme' :
 pattern_macro = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
 pattern_macro = re.compile(pattern_macro)
 #
-def preamble_macros(sphinx_dir) :
+def preamble_macros() :
    #
    # file_name
-   file_name = sphinx_dir + '/preamble.rst'
+   file_name = 'xrst.toml'
    if not os.path.isfile(file_name) :
       return list()
    #
-   # file_data
-   file_ptr  = open(file_name, 'r')
-   file_data = file_ptr.read()
+   # preamble
+   file_ptr       = open(file_name, 'r')
+   file_data      = file_ptr.read()
    file_ptr.close()
+   file_dict      = toml.loads(file_data)
+   if not 'preamble' in file_dict :
+      return list()
+   preamble = file_dict['preamble']
    #
    # m_macro
-   m_macro = pattern_macro.search(file_data)
+   m_macro = pattern_macro.search(preamble)
    #
    # macro_list
    macro_list = list()
@@ -126,7 +130,7 @@ def preamble_macros(sphinx_dir) :
       macro_list.append(macro)
       #
       # m_macro
-      m_macro = pattern_macro.search(file_data, m_macro.end() - 1)
+      m_macro = pattern_macro.search(preamble, m_macro.end() - 1)
    #
    return macro_list
 # ----------------------------------------------------------------------------
@@ -279,7 +283,7 @@ def auto_file(
    #
    # latex
    latex = ''
-   macro_list = preamble_macros(sphinx_dir)
+   macro_list = preamble_macros()
    for (i, macro) in enumerate(macro_list) :
       latex += "    r'" + macro + "'"
       if i + 1 < len(macro_list) :
@@ -303,13 +307,18 @@ def auto_file(
    # tmp_dir/xrst_preamble.rst
    #
    # file_data
-   file_name = sphinx_dir + '/preamble.rst'
+   file_name = 'xrst.toml'
    if not os.path.isfile( file_name ) :
       file_data = ''
    else :
       file_ptr  = open(file_name, 'r')
       file_data = file_ptr.read()
       file_ptr.close()
+      file_dict = toml.loads(file_data)
+      if 'preamble' in file_dict :
+         file_data = file_dict['preamble']
+      else :
+         file_data = ''
    #
    if target == 'pdf' :
       # remove the latex macros

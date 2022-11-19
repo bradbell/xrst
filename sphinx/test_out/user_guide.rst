@@ -26,7 +26,7 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@Version 2022.11.18:
+.. _user_guide@Version 2022.11.19:
 
 Version 2022.11.19
 ******************
@@ -74,6 +74,7 @@ Run Program
 Contents
 ********
 
+-  :ref:`xrst.toml-title`
 -  :ref:`run_xrst-title`
 -  :ref:`commands-title`
 -  :ref:`automatic-title`
@@ -84,6 +85,7 @@ Contents
    :maxdepth: 1
    :hidden:
 
+   xrst.toml
    run_xrst
    commands
    automatic

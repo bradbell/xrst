@@ -1,0 +1,142 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+#
+# {xrst_begin xrst.toml user}
+# {xrst_comment_ch #}
+# {xrst_spell
+#   configures
+#   macros
+#   newline
+#   toml
+# }
+#
+# Configuration File for xrst
+# ###########################
+# This toml file represents a python dictionary that configures xrst.
+# All of its keys are strings.
+#
+# preamble
+# ********
+# If this key is present, its value is a string representation of the
+# preamble.rst file.
+# This file is included at the beginning of every page.
+# It should only define things, it should not generate any output.
+# The Latex macros in this file can be used by any page.
+# There must be one macro definition per line and each such line must match the
+# following python regular expression:
+#
+#    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
+#
+# Example
+# =======
+# {xrst_literal
+#   # BEGIN_PREAMBLE
+#   # END_PREAMBLE
+# }
+#
+# project_dictionary
+# ******************
+# If this key is present, the value is a list of strings.
+# Each string contains a newline separated list of words.
+# Leading and trailing white space is not part of each word.
+# These special words are not considered spelling errors this entire project.
+# Special words, for a particular page, are specified using the
+# :ref:`spell command<spell_cmd>`.
+#
+# Example
+# =======
+# {xrst_literal
+#   # BEGIN_PROJECT_DICTIONARY
+#   # END_PROJECT_DICTIONARY
+# }
+#
+# not_keyword
+# ***********
+# If this key is present, the value is a list of strings.
+# Each string  contains a newline separated list of patterns.
+# Leading and trailing white space is not part of each pattern.
+# These are python regular expression patterns for heading tokens
+# that are not included in the index.
+# A heading token is any sequence of non white space characters
+# with upper case letters converted to lower case.
+# For example, a heading might contain the token ``The`` but you
+# might not want to include ``the`` as a entry in the :ref:`genindex`.
+# In this case you could have a line containing just ``the`` .
+# For another example, you might want to exclude all tokens that are
+# integer numbers.
+# In this case you could have a line containing just ``[0-9]*`` .
+#
+# Example
+# =======
+# {xrst_literal
+#   # BEGIN_NOT_KEYWORD
+#   # END_NOT_KEYWORD
+# }
+#
+# {xrst_end xrst.toml}
+# -----------------------------------------------------------------------------
+# BEGIN_PREAMBLE
+preamble = '''
+.. comment xrst preamble.rst
+
+.. |space| unicode:: 0xA0
+.. |tab| replace:: |space| |space| |space|
+
+.. comment: These Latex macros can be used by any section. Each maco must be
+   defined on its own line and the line must match the regular expression
+   \n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*
+   They should all be in a '.. rst-class:: hidden' block of preamble.rst
+
+.. rst-class:: hidden
+
+   :math:`\newcommand{\B}[1]{ {\bf #1} }`
+   :math:`\newcommand{\R}[1]{ {\rm #1} }`
+'''
+# END_PREAMBLE
+# -----------------------------------------------------------------------------
+# BEGIN_PROJECT_DICTIONARY
+project_dictionary = [
+   # file extensions
+   '''
+     cpp
+     py
+     rst
+   ''',
+   # python types
+   '''
+     str
+   ''',
+   # special words
+   '''
+     factorial
+   ''',
+]
+# END_PROJECT_DICTIONARY
+# -----------------------------------------------------------------------------
+# BEGIN_NOT_KEYWORD
+not_keyword = [
+  # articles and prepositions
+  '''
+      a
+      and
+      by
+      for
+      of
+      the
+      this
+      to
+  ''',
+  # words that are use in many different pages of the documentation
+  '''
+    command
+    example
+    file
+    purpose
+    syntax
+  ''',
+  # python regular expression for month-day used in release notes
+  '[0-9]{2}-[0-9]{2}',
+  # python regular expression for year.month.day used in version number
+  '[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}',
+]
+# END_NOT_KEYWORD

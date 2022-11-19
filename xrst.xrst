@@ -116,6 +116,7 @@ Run Program
 Contents
 ********
 {xrst_toc_list
+   xrst.toml
    xrst/run_xrst.py
    user/commands.xrst
    user/automatic.xrst

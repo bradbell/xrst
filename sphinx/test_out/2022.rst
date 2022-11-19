@@ -31,6 +31,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-19:
+
+11-19
+=====
+The preamble.rst file was replaced by the
+:ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
+
 .. _2022@mm-dd@11-18:
 
 11-18
@@ -179,10 +186,10 @@ version 0.6.3 to 0.7.0.
 =====
 1. The :ref:`heading_links@Labels@Heading-To-Label` of headings was changed
    to not convert colons ``:`` .
-2. The example :ref:`preamble.rst` file was change to use three
+2. The preamble.rst example file was change to use three
    (instead of four) spaces for a tab.
-3. Add a :ref:`preamble.rst@Substitution` and :ref:`preamble.rst@Latex Macro`
-   as example uses of the  preamble file.
+3. Add a substitution and latex macro
+   in the preamble.rst example file.
 
 .. _2022@mm-dd@10-03:
 
@@ -215,7 +222,7 @@ So remove the error message for this case; see
 09-25
 =====
 The ``conf.py`` file has an error when there were no macros in the
-:ref:`run_xrst@sphinx_dir@preamble.rst` file. This has been fixed.
+preamble.rst file. This has been fixed.
 
 .. _2022@mm-dd@09-24:
 
@@ -377,8 +384,8 @@ double words exceptions. This has been fixed.
 
 09-05
 =====
-The :ref:`xrst_table_of_contents-title` did not build properly unless ``|space|``
-was defined in the :ref:`run_xrst@sphinx_dir@preamble.rst` file.
+The :ref:`xrst_table_of_contents-title` did not build properly unless
+``|space|`` was defined in preamble.rst file.
 This has been fixed.
 
 .. _2022@mm-dd@09-04:
@@ -587,7 +594,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 2. Make all file names, except the
    :ref:`run_xrst@root_file`,
    relative to where the root file is located.
-3. The  file names for :ref:`run_xrst@sphinx_dir@preamble.rst`,
+3. The  file names for preamble.rst,
    :ref:`run_xrst@sphinx_dir@spelling`, and
    :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
    These names have been removed from the ``xrst``

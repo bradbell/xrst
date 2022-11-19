@@ -97,10 +97,9 @@ This file is not created when target is pdf.
 
 xrst_preamble.rst
 *****************
-If :ref:`run_xrst@sphinx_dir@preamble.rst` does not exist,
+If :ref:`xrst.toml@preamble` does not exist,
 this file is empty.
-Otherwise this file is a copy of the
-:ref:`run_xrst@sphinx_dir@preamble.rst` file.
+Otherwise this file is a copy of the string corresponding to preamble.
 If the
 :ref:`run_xrst@target` argument is
 ``pdf``, the latex macros have been removed.
