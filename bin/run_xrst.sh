@@ -36,7 +36,7 @@ if [ "$target" == 'html' ]
 then
    echo_eval python -m xrst xrst.xrst \
       --group ,user \
-      --output doc $rst_line \
+      $rst_line \
       --html sphinx_book_theme
    echo 'run_xrst.sh: OK'
    exit 0
@@ -45,7 +45,7 @@ fi
 # pdf
 # -----------------------------------------------------------------------------
 echo_eval python -m xrst xrst.xrst --group ,user \
-      --target pdf --output doc $rst_line
+      --target pdf $rst_line
 #
 # -----------------------------------------------------------------------------
 echo 'run_xrst.sh: OK'

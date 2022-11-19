@@ -7,7 +7,8 @@ temp.*
 /build/
 # automatically created directories
 /dist/
-/doc/
+/html/
+/pdf/
 /rst/
 /new/
 /new.[0-9]*/

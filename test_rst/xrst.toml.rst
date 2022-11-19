@@ -19,9 +19,40 @@ Configuration File for xrst
 ###########################
 This toml file represents a python dictionary that configures xrst.
 All of its keys are strings.
+If a key has a default value, it is used when the key is not present,
+All of the directories mentioned below are relative to the directory
+where this file is located.
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: output_directory
+
+.. index:: output_directory
+
+.. _xrst.toml@output_directory:
+
+output_directory
+****************
+The default value for this key is
+::
+
+  { 'html' : 'html' , 'pdf' : 'pdf' }
+
+The value is a dictionary that maps the :ref:`run_xrst@target` to the
+directory where the final output is stored. Note that the possible values
+for *target* are ``'html'`` and ``'pdf'`` and that the default
+uses the same name for the output directory.
+
+.. _xrst.toml@output_directory@Example:
+
+Example
+=======
+
+.. literalinclude:: ../xrst.toml
+   :lines: 36-37
+   :language: toml
 
 .. meta::
    :keywords: rst_directory
@@ -32,7 +63,8 @@ All of its keys are strings.
 
 rst_directory
 *************
-If it is present, its value is a string specifying the
+The default value for this key is ``'rst'`` .
+The value is a string specifying the
 directory where xrst writes the rst files it extracts from the source code.
 For each :ref:`begin_cmd@page_name` , the file
 
@@ -48,10 +80,8 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 33-33
+   :lines: 56-56
    :language: toml
-
-This is also the default value for *rst_directory* .
 
 .. meta::
    :keywords: preamble
@@ -78,7 +108,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 98-113
+   :lines: 120-135
    :language: toml
 
 .. meta::
@@ -103,7 +133,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 117-132
+   :lines: 139-154
    :language: toml
 
 .. meta::
@@ -135,5 +165,5 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 136-160
+   :lines: 158-182
    :language: toml

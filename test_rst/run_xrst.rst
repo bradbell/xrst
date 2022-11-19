@@ -31,7 +31,6 @@ Syntax
 [ ``--html`` *html_theme* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
-[ ``--output`` *output_dir* ]
 
 .. meta::
    :keywords: version
@@ -196,30 +195,11 @@ It specifies the type of type output you plan to generate using sphinx.
 The default value for *target* is ``html`` .
 
 .. meta::
-   :keywords: output_dir
-
-.. index:: output_dir
-
-.. _run_xrst@output_dir:
-
-output_dir
-**********
-The optional command line argument *output_dir* is a directory relative to
-of the directory where *root_file* is located.
-If *target* is ``html``, the html files are placed in this directory.
-If *target* is ``pdf``, the output file is
-
-| *output_dir*\ ``/latex/``\ *project_name*\ ``.pdf``
-
-see :ref:`run_xrst@root_file@project_name` .
-The default value for *output_dir* is *output_dir* ``/html`` .
-
-.. meta::
    :keywords: other, generated, files
 
 .. index:: other, generated, files
 
-.. _run_xrst@output_dir@Other Generated Files:
+.. _run_xrst@target@Other Generated Files:
 
 Other Generated Files
 =====================

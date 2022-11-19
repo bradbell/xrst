@@ -5,7 +5,6 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
-   dir
    furo
    pyspellchecker
    rtd
@@ -23,7 +22,6 @@ Syntax
 [ ``--html`` *html_theme* ]
 [ ``--group`` *group_list* ]
 [ ``--target`` *target* ]
-[ ``--output`` *output_dir* ]
 
 
 version
@@ -132,18 +130,6 @@ target
 The optional command line argument *target* must be ``html`` or ``pdf``.
 It specifies the type of type output you plan to generate using sphinx.
 The default value for *target* is ``html`` .
-
-output_dir
-**********
-The optional command line argument *output_dir* is a directory relative to
-of the directory where *root_file* is located.
-If *target* is ``html``, the html files are placed in this directory.
-If *target* is ``pdf``, the output file is
-
-| *output_dir*\ ``/latex/``\ *project_name*\ ``.pdf``
-
-see :ref:`run_xrst@root_file@project_name` .
-The default value for *output_dir* is *output_dir* ``/html`` .
 
 Other Generated Files
 =====================
@@ -332,11 +318,6 @@ def run_xrst() :
       '--target', metavar='target', choices=['html', 'pdf'], default='html',
       help='type of output files, choices are html or pdf (default: html)'
    )
-   parser.add_argument(
-      '--output', metavar='output_dir',
-      help= 'directory containing the sphinx output files ' +
-      '(default: html)'
-   )
    #
    # arguments
    arguments = parser.parse_args()
@@ -402,11 +383,6 @@ def run_xrst() :
    # target
    target = arguments.target
    #
-   # output_dir
-   output_dir = arguments.output
-   if output_dir == None :
-      output_dir = 'html'
-   #
    # toml_dict
    toml_file  = 'xrst.toml'
    if not os.path.isfile( toml_file ) :
@@ -415,6 +391,12 @@ def run_xrst() :
       file_ptr  = open(toml_file, 'r')
       file_data = file_ptr.read()
       toml_dict = toml.loads(file_data)
+   #
+   # output_dir
+   if 'output_directory' in toml_dict :
+      output_directory = toml_dict['output_directory'][target]
+   else :
+      output_directory = target
    #
    # rst_directory
    if 'rst_directory' in toml_dict :
@@ -716,7 +698,7 @@ def run_xrst() :
    shutil.rmtree(tmp_dir)
    # -------------------------------------------------------------------------
    if target == 'html' :
-      command = f'sphinx-build -b html {rst_directory} {output_dir}'
+      command = f'sphinx-build -b html {rst_directory} {output_directory}'
       if rst_line_numbers :
          system_command(command)
       else :
@@ -724,7 +706,7 @@ def run_xrst() :
    else :
       assert target == 'pdf'
       #
-      latex_dir = f'{output_dir}/latex'
+      latex_dir = f'{output_directory}/latex'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
       system_command(command)
       #
@@ -734,7 +716,7 @@ def run_xrst() :
       command = f'make -C {latex_dir} {project_name}.pdf'
       system_command(command)
    # -------------------------------------------------------------------------
-   # output_dir/_static/css/theme.css
+   # output_directory/_static/css/theme.css
    # see https://stackoverflow.com/questions/23211695/
    #  modifying-content-width-of-the-sphinx-theme-read-the-docs
    if html_theme == 'sphinx_rtd_theme' and target == 'html' :
@@ -749,7 +731,7 @@ def run_xrst() :
          r'([.]wy-side-nav-search[{][^}]*;width):[^;]*;'
       )
       new_value = { 'content':'100%', 'sidebar':'250px', 'search':'250px' }
-      file_name = f'{output_dir}/_static/css/theme.css'
+      file_name = f'{output_directory}/_static/css/theme.css'
       try :
          file_obj  = open(file_name, 'r')
          ok        = True

@@ -26,21 +26,16 @@ then
    echo "bin/check_xrst.sh: must be executed from its parent directory"
    exit 1
 fi
-# -----------------------------------------------------------------------------
-if [ -e doc ]
-then
-   echo_eval rm -r doc
-fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
-# doc
-# run from doc directory so that root_directory is not working directory
-if [ -e doc ]
+# html
+# run from html directory so that root_directory is not working directory
+if [ -e html ]
 then
-   rm -r doc
+   rm -r html
 fi
-mkdir doc
-cd    doc
+mkdir html
+cd    html
 #
 for group_list in ',' ',user,dev'
 do
@@ -48,7 +43,7 @@ do
    then
       echo_eval rm -r ../rst
    fi
-   args="--group $group_list --output doc --html sphinx_rtd_theme"
+   args="--group $group_list --html sphinx_rtd_theme"
    echo "python -m xrst ../xrst.xrst $args"
    if ! python -m xrst ../xrst.xrst $args 2> check_xrst.$$
    then

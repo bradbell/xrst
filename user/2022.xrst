@@ -41,6 +41,8 @@ mm-dd
 The wish list configuration item was completed using
 :ref:`xrst.toml` .
 
+#. The output_dir command line argument was replaced by
+   :ref:`xrst.toml@output_directory` in the ``xrst.toml`` file.
 #. The sphinx_dir command line argument was replaced by
    :ref:`xrst.toml@rst_directory` in the ``xrst.toml`` file.
 #. The preamble.rst file was replaced by the
@@ -335,8 +337,8 @@ This has been fixed.
 
 09-04
 =====
-Change the location of the output html files do they are in the
-:ref:`run_xrst@output_dir` instead of its ``rst`` subdirectory.
+Change the location of the output html files so they are in the
+output_dir instead of its ``rst`` subdirectory.
 
 09-02
 =====
@@ -458,7 +460,7 @@ Change the xrst command
 08-06
 =====
 1. Automatically run sphinx after xrst has created the sphinx input file.
-2. Add the :ref:`run_xrst@output_dir` option to the command line.
+2. Add the output_dir option to the command line.
 3. Add the :ref:`literal_cmd@No start or stop` syntax to the literal command.
 
 08-05
