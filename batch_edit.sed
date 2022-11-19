@@ -12,27 +12,22 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
-#  bin/update_xrst.py
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#  sphinx/test_out
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#  s|sphinx/test_out|test_rst|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
-#  bin/devel.sh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # extra_seds='
-#  s|sphinx/test_out|test_rst|g
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|sphinx/test_out|test_rst|g
+s|not_keyword|not_in_index|g

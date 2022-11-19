@@ -77,14 +77,14 @@ page_name
 is the name of this page.
 
 .. meta::
-   :keywords: not_keyword_list
+   :keywords: not_in_index_list
 
-.. index:: not_keyword_list
+.. index:: not_in_index_list
 
-.. _process_headings@Arguments@not_keyword_list:
+.. _process_headings@Arguments@not_in_index_list:
 
-not_keyword_list
-================
+not_in_index_list
+=================
 is a list of compiled regular expressions. If pattern is in this list,
 *word* is a lower case version of a word in the heading text, and
 pattern.fullmatch( *word* ) returns a match, an index entry is not

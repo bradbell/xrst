@@ -184,8 +184,8 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # =========
 # is the name of this page.
 #
-# not_keyword_list
-# ================
+# not_in_index_list
+# =================
 # is a list of compiled regular expressions. If pattern is in this list,
 # *word* is a lower case version of a word in the heading text, and
 # pattern.fullmatch( *word* ) returns a match, an index entry is not
@@ -221,13 +221,13 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #
 # {xrst_code py}
 def process_headings(
-      html_theme, data_in, file_name, page_name, not_keyword_list
+      html_theme, data_in, file_name, page_name, not_in_index_list
 ) :
    assert type(html_theme) == str
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   assert type(not_keyword_list) == list
+   assert type(not_in_index_list) == list
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -386,7 +386,7 @@ def process_headings(
          index_entries = ''
       for word in heading_list[-1]['text'].lower().split() :
          skip = False
-         for pattern in not_keyword_list :
+         for pattern in not_in_index_list :
             m_obj = pattern.fullmatch(word)
             if m_obj :
                skip = True

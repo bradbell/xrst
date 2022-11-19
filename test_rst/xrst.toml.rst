@@ -107,14 +107,14 @@ Example
    :language: toml
 
 .. meta::
-   :keywords: not_keyword
+   :keywords: not_in_index
 
-.. index:: not_keyword
+.. index:: not_in_index
 
-.. _xrst.toml@not_keyword:
+.. _xrst.toml@not_in_index:
 
-not_keyword
-***********
+not_in_index
+************
 If this key is present, the value is a list of strings.
 Each string  contains a newline separated list of patterns.
 Leading and trailing white space is not part of each pattern.
@@ -129,7 +129,7 @@ For another example, you might want to exclude all tokens that are
 integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
 
-.. _xrst.toml@not_keyword@Example:
+.. _xrst.toml@not_in_index@Example:
 
 Example
 =======

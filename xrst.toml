@@ -69,8 +69,8 @@ rst_directory = 'rst'
 #   # END_PROJECT_DICTIONARY
 # }
 #
-# not_keyword
-# ***********
+# not_in_index
+# ************
 # If this key is present, the value is a list of strings.
 # Each string  contains a newline separated list of patterns.
 # Leading and trailing white space is not part of each pattern.
@@ -133,7 +133,7 @@ project_dictionary = [
 # END_PROJECT_DICTIONARY
 # -----------------------------------------------------------------------------
 # BEGIN_NOT_KEYWORD
-not_keyword = [
+not_in_index = [
   # articles and prepositions
   '''
       a

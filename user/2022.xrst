@@ -48,7 +48,7 @@ The wish list configuration item was completed using
 #. The spelling file was replaced by the
    :ref:`xrst.toml@project_dictionary` section of the ``xrst.toml`` file.
 #. The keyword file was replaced by the
-   :ref:`xrst.toml@not_keyword` section of the ``xrst.toml`` file.
+   :ref:`xrst.toml@not_in_index` section of the ``xrst.toml`` file.
 
 11-18
 =====

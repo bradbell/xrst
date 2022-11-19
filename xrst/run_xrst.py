@@ -455,19 +455,19 @@ def run_xrst() :
             spell_list.append(word)
    spell_checker = xrst.create_spell_checker(spell_list)
    #
-   # not_keyword_list
-   not_keyword_list = list()
-   if 'not_keyword' in toml_dict :
-      for entry in toml_dict['not_keyword'] :
+   # not_in_index_list
+   not_in_index_list = list()
+   if 'not_in_index' in toml_dict :
+      for entry in toml_dict['not_in_index'] :
          if not type(entry) == str :
-            msg  = 'xrst.toml: not_keyword '
+            msg  = 'xrst.toml: not_in_index '
             msg += 'the following entry is not a string\n'
             msg += str(entry)
             xrst.system_exit(msg)
          pattern_list = entry.split('\n')
          for pattern in pattern_list :
             pattern = pattern.strip(' \t')
-            not_keyword_list.append( re.compile(pattern) )
+            not_in_index_list.append( re.compile(pattern) )
    # -------------------------------------------------------------------------
    #
    # root_local
@@ -636,7 +636,7 @@ def run_xrst() :
                page_data,
                file_in,
                page_name,
-               not_keyword_list,
+               not_in_index_list,
             )
             # pinfo_list
             # page title is used by table_of_contents
