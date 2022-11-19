@@ -163,10 +163,10 @@ info['is_child']
 is true (false) if this is (is not) a child of the first page in
 this file.
 
-.. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 154-165
+.. literalinclude:: ../xrst/get_file_info.py
+   :lines: 153-164
    :language: py
 
-.. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 370-373
+.. literalinclude:: ../xrst/get_file_info.py
+   :lines: 369-372
    :language: py

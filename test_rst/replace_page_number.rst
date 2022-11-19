@@ -97,10 +97,10 @@ data_out
 the return data_out is the data after replacement. The page number is
 added (see above) and the command is removed.
 
-.. literalinclude:: ../../xrst/replace_page_number.py
+.. literalinclude:: ../xrst/replace_page_number.py
    :lines: 52-54
    :language: py
 
-.. literalinclude:: ../../xrst/replace_page_number.py
+.. literalinclude:: ../xrst/replace_page_number.py
    :lines: 141-143
    :language: py

@@ -126,10 +126,10 @@ in the spell_checker dictionary or the special word list. A word is two or
 more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
-.. literalinclude:: ../../xrst/spell_command.py
+.. literalinclude:: ../xrst/spell_command.py
    :lines: 195-201
    :language: py
 
-.. literalinclude:: ../../xrst/spell_command.py
+.. literalinclude:: ../xrst/spell_command.py
    :lines: 501-503
    :language: py

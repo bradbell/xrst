@@ -30,12 +30,8 @@ ignore_files='
    bin/devel.sh
    gpl-3.0.txt
    readme.md
-   sphinx/conf.py
-   sphinx/keyword
-   sphinx/preamble.rst
-   sphinx/spelling
+   rst/
    test_rst/
-   sphinx/xrst/
 '
 # END_SORT_THIS_LINE_MINUS_2
 # ----------------------------------------------------------------------------

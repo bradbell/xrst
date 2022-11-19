@@ -68,5 +68,5 @@ Heading: This Example File
 **************************
 The file below demonstrates the use of ``xrst_begin`` and ``xrst_end`` :
 
-.. literalinclude:: ../../example/get_started.xrst
+.. literalinclude:: ../example/get_started.xrst
    :language: rst

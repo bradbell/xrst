@@ -89,10 +89,10 @@ The second return line_pair is a list of two element tuples.
 -   The data_out line numbers are in increasing order and
     the maker line numbers are non-decreasing.
 
-.. literalinclude:: ../../xrst/remove_line_numbers.py
+.. literalinclude:: ../xrst/remove_line_numbers.py
    :lines: 52-53
    :language: py
 
-.. literalinclude:: ../../xrst/remove_line_numbers.py
+.. literalinclude:: ../xrst/remove_line_numbers.py
    :lines: 110-117
    :language: py

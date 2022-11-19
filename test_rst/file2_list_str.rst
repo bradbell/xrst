@@ -48,6 +48,6 @@ the return value is a list of str, one for each line of the file.
    are not included.
 #. Empty lines, after step 2, are not included.
 
-.. literalinclude:: ../../xrst/file2_list_str.py
+.. literalinclude:: ../xrst/file2_list_str.py
    :lines: 28-33
    :language: py

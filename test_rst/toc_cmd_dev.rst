@@ -128,10 +128,10 @@ If a file in file_list has a begin_parent command, there is only
 one page in child_page_list for that file. Otherwise all of the
 pages in the file are in child_page_list.
 
-.. literalinclude:: ../../xrst/toc_commands.py
+.. literalinclude:: ../xrst/toc_commands.py
    :lines: 163-167
    :language: py
 
-.. literalinclude:: ../../xrst/toc_commands.py
+.. literalinclude:: ../xrst/toc_commands.py
    :lines: 316-324
    :language: py

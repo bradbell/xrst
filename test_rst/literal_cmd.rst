@@ -83,7 +83,7 @@ where the :ref:`run_xrst@root_file` is located.
    that move files and automatically change references to them.
 2. Note that if you use the sphinx ``literalinclude`` directive,
    the corresponding file name will be relative to the
-   :ref:`run_xrst@sphinx_dir@RST Directory` .
+   :ref:`xrst.toml@rst_directory` .
 
 .. meta::
    :keywords: no, start, or, stop

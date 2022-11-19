@@ -73,6 +73,6 @@ data
 ****
 is that data that was searched to get the match object.
 
-.. literalinclude:: ../../xrst/check_page_name.py
+.. literalinclude:: ../xrst/check_page_name.py
    :lines: 41-45
    :language: py

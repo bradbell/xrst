@@ -9,6 +9,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    conf
    css
    dd
+   dir
    docstring
    len
    literalinclude
@@ -37,10 +38,17 @@ mm-dd
 
 11-19
 =====
-1. The preamble.rst file was replaced by the
+The wish list configuration item was completed using
+:ref:`xrst.toml` .
+
+#. The sphinx_dir command line argument was replaced by
+   :ref:`xrst.toml@rst_directory` in the ``xrst.toml`` file.
+#. The preamble.rst file was replaced by the
    :ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
-2. The spelling file was replaced by the
+#. The spelling file was replaced by the
    :ref:`xrst.toml@project_dictionary` section of the ``xrst.toml`` file.
+#. The keyword file was replaced by the
+   :ref:`xrst.toml@not_keyword` section of the ``xrst.toml`` file.
 
 11-18
 =====
@@ -461,7 +469,7 @@ Change the xrst command
 
 08-04
 =====
-Make :ref:`run_xrst@target` and :ref:`run_xrst@sphinx_dir` optional
+Make :ref:`run_xrst@target` and sphinx_dir optional
 command line arguments with default values; see the new xrst
 :ref:`run_xrst@Syntax`.
 

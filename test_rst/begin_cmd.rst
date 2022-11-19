@@ -83,9 +83,9 @@ Output File
 ***********
 The output file corresponding to *page_name* is
 
-   *sphinx_dir*\ ``/xrst/``\ *page_name*\ ``.rst``
+   *rst_directory*\ /\ *page_name*\ /``.rst``
 
-see :ref:`sphinx_dir<run_xrst@sphinx_dir>`
+see :ref:`xrst.toml@rst_directory` .
 
 .. meta::
    :keywords: parent, page

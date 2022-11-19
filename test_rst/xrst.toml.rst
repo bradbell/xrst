@@ -24,6 +24,36 @@ All of its keys are strings.
    :local:
 
 .. meta::
+   :keywords: rst_directory
+
+.. index:: rst_directory
+
+.. _xrst.toml@rst_directory:
+
+rst_directory
+*************
+If it is present, its value is a string specifying the
+directory where xrst writes the rst files it extracts from the source code.
+For each :ref:`begin_cmd@page_name` , the file
+
+|space| *rst_directory*\ /\ *page_name*\ ``.rst``
+
+is the RST file for the corresponding page. There is one exception
+to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
+is not added at the end.
+
+.. _xrst.toml@rst_directory@Example:
+
+Example
+=======
+
+.. literalinclude:: ../xrst.toml
+   :lines: 33-33
+   :language: toml
+
+This is also the default value for *rst_directory* .
+
+.. meta::
    :keywords: preamble
 
 .. index:: preamble
@@ -47,8 +77,8 @@ following python regular expression:
 Example
 =======
 
-.. literalinclude:: ../../xrst.toml
-   :lines: 79-94
+.. literalinclude:: ../xrst.toml
+   :lines: 98-113
    :language: toml
 
 .. meta::
@@ -72,8 +102,8 @@ Special words, for a particular page, are specified using the
 Example
 =======
 
-.. literalinclude:: ../../xrst.toml
-   :lines: 98-113
+.. literalinclude:: ../xrst.toml
+   :lines: 117-132
    :language: toml
 
 .. meta::
@@ -104,6 +134,6 @@ In this case you could have a line containing just ``[0-9]*`` .
 Example
 =======
 
-.. literalinclude:: ../../xrst.toml
-   :lines: 117-141
+.. literalinclude:: ../xrst.toml
+   :lines: 136-160
    :language: toml

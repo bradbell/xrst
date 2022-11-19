@@ -68,6 +68,6 @@ page_name
 *********
 is ``None`` or the name of this page (used for error reporting).
 
-.. literalinclude:: ../../xrst/check_syntax_error.py
+.. literalinclude:: ../xrst/check_syntax_error.py
    :lines: 33-37
    :language: py

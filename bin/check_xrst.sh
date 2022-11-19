@@ -44,9 +44,9 @@ cd    doc
 #
 for group_list in ',' ',user,dev'
 do
-   if [ -e ../sphinx/rst ]
+   if [ -e ../rst ]
    then
-      echo_eval rm -r ../sphinx/rst
+      echo_eval rm -r ../rst
    fi
    args="--group $group_list --output doc --html sphinx_rtd_theme"
    echo "python -m xrst ../xrst.xrst $args"
@@ -67,24 +67,24 @@ done
 rm check_xrst.$$
 cd ..
 # -----------------------------------------------------------------------------
-file_list=$(ls sphinx/rst/*.rst | sed -e "s|^sphinx/rst/||" )
+file_list=$(ls rst/*.rst | sed -e "s|^rst/||" )
 for file in $file_list
 do
    if [ ! -e test_rst/$file ]
    then
       echo "The output file test_rst/$file does not exist."
       echo 'Should we use the following command to fix this'
-      echo "    cp sphinx/rst/$file test_rst/$file"
+      echo "    cp rst/$file test_rst/$file"
       continue_yes_no
-      cp sphinx/rst/$file test_rst/$file
-   elif ! diff sphinx/rst/$file test_rst/$file
+      cp rst/$file test_rst/$file
+   elif ! diff rst/$file test_rst/$file
    then
-      echo "sphinx/rst/$file changed; above is output of"
-      echo "    diff sphinx/rst/$file test_rst/$file"
+      echo "rst/$file changed; above is output of"
+      echo "    diff rst/$file test_rst/$file"
       echo 'Should we use the following command to fix this'
-      echo "    cp sphinx/rst/$file test_rst/$file"
+      echo "    cp rst/$file test_rst/$file"
       continue_yes_no
-      cp sphinx/rst/$file test_rst/$file
+      cp rst/$file test_rst/$file
    else
       echo "$file: OK"
    fi
@@ -93,9 +93,9 @@ done
 file_list=$(ls test_rst/*.rst | sed -e 's|^test_rst/||' )
 for file in $file_list
 do
-   if [ ! -e sphinx/rst/$file ]
+   if [ ! -e rst/$file ]
    then
-      echo "The output file sphinx/rst/$file does not exist."
+      echo "The output file rst/$file does not exist."
       echo 'Should we use the following command to fix this'
       echo "    git rm -f test_rst/$file"
       continue_yes_no

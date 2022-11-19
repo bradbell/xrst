@@ -54,19 +54,6 @@ to the directory where the :ref:`run_xrst@root_file` is located
 so it would be the same as for xrst commands.
 
 .. meta::
-   :keywords: configuration
-
-.. index:: configuration
-
-.. _wish_list@Configuration:
-
-Configuration
-*************
-It would be nice to have a *sphinx_dir* ``/conf.toml`` file that
-could be used for more complicated cases that can be handled by the
-command line arguments.
-
-.. meta::
    :keywords: sphinx, error, messages
 
 .. index:: sphinx, error, messages

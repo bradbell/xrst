@@ -46,7 +46,7 @@ xrst_code
 The xrst_code command reports the original source code, before removing
 the comment character or the indentation.
 
-.. literalinclude:: ../../example/comment_ch.m
+.. literalinclude:: ../example/comment_ch.m
    :lines: 25-32
    :language: matlab
 
@@ -78,5 +78,5 @@ The file below demonstrates the use of ``xrst_comment_ch`` .
 This Example File
 *****************
 
-.. literalinclude:: ../../example/comment_ch.m
+.. literalinclude:: ../example/comment_ch.m
    :language: matlab

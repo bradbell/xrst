@@ -34,6 +34,30 @@ is a python dictionary representation of the xrst.toml file.
 (It is empty if there is no such file).
 
 .. meta::
+   :keywords: rst_dir
+
+.. index:: rst_dir
+
+.. _auto_file_dev@toml_dict@rst_dir:
+
+rst_dir
+=======
+we use *rst_dir* to denote *toml_dict* ['rst_directory'] .
+
+.. meta::
+   :keywords: tmp_dir
+
+.. index:: tmp_dir
+
+.. _auto_file_dev@toml_dict@tmp_dir:
+
+tmp_dir
+=======
+we use *tmp_dir* to denote *rst_dir*\ /tmp .
+This is the directory where xrst creates a temporary copy of *rst_dir* .
+These files are also automatically generated.
+
+.. meta::
    :keywords: html_theme
 
 .. index:: html_theme
@@ -43,30 +67,6 @@ is a python dictionary representation of the xrst.toml file.
 html_theme
 **********
 The html_theme as on the xrst command line.
-
-.. meta::
-   :keywords: sphinx_dir
-
-.. index:: sphinx_dir
-
-.. _auto_file_dev@sphinx_dir:
-
-sphinx_dir
-**********
-is the name of xrst command line argument *sphinx_dir*.
-
-.. meta::
-   :keywords: tmp_dir
-
-.. index:: tmp_dir
-
-.. _auto_file_dev@tmp_dir:
-
-tmp_dir
-*******
-is the name of the directory where xrst creates a temporary copy of
-the sphinx_dir/rst directory. We need not add a comment that these files
-are automatically generated because all files in sphinx_dir/rst are.
 
 .. meta::
    :keywords: target
@@ -134,8 +134,8 @@ to this page.
 
 tmp_dir/xrst_preamble.rst
 *************************
-This is a copy of the sphinx_dir/preamble.rst file. If target is
-pdf (html) the latex macros are (are not) removed.
+The data in :ref:`xrst.toml@preamble` is placed in this file.
+If target is html (pdf) the latex macros are (are not) included.
 
 .. meta::
    :keywords: tmp_dir/xrst_index.rst
@@ -150,27 +150,27 @@ This file just contains a link to the genindex.rst file.
 It is (is not) included if target is html (pdf).
 
 .. meta::
-   :keywords: sphinx_dir/rst/conf.py
+   :keywords: rst_dir/conf.py
 
-.. index:: sphinx_dir/rst/conf.py
+.. index:: rst_dir/conf.py
 
-.. _auto_file_dev@sphinx_dir/rst/conf.py:
+.. _auto_file_dev@rst_dir/conf.py:
 
-sphinx_dir/rst/conf.py
-**********************
+rst_dir/conf.py
+***************
 This is the configuration file used by sphinx to build the documentation.
 
 .. meta::
-   :keywords: sphinx_dir/rst/index.rst
+   :keywords: rst_dir/index.rst
 
-.. index:: sphinx_dir/rst/index.rst
+.. index:: rst_dir/index.rst
 
-.. _auto_file_dev@sphinx_dir/rst/index.rst:
+.. _auto_file_dev@rst_dir/index.rst:
 
-sphinx_dir/rst/index.rst
-************************
+rst_dir/index.rst
+*****************
 This is the root level in the sphinx documentation tree.
 
-.. literalinclude:: ../../xrst/auto_file.py
-   :lines: 212-221
+.. literalinclude:: ../xrst/auto_file.py
+   :lines: 210-217
    :language: py

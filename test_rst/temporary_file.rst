@@ -122,10 +122,10 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
 -   The first (second) line number is increasing (no-decreasing)
     with respect to *index* .
 
-.. literalinclude:: ../../xrst/temporary_file.py
+.. literalinclude:: ../xrst/temporary_file.py
    :lines: 73-84
    :language: py
 
-.. literalinclude:: ../../xrst/temporary_file.py
+.. literalinclude:: ../xrst/temporary_file.py
    :lines: 136-141
    :language: py

@@ -31,7 +31,7 @@ Literal Command Example
 factorial
 *********
 
-.. literalinclude:: ../../example/literal.cpp
+.. literalinclude:: ../example/literal.cpp
    :lines: 5-5
    :language: cpp
 
@@ -45,7 +45,7 @@ factorial
 square
 ******
 
-.. literalinclude:: ../../example/literal.cpp
+.. literalinclude:: ../example/literal.cpp
    :lines: 13-13
    :language: cpp
 
@@ -59,7 +59,7 @@ square
 tangent
 *******
 
-.. literalinclude:: ../../example/literal.cpp
+.. literalinclude:: ../example/literal.cpp
    :lines: 18-18
    :language: cpp
 
@@ -79,5 +79,5 @@ The file below demonstrates the use of ``xrst_literal`` .
 This Example File
 *****************
 
-.. literalinclude:: ../../example/literal.cpp
+.. literalinclude:: ../example/literal.cpp
    :language: cpp

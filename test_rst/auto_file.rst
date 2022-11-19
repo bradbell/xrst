@@ -17,8 +17,7 @@ xrst input file: ``xrst/auto_file.py``
 
 Automatically Generated Files
 #############################
-These files are located in the *sphinx_dir* ``/rst`` directory; see
-:ref:`run_xrst@sphinx_dir`.
+These files are located in the :ref:`xrst.toml@rst_directory` .
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)
@@ -36,7 +35,7 @@ The files in the ``rst`` subdirectory that do not change are not replaced.
 conf.py
 *******
 This is the sphinx configuration_ file.
-It is the only file in the *sphinx_dir* ``/rst`` directory that is
+It is the only file in the *rst_directory* directory that is
 not an rst file.
 
 .. _configuration:  http://www.sphinx-doc.org/en/master/config

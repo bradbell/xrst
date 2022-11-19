@@ -70,5 +70,5 @@ The file below demonstrates the use of ``xrst_resume`` .
 This Example File
 *****************
 
-.. literalinclude:: ../../example/suspend.py
+.. literalinclude:: ../example/suspend.py
    :language: py

@@ -105,5 +105,5 @@ The file below demonstrates the use of ``xrst_spell``
 This Example File
 *****************
 
-.. literalinclude:: ../../example/spell.xrst
+.. literalinclude:: ../example/spell.xrst
    :language: rst

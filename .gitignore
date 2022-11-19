@@ -8,9 +8,7 @@ temp.*
 # automatically created directories
 /dist/
 /doc/
-/sphinx/rst/
-/sphinx/latex/
-/sphinx/html/
+/rst/
 /new/
 /new.[0-9]*/
 __pycache__/
