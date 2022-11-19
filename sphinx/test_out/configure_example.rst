@@ -23,7 +23,6 @@ These files are used to configure xrst to build its documentation:
    :header:  "Child", "Title"
    :widths: auto
 
-   "spelling", :ref:`spelling-title`
    "keyword", :ref:`keyword-title`
 
 .. contents::
@@ -63,5 +62,4 @@ This Example File
    :maxdepth: 1
    :hidden:
 
-   spelling
    keyword

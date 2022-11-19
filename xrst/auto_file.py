@@ -102,21 +102,12 @@ if html_theme == 'sphinx_book_theme' :
 pattern_macro = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
 pattern_macro = re.compile(pattern_macro)
 #
-def preamble_macros() :
-   #
-   # file_name
-   file_name = 'xrst.toml'
-   if not os.path.isfile(file_name) :
-      return list()
+def preamble_macros(toml_dict) :
    #
    # preamble
-   file_ptr       = open(file_name, 'r')
-   file_data      = file_ptr.read()
-   file_ptr.close()
-   file_dict      = toml.loads(file_data)
-   if not 'preamble' in file_dict :
+   if not 'preamble' in toml_dict :
       return list()
-   preamble = file_dict['preamble']
+   preamble = toml_dict['preamble']
    #
    # m_macro
    m_macro = pattern_macro.search(preamble)
@@ -138,16 +129,23 @@ def preamble_macros() :
 # {xrst_spell
 #     bool
 #     conf
+#     dict
 #     dir
 #     genindex
 #     macros
 #     pinfo
 #     tmp
+#     toml
 # }
 # {xrst_comment_ch #}
 #
 # Create the automatically generated files
 # ########################################
+#
+# toml_dict
+# *********
+# is a python dictionary representation of the xrst.toml file.
+# (It is empty if there is no such file).
 #
 # html_theme
 # **********
@@ -211,9 +209,10 @@ def preamble_macros() :
 # This is the root level in the sphinx documentation tree.
 #
 # {xrst_code py}
-def auto_file(
+def auto_file(toml_dict,
    html_theme, sphinx_dir, tmp_dir, target, pinfo_list, root_page_list
    ) :
+   assert type(toml_dict) == dict
    assert type(html_theme) == str
    assert type(sphinx_dir) == str
    assert type(tmp_dir) == str
@@ -283,7 +282,7 @@ def auto_file(
    #
    # latex
    latex = ''
-   macro_list = preamble_macros()
+   macro_list = preamble_macros(toml_dict)
    for (i, macro) in enumerate(macro_list) :
       latex += "    r'" + macro + "'"
       if i + 1 < len(macro_list) :
@@ -307,18 +306,10 @@ def auto_file(
    # tmp_dir/xrst_preamble.rst
    #
    # file_data
-   file_name = 'xrst.toml'
-   if not os.path.isfile( file_name ) :
-      file_data = ''
+   if 'preamble' in toml_dict :
+      file_data = toml_dict['preamble']
    else :
-      file_ptr  = open(file_name, 'r')
-      file_data = file_ptr.read()
-      file_ptr.close()
-      file_dict = toml.loads(file_data)
-      if 'preamble' in file_dict :
-         file_data = file_dict['preamble']
-      else :
-         file_data = ''
+      file_data = ''
    #
    if target == 'pdf' :
       # remove the latex macros

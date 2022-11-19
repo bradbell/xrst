@@ -103,16 +103,16 @@ words that have a backslash directly before them
 are not include in spell checking.
 
 .. meta::
-   :keywords: spelling
+   :keywords: project_dictionary
 
-.. index:: spelling
+.. index:: project_dictionary
 
-.. _spell_cmd@spelling File:
+.. _spell_cmd@project_dictionary:
 
-spelling File
-*************
+project_dictionary
+******************
 The list of words in the
-:ref:`spelling<run_xrst@sphinx_dir@spelling>` file
+:ref:`xrst.toml@project_dictionary`
 are considered correct spellings for all pages.
 
 .. meta::

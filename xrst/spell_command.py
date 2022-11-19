@@ -55,10 +55,10 @@ Latex commands should not be in the special word list because
 words that have a backslash directly before them
 are not include in spell checking.
 
-spelling File
-*************
+project_dictionary
+******************
 The list of words in the
-:ref:`spelling<run_xrst@sphinx_dir@spelling>` file
+:ref:`xrst.toml@project_dictionary`
 are considered correct spellings for all pages.
 
 Capital Letters

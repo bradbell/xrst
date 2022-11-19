@@ -23,16 +23,6 @@ This Example File
 
 {xrst_end configure_example}
 -----------------------------------------------------------------------------
-{xrst_begin spelling}
-
-The spelling Example File
-#########################
-{xrst_literal
-   sphinx/spelling
-}
-
-{xrst_end spelling}
------------------------------------------------------------------------------
 {xrst_begin keyword}
 
 The keyword Example File

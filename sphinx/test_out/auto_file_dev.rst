@@ -22,6 +22,18 @@ Create the automatically generated files
    :local:
 
 .. meta::
+   :keywords: toml_dict
+
+.. index:: toml_dict
+
+.. _auto_file_dev@toml_dict:
+
+toml_dict
+*********
+is a python dictionary representation of the xrst.toml file.
+(It is empty if there is no such file).
+
+.. meta::
    :keywords: html_theme
 
 .. index:: html_theme
@@ -160,5 +172,5 @@ sphinx_dir/rst/index.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 214-222
+   :lines: 212-221
    :language: py

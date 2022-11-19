@@ -68,7 +68,7 @@ Features
    keyword index in a way that can be configured;
    see :ref:`run_xrst@sphinx_dir@keyword` .
 #. Includes a configurable spell checker; see
-   :ref:`spell_cmd` and :ref:`run_xrst@sphinx_dir@spelling` .
+   :ref:`spell_cmd` and :ref:`xrst.toml@project_dictionary` .
    The spell checker catches double word errors.
 #. Makes it easy to include source code that executes
    directly below the current location; see :ref:`code_cmd` .

@@ -19,8 +19,7 @@ Table of Contents
 |    :ref:`1.10<indent_example>` Indent Example
 |    :ref:`1.11<docstring_example>` Docstring Example
 |    :ref:`1.12<configure_example>` Example Configuration Files
-|       :ref:`1.12.1<spelling>` The spelling Example File
-|       :ref:`1.12.2<keyword>` The keyword Example File
+|       :ref:`1.12.1<keyword>` The keyword Example File
 |    :ref:`1.13<test_example>` Test Special Conditions
 | :ref:`2<purpose>` The Need for xrst
 | :ref:`3<user_guide>` Extract Sphinx RST Files

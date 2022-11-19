@@ -37,8 +37,10 @@ mm-dd
 
 11-19
 =====
-The preamble.rst file was replaced by the
-:ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
+1. The preamble.rst file was replaced by the
+   :ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
+2. The spelling file was replaced by the
+   :ref:`xrst.toml@project_dictionary` section of the ``xrst.toml`` file.
 
 11-18
 =====
@@ -488,8 +490,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 2. Make all file names, except the
    :ref:`run_xrst@root_file`,
    relative to where the root file is located.
-3. The  file names for preamble.rst,
-   :ref:`run_xrst@sphinx_dir@spelling`, and
+3. The  file names for preamble.rst, spelling, and
    :ref:`run_xrst@sphinx_dir@keyword`, are no longer user selectable.
    These names have been removed from the ``xrst``
    :ref:`run_xrst@Syntax` and the corresponding files are optional
