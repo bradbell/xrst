@@ -259,6 +259,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
             file_name=file_name, page_name=page_name, line=child_line
          )
       this_group_name = m_begin.group(4).strip(' \t')
+      if this_group_name == '' :
+         this_group_name = 'default'
       while this_group_name != group_name :
          m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
          if m_begin == None :
@@ -270,6 +272,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
                file_name=file_name, page_name=page_name, line=child_line
             )
          this_group_name = m_begin.group(4).strip(' \t')
+         if this_group_name == '' :
+            this_group_name = 'default'
       #
       # list_children
       found_parent  = m_begin.group(2) == 'begin_parent'
@@ -281,6 +285,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
       #
       while not found_parent and m_begin != None :
          this_group_name = m_begin.group(4).strip(' \t')
+         if this_group_name == '' :
+            this_group_name = 'default'
          if this_group_name == group_name :
             is_parent       = m_begin.group(2) == 'begin_parent'
             if is_parent :

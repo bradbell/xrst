@@ -37,7 +37,7 @@ fi
 mkdir html
 cd    html
 #
-for group_list in ',' ',user,dev'
+for group_list in 'default' 'default,user,dev'
 do
    if [ -e ../rst ]
    then

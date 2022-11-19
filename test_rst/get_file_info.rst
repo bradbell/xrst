@@ -164,9 +164,9 @@ is true (false) if this is (is not) a child of the first page in
 this file.
 
 .. literalinclude:: ../xrst/get_file_info.py
-   :lines: 153-164
+   :lines: 156-167
    :language: py
 
 .. literalinclude:: ../xrst/get_file_info.py
-   :lines: 369-372
+   :lines: 372-375
    :language: py

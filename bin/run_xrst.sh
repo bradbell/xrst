@@ -35,7 +35,7 @@ preamble='sphinx/preamble.rst'
 if [ "$target" == 'html' ]
 then
    echo_eval python -m xrst xrst.xrst \
-      --group ,user \
+      --group default,user \
       $rst_line \
       --html sphinx_book_theme
    echo 'run_xrst.sh: OK'
@@ -44,7 +44,7 @@ fi
 # -----------------------------------------------------------------------------
 # pdf
 # -----------------------------------------------------------------------------
-echo_eval python -m xrst xrst.xrst --group ,user \
+echo_eval python -m xrst xrst.xrst --group default,user \
       --target pdf $rst_line
 #
 # -----------------------------------------------------------------------------

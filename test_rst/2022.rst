@@ -35,19 +35,22 @@ mm-dd
 
 11-19
 =====
-The wish list configuration item was completed using
-:ref:`xrst.toml` .
+1. The :ref:`begin_cmd@group_name@Default Group` is now represented by
+   ``default`` in the :ref:`run_xrst@group_list` command line argument.
 
-#. The output_dir command line argument was replaced by
-   :ref:`xrst.toml@output_directory` in the ``xrst.toml`` file.
-#. The sphinx_dir command line argument was replaced by
-   :ref:`xrst.toml@rst_directory` in the ``xrst.toml`` file.
-#. The preamble.rst file was replaced by the
-   :ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
-#. The spelling file was replaced by the
-   :ref:`xrst.toml@project_dictionary` section of the ``xrst.toml`` file.
-#. The keyword file was replaced by the
-   :ref:`xrst.toml@not_in_index` section of the ``xrst.toml`` file.
+2. The wish list configuration item was completed using
+   :ref:`xrst.toml` .
+
+   #. The output_dir command line argument was replaced by
+      :ref:`xrst.toml@output_directory` in the ``xrst.toml`` file.
+   #. The sphinx_dir command line argument was replaced by
+      :ref:`xrst.toml@rst_directory` in the ``xrst.toml`` file.
+   #. The preamble.rst file was replaced by the
+      :ref:`xrst.toml@preamble` section of the ``xrst.toml`` file.
+   #. The spelling file was replaced by the
+      :ref:`xrst.toml@project_dictionary` section of the ``xrst.toml`` file.
+   #. The keyword file was replaced by the
+      :ref:`xrst.toml@not_in_index` section of the ``xrst.toml`` file.
 
 .. _2022@mm-dd@11-18:
 

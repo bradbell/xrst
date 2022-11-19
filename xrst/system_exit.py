@@ -69,4 +69,5 @@ def system_exit(
    if line != None :
       extra += f'line = {line}\n'
    #
+   breakpoint()
    sys.exit('xrst: Error\n' + msg + extra)

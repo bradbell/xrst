@@ -69,8 +69,18 @@ group_name
 **********
 This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
-If *group_name* is empty, this page is part of the empty group.
-Note that it is the group name and not the group that is empty.
+
+.. meta::
+   :keywords: default, group
+
+.. index:: default, group
+
+.. _begin_cmd@group_name@Default Group:
+
+Default Group
+=============
+The default value for *group_name* is ``default``; i.e.,
+if *group_name* is the empty string, this page is part of the default group.
 
 .. meta::
    :keywords: output

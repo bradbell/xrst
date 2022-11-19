@@ -145,11 +145,10 @@ to include in the output using this optional argument.
 
 #. The *group_list* is a comma separated list of
    :ref:`group names<begin_cmd@group_name>`.
-#. If *group_list* begins or ends with a comma, the empty group is included
-   along with the other groups specified by *group_list*.
-   Note that it is the group name and not the group that is empty.
+#. The :ref:`begin_cmd@group_name@Default Group` is represented by
+   the group name ``default`` .
 #. The order of the groups determines their order in the resulting output.
-#. The default value for *group_list* is ``,`` .
+#. The default value for *group_list* is ``default`` .
 
 The xrst examples are a subset of its user documentation
 and its user documentation is a subset of its developer documentation.

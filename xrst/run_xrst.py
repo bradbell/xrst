@@ -89,11 +89,10 @@ to include in the output using this optional argument.
 
 #. The *group_list* is a comma separated list of
    :ref:`group names<begin_cmd@group_name>`.
-#. If *group_list* begins or ends with a comma, the empty group is included
-   along with the other groups specified by *group_list*.
-   Note that it is the group name and not the group that is empty.
+#. The :ref:`begin_cmd@group_name@Default Group` is represented by
+   the group name ``default`` .
 #. The order of the groups determines their order in the resulting output.
-#. The default value for *group_list* is ``,`` .
+#. The default value for *group_list* is ``default`` .
 
 The xrst examples are a subset of its user documentation
 and its user documentation is a subset of its developer documentation.
@@ -311,7 +310,7 @@ def run_xrst() :
       choices=[ 'furo', 'sphinx_rtd_theme', 'sphinx_book_theme' ]
    )
    parser.add_argument(
-      '--group', metavar='group_list', default=',',
+      '--group', metavar='group_list', default='default',
       help='comma separated list of groups to include (default: ,)'
    )
    parser.add_argument(
@@ -375,10 +374,7 @@ def run_xrst() :
    #
    # group_list
    group_list = arguments.group
-   if group_list == ',' :
-      group_list = [ '' ]
-   else :
-      group_list = group_list.split(',')
+   group_list = group_list.split(',')
    #
    # target
    target = arguments.target

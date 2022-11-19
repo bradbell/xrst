@@ -35,8 +35,11 @@ group_name
 **********
 This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
-If *group_name* is empty, this page is part of the empty group.
-Note that it is the group name and not the group that is empty.
+
+Default Group
+=============
+The default value for *group_name* is ``default``; i.e.,
+if *group_name* is the empty string, this page is part of the default group.
 
 Output File
 ***********
@@ -202,7 +205,7 @@ def get_file_info(
          this_group_name = m_begin.group(4)
          m_group         = pattern_group_name.search(this_group_name)
          if m_group == None :
-            this_group_name = ''
+            this_group_name = 'default'
          else :
             this_group_name = m_group.group(0)
             m_group    = pattern_group_valid.search(this_group_name)

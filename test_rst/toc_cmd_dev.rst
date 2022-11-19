@@ -133,5 +133,5 @@ pages in the file are in child_page_list.
    :language: py
 
 .. literalinclude:: ../xrst/toc_commands.py
-   :lines: 316-324
+   :lines: 322-330
    :language: py
