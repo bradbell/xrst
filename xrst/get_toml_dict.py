@@ -1,5 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+# -----------------------------------------------------------------------------
+import toml
+# -----------------------------------------------------------------------------
 '''
 {xrst_begin toml_file user}
 {xrst_spell
@@ -94,7 +97,7 @@ project_dictionary
 The value corresponding to this key is list of a strings.
 Each string contains a newline separated list of words.
 Leading and trailing white space is not part of each word.
-These special words are not considered spelling errors for th entire project.
+These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 The default value for this key is
@@ -149,22 +152,30 @@ for key in dir() :
       key_list.append(key)
 #
 # {xrst_begin get_toml_dict dev}
+# {xrst_comment_ch #}
+# {xrst_spell
+#     toml
+#     dict
+# }
 #
 # Get Configuration Dictionary
 # ############################
 #
 # toml_file
+# *********
 # is the :ref:`toml_file` corresponding to the configuration.
 #
 # toml_dict
-# is the python dictionary corresonding to the toml file with the defaults
-# filled in. All of the values in the dictionary have been check for the
+# *********
+# is the python dictionary corresponding to the toml file with the defaults
+# filled in. All of the values in the dictionary have been check for
 # the proper type. This includes recursive checking; e.g. a list is checked
 # to make sure its elements have the proper type.
 #
 # {xrst_code py}
+# toml_dict =
 def get_toml_dict(toml_file) :
-   assert type(toml_file) == 'str'
+   assert type(toml_file) == str
    # {xrst_code}
    # {xrst_literal
    #     BEGIN_RETURN
@@ -199,7 +210,7 @@ def get_toml_dict(toml_file) :
    #
    # output_directory
    value = toml_dict['output_directory']
-   if set( value.keys() ) != { 'html', 'pdf' }
+   if set( value.keys() ) != { 'html', 'pdf' } :
       msg  = f'toml_file = {toml_file}\n'
       msg += 'output_directory.keys() = '
       msg += str( value.keys() )
@@ -227,6 +238,6 @@ def get_toml_dict(toml_file) :
          xrst.system_exit(msg)
    #
    # BEGIN_RETURN
-   assert type(toml_dict) == dict()
+   assert type(toml_dict) == dict
    return toml_dict
    # END_RETURN

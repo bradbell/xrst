@@ -49,8 +49,8 @@ Table of Contents
 |       :ref:`4.1.5<code_cmd_dev>` Process the xrst code commands for a page
 |       :ref:`4.1.6<comment_cmd_dev>` Remove all comment commands
 |       :ref:`4.1.7<create_spell_checker>` Create a pyspellchecker object
-|       :ref:`4.1.8<file2_list_str>` Convert lines in a file to a list of strings
-|       :ref:`4.1.9<get_file_info>` Get information for all pages in a file
+|       :ref:`4.1.8<get_file_info>` Get information for all pages in a file
+|       :ref:`4.1.9<get_toml_dict>` Get Configuration Dictionary
 |       :ref:`4.1.10<literal_cmd_dev>` Process the literal commands in a page
 |       :ref:`4.1.11<newline_indices>` Find index of all the newlines in a string
 |       :ref:`4.1.12<next_heading>` Return location of the next heading in a page

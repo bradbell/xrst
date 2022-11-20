@@ -381,24 +381,13 @@ def run_xrst() :
    #
    # toml_dict
    toml_file  = 'xrst.toml'
-   if not os.path.isfile( toml_file ) :
-      toml_dict = dict()
-   else :
-      file_ptr  = open(toml_file, 'r')
-      file_data = file_ptr.read()
-      toml_dict = toml.loads(file_data)
+   toml_dict  = xrst.get_toml_dict( toml_file )
    #
    # output_dir
-   if 'output_directory' in toml_dict :
-      output_directory = toml_dict['output_directory'][target]
-   else :
-      output_directory = target
+   output_directory = toml_dict['output_directory'][target]
    #
    # rst_directory
-   if 'rst_directory' in toml_dict :
-      rst_directory = toml_dict['rst_directory']
-   else :
-      rst_directory = 'rst'
+   rst_directory = toml_dict['rst_directory']
    if rst_directory[0] == '/' :
       msg  = 'rst_directory = ' + rst_directory + '\n'
       msg += 'must be a path relative to current workding directory'
@@ -420,32 +409,20 @@ def run_xrst() :
    #
    # spell_checker
    spell_list  = list()
-   if 'project_dictionary' in toml_dict :
-      for entry in toml_dict['project_dictionary'] :
-         if not type(entry) == str :
-            msg  = 'xrst.toml: project_dictionary '
-            msg += 'the following entry is not a string\n'
-            msg += str(entry)
-            xrst.system_exit(msg)
-         word_list = entry.split('\n')
-         for word in word_list :
-            word = word.strip(' \t')
-            spell_list.append(word)
+   for entry in toml_dict['project_dictionary'] :
+      word_list = entry.split('\n')
+      for word in word_list :
+         word = word.strip(' \t')
+         spell_list.append(word)
    spell_checker = xrst.create_spell_checker(spell_list)
    #
    # not_in_index_list
    not_in_index_list = list()
-   if 'not_in_index' in toml_dict :
-      for entry in toml_dict['not_in_index'] :
-         if not type(entry) == str :
-            msg  = 'xrst.toml: not_in_index '
-            msg += 'the following entry is not a string\n'
-            msg += str(entry)
-            xrst.system_exit(msg)
-         pattern_list = entry.split('\n')
-         for pattern in pattern_list :
-            pattern = pattern.strip(' \t')
-            not_in_index_list.append( re.compile(pattern) )
+   for entry in toml_dict['not_in_index'] :
+      pattern_list = entry.split('\n')
+      for pattern in pattern_list :
+         pattern = pattern.strip(' \t')
+         not_in_index_list.append( re.compile(pattern) )
    # -------------------------------------------------------------------------
    #
    # root_local

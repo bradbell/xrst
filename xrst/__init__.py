@@ -17,8 +17,8 @@
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/create_spell_checker.py
-#  xrst/file2_list_str.py
 #  xrst/get_file_info.py
+#  xrst/get_toml_dict.py
 #  xrst/literal_command.py
 #  xrst/newline_indices.py
 #  xrst/next_heading.py
@@ -54,8 +54,8 @@ from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
-from .file2_list_str         import file2_list_str
 from .get_file_info          import get_file_info
+from .get_toml_dict          import get_toml_dict
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading

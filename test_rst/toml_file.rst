@@ -44,7 +44,7 @@ uses the same name for the output directory.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 30-33
+   :lines: 32-35
    :language: toml
 
 .. _toml_file@output_directory@Example:
@@ -77,7 +77,7 @@ is not added at the end.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 57-57
+   :lines: 59-59
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -111,7 +111,7 @@ following python regular expression:
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 82-82
+   :lines: 84-84
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -135,13 +135,13 @@ project_dictionary
 The value corresponding to this key is list of a strings.
 Each string contains a newline separated list of words.
 Leading and trailing white space is not part of each word.
-These special words are not considered spelling errors this entire project.
+These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 103-103
+   :lines: 105-105
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -178,7 +178,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 131-131
+   :lines: 133-133
    :language: toml
 
 .. _toml_file@not_in_index@Example:

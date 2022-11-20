@@ -103,8 +103,6 @@ pattern_macro = re.compile(pattern_macro)
 def preamble_macros(toml_dict) :
    #
    # preamble
-   if not 'preamble' in toml_dict :
-      return list()
    preamble = toml_dict['preamble']
    #
    # m_macro
@@ -219,10 +217,7 @@ def auto_file(
    # {xrst_end auto_file_dev}
    #
    # rst_dir
-   if 'rst_directory' in toml_dict :
-      rst_dir = toml_dict['rst_directory']
-   else :
-      rst_dir = 'rst'
+   rst_dir = toml_dict['rst_directory']
    #
    # tmp_dir
    tmp_dir = f'{rst_dir}/tmp'
@@ -311,10 +306,7 @@ def auto_file(
    # tmp_dir/xrst_preamble.rst
    #
    # file_data
-   if 'preamble' in toml_dict :
-      file_data = toml_dict['preamble']
-   else :
-      file_data = ''
+   file_data = toml_dict['preamble']
    #
    if target == 'pdf' :
       # remove the latex macros
