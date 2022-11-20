@@ -112,7 +112,7 @@ are not include in spell checking.
 project_dictionary
 ******************
 The list of words in the
-:ref:`xrst.toml@project_dictionary`
+:ref:`toml_file@project_dictionary`
 are considered correct spellings for all pages.
 
 .. meta::

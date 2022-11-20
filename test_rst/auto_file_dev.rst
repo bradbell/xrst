@@ -134,7 +134,7 @@ to this page.
 
 tmp_dir/xrst_preamble.rst
 *************************
-The data in :ref:`xrst.toml@preamble` is placed in this file.
+The data in :ref:`toml_file@preamble` is placed in this file.
 If target is html (pdf) the latex macros are (are not) included.
 
 .. meta::

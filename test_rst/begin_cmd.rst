@@ -95,7 +95,7 @@ The output file corresponding to *page_name* is
 
    *rst_directory*\ /\ *page_name*\ /``.rst``
 
-see :ref:`xrst.toml@rst_directory` .
+see :ref:`toml_file@rst_directory` .
 
 .. meta::
    :keywords: parent, page

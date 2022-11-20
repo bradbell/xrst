@@ -30,4 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|not_keyword|not_in_index|g
+s|xrst.toml@|toml_file@|g
+s|`xrst.toml`|`toml_file`|g

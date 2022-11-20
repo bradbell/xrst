@@ -17,7 +17,7 @@ xrst input file: ``xrst/auto_file.py``
 
 Automatically Generated Files
 #############################
-These files are located in the :ref:`xrst.toml@rst_directory` .
+These files are located in the :ref:`toml_file@rst_directory` .
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)
@@ -96,7 +96,7 @@ This file is not created when target is pdf.
 
 xrst_preamble.rst
 *****************
-If :ref:`xrst.toml@preamble` does not exist,
+If :ref:`toml_file@preamble` does not exist,
 this file is empty.
 Otherwise this file is a copy of the string corresponding to preamble.
 If the

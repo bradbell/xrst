@@ -57,9 +57,9 @@ Features
    into one page of the documentation.
 #. Words in each heading are automatically included in the
    index in a way that can be configured;
-   see :ref:`xrst.toml@not_in_index` .
+   see :ref:`toml_file@not_in_index` .
 #. Includes a configurable spell checker; see
-   :ref:`spell_cmd` and :ref:`xrst.toml@project_dictionary` .
+   :ref:`spell_cmd` and :ref:`toml_file@project_dictionary` .
    The spell checker catches double word errors.
 #. Makes it easy to include source code that executes
    directly below the current location; see :ref:`code_cmd` .

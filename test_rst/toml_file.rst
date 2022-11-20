@@ -1,27 +1,28 @@
 .. include:: xrst_preamble.rst
 
-.. _xrst.toml:
+.. _toml_file:
 
 !!!!!!!!!
-xrst.toml
+toml_file
 !!!!!!!!!
 
-xrst input file: ``xrst.toml``
+xrst input file: ``xrst/get_toml_dict.py``
 
 .. meta::
-   :keywords: xrst.toml, configuration, xrst
+   :keywords: toml_file, configuration, xrst
 
-.. index:: xrst.toml, configuration, xrst
+.. index:: toml_file, configuration, xrst
 
-.. _xrst.toml-title:
+.. _toml_file-title:
 
 Configuration File for xrst
 ###########################
-This toml file represents a python dictionary that configures xrst.
-All of its keys are strings.
-If a key has a default value, it is used when the key is not present,
+A toml file is used to configure xrst.
+This file represents a python dictionary
+If a key has a default value, it is used when the key is not present
+in the toml file.
 All of the directories mentioned below are relative to the directory
-where this file is located.
+where the toml file is located.
 
 .. contents::
    :local:
@@ -31,27 +32,28 @@ where this file is located.
 
 .. index:: output_directory
 
-.. _xrst.toml@output_directory:
+.. _toml_file@output_directory:
 
 output_directory
 ****************
-The default value for this key is
-::
-
-  { 'html' : 'html' , 'pdf' : 'pdf' }
-
-The value is a dictionary that maps the :ref:`run_xrst@target` to the
+The value corresponding to this key is a dictionary that maps the
+:ref:`run_xrst@target` to the
 directory where the final output is stored. Note that the possible values
 for *target* are ``'html'`` and ``'pdf'`` and that the default
 uses the same name for the output directory.
+The default value for this key is
 
-.. _xrst.toml@output_directory@Example:
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 30-33
+   :language: toml
+
+.. _toml_file@output_directory@Example:
 
 Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 36-37
+   :lines: 5-7
    :language: toml
 
 .. meta::
@@ -59,12 +61,11 @@ Example
 
 .. index:: rst_directory
 
-.. _xrst.toml@rst_directory:
+.. _toml_file@rst_directory:
 
 rst_directory
 *************
-The default value for this key is ``'rst'`` .
-The value is a string specifying the
+The value corresponding to this key is a string specifying the
 directory where xrst writes the rst files it extracts from the source code.
 For each :ref:`begin_cmd@page_name` , the file
 
@@ -73,14 +74,19 @@ For each :ref:`begin_cmd@page_name` , the file
 is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
+The default value for this key is
 
-.. _xrst.toml@rst_directory@Example:
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 57-57
+   :language: toml
+
+.. _toml_file@rst_directory@Example:
 
 Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 56-56
+   :lines: 11-12
    :language: toml
 
 .. meta::
@@ -88,13 +94,13 @@ Example
 
 .. index:: preamble
 
-.. _xrst.toml@preamble:
+.. _toml_file@preamble:
 
 preamble
 ********
-If this key is present, its value is a string representation of the
+The value corresponding to this key is a string specifying the
 preamble.rst file.
-This file is included at the beginning of every page.
+This file is included at the beginning of every xrst output page.
 It should only define things, it should not generate any output.
 The Latex macros in this file can be used by any page.
 There must be one macro definition per line and each such line must match the
@@ -102,13 +108,19 @@ following python regular expression:
 
    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
-.. _xrst.toml@preamble@Example:
+The default value for this key is
+
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 82-82
+   :language: toml
+
+.. _toml_file@preamble@Example:
 
 Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 120-135
+   :lines: 16-31
    :language: toml
 
 .. meta::
@@ -116,24 +128,29 @@ Example
 
 .. index:: project_dictionary
 
-.. _xrst.toml@project_dictionary:
+.. _toml_file@project_dictionary:
 
 project_dictionary
 ******************
-If this key is present, the value is a list of strings.
+The value corresponding to this key is list of a strings.
 Each string contains a newline separated list of words.
 Leading and trailing white space is not part of each word.
 These special words are not considered spelling errors this entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
+The default value for this key is
 
-.. _xrst.toml@project_dictionary@Example:
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 103-103
+   :language: toml
+
+.. _toml_file@project_dictionary@Example:
 
 Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 139-154
+   :lines: 35-50
    :language: toml
 
 .. meta::
@@ -141,11 +158,11 @@ Example
 
 .. index:: not_in_index
 
-.. _xrst.toml@not_in_index:
+.. _toml_file@not_in_index:
 
 not_in_index
 ************
-If this key is present, the value is a list of strings.
+The value corresponding to this key is list of a strings.
 Each string  contains a newline separated list of patterns.
 Leading and trailing white space is not part of each pattern.
 These are python regular expression patterns for heading tokens
@@ -158,12 +175,17 @@ In this case you could have a line containing just ``the`` .
 For another example, you might want to exclude all tokens that are
 integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
+The default value for this key is
 
-.. _xrst.toml@not_in_index@Example:
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 131-131
+   :language: toml
+
+.. _toml_file@not_in_index@Example:
 
 Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 158-182
+   :lines: 54-78
    :language: toml

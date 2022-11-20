@@ -74,7 +74,7 @@ Run Program
 Contents
 ********
 
--  :ref:`xrst.toml-title`
+-  :ref:`toml_file-title`
 -  :ref:`run_xrst-title`
 -  :ref:`commands-title`
 -  :ref:`automatic-title`
@@ -85,7 +85,7 @@ Contents
    :maxdepth: 1
    :hidden:
 
-   xrst.toml
+   toml_file
    run_xrst
    commands
    automatic

@@ -21,7 +21,7 @@ Table of Contents
 |    :ref:`1.12<test_example>` Test Special Conditions
 | :ref:`2<purpose>` The Need for xrst
 | :ref:`3<user_guide>` Extract Sphinx RST Files
-|    :ref:`3.1<xrst.toml>` Configuration File for xrst
+|    :ref:`3.1<toml_file>` Configuration File for xrst
 |    :ref:`3.2<run_xrst>` Run Extract Sphinx RST And Sphinx
 |    :ref:`3.3<commands>` Commands
 |       :ref:`3.3.1<begin_cmd>` Begin and End Commands
