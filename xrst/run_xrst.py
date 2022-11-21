@@ -41,10 +41,12 @@ For each group name in the *group_list*
 there must be at least one xrst page in corresponding
 :ref:`toml_file@root_file` .
 
-root_directory
-==============
-All of the xrst file references are relative to the directory where
-the *toml_file* is located.
+project_directory
+=================
+All of the xrst file references are relative to
+We use *project_directory* to denote the directory
+where the *toml_file* is located.
+All of the xrst file references are relative to this directory.
 
 replace_spell_commands
 **********************
@@ -328,7 +330,7 @@ def run_xrst() :
       sys.exit(0)
    #
    # toml_file
-   # can not use system_exit until os.getcwd() returns root_directory
+   # can not use system_exit until os.getcwd() returns project_directory
    toml_file = arguments.toml_file
    if toml_file == None :
       msg  = 'xsrst: Error\n'
@@ -344,15 +346,15 @@ def run_xrst() :
          msg += execution_directory
       sys.exit(msg)
    #
-   # root_directory
+   # project_directory
    index = toml_file.rfind('/')
    if index < 0 :
-      root_directory = '.'
+      project_directory = '.'
    elif index == 0 :
-      root_directory = '/'
+      project_directory = '/'
    elif 0 < index :
-      root_directory = toml_file[: index]
-   os.chdir(root_directory)
+      project_directory = toml_file[: index]
+   os.chdir(project_directory)
    #
    # replace_spell_commands
    replace_spell_commands = arguments.replace_spell_commands

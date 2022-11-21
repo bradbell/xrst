@@ -31,6 +31,17 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-20:
+
+11-20
+=====
+1. Change the root_file command line argument to
+   :ref:`run_xrst@toml_path` .
+2. Add :ref:`toml_file@project_name` and :ref:`toml_file@root_file`
+   to the toml file.
+3. Use the notation :ref:`run_xrst@toml_path@project_directory`
+   for the directory that all the xrst file name are relative to.
+
 .. _2022@mm-dd@11-19:
 
 11-19

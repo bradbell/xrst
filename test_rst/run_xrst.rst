@@ -63,16 +63,18 @@ there must be at least one xrst page in corresponding
 :ref:`toml_file@root_file` .
 
 .. meta::
-   :keywords: root_directory
+   :keywords: project_directory
 
-.. index:: root_directory
+.. index:: project_directory
 
-.. _run_xrst@toml_path@root_directory:
+.. _run_xrst@toml_path@project_directory:
 
-root_directory
-==============
-All of the xrst file references are relative to the directory where
-the *toml_file* is located.
+project_directory
+=================
+All of the xrst file references are relative to
+We use *project_directory* to denote the directory
+where the *toml_file* is located.
+All of the xrst file references are relative to this directory.
 
 .. meta::
    :keywords: replace_spell_commands

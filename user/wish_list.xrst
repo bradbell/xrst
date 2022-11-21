@@ -24,7 +24,7 @@ and not include tabs in any of the processing after that.
 Path
 ****
 It would be nice to have a way, in sphinx, to make file names relative
-to the :ref:`run_xrst@toml_path@root_directory` .
+to the :ref:`run_xrst@toml_path@project_directory` .
 
 Sphinx Error Messages
 *********************

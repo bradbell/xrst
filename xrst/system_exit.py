@@ -55,8 +55,8 @@ def system_exit(
    # {xrst_end system_exit}
    #
    # extra
-   root_directory = os.getcwd()
-   extra          = f'\nroot_directory = {root_directory}\n'
+   project_directory = os.getcwd()
+   extra          = f'\nproject_directory = {project_directory}\n'
    #
    if page_name :
       extra += f'page = {page_name}\n'

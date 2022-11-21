@@ -29,7 +29,7 @@ fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
 # html
-# run from html directory so that root_directory is not working directory
+# run from html directory so that project_directory is not working directory
 if [ -e html ]
 then
    rm -r html

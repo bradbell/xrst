@@ -30,5 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|xrst.toml@|toml_file@|g
-s|`xrst.toml`|`toml_file`|g
+s|root_directory|project_directory|g

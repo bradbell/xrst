@@ -28,7 +28,7 @@ This file represents a python dictionary
    If a value is has components, all of the comments have the same
    type as the default components.
 #. All of the directories mentioned below are relative to the
-   :ref:`run_xrst@toml_path@root_directory`;
+   :ref:`run_xrst@toml_path@project_directory`;
    i.e.; the directory where the toml file is located.
 
 .. contents::
