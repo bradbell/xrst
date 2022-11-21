@@ -17,53 +17,34 @@ xrst input file: ``example/suspend.py``
 
 Suspend Command Example
 #######################
+This example was taken from the xrst configure file documentation.
+It displays a default value using toml file format and
+implements this default using python that is not in the documentation.
 
 .. contents::
    :local:
 
 .. meta::
-   :keywords: factorial
+   :keywords: output_directory
 
-.. index:: factorial
+.. index:: output_directory
 
-.. _suspend_example@Factorial:
+.. _suspend_example@output_directory:
 
-Factorial
-*********
-*f* = ``factorial(`` *positive_integer* ``)``
+output_directory
+****************
+The value corresponding to this key is a dictionary that maps the
+*target* command line argument to
+the directory where the final output is stored .
+The default value for this key is
 
-.. meta::
-   :keywords: product
+.. literalinclude:: ../example/suspend.py
+   :lines: 24-25
+   :language: toml
 
-.. index:: product
-
-.. _suspend_example@Product:
-
-Product
-*******
-*p* = ``product(`` *iterable* ``)``
-
-.. meta::
-   :keywords: xrst_suspend
-
-.. index:: xrst_suspend
-
-.. _suspend_example@xrst_suspend:
-
-xrst_suspend
-************
-The file below demonstrates the use of ``xrst_suspend`` .
-
-.. meta::
-   :keywords: xrst_resume
-
-.. index:: xrst_resume
-
-.. _suspend_example@xrst_resume:
-
-xrst_resume
-***********
-The file below demonstrates the use of ``xrst_resume`` .
+Note that the possible values
+for *target* are ``'html'`` and ``'pdf'`` and that the default
+uses the same name for the output directory.
 
 .. _suspend_example@This Example File:
 

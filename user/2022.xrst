@@ -43,6 +43,8 @@ mm-dd
 2. Use ``xrst.toml`` as the default value for :ref:`run_xrst@toml_path` .
 3. Change the command link argument flags to use full names; i.e.,
    change --html -> --html_theme and --group -> --group_list .
+4. Change the :ref:`suspend_example` to demonstrate documenting
+   in one language and implementing in a different language.
 
 11-20
 =====

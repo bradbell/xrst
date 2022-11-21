@@ -87,10 +87,8 @@ directory where the final output is stored .
 The default value for this key is
 
 {xrst_code toml}
-output_directory = {
-   'html' : 'html' ,
-   'pdf' : 'pdf'   ,
-}
+output_directory.html = 'html'
+output_directory.pdf  = 'pdf'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['output_directory'] = {

@@ -109,7 +109,7 @@ directory where the final output is stored .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 90-93
+   :lines: 90-91
    :language: toml
 
 Note that the possible values
@@ -146,7 +146,7 @@ is not added at the end.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 127-127
+   :lines: 125-125
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -192,7 +192,7 @@ following python regular expression:
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 160-160
+   :lines: 158-158
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -222,7 +222,7 @@ Special words, for a particular page, are specified using the
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 185-185
+   :lines: 183-183
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -259,7 +259,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 216-216
+   :lines: 214-214
    :language: toml
 
 .. _toml_file@not_in_index@Example:

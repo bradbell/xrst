@@ -64,6 +64,9 @@ Features
    to signify start and stop of the inclusion.
    This makes it easy to move things, like function prototypes,
    to different places in the documentation.
+#. It is possible to document a feature using one language
+   and implement the feature using a different language; e.g.,
+   see `suspend_example` .
 #. The rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
    while also having long descriptive titles.
@@ -76,5 +79,3 @@ Features
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels.
-#. Documentation for one page can span multiple locations
-   in source code; see :ref:`suspend_cmd`.
