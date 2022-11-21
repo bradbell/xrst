@@ -11,7 +11,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 The Need for xrst
 #################
 
-This is a pseudo sphinx extension that provides the features listed below.
+This is a sphinx wrapper that provides the features listed below.
 It was motivated by cases like the GNU Scientific library,
 which is not written in python, uses sphinx, and has its documentation
 in separate files from the corresponding source code; see `gsl doc`_ .
@@ -23,8 +23,8 @@ some of the drawbacks.
 
 Features
 ********
-#. Makes it easy to put documentation in source code comments
-   when multiple computer languages are used by one package;
+#. Makes it easy to put documentation in source code comments,
+   even when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd` .
 #. Multiple pages can be specified in one
    input file and one page can be the parent for the
@@ -32,15 +32,10 @@ Features
 #. One can build subsets of the documentation; e.g., user, developer,
    examples. Pages for different subsets can be in the
    same input file; see :ref:`run_xrst@group_list`.
-#. Documentation for one page can span multiple locations
-   in source code; see :ref:`suspend_cmd`.
-#. Organizes the contents tree
-   for pages using commands that include files;
-   see :ref:`toc_cmd`. This enables one to group multiple functions or classes
-   into one page of the documentation.
 #. Words in each heading are automatically included in the
    index in a way that can be configured;
    see :ref:`toml_file@not_in_index` .
+   These words are also automatically included as html keyword meta data.
 #. Includes a configurable spell checker; see
    :ref:`spell_cmd` and :ref:`toml_file@project_dictionary` .
    The spell checker catches double word errors.
@@ -64,6 +59,8 @@ Features
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels.
+#. Documentation for one page can span multiple locations
+   in source code; see :ref:`suspend_cmd`.
 
 {xrst_end purpose}
 ----------------------------------------------------------------------------
