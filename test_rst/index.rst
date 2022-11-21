@@ -10,5 +10,5 @@ xrst
    example
    purpose
    user_guide
-   devel
+   module
    xrst_index

@@ -40,32 +40,31 @@ Table of Contents
 |    :ref:`3.6<release_notes>` xrst Release Notes By Year
 |       :ref:`3.6.1<2022>` xrst Release Notes for 2022
 |       :ref:`3.6.2<2021>` xrst Release Notes for 2021
-| :ref:`4<devel>` Developer Documentation
-|    :ref:`4.1<module>` The xrst Module
-|       :ref:`4.1.1<add_line_numbers>` Add Line Numbers to File Data
-|       :ref:`4.1.2<auto_file_dev>` Create the automatically generated files
-|       :ref:`4.1.3<check_page_name>` Check the rules for a page name
-|       :ref:`4.1.4<check_syntax_error>` Check that an xrst command has been removed
-|       :ref:`4.1.5<code_cmd_dev>` Process the xrst code commands for a page
-|       :ref:`4.1.6<comment_cmd_dev>` Remove all comment commands
-|       :ref:`4.1.7<create_spell_checker>` Create a pyspellchecker object
-|       :ref:`4.1.8<get_file_info>` Get information for all pages in a file
-|       :ref:`4.1.9<get_toml_dict>` Get Configuration Dictionary
-|       :ref:`4.1.10<literal_cmd_dev>` Process the literal commands in a page
-|       :ref:`4.1.11<newline_indices>` Find index of all the newlines in a string
-|       :ref:`4.1.12<next_heading>` Return location of the next heading in a page
-|       :ref:`4.1.13<xrst.pattern>` The xrst.pattern Dictionary
-|       :ref:`4.1.14<process_children>` Add child information to a page
-|       :ref:`4.1.15<process_headings>` Add labels and index entries for headings
-|       :ref:`4.1.16<remove_indent>` Remove indentation for a page
-|       :ref:`4.1.17<remove_line_numbers>` Remove the number numbers
-|       :ref:`4.1.18<replace_page_number>` Replace page number commands
-|       :ref:`4.1.19<replace_spell>` Replace spelling commands
-|       :ref:`4.1.20<spell_cmd_dev>` Process the spell command for a page
-|       :ref:`4.1.21<sphinx_label>` Get Labels Declared Using Sphinx Commands
-|       :ref:`4.1.22<start_stop_file>` Convert literal command start, stop from text to line numbers
-|       :ref:`4.1.23<suspend_cmd_dev>` Remove text specified by suspend / resume pairs
-|       :ref:`4.1.24<system_exit>` Form error message and exit
-|       :ref:`4.1.25<table_of_contents>` Create the table of contents
-|       :ref:`4.1.26<temporary_file>` Write the temporary RST file for a page
-|       :ref:`4.1.27<toc_cmd_dev>` Get file and page names for children of this page
+| :ref:`4<module>` The xrst Module
+|    :ref:`4.1<add_line_numbers>` Add Line Numbers to File Data
+|    :ref:`4.2<auto_file_dev>` Create the automatically generated files
+|    :ref:`4.3<check_page_name>` Check the rules for a page name
+|    :ref:`4.4<check_syntax_error>` Check that an xrst command has been removed
+|    :ref:`4.5<code_cmd_dev>` Process the xrst code commands for a page
+|    :ref:`4.6<comment_cmd_dev>` Remove all comment commands
+|    :ref:`4.7<create_spell_checker>` Create a pyspellchecker object
+|    :ref:`4.8<get_file_info>` Get information for all pages in a file
+|    :ref:`4.9<get_toml_dict>` Get Configuration Dictionary
+|    :ref:`4.10<literal_cmd_dev>` Process the literal commands in a page
+|    :ref:`4.11<newline_indices>` Find index of all the newlines in a string
+|    :ref:`4.12<next_heading>` Return location of the next heading in a page
+|    :ref:`4.13<xrst.pattern>` The xrst.pattern Dictionary
+|    :ref:`4.14<process_children>` Add child information to a page
+|    :ref:`4.15<process_headings>` Add labels and index entries for headings
+|    :ref:`4.16<remove_indent>` Remove indentation for a page
+|    :ref:`4.17<remove_line_numbers>` Remove the number numbers
+|    :ref:`4.18<replace_page_number>` Replace page number commands
+|    :ref:`4.19<replace_spell>` Replace spelling commands
+|    :ref:`4.20<spell_cmd_dev>` Process the spell command for a page
+|    :ref:`4.21<sphinx_label>` Get Labels Declared Using Sphinx Commands
+|    :ref:`4.22<start_stop_file>` Convert literal command start, stop from text to line numbers
+|    :ref:`4.23<suspend_cmd_dev>` Remove text specified by suspend / resume pairs
+|    :ref:`4.24<system_exit>` Form error message and exit
+|    :ref:`4.25<table_of_contents>` Create the table of contents
+|    :ref:`4.26<temporary_file>` Write the temporary RST file for a page
+|    :ref:`4.27<toc_cmd_dev>` Get file and page names for children of this page

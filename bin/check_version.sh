@@ -22,12 +22,12 @@ then
    exit 1
 fi
 #
-# xrst.xrst
+# user/user.xrst
 # check length of underline
 pattern='^Version [0-9]\{4\}[.][0-9]\{1,2\}[.][0-9]\{1,2\}$'
-if ! grep "$pattern" xrst.xrst > /dev/null
+if ! grep "$pattern" user/user.xrst > /dev/null
 then
-   echo "check_version.sh: can't find following pattern in xrst.xrst"
+   echo "check_version.sh: can't find following pattern in user/user.xrst"
    echo "$pattern"
    exit 1
 fi
@@ -37,13 +37,13 @@ N
 p
 : end
 EOF
-header_text=$(sed -n -f temp.sed xrst.xrst | head -1)
-header_underline=$(sed -n -f temp.sed xrst.xrst | tail -1)
+header_text=$(sed -n -f temp.sed user/user.xrst | head -1)
+header_underline=$(sed -n -f temp.sed user/user.xrst | tail -1)
 text_length=${#header_text}
 underline_length=${#header_underline}
 if [ "$text_length" != "$underline_length" ]
 then
-   echo 'Underline not same length as header in xrst.xrst'
+   echo 'Underline not same length as header in user/user.xrst'
    echo "$header_text"
    echo "$header_underline"
    exit 1

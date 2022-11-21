@@ -1,0 +1,23 @@
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+----------------------------------------------------------------------------
+{xrst_begin example default}
+
+Examples
+########
+{xrst_toc_list
+   example/get_started.xrst
+   example/literal.cpp
+   example/toc_list.xrst
+   example/spell.xrst
+   example/suspend.py
+   example/code.py
+   example/comment.r
+   example/comment_ch.m
+   example/heading.py
+   example/indent.py
+   example/docstring.py
+   example/test.py
+}
+
+{xrst_end example}

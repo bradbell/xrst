@@ -223,13 +223,7 @@ def auto_file(
    tmp_dir = f'{rst_dir}/tmp'
    #
    # project_name
-   project_name = pinfo_list[0]['file_in']
-   index   = project_name.rfind('/')
-   if 0 <= index and index + 1 < len(project_name) :
-      project_name = project_name[index + 1 :]
-   index   = project_name.rfind('.')
-   if 0 < index :
-      project_name = project_name[: index ]
+   project_name = toml_dict['project_name']
    #
    # ------------------------------------------------------------------------
    # tmp_dir/xrst_table_of_contents.rst

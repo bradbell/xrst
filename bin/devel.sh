@@ -12,8 +12,7 @@ image_link='https://bradbell.github.io/'
 # List of files, besides CMakeLists.txt, that have have a copy of the
 # version number (can be empty).
 version_files='
-   xrst.xrst
-   xrst/run_xrst.py
+   user/user.xrst
    test_rst/user_guide.rst
 '
 #

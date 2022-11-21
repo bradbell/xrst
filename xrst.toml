@@ -6,9 +6,9 @@ project_name = 'xrst'
 # END_PROJECT_NAME
 #
 # BEGIN_ROOT_FILE
-root_file.default = 'xrst.xrst'
-root_file.user    = 'xrst.xrst'
-root_file.dev     = 'xrst.xrst'
+root_file.default = 'example/example.xrst'
+root_file.user    = 'user/user.xrst'
+root_file.dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 #
 # BEGIN_OUTPUT_DIRECTORY

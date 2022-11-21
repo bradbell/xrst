@@ -6,7 +6,7 @@
 purpose
 !!!!!!!
 
-xrst input file: ``xrst.xrst``
+xrst input file: ``user/user.xrst``
 
 .. meta::
    :keywords: purpose, need, xrst

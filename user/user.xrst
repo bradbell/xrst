@@ -1,31 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 ----------------------------------------------------------------------------
-empty group name
-----------------------------------------------------------------------------
-{xrst_begin example}
-
-Examples
-########
-{xrst_toc_list
-   example/get_started.xrst
-   example/literal.cpp
-   example/toc_list.xrst
-   example/spell.xrst
-   example/suspend.py
-   example/code.py
-   example/comment.r
-   example/comment_ch.m
-   example/heading.py
-   example/indent.py
-   example/docstring.py
-   example/test.py
-}
-
-{xrst_end example}
-----------------------------------------------------------------------------
-user group name
-----------------------------------------------------------------------------
 {xrst_begin purpose user}
 {xrst_spell
    autodoc
@@ -125,14 +100,3 @@ Contents
 
 {xrst_end user_guide}
 ----------------------------------------------------------------------------
-dev group name
-----------------------------------------------------------------------------
-{xrst_begin devel dev}
-
-Developer Documentation
-#######################
-
-{xrst_toc_table
-   xrst/__init__.py
-}
-{xrst_end devel}
