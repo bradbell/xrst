@@ -19,9 +19,8 @@ Page Title: Getting Started
 #. Create a file called ``project.xrst`` in the working directory with the
    contents of this example file (see below).
 
-#. Create an empty file called ``xrst.toml`` in the working directory.
-
-#. Create a directory called ``sphinx`` below the working directory.
+#. Create an empty file toml file called ``xrst.toml``
+   in the working directory.
 
 #. Execute the following command::
 

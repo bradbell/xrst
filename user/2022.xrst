@@ -36,6 +36,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+11-21
+=====
+No longer necessary to create a sub-directory called ``sphinx``
+in the :ref:`get_started` example.
+
 11-20
 =====
 1. Change the root_file command line argument to
