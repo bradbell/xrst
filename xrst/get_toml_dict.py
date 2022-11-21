@@ -3,6 +3,8 @@
 # -----------------------------------------------------------------------------
 import toml
 # -----------------------------------------------------------------------------
+default_dict = dict()
+#
 '''
 {xrst_begin toml_file user}
 {xrst_spell
@@ -34,9 +36,13 @@ project_name
 The value corresponding to this key is a string specifying the
 name of this project.
 The default value for this key is
-{xrst_code toml}'''
+
+{xrst_code toml}
 project_name = 'project'
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['project_name'] = 'project'
+'''{xrst_resume}
 
 Example
 =======
@@ -53,9 +59,14 @@ The value corresponding to this key is a dictionary that maps the
 to its top level xrst input file.
 Note that multiple groups an use the same input file.
 The default value for this key is
-{xrst_code toml}'''
-root_file = { 'default' : 'project.xrst' }
-'''{xrst_code}
+
+{xrst_code toml}
+root_file.default = 'project.xrst'
+{xrst_code}
+{xrst_suspend}'''
+default_dict['root_file'] = { 'default' : 'project.xrst' }
+'''{xrst_resume}
+
 Note that ``default`` corresponds to the
 :ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
 is the default root file.
@@ -74,12 +85,20 @@ The value corresponding to this key is a dictionary that maps the
 :ref:`run_xrst@target` to the
 directory where the final output is stored .
 The default value for this key is
-{xrst_code toml}'''
+
+{xrst_code toml}
 output_directory = {
    'html' : 'html' ,
    'pdf' : 'pdf'   ,
 }
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['output_directory'] = {
+   'html' : 'html' ,
+   'pdf' : 'pdf'   ,
+}
+'''{xrst_resume}
+
 Note that the possible values
 for *target* are ``'html'`` and ``'pdf'`` and that the default
 uses the same name for the output directory.
@@ -104,9 +123,12 @@ is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
 The default value for this key is
-{xrst_code toml}'''
+{xrst_code toml}
 rst_directory = 'rst'
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['rst_directory'] = 'rst'
+'''{xrst_resume}
 
 Example
 =======
@@ -134,9 +156,13 @@ following python regular expression:
    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
 The default value for this key is
-{xrst_code toml}'''
+{xrst_code toml}
 preamble = ''
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['preamble'] = ''
+'''{xrst_resume}
+
 
 Example
 =======
@@ -155,9 +181,12 @@ These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
 The default value for this key is
-{xrst_code toml}'''
+{xrst_code toml}
 project_dictionary = []
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['project_dictionary'] = list()
+'''{xrst_resume}
 
 Example
 =======
@@ -183,9 +212,12 @@ For another example, you might want to exclude all tokens that are
 integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
-{xrst_code toml}'''
+{xrst_code toml}
 not_in_index = []
-'''{xrst_code}
+{xrst_code}
+{xrst_suspend}'''
+default_dict['not_in_index'] = list()
+'''{xrst_resume}
 
 Example
 =======
@@ -198,12 +230,6 @@ Example
 {xrst_end toml_file}
 -----------------------------------------------------------------------------
 '''
-#
-# key_list
-key_list = list()
-for key in dir() :
-   if not key.startswith( '__' ) :
-      key_list.append(key)
 #
 # {xrst_begin get_toml_dict dev}
 # {xrst_comment_ch #}
@@ -245,15 +271,15 @@ def get_toml_dict(toml_file) :
    #
    # check top level keys in toml_file
    for key in toml_dict :
-      if key not in key_list :
+      if key not in default_dict :
          msg  = f'toml_file = {toml_file}\n'
          msg += f'This file has the unexpected top level key {key}'
          xrst.system_exit(msg)
    #
    # toml_dict
    # also check that all the top level values have the correct type
-   for key in key_list :
-      default = eval(key)
+   for key in default_dict :
+      default = default_dict[key]
       if key not in toml_dict :
          toml_dict[key] = default
       else :

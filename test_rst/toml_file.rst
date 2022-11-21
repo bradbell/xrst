@@ -50,7 +50,7 @@ name of this project.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 38-38
+   :lines: 41-41
    :language: toml
 
 .. _toml_file@project_name@Example:
@@ -78,7 +78,7 @@ Note that multiple groups an use the same input file.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 57-57
+   :lines: 64-64
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -109,7 +109,7 @@ directory where the final output is stored .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 78-81
+   :lines: 90-93
    :language: toml
 
 Note that the possible values
@@ -146,7 +146,7 @@ is not added at the end.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 108-108
+   :lines: 127-127
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -192,7 +192,7 @@ following python regular expression:
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 138-138
+   :lines: 160-160
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -222,7 +222,7 @@ Special words, for a particular page, are specified using the
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 159-159
+   :lines: 185-185
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -259,7 +259,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 187-187
+   :lines: 216-216
    :language: toml
 
 .. _toml_file@not_in_index@Example:
