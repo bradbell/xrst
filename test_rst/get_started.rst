@@ -24,16 +24,18 @@ Page Title: Getting Started
 
 #. Create an empty directory and make it your current working directory.
 
-#. Create a file called ``get_started.xrst`` in the working directory with the
+#. Create a file called ``project.xrst`` in the working directory with the
    contents of this example file (see below).
+
+#. Create an empty file called ``xrst.toml`` in the working directory.
 
 #. Create a directory called ``sphinx`` below the working directory.
 
 #. Execute the following command::
 
-      xrst get_started.xrst
+      xrst xrst.toml
 
-#. Use your web browser to open the file ``sphinx/html/index.html`` .
+#. Use your web browser to open the file ``html/index.html`` .
    This location is relative to your working directory.
 
 .. contents::
@@ -66,7 +68,8 @@ Heading: Links to this Page
 
 Heading: This Example File
 **************************
-The file below demonstrates the use of ``xrst_begin`` and ``xrst_end`` :
+The file below demonstrates the use of
+``xrst_begin``,  ``xrst_end``, ``xrst_spell``, and heading references :
 
 .. literalinclude:: ../example/get_started.xrst
    :language: rst

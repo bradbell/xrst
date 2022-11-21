@@ -25,7 +25,7 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
-``xrst`` ( ``--version`` |  *root_file* )
+``xrst`` ( ``--version`` |  *toml_path* )
 [ ``--replace_spell_commands`` ]
 [ ``--rst_line_numbers`` ]
 [ ``--html`` *html_theme* ]
@@ -42,36 +42,37 @@ Syntax
 version
 *******
 If ``--version`` is present on the command line, there are no other arguments
-and the version of xrst is printed. Otherwise *root_file* is a required
+and the version of xrst is printed. Otherwise *toml_path* is a required
 argument.
 
 .. meta::
-   :keywords: root_file
+   :keywords: toml_path
 
-.. index:: root_file
+.. index:: toml_path
 
-.. _run_xrst@root_file:
+.. _run_xrst@toml_path:
 
-root_file
+toml_path
 *********
-The command line argument *root_file* is the name of a file
-containing the root page for the documentation tree.
+The command line argument *toml_path* is the path to the
+:ref:`toml_file` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
-There must be at least one page in *root_file* that has each
-:ref:`begin_cmd@group_name` in the *group_list*.
+For each group name in the *group_list*
+there must be at least one xrst page in corresponding
+:ref:`toml_file@root_file` .
 
 .. meta::
-   :keywords: project_name
+   :keywords: root_directory
 
-.. index:: project_name
+.. index:: root_directory
 
-.. _run_xrst@root_file@project_name:
+.. _run_xrst@toml_path@root_directory:
 
-project_name
-============
-The base part of *root_file*, without directories or file extension,
-is used as the sphinx project name.
+root_directory
+==============
+All of the xrst file references are relative to the directory where
+the *toml_file* is located.
 
 .. meta::
    :keywords: replace_spell_commands

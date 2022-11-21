@@ -102,9 +102,9 @@ data_out
 Each xrst literal command is converted to its corresponding sphinx commands.
 
 .. literalinclude:: ../xrst/literal_command.py
-   :lines: 160-164
+   :lines: 161-165
    :language: py
 
 .. literalinclude:: ../xrst/literal_command.py
-   :lines: 314-316
+   :lines: 315-317
    :language: py

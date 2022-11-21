@@ -19,13 +19,78 @@ Configuration File for xrst
 ###########################
 A toml file is used to configure xrst.
 This file represents a python dictionary
-If a key has a default value, it is used when the key is not present
-in the toml file.
-All of the directories mentioned below are relative to the directory
-where the toml file is located.
+
+#. Each key, in this dictionary,
+   has a default value that is used when the key is not present
+   in the toml file.
+#. All of the keys are strings and all the values have the same type
+   as its corresponding default.
+   If a value is has components, all of the comments have the same
+   type as the default components.
+#. All of the directories mentioned below are relative to the
+   :ref:`run_xrst@toml_path@root_directory`;
+   i.e.; the directory where the toml file is located.
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: project_name
+
+.. index:: project_name
+
+.. _toml_file@project_name:
+
+project_name
+************
+The value corresponding to this key is a string specifying the
+name of this project.
+The default value for this key is
+
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 36-36
+   :language: toml
+
+.. _toml_file@project_name@Example:
+
+Example
+=======
+
+.. literalinclude:: ../xrst.toml
+   :lines: 5-5
+   :language: toml
+
+.. meta::
+   :keywords: root_file
+
+.. index:: root_file
+
+.. _toml_file@root_file:
+
+root_file
+*********
+The value corresponding to this key is a dictionary that maps the
+:ref:`group names <begin_cmd@group_name>`
+to its top level xrst input file.
+Note that multiple groups an use the same input file.
+The default value for this key is
+
+.. literalinclude:: ../xrst/get_toml_dict.py
+   :lines: 55-55
+   :language: toml
+
+Note that ``default`` corresponds to the
+:ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
+is the default root file.
+
+.. _toml_file@root_file@Example:
+
+Example
+=======
+
+.. literalinclude:: ../xrst.toml
+   :lines: 9-11
+   :language: toml
 
 .. meta::
    :keywords: output_directory
@@ -38,14 +103,16 @@ output_directory
 ****************
 The value corresponding to this key is a dictionary that maps the
 :ref:`run_xrst@target` to the
-directory where the final output is stored. Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
+directory where the final output is stored .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 32-35
+   :lines: 76-79
    :language: toml
+
+Note that the possible values
+for *target* are ``'html'`` and ``'pdf'`` and that the default
+uses the same name for the output directory.
 
 .. _toml_file@output_directory@Example:
 
@@ -53,7 +120,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 5-7
+   :lines: 15-17
    :language: toml
 
 .. meta::
@@ -77,7 +144,7 @@ is not added at the end.
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 59-59
+   :lines: 106-106
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -86,7 +153,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 11-12
+   :lines: 21-22
    :language: toml
 
 .. meta::
@@ -111,7 +178,7 @@ following python regular expression:
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 84-84
+   :lines: 131-131
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -120,7 +187,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 16-31
+   :lines: 26-41
    :language: toml
 
 .. meta::
@@ -141,7 +208,7 @@ Special words, for a particular page, are specified using the
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 105-105
+   :lines: 152-152
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -150,7 +217,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 35-50
+   :lines: 45-60
    :language: toml
 
 .. meta::
@@ -178,7 +245,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 133-133
+   :lines: 180-180
    :language: toml
 
 .. _toml_file@not_in_index@Example:
@@ -187,5 +254,5 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 54-78
+   :lines: 64-88
    :language: toml

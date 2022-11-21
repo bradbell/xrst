@@ -15,25 +15,72 @@ Configuration File for xrst
 ###########################
 A toml file is used to configure xrst.
 This file represents a python dictionary
-If a key has a default value, it is used when the key is not present
-in the toml file.
-All of the directories mentioned below are relative to the directory
-where the toml file is located.
+
+#. Each key, in this dictionary,
+   has a default value that is used when the key is not present
+   in the toml file.
+#. All of the keys are strings and all the values have the same type
+   as its corresponding default.
+   If a value is has components, all of the comments have the same
+   type as the default components.
+#. All of the directories mentioned below are relative to the
+   :ref:`run_xrst@toml_path@root_directory`;
+   i.e.; the directory where the toml file is located.
+
+project_name
+************
+The value corresponding to this key is a string specifying the
+name of this project.
+The default value for this key is
+{xrst_code toml}'''
+project_name = 'project'
+'''{xrst_code}
+
+Example
+=======
+{xrst_literal
+   xrst.toml
+   # BEGIN_PROJECT_NAME
+   # END_PROJECT_NAME
+}
+
+root_file
+*********
+The value corresponding to this key is a dictionary that maps the
+:ref:`group names <begin_cmd@group_name>`
+to its top level xrst input file.
+Note that multiple groups an use the same input file.
+The default value for this key is
+{xrst_code toml}'''
+root_file = { 'default' : 'project.xrst' }
+'''{xrst_code}
+Note that ``default`` corresponds to the
+:ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
+is the default root file.
+
+Example
+=======
+{xrst_literal
+   xrst.toml
+   # BEGIN_ROOT_FILE
+   # END_ROOT_FILE
+}
 
 output_directory
 ****************
 The value corresponding to this key is a dictionary that maps the
 :ref:`run_xrst@target` to the
-directory where the final output is stored. Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
+directory where the final output is stored .
 The default value for this key is
 {xrst_code toml}'''
 output_directory = {
    'html' : 'html' ,
-   'pdf' : 'pdf'
+   'pdf' : 'pdf'   ,
 }
 '''{xrst_code}
+Note that the possible values
+for *target* are ``'html'`` and ``'pdf'`` and that the default
+uses the same name for the output directory.
 
 Example
 =======
@@ -207,6 +254,14 @@ def get_toml_dict(toml_file) :
             msg  = 'This file  output_directory[{key}] has type '
             msg += str( type(value) )
             xrst.system_exit(msg)
+   #
+   # root_file
+   value = toml_dict['root_file']
+   for key in value :
+      if type( value[key] ) != str :
+         msg  = f'toml_file = {toml_file}\n'
+         msg += f'root_file[{key}] has type ' + str(type(value[key]))
+         xrst.system_exit(msg)
    #
    # output_directory
    value = toml_dict['output_directory']

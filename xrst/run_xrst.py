@@ -8,6 +8,7 @@
    furo
    pyspellchecker
    rtd
+   toml
    xrst xrst
 }
 
@@ -16,7 +17,7 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
-``xrst`` ( ``--version`` |  *root_file* )
+``xrst`` ( ``--version`` |  *toml_path* )
 [ ``--replace_spell_commands`` ]
 [ ``--rst_line_numbers`` ]
 [ ``--html`` *html_theme* ]
@@ -27,22 +28,23 @@ Syntax
 version
 *******
 If ``--version`` is present on the command line, there are no other arguments
-and the version of xrst is printed. Otherwise *root_file* is a required
+and the version of xrst is printed. Otherwise *toml_path* is a required
 argument.
 
-root_file
+toml_path
 *********
-The command line argument *root_file* is the name of a file
-containing the root page for the documentation tree.
+The command line argument *toml_path* is the path to the
+:ref:`toml_file` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
-There must be at least one page in *root_file* that has each
-:ref:`begin_cmd@group_name` in the *group_list*.
+For each group name in the *group_list*
+there must be at least one xrst page in corresponding
+:ref:`toml_file@root_file` .
 
-project_name
-============
-The base part of *root_file*, without directories or file extension,
-is used as the sphinx project name.
+root_directory
+==============
+All of the xrst file references are relative to the directory where
+the *toml_file* is located.
 
 replace_spell_commands
 **********************
@@ -295,8 +297,8 @@ def run_xrst() :
    parser.add_argument('--version', action='store_true',
       help='just print version of xrst'
    )
-   parser.add_argument('root_file', nargs='?', default=None,
-      help='file that contains root page (not required for --version'
+   parser.add_argument('toml_file', nargs='?', default=None,
+      help='configurationfile that (not required for --version'
    )
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
@@ -325,17 +327,17 @@ def run_xrst() :
       print(version)
       sys.exit(0)
    #
-   # root_file
+   # toml_file
    # can not use system_exit until os.getcwd() returns root_directory
-   root_file = arguments.root_file
-   if root_file == None :
+   toml_file = arguments.toml_file
+   if toml_file == None :
       msg  = 'xsrst: Error\n'
-      msg += 'root_file is required when not using the --version option'
+      msg += 'toml_file is required when not using the --version option'
       sys.exit(msg)
-   if not os.path.isfile(root_file) :
+   if not os.path.isfile(toml_file) :
       msg  = 'xsrst: Error\n'
-      msg += f'root_file = {root_file}\n'
-      if root_file[0] == '/' :
+      msg += f'toml_file = {toml_file}\n'
+      if toml_file[0] == '/' :
          msg += 'is not a file\n'
       else :
          msg += f'is not a file relative to the execution directory\n'
@@ -343,13 +345,13 @@ def run_xrst() :
       sys.exit(msg)
    #
    # root_directory
-   index = root_file.rfind('/')
+   index = toml_file.rfind('/')
    if index < 0 :
       root_directory = '.'
    elif index == 0 :
       root_directory = '/'
    elif 0 < index :
-      root_directory = root_file[: index]
+      root_directory = toml_file[: index]
    os.chdir(root_directory)
    #
    # replace_spell_commands
@@ -425,18 +427,11 @@ def run_xrst() :
          not_in_index_list.append( re.compile(pattern) )
    # -------------------------------------------------------------------------
    #
-   # root_local
-   index = root_file.rfind('/')
-   if index < 0 :
-      root_local = root_file
-   else :
-      root_local = root_file[index + 1 :]
+   # root_file
+   root_file = toml_dict['root_file']
    #
    # project_name
-   project_name = root_local
-   index        = root_local.rfind('.')
-   if 0 < index :
-      project_name = root_local[: index]
+   project_name = toml_dict['project_name']
    #
    # pinfo_list
    # This list accumulates over all the group names
@@ -454,13 +449,18 @@ def run_xrst() :
    #
    # group_name
    for group_name in group_list :
+      if group_name not in root_file :
+         msg  = f'The group name {group_name} is in the group_list\n'
+         msg += 'but it is not a valid key in the root_file in the\n'
+         msg += f'toml_file = {toml_file}'
+         xrst.system_exit(msg)
       #
       # finfo_stack, finfo_done
       # This information is by file, not page
       finfo_stack      = list()
       finfo_done       = list()
       finfo = {
-         'file_in'        : root_local,
+         'file_in'        : root_file[group_name],
          'parent_file'    : None,
          'parent_page' : None,
       }
@@ -496,7 +496,7 @@ def run_xrst() :
          #
          # root_page_list
          if finfo['parent_file'] == None :
-            assert file_in == root_local
+            assert file_in == root_file[group_name]
             if sinfo_file_in[0]['is_parent'] :
                n_page = 1
             else :

@@ -47,14 +47,15 @@ display_file
 If *display_file* is not in the syntax,
 the code block is in the current input file.
 Otherwise, the code block is in *display_file*.
-The file name *display_file* is relative to the directory
-where the :ref:`run_xrst@root_file` is located.
+The file name *display_file* is relative to the
+:ref:`run_xrst@toml_path@root_directory` .
 
 1. This may seem verbose, but it makes it easier to write scripts
    that move files and automatically change references to them.
 2. Note that if you use the sphinx ``literalinclude`` directive,
    the corresponding file name will be relative to the
-   :ref:`toml_file@rst_directory` .
+   :ref:`toml_file@rst_directory` , which is a path relative
+   to the root_directory.
 
 No start or stop
 ****************

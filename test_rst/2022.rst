@@ -137,7 +137,7 @@ This has been fixed.
    and make it an error for two labels the have the same anchor.
 2. Improve the group list :ref:`run_xrst@group_list@Example` .
 3. If for a single group there was more then on page in the
-   :ref:`run_xrst@root_file` and the first such page not a parent
+   root_file and the first such page not a parent
    for the others, the other pages were not included in the documentation.
    This has been fixed.
 
@@ -541,7 +541,7 @@ Change the xrst command
 =====
 1. Fix documentation for relative location of :ref:`literal_cmd@display_file`
    in literal command and :ref:`toc_cmd@File Names` in toc commands.
-   This changed from where xrst is execute to where :ref:`run_xrst@root_file`
+   This changed from where xrst is execute to where root_file
    is located on :ref:`2022@mm-dd@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,
    improve keyword file documentation.
@@ -551,7 +551,7 @@ Change the xrst command
 08-07
 =====
 1. Add the :ref:`run_xrst@version` option which prints the version of xrst.
-2. Put :ref:`run_xrst@root_file@project_name` at top of html documentation.
+2. Put project_name at top of html documentation.
 
 .. _2022@mm-dd@08-06:
 
@@ -566,7 +566,7 @@ Change the xrst command
 08-05
 =====
 1. Add the :ref:`run_xrst@group_list` option to the command line.
-2. Use the base part of :ref:`run_xrst@root_file` as the sphinx
+2. Use the base part of root_file as the sphinx
    project name.
 
 .. _2022@mm-dd@08-04:
@@ -605,8 +605,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 07-30
 =====
 1. Automatically create the file :ref:`auto_file@conf.py`.
-2. Make all file names, except the
-   :ref:`run_xrst@root_file`,
+2. Make all file names, except the root_file,
    relative to where the root file is located.
 3. The  file names for preamble.rst, spelling, and keyword
    are no longer user selectable.

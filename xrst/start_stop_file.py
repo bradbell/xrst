@@ -127,8 +127,8 @@ def start_stop_file(
          count      = count + 1
       start_index = data.find(start_text, start_index + len(start_text) )
    if count != 1 :
-      msg += f'\nstart = "{start_text}"'
-      msg += f'\nfile  =  {display_file}'
+      msg += f'\nstart         = "{start_text}"'
+      msg += f'\ndisplay_file  =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
          msg += ' not counting the literal command'
@@ -146,8 +146,8 @@ def start_stop_file(
          count     = count + 1
       stop_index = data.find(stop_text, stop_index + len(stop_text) )
    if count != 1 :
-      msg += f'\nstop = "{stop_text}"'
-      msg += f'\nfile =  {display_file}'
+      msg += f'\nstop         = "{stop_text}"'
+      msg += f'\ndisplay_file =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
          msg += ' not counting the literal command'

@@ -1,6 +1,16 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 #
+# BEGIN_PROJECT_NAME
+project_name = 'xrst'
+# END_PROJECT_NAME
+#
+# BEGIN_ROOT_FILE
+root_file.default = 'xrst.xrst'
+root_file.user    = 'xrst.xrst'
+root_file.dev     = 'xrst.xrst'
+# END_ROOT_FILE
+#
 # BEGIN_OUTPUT_DIRECTORY
 # This is same as the default value and only used as an example
 output_directory.html = 'html'
@@ -35,17 +45,17 @@ preamble = '''
 project_dictionary = [
    # file extensions
    '''
-     cpp
-     py
-     rst
+      cpp
+      py
+      rst
    ''',
    # python types
    '''
-     str
+      str
    ''',
    # special words
    '''
-     factorial
+      factorial
    ''',
 ]
 # END_PROJECT_DICTIONARY

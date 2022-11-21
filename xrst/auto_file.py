@@ -27,9 +27,9 @@ not an rst file.
 
 index.rst
 *********
-This file is the root level in the documentation tree
+This file is the top of the documentation tree
 built by sphinx. It is one level above the first page in
-:ref:`run_xrst@root_file`.
+:ref:`toml_file@root_file`.
 
 xrst_table_of_contents.rst
 **************************

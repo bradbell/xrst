@@ -44,8 +44,8 @@ do
       echo_eval rm -r ../rst
    fi
    args="--group $group_list --html sphinx_rtd_theme"
-   echo "python -m xrst ../xrst.xrst $args"
-   if ! python -m xrst ../xrst.xrst $args 2> check_xrst.$$
+   echo "python -m xrst ../xrst.toml $args"
+   if ! python -m xrst ../xrst.toml $args 2> check_xrst.$$
    then
       type_error='error'
    else
