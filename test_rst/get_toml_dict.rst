@@ -30,7 +30,8 @@ Get Configuration Dictionary
 
 toml_file
 *********
-is the :ref:`toml_file` corresponding to the configuration.
+is the local name for the file specified by :ref:`run_xrst@toml_path`; i.e.,
+its name relative to the :ref:`run_xrst@toml_path@project_directory` .
 
 .. meta::
    :keywords: toml_dict
@@ -47,9 +48,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 223-225
+   :lines: 231-233
    :language: py
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 296-297
+   :lines: 304-305
    :language: py

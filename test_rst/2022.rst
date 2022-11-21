@@ -35,8 +35,11 @@ mm-dd
 
 11-21
 =====
-No longer necessary to create a sub-directory called ``sphinx``
-in the :ref:`get_started` example.
+1. No longer necessary to create a sub-directory called ``sphinx``
+   in the :ref:`get_started` example.
+2. Use ``xrst.toml`` as the default value for :ref:`run_xrst@toml_path` .
+3. Change the command link argument flags to use full names; i.e.,
+   change --html -> --html_theme and --group -> --group_list .
 
 .. _2022@mm-dd@11-20:
 

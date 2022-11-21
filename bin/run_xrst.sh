@@ -16,37 +16,22 @@ fi
 # -----------------------------------------------------------------------------
 if [ "$1" != 'html' ] && [ "$1" != 'pdf' ]
 then
-   echo 'usage: bin/run_xrst.sh (html|pdf) [rst_line]'
+   echo 'usage: bin/run_xrst.sh (html|pdf) [--rst_line_numbers]'
+   exit 1
+fi
+if [ "$2" != '' ] && [ "$2" != '--rst_line_numbers' ]
+then
+   echo 'usage: bin/run_xrst.sh (html|pdf) [--rst_line_numbers]'
    exit 1
 fi
 target="$1"
-if [ "$2" == '' ]
-then
-   rst_line=''
-else
-   rst_line="--rst $2"
-fi
+rst_line_numbers="$2"
 # -----------------------------------------------------------------------------
-# preamble
-preamble='sphinx/preamble.rst'
-# -----------------------------------------------------------------------------
-# html
-# -----------------------------------------------------------------------------
-if [ "$target" == 'html' ]
-then
-   echo_eval python -m xrst xrst.toml \
-      --group default,user \
-      $rst_line \
-      --html sphinx_book_theme
-   echo 'run_xrst.sh: OK'
-   exit 0
-fi
-# -----------------------------------------------------------------------------
-# pdf
-# -----------------------------------------------------------------------------
-echo_eval python -m xrst xrst.toml --group default,user \
-      --target pdf $rst_line
-#
+echo_eval python -m xrst  \
+   --group_list  default,user \
+   --html_theme  sphinx_book_theme \
+   --target      $target \
+   $rst_line_numbers
 # -----------------------------------------------------------------------------
 echo 'run_xrst.sh: OK'
 exit 0

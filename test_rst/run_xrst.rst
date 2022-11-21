@@ -25,12 +25,14 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
-``xrst`` ( ``--version`` |  *toml_path* )
-[ ``--replace_spell_commands`` ]
-[ ``--rst_line_numbers`` ]
-[ ``--html`` *html_theme* ]
-[ ``--group`` *group_list* ]
-[ ``--target`` *target* ]
+| ``xrst`` \\
+| |tab| [ ``--version`` ]
+| |tab| [ ``--toml_path``   *toml_path* ] \\
+| |tab| [ ``--html_theme`` *html_theme* ] \\
+| |tab| [ ``--group_list`` *group_list* ] \\
+| |tab| [ ``--target``      *target* ]  \\
+| |tab| [ ``--replace_spell_commands`` ] \\
+| |tab| [ ``--rst_line_numbers`` ] \\
 
 .. meta::
    :keywords: version
@@ -41,9 +43,8 @@ Syntax
 
 version
 *******
-If ``--version`` is present on the command line, there are no other arguments
-and the version of xrst is printed. Otherwise *toml_path* is a required
-argument.
+If ``--version`` is present on the command line,
+the version of xrst is printed and none of the other arguments matter.
 
 .. meta::
    :keywords: toml_path
@@ -58,9 +59,19 @@ The command line argument *toml_path* is the path to the
 :ref:`toml_file` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst>` is executed.
-For each group name in the *group_list*
-there must be at least one xrst page in corresponding
-:ref:`toml_file@root_file` .
+
+.. meta::
+   :keywords: xrst.toml
+
+.. index:: xrst.toml
+
+.. _run_xrst@toml_path@xrst.toml:
+
+xrst.toml
+=========
+If *toml_path* is not present on the command line,
+the default value ``xrst.toml`` us used as the
+:ref:`toml_file` .
 
 .. meta::
    :keywords: project_directory
@@ -71,48 +82,11 @@ there must be at least one xrst page in corresponding
 
 project_directory
 =================
-All of the xrst file references are relative to
 We use *project_directory* to denote the directory
-where the *toml_file* is located.
+where the file specified by *toml_path* is located.
 All of the xrst file references are relative to this directory.
-
-.. meta::
-   :keywords: replace_spell_commands
-
-.. index:: replace_spell_commands
-
-.. _run_xrst@replace_spell_commands:
-
-replace_spell_commands
-**********************
-If this option is present on the command line, the source code
-:ref:`spell commands<spell_cmd>` a replaced in such a way that the
-there will be no spelling warnings during future processing by xrst.
-This is useful when there are no spelling warnings before a change
-to the :ref:`toml_file@project_dictionary` or when there is an update
-of the pyspellchecker_ package (which is used to do the spell checking).
-If this option is present,
-none of the output files are created; e.g., the \*.rst and \*.html files.
-
-.. _pyspellchecker: https://pypi.org/project/pyspellchecker
-
-.. meta::
-   :keywords: rst_line_numbers
-
-.. index:: rst_line_numbers
-
-.. _run_xrst@rst_line_numbers:
-
-rst_line_numbers
-****************
-Normally sphinx error and warning messages are reported using line numbers
-in the xrst source code files.
-If this option is present, these messages are reported
-using the line numbers in the RST files created by xrst.
-This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using source code line numbers.
-It is also helpful for determining if a line number error is due to
-sphinx or xrst.
+Note that sphinx commands that reference files are relative to the
+:ref:`toml_file@rst_directory` .
 
 .. meta::
    :keywords: html_theme
@@ -153,6 +127,10 @@ to include in the output using this optional argument.
 #. The order of the groups determines their order in the resulting output.
 #. The default value for *group_list* is ``default`` .
 
+For each group name in the *group_list*
+there must be at least one xrst page in corresponding
+:ref:`toml_file@root_file` .
+
 The xrst examples are a subset of its user documentation
 and its user documentation is a subset of its developer documentation.
 For each command, the same source code file provides both the
@@ -168,20 +146,20 @@ The examples commands below assume you have cloned the
 `xrst git repository <https://github.com/bradbell/xrst>`_
 and it is your current working directory.
 
-#. The xrst examples use the empty group
+#. The xrst examples use the default group
    and their documentation can be built using
 
-      ``xrst xrst.xrst --group ,``
+      ``xrst --group_list default``
 
-#. The xrst user documentation uses the empty and user groups
+#. The xrst user documentation uses the default and user groups
    and its documentation can be built using
 
-      ``xrst xrst.xrst --group ,user``
+      ``xrst --group_list default,user``
 
-#. The xrst developer documentation uses the empty, user, and dev
+#. The xrst developer documentation uses the default, user, and dev
    groups and its documentation can be built using
 
-      ``xrst xrst.xrst --group ,user,dev``
+      ``xrst xrst.xrst --group_list default,user,dev``
 
 .. meta::
    :keywords: target
@@ -197,13 +175,39 @@ It specifies the type of type output you plan to generate using sphinx.
 The default value for *target* is ``html`` .
 
 .. meta::
-   :keywords: other, generated, files
+   :keywords: replace_spell_commands
 
-.. index:: other, generated, files
+.. index:: replace_spell_commands
 
-.. _run_xrst@target@Other Generated Files:
+.. _run_xrst@replace_spell_commands:
 
-Other Generated Files
-=====================
-See :ref:`auto_file-title` for the other files generated by ``xrst`` in the
-:ref:`toml_file@rst_directory` .
+replace_spell_commands
+**********************
+If this option is present on the command line, the source code
+:ref:`spell commands<spell_cmd>` a replaced in such a way that the
+there will be no spelling warnings during future processing by xrst.
+This is useful when there are no spelling warnings before a change
+to the :ref:`toml_file@project_dictionary` or when there is an update
+of the pyspellchecker_ package (which is used to do the spell checking).
+If this option is present,
+none of the output files are created; e.g., the \*.rst and \*.html files.
+
+.. _pyspellchecker: https://pypi.org/project/pyspellchecker
+
+.. meta::
+   :keywords: rst_line_numbers
+
+.. index:: rst_line_numbers
+
+.. _run_xrst@rst_line_numbers:
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using source code line numbers.
+It is also helpful for determining if a line number error is due to
+sphinx or xrst.
