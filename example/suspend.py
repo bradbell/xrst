@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
-"""
+default_dict = dict()
+'''
 {xrst_begin suspend_example}
 {xrst_spell
    toml
@@ -9,31 +10,28 @@
 
 Suspend Command Example
 #######################
-This example was taken from the xrst configure file documentation.
-It displays a default value using toml file format and
-implements this default using python that is not in the documentation.
 
-output_directory
-****************
-The value corresponding to this key is a dictionary that maps the
-*target* command line argument to
-the directory where the final output is stored .
-The default value for this key is
+Discussion
+**********
+The project_name paragraph below
+was taken from the xrst configure file documentation.
+
+#. The documentation for the default table uses toml file format.
+#. The python code that implements this default comes directly after
+   and is not displayed in the documentation.
+
+project_name
+************
+The only value in this table is the name of this project.
+The default for this table is
 
 {xrst_code toml}
-output_directory.html = 'html'
-output_directory.pdf  = 'pdf'
+[project_name]
+data = 'project'
 {xrst_code}
-{xrst_suspend}"""
-default_dict['output_directory'] = {
-   'html' : 'html' ,
-   'pdf' : 'pdf'   ,
-}
-"""{xrst_resume}
-
-Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
+{xrst_suspend}'''
+default_dict['project_name'] = { 'data' : 'project' }
+'''{xrst_resume}
 
 This Example File
 *****************
@@ -41,4 +39,4 @@ This Example File
 
 
 {xrst_end suspend_example}
-"""
+'''

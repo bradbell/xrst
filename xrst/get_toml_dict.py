@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # -----------------------------------------------------------------------------
 import toml
+import xrst
 # -----------------------------------------------------------------------------
 default_dict = dict()
 #
@@ -16,32 +17,32 @@ default_dict = dict()
 Configuration File for xrst
 ###########################
 A toml file is used to configure xrst.
-This file represents a python dictionary
 
 #. The location of this file is specified by the xrst
    :ref:`run_xrst@toml_path` argument.
-#. Each key, in this dictionary,
-   has a default value that is used when the key is not present
-   in the toml file.
-#. All of the keys are strings and all the values have the same type
+#. This file is a sequence of toml tables,
+   if a table can only have one entry, the entry is named data.
+#. Each table, has a default value that is used when the table
+   is not present in the toml file.
+#. All of the entries in the table have the same type
    as its corresponding default.
-   If a value is has components, all of the comments have the same
+   If an entry has components, all of the comments have the same
    type as the default components.
-#. All of the directories mentioned below are relative to the
+#. All of the directories specified in this file below are relative to the
    :ref:`run_xrst@toml_path@project_directory`;
    i.e.; the directory where the toml file is located.
 
 project_name
 ************
-The value corresponding to this key is a string specifying the
-name of this project.
-The default value for this key is
+The only value in this table is the name of this project.
+The default for this table is
 
 {xrst_code toml}
-project_name = 'project'
+[project_name]
+data = 'project'
 {xrst_code}
 {xrst_suspend}'''
-default_dict['project_name'] = 'project'
+default_dict['project_name'] = { 'data' : 'project' }
 '''{xrst_resume}
 
 Example
@@ -54,14 +55,14 @@ Example
 
 root_file
 *********
-The value corresponding to this key is a dictionary that maps the
-:ref:`group names <begin_cmd@group_name>`
-to its top level xrst input file.
-Note that multiple groups an use the same input file.
-The default value for this key is
+This table maps the :ref:`group names <begin_cmd@group_name>`
+to its root (top) xrst input file.
+Multiple groups can use the same root file.
+The default for this table is
 
 {xrst_code toml}
-root_file.default = 'project.xrst'
+[root_file]
+default = 'project.xrst'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['root_file'] = { 'default' : 'project.xrst' }
@@ -81,14 +82,14 @@ Example
 
 output_directory
 ****************
-The value corresponding to this key is a dictionary that maps the
-:ref:`run_xrst@target` to the
+This table maps the :ref:`run_xrst@target` to the
 directory where the final output is stored .
-The default value for this key is
+The default for this table is
 
 {xrst_code toml}
-output_directory.html = 'html'
-output_directory.pdf  = 'pdf'
+[output_directory]
+html = 'html'
+pdf  = 'pdf'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['output_directory'] = {
@@ -111,8 +112,8 @@ Example
 
 rst_directory
 *************
-The value corresponding to this key is a string specifying the
-directory where xrst writes the rst files it extracts from the source code.
+The only value in this table is
+the directory where xrst writes the rst files it extracts from the source code.
 For each :ref:`begin_cmd@page_name` , the file
 
 |space| *rst_directory*\ /\ *page_name*\ ``.rst``
@@ -120,12 +121,13 @@ For each :ref:`begin_cmd@page_name` , the file
 is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
-The default value for this key is
+The default for this table is
 {xrst_code toml}
-rst_directory = 'rst'
+[rst_directory]
+data = 'rst'
 {xrst_code}
 {xrst_suspend}'''
-default_dict['rst_directory'] = 'rst'
+default_dict['rst_directory'] = { 'data' : 'rst' }
 '''{xrst_resume}
 
 Example
@@ -143,8 +145,7 @@ and placed in the rst_directory.
 
 preamble
 ********
-The value corresponding to this key is a string specifying the
-preamble.rst file.
+The only value in this table is the data for the preamble.rst file.
 This file is included at the beginning of every xrst output page.
 It should only define things, it should not generate any output.
 The Latex macros in this file can be used by any page.
@@ -153,12 +154,13 @@ following python regular expression:
 
    ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
 
-The default value for this key is
+The default for this table is
 {xrst_code toml}
-preamble = ''
+[preamble]
+data = ''
 {xrst_code}
 {xrst_suspend}'''
-default_dict['preamble'] = ''
+default_dict['preamble'] = { 'data' : '' }
 '''{xrst_resume}
 
 
@@ -172,18 +174,19 @@ Example
 
 project_dictionary
 ******************
-The value corresponding to this key is list of a strings.
+The only value in this table is a list of strings.
 Each string contains a newline separated list of words.
 Leading and trailing white space is not part of each word.
 These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
-The default value for this key is
+The default for this table is
 {xrst_code toml}
-project_dictionary = []
+[project_dictionary]
+data = []
 {xrst_code}
 {xrst_suspend}'''
-default_dict['project_dictionary'] = list()
+default_dict['project_dictionary'] = { 'data' : list() }
 '''{xrst_resume}
 
 Example
@@ -196,7 +199,7 @@ Example
 
 not_in_index
 ************
-The value corresponding to this key is list of a strings.
+The only value in this table is a list of strings.
 Each string  contains a newline separated list of patterns.
 Leading and trailing white space is not part of each pattern.
 These are python regular expression patterns for heading tokens
@@ -211,18 +214,19 @@ integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 {xrst_code toml}
-not_in_index = []
+[not_in_index]
+data = []
 {xrst_code}
 {xrst_suspend}'''
-default_dict['not_in_index'] = list()
+default_dict['not_in_index'] = { 'data' : list() }
 '''{xrst_resume}
 
 Example
 =======
 {xrst_literal
    xrst.toml
-   # BEGIN_NOT_KEYWORD
-   # END_NOT_KEYWORD
+   # BEGIN_NOT_IN_INDEX
+   # END_NOT_IN_INDEX
 }
 
 {xrst_end toml_file}
@@ -268,60 +272,63 @@ def get_toml_dict(toml_file) :
    toml_dict = toml.loads(file_data)
    #
    # check top level keys in toml_file
-   for key in toml_dict :
-      if key not in default_dict :
+   for table in toml_dict :
+      if table not in default_dict :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'This file has the unexpected top level key {key}'
+         msg += f'This file has the unexpected table {table}'
          xrst.system_exit(msg)
    #
    # toml_dict
-   # also check that all the top level values have the correct type
-   for key in default_dict :
-      default = default_dict[key]
-      if key not in toml_dict :
-         toml_dict[key] = default
+   # also check that all the top keys the correct type
+   for table in default_dict :
+      default = default_dict[table]
+      if table not in toml_dict :
+         toml_dict[table] = default
       else :
-         value = toml_dict[key]
-         if type(value) != type(default) :
-            msg  = 'This file  output_directory[{key}] has type '
-            msg += str( type(value) )
+         table_dict = toml_dict[table]
+         if type(table_dict) != dict :
+            msg  = f'toml_file = {toml_file}\n'
+            msg += f'{table} is not a table: it has pyton type '
+            msg += str( type(table_dict) )
             xrst.system_exit(msg)
    #
    # root_file
-   value = toml_dict['root_file']
-   for key in value :
-      if type( value[key] ) != str :
+   table_dict = toml_dict['root_file']
+   for key in table_dict :
+      if type( table_dict[key] ) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'root_file[{key}] has type ' + str(type(value[key]))
+         msg += f'root_file[{key}] has pyton type ' + str(type(value[key]))
          xrst.system_exit(msg)
    #
    # output_directory
-   value = toml_dict['output_directory']
-   if set( value.keys() ) != { 'html', 'pdf' } :
+   table_dict = toml_dict['output_directory']
+   if set( table_dict.keys() ) != { 'html', 'pdf' } :
       msg  = f'toml_file = {toml_file}\n'
-      msg += 'output_directory.keys() = '
-      msg += str( value.keys() )
+      msg += 'The output_directory has the following keys: '
+      msg += str( table_dict.keys() )
       xrst.system_exit(msg)
-   for key in value :
-      if type( value[key] ) != str :
+   for key in table_dict :
+      if type( table_dict[key] ) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'output_directory[{key}] has type ' + str(type(value[key]))
+         msg += f'output_directory.[{key}] has pyton type '
+         msg += str(type(value[key]))
          xrst.system_exit(msg)
    #
    # project_dictionary
-   value = toml_dict['project_dictionary']
+   value = toml_dict['project_dictionary']['data']
    for (index, entry) in enumerate(value) :
       if type(entry) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'project_dictionary[{index}] has type ' + str(type(entry))
+         msg += f'output_direcory.data[{index}] has pyton type '
+         msg += str(type(entry))
          xrst.system_exit(msg)
    #
    # not_in_index
-   value = toml_dict['not_in_index']
+   value = toml_dict['not_in_index']['data']
    for (index, entry) in enumerate(value) :
       if type(entry) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'not_in_index[{index}] has type ' + str(type(entry))
+         msg += f'not_in_index[{index}] has pyton type ' + str(type(entry))
          xrst.system_exit(msg)
    #
    # BEGIN_RETURN

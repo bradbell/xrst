@@ -17,34 +17,41 @@ xrst input file: ``example/suspend.py``
 
 Suspend Command Example
 #######################
-This example was taken from the xrst configure file documentation.
-It displays a default value using toml file format and
-implements this default using python that is not in the documentation.
 
 .. contents::
    :local:
 
 .. meta::
-   :keywords: output_directory
+   :keywords: discussion
 
-.. index:: output_directory
+.. index:: discussion
 
-.. _suspend_example@output_directory:
+.. _suspend_example@Discussion:
 
-output_directory
-****************
-The value corresponding to this key is a dictionary that maps the
-*target* command line argument to
-the directory where the final output is stored .
-The default value for this key is
+Discussion
+**********
+The project_name paragraph below
+was taken from the xrst configure file documentation.
+
+#. The documentation for the default table uses toml file format.
+#. The python code that implements this default comes directly after
+   and is not displayed in the documentation.
+
+.. meta::
+   :keywords: project_name
+
+.. index:: project_name
+
+.. _suspend_example@project_name:
+
+project_name
+************
+The only value in this table is the name of this project.
+The default for this table is
 
 .. literalinclude:: ../example/suspend.py
-   :lines: 24-25
+   :lines: 29-30
    :language: toml
-
-Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
 
 .. _suspend_example@This Example File:
 

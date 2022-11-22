@@ -398,7 +398,7 @@ def run_xrst() :
    output_directory = toml_dict['output_directory'][target]
    #
    # rst_directory
-   rst_directory = toml_dict['rst_directory']
+   rst_directory = toml_dict['rst_directory']['data']
    if rst_directory[0] == '/' :
       msg  = 'rst_directory = ' + rst_directory + '\n'
       msg += 'must be a path relative to current workding directory'
@@ -420,7 +420,7 @@ def run_xrst() :
    #
    # spell_checker
    spell_list  = list()
-   for entry in toml_dict['project_dictionary'] :
+   for entry in toml_dict['project_dictionary']['data'] :
       word_list = entry.split('\n')
       for word in word_list :
          word = word.strip(' \t')
@@ -429,7 +429,7 @@ def run_xrst() :
    #
    # not_in_index_list
    not_in_index_list = list()
-   for entry in toml_dict['not_in_index'] :
+   for entry in toml_dict['not_in_index']['data'] :
       pattern_list = entry.split('\n')
       for pattern in pattern_list :
          pattern = pattern.strip(' \t')
@@ -440,7 +440,7 @@ def run_xrst() :
    root_file = toml_dict['root_file']
    #
    # project_name
-   project_name = toml_dict['project_name']
+   project_name = toml_dict['project_name']['data']
    #
    # pinfo_list
    # This list accumulates over all the group names

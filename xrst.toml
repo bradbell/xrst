@@ -2,28 +2,33 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 #
 # BEGIN_PROJECT_NAME
-project_name = 'xrst'
+[project_name]
+data = 'xrst'
 # END_PROJECT_NAME
 #
 # BEGIN_ROOT_FILE
-root_file.default = 'example/example.xrst'
-root_file.user    = 'user/user.xrst'
-root_file.dev     = 'xrst/__init__.py'
+[root_file]
+default = 'example/example.xrst'
+user    = 'user/user.xrst'
+dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 #
 # BEGIN_OUTPUT_DIRECTORY
-# This is same as the default value and only used as an example
-output_directory.html = 'html'
-output_directory.pdf  = 'pdf'
+# This is same as the default and only used as an example
+[output_directory]
+html = 'html'
+pdf  = 'pdf'
 # END_OUTPUT_DIRECTORY
 #
 # BEGIN_RST_DIRECTORY
-# This is same as the default value and only used as an example
-rst_directory = 'rst'
+# This is same as the default and only used as an example
+[rst_directory]
+data = 'rst'
 # END_RST_DIRECTORY
 #
 # BEGIN_PREAMBLE
-preamble = '''
+[preamble]
+data = '''
 .. comment xrst preamble.rst
 
 .. |space| unicode:: 0xA0
@@ -42,7 +47,8 @@ preamble = '''
 # END_PREAMBLE
 # -----------------------------------------------------------------------------
 # BEGIN_PROJECT_DICTIONARY
-project_dictionary = [
+[project_dictionary]
+data = [
    # file extensions
    '''
       cpp
@@ -60,8 +66,9 @@ project_dictionary = [
 ]
 # END_PROJECT_DICTIONARY
 # -----------------------------------------------------------------------------
-# BEGIN_NOT_KEYWORD
-not_in_index = [
+# BEGIN_NOT_IN_INDEX
+[not_in_index]
+data = [
   # articles and prepositions
   '''
       a
@@ -86,4 +93,4 @@ not_in_index = [
   # python regular expression for year.month.day used in version number
   '[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}',
 ]
-# END_NOT_KEYWORD
+# END_NOT_IN_INDEX
