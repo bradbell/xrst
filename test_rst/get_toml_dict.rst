@@ -52,5 +52,5 @@ to make sure its elements have the proper type.
    :language: py
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 335-336
+   :lines: 333-334
    :language: py

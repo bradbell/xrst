@@ -433,7 +433,12 @@ def run_xrst() :
       pattern_list = entry.split('\n')
       for pattern in pattern_list :
          pattern = pattern.strip(' \t')
-         not_in_index_list.append( re.compile(pattern) )
+         try :
+            not_in_index_list.append( re.compile(pattern) )
+         except :
+            msg  = f'not_in_index table in toml_file = {toml_file}\n'
+            msg += f'The regular expression "{pattern}" would not compile'
+            xrst.system_exit(msg)
    # -------------------------------------------------------------------------
    #
    # root_file

@@ -288,7 +288,7 @@ def get_toml_dict(toml_file) :
          table_dict = toml_dict[table]
          if type(table_dict) != dict :
             msg  = f'toml_file = {toml_file}\n'
-            msg += f'{table} is not a table: it has pyton type '
+            msg += f'{table} is not a table: it has python type '
             msg += str( type(table_dict) )
             xrst.system_exit(msg)
    #
@@ -297,7 +297,7 @@ def get_toml_dict(toml_file) :
    for key in table_dict :
       if type( table_dict[key] ) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'root_file[{key}] has pyton type ' + str(type(value[key]))
+         msg += f'root_file[{key}] has python type ' + str(type(value[key]))
          xrst.system_exit(msg)
    #
    # output_directory
@@ -310,26 +310,24 @@ def get_toml_dict(toml_file) :
    for key in table_dict :
       if type( table_dict[key] ) != str :
          msg  = f'toml_file = {toml_file}\n'
-         msg += f'output_directory.[{key}] has pyton type '
+         msg += f'output_directory.{key} has python type '
          msg += str(type(value[key]))
          xrst.system_exit(msg)
    #
-   # project_dictionary
-   value = toml_dict['project_dictionary']['data']
-   for (index, entry) in enumerate(value) :
-      if type(entry) != str :
-         msg  = f'toml_file = {toml_file}\n'
-         msg += f'output_direcory.data[{index}] has pyton type '
-         msg += str(type(entry))
-         xrst.system_exit(msg)
-   #
-   # not_in_index
-   value = toml_dict['not_in_index']['data']
-   for (index, entry) in enumerate(value) :
-      if type(entry) != str :
-         msg  = f'toml_file = {toml_file}\n'
-         msg += f'not_in_index[{index}] has pyton type ' + str(type(entry))
-         xrst.system_exit(msg)
+   # project_dictionary, not_in_index
+   for table in [ 'project_dictionary', 'not_in_index' ] :
+      value = toml_dict[table]['data']
+      if type(value) != list :
+            msg  = f'toml_file = {toml_file}\n'
+            msg += f'project_dictionary.data has python type '
+            msg += str(type(value))
+            xrst.system_exit(msg)
+      for (index, entry) in enumerate(value) :
+         if type(entry) != str :
+            msg  = f'toml_file = {toml_file}\n'
+            msg += f'output_direcory.data[{index}] has python type '
+            msg += str(type(entry))
+            xrst.system_exit(msg)
    #
    # BEGIN_RETURN
    assert type(toml_dict) == dict
