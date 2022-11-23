@@ -46,10 +46,19 @@ A toml file is used to configure xrst.
 project_name
 ************
 The only value in this table is the name of this project.
-The default for this table is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@project_name@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 41-42
+   :lines: 42-43
    :language: toml
 
 .. _toml_file@project_name@Example:
@@ -73,10 +82,19 @@ root_file
 This table maps the :ref:`group names <begin_cmd@group_name>`
 to its root (top) xrst input file.
 Multiple groups can use the same root file.
-The default for this table is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@root_file@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 64-65
+   :lines: 66-67
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -103,10 +121,19 @@ output_directory
 ****************
 This table maps the :ref:`run_xrst@target` to the
 directory where the final output is stored .
-The default for this table is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@output_directory@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 90-92
+   :lines: 93-95
    :language: toml
 
 Note that the possible values
@@ -140,10 +167,19 @@ For each :ref:`begin_cmd@page_name` , the file
 is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
-The default for this table is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@rst_directory@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 126-127
+   :lines: 131-132
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -213,13 +249,13 @@ It either case they can be used by every page in the documentation.
 
 .. index:: default
 
-.. _toml_file@preamble@default:
+.. _toml_file@preamble@Default:
 
-default
+Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 169-171
+   :lines: 174-176
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -246,10 +282,19 @@ Leading and trailing white space is not part of each word.
 These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
-The default for this table is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@project_dictionary@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 199-200
+   :lines: 206-207
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -283,10 +328,19 @@ In this case you could have a line containing just ``the`` .
 For another example, you might want to exclude all tokens that are
 integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
-The default value for this key is
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@not_in_index@Default:
+
+Default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 231-232
+   :lines: 240-241
    :language: toml
 
 .. _toml_file@not_in_index@Example:

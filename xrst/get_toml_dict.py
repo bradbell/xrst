@@ -35,8 +35,9 @@ A toml file is used to configure xrst.
 project_name
 ************
 The only value in this table is the name of this project.
-The default for this table is
 
+Default
+=======
 {xrst_code toml}
 [project_name]
 data = 'project'
@@ -58,8 +59,9 @@ root_file
 This table maps the :ref:`group names <begin_cmd@group_name>`
 to its root (top) xrst input file.
 Multiple groups can use the same root file.
-The default for this table is
 
+Default
+=======
 {xrst_code toml}
 [root_file]
 default = 'project.xrst'
@@ -84,8 +86,9 @@ output_directory
 ****************
 This table maps the :ref:`run_xrst@target` to the
 directory where the final output is stored .
-The default for this table is
 
+Default
+=======
 {xrst_code toml}
 [output_directory]
 html = 'html'
@@ -121,7 +124,9 @@ For each :ref:`begin_cmd@page_name` , the file
 is the RST file for the corresponding page. There is one exception
 to this rule. If *page_name* ends with ``.rst``, the extra ``.rst``
 is not added at the end.
-The default for this table is
+
+Default
+=======
 {xrst_code toml}
 [rst_directory]
 data = 'rst'
@@ -163,7 +168,7 @@ Otherwise *target* is 'pdf' and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
 
-default
+Default
 =======
 {xrst_code toml}
 [preamble]
@@ -194,7 +199,9 @@ Leading and trailing white space is not part of each word.
 These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
 :ref:`spell command<spell_cmd>`.
-The default for this table is
+
+Default
+=======
 {xrst_code toml}
 [project_dictionary]
 data = []
@@ -226,7 +233,9 @@ In this case you could have a line containing just ``the`` .
 For another example, you might want to exclude all tokens that are
 integer numbers.
 In this case you could have a line containing just ``[0-9]*`` .
-The default value for this key is
+
+Default
+=======
 {xrst_code toml}
 [not_in_index]
 data = []
