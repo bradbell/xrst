@@ -26,6 +26,16 @@ pdf  = 'pdf'
 data = 'rst'
 # END_RST_DIRECTORY
 #
+# BEGIN_HTML_THEME_OPTIONS
+# This is same as the default and only used as an example
+[html_theme_options.sphinx_book_theme]
+show_toc_level = 4
+
+[html_theme_options.sphinx_rtd_theme]
+navigation_depth = -1
+titles_only      = true
+# END_HTML_THEME_OPTIONS
+#
 # BEGIN_PREAMBLE
 [preamble]
 rst_substitution = '''
