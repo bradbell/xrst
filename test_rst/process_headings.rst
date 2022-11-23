@@ -32,15 +32,15 @@ Arguments
 *********
 
 .. meta::
-   :keywords: html_theme
+   :keywords: local_toc
 
-.. index:: html_theme
+.. index:: local_toc
 
-.. _process_headings@Arguments@html_theme:
+.. _process_headings@Arguments@local_toc:
 
-html_theme
-==========
-is the xrst command line html_theme setting.
+local_toc
+=========
+is the xrst command line local_toc setting.
 
 .. meta::
    :keywords: data_in
@@ -147,9 +147,9 @@ It has three lines each terminated by a newline:
  3. an underline line
 
 .. literalinclude:: ../xrst/process_headings.py
-   :lines: 223-230
+   :lines: 224-231
    :language: py
 
 .. literalinclude:: ../xrst/process_headings.py
-   :lines: 462-466
+   :lines: 463-467
    :language: py

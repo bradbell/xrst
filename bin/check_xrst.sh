@@ -43,8 +43,10 @@ do
    then
       echo_eval rm -r ../rst
    fi
-   args='--toml_path ../xrst.toml'
-   args="$args --group_list $group_list --html_theme sphinx_rtd_theme"
+   args='--local_toc'
+   args="$args --toml_path ../xrst.toml"
+   args="$args --group_list $group_list"
+   args="$args --html_theme sphinx_rtd_theme"
    echo "python -m xrst $args"
    if ! python -m xrst $args 2> check_xrst.$$
    then

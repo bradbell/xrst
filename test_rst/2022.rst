@@ -39,6 +39,12 @@ mm-dd
    separately specify the rst substitutions and the latex macros.
 2. Add the :ref:`configure_example` page and improve
    the :ref:`get_started` page.
+3. Add the :ref:`toml_file@html_theme_options` table was added,
+   :ref:`run_xrst@html_theme` was changed to allow for any theme,
+   and the :ref:`run_xrst@local_toc` was added.
+   If you were using sphinx_rtd_theme, you will have to include
+   the ``--local_toc`` command line argument to get the same
+   results as you used to.
 
 .. _2022@mm-dd@11-22:
 

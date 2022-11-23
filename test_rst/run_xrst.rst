@@ -27,6 +27,7 @@ Syntax
 ******
 | ``xrst`` \\
 | |tab| [ ``--version`` ]
+| |tab| [ ``--local_toc`` ]
 | |tab| [ ``--toml_path``   *toml_path* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
 | |tab| [ ``--group_list`` *group_list* ] \\
@@ -45,6 +46,20 @@ version
 *******
 If ``--version`` is present on the command line,
 the version of xrst is printed and none of the other arguments matter.
+
+.. meta::
+   :keywords: local_toc
+
+.. index:: local_toc
+
+.. _run_xrst@local_toc:
+
+local_toc
+*********
+If this option is present on the command line,
+a local table of contents is included at the top of every page.
+Some :ref:`run_xrst@html_theme` values include this information
+on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 
 .. meta::
    :keywords: toml_path
@@ -98,15 +113,22 @@ Note that sphinx commands that reference files are relative to the
 html_theme
 **********
 This the html_theme_ that is used.
-The possible values (so far) are;
-``furo``, ``sphinx_rtd_theme`` .
-The default value for *html_theme* is ``sphinx_rtd_theme`` .
+The default value for *html_theme* is ``furo`` .
 
 .. _html_theme: https://sphinx-themes.org/
 
-The ``sphinx_rtd_theme`` theme includes a local table of contents for the
-headers at the top of each page.
-The other themes include this information in the right side bar.
+.. meta::
+   :keywords: sphinx_rtd_theme
+
+.. index:: sphinx_rtd_theme
+
+.. _run_xrst@html_theme@sphinx_rtd_theme:
+
+sphinx_rtd_theme
+================
+A special modification is make to this theme when *target* is html,
+so that it displays wider than its normal limit.
+This modification may be removed in the future.
 
 .. meta::
    :keywords: group_list

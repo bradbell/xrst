@@ -155,6 +155,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # -----------------------------------------------------------------------------
 # {xrst_begin process_headings dev}
 # {xrst_spell
+#     bool
 #     fullmatch
 #     newline
 #     overline
@@ -167,9 +168,9 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # Arguments
 # *********
 #
-# html_theme
-# ==========
-# is the xrst command line html_theme setting.
+# local_toc
+# =========
+# is the xrst command line local_toc setting.
 #
 # data_in
 # =======
@@ -221,9 +222,9 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #
 # {xrst_code py}
 def process_headings(
-      html_theme, data_in, file_name, page_name, not_in_index_list
+      local_toc, data_in, file_name, page_name, not_in_index_list
 ) :
-   assert type(html_theme) == str
+   assert type(local_toc) == bool
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
@@ -405,7 +406,7 @@ def process_headings(
       # put jump table command before heading
       if len(heading_list) == 2 and not found_level_one_heading :
          found_level_one_heading = True
-         if html_theme in [ 'sphinx_rtd_theme' ] :
+         if local_toc :
             data_tmp += '\n.. contents::\n'
             data_tmp += 3 * ' ' + ':local:\n\n'
       #
