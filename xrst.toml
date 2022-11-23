@@ -28,22 +28,14 @@ data = 'rst'
 #
 # BEGIN_PREAMBLE
 [preamble]
-data = '''
-.. comment xrst preamble.rst
-
+rst_substitution = '''
 .. |space| unicode:: 0xA0
 .. |tab| replace:: |space| |space| |space|
-
-.. comment: These Latex macros can be used by any section. Each maco must be
-   defined on its own line and the line must match the regular expression
-   \n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*
-   They should all be in a '.. rst-class:: hidden' block of preamble.rst
-
-.. rst-class:: hidden
-
-   :math:`\newcommand{\B}[1]{ {\bf #1} }`
-   :math:`\newcommand{\R}[1]{ {\rm #1} }`
 '''
+latex_macro = [
+   '\newcommand{\B}[1]{ {\bf #1} }' ,
+   '\newcommand{\R}[1]{ {\rm #1} }' ,
+]
 # END_PREAMBLE
 # -----------------------------------------------------------------------------
 # BEGIN_PROJECT_DICTIONARY

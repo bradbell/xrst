@@ -145,22 +145,36 @@ and placed in the rst_directory.
 
 preamble
 ********
-The only value in this table is the data for the preamble.rst file.
-This file is included at the beginning of every xrst output page.
-It should only define things, it should not generate any output.
-The Latex macros in this file can be used by any page.
-There must be one macro definition per line and each such line must match the
-following python regular expression:
+This table is used to create a xrst_preamble.rst file that is included
+at the beginning of every page.
+This table has the following keys:
 
-   ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
+rst_substitution
+================
+The value corresponding to this key is a set of rst substitution commands
+that get included at the top of every section.
 
-The default for this table is
+latex_macro
+===========
+The value corresponding to this key is a list of latex macros.
+If :ref:`run_xrst@target` is html, these macros get included at the
+top of every page using the sphinx ``:math`` role.
+Otherwise *target* is 'pdf' and these macros get included once
+at the beginning of the corresponding latex document.
+It either case they can be used by every page in the documentation.
+
+default
+=======
 {xrst_code toml}
 [preamble]
-data = ''
+substitution = ''
+latex_macro  = []
 {xrst_code}
 {xrst_suspend}'''
-default_dict['preamble'] = { 'data' : '' }
+default_dict['preamble'] = {
+      'rst_substitution' : ''     ,
+      'latex_macro'      : list() ,
+}
 '''{xrst_resume}
 
 
@@ -266,6 +280,9 @@ def get_toml_dict(toml_file) :
    # }
    # {xrst_end get_toml_dict}
    #
+   # msg
+   msg  = f'toml_file = {toml_file}\n'
+   #
    # toml_dict
    file_ptr  = open(toml_file, 'r')
    file_data = file_ptr.read()
@@ -274,7 +291,6 @@ def get_toml_dict(toml_file) :
    # check top level keys in toml_file
    for table in toml_dict :
       if table not in default_dict :
-         msg  = f'toml_file = {toml_file}\n'
          msg += f'This file has the unexpected table {table}'
          xrst.system_exit(msg)
    #
@@ -287,7 +303,6 @@ def get_toml_dict(toml_file) :
       else :
          table_dict = toml_dict[table]
          if type(table_dict) != dict :
-            msg  = f'toml_file = {toml_file}\n'
             msg += f'{table} is not a table: it has python type '
             msg += str( type(table_dict) )
             xrst.system_exit(msg)
@@ -296,35 +311,53 @@ def get_toml_dict(toml_file) :
    table_dict = toml_dict['root_file']
    for key in table_dict :
       if type( table_dict[key] ) != str :
-         msg  = f'toml_file = {toml_file}\n'
          msg += f'root_file[{key}] has python type ' + str(type(value[key]))
+         xrst.system_exit(msg)
+   #
+   # preamble
+   table_dict = toml_dict['preamble']
+   if set( table_dict.keys() ) != { 'rst_substitution', 'latex_macro' } :
+      msg += 'The preamble has the following keys: '
+      msg += str( table_dict.keys() )
+      xrst.system_exit(msg)
+   value = table_dict['rst_substitution']
+   if type( value ) != str :
+      msg += f'preamble.rst_substitution has python type '
+      msg += str(type(value))
+      xrst.system_exit(msg)
+   value = table_dict['latex_macro']
+   if type( value ) != list :
+      msg += f'preamble.latex_macro has python type '
+      msg += str(type(value))
+      xrst.system_exit(msg)
+   for (index, entry) in enumerate(value) :
+      if type(entry) != str :
+         msg += f'preamble.latex_macro[{index}] has python type '
+         msg += str(type(entry))
          xrst.system_exit(msg)
    #
    # output_directory
    table_dict = toml_dict['output_directory']
    if set( table_dict.keys() ) != { 'html', 'pdf' } :
-      msg  = f'toml_file = {toml_file}\n'
       msg += 'The output_directory has the following keys: '
       msg += str( table_dict.keys() )
       xrst.system_exit(msg)
    for key in table_dict :
-      if type( table_dict[key] ) != str :
-         msg  = f'toml_file = {toml_file}\n'
+      value = table_dict[key]
+      if type( value ) != str :
          msg += f'output_directory.{key} has python type '
-         msg += str(type(value[key]))
+         msg += str(type(value))
          xrst.system_exit(msg)
    #
    # project_dictionary, not_in_index
    for table in [ 'project_dictionary', 'not_in_index' ] :
       value = toml_dict[table]['data']
       if type(value) != list :
-            msg  = f'toml_file = {toml_file}\n'
             msg += f'project_dictionary.data has python type '
             msg += str(type(value))
             xrst.system_exit(msg)
       for (index, entry) in enumerate(value) :
          if type(entry) != str :
-            msg  = f'toml_file = {toml_file}\n'
             msg += f'output_direcory.data[{index}] has python type '
             msg += str(type(entry))
             xrst.system_exit(msg)

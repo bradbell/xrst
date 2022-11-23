@@ -93,33 +93,6 @@ if html_theme == 'sphinx_book_theme' :
 # furo theme uses default options
 '''
 #
-#
-# pattern_macro
-# Note that each macro pattern match may overlap the previous match
-# by the \n at the beginning and end of the pattern.
-pattern_macro = r'\n[ \t]*:math:`(\\newcommand\{[^`]*\})`[ \t]*\n'
-pattern_macro = re.compile(pattern_macro)
-#
-def preamble_macros(toml_dict) :
-   #
-   # preamble
-   preamble = toml_dict['preamble']['data']
-   #
-   # m_macro
-   m_macro = pattern_macro.search(preamble)
-   #
-   # macro_list
-   macro_list = list()
-   while m_macro :
-      #
-      # macro_list
-      macro = m_macro.group(1)
-      macro_list.append(macro)
-      #
-      # m_macro
-      m_macro = pattern_macro.search(preamble, m_macro.end() - 1)
-   #
-   return macro_list
 # ----------------------------------------------------------------------------
 # {xrst_begin auto_file_dev dev}
 # {xrst_spell
@@ -274,22 +247,21 @@ def auto_file(
    conf_py += conf_py_general
    conf_py += theme_temp
    #
-   # latex
-   latex = ''
-   macro_list = preamble_macros(toml_dict)
-   for (i, macro) in enumerate(macro_list) :
-      latex += "    r'" + macro + "'"
-      if i + 1 < len(macro_list) :
-         latex += ' +'
-      latex += '\n'
+   # latex_macro
+   latex_macro  = toml_dict['preamble']['latex_macro']
    #
    # conf_py
-   if latex != '' :
+   if len( latex_macro ) != 0 :
       conf_py += '#\n'
       conf_py += '# Latex used when sphinx builds  pdf\n'
       conf_py += 'latex_elements = {\n'
-      conf_py += "    'preamble' :\n"
-      conf_py += latex + '\n}\n'
+      conf_py += 3 * ' ' + "'preamble' : \n"
+      for (i, macro) in enumerate(latex_macro) :
+         conf_py += 6 * ' ' + f"r'{macro}'"
+         if i+1 < len(latex_macro) :
+            conf_py += ' +'
+         conf_py += '\n'
+      conf_py += '}\n'
    #
    # rst_dir/conf.py
    file_out    = rst_dir + '/conf.py'
@@ -299,34 +271,23 @@ def auto_file(
    # ------------------------------------------------------------------------
    # tmp_dir/xrst_preamble.rst
    #
+   # rst_substitution, latex_macro
+   rst_substitution = toml_dict['preamble']['rst_substitution']
+   latex_macro      = toml_dict['preamble']['latex_macro']
+   #
    # file_data
-   file_data = toml_dict['preamble']['data']
+   if len(rst_substitution) + len(latex_macro) == 0 :
+      file_data = ''
+   else :
+      file_data  = '.. comment: xrst_preamble.rst\n\n'
+      file_data += rst_substitution
+      if target == 'html' and latex_macro != '' :
+         file_data += '\n\n'
+         file_data += '.. rst-class::hidden\n\n'
+         for macro in latex_macro :
+            file_data += 3 * ' ' + f':math:`{macro}`\n'
    #
-   if target == 'pdf' :
-      # remove the latex macros
-      #
-      # m_macro
-      m_macro = pattern_macro.search(file_data)
-      while m_macro :
-         #
-         # file_data
-         before = file_data[0 : m_macro.start() ]
-         after  = file_data[m_macro.end() - 1 : ]
-         file_data = before + after
-         #
-         # m_macro
-         m_macro = pattern_macro.search(file_data)
-   #
-   # pattern
-   # check for and remove an empty .. rst-class hidden block.
-   pattern = r'\n..[ \t]*rst-class:: hidden[ \t]*\n[ \t\n]*\n([^ \t\n]|$)'
-   m_obj   = re.search(pattern, file_data)
-   if m_obj :
-      before    = file_data[ : m_obj.start() + 1]
-      after     = file_data[ m_obj.end() - 1 : ]
-      file_data = before + after
-   #
-   # tmp_dir/xrstt_preamble.rst
+   # tmp_dir/xrst_preamble.rst
    file_out    = tmp_dir + '/' + 'xrst_preamble.rst'
    file_ptr    = open(file_out, 'w')
    file_ptr.write(file_data)
