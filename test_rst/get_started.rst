@@ -18,6 +18,19 @@ xrst input file: ``example/get_started.xrst``
 Page Title: Getting Started
 ###########################
 
+.. contents::
+   :local:
+
+.. meta::
+   :keywords: heading:, steps
+
+.. index:: heading:, steps
+
+.. _get_started@Heading\: Steps:
+
+Heading: Steps
+**************
+
 #. Use pip as follows to install xrst::
 
       pip install --index-url https://test.pypi.org/simple/ xrst
@@ -25,20 +38,19 @@ Page Title: Getting Started
 #. Create an empty directory and make it your current working directory.
 
 #. Create a file called ``project.xrst`` in the working directory with the
-   contents of this example file (see below).
+   contents of this example file
+   (project.xrst is the default root level input file).
 
 #. Create an empty file toml file called ``xrst.toml``
-   in the working directory.
+   in the working directory
+   (xrst.toml is the default configure file).
 
 #. Execute the following command::
 
-      xrst xrst.toml
+      xrst
 
 #. Use your web browser to open the file ``html/index.html`` .
    This location is relative to your working directory.
-
-.. contents::
-   :local:
 
 .. meta::
    :keywords: heading:, links, page
@@ -53,6 +65,8 @@ Heading: Links to this Page
 - :ref:`get_started`
 
 - :ref:`get_started-title`
+
+- :ref:`get_started@Heading: Steps`
 
 - :ref:`get_started@Heading: Links to this Page`
 
