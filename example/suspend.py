@@ -29,9 +29,20 @@ The default for this table is
 [project_name]
 data = 'project'
 {xrst_code}
+
 {xrst_suspend}'''
 default_dict['project_name'] = { 'data' : 'project' }
 '''{xrst_resume}
+
+xrst_code
+*********
+The file below uses ``xrst_code`` to display the toml version
+of this default setting.
+
+xrst_suspend
+************
+The file below uses ``xrst_suspend`` to avoid displaying the python version
+of this default setting.
 
 This Example File
 *****************

@@ -53,6 +53,30 @@ The default for this table is
    :lines: 29-30
    :language: toml
 
+.. meta::
+   :keywords: xrst_code
+
+.. index:: xrst_code
+
+.. _suspend_example@xrst_code:
+
+xrst_code
+*********
+The file below uses ``xrst_code`` to display the toml version
+of this default setting.
+
+.. meta::
+   :keywords: xrst_suspend
+
+.. index:: xrst_suspend
+
+.. _suspend_example@xrst_suspend:
+
+xrst_suspend
+************
+The file below uses ``xrst_suspend`` to avoid displaying the python version
+of this default setting.
+
 .. _suspend_example@This Example File:
 
 This Example File
