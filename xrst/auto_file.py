@@ -283,7 +283,7 @@ def auto_file(
       file_data += rst_substitution
       if target == 'html' and latex_macro != '' :
          file_data += '\n\n'
-         file_data += '.. rst-class::hidden\n\n'
+         file_data += '.. rst-class:: hidden\n\n'
          for macro in latex_macro :
             file_data += 3 * ' ' + f':math:`{macro}`\n'
    #

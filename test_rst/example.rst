@@ -29,6 +29,7 @@ Examples
 -  :ref:`heading_example-title`
 -  :ref:`indent_example-title`
 -  :ref:`docstring_example-title`
+-  :ref:`configure_example-title`
 -  :ref:`test_example-title`
 
 .. toctree::
@@ -46,4 +47,5 @@ Examples
    heading_example
    indent_example
    docstring_example
+   configure_example
    test_example

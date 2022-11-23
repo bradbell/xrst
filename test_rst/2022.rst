@@ -31,6 +31,14 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-23:
+
+11-23
+=====
+1. The :ref:`toml_file@preamble` table was changed to
+   separately specify the rst substitutions and the latex macros.
+2. Add the :ref:`configure_example` page.
+
 .. _2022@mm-dd@11-22:
 
 11-22

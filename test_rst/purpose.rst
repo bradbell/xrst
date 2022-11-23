@@ -66,7 +66,7 @@ Features
    to different places in the documentation.
 #. It is possible to document a feature using one language
    and implement the feature using a different language; e.g.,
-   see `suspend_example` .
+   see :ref:`suspend_example` .
 #. The rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
    while also having long descriptive titles.

@@ -38,8 +38,9 @@ mm-dd
 
 11-23
 =====
-The :ref:`toml_file@preamble` table was changed to
-separately specify the rst substitutions and the latex macros.
+1. The :ref:`toml_file@preamble` table was changed to
+   separately specify the rst substitutions and the latex macros.
+2. Add the :ref:`configure_example` page.
 
 11-22
 =====

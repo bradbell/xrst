@@ -176,19 +176,50 @@ and placed in the rst_directory.
 
 preamble
 ********
-The only value in this table is the data for the preamble.rst file.
-This file is included at the beginning of every xrst output page.
-It should only define things, it should not generate any output.
-The Latex macros in this file can be used by any page.
-There must be one macro definition per line and each such line must match the
-following python regular expression:
+This table is used to create a xrst_preamble.rst file that is included
+at the beginning of every page.
+This table has the following keys:
 
-   ``\n[ \t]*:math:`\\newcommand\{[^`]*\}`[ \t]*``
+.. meta::
+   :keywords: rst_substitution
 
-The default for this table is
+.. index:: rst_substitution
+
+.. _toml_file@preamble@rst_substitution:
+
+rst_substitution
+================
+The value corresponding to this key is a set of rst substitution commands
+that get included at the top of every section.
+
+.. meta::
+   :keywords: latex_macro
+
+.. index:: latex_macro
+
+.. _toml_file@preamble@latex_macro:
+
+latex_macro
+===========
+The value corresponding to this key is a list of latex macros.
+If :ref:`run_xrst@target` is html, these macros get included at the
+top of every page using the sphinx ``:math`` role.
+Otherwise *target* is 'pdf' and these macros get included once
+at the beginning of the corresponding latex document.
+It either case they can be used by every page in the documentation.
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _toml_file@preamble@default:
+
+default
+=======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 159-160
+   :lines: 169-171
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -197,7 +228,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 30-46
+   :lines: 30-38
    :language: toml
 
 .. meta::
@@ -218,7 +249,7 @@ Special words, for a particular page, are specified using the
 The default for this table is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 185-186
+   :lines: 199-200
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -227,7 +258,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 50-66
+   :lines: 42-58
    :language: toml
 
 .. meta::
@@ -255,7 +286,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 The default value for this key is
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 217-218
+   :lines: 231-232
    :language: toml
 
 .. _toml_file@not_in_index@Example:
@@ -264,5 +295,5 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 70-95
+   :lines: 62-87
    :language: toml

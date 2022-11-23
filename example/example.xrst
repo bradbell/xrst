@@ -17,6 +17,7 @@ Examples
    example/heading.py
    example/indent.py
    example/docstring.py
+   example/configure.xrst
    example/test.py
 }
 

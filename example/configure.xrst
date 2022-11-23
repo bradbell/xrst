@@ -1,0 +1,36 @@
+# vim:nofixeol
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+# ----------------------------------------------------------------------------
+"""
+{xrst_begin configure_example}
+
+Example Using TOML Configure File
+#################################
+
+preamble
+********
+
+rst_substitution
+================
+|tab| This line is indented using ``|tab|``
+which is defined as an rst_substitution.
+
+latex_macro
+===========
+:math:`f : \B{R}^n \rightarrow \B{R}^m`
+This line uses ``\B`` which is defined as a latex_macro.
+
+
+Example TOML File
+*****************
+{xrst_literal
+   xrst.toml
+}
+
+This Example File
+*****************
+{xrst_literal}
+
+{xrst_end configure_example}
+"""
