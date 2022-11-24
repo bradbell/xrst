@@ -36,8 +36,11 @@ the version of xrst is printed and none of the other arguments matter.
 local_toc
 *********
 If this option is present on the command line,
-a local table of contents is included at the top of every page.
-Some :ref:`run_xrst@html_theme` values include this information
+a table of contents for the Headings in the current page
+is included at the top of every page.
+The page name and page title are not in this table of contents.
+
+Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 
 toml_path
