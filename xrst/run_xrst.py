@@ -6,6 +6,7 @@
 {xrst_begin run_xrst user}
 {xrst_spell
    furo
+   github
    pyspellchecker
    rtd
    toml
@@ -66,6 +67,25 @@ This the html_theme_ that is used.
 The default value for *html_theme* is ``furo`` .
 
 .. _html_theme: https://sphinx-themes.org/
+
+Theme Choices
+=============
+The following is a list of some themes that work well with the
+default settings in :ref:`toml_file@html_theme_options` .
+If you have a theme together with html_theme_options
+that work well with xrst,
+please post an issue on github so that it can be added to the list below.
+
+{xrst_spell_off}
+.. csv-table:: Sphinx Themes
+   :header: name,  local_toc
+
+   sphinx_rtd_theme,     yes
+   furo,                 no
+   sphinx_book_theme,    no
+   pydata_sphinx_theme,  no
+   piccolo_theme,        no
+{xrst_spell_on}
 
 sphinx_rtd_theme
 ================

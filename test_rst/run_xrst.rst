@@ -118,6 +118,30 @@ The default value for *html_theme* is ``furo`` .
 .. _html_theme: https://sphinx-themes.org/
 
 .. meta::
+   :keywords: theme, choices
+
+.. index:: theme, choices
+
+.. _run_xrst@html_theme@Theme Choices:
+
+Theme Choices
+=============
+The following is a list of some themes that work well with the
+default settings in :ref:`toml_file@html_theme_options` .
+If you have a theme together with html_theme_options
+that work well with xrst,
+please post an issue on github so that it can be added to the list below.
+
+.. csv-table:: Sphinx Themes
+   :header: name,  local_toc
+
+   sphinx_rtd_theme,     yes
+   furo,                 no
+   sphinx_book_theme,    no
+   pydata_sphinx_theme,  no
+   piccolo_theme,        no
+
+.. meta::
    :keywords: sphinx_rtd_theme
 
 .. index:: sphinx_rtd_theme
