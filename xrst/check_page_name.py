@@ -20,7 +20,8 @@ import xrst
 # #. \{xrst_begin page_name user}
 # #. \{xrst_end page_name}
 #
-# The valid characters in a page name are [a-z], [0-9], period and underbar.
+# The valid characters in a page name are [A-Z], [a-z], [0-9],
+# period and underbar.
 # A page name cannot begin with ``xrst_`` . If *page_name* does not follow
 # these rules, a message is printed and the program exits.
 #
@@ -46,11 +47,11 @@ def check_page_name(page_name, file_name, m_obj, data) :
    # {xrst_code}
    # {xrst_end check_page_name}
    #
-   m_page_name = re.search('[._a-z0-9]+', page_name)
+   m_page_name = re.search('[._A-Za-z0-9]+', page_name)
    if m_page_name.group(0) != page_name :
       msg  = f'in begin comamnd page_name = "{page_name}"'
       msg += '\nIt must be non-empty and only contain the following'
-      msg += ' characters: ., _, a-z, 0-9'
+      msg += ' characters: ., _, A-Z, a-z, 0-9'
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )

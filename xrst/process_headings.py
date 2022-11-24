@@ -347,7 +347,7 @@ def process_headings(
       label = None
       for level in range( len(heading_list) ) :
          if level == 0 :
-            label = page_name.lower()
+            label = page_name
             label = label.replace('\\', '')
             label = label.replace('@', '_')
             assert label == page_name

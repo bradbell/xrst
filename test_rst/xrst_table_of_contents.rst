@@ -19,7 +19,7 @@ Table of Contents
 |    :ref:`1.10<indent_example>` Indent Example
 |    :ref:`1.11<docstring_example>` Docstring Example
 |    :ref:`1.12<configure_example>` Example Using TOML Configure File
-|    :ref:`1.13<test_example>` Test Special Conditions
+|    :ref:`1.13<testExample>` Test Special Conditions
 | :ref:`2<purpose>` The Need for xrst
 | :ref:`3<user_guide>` Extract Sphinx RST Files
 |    :ref:`3.1<toml_file>` Configuration File for xrst

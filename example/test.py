@@ -3,12 +3,18 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 """
-{xrst_begin test_example}
+{xrst_begin testExample}
 {xrst_spell
+   underbar
    newline
 }
 Test Special Conditions
 #######################
+
+Camel Case
+**********
+This page name uses a capital letter, instead of an underbar,
+to separate the words test and example.
 
 Code Command in List
 ********************
@@ -29,5 +35,5 @@ This Example File
 *****************
 {xrst_literal}
 
-{xrst_end test_example}
+{xrst_end testExample}
 """

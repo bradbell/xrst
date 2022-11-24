@@ -35,7 +35,8 @@ The page_name appears in *m_obj* in one of the following ways
 #. {xrst_begin page_name user}
 #. {xrst_end page_name}
 
-The valid characters in a page name are [a-z], [0-9], period and underbar.
+The valid characters in a page name are [A-Z], [a-z], [0-9],
+period and underbar.
 A page name cannot begin with ``xrst_`` . If *page_name* does not follow
 these rules, a message is printed and the program exits.
 
@@ -74,5 +75,5 @@ data
 is that data that was searched to get the match object.
 
 .. literalinclude:: ../xrst/check_page_name.py
-   :lines: 41-45
+   :lines: 42-46
    :language: py

@@ -31,6 +31,14 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-24:
+
+11-24
+=====
+Enable the use of upper case letters in a
+:ref:`begin_cmd@page_name`.
+As an example, change ``test_example`` to :ref:`testExample` .
+
 .. _2022@mm-dd@11-23:
 
 11-23
@@ -196,7 +204,7 @@ This has been fixed.
       File .. add_line_numbers.py ...
          assert previous == len(data_in) - 1
 
-2. The list example was removed and the :ref:`test_example` was added.
+2. The list example was removed and the :ref:`testExample` was added.
 3. The required packages were not being automatically installed because they
    were under the wrong heading in the pyproject.toml file.
    This has been fixed.
@@ -298,7 +306,7 @@ preamble.rst file. This has been fixed.
 
 4. There was a problem with the :ref:`code_cmd` when it was inside a list.
    This has been fixed and the corresponding
-   :ref:`test_example@Code Command in List` example now displays properly.
+   :ref:`testExample@Code Command in List` example now displays properly.
    To be specific,  its second item starts with 2 instead of 1.
 5. Remove the latex generated section numbers from the pdf output because
    xrst includes its own value for the section numbering.
@@ -359,7 +367,7 @@ is used and the navigation sidebar takes less space.
 =====
 1. Fix the indentation when an xsrst code command in a list item and
    add an example that demonstrates this case; see
-   :ref:`test_example@Code Command in List` .
+   :ref:`testExample@Code Command in List` .
 2. Add four new items to the :ref:`wish_list` (and edit the Tabs item).
 
 .. _2022@mm-dd@09-17:

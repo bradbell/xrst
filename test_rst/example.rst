@@ -30,7 +30,7 @@ Examples
 -  :ref:`indent_example-title`
 -  :ref:`docstring_example-title`
 -  :ref:`configure_example-title`
--  :ref:`test_example-title`
+-  :ref:`testExample-title`
 
 .. toctree::
    :maxdepth: 1
@@ -48,4 +48,4 @@ Examples
    indent_example
    docstring_example
    configure_example
-   test_example
+   testExample

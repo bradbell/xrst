@@ -24,11 +24,13 @@ begin (end) command.
 page_name
 *********
 The *page_name* is a non-empty sequence of the following characters:
-period ``.``, underbar ``_``, the letters a-z, and decimal digits 0-9.
+period ``.``, underbar ``_``, the letters A-Z, letters a-z,
+and decimal digits 0-9.
 The page name can not be ``index``
 and it can not begin with the characters ``xrst_``.
-A link is included in the index under the page name
-to the first heading the page.
+The lower case version of two page names cannot be equal.
+
+A link is included in the index under the page name to the page.
 The page name is also added to the html keyword meta data.
 
 group_name
@@ -253,23 +255,29 @@ def get_file_info(
          #
          # check if page_name appears multiple times in this file
          for info in file_info :
-            if page_name == info['page_name'] :
-               msg  = 'xrst_begin: page appears multiple times'
+            previous_page_name = info['page_name']
+            if page_name.lower() == previous_page_name.lower() :
+               msg  = 'Lower case version of two page names are equal.\n'
+               msg += f'previous page_name = {previous_page_name}\n'
+               msg += f'previous_file      = {file_in}\n'
                xrst.system_exit(msg,
                   file_name      = file_in,
-                  page_name   = page_name,
+                  page_name      = page_name,
                   m_obj          = m_begin,
                   data           = file_data
                )
          #
          # check if page_name appears in another file
          for info in page_info :
-            if page_name == info['page_name'] :
-               msg  = f'page_name = "{page_name}", '
-               msg += f'group_name = {group_name} appears twice\n'
-               msg += 'Once  in file ' + file_in + '\n'
-               msg += 'Again in file ' + info['file_in'] + '\n'
-               xrst.system_exit(msg)
+            previous_page_name = info['page_name']
+            if page_name.lower() == previous_page_name.lower() :
+               msg  = 'Lower case version of two page names are equal.\n'
+               msg  = f'previous_page_name  = "{previous_page_name}", '
+               msg += 'previous_file        = ' +  info['file_in'] + '\n'
+               xrst.system_exit(msg,
+                  file_name = file_in  ,
+                  page_name = page_name
+               );
          #
          # check if parent pages is the first page in this file
          if is_parent :
@@ -335,8 +343,8 @@ def get_file_info(
          #
          # file_info
          file_info.append( {
-            'page_name' : page_name,
-            'page_data' : page_data,
+            'page_name'    : page_name,
+            'page_data'    : page_data,
             'is_parent'    : is_parent,
             'is_child'     : is_child,
          } )
