@@ -13,13 +13,6 @@ user    = 'user/user.xrst'
 dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 #
-# BEGIN_OUTPUT_DIRECTORY
-# This is same as the default and only used as an example
-[output_directory]
-html = 'html'
-pdf  = 'pdf'
-# END_OUTPUT_DIRECTORY
-#
 # BEGIN_RST_DIRECTORY
 # This is same as the default and only used as an example
 [rst_directory]

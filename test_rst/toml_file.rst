@@ -29,7 +29,7 @@ A toml file is used to configure xrst.
    as its corresponding default.
    If an entry has components, all of the comments have the same
    type as the default components.
-#. All of the directories specified in this file below are relative to the
+#. All of the files and directories specified in this file are relative to the
    :ref:`run_xrst@toml_path@project_directory`;
    i.e.; the directory where the toml file is located.
 
@@ -111,45 +111,6 @@ Example
    :language: toml
 
 .. meta::
-   :keywords: output_directory
-
-.. index:: output_directory
-
-.. _toml_file@output_directory:
-
-output_directory
-****************
-This table maps the :ref:`run_xrst@target` to the
-directory where the final output is stored .
-
-.. meta::
-   :keywords: default
-
-.. index:: default
-
-.. _toml_file@output_directory@Default:
-
-Default
-=======
-
-.. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 95-97
-   :language: toml
-
-Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
-
-.. _toml_file@output_directory@Example:
-
-Example
-=======
-
-.. literalinclude:: ../xrst.toml
-   :lines: 17-20
-   :language: toml
-
-.. meta::
    :keywords: rst_directory
 
 .. index:: rst_directory
@@ -179,7 +140,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 133-134
+   :lines: 102-103
    :language: toml
 
 .. _toml_file@rst_directory@Example:
@@ -188,7 +149,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 24-26
+   :lines: 17-19
    :language: toml
 
 .. meta::
@@ -234,7 +195,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 169-174
+   :lines: 138-143
    :language: toml
 
 .. _toml_file@html_theme_options@Example:
@@ -243,7 +204,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 30-36
+   :lines: 23-29
    :language: toml
 
 .. meta::
@@ -298,7 +259,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 219-221
+   :lines: 188-190
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -307,7 +268,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 40-48
+   :lines: 33-41
    :language: toml
 
 .. meta::
@@ -337,7 +298,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 251-252
+   :lines: 220-221
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -346,7 +307,7 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 52-68
+   :lines: 45-61
    :language: toml
 
 .. meta::
@@ -383,7 +344,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 285-286
+   :lines: 254-255
    :language: toml
 
 .. _toml_file@not_in_index@Example:
@@ -392,5 +353,5 @@ Example
 =======
 
 .. literalinclude:: ../xrst.toml
-   :lines: 72-97
+   :lines: 65-90
    :language: toml

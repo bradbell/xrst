@@ -28,10 +28,11 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ]
 | |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_path``   *toml_path* ] \\
+| |tab| [ ``--toml_path``  *toml_path* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
 | |tab| [ ``--group_list`` *group_list* ] \\
-| |tab| [ ``--target``      *target* ]  \\
+| |tab| [ ``--target``     *target* ]  \\
+| |tab| [ ``--output_dir`` *output_dir* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 
@@ -222,6 +223,19 @@ target
 The optional command line argument *target* must be ``html`` or ``pdf``.
 It specifies the type of type output you plan to generate using sphinx.
 The default value for *target* is ``html`` .
+
+.. meta::
+   :keywords: output_dir
+
+.. index:: output_dir
+
+.. _run_xrst@output_dir:
+
+output_dir
+**********
+The target files are placed in this sub-directory of the
+:ref:`run_xrst@toml_path@project_directory` .
+The default value for *output_dir* is ``html`` .
 
 .. meta::
    :keywords: replace_spell_commands

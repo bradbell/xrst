@@ -5,6 +5,7 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
+   dir
    furo
    github
    pyspellchecker
@@ -21,10 +22,11 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ]
 | |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_path``   *toml_path* ] \\
+| |tab| [ ``--toml_path``  *toml_path* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
 | |tab| [ ``--group_list`` *group_list* ] \\
-| |tab| [ ``--target``      *target* ]  \\
+| |tab| [ ``--target``     *target* ]  \\
+| |tab| [ ``--output_dir`` *output_dir* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 
@@ -146,6 +148,12 @@ target
 The optional command line argument *target* must be ``html`` or ``pdf``.
 It specifies the type of type output you plan to generate using sphinx.
 The default value for *target* is ``html`` .
+
+output_dir
+**********
+The target files are placed in this sub-directory of the
+:ref:`run_xrst@toml_path@project_directory` .
+The default value for *output_dir* is ``html`` .
 
 replace_spell_commands
 **********************
@@ -335,19 +343,25 @@ def run_xrst() :
    )
    parser.add_argument(
       '--toml_path', metavar='toml_path', default='xrst.toml',
-      help='path to the xrst configuration file which is in toml format'
+      help='path to the xrst configuration file which is in toml format' + \
+         '(default is .)'
    )
    parser.add_argument(
       '--html_theme', metavar='html_theme', default='furo',
-      help='sphinx html_theme that is used to display web pages',
+      help='sphinx html_theme that is used to display web pages ' + \
+         '(default is furo)',
    )
    parser.add_argument(
       '--group_list', metavar='group_list', default='default',
-      help='comma separated list of groups to include (default: ,)'
+      help='comma separated list of groups to include (default: is default)'
    )
    parser.add_argument(
       '--target', metavar='target', choices=['html', 'pdf'], default='html',
-      help='type of output files, choices are html or pdf (default: html)'
+      help='type of output files, choices are html or pdf (default is html)'
+   )
+   parser.add_argument(
+      '--output_dir', metavar='output_dir', default='html',
+      help='directory where the target files are placed (default is html)'
    )
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
@@ -426,11 +440,11 @@ def run_xrst() :
    # target
    target = arguments.target
    #
+   # output_dir
+   output_dir = arguments.output_dir
+   #
    # toml_dict
    toml_dict  = xrst.get_toml_dict( toml_file )
-   #
-   # output_dir
-   output_directory = toml_dict['output_directory'][target]
    #
    # rst_directory
    rst_directory = toml_dict['rst_directory']['data']
@@ -720,7 +734,7 @@ def run_xrst() :
    shutil.rmtree(tmp_dir)
    # -------------------------------------------------------------------------
    if target == 'html' :
-      command = f'sphinx-build -b html {rst_directory} {output_directory}'
+      command = f'sphinx-build -b html {rst_directory} {output_dir}'
       if rst_line_numbers :
          system_command(command)
       else :
@@ -728,7 +742,7 @@ def run_xrst() :
    else :
       assert target == 'pdf'
       #
-      latex_dir = f'{output_directory}/latex'
+      latex_dir = f'{output_dir}/latex'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
       system_command(command)
       #
@@ -738,7 +752,7 @@ def run_xrst() :
       command = f'make -C {latex_dir} {project_name}.pdf'
       system_command(command)
    # -------------------------------------------------------------------------
-   # output_directory/_static/css/theme.css
+   # output_dir/_static/css/theme.css
    # see https://stackoverflow.com/questions/23211695/
    #  modifying-content-width-of-the-sphinx-theme-read-the-docs
    if html_theme == 'sphinx_rtd_theme' and target == 'html' :
@@ -753,7 +767,7 @@ def run_xrst() :
          r'([.]wy-side-nav-search[{][^}]*;width):[^;]*;'
       )
       new_value = { 'content':'100%', 'sidebar':'250px', 'search':'250px' }
-      file_name = f'{output_directory}/_static/css/theme.css'
+      file_name = f'{output_dir}/_static/css/theme.css'
       try :
          file_obj  = open(file_name, 'r')
          ok        = True

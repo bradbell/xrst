@@ -30,7 +30,7 @@ A toml file is used to configure xrst.
    as its corresponding default.
    If an entry has components, all of the comments have the same
    type as the default components.
-#. All of the directories specified in this file below are relative to the
+#. All of the files and directories specified in this file are relative to the
    :ref:`run_xrst@toml_path@project_directory`;
    i.e.; the directory where the toml file is located.
 
@@ -82,37 +82,6 @@ Example
    xrst.toml
    # BEGIN_ROOT_FILE
    # END_ROOT_FILE
-}
-
-output_directory
-****************
-This table maps the :ref:`run_xrst@target` to the
-directory where the final output is stored .
-
-Default
-=======
-{xrst_code toml}
-[output_directory]
-html = 'html'
-pdf  = 'pdf'
-{xrst_code}
-{xrst_suspend}'''
-default_dict['output_directory'] = {
-   'html' : 'html' ,
-   'pdf' : 'pdf'   ,
-}
-'''{xrst_resume}
-
-Note that the possible values
-for *target* are ``'html'`` and ``'pdf'`` and that the default
-uses the same name for the output directory.
-
-Example
-=======
-{xrst_literal
-   xrst.toml
-   # BEGIN_OUTPUT_DIRECTORY
-   # END_OUTPUT_DIRECTORY
 }
 
 rst_directory
@@ -399,19 +368,6 @@ def get_toml_dict(toml_file) :
       if type(entry) != str :
          msg += f'preamble.latex_macro[{index}] has python type '
          msg += str(type(entry))
-         xrst.system_exit(msg)
-   #
-   # output_directory
-   table_dict = toml_dict['output_directory']
-   if set( table_dict.keys() ) != { 'html', 'pdf' } :
-      msg += 'The output_directory has the following keys: '
-      msg += str( table_dict.keys() )
-      xrst.system_exit(msg)
-   for key in table_dict :
-      value = table_dict[key]
-      if type( value ) != str :
-         msg += f'output_directory.{key} has python type '
-         msg += str(type(value))
          xrst.system_exit(msg)
    #
    # project_dictionary, not_in_index
