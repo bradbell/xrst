@@ -36,6 +36,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+11-27
+=====
+Fix a problem in the latex preamble section of
+:ref:`auto_file@conf.py` .
+This problem started on 11-23 when the toml file
+:ref:`toml_file@preamble` split up the latex macros and the substitutions.
+
 11-26
 =====
 The output directory specification was moved

@@ -245,12 +245,10 @@ def auto_file(
       conf_py += '#\n'
       conf_py += '# Latex used when sphinx builds  pdf\n'
       conf_py += 'latex_elements = {\n'
-      conf_py += 3 * ' ' + "'preamble' : \n"
-      for (i, macro) in enumerate(latex_macro) :
-         conf_py += 6 * ' ' + f"r'{macro}'"
-         if i+1 < len(latex_macro) :
-            conf_py += ' +'
-         conf_py += '\n'
+      conf_py += 3 * ' ' + "'preamble' : r'''\n"
+      for macro in latex_macro :
+         conf_py += 3 * ' ' + macro + '\n'
+      conf_py +=  3 * ' ' +"'''\n"
       conf_py += '}\n'
    #
    # rst_dir/conf.py
