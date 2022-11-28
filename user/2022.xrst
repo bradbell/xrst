@@ -36,6 +36,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+11-28
+=====
+If :ref:`run_xrst@target` is pdf, the
+:ref:`heading_links@Labels@Level Zero@page_name`
+is no longer displayed as a separate heading above the
+:ref:`heading_links@Labels@Level Zero@page_title` .
+
 11-27
 =====
 Fix a problem in the latex preamble section of

@@ -22,6 +22,17 @@ Write the temporary RST file for a page
    :local:
 
 .. meta::
+   :keywords: target
+
+.. index:: target
+
+.. _temporary_file@target:
+
+target
+******
+If the :ref:`run_xrst@target` command line argument.
+
+.. meta::
    :keywords: pseudo_heading
 
 .. index:: pseudo_heading
@@ -31,9 +42,6 @@ Write the temporary RST file for a page
 pseudo_heading
 **************
 is the :ref:`process_headings@Returns@pseudo_heading` for this page.
-It is placed before all the other headings in this page.
-A label is added just before the pseudo heading that
-links to it using the page name.
 
 .. meta::
    :keywords: file_in
@@ -93,13 +101,22 @@ is the data for this page with all the xrst commands converted to
 their sphinx RST values, except the \\n{xrst_page_number} command.
 The following is added to this data before writing it to the output file:
 
-#. The preamble is included at the beginning.
-#. The pseudo heading and its label are added next.
-#. The name of the input file file_in is displayed next.
-#. More than 2 lines with only tabs or space are converted to 2 empty lines.
-#. Empty lines at the end are removed
-#. The line numbers are removed.
-#. The text ``\{xrst_`` is replaced by ``{xrst_`` .
+ #. The preamble is included at the beginning.
+ #. If *target* is ``html``
+
+    #. The page_name label is added next.
+    #. The pseudo heading is added next.
+    #. The name of the input file *file_in* is added next.
+
+ #. If *target* is ``pdf```
+
+    #. The page_name label is added directly before the \\n{xrst_page_number}
+
+ #. Any sequence of more than 2 lines with only tabs or space are converted to
+    2 empty lines.
+ #. Empty lines at the end are removed
+ #. The xrst_line_number entries are removed.
+ #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
 
 .. meta::
    :keywords: line_pair
@@ -123,9 +140,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 73-84
+   :lines: 82-95
    :language: py
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 136-141
+   :lines: 157-162
    :language: py

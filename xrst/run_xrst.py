@@ -681,6 +681,7 @@ def run_xrst() :
             #
             # line_pair and file tmp_dir/page_name.rst
             line_pair = xrst.temporary_file(
+               target,
                pseudo_heading,
                file_in,
                tmp_dir,

@@ -31,6 +31,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-28:
+
+11-28
+=====
+If :ref:`run_xrst@target` is pdf, the
+:ref:`heading_links@Labels@Level Zero@page_name`
+is no longer displayed as a separate heading above the
+:ref:`heading_links@Labels@Level Zero@page_title` .
+
 .. _2022@mm-dd@11-27:
 
 11-27

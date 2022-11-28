@@ -9,7 +9,6 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # {xrst_begin temporary_file dev}
 # {xrst_spell
 #     dir
-#     file file
 #     tmp
 # }
 # {xrst_comment_ch #}
@@ -17,12 +16,13 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # Write the temporary RST file for a page
 # #######################################
 #
+# target
+# ******
+# If the :ref:`run_xrst@target` command line argument.
+#
 # pseudo_heading
 # **************
 # is the :ref:`process_headings@Returns@pseudo_heading` for this page.
-# It is placed before all the other headings in this page.
-# A label is added just before the pseudo heading that
-# links to it using the page name.
 #
 # file_in
 # *******
@@ -40,20 +40,29 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # ********
 # The temporary file written by the routine, *file_out* , is
 # tmp_dir/page_name.rst.
-#
+
 # data_in
 # *******
 # is the data for this page with all the xrst commands converted to
 # their sphinx RST values, except the \\n{xrst_page_number} command.
 # The following is added to this data before writing it to the output file:
 #
-# #. The preamble is included at the beginning.
-# #. The pseudo heading and its label are added next.
-# #. The name of the input file file_in is displayed next.
-# #. More than 2 lines with only tabs or space are converted to 2 empty lines.
-# #. Empty lines at the end are removed
-# #. The line numbers are removed.
-# #. The text ``\\{xrst_`` is replaced by ``\{xrst_`` .
+#  #. The preamble is included at the beginning.
+#  #. If *target* is ``html``
+#
+#     #. The page_name label is added next.
+#     #. The pseudo heading is added next.
+#     #. The name of the input file *file_in* is added next.
+#
+#  #. If *target* is ``pdf```
+#
+#     #. The page_name label is added directly before the \\n{xrst_page_number}
+#
+#  #. Any sequence of more than 2 lines with only tabs or space are converted to
+#     2 empty lines.
+#  #. Empty lines at the end are removed
+#  #. The xrst_line_number entries are removed.
+#  #. The text ``\\{xrst_`` is replaced by ``\{xrst_`` .
 #
 # line_pair
 # *********
@@ -72,12 +81,14 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 # {xrst_code py}
 # line_pair =
 def temporary_file(
+   target,
    pseudo_heading,
    file_in,
    tmp_dir,
    page_name,
    data_in,
 ) :
+   assert target == 'html' or target == 'pdf'
    assert type(pseudo_heading) == str
    assert type(file_in) == str
    assert type(page_name) == str
@@ -90,19 +101,29 @@ def temporary_file(
    # }
    # {xrst_end temporary_file}
    #
+   # title_index
+   title_index = None
+   if target == 'pdf' :
+      page_number_index = data_in.index('\n{xrst_page_number}\n')
+      assert 0 <= page_number_index
+   #
    # label
    # label that displays page name (which is text in pseudo heading)
    label = f'.. _{page_name}:\n\n'
    #
-   # before
-   # start output by including preamble and then pesudo_heading
+   # data_out
    before  = '.. include:: xrst_preamble.rst\n\n'
-   before += label
-   before += pseudo_heading
-   before += f'xrst input file: ``{file_in}``\n\n'
+   if target == 'html' :
+      before  += label
+      before  += pseudo_heading
+      before  += f'xrst input file: ``{file_in}``\n\n'
+      data_out = before + data_in
+   else :
+      data_mid   = data_in[: page_number_index]
+      data_after = data_in[page_number_index :]
+      data_out   = before + data_mid + label + data_after
    #
    # data_out
-   data_out = before + data_in
    #
    # data_out
    # Convert three or more sequential emtpty lines to two empty lines.
