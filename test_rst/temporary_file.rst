@@ -110,8 +110,9 @@ The following is added to this data before writing it to the output file:
 
  #. If *target* is ``pdf```
 
-    #. The *page_name* ``-name`` label is added directly before the
-       \\n{xrst_page_number}
+    #. All cross references of the form ``:ref:`` \` *name* ``-name`` \` ,
+       where *name* is any valid page name,
+       are changed to ``:ref:`` *name* \`< *name* ``-title`` >\`
 
  #. Any sequence of more than 2 lines with only tabs or space are converted to
     2 empty lines.
@@ -141,9 +142,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 83-96
+   :lines: 86-99
    :language: py
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 158-163
+   :lines: 165-170
    :language: py

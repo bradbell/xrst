@@ -3,8 +3,10 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
-pattern_line_number = re.compile( r'\n[ \t]*{xrst_line [0-9]+@' )
-pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
+pattern_line_number     = re.compile( r'\n[ \t]*{xrst_line [0-9]+@' )
+pattern_newline_3       = re.compile( r'(\n[ \t]*){2,}\n' )
+pattern_ref_page_name_1 = re.compile( r':ref:`([._A-Za-z0-9]+)-name`' )
+pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' )
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
@@ -56,8 +58,9 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #
 #  #. If *target* is ``pdf```
 #
-#     #. The *page_name* ``-name`` label is added directly before the
-#        \\n{xrst_page_number}
+#     #. All cross references of the form ``:ref:`` \` *name* ``-name`` \` ,
+#        where *name* is any valid page name,
+#        are changed to ``:ref:`` *name* \`< *name* ``-title`` >\`
 #
 #  #. Any sequence of more than 2 lines with only tabs or space are converted to
 #     2 empty lines.
@@ -120,9 +123,13 @@ def temporary_file(
       before  += f'xrst input file: ``{file_in}``\n\n'
       data_out = before + data_in
    else :
-      data_mid   = data_in[: page_number_index]
-      data_after = data_in[page_number_index :]
-      data_out   = before + data_mid + label + data_after
+      data_out   = before + data_in
+      data_out   = pattern_ref_page_name_1.sub(
+         r':ref:`\1<\1-title>`' , data_out
+      )
+      data_out   = pattern_ref_page_name_2.sub(
+         r':ref:`\1<\2-title>`' , data_out
+      )
    #
    # data_out
    #

@@ -4,6 +4,7 @@
 """
 {xrst_begin heading_links user}
 {xrst_spell
+   toml
    backslashes
 }
 
@@ -91,12 +92,14 @@ Discussion
 #. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
    page names; e.g. :ref:`auto_file@conf.py`.
-#. These automatically generated labels end in ``-name`` , ``-title`` ,
-   or have a ``@`` character in them. This makes it easy to distinguish
-   them from other labels entered using rst commands.
+#. The xrst automatically generated labels end in ``-name`` , ``-title`` ,
+   or have a ``@`` character in them. Other labels, that you create using
+   rst commands, should not satisfy this condition
+   (and hence are easy to distinguish).
 #. Including all the levels above a heading in its label may seem verbose,
-   but it avoids ambiguity when the same heading appears twice in one page;
-   e.g the heading Example might appears multiple times in different context.
+   but it avoids ambiguity when the same heading appears twice in one page
+   (e.g the heading :ref:`toml_file@project_name@Example` appears often in the
+   toml_file page).
    This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
    headings below it,  will break.  This identifies the links that should be
