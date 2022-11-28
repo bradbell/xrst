@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _code_cmd_dev:
+.. _code_cmd_dev-name:
 
 !!!!!!!!!!!!
 code_cmd_dev
@@ -41,7 +41,7 @@ Arguments
 data_in
 =======
 is the data for the page before the
-:ref:`code commands <code_cmd>` have been processed.
+:ref:`code commands <code_cmd-name>` have been processed.
 
 .. meta::
    :keywords: file_name

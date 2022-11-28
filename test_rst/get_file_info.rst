@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _get_file_info:
+.. _get_file_info-name:
 
 !!!!!!!!!!!!!
 get_file_info
@@ -123,7 +123,7 @@ info['page_data']
 -----------------
 is an str containing the data for this page.
 
- #. Line numbers have been added using :ref:`add_line_numbers` .
+ #. Line numbers have been added using :ref:`add_line_numbers-name` .
     This is the first operation done on a page and other operations
     assume that line numbers are present. They are removed near the end
     when the temporary file corresponding to a page is created.

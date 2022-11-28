@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _comment_cmd_dev:
+.. _comment_cmd_dev-name:
 
 !!!!!!!!!!!!!!!
 comment_cmd_dev

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _heading_links:
+.. _heading_links-name:
 
 !!!!!!!!!!!!!
 heading_links
@@ -59,9 +59,6 @@ Level Zero
 ==========
 Each :ref:`page<begin_cmd@page>` can have only one header at
 the first level which is a title for the page.
-The :ref:`page_name<begin_cmd@page_name>`
-is automatically used as a label for a link that displays the
-page name or page title.
 
 .. meta::
    :keywords: page_name
@@ -74,7 +71,7 @@ page_name
 ---------
 The input below will display the page name as the linking text:
 
-  ``:ref:`` \` *page_name* \`
+  ``:ref:`` \` *page_name* ``-name`` \`
 
 .. meta::
    :keywords: page_title
@@ -100,7 +97,7 @@ Linking Text
 ------------
 You can also explicitly choose the linking text using:
 
-   ``:ref:`` \` *linking_text* ``<`` *page_name* ``>`` \`
+   ``:ref:`` \` *linking_text* ``<`` *page_name* ``-name>`` \`
 
 .. meta::
    :keywords: other, levels
@@ -114,8 +111,8 @@ Other Levels
 The label for linking a heading that is not at level zero is the label
 for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
-These labels use the *page_name*
-(not *page_name* ``-title`` ) for level zero.
+These labels use the *page_name* for level zero,
+without the ``-name`` or ``--title`` at the end.
 
 .. meta::
    :keywords: heading@to@label
@@ -167,20 +164,23 @@ If for one page, these anchors are not unique, xrst reports an error.
 
 Discussion
 ==========
-1. Note that at the first level one uses the *page_name* and not the
+#. Note that for level zero one uses the *page_name* and not the
    title; e.g., in the example above one uses ``heading_links``
    and not ``Heading Cross Reference Links`` .
-2. The ``@`` and not ``.`` character is used to separate levels
+#. The ``@`` and not ``.`` character is used to separate levels
    because the ``.`` character is often used in titles and
    page names; e.g. :ref:`auto_file@conf.py`.
-3. Including all the levels above a heading in its label may seem verbose,
+#. These automatically generated labels end in ``-name`` , ``-title`` ,
+   or have a ``@`` character in them. This makes it easy to distinguish
+   them from other labels entered using rst commands.
+#. Including all the levels above a heading in its label may seem verbose,
    but it avoids ambiguity when the same heading appears twice in one page;
    e.g the heading Example might appears multiple times in different context.
    This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
    headings below it,  will break.  This identifies the links that should be
    checked to make sure they are still valid.
-4. It is an error for two headings have the same HTML anchor.
+#. It is an error for two headings have the same HTML anchor.
    This makes the html links to a heading valid as long as its label
    does not change. This is useful when posting the answer to a questions
    using a link to a particular heading.
@@ -189,4 +189,4 @@ Discussion
 
 Example
 *******
-:ref:`heading_example`
+:ref:`heading_example-name`

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _temporary_file:
+.. _temporary_file-name:
 
 !!!!!!!!!!!!!!
 temporary_file
@@ -104,13 +104,14 @@ The following is added to this data before writing it to the output file:
  #. The preamble is included at the beginning.
  #. If *target* is ``html``
 
-    #. The page_name label is added next.
+    #. The *page_name* ``-name`` label is added next.
     #. The pseudo heading is added next.
     #. The name of the input file *file_in* is added next.
 
  #. If *target* is ``pdf```
 
-    #. The page_name label is added directly before the \\n{xrst_page_number}
+    #. The *page_name* ``-name`` label is added directly before the
+       \\n{xrst_page_number}
 
  #. Any sequence of more than 2 lines with only tabs or space are converted to
     2 empty lines.
@@ -140,9 +141,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 82-95
+   :lines: 83-96
    :language: py
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 157-162
+   :lines: 158-163
    :language: py

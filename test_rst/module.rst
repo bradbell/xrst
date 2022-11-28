@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _module:
+.. _module-name:
 
 !!!!!!
 module

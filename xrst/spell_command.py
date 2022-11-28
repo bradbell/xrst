@@ -88,7 +88,7 @@ the following output:
 
 Example
 *******
-:ref:`spell_example`
+:ref:`spell_example-name`
 
 {xrst_end spell_cmd}
 """
@@ -174,7 +174,7 @@ pattern['word']  = re.compile(
 # spell_checker
 # =============
 # Is the pyspellchecker object used for error checking; see
-# :ref:`create_spell_checker`.
+# :ref:`create_spell_checker-name`.
 #
 # Returns
 # *******

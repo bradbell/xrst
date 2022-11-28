@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _add_line_numbers:
+.. _add_line_numbers-name:
 
 !!!!!!!!!!!!!!!!
 add_line_numbers

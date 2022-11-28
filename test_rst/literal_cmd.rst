@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _literal_cmd:
+.. _literal_cmd-name:
 
 !!!!!!!!!!!
 literal_cmd
@@ -147,4 +147,4 @@ Spell checking is **not** done for these code blocks.
 
 Example
 *******
-see :ref:`literal_example` .
+see :ref:`literal_example-name` .

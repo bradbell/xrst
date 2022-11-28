@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _testExample:
+.. _testExample-name:
 
 !!!!!!!!!!!
 testExample

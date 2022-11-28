@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _remove_line_numbers:
+.. _remove_line_numbers-name:
 
 !!!!!!!!!!!!!!!!!!!
 remove_line_numbers
@@ -40,7 +40,7 @@ Arguments
 
 data_in
 =======
-is a string with line number markers added by :ref:`add_line_numbers` .
+is a string with line number markers added by :ref:`add_line_numbers-name` .
 These lines number markers have the form:
 
     ``{xrst_line`` *line_number* ``@`` .

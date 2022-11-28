@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _auto_file_dev:
+.. _auto_file_dev-name:
 
 !!!!!!!!!!!!!
 auto_file_dev
@@ -172,5 +172,5 @@ rst_dir/index.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../xrst/auto_file.py
-   :lines: 164-171
+   :lines: 161-168
    :language: py

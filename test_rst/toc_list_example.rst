@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _toc_list_example:
+.. _toc_list_example-name:
 
 !!!!!!!!!!!!!!!!
 toc_list_example

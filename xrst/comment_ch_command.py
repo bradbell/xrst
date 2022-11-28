@@ -50,12 +50,12 @@ and the ``def`` token indented the same amount:
 
 Indent
 ******
-The :ref:`indent` is calculated before removing the special character
+The :ref:`indent-name` is calculated before removing the special character
 and its white space.
 
 Example
 *******
-:ref:`comment_ch_example`
+:ref:`comment_ch_example-name`
 
 {xrst_end comment_ch_cmd}
 """

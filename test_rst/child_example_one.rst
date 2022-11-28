@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _child_example_one:
+.. _child_example_one-name:
 
 !!!!!!!!!!!!!!!!!
 child_example_one
@@ -33,7 +33,7 @@ so all its pages are children of the page that includes this file.
 
 Link to Second Child
 ********************
-:ref:`child_example_two`
+:ref:`child_example_two-name`
 
 .. _child_example_one@This Example File:
 

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _heading_example:
+.. _heading_example-name:
 
 !!!!!!!!!!!!!!!
 heading_example
@@ -108,7 +108,7 @@ These links would also work from any other page because the page name
 (``heading_example`` in this case)
 is included at the beginning of the target for the link:
 
-#. :ref:`heading_example`
+#. :ref:`heading_example-name`
 #. :ref:`heading_example-title`
 #. :ref:`heading_example@Level One`
 #. :ref:`heading_example@Level One@Level Two`

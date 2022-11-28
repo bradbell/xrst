@@ -38,10 +38,13 @@ mm-dd
 
 11-28
 =====
-If :ref:`run_xrst@target` is pdf, the
-:ref:`heading_links@Labels@Level Zero@page_name`
-is no longer displayed as a separate heading above the
-:ref:`heading_links@Labels@Level Zero@page_title` .
+1. The automatically generated
+   :ref:`heading_links@Labels@Level Zero@page_name` label
+   was changed from *page_name* to *page_name* ``-name`` .
+   This makes it easy identify the xrst automatically generated labels.
+2. If :ref:`run_xrst@target` is pdf, the *page_name*
+   is no longer displayed as a separate heading above the
+   :ref:`heading_links@Labels@Level Zero@page_title` .
 
 11-27
 =====
@@ -62,14 +65,14 @@ This undid one of the changes on
 =====
 Enable the use of upper case letters in a
 :ref:`begin_cmd@page_name`.
-As an example, change ``test_example`` to :ref:`testExample` .
+As an example, change ``test_example`` to :ref:`testExample-name` .
 
 11-23
 =====
 1. The :ref:`toml_file@preamble` table was changed to
    separately specify the rst substitutions and the latex macros.
-2. Add the :ref:`configure_example` page and improve
-   the :ref:`get_started` page.
+2. Add the :ref:`configure_example-name` page and improve
+   the :ref:`get_started-name` page.
 3. Add the :ref:`toml_file@html_theme_options` table was added,
    :ref:`run_xrst@html_theme` was changed to allow for any theme,
    and the :ref:`run_xrst@local_toc` was added.
@@ -79,17 +82,17 @@ As an example, change ``test_example`` to :ref:`testExample` .
 
 11-22
 =====
-The :ref:`toml_file` was changed to be a sequence of tables.
+The :ref:`toml_file-name` was changed to be a sequence of tables.
 If a table only has one entry, the entry is named data.
 
 11-21
 =====
 1. No longer necessary to create a sub-directory called ``sphinx``
-   in the :ref:`get_started` example.
+   in the :ref:`get_started-name` example.
 2. Use ``xrst.toml`` as the default value for :ref:`run_xrst@toml_path` .
 3. Change the command link argument flags to use full names; i.e.,
    change --html -> --html_theme and --group -> --group_list .
-4. Change the :ref:`suspend_example` to demonstrate documenting
+4. Change the :ref:`suspend_example-name` to demonstrate documenting
    in one language and implementing in a different language.
 
 11-20
@@ -108,7 +111,7 @@ If a table only has one entry, the entry is named data.
    ``default`` in the :ref:`run_xrst@group_list` command line argument.
 
 2. The wish list configuration item was completed using
-   :ref:`toml_file` .
+   :ref:`toml_file-name` .
 
    #. The output_dir command line argument was replaced by
       output_directory in the ``toml_file`` file.
@@ -123,7 +126,7 @@ If a table only has one entry, the entry is named data.
 
 11-18
 =====
-1. The :ref:`literal_cmd` has been extended to work with the file extension
+1. The :ref:`literal_cmd-name` has been extended to work with the file extension
    \*.txt (it is mapped to no highlighting).
 2. The discussion of :ref:`double word <spell_cmd@Double Words>` errors
    was improved.
@@ -180,7 +183,7 @@ This has been fixed.
 =====
 1. Change the label for a page title from *page_name* ``-0`` to
    *page_name* ``-title`` .
-2. Improve the :ref:`heading_links` and :ref:`heading_example`
+2. Improve the :ref:`heading_links-name` and :ref:`heading_example-name`
    discussion of the labels that display the page name and page title
 
 10-31
@@ -202,14 +205,14 @@ This has been fixed.
       File .. add_line_numbers.py ...
          assert previous == len(data_in) - 1
 
-2. The list example was removed and the :ref:`testExample` was added.
+2. The list example was removed and the :ref:`testExample-name` was added.
 3. The required packages were not being automatically installed because they
    were under the wrong heading in the pyproject.toml file.
    This has been fixed.
 
 10-24
 =====
-1. Improve :ref:`spell command <spell_cmd>` documentation and
+1. Improve :ref:`spell command <spell_cmd-name>` documentation and
    :ref:`code_cmd@Spell Checking` documentation in the code command.
 2. Fix mistaken report of double word error when there was a command,
    that does not get checked for spelling, between the two words.
@@ -280,7 +283,7 @@ preamble.rst file. This has been fixed.
 
       ! LaTeX Error: Command \thesubpage undefined.
 
-4. There was a problem with the :ref:`code_cmd` when it was inside a list.
+4. There was a problem with the :ref:`code_cmd-name` when it was inside a list.
    This has been fixed and the corresponding
    :ref:`testExample@Code Command in List` example now displays properly.
    To be specific,  its second item starts with 2 instead of 1.
@@ -289,7 +292,7 @@ preamble.rst file. This has been fixed.
 
 09-23
 =====
-1. The error message when a file specified by a :ref:`toc_cmd`
+1. The error message when a file specified by a :ref:`toc_cmd-name`
    did not correctly state the command with the error.
    This has been fixed.
 2. Modify the wish list :ref:`wish_list@Tabs` item.
@@ -298,11 +301,11 @@ preamble.rst file. This has been fixed.
 09-22
 =====
 1. The code command would not include the
-   :ref:`comment character <comment_ch_cmd>` in it's displayed output.
+   :ref:`comment character <comment_ch_cmd-name>` in it's displayed output.
    This has been fixed.
 2. An RST Directive was added to the list example.
    (This has been removed because it did not function properly.)
-3. All the pages were being included by the :ref:`toc_cmd`.
+3. All the pages were being included by the :ref:`toc_cmd-name`.
    This has been fixed; i.e., only child pages with the same
    :ref:`begin_cmd@group_name` are included.
 
@@ -311,13 +314,13 @@ preamble.rst file. This has been fixed.
 1. Add the ``dev`` group to the xrst documentation.
    This group contains the developer documentation; see
    :ref:`run_xrst@group_list` .
-2. Change the :ref:`comment_ch_cmd` from file scope to page scope.
+2. Change the :ref:`comment_ch_cmd-name` from file scope to page scope.
 
 09-20
 =====
-Change :ref:`indent_example` so that it is also a python docstring
-and add the :ref:`docstring_example`.
-The :ref:`spell_example` was moved from spell.py to spell.xrst because
+Change :ref:`indent_example-name` so that it is also a python docstring
+and add the :ref:`docstring_example-name`.
+The :ref:`spell_example-name` was moved from spell.py to spell.xrst because
 it does not have any python code in it.
 
 09-19
@@ -332,7 +335,7 @@ is used and the navigation sidebar takes less space.
 1. Fix the indentation when an xsrst code command in a list item and
    add an example that demonstrates this case; see
    :ref:`testExample@Code Command in List` .
-2. Add four new items to the :ref:`wish_list` (and edit the Tabs item).
+2. Add four new items to the :ref:`wish_list-name` (and edit the Tabs item).
 
 09-17
 =====
@@ -365,21 +368,21 @@ each change to the release notes.
 09-13
 =====
 There was a crash during the error message when the language was included
-in the :ref:`\{xrst_code}<code_cmd>` that terminated a code command.
+in the :ref:`\{xrst_code}<code_cmd-name>` that terminated a code command.
 This has been fixed.
 
 09-11
 =====
-#. Change :ref:`comment_ch_example` to be a matlab / octave input
+#. Change :ref:`comment_ch_example-name` to be a matlab / octave input
    file example.
 #. The :ref:`run_xrst@replace_spell_commands` option did not work properly
-   in files that contained a :ref:`comment_ch_cmd`.  This has been fixed.
-#. The :ref:`indent` did not work properly in files that contained
-   :ref:`comment_ch_cmd`. This has been fixed.
-#. The comment command was added; see :ref:`comment_example`.
-#. Add an error message when :ref:`comment_ch_cmd` is present but not
-   used before the :ref:`begin_cmd` for a page.
-#. There was a bug when there was more then one :ref:`code_cmd` pair
+   in files that contained a :ref:`comment_ch_cmd-name`.  This has been fixed.
+#. The :ref:`indent-name` did not work properly in files that contained
+   :ref:`comment_ch_cmd-name`. This has been fixed.
+#. The comment command was added; see :ref:`comment_example-name`.
+#. Add an error message when :ref:`comment_ch_cmd-name` is present but not
+   used before the :ref:`begin_cmd-name` for a page.
+#. There was a bug when there was more then one :ref:`code_cmd-name` pair
    in a page. This has been fixed.
 
 09-09
@@ -411,7 +414,7 @@ output_dir instead of its ``rst`` subdirectory.
 
 09-02
 =====
-1. Change :ref:`literal_cmd` so that display file is always first
+1. Change :ref:`literal_cmd-name` so that display file is always first
    (when it appears in the syntax).
 2. Exit with an error message when an heading underline is longer than
    the heading text above or when the overline is different from the underline.
@@ -430,7 +433,7 @@ to text grouped by headings.
 08-29
 =====
 Add the :ref:`run_xrst@replace_spell_commands` option
-and remove the corresponding :ref:`wish_list` item.
+and remove the corresponding :ref:`wish_list-name` item.
 
 08-27
 =====
@@ -444,21 +447,21 @@ To be specific, do not include
 =====
 1. Allow headings to be just one character; e.g.,
    :ref:`heading_example@Another Level One@x`
-   in the :ref:`heading_example` section.
+   in the :ref:`heading_example-name` section.
    Also fix the displayed labels in that example section
    by changing ``.`` to ``@``.
 2. When a character that is not a letter or white space appears in
-   the :ref:`spell_cmd` world list, the error used to report the line
+   the :ref:`spell_cmd-name` world list, the error used to report the line
    number where the spell command started. Now it reports the line
    where the bad character occurs.
 
 08-22
 =====
 1. Better detection and reporting of syntax errors in
-   :ref:`commands` .
+   :ref:`commands-name` .
 2. Add ``sphinx_book_theme`` to the possible choices for
    :ref:`run_xrst@html_theme`.
-3. Remove the :ref:`wish_list` subset documentation item.
+3. Remove the :ref:`wish_list-name` subset documentation item.
    It was completed on :ref:`2022@mm-dd@08-05` when the
    :ref:`run_xrst@group_list` option was added.
 4. Change the standard for each level of indent from 4 to 3 spaces and
@@ -467,7 +470,7 @@ To be specific, do not include
 08-21
 =====
 1. Change the command names listed below;
-   see :ref:`toc_cmd` and :ref:`literal_cmd` .
+   see :ref:`toc_cmd-name` and :ref:`literal_cmd-name` .
    This was done because the child commands act like sphinx toctree commands
    and the file command acts like a sphinx literalinclude command.
 
@@ -479,9 +482,9 @@ To be specific, do not include
       xrst_child_list,->,xrst_toc_list
       xrst_child_table,->,xrst_toc_table
 
-2. Use the backslash in ``\{xrst_`` to escape xrst :ref:`commands` .
+2. Use the backslash in ``\{xrst_`` to escape xrst :ref:`commands-name` .
    In addition, remove the restriction that commands must occur
-   at the beginning of a line. (The :ref:`code_cmd` never had
+   at the beginning of a line. (The :ref:`code_cmd-name` never had
    this restriction.)
 
 08-20

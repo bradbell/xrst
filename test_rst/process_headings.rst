@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _process_headings:
+.. _process_headings-name:
 
 !!!!!!!!!!!!!!!!
 process_headings
@@ -151,5 +151,5 @@ It has three lines each terminated by a newline:
    :language: py
 
 .. literalinclude:: ../xrst/process_headings.py
-   :lines: 463-467
+   :lines: 461-465
    :language: py

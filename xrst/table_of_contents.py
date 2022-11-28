@@ -25,8 +25,8 @@ def page_name2index(pinfo_list, page_name) :
 #
 # count:
 # is a list where each element is a non-negative int.
-# count[-1] is the number of pages before this page.
-# count[-1] is the number of pages before this secions parent.
+# count[-1] - 1 is the number of pages before this page.
+# count[-2] - 1 is the number of pages before this pages parent.
 # ...
 # If this list is empty, this page is the root of the table of
 # contents tree.
@@ -83,7 +83,7 @@ def page_table_of_contents(
    if len(count) == 0 :
       content  += f':ref:`{page_name}-title`' '\n\n'
    else :
-      content  += f':ref:`{page_number}<{page_name}>` '
+      content  += f':ref:`{page_number}<{page_name}-title>` '
       content  += page_title + '\n'
    #
    # file_name

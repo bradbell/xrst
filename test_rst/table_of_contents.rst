@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _table_of_contents:
+.. _table_of_contents-name:
 
 !!!!!!!!!!!!!!!!!
 table_of_contents

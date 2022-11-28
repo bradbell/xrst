@@ -11,7 +11,7 @@ so all its pages are children of the page that includes this file.
 
 Link to Second Child
 ********************
-:ref:`child_example_two`
+:ref:`child_example_two-name`
 
 This Example File
 *****************
@@ -29,6 +29,6 @@ This page is the second child in this file.
 
 Link to First Child
 *******************
-:ref:`child_example_one`
+:ref:`child_example_one-name`
 
 {xrst_end child_example_two}

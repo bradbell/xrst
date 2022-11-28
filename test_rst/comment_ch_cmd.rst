@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _comment_ch_cmd:
+.. _comment_ch_cmd-name:
 
 !!!!!!!!!!!!!!
 comment_ch_cmd
@@ -86,11 +86,11 @@ and the ``def`` token indented the same amount:
 
 Indent
 ******
-The :ref:`indent` is calculated before removing the special character
+The :ref:`indent-name` is calculated before removing the special character
 and its white space.
 
 .. _comment_ch_cmd@Example:
 
 Example
 *******
-:ref:`comment_ch_example`
+:ref:`comment_ch_example-name`

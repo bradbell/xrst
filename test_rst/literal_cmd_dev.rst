@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _literal_cmd_dev:
+.. _literal_cmd_dev-name:
 
 !!!!!!!!!!!!!!!
 literal_cmd_dev
@@ -41,7 +41,7 @@ Arguments
 data_in
 =======
 is the data for a page before the
-:ref:`literal commands <literal_cmd>` have been removed.
+:ref:`literal commands <literal_cmd-name>` have been removed.
 
 .. meta::
    :keywords: file_name

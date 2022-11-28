@@ -47,11 +47,11 @@ You can turn off this spell checking by putting
 :ref:`spell_cmd@spell_off` before and :ref:`spell_cmd@spell_on` after
 a code block.
 Spell checking is not done for code blocks included using the
-:ref:`literal command<literal_cmd>` .
+:ref:`literal command<literal_cmd-name>` .
 
 Example
 *******
-:ref:`code_example`
+:ref:`code_example-name`
 
 {xrst_end code_cmd}
 """
@@ -72,7 +72,7 @@ import xrst
 # data_in
 # =======
 # is the data for the page before the
-# :ref:`code commands <code_cmd>` have been processed.
+# :ref:`code commands <code_cmd-name>` have been processed.
 #
 # file_name
 # =========

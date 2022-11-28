@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _indent_example:
+.. _indent_example-name:
 
 !!!!!!!!!!!!!!
 indent_example
@@ -44,7 +44,7 @@ Python Docstring
 ****************
 This example input is a python docstring for the factorial function
 defined in this file, but it is documenting indentation instead
-of the function. See :ref:`docstring_example` for an alternative
+of the function. See :ref:`docstring_example-name` for an alternative
 way to construct a docstring.
 
 .. _indent_example@This Example File:

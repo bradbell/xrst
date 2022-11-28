@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _suspend_cmd:
+.. _suspend_cmd-name:
 
 !!!!!!!!!!!
 suspend_cmd
@@ -42,4 +42,4 @@ spell checking.
 
 Example
 *******
-:ref:`suspend_example`
+:ref:`suspend_example-name`

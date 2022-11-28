@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _spell_example:
+.. _spell_example-name:
 
 !!!!!!!!!!!!!
 spell_example

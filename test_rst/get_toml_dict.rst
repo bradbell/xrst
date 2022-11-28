@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _get_toml_dict:
+.. _get_toml_dict-name:
 
 !!!!!!!!!!!!!
 get_toml_dict

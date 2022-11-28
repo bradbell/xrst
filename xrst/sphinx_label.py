@@ -24,7 +24,7 @@ pattern_use = re.compile(
 # *******
 # is the data for one page.
 # Line numbers have been added to this data; see
-# :ref:`add_line_numbers` .
+# :ref:`add_line_numbers-name` .
 #
 # file_name
 # *********
@@ -53,7 +53,7 @@ pattern_use = re.compile(
 # Errors
 # ******
 # If two or external labels have the same lower case value,
-# an error is reported using :ref:`system_exit` .
+# an error is reported using :ref:`system_exit-name` .
 #
 # {xrst_code py}
 # external_line, internal_line =

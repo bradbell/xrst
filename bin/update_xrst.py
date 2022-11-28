@@ -40,11 +40,11 @@ Change xrst_children ->, xrst_toc_hidden, xrst_child_list -> xrst_toc_list,
 and xrst_child_table -> xrst_toc_table.
 
 ref_section:
-Change :ref:`section_name` -> :ref:`section_name-0`,
-Change :ref:`section_name<section_name>` -> :ref:`section_name`
+Change :ref:`section_name-name` -> :ref:`section_name-0`,
+Change :ref:`section_name<section_name-name>` -> :ref:`section_name-name`
 
 dot2atsign:
-Change the '.' to '@' character in all text of the form :ref:`text` and
+Change the '.' to '@' character in all text of the form :ref:`text-name` and
 text of the form (at the betinning of a line) .. _text:
 
 xsrst2xrst:

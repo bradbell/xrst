@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _next_heading:
+.. _next_heading-name:
 
 !!!!!!!!!!!!
 next_heading

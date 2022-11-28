@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _code_example:
+.. _code_example-name:
 
 !!!!!!!!!!!!
 code_example

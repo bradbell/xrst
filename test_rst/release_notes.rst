@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _release_notes:
+.. _release_notes-name:
 
 !!!!!!!!!!!!!
 release_notes
@@ -18,8 +18,8 @@ xrst input file: ``user/release_notes.xrst``
 xrst Release Notes By Year
 ##########################
 
-:ref:`2022`,
-:ref:`2021`
+:ref:`2022-name`,
+:ref:`2021-name`
 
 .. toctree::
    :maxdepth: 1

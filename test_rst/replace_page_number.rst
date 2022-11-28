@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _replace_page_number:
+.. _replace_page_number-name:
 
 !!!!!!!!!!!!!!!!!!!
 replace_page_number

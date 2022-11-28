@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _suspend_cmd_dev:
+.. _suspend_cmd_dev-name:
 
 !!!!!!!!!!!!!!!
 suspend_cmd_dev

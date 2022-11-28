@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _begin_cmd:
+.. _begin_cmd-name:
 
 !!!!!!!!!
 begin_cmd
@@ -116,11 +116,11 @@ The following conditions hold for each *group_name*:
 #. The other pages are children of the parent page.
 #. The parent page is a child
    of the page that included this file using a
-   :ref:`toc command<toc_cmd>`.
+   :ref:`toc command<toc_cmd-name>`.
 #. If there is no begin parent command in an input file,
    all the pages in the file are children
    of the page that included this file using a
-   :ref:`toc command<toc_cmd>`.
+   :ref:`toc command<toc_cmd-name>`.
 
 Note that there can be more than one begin parent command in a file if
 they have different group names. Also note that pages are only children

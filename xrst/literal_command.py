@@ -89,7 +89,7 @@ Spell checking is **not** done for these code blocks.
 
 Example
 *******
-see :ref:`literal_example` .
+see :ref:`literal_example-name` .
 
 {xrst_end literal_cmd}
 """
@@ -132,7 +132,7 @@ def file_extension(display_file) :
 # data_in
 # =======
 # is the data for a page before the
-# :ref:`literal commands <literal_cmd>` have been removed.
+# :ref:`literal commands <literal_cmd-name>` have been removed.
 #
 # file_name
 # =========

@@ -18,7 +18,7 @@ does not appear in the rst output file.
 
 Example
 *******
-:ref:`comment_example`
+:ref:`comment_example-name`
 
 {xrst_end comment_cmd}
 """

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _child_example_two:
+.. _child_example_two-name:
 
 !!!!!!!!!!!!!!!!!
 child_example_two
@@ -31,4 +31,4 @@ This page is the second child in this file.
 
 Link to First Child
 *******************
-:ref:`child_example_one`
+:ref:`child_example_one-name`

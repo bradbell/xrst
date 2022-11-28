@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _code_cmd:
+.. _code_cmd-name:
 
 !!!!!!!!
 code_cmd
@@ -93,10 +93,10 @@ You can turn off this spell checking by putting
 :ref:`spell_cmd@spell_off` before and :ref:`spell_cmd@spell_on` after
 a code block.
 Spell checking is not done for code blocks included using the
-:ref:`literal command<literal_cmd>` .
+:ref:`literal command<literal_cmd-name>` .
 
 .. _code_cmd@Example:
 
 Example
 *******
-:ref:`code_example`
+:ref:`code_example-name`

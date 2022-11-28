@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _suspend_example:
+.. _suspend_example-name:
 
 !!!!!!!!!!!!!!!
 suspend_example

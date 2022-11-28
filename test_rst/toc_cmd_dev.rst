@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _toc_cmd_dev:
+.. _toc_cmd_dev-name:
 
 !!!!!!!!!!!
 toc_cmd_dev

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _comment_example:
+.. _comment_example-name:
 
 !!!!!!!!!!!!!!!
 comment_example

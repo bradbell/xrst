@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _comment_cmd:
+.. _comment_cmd-name:
 
 !!!!!!!!!!!
 comment_cmd
@@ -38,4 +38,4 @@ does not appear in the rst output file.
 
 Example
 *******
-:ref:`comment_example`
+:ref:`comment_example-name`

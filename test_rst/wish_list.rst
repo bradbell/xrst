@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _wish_list:
+.. _wish_list-name:
 
 !!!!!!!!!
 wish_list

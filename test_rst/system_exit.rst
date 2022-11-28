@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _system_exit:
+.. _system_exit-name:
 
 !!!!!!!!!!!
 system_exit

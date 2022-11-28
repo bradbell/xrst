@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _xrst.pattern:
+.. _xrst.pattern-name:
 
 !!!!!!!!!!!!
 xrst.pattern

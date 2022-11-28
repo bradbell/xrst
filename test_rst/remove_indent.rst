@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _remove_indent:
+.. _remove_indent-name:
 
 !!!!!!!!!!!!!
 remove_indent

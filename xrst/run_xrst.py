@@ -48,15 +48,15 @@ on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 toml_path
 *********
 The command line argument *toml_path* is the path to the
-:ref:`toml_file` for this project.
+:ref:`toml_file-name` for this project.
 This can be an absolute path or
-relative to the directory where :ref:`xrst<run_xrst>` is executed.
+relative to the directory where :ref:`xrst<run_xrst-name>` is executed.
 
 xrst.toml
 =========
 If *toml_path* is not present on the command line,
 the default value ``xrst.toml`` us used as the
-:ref:`toml_file` .
+:ref:`toml_file-name` .
 
 project_directory
 =================
@@ -158,7 +158,7 @@ The default value for *output_dir* is ``html`` .
 replace_spell_commands
 **********************
 If this option is present on the command line, the source code
-:ref:`spell commands<spell_cmd>` a replaced in such a way that the
+:ref:`spell commands<spell_cmd-name>` a replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
 to the :ref:`toml_file@project_dictionary` or when there is an update

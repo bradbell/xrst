@@ -20,7 +20,7 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 #
 # data_in
 # =======
-# is a string with line number markers added by :ref:`add_line_numbers` .
+# is a string with line number markers added by :ref:`add_line_numbers-name` .
 # These lines number markers have the form:
 #
 #     ``{xrst_line`` *line_number* ``@`` .

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _toc_cmd:
+.. _toc_cmd-name:
 
 !!!!!!!
 toc_cmd
@@ -148,4 +148,4 @@ page that is a child of the current page.
 
 Example
 *******
-:ref:`toc_list_example`
+:ref:`toc_list_example-name`

@@ -61,11 +61,11 @@ The following conditions hold for each *group_name*:
 #. The other pages are children of the parent page.
 #. The parent page is a child
    of the page that included this file using a
-   :ref:`toc command<toc_cmd>`.
+   :ref:`toc command<toc_cmd-name>`.
 #. If there is no begin parent command in an input file,
    all the pages in the file are children
    of the page that included this file using a
-   :ref:`toc command<toc_cmd>`.
+   :ref:`toc command<toc_cmd-name>`.
 
 Note that there can be more than one begin parent command in a file if
 they have different group names. Also note that pages are only children
@@ -128,7 +128,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # -----------------
 # is an str containing the data for this page.
 #
-#  #. Line numbers have been added using :ref:`add_line_numbers` .
+#  #. Line numbers have been added using :ref:`add_line_numbers-name` .
 #     This is the first operation done on a page and other operations
 #     assume that line numbers are present. They are removed near the end
 #     when the temporary file corresponding to a page is created.

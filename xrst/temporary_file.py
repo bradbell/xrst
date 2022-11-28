@@ -50,13 +50,14 @@ pattern_newline_3   = re.compile( r'(\n[ \t]*){2,}\n' )
 #  #. The preamble is included at the beginning.
 #  #. If *target* is ``html``
 #
-#     #. The page_name label is added next.
+#     #. The *page_name* ``-name`` label is added next.
 #     #. The pseudo heading is added next.
 #     #. The name of the input file *file_in* is added next.
 #
 #  #. If *target* is ``pdf```
 #
-#     #. The page_name label is added directly before the \\n{xrst_page_number}
+#     #. The *page_name* ``-name`` label is added directly before the
+#        \\n{xrst_page_number}
 #
 #  #. Any sequence of more than 2 lines with only tabs or space are converted to
 #     2 empty lines.
@@ -109,7 +110,7 @@ def temporary_file(
    #
    # label
    # label that displays page name (which is text in pseudo heading)
-   label = f'.. _{page_name}:\n\n'
+   label = f'.. _{page_name}-name:\n\n'
    #
    # data_out
    before  = '.. include:: xrst_preamble.rst\n\n'

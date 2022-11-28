@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _literal_example:
+.. _literal_example-name:
 
 !!!!!!!!!!!!!!!
 literal_example

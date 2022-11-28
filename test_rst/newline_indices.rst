@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _newline_indices:
+.. _newline_indices-name:
 
 !!!!!!!!!!!!!!!
 newline_indices

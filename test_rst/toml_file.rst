@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _toml_file:
+.. _toml_file-name:
 
 !!!!!!!!!
 toml_file
@@ -285,7 +285,7 @@ Each string contains a newline separated list of words.
 Leading and trailing white space is not part of each word.
 These special words are not considered spelling errors for the entire project.
 Special words, for a particular page, are specified using the
-:ref:`spell command<spell_cmd>`.
+:ref:`spell command<spell_cmd-name>`.
 
 .. meta::
    :keywords: default

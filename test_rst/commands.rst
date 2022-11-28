@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _commands:
+.. _commands-name:
 
 !!!!!!!!
 commands

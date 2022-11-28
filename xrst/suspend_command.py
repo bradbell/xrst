@@ -22,7 +22,7 @@ spell checking.
 
 Example
 *******
-:ref:`suspend_example`
+:ref:`suspend_example-name`
 
 {xrst_end suspend_cmd}
 """

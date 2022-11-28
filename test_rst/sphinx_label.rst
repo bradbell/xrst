@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _sphinx_label:
+.. _sphinx_label-name:
 
 !!!!!!!!!!!!
 sphinx_label
@@ -32,7 +32,7 @@ data_in
 *******
 is the data for one page.
 Line numbers have been added to this data; see
-:ref:`add_line_numbers` .
+:ref:`add_line_numbers-name` .
 
 .. meta::
    :keywords: file_name
@@ -96,7 +96,7 @@ and that links to a page in this web site,
 Errors
 ******
 If two or external labels have the same lower case value,
-an error is reported using :ref:`system_exit` .
+an error is reported using :ref:`system_exit-name` .
 
 .. literalinclude:: ../xrst/sphinx_label.py
    :lines: 59-63

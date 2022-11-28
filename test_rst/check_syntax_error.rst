@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _check_syntax_error:
+.. _check_syntax_error-name:
 
 !!!!!!!!!!!!!!!!!!
 check_syntax_error

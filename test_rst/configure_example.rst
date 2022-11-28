@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _configure_example:
+.. _configure_example-name:
 
 !!!!!!!!!!!!!!!!!
 configure_example

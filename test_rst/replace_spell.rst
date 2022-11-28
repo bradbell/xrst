@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _replace_spell:
+.. _replace_spell-name:
 
 !!!!!!!!!!!!!
 replace_spell

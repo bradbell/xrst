@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _spell_cmd_dev:
+.. _spell_cmd_dev-name:
 
 !!!!!!!!!!!!!
 spell_cmd_dev
@@ -88,7 +88,7 @@ for error reporting.
 spell_checker
 =============
 Is the pyspellchecker object used for error checking; see
-:ref:`create_spell_checker`.
+:ref:`create_spell_checker-name`.
 
 .. meta::
    :keywords: returns

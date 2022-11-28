@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _get_started:
+.. _get_started-name:
 
 !!!!!!!!!!!
 get_started
@@ -62,7 +62,7 @@ Heading: Steps
 Heading: Links to this Page
 ***************************
 
-- :ref:`get_started`
+- :ref:`get_started-name`
 
 - :ref:`get_started-title`
 

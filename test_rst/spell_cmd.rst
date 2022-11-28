@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _spell_cmd:
+.. _spell_cmd-name:
 
 !!!!!!!!!
 spell_cmd
@@ -158,4 +158,4 @@ the following output:
 
 Example
 *******
-:ref:`spell_example`
+:ref:`spell_example-name`

@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _docstring_example:
+.. _docstring_example-name:
 
 !!!!!!!!!!!!!!!!!
 docstring_example

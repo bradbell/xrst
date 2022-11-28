@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _check_page_name:
+.. _check_page_name-name:
 
 !!!!!!!!!!!!!!!
 check_page_name

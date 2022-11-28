@@ -1,6 +1,6 @@
 .. include:: xrst_preamble.rst
 
-.. _automatic:
+.. _automatic-name:
 
 !!!!!!!!!
 automatic
