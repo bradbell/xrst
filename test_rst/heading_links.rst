@@ -175,9 +175,10 @@ Discussion
    rst commands, should not satisfy this condition
    (and hence are easy to distinguish).
 #. Including all the levels above a heading in its label may seem verbose,
-   but it avoids ambiguity when the same heading appears twice in one page
-   (e.g the heading :ref:`toml_file@project_name@Example` appears often in the
-   toml_file page).
+   but it avoids ambiguity when the same heading appears twice in one page.
+   For example, this link to the project name
+   :ref:`toml_file@project_name@Default`
+   which is one of many Default headings on that page.
    This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the
    headings below it,  will break.  This identifies the links that should be
