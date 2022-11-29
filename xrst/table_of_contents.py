@@ -11,7 +11,7 @@ def page_name2index(pinfo_list, page_name) :
    return None
 
 # ----------------------------------------------------------------------------
-# Create the table of contents and replace the '{xrst_page_number}'
+# Create the table of contents and replace the '{xrst_before_title}'
 # for this page and all its child pages.
 #
 # tmp_dir
@@ -19,9 +19,9 @@ def page_name2index(pinfo_list, page_name) :
 #
 # target:
 # is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/page_name.rst the text {xrst_page_number}
+# tmp_dir/page_name.rst the text {xrst_before_title}
 # is replaced by the page number which includes the counter for each level.
-# If target is 'html', {xrst_page_number} is removed with not replacement.
+# If target is 'html', {xrst_before_title} is removed with not replacement.
 #
 # count:
 # is a list where each element is a non-negative int.
@@ -97,7 +97,7 @@ def page_table_of_contents(
    file_ptr  = open(file_name, 'r')
    page_data = file_ptr.read()
    file_ptr.close()
-   page_data = xrst.replace_page_number(
+   page_data = xrst.add_before_title(
       page_data, target, page_number, page_name
    )
    #
@@ -157,9 +157,9 @@ def page_table_of_contents(
 # is either 'html' or 'pdf'.
 #
 #  #. If target is 'pdf',  in the file
-#     tmp_dir/page_name.rst the text \\n{xrst_page_number}
+#     tmp_dir/page_name.rst the text \\n{xrst_before_title}
 #     is replaced by the page number which includes the counter for each level.
-#  #. If target is 'html', \\n{xrst_page_number} is removed with no
+#  #. If target is 'html', \\n{xrst_before_title} is removed with no
 #     replacement.
 #
 # pinfo_list

@@ -10,6 +10,7 @@
 #
 # {xrst_comment BEGIN_SORT_THIS_LINE_PLUS_2}
 # {xrst_toc_table
+#  xrst/add_before_title.py
 #  xrst/add_line_numbers.py
 #  xrst/auto_file.py
 #  xrst/check_page_name.py
@@ -27,7 +28,6 @@
 #  xrst/process_headings.py
 #  xrst/remove_indent.py
 #  xrst/remove_line_numbers.py
-#  xrst/replace_page_number.py
 #  xrst/replace_spell.py
 #  xrst/spell_command.py
 #  xrst/sphinx_label.py
@@ -46,6 +46,7 @@
 from .pattern                import pattern
 #
 # BEGIN_SORT_THIS_LINE_PLUS_1
+from .add_before_title       import add_before_title
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
 from .check_page_name        import check_page_name
@@ -63,7 +64,6 @@ from .process_children       import process_children
 from .process_headings       import process_headings
 from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
-from .replace_page_number    import replace_page_number
 from .replace_spell          import replace_spell
 from .run_xrst               import run_xrst
 from .spell_command          import spell_command

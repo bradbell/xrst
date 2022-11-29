@@ -4,7 +4,7 @@
 import re
 import xrst
 #
-# {xrst_begin replace_page_number dev}
+# {xrst_begin add_before_title dev}
 # {xrst_spell
 #     newline
 #     overline
@@ -21,7 +21,7 @@ import xrst
 # =======
 # data for this page before replacement.
 #
-#  #. data_in must contain '\\n{xrst_page_number}'
+#  #. data_in must contain '\\n{xrst_before_title}'
 #     which is referred to as the command below.
 #  #. The page title must come directly after the command
 #     and start with a newline.
@@ -53,7 +53,7 @@ import xrst
 # the return data_out is the data after replacement.
 #
 # {xrst_code py}
-def replace_page_number(data_in, target, page_number, page_name) :
+def add_before_title(data_in, target, page_number, page_name) :
    assert type(data_in) == str
    assert target == 'html' or target == 'pdf'
    assert type(page_number) == str
@@ -63,10 +63,10 @@ def replace_page_number(data_in, target, page_number, page_name) :
    #  BEGIN_return
    #  END_return
    # }
-   # {xrst_end replace_page_number}
+   # {xrst_end add_before_title}
    #
    # pattern
-   pattern   = '\n{xrst_page_number}'
+   pattern   = '\n{xrst_before_title}'
    #
    # punctuation
    # Headings uses repeated copies of one of these characters
@@ -82,7 +82,7 @@ def replace_page_number(data_in, target, page_number, page_name) :
       # make sure that pattern_source is still valid
       assert m_source != None
       file_name = m_source.group(1)
-      msg = '{xrst_page_number} cannot appear at beginning of a line'
+      msg = '{xrst_before_title} cannot appear at beginning of a line'
       xrst.system_exit(msg, file_name = file_name, page_name = page_name)
    #
    # data_out

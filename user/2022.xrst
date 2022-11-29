@@ -282,7 +282,7 @@ preamble.rst file. This has been fixed.
 
 09-24
 =====
-1. Remove the xrst_page_number wish list item because
+1. Remove the xrst_before_title wish list item because
    it was completed.
 2. Add :ref:`examples <run_xrst@group_list@Example>` showing how to use
    group list option.
@@ -304,7 +304,7 @@ preamble.rst file. This has been fixed.
    did not correctly state the command with the error.
    This has been fixed.
 2. Modify the wish list :ref:`wish_list@Tabs` item.
-   Add the xrst_page_number wish list item.
+   Add the xrst_before_title wish list item.
 
 09-22
 =====

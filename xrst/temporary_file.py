@@ -46,7 +46,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # data_in
 # *******
 # is the data for this page with all the xrst commands converted to
-# their sphinx RST values, except the \\n{xrst_page_number} command.
+# their sphinx RST values, except the \\n{xrst_before_title} command.
 # The following is added to this data before writing it to the output file:
 #
 #  #. The preamble is included at the beginning.
@@ -74,7 +74,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
 #
 # -   The first number in a pair is a line number in *file_out*
-#     These line numbers to not count `{xrst_page_number}` lines
+#     These line numbers to not count `{xrst_before_title}` lines
 #     because they are removed before the final rst output is created.
 #
 # -   The second number in a pair is the corresponding line number in *file_in*
@@ -108,7 +108,7 @@ def temporary_file(
    # title_index
    title_index = None
    if target == 'pdf' :
-      page_number_index = data_in.index('\n{xrst_page_number}\n')
+      page_number_index = data_in.index('\n{xrst_before_title}\n')
       assert 0 <= page_number_index
    #
    # label

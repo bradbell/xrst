@@ -40,7 +40,7 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # -   The first element is the line number in data_out corresponding to
 #     the line number marker that was removed.
 #     These line numbers, in data_out, do not count
-#     lines that only contain ``{xrst_page_number}`` .
+#     lines that only contain ``{xrst_before_title}`` .
 #
 # -   The second element is the *line_number*, in the line number marker,
 #     that was removed.
@@ -96,7 +96,7 @@ def remove_line_numbers(data_in) :
       #
       line_match = m_obj.group(1)
       line_out  += before.count('\n')
-      line_out  -= before.count('{xrst_page_number}\n')
+      line_out  -= before.count('{xrst_before_title}\n')
 
       line_pair.append( ( line_out, int(line_match) ) )
       data_out += before

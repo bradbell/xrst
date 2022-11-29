@@ -204,7 +204,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #
 #  #. The index entries, and meta keyword entries (same as index),
 #     and the :ref:`heading_links@Labels` for this page.
-#  #. The command \\n{xrst_page_number} is placed directly before the
+#  #. The command \\n{xrst_before_title} is placed directly before the
 #     first heading for this page; i.e. its title.
 #     This is makes it easy to add the page number to the heading text.
 #
@@ -424,7 +424,7 @@ def process_headings(
       # data_tmp
       # If level zero, put page number command just before heading
       if len(heading_list) == 1 :
-         data_tmp += '{xrst_page_number}\n'
+         data_tmp += '{xrst_before_title}\n'
       #
       # data_tmp
       # add data from stat to end of heading

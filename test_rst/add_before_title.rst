@@ -1,19 +1,19 @@
 .. include:: xrst_preamble.rst
 
-.. _replace_page_number-name:
+.. _add_before_title-name:
 
-!!!!!!!!!!!!!!!!!!!
-replace_page_number
-!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!
+add_before_title
+!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/replace_page_number.py``
+xrst input file: ``xrst/add_before_title.py``
 
 .. meta::
-   :keywords: replace_page_number, if, pdf,, add, page, number, name, title
+   :keywords: add_before_title, if, pdf,, add, page, number, name, title
 
-.. index:: replace_page_number, if, pdf,, add, page, number, name, title
+.. index:: add_before_title, if, pdf,, add, page, number, name, title
 
-.. _replace_page_number-title:
+.. _add_before_title-title:
 
 If PDF, Add Page Number and Name to Title
 #########################################
@@ -26,7 +26,7 @@ If PDF, Add Page Number and Name to Title
 
 .. index:: arguments
 
-.. _replace_page_number@Arguments:
+.. _add_before_title@Arguments:
 
 Arguments
 *********
@@ -36,13 +36,13 @@ Arguments
 
 .. index:: data_in
 
-.. _replace_page_number@Arguments@data_in:
+.. _add_before_title@Arguments@data_in:
 
 data_in
 =======
 data for this page before replacement.
 
- #. data_in must contain '\\n{xrst_page_number}'
+ #. data_in must contain '\\n{xrst_before_title}'
     which is referred to as the command below.
  #. The page title must come directly after the command
     and start with a newline.
@@ -55,7 +55,7 @@ data for this page before replacement.
 
 .. index:: target
 
-.. _replace_page_number@Arguments@target:
+.. _add_before_title@Arguments@target:
 
 target
 ======
@@ -70,7 +70,7 @@ characters added to the title.
 
 .. index:: page_number
 
-.. _replace_page_number@Arguments@page_number:
+.. _add_before_title@Arguments@page_number:
 
 page_number
 ===========
@@ -81,7 +81,7 @@ This is a page number that identifies this page in the table of contents.
 
 .. index:: page_name
 
-.. _replace_page_number@Arguments@page_name:
+.. _add_before_title@Arguments@page_name:
 
 page_name
 =========
@@ -92,7 +92,7 @@ This is the name of the page.
 
 .. index:: returns
 
-.. _replace_page_number@Returns:
+.. _add_before_title@Returns:
 
 Returns
 *******
@@ -102,16 +102,16 @@ Returns
 
 .. index:: data_out
 
-.. _replace_page_number@Returns@data_out:
+.. _add_before_title@Returns@data_out:
 
 data_out
 ========
 the return data_out is the data after replacement.
 
-.. literalinclude:: ../xrst/replace_page_number.py
+.. literalinclude:: ../xrst/add_before_title.py
    :lines: 56-60
    :language: py
 
-.. literalinclude:: ../xrst/replace_page_number.py
+.. literalinclude:: ../xrst/add_before_title.py
    :lines: 148-150
    :language: py

@@ -22,6 +22,7 @@ The xrst Module
    :header:  "Child", "Title"
    :widths: auto
 
+   "add_before_title", :ref:`add_before_title-title`
    "add_line_numbers", :ref:`add_line_numbers-title`
    "auto_file_dev", :ref:`auto_file_dev-title`
    "check_page_name", :ref:`check_page_name-title`
@@ -39,7 +40,6 @@ The xrst Module
    "process_headings", :ref:`process_headings-title`
    "remove_indent", :ref:`remove_indent-title`
    "remove_line_numbers", :ref:`remove_line_numbers-title`
-   "replace_page_number", :ref:`replace_page_number-title`
    "replace_spell", :ref:`replace_spell-title`
    "spell_cmd_dev", :ref:`spell_cmd_dev-title`
    "sphinx_label", :ref:`sphinx_label-title`
@@ -54,6 +54,7 @@ The xrst Module
    :maxdepth: 1
    :hidden:
 
+   add_before_title
    add_line_numbers
    auto_file_dev
    check_page_name
@@ -71,7 +72,6 @@ The xrst Module
    process_headings
    remove_indent
    remove_line_numbers
-   replace_page_number
    replace_spell
    spell_cmd_dev
    sphinx_label

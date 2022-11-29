@@ -42,24 +42,24 @@ Table of Contents
 |       :ref:`3.6.1<2022-title>` xrst Release Notes for 2022
 |       :ref:`3.6.2<2021-title>` xrst Release Notes for 2021
 | :ref:`4<module-title>` The xrst Module
-|    :ref:`4.1<add_line_numbers-title>` Add Line Numbers to File Data
-|    :ref:`4.2<auto_file_dev-title>` Create the automatically generated files
-|    :ref:`4.3<check_page_name-title>` Check the rules for a page name
-|    :ref:`4.4<check_syntax_error-title>` Check that an xrst command has been removed
-|    :ref:`4.5<code_cmd_dev-title>` Process the xrst code commands for a page
-|    :ref:`4.6<comment_cmd_dev-title>` Remove all comment commands
-|    :ref:`4.7<create_spell_checker-title>` Create a pyspellchecker object
-|    :ref:`4.8<get_file_info-title>` Get information for all pages in a file
-|    :ref:`4.9<get_toml_dict-title>` Get Configuration Dictionary
-|    :ref:`4.10<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`4.11<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`4.12<next_heading-title>` Return location of the next heading in a page
-|    :ref:`4.13<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`4.14<process_children-title>` Add child information to a page
-|    :ref:`4.15<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.16<remove_indent-title>` Remove indentation for a page
-|    :ref:`4.17<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.18<replace_page_number-title>` If PDF, Add Page Number and Name to Title
+|    :ref:`4.1<add_before_title-title>` If PDF, Add Page Number and Name to Title
+|    :ref:`4.2<add_line_numbers-title>` Add Line Numbers to File Data
+|    :ref:`4.3<auto_file_dev-title>` Create the automatically generated files
+|    :ref:`4.4<check_page_name-title>` Check the rules for a page name
+|    :ref:`4.5<check_syntax_error-title>` Check that an xrst command has been removed
+|    :ref:`4.6<code_cmd_dev-title>` Process the xrst code commands for a page
+|    :ref:`4.7<comment_cmd_dev-title>` Remove all comment commands
+|    :ref:`4.8<create_spell_checker-title>` Create a pyspellchecker object
+|    :ref:`4.9<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.10<get_toml_dict-title>` Get Configuration Dictionary
+|    :ref:`4.11<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`4.12<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`4.13<next_heading-title>` Return location of the next heading in a page
+|    :ref:`4.14<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`4.15<process_children-title>` Add child information to a page
+|    :ref:`4.16<process_headings-title>` Add labels and index entries for headings
+|    :ref:`4.17<remove_indent-title>` Remove indentation for a page
+|    :ref:`4.18<remove_line_numbers-title>` Remove the number numbers
 |    :ref:`4.19<replace_spell-title>` Replace spelling commands
 |    :ref:`4.20<spell_cmd_dev-title>` Process the spell command for a page
 |    :ref:`4.21<sphinx_label-title>` Get Labels Declared Using Sphinx Commands

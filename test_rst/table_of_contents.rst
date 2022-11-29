@@ -54,9 +54,9 @@ target
 is either 'html' or 'pdf'.
 
  #. If target is 'pdf',  in the file
-    tmp_dir/page_name.rst the text \\n{xrst_page_number}
+    tmp_dir/page_name.rst the text \\n{xrst_before_title}
     is replaced by the page number which includes the counter for each level.
- #. If target is 'html', \\n{xrst_page_number} is removed with no
+ #. If target is 'html', \\n{xrst_before_title} is removed with no
     replacement.
 
 .. meta::
