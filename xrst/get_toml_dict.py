@@ -352,7 +352,7 @@ def get_toml_dict(toml_file) :
    table_dict = toml_dict['preamble']
    if set( table_dict.keys() ) != { 'rst_substitution', 'latex_macro' } :
       msg += 'The preamble has the following keys: '
-      msg += str( table_dict.keys() )
+      msg += str( list( table_dict.keys() ) )
       xrst.system_exit(msg)
    value = table_dict['rst_substitution']
    if type( value ) != str :

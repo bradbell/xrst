@@ -9,26 +9,33 @@ child_example_two
 xrst input file: ``example/children.xrst``
 
 .. meta::
-   :keywords: child_example_two, page, child
+   :keywords: child_example_two, second, child, page
 
-.. index:: child_example_two, page, child
+.. index:: child_example_two, second, child, page
 
 .. _child_example_two-title:
 
-Page Child
-##########
-This page is the second child in this file.
+Second Child Example Page
+#########################
 
 .. contents::
    :local:
 
 .. meta::
-   :keywords: link, first, child
+   :keywords: links
 
-.. index:: link, first, child
+.. index:: links
 
-.. _child_example_two@Link to First Child:
+.. _child_example_two@Links:
 
-Link to First Child
-*******************
-:ref:`child_example_one-name`
+Links
+*****
+- :ref:`parent<toc_list_example-title>`
+- :ref:`first child<child_example_one-title>`
+
+.. _child_example_two@This Example File:
+
+This Example File
+*****************
+:ref:`child_example_one@This Example File`
+is the same as for the first child page.

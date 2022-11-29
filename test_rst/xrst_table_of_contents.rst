@@ -7,9 +7,9 @@ Table of Contents
 | :ref:`1<example-title>` Examples
 |    :ref:`1.1<get_started-title>` Page Title: Getting Started
 |    :ref:`1.2<literal_example-title>` Literal Command Example
-|    :ref:`1.3<toc_list_example-title>` toc_list Command Example
-|       :ref:`1.3.1<child_example_one-title>` First Child
-|       :ref:`1.3.2<child_example_two-title>` Page Child
+|    :ref:`1.3<toc_list_example-title>` toc_list Example Parent Page
+|       :ref:`1.3.1<child_example_one-title>` First Child Example Page
+|       :ref:`1.3.2<child_example_two-title>` Second Child Example Page
 |    :ref:`1.4<spell_example-title>` Spell Command Example
 |    :ref:`1.5<suspend_example-title>` Suspend Command Example
 |    :ref:`1.6<code_example-title>` Code Command Example

@@ -9,39 +9,27 @@ toc_list_example
 xrst input file: ``example/toc_list.xrst``
 
 .. meta::
-   :keywords: toc_list_example, toc_list
+   :keywords: toc_list_example, toc_list, parent, page
 
-.. index:: toc_list_example, toc_list
+.. index:: toc_list_example, toc_list, parent, page
 
 .. _toc_list_example-title:
 
-toc_list Command Example
-########################
+toc_list Example Parent Page
+############################
 
 .. contents::
    :local:
 
 .. meta::
-   :keywords: children.xrst
+   :keywords: links, child, pages
 
-.. index:: children.xrst
+.. index:: links, child, pages
 
-.. _toc_list_example@children.xrst File:
+.. _toc_list_example@Links to Child Pages:
 
-children.xrst File
-******************
-see :ref:`child_example_one@This Example File`
-in the child_example_one page.
-
-.. meta::
-   :keywords: toc_list
-
-.. index:: toc_list
-
-.. _toc_list_example@toc_list Command:
-
-toc_list Command
-****************
+Links to Child Pages
+********************
 
 -  :ref:`child_example_one-title`
 -  :ref:`child_example_two-title`

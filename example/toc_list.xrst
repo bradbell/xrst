@@ -3,16 +3,11 @@
 # ----------------------------------------------------------------------------
 {xrst_begin toc_list_example}
 
-toc_list Command Example
-########################
+toc_list Example Parent Page
+############################
 
-children.xrst File
-******************
-see :ref:`child_example_one@This Example File`
-in the child_example_one page.
-
-toc_list Command
-****************
+Links to Child Pages
+********************
 {xrst_toc_list
       example/children.xrst
 }

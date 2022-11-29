@@ -9,31 +9,29 @@ child_example_one
 xrst input file: ``example/children.xrst``
 
 .. meta::
-   :keywords: child_example_one, first, child
+   :keywords: child_example_one, first, child, page
 
-.. index:: child_example_one, first, child
+.. index:: child_example_one, first, child, page
 
 .. _child_example_one-title:
 
-First Child
-###########
-This page is the first child in this file.
-This file does not contain a begin parent command,
-so all its pages are children of the page that includes this file.
+First Child Example Page
+########################
 
 .. contents::
    :local:
 
 .. meta::
-   :keywords: link, second, child
+   :keywords: links
 
-.. index:: link, second, child
+.. index:: links
 
-.. _child_example_one@Link to Second Child:
+.. _child_example_one@Links:
 
-Link to Second Child
-********************
-:ref:`child_example_two-name`
+Links
+*****
+- :ref:`parent<toc_list_example-title>`
+- :ref:`second child<child_example_two-title>`
 
 .. _child_example_one@This Example File:
 
