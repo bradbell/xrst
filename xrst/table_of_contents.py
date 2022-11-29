@@ -97,10 +97,9 @@ def page_table_of_contents(
    file_ptr  = open(file_name, 'r')
    page_data = file_ptr.read()
    file_ptr.close()
-   if target == 'pdf' :
-      page_data = xrst.replace_page_number(page_data, page_number, page_name)
-   else :
-      page_data = xrst.replace_page_number(page_data, '', page_name)
+   page_data = xrst.replace_page_number(
+      page_data, target, page_number, page_name
+   )
    #
    # file_name
    file_ptr  = open(file_name, 'w')

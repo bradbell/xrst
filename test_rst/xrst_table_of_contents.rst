@@ -59,7 +59,7 @@ Table of Contents
 |    :ref:`4.15<process_headings-title>` Add labels and index entries for headings
 |    :ref:`4.16<remove_indent-title>` Remove indentation for a page
 |    :ref:`4.17<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.18<replace_page_number-title>` Replace page number commands
+|    :ref:`4.18<replace_page_number-title>` If PDF, Add Page Number and Name to Title
 |    :ref:`4.19<replace_spell-title>` Replace spelling commands
 |    :ref:`4.20<spell_cmd_dev-title>` Process the spell command for a page
 |    :ref:`4.21<sphinx_label-title>` Get Labels Declared Using Sphinx Commands

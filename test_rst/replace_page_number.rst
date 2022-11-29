@@ -9,14 +9,14 @@ replace_page_number
 xrst input file: ``xrst/replace_page_number.py``
 
 .. meta::
-   :keywords: replace_page_number, replace, page, number, commands
+   :keywords: replace_page_number, if, pdf,, add, page, number, name, title
 
-.. index:: replace_page_number, replace, page, number, commands
+.. index:: replace_page_number, if, pdf,, add, page, number, name, title
 
 .. _replace_page_number-title:
 
-Replace page number commands
-############################
+If PDF, Add Page Number and Name to Title
+#########################################
 
 .. contents::
    :local:
@@ -51,6 +51,21 @@ data for this page before replacement.
  #. If both an overline and underline follow, they must be equal.
 
 .. meta::
+   :keywords: target
+
+.. index:: target
+
+.. _replace_page_number@Arguments@target:
+
+target
+======
+if *target* is ``html`` , the command is removed and no other action
+is taken. Otherwise, the *page_number* following by the *page_name* is
+added at the font of the title for this page.
+The underline (and overline if present) are extended by the number of
+characters added to the title.
+
+.. meta::
    :keywords: page_number
 
 .. index:: page_number
@@ -59,10 +74,7 @@ data for this page before replacement.
 
 page_number
 ===========
-This is a page number that is placed infront of the heading text.
-This may be empty; i.e., the replacement text is the empty string.
-The underline (and overline if present) are extended by the number of
-characters added to the heading text.
+This is a page number that identifies this page in the table of contents.
 
 .. meta::
    :keywords: page_name
@@ -73,7 +85,7 @@ characters added to the heading text.
 
 page_name
 =========
-name of this page (only used to report errors).
+This is the name of the page.
 
 .. meta::
    :keywords: returns
@@ -94,13 +106,12 @@ Returns
 
 data_out
 ========
-the return data_out is the data after replacement. The page number is
-added (see above) and the command is removed.
+the return data_out is the data after replacement.
 
 .. literalinclude:: ../xrst/replace_page_number.py
-   :lines: 52-54
+   :lines: 56-60
    :language: py
 
 .. literalinclude:: ../xrst/replace_page_number.py
-   :lines: 141-143
+   :lines: 148-150
    :language: py

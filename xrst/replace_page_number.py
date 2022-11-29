@@ -11,8 +11,8 @@ import xrst
 # }
 # {xrst_comment_ch #}
 #
-# Replace page number commands
-# ############################
+# If PDF, Add Page Number and Name to Title
+# #########################################
 #
 # Arguments
 # *********
@@ -29,29 +29,35 @@ import xrst
 #     heading text and must have an underline directly after it.
 #  #. If both an overline and underline follow, they must be equal.
 #
+# target
+# ======
+# if *target* is ``html`` , the command is removed and no other action
+# is taken. Otherwise, the *page_number* following by the *page_name* is
+# added at the font of the title for this page.
+# The underline (and overline if present) are extended by the number of
+# characters added to the title.
+#
 # page_number
 # ===========
-# This is a page number that is placed infront of the heading text.
-# This may be empty; i.e., the replacement text is the empty string.
-# The underline (and overline if present) are extended by the number of
-# characters added to the heading text.
+# This is a page number that identifies this page in the table of contents.
 #
 # page_name
 # =========
-# name of this page (only used to report errors).
+# This is the name of the page.
 #
 # Returns
 # *******
 #
 # data_out
 # ========
-# the return data_out is the data after replacement. The page number is
-# added (see above) and the command is removed.
+# the return data_out is the data after replacement.
 #
 # {xrst_code py}
-def replace_page_number(data_in, page_number, page_name) :
+def replace_page_number(data_in, target, page_number, page_name) :
    assert type(data_in) == str
+   assert target == 'html' or target == 'pdf'
    assert type(page_number) == str
+   assert type(page_name) == str
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -80,8 +86,11 @@ def replace_page_number(data_in, page_number, page_name) :
       xrst.system_exit(msg, file_name = file_name, page_name = page_name)
    #
    # data_out
-   if page_number == '' :
+   if target == 'html' :
       return data_in.replace(pattern,'')
+   #
+   # add_text
+   add_text = f'{page_number} {page_name}:'
    #
    # first_newline
    first_newline = start_cmd + len(pattern)
@@ -110,9 +119,8 @@ def replace_page_number(data_in, page_number, page_name) :
       assert second_line[0] in punctuation
       #
       # new version of first and second lines
-      if page_number != '' :
-         first_line   = page_number + ' ' + first_line
-         second_line += second_line[0] * ( len(page_number) + 1 )
+      first_line   = add_text + ' ' + first_line
+      second_line += second_line[0] * ( len(add_text) + 1 )
       #
    else :
       # fourth_newline
@@ -123,10 +131,9 @@ def replace_page_number(data_in, page_number, page_name) :
       assert first_line == third_line
       #
       # new version of first, second, and third lines
-      if page_number != '' :
-         first_line += first_line[0] * ( len(page_number) + 1 )
-         second_line = page_number + ' ' + second_line
-         third_line  = first_line
+      first_line += first_line[0] * ( len(add_text) + 1 )
+      second_line = add_text + ' ' + second_line
+      third_line  = first_line
    #
    # data_out
    data_out  = data_in[: start_cmd] + '\n'

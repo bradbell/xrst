@@ -35,8 +35,11 @@ mm-dd
 
 11-29
 =====
-Improve the :ref:`toc_list_example-title` ,
-this includes improving its child pages.
+1. Improve the :ref:`toc_list_example-title` ,
+   this includes improving its child pages.
+2. If :ref:`run_xrst@target` is pdf, the page name
+   is added to the front of the page title
+   (because one my end up there by selecting the page name for link).
 
 .. _2022@mm-dd@11-28:
 
