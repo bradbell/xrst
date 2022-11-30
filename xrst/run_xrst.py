@@ -48,7 +48,7 @@ toml_file
 The command line argument *toml_file* specifies the location of the
 :ref:`toml_file-name` for this project.
 This can be an absolute path or
-relative to the directory where :ref:`xrst<run_xrst-name>` is executed.
+relative to the directory where :ref:`xrst<run_xrst-name>` is run.
 
 xrst.toml
 =========

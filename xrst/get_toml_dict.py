@@ -65,7 +65,7 @@ project_directory
 =================
 All of the other directories are specified relative to this directory.
 This can be an absolute path, or a path relative to the location
-where :ref:`run_xrst-name` is executed.
+where :ref:`xrst <run_xrst-name>` is run.
 
 html_directory
 ==============
@@ -98,6 +98,9 @@ and placed in the *rst_directory*.
 
 Default
 =======
+Note that '.' denotes the directory where
+:ref:`xrst <run_xrst-name>` is run.
+
 {xrst_code toml}
 [directory]
 project_directory  = '.'
