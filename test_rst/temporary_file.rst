@@ -110,12 +110,15 @@ The following is added to this data before writing it to the output file:
 
  #. If *target* is ``pdf```
 
-    #. All cross references of the form ``:ref:`` \` *name* ``-name`` \` ,
-       where *name* is any valid page name,
-       are changed to ``:ref:`` *name* \`< *name* ``-title`` >\`
+    #. All cross references of the form
+       :ref:\` *page_name* -name \` ,
+       are changed to :ref:\` *page_name* < *page_name* -title >\` .
+       Note that the page name will be added to the title when
+       :ref:`add_before_title-name` is called during
+       :ref:`table_of_contents-name` .
 
- #. Any sequence of more than 2 lines with only tabs or space are converted to
-    2 empty lines.
+ #. Any sequence of more than 2 lines
+    with only tabs or space are converted to 2 empty lines.
  #. Empty lines at the end are removed
  #. The xrst_line_number entries are removed.
  #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
@@ -142,9 +145,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 86-99
+   :lines: 89-102
    :language: py
 
 .. literalinclude:: ../xrst/temporary_file.py
-   :lines: 165-170
+   :lines: 168-173
    :language: py

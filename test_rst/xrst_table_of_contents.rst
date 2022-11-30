@@ -66,6 +66,6 @@ Table of Contents
 |    :ref:`4.22<start_stop_file-title>` Convert literal command start, stop from text to line numbers
 |    :ref:`4.23<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
 |    :ref:`4.24<system_exit-title>` Form error message and exit
-|    :ref:`4.25<table_of_contents-title>` Create the table of contents
+|    :ref:`4.25<table_of_contents-title>` Create the table of contents and Modify Titles
 |    :ref:`4.26<temporary_file-title>` Write the temporary RST file for a page
 |    :ref:`4.27<toc_cmd_dev-title>` Get file and page names for children of this page

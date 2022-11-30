@@ -18,17 +18,23 @@ def page_name2index(pinfo_list, page_name) :
 # is the temporary directory where the rst files are written.
 #
 # target:
-# is either 'html' or 'pdf'. If target is 'pdf',  in the file
-# tmp_dir/page_name.rst the text {xrst_before_title}
-# is replaced by the page number which includes the counter for each level.
-# If target is 'html', {xrst_before_title} is removed with not replacement.
+# is either 'html' or 'pdf'. If target is 'pdf',  in the temporary files
+# tmp_dir/page_name.rst, the text {xrst_before_title}
+# is removed and  page number followed by page name is added to the
+# title. The page number includes the counter for each level.
+# If target is 'html', {xrst_before_title} is removed without other changes.
 #
 # count:
 # is a list where each element is a non-negative int.
-# count[-1] - 1 is the number of pages before this page.
-# count[-2] - 1 is the number of pages before this pages parent.
+#
+# count[-1] - 1 is the number of pages at the level of this page and
+# before this page.
+#
+# count[-2] - 1 is the number of pages at the level of this pages parent and
+# before this pages parent.
 # ...
-# If this list is empty, this page is the root of the table of
+#
+# If this count is the empty list, this page is the root of the table of
 # contents tree.
 #
 # page_index:
@@ -142,25 +148,32 @@ def page_table_of_contents(
 # }
 # {xrst_comment_ch #}
 #
-# Create the table of contents
-# ############################
+# Create the table of contents and Modify Titles
+# ##############################################
 #
 # Arguments
 # *********
 #
 # tmp_dir
 # =======
-# is the temporary directory where the rst files are written.
+# is the temporary directory where the temporary rst files are written.
 #
 # target
 # ======
 # is either 'html' or 'pdf'.
 #
-#  #. If target is 'pdf',  in the file
-#     tmp_dir/page_name.rst the text \\n{xrst_before_title}
-#     is replaced by the page number which includes the counter for each level.
-#  #. If target is 'html', \\n{xrst_before_title} is removed with no
-#     replacement.
+# pdf
+# ---
+# If target is 'pdf',  for each temporary file
+# tmp_dir/page_name.rst the text \\n{xrst_before_title}
+# is removed and  the page number followed by the page name is added
+# at the front of the title for the page.
+# The page number includes the counter for each level.
+#
+# html
+# ----
+# If target is 'html',
+# \\n{xrst_before_title} is removed without other changes.
 #
 # pinfo_list
 # ==========

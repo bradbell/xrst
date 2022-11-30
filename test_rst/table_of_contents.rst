@@ -9,14 +9,14 @@ table_of_contents
 xrst input file: ``xrst/table_of_contents.py``
 
 .. meta::
-   :keywords: table_of_contents, create, table, contents
+   :keywords: table_of_contents, create, table, contents, modify, titles
 
-.. index:: table_of_contents, create, table, contents
+.. index:: table_of_contents, create, table, contents, modify, titles
 
 .. _table_of_contents-title:
 
-Create the table of contents
-############################
+Create the table of contents and Modify Titles
+##############################################
 
 .. contents::
    :local:
@@ -40,7 +40,7 @@ Arguments
 
 tmp_dir
 =======
-is the temporary directory where the rst files are written.
+is the temporary directory where the temporary rst files are written.
 
 .. meta::
    :keywords: target
@@ -53,11 +53,32 @@ target
 ======
 is either 'html' or 'pdf'.
 
- #. If target is 'pdf',  in the file
-    tmp_dir/page_name.rst the text \\n{xrst_before_title}
-    is replaced by the page number which includes the counter for each level.
- #. If target is 'html', \\n{xrst_before_title} is removed with no
-    replacement.
+.. meta::
+   :keywords: pdf
+
+.. index:: pdf
+
+.. _table_of_contents@Arguments@target@pdf:
+
+pdf
+---
+If target is 'pdf',  for each temporary file
+tmp_dir/page_name.rst the text \\n{xrst_before_title}
+is removed and  the page number followed by the page name is added
+at the front of the title for the page.
+The page number includes the counter for each level.
+
+.. meta::
+   :keywords: html
+
+.. index:: html
+
+.. _table_of_contents@Arguments@target@html:
+
+html
+----
+If target is 'html',
+\\n{xrst_before_title} is removed without other changes.
 
 .. meta::
    :keywords: pinfo_list
@@ -117,9 +138,9 @@ The title Table of Contents and the label xrst_table_of_contents
 are placed at the beginning of the of content.
 
 .. literalinclude:: ../xrst/table_of_contents.py
-   :lines: 195-204
+   :lines: 208-217
    :language: py
 
 .. literalinclude:: ../xrst/table_of_contents.py
-   :lines: 235-236
+   :lines: 248-249
    :language: py
