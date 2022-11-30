@@ -6,18 +6,19 @@
 data = 'xrst'
 # END_PROJECT_NAME
 #
+# BEGIN_DIRECTORY
+# This is same as the default and only used as an example
+[directory]
+project_directory = '.'
+rst_directory     = 'rst'
+# END_DIRECTORY
+#
 # BEGIN_ROOT_FILE
 [root_file]
 default = 'example/example.xrst'
 user    = 'user/user.xrst'
 dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
-#
-# BEGIN_RST_DIRECTORY
-# This is same as the default and only used as an example
-[rst_directory]
-data = 'rst'
-# END_RST_DIRECTORY
 #
 # BEGIN_HTML_THEME_OPTIONS
 # This is same as the default and only used as an example

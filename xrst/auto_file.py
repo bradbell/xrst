@@ -11,7 +11,7 @@
 
 Automatically Generated Files
 #############################
-These files are located in the :ref:`toml_file@rst_directory` .
+These files are located in the :ref:`toml_file@directory@rst_directory` .
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)
@@ -98,7 +98,7 @@ extensions = [
 #
 # rst_dir
 # =======
-# we use *rst_dir* to denote *toml_dict* ['rst_directory']['data'] .
+# we use *rst_dir* to denote *toml_dict* ['directory']['rst_directory'] .
 #
 # tmp_dir
 # =======
@@ -170,7 +170,7 @@ def auto_file(
    # {xrst_end auto_file_dev}
    #
    # rst_dir
-   rst_dir = toml_dict['rst_directory']['data']
+   rst_dir = toml_dict['directory']['rst_directory']
    #
    # tmp_dir
    tmp_dir = f'{rst_dir}/tmp'

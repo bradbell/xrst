@@ -37,6 +37,10 @@ fi
 mkdir html
 cd    html
 #
+# ./xrst.toml
+sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
+   ../xrst.toml > xrst.toml
+#
 for group_list in 'default' 'default,user,dev'
 do
    if [ -e ../rst ]
@@ -44,7 +48,7 @@ do
       echo_eval rm -r ../rst
    fi
    args='--local_toc'
-   args="$args --toml_path ../xrst.toml"
+   args="$args --toml_file xrst.toml"
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
    echo "python -m xrst $args"

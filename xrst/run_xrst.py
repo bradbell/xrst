@@ -22,7 +22,7 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ]
 | |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_path``  *toml_path* ] \\
+| |tab| [ ``--toml_file``  *toml_file* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
 | |tab| [ ``--group_list`` *group_list* ] \\
 | |tab| [ ``--target``     *target* ]  \\
@@ -45,26 +45,17 @@ The page name and page title are not in this table of contents.
 Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 
-toml_path
+toml_file
 *********
-The command line argument *toml_path* is the path to the
+The command line argument *toml_file* specifies the location of the
 :ref:`toml_file-name` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst-name>` is executed.
 
 xrst.toml
 =========
-If *toml_path* is not present on the command line,
-the default value ``xrst.toml`` us used as the
-:ref:`toml_file-name` .
-
-project_directory
-=================
-We use *project_directory* to denote the directory
-where the file specified by *toml_path* is located.
-All of the xrst file references are relative to this directory.
-Note that sphinx commands that reference files are relative to the
-:ref:`toml_file@rst_directory` .
+If *toml_file* is not present on the command line,
+the default value ``xrst.toml`` is used for *toml_file* .
 
 html_theme
 **********
@@ -152,7 +143,7 @@ The default value for *target* is ``html`` .
 output_dir
 **********
 The target files are placed in this sub-directory of the
-:ref:`run_xrst@toml_path@project_directory` .
+:ref:`toml_file@directory@project_directory` .
 The default value for *output_dir* is ``html`` .
 
 replace_spell_commands
@@ -195,6 +186,13 @@ import filecmp
 import argparse
 import subprocess
 # ---------------------------------------------------------------------------
+# system_exit
+# Error messages in this file do not use xrst.system_exit because
+# they do not have file names that are relative to the project_directory.
+def system_exit(msg) :
+   # assert False, msg
+   sys.exit(msg)
+# ---------------------------------------------------------------------------
 def system_command(
       command                    ,
       page_name2line_pair = None ,
@@ -214,7 +212,7 @@ def system_command(
       return
    if page_name2line_pair == None :
       message  = f'system command failed: stderr = \n{stderr}'
-      sys.exit(message)
+      system_exit(message)
    #
    # pattern_error
    pattern_error = re.compile( r'.*/rst/([a-z0-9_.]+).rst:([0-9]+):' )
@@ -280,7 +278,7 @@ def system_command(
       # message
       message += '\n' + error
    #
-   sys.exit(message)
+   system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
    assert type(latex_dir) == str
@@ -342,8 +340,8 @@ def run_xrst() :
       help='add a local table of contents at the top of each page'
    )
    parser.add_argument(
-      '--toml_path', metavar='toml_path', default='xrst.toml',
-      help='path to the xrst configuration file which is in toml format' + \
+      '--toml_file', metavar='toml_file', default='xrst.toml',
+      help='location of the xrst configuration file which is in toml format' + \
          '(default is .)'
    )
    parser.add_argument(
@@ -380,35 +378,24 @@ def run_xrst() :
    # local_toc
    local_toc = arguments.local_toc
    #
-   # toml_path
+   # toml_file
    # can not use system_exit until os.getcwd() returns project_directory
-   toml_path = arguments.toml_path
-   if not os.path.isfile(toml_path) :
+   toml_file = arguments.toml_file
+   if not os.path.isfile(toml_file) :
       msg  = 'xsrst: Error\n'
-      msg += f'toml_path = {toml_path}\n'
-      if toml_path[0] == '/' :
+      msg += f'toml_file = {toml_file}\n'
+      if toml_file[0] == '/' :
          msg += 'is not a file\n'
       else :
          msg += f'is not a file relative to the execution directory\n'
          msg += execution_directory
-      sys.exit(msg)
+      system_exit(msg)
    #
-   # project_directory, toml_file
-   index = toml_path.rfind('/')
-   if index < 0 :
-      project_directory = '.'
-      toml_file         = toml_path
-   else :
-      if index == len(toml_path) - 1 :
-         msg  = 'xrst: toml_path ends with the / character\n'
-         msg += 'so it cannot be the path to a toml file'
-         sys.exit(msg)
-      if index == 0 :
-         project_directory = '/'
-         toml_file         = toml_path[index+1 :]
-      else :
-         project_directory = toml_path[: index]
-         toml_file         = toml_path[index+1 :]
+   # toml_dict
+   toml_dict  = xrst.get_toml_dict(toml_file)
+   #
+   # project_directory
+   project_directory = toml_dict['directory']['project_directory']
    #
    # make project directory the current working directory
    os.chdir(project_directory)
@@ -425,7 +412,7 @@ def run_xrst() :
       while response not in [ 'yes', 'no' ]:
          response = input(prompt)
       if response != 'yes' :
-         sys.exit('xrst: aborting replace_spell_commands')
+         system_exit('xrst: aborting replace_spell_commands')
    #
    # rst_line_numbers
    rst_line_numbers = arguments.rst_line_numbers
@@ -443,14 +430,11 @@ def run_xrst() :
    # output_dir
    output_dir = arguments.output_dir
    #
-   # toml_dict
-   toml_dict  = xrst.get_toml_dict( toml_file )
-   #
    # rst_directory
-   rst_directory = toml_dict['rst_directory']['data']
+   rst_directory = toml_dict['directory']['rst_directory']
    if rst_directory[0] == '/' :
       msg  = 'rst_directory = ' + rst_directory + '\n'
-      msg += 'must be a path relative to current workding directory'
+      msg += 'must be a path relative to the project_directory'
       xrst.system_exit(msg)
    if 0 <= rst_directory.find('../') :
       msg  = 'rst_directory = ' + rst_directory + '\n'
@@ -487,7 +471,7 @@ def run_xrst() :
          except :
             msg  = f'not_in_index table in toml_file = {toml_file}\n'
             msg += f'The regular expression "{pattern}" would not compile'
-            xrst.system_exit(msg)
+            system_exit(msg)
    # -------------------------------------------------------------------------
    #
    # root_file
@@ -516,6 +500,12 @@ def run_xrst() :
          msg  = f'The group name {group_name} is in the group_list\n'
          msg += 'but it is not a valid key for the root_file in the\n'
          msg += f'the configuration file {toml_path}'
+         xrst.system_exit(msg)
+      #
+      if not os.path.isfile( root_file[group_name] ) :
+         file_name = root_file[group_name]
+         msg  = f'The root_file for group_name {group_name} is not a file\n'
+         msg += f'file name = {file_name}'
          xrst.system_exit(msg)
       #
       # finfo_stack, finfo_done

@@ -42,7 +42,7 @@ is a python dictionary representation of the xrst.toml file.
 
 rst_dir
 =======
-we use *rst_dir* to denote *toml_dict* ['rst_directory']['data'] .
+we use *rst_dir* to denote *toml_dict* ['directory']['rst_directory'] .
 
 .. meta::
    :keywords: tmp_dir

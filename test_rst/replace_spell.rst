@@ -52,7 +52,7 @@ for each page in that file::
     unknown     = array of strings (words) that are not in dictionary
 
 #.  file_name and page_name are strings.
-#.  file_name is relative to the :ref:`run_xrst@toml_path@project_directory` .
+#.  file_name is relative to the :ref:`toml_file@directory@project_directory` .
 #.  Descriptions to the left (right) of the equal signs are literal text
     (replaced by their values).
 #.  Line numbers start at one and are for the specified file.

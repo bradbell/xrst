@@ -17,6 +17,9 @@ xrst input file: ``xrst/get_toml_dict.py``
 
 Get Configuration Dictionary
 ############################
+This routine is called before the current working directory is changed to
+the *project_directory* (because it determines the project directory)
+so it cannot use the xrst :ref:`system_exit-name` .
 
 .. contents::
    :local:
@@ -30,8 +33,8 @@ Get Configuration Dictionary
 
 toml_file
 *********
-is the local name for the file specified by :ref:`run_xrst@toml_path`; i.e.,
-its name relative to the :ref:`run_xrst@toml_path@project_directory` .
+is the location of the :ref:`run_xrst@toml_file` specified on
+the xrst command line.
 
 .. meta::
    :keywords: toml_dict
@@ -48,9 +51,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 296-298
+   :lines: 317-319
    :language: py
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 387-388
+   :lines: 420-421
    :language: py

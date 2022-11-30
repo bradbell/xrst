@@ -17,7 +17,7 @@ xrst input file: ``xrst/auto_file.py``
 
 Automatically Generated Files
 #############################
-These files are located in the :ref:`toml_file@rst_directory` .
+These files are located in the :ref:`toml_file@directory@rst_directory` .
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)

@@ -28,7 +28,7 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ]
 | |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_path``  *toml_path* ] \\
+| |tab| [ ``--toml_file``  *toml_file* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
 | |tab| [ ``--group_list`` *group_list* ] \\
 | |tab| [ ``--target``     *target* ]  \\
@@ -66,15 +66,15 @@ Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 
 .. meta::
-   :keywords: toml_path
+   :keywords: toml_file
 
-.. index:: toml_path
+.. index:: toml_file
 
-.. _run_xrst@toml_path:
+.. _run_xrst@toml_file:
 
-toml_path
+toml_file
 *********
-The command line argument *toml_path* is the path to the
+The command line argument *toml_file* specifies the location of the
 :ref:`toml_file-name` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst-name>` is executed.
@@ -84,28 +84,12 @@ relative to the directory where :ref:`xrst<run_xrst-name>` is executed.
 
 .. index:: xrst.toml
 
-.. _run_xrst@toml_path@xrst.toml:
+.. _run_xrst@toml_file@xrst.toml:
 
 xrst.toml
 =========
-If *toml_path* is not present on the command line,
-the default value ``xrst.toml`` us used as the
-:ref:`toml_file-name` .
-
-.. meta::
-   :keywords: project_directory
-
-.. index:: project_directory
-
-.. _run_xrst@toml_path@project_directory:
-
-project_directory
-=================
-We use *project_directory* to denote the directory
-where the file specified by *toml_path* is located.
-All of the xrst file references are relative to this directory.
-Note that sphinx commands that reference files are relative to the
-:ref:`toml_file@rst_directory` .
+If *toml_file* is not present on the command line,
+the default value ``xrst.toml`` is used for *toml_file* .
 
 .. meta::
    :keywords: html_theme
@@ -234,7 +218,7 @@ The default value for *target* is ``html`` .
 output_dir
 **********
 The target files are placed in this sub-directory of the
-:ref:`run_xrst@toml_path@project_directory` .
+:ref:`toml_file@directory@project_directory` .
 The default value for *output_dir* is ``html`` .
 
 .. meta::

@@ -31,6 +31,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@11-30:
+
+11-30
+=====
+1. Create a :ref:`toml_file@directory` table in the toml configuration file
+   and put the *project_directory* and *rst_directory* setting there.
+2. Change the *toml_path* command line argument to *toml_file* because
+   it no longer specifies the *project_directory* .
+
 .. _2022@mm-dd@11-29:
 
 11-29
@@ -108,7 +117,7 @@ If a table only has one entry, the entry is named data.
 =====
 1. No longer necessary to create a sub-directory called ``sphinx``
    in the :ref:`get_started-name` example.
-2. Use ``xrst.toml`` as the default value for :ref:`run_xrst@toml_path` .
+2. Use ``xrst.toml`` as the default value for :ref:`run_xrst@toml_file` .
 3. Change the command link argument flags to use full names; i.e.,
    change --html -> --html_theme and --group -> --group_list .
 4. Change the :ref:`suspend_example-name` to demonstrate documenting
@@ -118,11 +127,11 @@ If a table only has one entry, the entry is named data.
 
 11-20
 =====
-1. Change the root_file command line argument to
-   :ref:`run_xrst@toml_path` .
+1. Change the root_file command line argument to *toml_path*
+   on :ref:`2022@mm-dd@11-30` it was changed to :ref:`run_xrst@toml_file` .
 2. Add :ref:`toml_file@project_name` and :ref:`toml_file@root_file`
    to the toml file.
-3. Use the notation :ref:`run_xrst@toml_path@project_directory`
+3. Use the notation :ref:`toml_file@directory@project_directory`
    for the directory that all the xrst file name are relative to.
 
 .. _2022@mm-dd@11-19:
@@ -138,7 +147,7 @@ If a table only has one entry, the entry is named data.
    #. The output_dir command line argument was replaced by
       output_directory in the ``toml_file`` file.
    #. The sphinx_dir command line argument was replaced by
-      :ref:`toml_file@rst_directory` in the ``toml_file`` file.
+      :ref:`toml_file@directory@rst_directory` in the ``toml_file`` file.
    #. The preamble.rst file was replaced by the
       :ref:`toml_file@preamble` section of the ``toml_file`` file.
    #. The spelling file was replaced by the

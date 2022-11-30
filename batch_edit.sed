@@ -12,16 +12,13 @@
 # The files in bin/devel.sh ignore_files are automatically in this list
 # (see devel.sh for pattern matching convention).
 # ignore_files='
-#  user/2022.xrst
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#  xrst/replace_page_number.py
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#  s|replace_page_number|add_before_title|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -33,5 +30,6 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|xrst_page_number|xrst_before_title|g
-s|replace_page_number|add_before_title|g
+s|`run_xrst@toml_path`|`run_xrst@toml_file`|
+s|`run_xrst@toml_path@project_directory`|`toml_file@directory@project_directory`|
+s|`toml_file@rst_directory`|`toml_file@directory@rst_directory`|
