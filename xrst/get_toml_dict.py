@@ -67,6 +67,18 @@ All of the other directories are specified relative to this directory.
 This can be an absolute path, or a path relative to the location
 where :ref:`run_xrst-name` is executed.
 
+html_directory
+==============
+This is the directory, relative to the *project_directory*,
+where the output files are stored when
+:ref:`run_xrst@target` is ``html`` .
+
+pdf_directory
+=============
+This is the directory, relative to the *project_directory*,
+where the output files are stored when
+:ref:`run_xrst@target` is ``pdf`` .
+
 rst_directory
 =============
 This is the directory, relative to the *project_directory*,
@@ -90,11 +102,15 @@ Default
 [directory]
 project_directory  = '.'
 rst_directory      = 'rst'
+html_directory     = 'html'
+pdf_directory      = 'pdf'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['directory'] = {
-   'project_directory' : '.',
-   'rst_directory'     : 'rst'
+   'project_directory' : '.'    ,
+   'rst_directory'     : 'rst'  ,
+   'html_directory'    : 'html' ,
+   'pdf_directory'     : 'pdf'  ,
 }
 '''{xrst_resume}
 
@@ -352,7 +368,13 @@ def get_toml_dict(toml_file) :
    #
    # directory
    table_dict = toml_dict['directory']
-   if set( table_dict.keys() ) != { 'project_directory', 'rst_directory' } :
+   valid_set = {
+      'project_directory',
+      'rst_directory',
+      'html_directory',
+      'pdf_directory',
+   }
+   if set( table_dict.keys() ) != valid_set :
       msg += 'The directory has the following keys: '
       msg += str( list( table_dict.keys() ) )
       system_exit(msg)
