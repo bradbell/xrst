@@ -87,9 +87,11 @@ This table specifies the locations of some xrst directories:
 
 project_directory
 =================
+This *project_directory* can be an absolute path,
+or a path relative to the location where :ref:`xrst <run_xrst-name>` is run.
 All of the other directories are specified relative to this directory.
-This can be an absolute path, or a path relative to the location
-where :ref:`xrst <run_xrst-name>` is run.
+The other directories may have ``../`` in their specifications; i.e.,
+they do not need to be sub-directories of the project directory.
 
 .. meta::
    :keywords: html_directory
@@ -161,7 +163,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 105-109
+   :lines: 107-111
    :language: toml
 
 .. _toml_file@directory@Example:
@@ -199,7 +201,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 139-140
+   :lines: 141-142
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -246,7 +248,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 174-179
+   :lines: 176-181
    :language: toml
 
 .. _toml_file@html_theme_options@Example:
@@ -310,7 +312,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 224-226
+   :lines: 226-228
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -349,7 +351,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 256-257
+   :lines: 258-259
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -395,7 +397,7 @@ Default
 =======
 
 .. literalinclude:: ../xrst/get_toml_dict.py
-   :lines: 290-291
+   :lines: 292-293
    :language: toml
 
 .. _toml_file@not_in_index@Example:

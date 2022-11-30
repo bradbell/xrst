@@ -68,16 +68,16 @@ is the name of the page that this data is in. This is only used
 for error reporting.
 
 .. meta::
-   :keywords: rst_dir
+   :keywords: rst2project_dir
 
-.. index:: rst_dir
+.. index:: rst2project_dir
 
-.. _code_cmd_dev@Arguments@rst_dir:
+.. _code_cmd_dev@Arguments@rst2project_dir:
 
-rst_dir
-=======
-is the directory, relative to the current working directory,
-where xrst will place the final rst files.
+rst2project_dir
+===============
+is a relative path from the :ref:`toml_file@directory@rst_directory`
+to the :ref:`toml_file@directory@project_directory` .
 
 .. meta::
    :keywords: returns
@@ -102,9 +102,9 @@ is a copy of data_in with the xrst code commands replaced by a corresponding
 sphinx command.
 
 .. literalinclude:: ../xrst/code_command.py
-   :lines: 101-105
+   :lines: 102-106
    :language: py
 
 .. literalinclude:: ../xrst/code_command.py
-   :lines: 214-215
+   :lines: 212-213
    :language: py

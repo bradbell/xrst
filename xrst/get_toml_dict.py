@@ -63,9 +63,11 @@ This table specifies the locations of some xrst directories:
 
 project_directory
 =================
+This *project_directory* can be an absolute path,
+or a path relative to the location where :ref:`xrst <run_xrst-name>` is run.
 All of the other directories are specified relative to this directory.
-This can be an absolute path, or a path relative to the location
-where :ref:`xrst <run_xrst-name>` is run.
+The other directories may have ``../`` in their specifications; i.e.,
+they do not need to be sub-directories of the project directory.
 
 html_directory
 ==============

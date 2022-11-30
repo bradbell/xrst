@@ -35,14 +35,17 @@ mm-dd
 
 11-30
 =====
-1. Create a :ref:`toml_file@directory` table in the toml configuration file
+#. Create a :ref:`toml_file@directory` table in the toml configuration file
    and put the *project_directory* , *rst_directory* ,
    *html_directory* , and *pdf_directory* setting there.
-2. Change the *toml_path* command line argument to *toml_file* because
+#. Change the *toml_path* command line argument to *toml_file* because
    it no longer specifies the *project_directory* .
-3. Change the *output_dir* command line argument to the choice of
+#. Change the *output_dir* command line argument to the choice of
    :ref:`toml_file@directory@html_directory` and
    :ref:`toml_file@directory@pdf_directory` in the toml configuration file.
+#. Fix path resolution so that :ref:`toml_file@directory@rst_directory`
+   may contain ``../`` ; i.e., it need not be a sub-directory
+   of the project directory.
 
 .. _2022@mm-dd@11-29:
 

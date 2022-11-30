@@ -430,14 +430,15 @@ def run_xrst() :
       msg  = 'rst_directory = ' + rst_directory + '\n'
       msg += 'must be a path relative to the project_directory'
       xrst.system_exit(msg)
-   if 0 <= rst_directory.find('../') :
-      msg  = 'rst_directory = ' + rst_directory + '\n'
-      msg += 'cannot contain ../'
-      xrst.system_exit(msg)
-
    #
    if not os.path.isdir(rst_directory) :
       os.mkdir(rst_directory)
+   #
+   # rst2project_directory
+   # relative path from the rst_directory to the project directory
+   rst2project_directory = os.path.relpath(
+      os.getcwd() , rst_directory
+   )
    #
    # tmp_dir
    tmp_dir = rst_directory + '/tmp'
@@ -618,7 +619,7 @@ def run_xrst() :
                page_data,
                file_in,
                page_name,
-               rst_directory,
+               rst2project_directory,
             )
             # ------------------------------------------------------------
             # literal command
@@ -626,7 +627,7 @@ def run_xrst() :
                page_data,
                file_in,
                page_name,
-               rst_directory,
+               rst2project_directory,
             )
             # ------------------------------------------------------------
             # process headings

@@ -145,10 +145,10 @@ def file_extension(display_file) :
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# rst_dir
-# =======
-# is the directory, relative to the current working directory,
-# where xrst will place the final rst files.
+# rst2project_dir
+# ===============
+# is a relative path from the :ref:`toml_file@directory@rst_directory`
+# to the :ref:`toml_file@directory@project_directory` .
 #
 # Returns
 # *******
@@ -158,11 +158,11 @@ def file_extension(display_file) :
 # Each xrst literal command is converted to its corresponding sphinx commands.
 #
 # {xrst_code py}
-def literal_command(data_in, file_name, page_name, rst_dir) :
+def literal_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   assert type(rst_dir) == str
+   assert type(rst2project_dir) == str
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -174,10 +174,6 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
    assert xrst.pattern['literal_1'].groups == 4
    assert xrst.pattern['literal_2'].groups == 6
    assert xrst.pattern['literal_3'].groups == 8
-   #
-   # work_dir
-   depth    = rst_dir.count('/') + 1
-   work_dir = depth * '../'
    #
    # data_out
    data_out = data_in
@@ -207,7 +203,8 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
                display_file = file_name
          #
          # cmd
-         cmd       = f'.. literalinclude:: {work_dir}{display_file}\n'
+         display_path = os.path.join(rst2project_dir, display_file)
+         cmd          = f'.. literalinclude:: {display_path}\n'
          extension = file_extension( display_file )
          if extension != '' :
             cmd += 3 * ' ' + f':language: {extension}\n'
@@ -281,8 +278,9 @@ def literal_command(data_in, file_name, page_name, rst_dir) :
          stop_line   = stop_line  - 1
          #
          # cmd
-         cmd      = f'.. literalinclude:: {work_dir}{display_file}\n'
-         cmd     += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+         display_path = os.path.join(rst2project_dir, display_file)
+         cmd          = f'.. literalinclude:: {display_path}\n'
+         cmd         += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
          #
          # cmd
          # Add language to literalinclude, sphinx seems to be brain

@@ -57,6 +57,7 @@ Example
 """
 # ----------------------------------------------------------------------------
 import xrst
+import os
 # {xrst_begin code_cmd_dev dev}
 # {xrst_spell
 #     dir
@@ -84,10 +85,10 @@ import xrst
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
-# rst_dir
-# =======
-# is the directory, relative to the current working directory,
-# where xrst will place the final rst files.
+# rst2project_dir
+# ===============
+# is a relative path from the :ref:`toml_file@directory@rst_directory`
+# to the :ref:`toml_file@directory@project_directory` .
 #
 # Returns
 # *******
@@ -98,21 +99,17 @@ import xrst
 # sphinx command.
 #
 # {xrst_code py}
-def code_command(data_in, file_name, page_name, rst_dir) :
+def code_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   assert type(rst_dir) == str
+   assert type(rst2project_dir) == str
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
    #  END_return
    # }
    # {xrst_end code_cmd_dev}
-   #
-   # work_dir
-   depth    = rst_dir.count('/') + 1
-   work_dir = depth * '../'
    #
    # data_out
    data_out = data_in
@@ -188,10 +185,11 @@ def code_command(data_in, file_name, page_name, rst_dir) :
       stop_line  = int(m_end.group(5)) - 1
       #
       # cmd
-      command  = indent + f'.. literalinclude:: {work_dir}{file_name}\n'
-      command += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
-      command += indent + 3 * ' ' + f':language: {language}\n'
-      command = '\n' + command + '\n'
+      file_path = os.path.join(rst2project_dir, file_name)
+      command   = indent + f'.. literalinclude:: {file_path}\n'
+      command  += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+      command  += indent + 3 * ' ' + f':language: {language}\n'
+      command  = '\n' + command + '\n'
       assert data_after.startswith('\n')
       if not data_before.strip(' ').endswith('\n') :
          command = '\n' + command
