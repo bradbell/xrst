@@ -53,8 +53,9 @@ Features
    index in a way that can be configured;
    see :ref:`toml_file@not_in_index` .
    These words are also automatically included as html keyword meta data.
-#. Includes a configurable spell checker; see
-   :ref:`spell_cmd-name` and :ref:`toml_file@project_dictionary` .
+#. Includes a spell checker with special words at two levels;
+   :ref:`spell_cmd-name` for the page level
+   and :ref:`toml_file@project_dictionary` at the project level.
    The spell checker catches double word errors.
 #. Makes it easy to include source code that executes
    directly below the current location; see :ref:`code_cmd-name` .

@@ -36,8 +36,9 @@ Features
    index in a way that can be configured;
    see :ref:`toml_file@not_in_index` .
    These words are also automatically included as html keyword meta data.
-#. Includes a configurable spell checker; see
-   :ref:`spell_cmd-name` and :ref:`toml_file@project_dictionary` .
+#. Includes a spell checker with special words at two levels;
+   :ref:`spell_cmd-name` for the page level
+   and :ref:`toml_file@project_dictionary` at the project level.
    The spell checker catches double word errors.
 #. Makes it easy to include source code that executes
    directly below the current location; see :ref:`code_cmd-name` .
@@ -52,7 +53,7 @@ Features
    see :ref:`suspend_example-name` .
 #. The rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
-   while also having long descriptive titles.
+   while also having long descriptive titles attached to each page.
 #. Each page (rst file) has a contents tree for its headings
    that is separate from the contents tree for the pages. This makes it
    easier to move pages to different places in the pages contents tree.
@@ -71,7 +72,7 @@ Extract Sphinx RST Files
 ########################
 
 Version 2022.12.1
-******************
+*****************
 
 Git Repository
 **************
