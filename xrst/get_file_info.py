@@ -4,6 +4,7 @@
 """
 {xrst_begin begin_cmd user}
 {xrst_spell
+   genindex
    underbar
 }
 
@@ -23,12 +24,14 @@ begin (end) command.
 
 page_name
 *********
-The *page_name* is a non-empty sequence of the following characters:
-period ``.``, underbar ``_``, the letters A-Z, letters a-z,
-and decimal digits 0-9.
-The page name can not be ``index``
-and it can not begin with the characters ``xrst_``.
-The lower case version of two page names cannot be equal.
+A *page_name* must satisfy the following conditions:
+
+#. It must be a non-empty sequence of the following characters:
+   period ``.``, underbar ``_``, the letters A-Z, letters a-z,
+   and decimal digits 0-9.
+#. The page name can not be ``index`` , ``genindex`` ,
+   and it can not begin with the characters ``xrst_``.
+#. The lower case version of two page names cannot be equal.
 
 A link is included in the index under the page name to the page.
 The page name is also added to the html keyword meta data.

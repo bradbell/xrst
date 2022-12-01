@@ -11,6 +11,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    dd
    dir
    docstring
+   genindex
    len
    literalinclude
    macros
@@ -35,6 +36,13 @@ xrst Release Notes for 2022
 
 mm-dd
 *****
+
+12-1
+====
+#. Add the restriction that a :ref:`begin_cmd@page_name`
+   cannot be ``genindex`` .
+#. Add some common verbs to the
+   configure file :ref:`toml_file@not_in_index` Example
 
 11-30
 =====

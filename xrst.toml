@@ -66,13 +66,17 @@ data = [
 # BEGIN_NOT_IN_INDEX
 [not_in_index]
 data = [
-  # articles and prepositions
+  # articles, prepositions, and common verbs
   '''
       a
+      an
       and
+      been
       by
       for
+      has
       of
+      that
       the
       this
       to

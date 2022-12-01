@@ -406,5 +406,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 67-92
+   :lines: 67-96
    :language: toml

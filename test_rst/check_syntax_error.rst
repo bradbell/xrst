@@ -9,9 +9,9 @@ check_syntax_error
 xrst input file: ``xrst/check_syntax_error.py``
 
 .. meta::
-   :keywords: check_syntax_error, check, that, an, xrst, has, been, removed
+   :keywords: check_syntax_error, check, xrst, removed
 
-.. index:: check_syntax_error, check, that, an, xrst, has, been, removed
+.. index:: check_syntax_error, check, xrst, removed
 
 .. _check_syntax_error-title:
 

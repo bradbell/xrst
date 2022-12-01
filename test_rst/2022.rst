@@ -31,6 +31,20 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. meta::
+   :keywords: 12-1
+
+.. index:: 12-1
+
+.. _2022@mm-dd@12-1:
+
+12-1
+====
+#. Add the restriction that a :ref:`begin_cmd@page_name`
+   cannot be ``genindex`` .
+#. Add some common verbs to the
+   configure file :ref:`toml_file@not_in_index` Example
+
 .. _2022@mm-dd@11-30:
 
 11-30

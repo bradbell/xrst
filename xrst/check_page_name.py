@@ -5,6 +5,7 @@ import re
 import xrst
 # {xrst_begin check_page_name dev}
 # {xrst_spell
+#     genindex
 #     obj
 #     underbar
 # }
@@ -16,13 +17,19 @@ import xrst
 # page_name
 # *********
 # The page_name appears in *m_obj* in one of the following ways
-# #. \{xrst_begin_parent page_name user}
-# #. \{xrst_begin page_name user}
-# #. \{xrst_end page_name}
 #
-# The valid characters in a page name are [A-Z], [a-z], [0-9],
-# period and underbar.
-# A page name cannot begin with ``xrst_`` . If *page_name* does not follow
+# #.  \{xrst_begin_parent page_name user}
+# #.  \{xrst_begin page_name user}
+# #.  \{xrst_end page_name}
+#
+# A valid page name must satisfy the following conditions:
+#
+# #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
+#     period and underbar.
+# #.  A page name cannot begin with ``xrst_`` .
+# #.  A page name cannot be ``index`` or ``genindex`` .
+#
+# If *page_name* does not follow
 # these rules, a message is printed and the program exits.
 #
 # file_name
@@ -60,8 +67,8 @@ def check_page_name(page_name, file_name, m_obj, data) :
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )
-   if page_name == 'index' :
-      msg = 'page_name cannot be index'
+   if page_name in [ 'index', 'genindex' ] :
+      msg = f'page_name cannot be {page_name}'
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )
