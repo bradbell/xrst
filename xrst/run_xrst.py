@@ -737,7 +737,7 @@ def run_xrst() :
       #
       # run latex twice to resolve cross references.
       command = f'make -C {latex_dir} {project_name}.pdf'
-      system_command(command)
+      subprocess.run(command.split(' '), capture_output = True)
       system_command(command)
    # -------------------------------------------------------------------------
    # output_directory/_static/css/theme.css

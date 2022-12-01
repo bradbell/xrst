@@ -90,7 +90,10 @@ def add_before_title(data_in, target, page_number, page_name) :
       return data_in.replace(pattern,'')
    #
    # add_text
-   add_text = f'{page_number} {page_name}:'
+   if page_number == '' :
+      add_text = f'{page_name}:'
+   else :
+      add_text = f'{page_number} {page_name}:'
    #
    # first_newline
    first_newline = start_cmd + len(pattern)
