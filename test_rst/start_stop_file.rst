@@ -137,10 +137,10 @@ stop_line
 =========
 is the line number where stop_text appears.
 
-.. literalinclude:: ../xrst/start_stop_file.py
+.. literalinclude:: ../../xrst/start_stop_file.py
    :lines: 62-77
    :language: py
 
-.. literalinclude:: ../xrst/start_stop_file.py
+.. literalinclude:: ../../xrst/start_stop_file.py
    :lines: 159-162
    :language: py

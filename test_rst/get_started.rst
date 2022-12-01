@@ -84,5 +84,5 @@ Heading: This Example File
 The file below demonstrates the use of
 ``xrst_begin``,  ``xrst_end``, ``xrst_spell``, and heading references :
 
-.. literalinclude:: ../example/get_started.xrst
+.. literalinclude:: ../../example/get_started.xrst
    :language: rst

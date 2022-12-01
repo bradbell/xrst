@@ -64,10 +64,10 @@ data_out
 The return data_out is a copy of data_in except that the comment
 commands have been removed.
 
-.. literalinclude:: ../xrst/comment_command.py
+.. literalinclude:: ../../xrst/comment_command.py
    :lines: 55-56
    :language: py
 
-.. literalinclude:: ../xrst/comment_command.py
+.. literalinclude:: ../../xrst/comment_command.py
    :lines: 102-103
    :language: py

@@ -49,6 +49,11 @@ mm-dd
 #. Fix path resolution so that :ref:`toml_file@directory@rst_directory`
    may contain ``../`` ; i.e., it need not be a sub-directory
    of the project directory.
+#. If :ref:`run_xrst@target` is ``pdf`` , run latex twice to properly
+   resolve cross references.
+#. Change the :ref:`toml file directories <toml_file@directory>`
+   to be sub-directories of the build directory
+   (except for the project directory).
 
 11-29
 =====

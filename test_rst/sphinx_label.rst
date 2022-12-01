@@ -98,10 +98,10 @@ Errors
 If two or external labels have the same lower case value,
 an error is reported using :ref:`system_exit-name` .
 
-.. literalinclude:: ../xrst/sphinx_label.py
+.. literalinclude:: ../../xrst/sphinx_label.py
    :lines: 59-63
    :language: py
 
-.. literalinclude:: ../xrst/sphinx_label.py
+.. literalinclude:: ../../xrst/sphinx_label.py
    :lines: 135-140
    :language: py

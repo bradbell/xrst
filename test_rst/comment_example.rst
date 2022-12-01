@@ -60,7 +60,7 @@ The multiple line rst comment is directly before this sentence.
 Factorial
 *********
 
-.. literalinclude:: ../example/comment.r
+.. literalinclude:: ../../example/comment.r
    :lines: 32-37
    :language: r
 
@@ -80,5 +80,5 @@ The file below demonstrates the use of ``xrst_comment`` .
 This Example File
 *****************
 
-.. literalinclude:: ../example/comment.r
+.. literalinclude:: ../../example/comment.r
    :language: r

@@ -101,10 +101,10 @@ data_out
 is a copy of data_in with the xrst code commands replaced by a corresponding
 sphinx command.
 
-.. literalinclude:: ../xrst/code_command.py
+.. literalinclude:: ../../xrst/code_command.py
    :lines: 102-106
    :language: py
 
-.. literalinclude:: ../xrst/code_command.py
+.. literalinclude:: ../../xrst/code_command.py
    :lines: 212-213
    :language: py

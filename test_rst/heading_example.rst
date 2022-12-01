@@ -132,5 +132,5 @@ The file below demonstrates linking to headings using ``:ref:`` .
 This Example File
 *****************
 
-.. literalinclude:: ../example/heading.py
+.. literalinclude:: ../../example/heading.py
    :language: py

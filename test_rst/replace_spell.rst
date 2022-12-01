@@ -60,6 +60,6 @@ for each page in that file::
     there is no spell command for this page.
 #.  The spell start and end lines do not overlap the begin line.
 
-.. literalinclude:: ../xrst/replace_spell.py
+.. literalinclude:: ../../xrst/replace_spell.py
    :lines: 44-45
    :language: py

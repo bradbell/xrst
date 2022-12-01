@@ -52,5 +52,5 @@ way to construct a docstring.
 This Example File
 *****************
 
-.. literalinclude:: ../example/indent.py
+.. literalinclude:: ../../example/indent.py
    :language: py

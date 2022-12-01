@@ -54,7 +54,7 @@ The only value in this table is the name of this project.
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 45-46
    :language: toml
 
@@ -63,7 +63,7 @@ Default
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
+.. literalinclude:: ../../xrst.toml
    :lines: 5-6
    :language: toml
 
@@ -162,7 +162,7 @@ Default
 Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 107-111
    :language: toml
 
@@ -171,8 +171,8 @@ Note that '.' denotes the directory where
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 10-15
+.. literalinclude:: ../../xrst.toml
+   :lines: 10-14
    :language: toml
 
 .. meta::
@@ -200,7 +200,7 @@ Multiple groups can use the same root file.
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 141-142
    :language: toml
 
@@ -213,8 +213,8 @@ is the default root file.
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 19-22
+.. literalinclude:: ../../xrst.toml
+   :lines: 18-21
    :language: toml
 
 .. meta::
@@ -247,7 +247,7 @@ In the default below, these values are integers and booleans.
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 176-181
    :language: toml
 
@@ -256,8 +256,8 @@ Default
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 26-32
+.. literalinclude:: ../../xrst.toml
+   :lines: 25-31
    :language: toml
 
 .. meta::
@@ -311,7 +311,7 @@ It either case they can be used by every page in the documentation.
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 226-228
    :language: toml
 
@@ -320,8 +320,8 @@ Default
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 36-44
+.. literalinclude:: ../../xrst.toml
+   :lines: 35-43
    :language: toml
 
 .. meta::
@@ -350,7 +350,7 @@ Special words, for a particular page, are specified using the
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 258-259
    :language: toml
 
@@ -359,8 +359,8 @@ Default
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 48-64
+.. literalinclude:: ../../xrst.toml
+   :lines: 47-63
    :language: toml
 
 .. meta::
@@ -396,7 +396,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 Default
 =======
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 292-293
    :language: toml
 
@@ -405,6 +405,6 @@ Default
 Example
 =======
 
-.. literalinclude:: ../xrst.toml
-   :lines: 68-93
+.. literalinclude:: ../../xrst.toml
+   :lines: 67-92
    :language: toml

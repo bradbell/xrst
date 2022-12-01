@@ -88,6 +88,6 @@ line
 is the line number in file specified by file_name where the error
 was detected.
 
-.. literalinclude:: ../xrst/system_exit.py
+.. literalinclude:: ../../xrst/system_exit.py
    :lines: 43-53
    :language: py

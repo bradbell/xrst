@@ -65,10 +65,10 @@ spell_checker
 =============
 The return spell_checker is a pyspellchecker spell checking object.
 
-.. literalinclude:: ../xrst/create_spell_checker.py
+.. literalinclude:: ../../xrst/create_spell_checker.py
    :lines: 32-35
    :language: py
 
-.. literalinclude:: ../xrst/create_spell_checker.py
+.. literalinclude:: ../../xrst/create_spell_checker.py
    :lines: 143-143
    :language: py

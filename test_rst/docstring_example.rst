@@ -39,5 +39,5 @@ for an example of an indented docstring.
 This Example File
 *****************
 
-.. literalinclude:: ../example/docstring.py
+.. literalinclude:: ../../example/docstring.py
    :language: py

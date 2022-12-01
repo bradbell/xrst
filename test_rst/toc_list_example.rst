@@ -50,7 +50,7 @@ The file below demonstrates the use of ``xrst_toc_list`` .
 This Example File
 *****************
 
-.. literalinclude:: ../example/toc_list.xrst
+.. literalinclude:: ../../example/toc_list.xrst
    :language: rst
 
 .. toctree::

@@ -49,7 +49,7 @@ project_name
 The only value in this table is the name of this project.
 The default for this table is
 
-.. literalinclude:: ../example/suspend.py
+.. literalinclude:: ../../example/suspend.py
    :lines: 29-30
    :language: toml
 
@@ -82,5 +82,5 @@ of this default setting.
 This Example File
 *****************
 
-.. literalinclude:: ../example/suspend.py
+.. literalinclude:: ../../example/suspend.py
    :language: py

@@ -65,7 +65,7 @@ This line uses ``\B`` which is defined as a latex_macro.
 Example TOML File
 *****************
 
-.. literalinclude:: ../xrst.toml
+.. literalinclude:: ../../xrst.toml
    :language: toml
 
 .. _configure_example@This Example File:
@@ -73,5 +73,5 @@ Example TOML File
 This Example File
 *****************
 
-.. literalinclude:: ../example/configure.xrst
+.. literalinclude:: ../../example/configure.xrst
    :language: rst

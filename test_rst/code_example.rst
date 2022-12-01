@@ -31,7 +31,7 @@ Code Command Example
 Factorial
 *********
 
-.. literalinclude:: ../example/code.py
+.. literalinclude:: ../../example/code.py
    :lines: 13-16
    :language: py
 
@@ -45,7 +45,7 @@ Factorial
 Git Hash
 ********
 
-.. literalinclude:: ../example/code.py
+.. literalinclude:: ../../example/code.py
    :lines: 23-23
    :language: py
 
@@ -77,5 +77,5 @@ and ``xrst_spell_on`` .
 This Example File
 *****************
 
-.. literalinclude:: ../example/code.py
+.. literalinclude:: ../../example/code.py
    :language: py

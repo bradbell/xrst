@@ -38,5 +38,5 @@ Links
 This Example File
 *****************
 
-.. literalinclude:: ../example/children.xrst
+.. literalinclude:: ../../example/children.xrst
    :language: rst

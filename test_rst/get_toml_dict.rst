@@ -50,10 +50,10 @@ filled in. All of the values in the dictionary have been check for
 the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 337-339
    :language: py
 
-.. literalinclude:: ../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_toml_dict.py
    :lines: 446-447
    :language: py

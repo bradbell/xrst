@@ -7,12 +7,11 @@ data = 'xrst'
 # END_PROJECT_NAME
 #
 # BEGIN_DIRECTORY
-# This is same as the default and only used as an example
 [directory]
 project_directory = '.'
-rst_directory     = 'rst'
-html_directory    = 'html'
-pdf_directory     = 'pdf'
+rst_directory     = 'build/rst'
+html_directory    = 'build/html'
+pdf_directory     = 'build/pdf'
 # END_DIRECTORY
 #
 # BEGIN_ROOT_FILE

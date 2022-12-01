@@ -146,10 +146,10 @@ It has three lines each terminated by a newline:
  2. heading text line for this page title
  3. an underline line
 
-.. literalinclude:: ../xrst/process_headings.py
+.. literalinclude:: ../../xrst/process_headings.py
    :lines: 227-234
    :language: py
 
-.. literalinclude:: ../xrst/process_headings.py
+.. literalinclude:: ../../xrst/process_headings.py
    :lines: 464-468
    :language: py

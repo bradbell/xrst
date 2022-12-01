@@ -64,10 +64,10 @@ newline_list
 The return newline_list is the list of indices in data that
 represent all of the newlines; i.e. '\n'.
 
-.. literalinclude:: ../xrst/newline_indices.py
+.. literalinclude:: ../../xrst/newline_indices.py
    :lines: 31-32
    :language: py
 
-.. literalinclude:: ../xrst/newline_indices.py
+.. literalinclude:: ../../xrst/newline_indices.py
    :lines: 47-50
    :language: py

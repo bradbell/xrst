@@ -30,12 +30,11 @@ PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
 # html
 # run from html directory so that project_directory is not working directory
-if [ -e html ]
+if [ ! -e build ]
 then
-   rm -r html
+   mkdir build
 fi
-mkdir html
-cd    html
+cd    build
 #
 # ./xrst.toml
 sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
@@ -43,9 +42,9 @@ sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
 #
 for group_list in 'default' 'default,user,dev'
 do
-   if [ -e ../rst ]
+   if [ -e rst ]
    then
-      echo_eval rm -r ../rst
+      echo_eval rm -r rst
    fi
    args='--local_toc'
    args="$args --toml_file xrst.toml"
@@ -69,24 +68,24 @@ done
 rm check_xrst.$$
 cd ..
 # -----------------------------------------------------------------------------
-file_list=$(ls rst/*.rst | sed -e "s|^rst/||" )
+file_list=$(ls build/rst/*.rst | sed -e 's|^build/rst/||' )
 for file in $file_list
 do
    if [ ! -e test_rst/$file ]
    then
       echo "The output file test_rst/$file does not exist."
       echo 'Should we use the following command to fix this'
-      echo "    cp rst/$file test_rst/$file"
+      echo "    cp build/rst/$file test_rst/$file"
       continue_yes_no
-      cp rst/$file test_rst/$file
-   elif ! diff rst/$file test_rst/$file
+      cp build/rst/$file test_rst/$file
+   elif ! diff build/rst/$file test_rst/$file
    then
-      echo "rst/$file changed; above is output of"
-      echo "    diff rst/$file test_rst/$file"
+      echo "build/rst/$file changed; above is output of"
+      echo "    diff build/rst/$file test_rst/$file"
       echo 'Should we use the following command to fix this'
-      echo "    cp rst/$file test_rst/$file"
+      echo "    cp build/rst/$file test_rst/$file"
       continue_yes_no
-      cp rst/$file test_rst/$file
+      cp build/rst/$file test_rst/$file
    else
       echo "$file: OK"
    fi
@@ -95,9 +94,9 @@ done
 file_list=$(ls test_rst/*.rst | sed -e 's|^test_rst/||' )
 for file in $file_list
 do
-   if [ ! -e rst/$file ]
+   if [ ! -e build/rst/$file ]
    then
-      echo "The output file rst/$file does not exist."
+      echo "The output file build/rst/$file does not exist."
       echo 'Should we use the following command to fix this'
       echo "    git rm -f test_rst/$file"
       continue_yes_no

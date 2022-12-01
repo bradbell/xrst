@@ -44,7 +44,7 @@ Code Command in List
 ********************
 #. The ``{xrst_code py}`` cannot be on the first line of a list item.
 
-   .. literalinclude:: ../example/test.py
+   .. literalinclude:: ../../example/test.py
       :lines: 23-26
       :language: py
 
@@ -66,5 +66,5 @@ This example file does not have a newline at the end.
 This Example File
 *****************
 
-.. literalinclude:: ../example/test.py
+.. literalinclude:: ../../example/test.py
    :language: py

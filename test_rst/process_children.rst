@@ -86,10 +86,10 @@ The return value data_out has the child information added.
     the toc_table style is used for the links to the children which are
     placed at the end of the data_out (before the toctree).
 
-.. literalinclude:: ../xrst/process_children.py
+.. literalinclude:: ../../xrst/process_children.py
    :lines: 56-65
    :language: py
 
-.. literalinclude:: ../xrst/process_children.py
+.. literalinclude:: ../../xrst/process_children.py
    :lines: 147-149
    :language: py

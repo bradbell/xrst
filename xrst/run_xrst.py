@@ -355,7 +355,7 @@ def run_xrst() :
       help='replace the xrst spell commands in source code files'
    )
    parser.add_argument('--rst_line_numbers', action='store_true',
-      help='report sphinx erros and warnings using rst file line numbers'
+      help='report sphinx errors and warnings using rst file line numbers'
    )
    #
    # arguments
@@ -735,7 +735,9 @@ def run_xrst() :
       # latex_dir/project_name.tex
       fix_latex(latex_dir, project_name)
       #
+      # run latex twice to resolve cross references.
       command = f'make -C {latex_dir} {project_name}.pdf'
+      system_command(command)
       system_command(command)
    # -------------------------------------------------------------------------
    # output_directory/_static/css/theme.css
