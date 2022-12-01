@@ -70,7 +70,7 @@ Features
    see :ref:`suspend_example-name` .
 #. The rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
-   while also having long descriptive titles.
+   while also having long descriptive titles attached to each page.
 #. Each page (rst file) has a contents tree for its headings
    that is separate from the contents tree for the pages. This makes it
    easier to move pages to different places in the pages contents tree.

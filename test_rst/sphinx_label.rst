@@ -103,5 +103,5 @@ an error is reported using :ref:`system_exit-name` .
    :language: py
 
 .. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 135-140
+   :lines: 150-155
    :language: py
