@@ -417,12 +417,12 @@ def run_xrst() :
    # target
    target = arguments.target
    #
-   # output_directory
+   # target_directory
    if target == 'html' :
-      output_directory = toml_dict['directory']['html_directory']
+      target_directory = toml_dict['directory']['html_directory']
    else :
       assert target == 'pdf'
-      output_directory = toml_dict['directory']['pdf_directory']
+      target_directory = toml_dict['directory']['pdf_directory']
    #
    # rst_directory
    rst_directory = toml_dict['directory']['rst_directory']
@@ -720,7 +720,7 @@ def run_xrst() :
    shutil.rmtree(tmp_dir)
    # -------------------------------------------------------------------------
    if target == 'html' :
-      command = f'sphinx-build -b html {rst_directory} {output_directory}'
+      command = f'sphinx-build -b html {rst_directory} {target_directory}'
       if rst_line_numbers :
          system_command(command)
       else :
@@ -728,7 +728,7 @@ def run_xrst() :
    else :
       assert target == 'pdf'
       #
-      latex_dir = f'{output_directory}/latex'
+      latex_dir = f'{target_directory}/latex'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
       system_command(command)
       #
@@ -740,7 +740,7 @@ def run_xrst() :
       subprocess.run(command.split(' '), capture_output = True)
       system_command(command)
    # -------------------------------------------------------------------------
-   # output_directory/_static/css/theme.css
+   # target_directory/_static/css/theme.css
    # see https://stackoverflow.com/questions/23211695/
    #  modifying-content-width-of-the-sphinx-theme-read-the-docs
    if html_theme == 'sphinx_rtd_theme' and target == 'html' :
@@ -755,7 +755,7 @@ def run_xrst() :
          r'([.]wy-side-nav-search[{][^}]*;width):[^;]*;'
       )
       new_value = { 'content':'100%', 'sidebar':'250px', 'search':'250px' }
-      file_name = f'{output_directory}/_static/css/theme.css'
+      file_name = f'{target_directory}/_static/css/theme.css'
       try :
          file_obj  = open(file_name, 'r')
          ok        = True
