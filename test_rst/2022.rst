@@ -43,6 +43,12 @@ mm-dd
 #. Change *pdf_directory* to :ref:`toml_file@directory@tex_directory`
    and do not automatically run the latex to pdf conversion;
    see the :ref:`run_xrst@target@tex` target discussion.
+#. The :ref:`comment_cmd-name` was replaced by a space when it was a the
+   beginning of a line and there was text after it on the same line.
+   This has been fixed.
+#. The line number errors were not being translated from rst files
+   to corresponding xrst input files when target was
+   :ref:`run_xrst@target@tex` . This has been fixed.
 
 .. meta::
    :keywords: 12-1

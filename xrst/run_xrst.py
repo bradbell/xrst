@@ -759,7 +759,10 @@ def run_xrst() :
       #
       latex_dir = f'{target_directory}'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
-      system_command(command)
+      if rst_line_numbers :
+         system_command(command)
+      else :
+         system_command(command, page_name2line_pair, page_name2file_in)
       #
       # latex_dir/project_name.tex
       fix_latex(latex_dir, project_name)

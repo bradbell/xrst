@@ -85,11 +85,11 @@ def comment_command(data_in) :
          text_after = ''
       #
       # data_out
-      if text_before == '' and text_after == '' :
-         data_out = data_before + data_after
-      else :
+      if text_before != '' and text_after != '' :
          other_text = text_before + ' ' + text_after
-         data_out   = data_before + other_text +  data_after
+      else :
+         other_text = text_before + text_after
+      data_out   = data_before + other_text +  data_after
       #
       # m_obj
       m_obj = pattern.search(data_out, m_obj.start())
