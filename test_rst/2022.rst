@@ -49,6 +49,9 @@ mm-dd
 #. The line number errors were not being translated from rst files
    to corresponding xrst input files when target was
    :ref:`run_xrst@target@tex` . This has been fixed.
+#. Edit the :ref:`purpose@Features` description of xrst. To be more specific,
+   describe the two levels of tables of contents and how choosing
+   the html theme works.
 
 .. meta::
    :keywords: 12-1
