@@ -26,6 +26,15 @@ Features
 #. Makes it easy to put documentation in source code comments,
    even when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd-name` .
+#. For each pages, the rst file name is used as an abbreviated title
+   in the navigation bar. This makes the navigation bar more useful
+   while also having long descriptive titles attached to each page.
+#. The are two levels to the table of contents. Each entry at the
+   first level is a page name or page title; e.g.,
+   the :ref:`xrst_table_of_contents-title` for this documentation.
+   Each entry at the second level is a headings with in a page.
+   The :ref:`run_xrst@local_toc` option can be used to display the second
+   level for each page.
 #. Multiple pages can be specified in one
    input file and one page can be the parent for the
    other pages in the same file; see :ref:`begin_cmd-name` .
@@ -51,12 +60,6 @@ Features
 #. It is possible to document a feature using one language
    and implement the feature using a different language; e.g.,
    see :ref:`suspend_example-name` .
-#. The rst file name is used as an abbreviated title
-   in the navigation bar. This makes the navigation bar more useful
-   while also having long descriptive titles attached to each page.
-#. Each page (rst file) has a contents tree for its headings
-   that is separate from the contents tree for the pages. This makes it
-   easier to move pages to different places in the pages contents tree.
 #. Automatically generates labels for linking to a heading in any page.
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
