@@ -31,6 +31,16 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@12-05:
+
+12-05
+=====
+#. Document the fact that :ref:`toml_file@directory@project_directory`
+   must exist and the other directories will be created in they do not exist.
+#. Fix creation of :ref:`toml_file@directory@rst_directory` so that it
+   will create parent directories (if necessary); e.g., if it is build/rst
+   it may need to create build.
+
 .. meta::
    :keywords: 12-1
 

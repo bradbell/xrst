@@ -51,9 +51,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 337-339
+   :lines: 342-344
    :language: py
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 446-447
+   :lines: 451-452
    :language: py

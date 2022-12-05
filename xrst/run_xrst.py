@@ -432,7 +432,7 @@ def run_xrst() :
       xrst.system_exit(msg)
    #
    if not os.path.isdir(rst_directory) :
-      os.mkdir(rst_directory)
+      os.makedirs(rst_directory)
    #
    # rst2project_directory
    # relative path from the rst_directory to the project directory

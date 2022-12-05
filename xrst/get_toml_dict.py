@@ -68,24 +68,29 @@ or a path relative to the location where :ref:`xrst <run_xrst-name>` is run.
 All of the other directories are specified relative to this directory.
 The other directories may have ``../`` in their specifications; i.e.,
 they do not need to be sub-directories of the project directory.
+This directory must exists when xrst is run.
 
 html_directory
 ==============
 This is the directory, relative to the *project_directory*,
 where the output files are stored when
 :ref:`run_xrst@target` is ``html`` .
+If *target* is html and this directory does not exist, it will be created.
 
 pdf_directory
 =============
 This is the directory, relative to the *project_directory*,
 where the output files are stored when
 :ref:`run_xrst@target` is ``pdf`` .
+If *target* is pdf and this directory does not exist, it will be created.
+
 
 rst_directory
 =============
 This is the directory, relative to the *project_directory*,
 where xrst writes the rst files it extracts from the source code.
 For each :ref:`begin_cmd@page_name` , the file
+If this  directory does not exist, it will be created.
 
 |space| *rst_directory*\ /\ *page_name*\ ``.rst``
 
