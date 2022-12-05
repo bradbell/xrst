@@ -160,9 +160,12 @@ will accomplish both purposes:
    make -C *tex_directory* *project_name*\ ``.pdf``
 
 #. The :ref:`toml_file@project_name` is specified in the configuration file.
-#. Error messages will be reported for the file *project*\ ``.tex`` .
-   These error messages are not translated back to
-   the original xrst source files so they will be harder to decipher.
+#. Latex error messages will are reported using line numbers in
+   the file *project*\ ``.tex`` .
+   The page numbers in the :ref:`xrst_table_of_contents-title` are
+   present in the latex input (often near ``section*{`` above the error)
+   and may help translate these line numbers
+   to page numbers and from there to the original xrst input file.
 #. The resulting output file will be *project*\ ``.pdf`` in the
    *tex_directory* .
 
