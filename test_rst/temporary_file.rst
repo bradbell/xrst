@@ -108,7 +108,7 @@ The following is added to this data before writing it to the output file:
     #. The pseudo heading is added next.
     #. The name of the input file *file_in* is added next.
 
- #. If *target* is ``pdf```
+ #. If *target* is ``tex```
 
     #. All cross references of the form
        :ref:\` *page_name* -name \` ,

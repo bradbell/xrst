@@ -56,7 +56,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 #     #. The pseudo heading is added next.
 #     #. The name of the input file *file_in* is added next.
 #
-#  #. If *target* is ``pdf```
+#  #. If *target* is ``tex```
 #
 #     #. All cross references of the form
 #        :ref:\` *page_name* -name \` ,
@@ -95,7 +95,7 @@ def temporary_file(
    page_name,
    data_in,
 ) :
-   assert target == 'html' or target == 'pdf'
+   assert target == 'html' or target == 'tex'
    assert type(pseudo_heading) == str
    assert type(file_in) == str
    assert type(page_name) == str
@@ -110,7 +110,7 @@ def temporary_file(
    #
    # title_index
    title_index = None
-   if target == 'pdf' :
+   if target == 'tex' :
       page_number_index = data_in.index('\n{xrst_before_title}\n')
       assert 0 <= page_number_index
    #

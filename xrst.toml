@@ -11,7 +11,7 @@ data = 'xrst'
 project_directory = '.'
 rst_directory     = 'build/rst'
 html_directory    = 'build/html'
-pdf_directory     = 'build/pdf'
+tex_directory     = 'build/tex'
 # END_DIRECTORY
 #
 # BEGIN_ROOT_FILE

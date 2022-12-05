@@ -30,6 +30,8 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|`run_xrst@toml_path`|`run_xrst@toml_file`|
-s|`run_xrst@toml_path@project_directory`|`toml_file@directory@project_directory`|
-s|`toml_file@rst_directory`|`toml_file@directory@rst_directory`|
+s|pdf_directory|tex_directory|
+s|'pdf'|'tex'|
+s|``pdf``|``tex``|
+s/(html|pdf)/(html|tex)/
+s|build/pdf|build/tex|

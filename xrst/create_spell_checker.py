@@ -123,7 +123,7 @@ def create_spell_checker(local_words) :
       'multipliers',
       'optimizes',
       'partials',
-      'pdf',
+      'tex',
       'piecewise',
       'subdirectory',
       'unary',

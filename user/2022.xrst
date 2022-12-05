@@ -19,6 +19,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    mm
    newline
    overline
+   pdf
    pyproject
    pyspellchecker
    rtd
@@ -44,6 +45,9 @@ mm-dd
 #. Fix creation of :ref:`toml_file@directory@rst_directory` so that it
    will create parent directories (if necessary); e.g., if it is build/rst
    it may need to create build.
+#. Change *pdf_directory* to :ref:`toml_file@directory@tex_directory`
+   and do not automatically run the latex to pdf conversion;
+   see the :ref:`run_xrst@target@tex` target discussion.
 
 12-1
 ====
@@ -64,7 +68,7 @@ mm-dd
    it no longer specifies the *project_directory* .
 #. Change the *output_dir* command line argument to the choice of
    :ref:`toml_file@directory@html_directory` and
-   :ref:`toml_file@directory@pdf_directory` in the toml configuration file.
+   *pdf_directory* in the toml configuration file.
 #. Fix path resolution so that :ref:`toml_file@directory@rst_directory`
    may contain ``../`` ; i.e., it need not be a sub-directory
    of the project directory.
@@ -105,7 +109,7 @@ The output directory specification was moved
 from the xrst toml file to the xrst command line.
 It was moved back to *output_dir* and later replaced by
 :ref:`toml_file@directory@html_directory` and
-:ref:`toml_file@directory@pdf_directory`.
+*pdf_directory* .
 This undid one of the changes on
 :ref:`2022@mm-dd@11-19` .
 THe

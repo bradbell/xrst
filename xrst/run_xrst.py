@@ -7,6 +7,7 @@
 {xrst_spell
    furo
    github
+   pdf
    pyspellchecker
    rtd
    toml
@@ -83,7 +84,9 @@ please post an issue on github so that it can be added to the list below.
 
 sphinx_rtd_theme
 ================
-A special modification is make to this theme when *target* is html,
+The sphinx_rtd theme builds faster than some of the other themes,
+so it is suggested to use it for testing (with the ``--local_toc`` option).
+A special modification is made to this theme when *target* is html,
 so that it displays wider than its normal limit.
 This modification may be removed in the future.
 
@@ -133,12 +136,35 @@ and it is your current working directory.
 
 target
 ******
-The optional command line argument *target* must be ``html`` or ``pdf``.
+The optional command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
 Note thet :ref:`toml_file@directory@html_directory` and
-:ref:`toml_file@directory@pdf_directory` will determine the location
+:ref:`toml_file@directory@tex_directory` will determine the location
 of the corresponding output files.
 The default value for *target* is ``html`` .
+
+tex
+===
+If you choose this target, xrst will create the file
+*project_name*\ ``.tex`` in the :ref:`toml_file@directory@tex_directory` .
+There are two reasons to build this file.
+One is to create the file *project_name*\ ``.pdf``
+which is a pdf version of the documentation.
+The other is to test for errors in the latex sections of the documentation.
+(MathJax displays latex errors in red, but has to check
+every page that has latex to find all the errors this way.)
+Once you have build *project_name*\ ``.tex``, the following command
+executed in :ref:`toml_file@directory@project_directory`
+will accomplish both purposes:
+
+   make -C *tex_directory* *project_name*\ ``.pdf``
+
+#. The :ref:`toml_file@project_name` is specified in the configuration file.
+#. Error messages will be reported for the file *project*\ ``.tex`` .
+   These error messages are not translated back to
+   the original xrst source files so they will be harder to decipher.
+#. The resulting output file will be *project*\ ``.pdf`` in the
+   *tex_directory* .
 
 replace_spell_commands
 **********************
@@ -348,8 +374,8 @@ def run_xrst() :
       help='comma separated list of groups to include (default: is default)'
    )
    parser.add_argument(
-      '--target', metavar='target', choices=['html', 'pdf'], default='html',
-      help='type of output files, choices are html or pdf (default is html)'
+      '--target', metavar='target', choices=['html', 'tex'], default='html',
+      help='type of output files, choices are html or tex (default is html)'
    )
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
@@ -421,8 +447,8 @@ def run_xrst() :
    if target == 'html' :
       target_directory = toml_dict['directory']['html_directory']
    else :
-      assert target == 'pdf'
-      target_directory = toml_dict['directory']['pdf_directory']
+      assert target == 'tex'
+      target_directory = toml_dict['directory']['tex_directory']
    #
    # rst_directory
    rst_directory = toml_dict['directory']['rst_directory']
@@ -515,7 +541,7 @@ def run_xrst() :
       finfo_stack.append(finfo)
       #
       while 0 < len(finfo_stack) :
-         # pop first element of stack so that order in pdf file and
+         # pop first element of stack so that order in tex file and
          # table of contents is correct
          finfo  = finfo_stack.pop(0)
          #
@@ -726,19 +752,17 @@ def run_xrst() :
       else :
          system_command(command, page_name2line_pair, page_name2file_in)
    else :
-      assert target == 'pdf'
+      assert target == 'tex'
       #
-      latex_dir = f'{target_directory}/latex'
+      latex_dir = f'{target_directory}'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
       system_command(command)
       #
       # latex_dir/project_name.tex
       fix_latex(latex_dir, project_name)
       #
-      # run latex twice to resolve cross references.
-      command = f'make -C {latex_dir} {project_name}.pdf'
-      subprocess.run(command.split(' '), capture_output = True)
-      system_command(command)
+      print('The following command will build the pdf from the latex:')
+      print( f'   make -C {project_directory}/{latex_dir} {project_name}.pdf' )
    # -------------------------------------------------------------------------
    # target_directory/_static/css/theme.css
    # see https://stackoverflow.com/questions/23211695/

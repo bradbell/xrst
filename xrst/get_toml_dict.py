@@ -77,13 +77,12 @@ where the output files are stored when
 :ref:`run_xrst@target` is ``html`` .
 If *target* is html and this directory does not exist, it will be created.
 
-pdf_directory
+tex_directory
 =============
 This is the directory, relative to the *project_directory*,
 where the output files are stored when
-:ref:`run_xrst@target` is ``pdf`` .
-If *target* is pdf and this directory does not exist, it will be created.
-
+:ref:`run_xrst@target` is ``tex`` .
+If *target* is tex and this directory does not exist, it will be created.
 
 rst_directory
 =============
@@ -113,14 +112,14 @@ Note that '.' denotes the directory where
 project_directory  = '.'
 rst_directory      = 'rst'
 html_directory     = 'html'
-pdf_directory      = 'pdf'
+tex_directory      = 'tex'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['directory'] = {
    'project_directory' : '.'    ,
    'rst_directory'     : 'rst'  ,
    'html_directory'    : 'html' ,
-   'pdf_directory'     : 'pdf'  ,
+   'tex_directory'     : 'tex'  ,
 }
 '''{xrst_resume}
 
@@ -221,7 +220,7 @@ latex_macro
 The value corresponding to this key is a list of latex macros.
 If :ref:`run_xrst@target` is html, these macros get included at the
 top of every page using the sphinx ``:math`` role.
-Otherwise *target* is 'pdf' and these macros get included once
+Otherwise *target* is 'tex' and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
 
@@ -382,7 +381,7 @@ def get_toml_dict(toml_file) :
       'project_directory',
       'rst_directory',
       'html_directory',
-      'pdf_directory',
+      'tex_directory',
    }
    if set( table_dict.keys() ) != valid_set :
       msg += 'The directory has the following keys: '

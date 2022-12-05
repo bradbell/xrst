@@ -55,7 +55,7 @@ import xrst
 # {xrst_code py}
 def add_before_title(data_in, target, page_number, page_name) :
    assert type(data_in) == str
-   assert target == 'html' or target == 'pdf'
+   assert target == 'html' or target == 'tex'
    assert type(page_number) == str
    assert type(page_name) == str
    # {xrst_code}

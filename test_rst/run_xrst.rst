@@ -137,7 +137,9 @@ please post an issue on github so that it can be added to the list below.
 
 sphinx_rtd_theme
 ================
-A special modification is make to this theme when *target* is html,
+The sphinx_rtd theme builds faster than some of the other themes,
+so it is suggested to use it for testing (with the ``--local_toc`` option).
+A special modification is made to this theme when *target* is html,
 so that it displays wider than its normal limit.
 This modification may be removed in the future.
 
@@ -203,12 +205,42 @@ and it is your current working directory.
 
 target
 ******
-The optional command line argument *target* must be ``html`` or ``pdf``.
+The optional command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
 Note thet :ref:`toml_file@directory@html_directory` and
-:ref:`toml_file@directory@pdf_directory` will determine the location
+:ref:`toml_file@directory@tex_directory` will determine the location
 of the corresponding output files.
 The default value for *target* is ``html`` .
+
+.. meta::
+   :keywords: tex
+
+.. index:: tex
+
+.. _run_xrst@target@tex:
+
+tex
+===
+If you choose this target, xrst will create the file
+*project_name*\ ``.tex`` in the :ref:`toml_file@directory@tex_directory` .
+There are two reasons to build this file.
+One is to create the file *project_name*\ ``.pdf``
+which is a pdf version of the documentation.
+The other is to test for errors in the latex sections of the documentation.
+(MathJax displays latex errors in red, but has to check
+every page that has latex to find all the errors this way.)
+Once you have build *project_name*\ ``.tex``, the following command
+executed in :ref:`toml_file@directory@project_directory`
+will accomplish both purposes:
+
+   make -C *tex_directory* *project_name*\ ``.pdf``
+
+#. The :ref:`toml_file@project_name` is specified in the configuration file.
+#. Error messages will be reported for the file *project*\ ``.tex`` .
+   These error messages are not translated back to
+   the original xrst source files so they will be harder to decipher.
+#. The resulting output file will be *project*\ ``.pdf`` in the
+   *tex_directory* .
 
 .. meta::
    :keywords: replace_spell_commands

@@ -51,18 +51,18 @@ is the temporary directory where the temporary rst files are written.
 
 target
 ======
-is either 'html' or 'pdf'.
+is either 'html' or 'tex'.
 
 .. meta::
-   :keywords: pdf
+   :keywords: tex
 
-.. index:: pdf
+.. index:: tex
 
-.. _table_of_contents@Arguments@target@pdf:
+.. _table_of_contents@Arguments@target@tex:
 
-pdf
+tex
 ---
-If target is 'pdf',  for each temporary file
+If target is 'tex',  for each temporary file
 tmp_dir/page_name.rst the text \\n{xrst_before_title}
 is removed and  the page number followed by the page name is added
 at the front of the title for the page.

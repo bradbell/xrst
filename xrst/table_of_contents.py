@@ -18,7 +18,7 @@ def page_name2index(pinfo_list, page_name) :
 # is the temporary directory where the rst files are written.
 #
 # target:
-# is either 'html' or 'pdf'. If target is 'pdf',  in the temporary files
+# is either 'html' or 'tex'. If target is 'tex',  in the temporary files
 # tmp_dir/page_name.rst, the text {xrst_before_title}
 # is removed and  page number followed by page name is added to the
 # title. The page number includes the counter for each level.
@@ -64,7 +64,7 @@ def page_table_of_contents(
    assert type(pinfo_list) == list
    assert type(page_index) == int
    #
-   assert target in [ 'html', 'pdf' ]
+   assert target in [ 'html', 'tex' ]
    #
    # page_name, page_title
    page_name   = pinfo_list[page_index]['page_name']
@@ -160,11 +160,11 @@ def page_table_of_contents(
 #
 # target
 # ======
-# is either 'html' or 'pdf'.
+# is either 'html' or 'tex'.
 #
-# pdf
+# tex
 # ---
-# If target is 'pdf',  for each temporary file
+# If target is 'tex',  for each temporary file
 # tmp_dir/page_name.rst the text \\n{xrst_before_title}
 # is removed and  the page number followed by the page name is added
 # at the front of the title for the page.
@@ -210,7 +210,7 @@ def table_of_contents(
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
-   assert target in [ 'html', 'pdf']
+   assert target in [ 'html', 'tex']
    assert type(pinfo_list) == list
    assert type(pinfo_list[0]) == dict
    assert type(root_page_list) == list

@@ -14,14 +14,14 @@ then
    exit 1
 fi
 # -----------------------------------------------------------------------------
-if [ "$1" != 'html' ] && [ "$1" != 'pdf' ]
+if [ "$1" != 'html' ] && [ "$1" != 'tex' ]
 then
-   echo 'usage: bin/run_xrst.sh (html|pdf) [--rst_line_numbers]'
+   echo 'usage: bin/run_xrst.sh (html|tex) [--rst_line_numbers]'
    exit 1
 fi
 if [ "$2" != '' ] && [ "$2" != '--rst_line_numbers' ]
 then
-   echo 'usage: bin/run_xrst.sh (html|pdf) [--rst_line_numbers]'
+   echo 'usage: bin/run_xrst.sh (html|tex) [--rst_line_numbers]'
    exit 1
 fi
 target="$1"

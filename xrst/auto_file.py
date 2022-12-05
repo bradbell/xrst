@@ -49,13 +49,13 @@ To be specific:
 
    :ref:`link to index<genindex>`
 
-The xrst_index.rst file is not created when target is pdf.
+The xrst_index.rst file is not created when target is tex.
 
 xrst_preamble.rst
 *****************
 This file implements the
 :ref:`toml_file@preamble` information in the xrst configure file.
-If the :ref:`run_xrst@target` is ``pdf``, the latex macros have been removed.
+If the :ref:`run_xrst@target` is ``tex``, the latex macros have been removed.
 
 {xrst_end auto_file}
 """
@@ -112,7 +112,7 @@ extensions = [
 #
 # target
 # ******
-# is html or pdf
+# is html or tex
 #
 # pinfo_list
 # **********
@@ -142,12 +142,12 @@ extensions = [
 # tmp_dir/xrst_preamble.rst
 # *************************
 # The data in :ref:`toml_file@preamble` is placed in this file.
-# If target is html (pdf) the latex macros are (are not) included.
+# If target is html (tex) the latex macros are (are not) included.
 #
 # tmp_dir/xrst_index.rst
 # **********************
 # This file just contains a link to the genindex.rst file.
-# It is (is not) included if target is html (pdf).
+# It is (is not) included if target is html (tex).
 #
 # rst_dir/conf.py
 # ***************
@@ -240,7 +240,7 @@ def auto_file(
    # conf_py
    if len( latex_macro ) != 0 :
       conf_py += '#\n'
-      conf_py += '# Latex used when sphinx builds  pdf\n'
+      conf_py += '# Latex used when sphinx builds tex\n'
       conf_py += 'latex_elements = {\n'
       conf_py += 3 * ' ' + "'preamble' : r'''\n"
       for macro in latex_macro :

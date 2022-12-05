@@ -77,7 +77,7 @@ The html_theme as on the xrst command line.
 
 target
 ******
-is html or pdf
+is html or tex
 
 .. meta::
    :keywords: pinfo_list
@@ -135,7 +135,7 @@ to this page.
 tmp_dir/xrst_preamble.rst
 *************************
 The data in :ref:`toml_file@preamble` is placed in this file.
-If target is html (pdf) the latex macros are (are not) included.
+If target is html (tex) the latex macros are (are not) included.
 
 .. meta::
    :keywords: tmp_dir/xrst_index.rst
@@ -147,7 +147,7 @@ If target is html (pdf) the latex macros are (are not) included.
 tmp_dir/xrst_index.rst
 **********************
 This file just contains a link to the genindex.rst file.
-It is (is not) included if target is html (pdf).
+It is (is not) included if target is html (tex).
 
 .. meta::
    :keywords: rst_dir/conf.py

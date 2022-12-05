@@ -109,18 +109,18 @@ where the output files are stored when
 If *target* is html and this directory does not exist, it will be created.
 
 .. meta::
-   :keywords: pdf_directory
+   :keywords: tex_directory
 
-.. index:: pdf_directory
+.. index:: tex_directory
 
-.. _toml_file@directory@pdf_directory:
+.. _toml_file@directory@tex_directory:
 
-pdf_directory
+tex_directory
 =============
 This is the directory, relative to the *project_directory*,
 where the output files are stored when
-:ref:`run_xrst@target` is ``pdf`` .
-If *target* is pdf and this directory does not exist, it will be created.
+:ref:`run_xrst@target` is ``tex`` .
+If *target* is tex and this directory does not exist, it will be created.
 
 .. meta::
    :keywords: rst_directory
@@ -167,7 +167,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 112-116
+   :lines: 111-115
    :language: toml
 
 .. _toml_file@directory@Example:
@@ -205,7 +205,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 146-147
+   :lines: 145-146
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -252,7 +252,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 181-186
+   :lines: 180-185
    :language: toml
 
 .. _toml_file@html_theme_options@Example:
@@ -301,7 +301,7 @@ latex_macro
 The value corresponding to this key is a list of latex macros.
 If :ref:`run_xrst@target` is html, these macros get included at the
 top of every page using the sphinx ``:math`` role.
-Otherwise *target* is 'pdf' and these macros get included once
+Otherwise *target* is 'tex' and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
 
@@ -316,7 +316,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 231-233
+   :lines: 230-232
    :language: toml
 
 .. _toml_file@preamble@Example:
@@ -355,7 +355,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 263-264
+   :lines: 262-263
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -401,7 +401,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 297-298
+   :lines: 296-297
    :language: toml
 
 .. _toml_file@not_in_index@Example:
