@@ -164,10 +164,14 @@ info['is_child']
 is true (false) if this is (is not) a child of the first page in
 this file.
 
+info['begin_line']
+is the line number in *file_in* where this page begins; i.e.,
+the line number where the begin command is located.
+
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 162-174
+   :lines: 166-178
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 385-388
+   :lines: 394-397
    :language: py

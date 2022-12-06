@@ -158,6 +158,10 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # is true (false) if this is (is not) a child of the first page in
 # this file.
 #
+# info['begin_line']
+# is the line number in *file_in* where this page begins; i.e.,
+# the line number where the begin command is located.
+#
 # {xrst_code py}
 def get_file_info(
       page_info,
@@ -305,6 +309,10 @@ def get_file_info(
          # data_index
          data_index = m_begin.end()
          #
+         # begin_line
+         m_line     = xrst.pattern['line'].search(file_data, data_index)
+         begin_line = int( m_line.group(1) )
+         #
          # m_end
          m_end     = xrst.pattern['end'].search(file_data, data_index)
          #
@@ -352,6 +360,7 @@ def get_file_info(
             'page_data'    : page_data,
             'is_parent'    : is_parent,
             'is_child'     : is_child,
+            'begin_line'   : begin_line,
          } )
          #
          # data_index

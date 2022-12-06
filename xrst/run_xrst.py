@@ -590,11 +590,12 @@ def run_xrst() :
          # add this files pages to pinfo_list
          for i_page in range( len(sinfo_file_in) ) :
             # ------------------------------------------------------------
-            # page_name, page_data, is_parent
-            page_name = sinfo_file_in[i_page]['page_name']
-            page_data = sinfo_file_in[i_page]['page_data']
-            is_parent = sinfo_file_in[i_page]['is_parent']
-            is_child  = sinfo_file_in[i_page]['is_child']
+            # page_name, page_data, is_parent, begin_line
+            page_name  = sinfo_file_in[i_page]['page_name']
+            page_data  = sinfo_file_in[i_page]['page_data']
+            is_parent  = sinfo_file_in[i_page]['is_parent']
+            is_child   = sinfo_file_in[i_page]['is_child']
+            begin_line = sinfo_file_in[i_page]['begin_line']
             #
             # parent_page
             if is_parent or parent_page_file_in is None :
@@ -621,6 +622,7 @@ def run_xrst() :
                page_data,
                file_in,
                page_name,
+               begin_line,
                spell_checker,
             )
             # -------------------------------------------------------------

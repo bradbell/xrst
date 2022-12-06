@@ -143,6 +143,7 @@ pattern['word']  = re.compile(
 #     dir
 #     pyspellchecker
 #     tmp
+#     toml
 # }
 # {xrst_comment_ch #}
 #
@@ -154,8 +155,9 @@ pattern['word']  = re.compile(
 #
 # tmp_dir
 # =======
-# The file :ref:`replace_spell@tmp_dir@spell.toml`
-# is written in the tmp_dir directory by the spell_command function.
+# The file :ref:`replace_spell@spell.toml`
+# is written in the *tmp_dir* directory by the one page at a time
+# by this function call.
 #
 # data_in
 # =======
@@ -163,13 +165,18 @@ pattern['word']  = re.compile(
 #
 # file_name
 # =========
-# is the name of the file that the data came from. This is only used
-# for error reporting.
+# is the name of the file that the data came from. This is used
+# for error reporting and spell.toml.
 #
 # page_name
 # =========
 # is the name of the page that this data is in. This is only used
-# for error reporting.
+# for error reporting and spell.toml.
+#
+# begin_line
+# ==========
+# is the line number in *file_name* where the begin command for this page
+# appears. This is only used for spell.toml.
 #
 # spell_checker
 # =============
@@ -193,12 +200,13 @@ pattern['word']  = re.compile(
 #
 # {xrst_code py}
 def spell_command(
-   tmp_dir, data_in, file_name, page_name, spell_checker
+   tmp_dir, data_in, file_name, page_name, begin_line, spell_checker
 ) :
    assert type(tmp_dir) == str
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
+   assert type(begin_line) == int
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -464,8 +472,10 @@ def spell_command(
       end_spell   = 0
    #
    # begin_line
+   # 2DO, remove this check (may not be valid in the future)
    m_line     = pattern['line'].search(data_in)
-   begin_line = int( m_line.group(1) )
+   check = int( m_line.group(1) )
+   assert begin_line == check
    #
    # file_data
    file_data  = f'[ "{file_name}"."{page_name}" ]\n'

@@ -40,8 +40,9 @@ Arguments
 
 tmp_dir
 =======
-The file :ref:`replace_spell@tmp_dir@spell.toml`
-is written in the tmp_dir directory by the spell_command function.
+The file :ref:`replace_spell@spell.toml`
+is written in the *tmp_dir* directory by the one page at a time
+by this function call.
 
 .. meta::
    :keywords: data_in
@@ -63,8 +64,8 @@ is the data for this page before the spell commands are removed.
 
 file_name
 =========
-is the name of the file that the data came from. This is only used
-for error reporting.
+is the name of the file that the data came from. This is used
+for error reporting and spell.toml.
 
 .. meta::
    :keywords: page_name
@@ -76,7 +77,19 @@ for error reporting.
 page_name
 =========
 is the name of the page that this data is in. This is only used
-for error reporting.
+for error reporting and spell.toml.
+
+.. meta::
+   :keywords: begin_line
+
+.. index:: begin_line
+
+.. _spell_cmd_dev@Arguments@begin_line:
+
+begin_line
+==========
+is the line number in *file_name* where the begin command for this page
+appears. This is only used for spell.toml.
 
 .. meta::
    :keywords: spell_checker
@@ -127,9 +140,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 195-201
+   :lines: 202-209
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 501-503
+   :lines: 511-513
    :language: py

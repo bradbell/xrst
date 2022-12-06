@@ -20,7 +20,7 @@ import xrst
 # is the directory where spell.toml is located
 #
 # spell.toml
-# ==========
+# **********
 # The file *tmp_dir* ``/spell.toml`` contains the information below.
 # For each file that was included in the documentation,
 # for each page in that file::
@@ -31,8 +31,12 @@ import xrst
 #     end_spell   = integer line number where the spell command ends
 #     unknown     = array of strings (words) that are not in dictionary
 #
+# It is called spell.tom because it is written by the
+# :ref:`spell_cmd_dev-name` one page at a time.
+#
 # #.  file_name and page_name are strings.
-# #.  file_name is relative to the :ref:`toml_file@directory@project_directory` .
+# #.  file_name is relative to the
+#     :ref:`toml_file@directory@project_directory` .
 # #.  Descriptions to the left (right) of the equal signs are literal text
 #     (replaced by their values).
 # #.  Line numbers start at one and are for the specified file.
