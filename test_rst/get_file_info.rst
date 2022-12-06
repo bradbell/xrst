@@ -56,6 +56,7 @@ This includes pages for all the groups that came before this group.
 group_name
 ==========
 We are only retrieving information for pages in this group.
+(This is non-empty because default is used for the empty group name.)
 
 .. meta::
    :keywords: parent_file
@@ -164,9 +165,9 @@ is true (false) if this is (is not) a child of the first page in
 this file.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 161-172
+   :lines: 162-174
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 383-386
+   :lines: 385-388
    :language: py

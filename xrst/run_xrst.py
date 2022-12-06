@@ -538,7 +538,7 @@ def run_xrst() :
       finfo = {
          'file_in'        : root_file[group_name],
          'parent_file'    : None,
-         'parent_page' : None,
+         'parent_page'    : None,
       }
       finfo_stack.append(finfo)
       #
@@ -593,8 +593,8 @@ def run_xrst() :
             # page_name, page_data, is_parent
             page_name = sinfo_file_in[i_page]['page_name']
             page_data = sinfo_file_in[i_page]['page_data']
-            is_parent    = sinfo_file_in[i_page]['is_parent']
-            is_child     = sinfo_file_in[i_page]['is_child']
+            is_parent = sinfo_file_in[i_page]['is_parent']
+            is_child  = sinfo_file_in[i_page]['is_child']
             #
             # parent_page
             if is_parent or parent_page_file_in is None :

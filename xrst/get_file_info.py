@@ -106,6 +106,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # group_name
 # ==========
 # We are only retrieving information for pages in this group.
+# (This is non-empty because default is used for the empty group name.)
 #
 # parent_file
 # ===========
@@ -168,6 +169,7 @@ def get_file_info(
    if 0 < len(page_info) :
       type( page_info[0] ) == dict
    assert type(group_name) == str
+   assert group_name != ''
    assert type(parent_file) == str or parent_file == None
    assert type(file_in) == str
    # {xrst_code}
