@@ -30,7 +30,7 @@ Syntax
 | |tab| [ ``--local_toc`` ]
 | |tab| [ ``--toml_file``  *toml_file* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
-| |tab| [ ``--group_list`` *group_list* ] \\
+| |tab| [ ``--group_list`` *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--target``     *target* ]  \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
@@ -155,16 +155,16 @@ group_list
 It is possible to select one or more groups of pages
 to include in the output using this optional argument.
 
-#. The *group_list* is a comma separated list of
+#. The *group_list* is a list of
    :ref:`group names<begin_cmd@group_name>`.
 #. The :ref:`begin_cmd@group_name@Default Group` is represented by
    the group name ``default`` .
-#. The order of the groups determines their order in the resulting output.
+#. The order of the group names determines their order in the resulting output.
 #. The default value for *group_list* is ``default`` .
 
 For each group name in the *group_list*
-there must be at least one xrst page in corresponding
-:ref:`toml_file@root_file` .
+there must be an entry in :ref:`toml_file@root_file` specifying the
+root file for that group name.
 
 The xrst examples are a subset of its user documentation
 and its user documentation is a subset of its developer documentation.
@@ -189,12 +189,12 @@ and it is your current working directory.
 #. The xrst user documentation uses the default and user groups
    and its documentation can be built using
 
-      ``xrst --group_list default,user``
+      ``xrst --group_list default user``
 
 #. The xrst developer documentation uses the default, user, and dev
    groups and its documentation can be built using
 
-      ``xrst xrst.xrst --group_list default,user,dev``
+      ``xrst xrst.xrst --group_list default user dev``
 
 .. meta::
    :keywords: target

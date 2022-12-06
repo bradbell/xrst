@@ -40,7 +40,7 @@ cd    build
 sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
    ../xrst.toml > xrst.toml
 #
-for group_list in 'default' 'default,user,dev'
+for group_list in 'default' 'default user dev'
 do
    if [ -e rst ]
    then
