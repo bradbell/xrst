@@ -24,8 +24,8 @@ Syntax
 | |tab| [ ``--local_toc`` ]
 | |tab| [ ``--toml_file``  *toml_file* ] \\
 | |tab| [ ``--html_theme`` *html_theme* ] \\
-| |tab| [ ``--group_list`` *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--target``     *target* ]  \\
+| |tab| [ ``--group_list`` *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 
@@ -90,6 +90,41 @@ A special modification is made to this theme when *target* is html,
 so that it displays wider than its normal limit.
 This modification may be removed in the future.
 
+target
+******
+The optional command line argument *target* must be ``html`` or ``tex``.
+It specifies the type of type output you plan to generate using sphinx.
+Note thet :ref:`toml_file@directory@html_directory` and
+:ref:`toml_file@directory@tex_directory` will determine the location
+of the corresponding output files.
+The default value for *target* is ``html`` .
+
+tex
+===
+If you choose this target, xrst will create the file
+*project_name*\ ``.tex`` in the :ref:`toml_file@directory@tex_directory` .
+There are two reasons to build this file.
+One is to create the file *project_name*\ ``.pdf``
+which is a pdf version of the documentation.
+The other is to test for errors in the latex sections of the documentation.
+(MathJax displays latex errors in red, but has to check
+every page that has latex to find all the errors this way.)
+Once you have build *project_name*\ ``.tex``, the following command
+executed in :ref:`toml_file@directory@project_directory`
+will accomplish both purposes:
+
+   make -C *tex_directory* *project_name*\ ``.pdf``
+
+#. The :ref:`toml_file@project_name` is specified in the configuration file.
+#. Latex error messages will are reported using line numbers in
+   the file *project*\ ``.tex`` .
+   The page numbers in the :ref:`xrst_table_of_contents-title` are
+   present in the latex input (often near ``section*{`` above the error)
+   and may help translate these line numbers
+   to page numbers and from there to the original xrst input file.
+#. The resulting output file will be *project*\ ``.pdf`` in the
+   *tex_directory* .
+
 group_list
 **********
 It is possible to select one or more groups of pages
@@ -133,41 +168,6 @@ and it is your current working directory.
    groups and its documentation can be built using
 
       ``xrst xrst.xrst --group_list default user dev``
-
-target
-******
-The optional command line argument *target* must be ``html`` or ``tex``.
-It specifies the type of type output you plan to generate using sphinx.
-Note thet :ref:`toml_file@directory@html_directory` and
-:ref:`toml_file@directory@tex_directory` will determine the location
-of the corresponding output files.
-The default value for *target* is ``html`` .
-
-tex
-===
-If you choose this target, xrst will create the file
-*project_name*\ ``.tex`` in the :ref:`toml_file@directory@tex_directory` .
-There are two reasons to build this file.
-One is to create the file *project_name*\ ``.pdf``
-which is a pdf version of the documentation.
-The other is to test for errors in the latex sections of the documentation.
-(MathJax displays latex errors in red, but has to check
-every page that has latex to find all the errors this way.)
-Once you have build *project_name*\ ``.tex``, the following command
-executed in :ref:`toml_file@directory@project_directory`
-will accomplish both purposes:
-
-   make -C *tex_directory* *project_name*\ ``.pdf``
-
-#. The :ref:`toml_file@project_name` is specified in the configuration file.
-#. Latex error messages will are reported using line numbers in
-   the file *project*\ ``.tex`` .
-   The page numbers in the :ref:`xrst_table_of_contents-title` are
-   present in the latex input (often near ``section*{`` above the error)
-   and may help translate these line numbers
-   to page numbers and from there to the original xrst input file.
-#. The resulting output file will be *project*\ ``.pdf`` in the
-   *tex_directory* .
 
 replace_spell_commands
 **********************

@@ -42,7 +42,7 @@ mm-dd
 =====
 #. Change the :ref:`run_xrst@group_list` so that each element of the
    list is a separate command line argument
-   (instead of one command line argument with commands separating entries).
+   (instead of one command line argument with commas separating entries).
 
 12-05
 =====
