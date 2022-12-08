@@ -38,6 +38,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-08
+=====
+#. Change the :ref:`run_xrst@group_list` so that each element of the
+   list is a separate command line argument
+   (instead of one command line argument with commands separating entries).
+
 12-05
 =====
 #. Document the fact that :ref:`toml_file@directory@project_directory`
@@ -48,7 +54,7 @@ mm-dd
 #. Change *pdf_directory* to :ref:`toml_file@directory@tex_directory`
    and do not automatically run the latex to pdf conversion;
    see the :ref:`run_xrst@target@tex` target discussion.
-#. The :ref:`comment_cmd-name` was replaced by a space when it was a the
+#. The :ref:`comment_cmd-name` was replaced by a space when it was at the
    beginning of a line and there was text after it on the same line.
    This has been fixed.
 #. The line number errors were not being translated from rst files

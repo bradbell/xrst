@@ -441,6 +441,8 @@ def run_xrst() :
    #
    # group_list
    group_list = arguments.group_list
+   if type(group_list) == str :
+      group_list = [ group_list ]
    #
    # target
    target = arguments.target
