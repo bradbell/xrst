@@ -400,11 +400,13 @@ def run_xrst() :
          '(default is furo)',
    )
    parser.add_argument(
-      '--group_list', metavar='group_list', nargs='+', default='default',
+      '--group_list', nargs='+', default='default',
+      metavar= 'group_name' ,
       help='list of group_names to include in this build (default is default)'
    )
    parser.add_argument(
-      '--rename_group', metavar='rename_group', nargs=2, default=None,
+      '--rename_group', nargs=2, default=None,
+      metavar=('old_group_name', 'new_group_name'),
       help='list of group_names to include in this build (default is default)'
    )
    parser.add_argument(
@@ -585,7 +587,7 @@ def run_xrst() :
       #
       if new_group_name not in root_file :
          msg  = f'The group name {new_group_name} is '
-         if regroup_name == None :
+         if rename_group == None :
             msg += 'in --group_list\n'
          else :
             msg += 'is new_group_name in --rename_group\n'
