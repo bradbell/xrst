@@ -26,12 +26,13 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 | ``xrst`` \\
-| |tab| [ ``--version`` ]
-| |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_file``  *toml_file* ] \\
-| |tab| [ ``--html_theme`` *html_theme* ] \\
-| |tab| [ ``--target``     *target* ]  \\
-| |tab| [ ``--group_list`` *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--version`` ] \\
+| |tab| [ ``--local_toc`` ] \\
+| |tab| [ ``--toml_file``     *toml_file* ] \\
+| |tab| [ ``--html_theme``    *html_theme* ] \\
+| |tab| [ ``--target``        *target* ]  \\
+| |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 
@@ -246,6 +247,53 @@ and it is your current working directory.
       ``xrst xrst.xrst --group_list default user dev``
 
 .. meta::
+   :keywords: rename_group
+
+.. index:: rename_group
+
+.. _run_xrst@rename_group:
+
+rename_group
+************
+If this option is present on the command line,
+the :ref:`begin_cmd@group_name` in a subset of the source code, is changed.
+This option replaces the :ref:`run_xrst@group_list`
+by the list whose only entry is *new_group_name* .
+None of the output files are created when rename_group is present;
+e.g., the \*.rst and \*.html files.
+
+.. meta::
+   :keywords: old_group_name
+
+.. index:: old_group_name
+
+.. _run_xrst@rename_group@old_group_name:
+
+old_group_name
+==============
+is the old group name for the pages that will have their group name replaced.
+Use ``default``, instead of the empty group name, for the
+:ref:`begin_cmd@group_name@Default Group` .
+
+.. meta::
+   :keywords: new_group_name
+
+.. index:: new_group_name
+
+.. _run_xrst@rename_group@new_group_name:
+
+new_group_name
+==============
+Only the pages below the :ref:`toml_file@root_file`
+for *new_group_name* are modified.
+You can rename a subset of the old group by making the root file
+for the new group different than the root file for the old group.
+Each page in the old group, and below the root file for the new group,
+will have its group name changed from *old_group_name* to *new_group_name*.
+Use ``default``, instead of the empty group name, for the
+:ref:`begin_cmd@group_name@Default Group` .
+
+.. meta::
    :keywords: replace_spell_commands
 
 .. index:: replace_spell_commands
@@ -255,7 +303,7 @@ and it is your current working directory.
 replace_spell_commands
 **********************
 If this option is present on the command line, the source code
-:ref:`spell commands<spell_cmd-name>` a replaced in such a way that the
+:ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
 to the :ref:`toml_file@project_dictionary` or when there is an update

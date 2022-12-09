@@ -28,6 +28,7 @@
 #  xrst/process_headings.py
 #  xrst/remove_indent.py
 #  xrst/remove_line_numbers.py
+#  xrst/rename_group.py
 #  xrst/replace_spell.py
 #  xrst/spell_command.py
 #  xrst/sphinx_label.py
@@ -64,6 +65,7 @@ from .process_children       import process_children
 from .process_headings       import process_headings
 from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
+from .rename_group           import rename_group
 from .replace_spell          import replace_spell
 from .run_xrst               import run_xrst
 from .spell_command          import spell_command

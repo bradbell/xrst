@@ -40,6 +40,7 @@ The xrst Module
    "process_headings", :ref:`process_headings-title`
    "remove_indent", :ref:`remove_indent-title`
    "remove_line_numbers", :ref:`remove_line_numbers-title`
+   "rename_group", :ref:`rename_group-title`
    "replace_spell", :ref:`replace_spell-title`
    "spell_cmd_dev", :ref:`spell_cmd_dev-title`
    "sphinx_label", :ref:`sphinx_label-title`
@@ -72,6 +73,7 @@ The xrst Module
    process_headings
    remove_indent
    remove_line_numbers
+   rename_group
    replace_spell
    spell_cmd_dev
    sphinx_label

@@ -60,12 +60,13 @@ Table of Contents
 |    :ref:`4.16<process_headings-title>` Add labels and index entries for headings
 |    :ref:`4.17<remove_indent-title>` Remove indentation for a page
 |    :ref:`4.18<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.19<replace_spell-title>` Replace spelling commands
-|    :ref:`4.20<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`4.21<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.22<start_stop_file-title>` Convert literal command start, stop from text to line numbers
-|    :ref:`4.23<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`4.24<system_exit-title>` Form error message and exit
-|    :ref:`4.25<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`4.26<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`4.27<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`4.19<rename_group-title>` Rename a Subset of a Group
+|    :ref:`4.20<replace_spell-title>` Replace spelling commands
+|    :ref:`4.21<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`4.22<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`4.23<start_stop_file-title>` Convert literal command start, stop from text to line numbers
+|    :ref:`4.24<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`4.25<system_exit-title>` Form error message and exit
+|    :ref:`4.26<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`4.27<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`4.28<toc_cmd_dev-title>` Get file and page names for children of this page

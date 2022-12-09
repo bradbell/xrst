@@ -38,11 +38,15 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-09
+=====
+Add the :ref:`run_xrst@rename_group` command line option.
+
 12-08
 =====
-#. Change the :ref:`run_xrst@group_list` so that each element of the
-   list is a separate command line argument
-   (instead of one command line argument with commas separating entries).
+Change the :ref:`run_xrst@group_list` so that each element of the
+list is a separate command line argument
+(instead of one command line argument with commas separating entries).
 
 12-05
 =====

@@ -20,12 +20,13 @@ Run Extract Sphinx RST And Sphinx
 Syntax
 ******
 | ``xrst`` \\
-| |tab| [ ``--version`` ]
-| |tab| [ ``--local_toc`` ]
-| |tab| [ ``--toml_file``  *toml_file* ] \\
-| |tab| [ ``--html_theme`` *html_theme* ] \\
-| |tab| [ ``--target``     *target* ]  \\
-| |tab| [ ``--group_list`` *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--version`` ] \\
+| |tab| [ ``--local_toc`` ] \\
+| |tab| [ ``--toml_file``     *toml_file* ] \\
+| |tab| [ ``--html_theme``    *html_theme* ] \\
+| |tab| [ ``--target``        *target* ]  \\
+| |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 
@@ -169,10 +170,36 @@ and it is your current working directory.
 
       ``xrst xrst.xrst --group_list default user dev``
 
+rename_group
+************
+If this option is present on the command line,
+the :ref:`begin_cmd@group_name` in a subset of the source code, is changed.
+This option replaces the :ref:`run_xrst@group_list`
+by the list whose only entry is *new_group_name* .
+None of the output files are created when rename_group is present;
+e.g., the \*.rst and \*.html files.
+
+old_group_name
+==============
+is the old group name for the pages that will have their group name replaced.
+Use ``default``, instead of the empty group name, for the
+:ref:`begin_cmd@group_name@Default Group` .
+
+new_group_name
+==============
+Only the pages below the :ref:`toml_file@root_file`
+for *new_group_name* are modified.
+You can rename a subset of the old group by making the root file
+for the new group different than the root file for the old group.
+Each page in the old group, and below the root file for the new group,
+will have its group name changed from *old_group_name* to *new_group_name*.
+Use ``default``, instead of the empty group name, for the
+:ref:`begin_cmd@group_name@Default Group` .
+
 replace_spell_commands
 **********************
 If this option is present on the command line, the source code
-:ref:`spell commands<spell_cmd-name>` a replaced in such a way that the
+:ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
 to the :ref:`toml_file@project_dictionary` or when there is an update
@@ -377,6 +404,10 @@ def run_xrst() :
       help='list of group_names to include in this build (default is default)'
    )
    parser.add_argument(
+      '--rename_group', metavar='rename_group', nargs=2, default=None,
+      help='list of group_names to include in this build (default is default)'
+   )
+   parser.add_argument(
       '--target', metavar='target', choices=['html', 'tex'], default='html',
       help='type of output files, choices are html or tex (default is html)'
    )
@@ -421,17 +452,6 @@ def run_xrst() :
    #
    # replace_spell_commands
    replace_spell_commands = arguments.replace_spell_commands
-   if replace_spell_commands :
-      cwd      = os.getcwd()
-      prompt   = '\nThe replace_spell_commands option will change some of \n'
-      prompt  += 'the files read by xrst. Make sure that you have a backup\n'
-      prompt  += f'of source files in {cwd}\n'
-      prompt  += 'before contining this operation: continue [yes/no] ? '
-      response = None
-      while response not in [ 'yes', 'no' ]:
-         response = input(prompt)
-      if response != 'yes' :
-         system_exit('xrst: aborting replace_spell_commands')
    #
    # rst_line_numbers
    rst_line_numbers = arguments.rst_line_numbers
@@ -443,6 +463,38 @@ def run_xrst() :
    group_list = arguments.group_list
    if type(group_list) == str :
       group_list = [ group_list ]
+   #
+   # rename_group, group_list
+   rename_group = arguments.rename_group
+   if rename_group != None :
+      group_list = [ rename_group[1] ]
+      #
+      if rename_group[0] == '' :
+         msg = 'xrst rename_group: old_group_name is empty.\n'
+         msg += 'Use "default" for the empty group name.'
+         system_exit(msg)
+      if rename_group[1] == '' :
+         msg = 'xrst rename_group: new_group_name is empty.\n'
+         msg += 'Use "default" for the empty group name.'
+         system_exit(msg)
+   #
+   # replace_spell_commands or rename_group
+   if replace_spell_commands or rename_group != None :
+      if replace_spell_commands :
+         option = 'replace_spell_commands'
+      else :
+         option = 'rename_group'
+      #
+      cwd      = os.getcwd()
+      prompt   = f'\nThe {option} option will change some of \n'
+      prompt  += 'the files read by xrst. Make sure that you have a backup\n'
+      prompt  += f'of source files in {cwd}\n'
+      prompt  += 'before contining this operation: continue [yes/no] ? '
+      response = None
+      while response not in [ 'yes', 'no' ]:
+         response = input(prompt)
+      if response != 'yes' :
+         system_exit( f'xrst: aborting {option}' )
    #
    # target
    target = arguments.target
@@ -521,15 +573,29 @@ def run_xrst() :
    #
    # group_name
    for group_name in group_list :
-      if group_name not in root_file :
-         msg  = f'The group name {group_name} is in --group_list\n'
+      #
+      # old_group_name, new_group_name
+      if rename_group == None :
+         old_group_name = group_name
+         new_group_name = group_name
+      else :
+         old_group_name = rename_group[0]
+         new_group_name = rename_group[1]
+         assert new_group_name == group_name
+      #
+      if new_group_name not in root_file :
+         msg  = f'The group name {new_group_name} is '
+         if regroup_name == None :
+            msg += 'in --group_list\n'
+         else :
+            msg += 'is new_group_name in --rename_group\n'
          msg += 'but it is not a valid key for the root_file table of\n'
          msg += f'the configuration file {toml_file}'
          xrst.system_exit(msg)
       #
-      if not os.path.isfile( root_file[group_name] ) :
-         file_name = root_file[group_name]
-         msg  = f'The root_file for group_name {group_name} is not a file\n'
+      if not os.path.isfile( root_file[new_group_name] ) :
+         file_name = root_file[new_group_name]
+         msg  = f'The root_file for group_name {new_group_name} is not a file\n'
          msg += f'file name = {file_name}'
          xrst.system_exit(msg)
       #
@@ -538,7 +604,7 @@ def run_xrst() :
       finfo_stack      = list()
       finfo_done       = list()
       finfo = {
-         'file_in'        : root_file[group_name],
+         'file_in'        : root_file[new_group_name],
          'parent_file'    : None,
          'parent_page'    : None,
       }
@@ -553,7 +619,7 @@ def run_xrst() :
             if finfo_tmp['file_in'] == finfo['file_in'] :
                msg  = 'The file ' + finfo['file_in']
                msg += '\nis included twice with '
-               msg += f'group_name = "{group_name}"\n'
+               msg += f'group_name = "{old_group_name}"\n'
                msg += 'Once in ' + finfo_tmp['parent_file'] + '\n'
                msg += 'and again in ' + finfo['parent_file'] + '\n'
                xrst.system_exit(msg)
@@ -567,14 +633,14 @@ def run_xrst() :
          # get xrst docuemntation in this file
          sinfo_file_in = xrst.get_file_info(
             pinfo_list,
-            group_name,
+            old_group_name,
             parent_file,
             file_in,
          )
          #
          # root_page_list
          if finfo['parent_file'] == None :
-            assert file_in == root_file[group_name]
+            assert file_in == root_file[new_group_name]
             if sinfo_file_in[0]['is_parent'] :
                n_page = 1
             else :
@@ -634,7 +700,7 @@ def run_xrst() :
                   page_data,
                   file_in,
                   page_name,
-                  group_name,
+                  old_group_name,
             )
             #
             # page_index, finfo_stack
@@ -710,7 +776,18 @@ def run_xrst() :
             page_name2line_pair[page_name] = line_pair
             page_name2file_in[page_name]   = file_in
    #
-   # replace_spell
+   # rename_group
+   if rename_group != None :
+      xrst.rename_group(tmp_dir, rename_group[0], rename_group[1])
+      #
+      # tmp_dir
+      # reset tmp_dir because rmtree is such a dangerous command
+      tmp_dir = f'{rst_directory}/tmp'
+      shutil.rmtree(tmp_dir)
+      print('xrst --rename_group: OK')
+      return
+   #
+   # replace_spell_commands
    if replace_spell_commands :
       xrst.replace_spell(tmp_dir)
       #
