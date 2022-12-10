@@ -119,7 +119,8 @@ def temporary_file(
    label = f'.. _{page_name}-name:\n\n'
    #
    # data_out
-   before  = '.. include:: xrst_preamble.rst\n\n'
+   # before  = '.. include:: xrst_preamble.rst\n\n'
+   before  = ''
    if target == 'html' :
       before  += label
       before  += pseudo_heading

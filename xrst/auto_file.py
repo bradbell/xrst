@@ -6,7 +6,6 @@
 {xrst_spell
    conf
    config
-   macros
 }
 
 Automatically Generated Files
@@ -51,12 +50,6 @@ To be specific:
 
 The xrst_index.rst file is not created when target is tex.
 
-xrst_preamble.rst
-*****************
-This file implements the
-:ref:`toml_file@preamble` information in the xrst configure file.
-If the :ref:`run_xrst@target` is ``tex``, the latex macros have been removed.
-
 {xrst_end auto_file}
 """
 # ----------------------------------------------------------------------------
@@ -81,7 +74,6 @@ extensions = [
 #     dict
 #     dir
 #     genindex
-#     macros
 #     pinfo
 #     tmp
 #     toml
@@ -117,7 +109,6 @@ extensions = [
 # pinfo_list
 # **********
 # is a list with length equal to the number of pages.
-# The value page[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings):
 #
 # .. csv-table::
@@ -138,11 +129,6 @@ extensions = [
 # This file creates is the table of contents for the documentation.
 # It has the label xrst_table_of_contents which can be used to link
 # to this page.
-#
-# tmp_dir/xrst_preamble.rst
-# *************************
-# The data in :ref:`toml_file@preamble` is placed in this file.
-# If target is html (tex) the latex macros are (are not) included.
 #
 # tmp_dir/xrst_index.rst
 # **********************
@@ -182,13 +168,7 @@ def auto_file(
    # tmp_dir/xrst_table_of_contents.rst
    #
    # file_data
-   file_data = '.. |space| unicode:: 0xA0\n'
-   #
-   # file_data
-   level         = 1
-   count         = list()
-   page_index = 0
-   file_data  += xrst.table_of_contents(
+   file_data     = xrst.table_of_contents(
       tmp_dir, target, pinfo_list, root_page_list
    )
    #
@@ -234,10 +214,30 @@ def auto_file(
    if html_theme_options != None :
       conf_py += f'html_theme_options = {html_theme_options}\n'
    #
-   # latex_macro
-   latex_macro  = toml_dict['preamble']['latex_macro']
+   # rst_epilog, rst_prolog, latex_macro
+   rst_epilog  = toml_dict['include_all']['rst_epilog']
+   rst_prolog  = toml_dict['include_all']['rst_prolog']
+   latex_macro = toml_dict['include_all']['latex_macro']
+   #
+   # rst_prolog
+   if target == 'html' and len(latex_macro) != 0 :
+      if rst_prolog != '' :
+         rst_prolog += '\n\n'
+      rst_prolog += '.. rst-class:: hidden\n\n'
+      for macro in latex_macro :
+         rst_prolog += 3 * ' ' + f':math:`{macro}`\n'
    #
    # conf_py
+   if rst_epilog != '' :
+      conf_py += '#\n'
+      conf_py += f"rst_epilog = r'''\n"
+      conf_py += rst_epilog
+      conf_py += "'''\n"
+   if rst_prolog != '' :
+      conf_py += '#\n'
+      conf_py += f"rst_prolog = r'''\n"
+      conf_py += rst_prolog
+      conf_py += "'''\n"
    if len( latex_macro ) != 0 :
       conf_py += '#\n'
       conf_py += '# Latex used when sphinx builds tex\n'
@@ -252,30 +252,6 @@ def auto_file(
    file_out    = rst_dir + '/conf.py'
    file_ptr    = open(file_out, 'w')
    file_ptr.write(conf_py)
-   file_ptr.close()
-   # ------------------------------------------------------------------------
-   # tmp_dir/xrst_preamble.rst
-   #
-   # rst_substitution, latex_macro
-   rst_substitution = toml_dict['preamble']['rst_substitution']
-   latex_macro      = toml_dict['preamble']['latex_macro']
-   #
-   # file_data
-   if len(rst_substitution) + len(latex_macro) == 0 :
-      file_data = ''
-   else :
-      file_data  = '.. comment: xrst_preamble.rst\n\n'
-      file_data += rst_substitution
-      if target == 'html' and latex_macro != '' :
-         file_data += '\n\n'
-         file_data += '.. rst-class:: hidden\n\n'
-         for macro in latex_macro :
-            file_data += 3 * ' ' + f':math:`{macro}`\n'
-   #
-   # tmp_dir/xrst_preamble.rst
-   file_out    = tmp_dir + '/' + 'xrst_preamble.rst'
-   file_ptr    = open(file_out, 'w')
-   file_ptr.write(file_data)
    file_ptr.close()
    # ------------------------------------------------------------------------
    # rst_dir/index.rst

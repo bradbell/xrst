@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _rename_group-name:
 
 !!!!!!!!!!!!

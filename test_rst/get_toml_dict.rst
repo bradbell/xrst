@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _get_toml_dict-name:
 
 !!!!!!!!!!!!!
@@ -51,9 +49,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 341-343
+   :lines: 356-358
    :language: py
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 450-451
+   :lines: 466-467
    :language: py

@@ -14,8 +14,11 @@ default_dict = dict()
 {xrst_begin toml_file user}
 {xrst_spell
    booleans
+   conf
+   epilog
    macros
    newline
+   prolog
    rtd
    toml
 }
@@ -204,22 +207,32 @@ Example
    # END_HTML_THEME_OPTIONS
 }
 
-preamble
-********
-This table is used to create a xrst_preamble.rst file that is included
-at the beginning of every page.
+include_all
+***********
+This table is used to create input that is included
+at the beginning or end of every page.
 This table has the following keys:
 
-rst_substitution
-================
-The value corresponding to this key is a set of rst substitution commands
-that get included at the top of every section.
+rst_epilog
+==========
+The value corresponding to this key is a set of rst commands
+that get included at the end of every section.
+This is the same as the rst_epilog variable in the sphinx conf.py file.
+
+rst_prolog
+==========
+The value corresponding to this key is a set of rst commands
+that get included at the beginning of every section.
+This is the same as the rst_epilog variable in the sphinx conf.py file
+except that the latex macros are added at the end when
+:ref:`run_xrst@target` is html.
 
 latex_macro
 ===========
 The value corresponding to this key is a list of latex macros.
 If :ref:`run_xrst@target` is html, these macros get included at the
-top of every page using the sphinx ``:math`` role.
+beginning of every page using the sphinx ``:math`` role in the
+rst_epilog variable in the sphinx conf.py file.
 Otherwise *target* is 'tex' and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
@@ -227,14 +240,16 @@ It either case they can be used by every page in the documentation.
 Default
 =======
 {xrst_code toml}
-[preamble]
-substitution = ''
+[include_all]
+rst_epilog = ''
+rst_prolog = ''
 latex_macro  = []
 {xrst_code}
 {xrst_suspend}'''
-default_dict['preamble'] = {
-      'rst_substitution' : ''     ,
-      'latex_macro'      : list() ,
+default_dict['include_all'] = {
+      'rst_epilog'   : ''     ,
+      'rst_epilog'   : ''     ,
+      'latex_macro'  : list() ,
 }
 '''{xrst_resume}
 
@@ -243,8 +258,8 @@ Example
 =======
 {xrst_literal
    xrst.toml
-   # BEGIN_PREAMBLE
-   # END_PREAMBLE
+   # BEGIN_INCLUDE_ALL
+   # END_INCLUDE_ALL
 }
 
 project_dictionary
@@ -411,25 +426,26 @@ def get_toml_dict(toml_file) :
          msg += f'html_theme_options.{key} has python type ' + str(type(value))
          system_exit(msg)
    #
-   # preamble
-   table_dict = toml_dict['preamble']
-   if set( table_dict.keys() ) != { 'rst_substitution', 'latex_macro' } :
-      msg += 'The preamble has the following keys: '
+   # include_all
+   table_dict = toml_dict['include_all']
+   if set(table_dict.keys()) != {'rst_epilog', 'rst_prolog',  'latex_macro'} :
+      msg += 'The include_all has the following keys: '
       msg += str( list( table_dict.keys() ) )
       system_exit(msg)
-   value = table_dict['rst_substitution']
-   if type( value ) != str :
-      msg += f'preamble.rst_substitution has python type '
-      msg += str(type(value))
-      system_exit(msg)
+   for key in [ 'rst_epilog', 'rst_prolog' ] :
+      value = table_dict[key]
+      if type( value ) != str :
+         msg += f'include_all.{key} has python type '
+         msg += str(type(value))
+         system_exit(msg)
    value = table_dict['latex_macro']
    if type( value ) != list :
-      msg += f'preamble.latex_macro has python type '
+      msg += f'include_all.latex_macro has python type '
       msg += str(type(value))
       system_exit(msg)
    for (index, entry) in enumerate(value) :
       if type(entry) != str :
-         msg += f'preamble.latex_macro[{index}] has python type '
+         msg += f'include_all.latex_macro[{index}] has python type '
          msg += str(type(entry))
          system_exit(msg)
    #

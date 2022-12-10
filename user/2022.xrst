@@ -43,6 +43,10 @@ mm-dd
 #. Remove the Sphinx Error Messages with list entry because
    it was completed on :ref:`2022@mm-dd@11-13`.
 #. Add the :ref:`wish_list@View Page Sources` wish list entry.
+#. Change the configuration file preamble table to the
+   :ref:`toml_file@include_all`
+   table and change the rst_substitution name to
+   :ref:`toml_file@include_all@rst_prolog` .
 
 12-09
 =====
@@ -125,8 +129,8 @@ list is a separate command line argument
 =====
 Fix a problem in the latex preamble section of
 :ref:`auto_file@conf.py` .
-This problem started on 11-23 when the toml file
-:ref:`toml_file@preamble` split up the latex macros and the substitutions.
+This problem started on 11-23 when the toml file preamble was
+split up the latex macros and the substitutions.
 
 11-26
 =====
@@ -147,7 +151,7 @@ As an example, change ``test_example`` to :ref:`testExample-name` .
 
 11-23
 =====
-1. The :ref:`toml_file@preamble` table was changed to
+1. The toml file preamble table was changed to
    separately specify the rst substitutions and the latex macros.
 2. Add the :ref:`configure_example-name` page and improve
    the :ref:`get_started-name` page.
@@ -196,7 +200,7 @@ If a table only has one entry, the entry is named data.
    #. The sphinx_dir command line argument was replaced by
       :ref:`toml_file@directory@rst_directory` in the ``toml_file`` file.
    #. The preamble.rst file was replaced by the
-      :ref:`toml_file@preamble` section of the ``toml_file`` file.
+      preamble section of the ``toml_file`` file.
    #. The spelling file was replaced by the
       :ref:`toml_file@project_dictionary` section of the ``toml_file`` file.
    #. The keyword file was replaced by the

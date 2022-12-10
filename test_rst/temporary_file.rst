@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _temporary_file-name:
 
 !!!!!!!!!!!!!!
@@ -149,5 +147,5 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
    :language: py
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 168-173
+   :lines: 169-174
    :language: py

@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _process_headings-name:
 
 !!!!!!!!!!!!!!!!

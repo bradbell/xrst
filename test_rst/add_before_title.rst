@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _add_before_title-name:
 
 !!!!!!!!!!!!!!!!

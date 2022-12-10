@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _create_spell_checker-name:
 
 !!!!!!!!!!!!!!!!!!!!

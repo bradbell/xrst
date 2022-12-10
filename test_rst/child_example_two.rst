@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _child_example_two-name:
 
 !!!!!!!!!!!!!!!!!

@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _spell_cmd_dev-name:
 
 !!!!!!!!!!!!!

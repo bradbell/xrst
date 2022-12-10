@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _auto_file-name:
 
 !!!!!!!!!
@@ -86,16 +84,3 @@ To be specific:
    :ref:`link to index<genindex>`
 
 The xrst_index.rst file is not created when target is tex.
-
-.. meta::
-   :keywords: xrst_preamble.rst
-
-.. index:: xrst_preamble.rst
-
-.. _auto_file@xrst_preamble.rst:
-
-xrst_preamble.rst
-*****************
-This file implements the
-:ref:`toml_file@preamble` information in the xrst configure file.
-If the :ref:`run_xrst@target` is ``tex``, the latex macros have been removed.

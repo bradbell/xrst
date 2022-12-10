@@ -4,17 +4,20 @@
 # ----------------------------------------------------------------------------
 """
 {xrst_begin configure_example}
+{xrst_spell
+   prolog
+}
 
 Example Using TOML Configure File
 #################################
 
-preamble
-********
+include_all
+***********
 
-rst_substitution
-================
+rst_prolog
+==========
 |tab| This line is indented using ``|tab|``
-which is defined as an rst_substitution.
+which is defined in the rst_prolog for this documentation.
 
 latex_macro
 ===========

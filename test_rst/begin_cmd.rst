@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _begin_cmd-name:
 
 !!!!!!!!!

@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _auto_file_dev-name:
 
 !!!!!!!!!!!!!
@@ -89,7 +87,6 @@ is html or tex
 pinfo_list
 **********
 is a list with length equal to the number of pages.
-The value page[page_index] is a dictionary for this page
 with the following key, value pairs (all the keys are strings):
 
 .. csv-table::
@@ -126,18 +123,6 @@ It has the label xrst_table_of_contents which can be used to link
 to this page.
 
 .. meta::
-   :keywords: tmp_dir/xrst_preamble.rst
-
-.. index:: tmp_dir/xrst_preamble.rst
-
-.. _auto_file_dev@tmp_dir/xrst_preamble.rst:
-
-tmp_dir/xrst_preamble.rst
-*************************
-The data in :ref:`toml_file@preamble` is placed in this file.
-If target is html (tex) the latex macros are (are not) included.
-
-.. meta::
    :keywords: tmp_dir/xrst_index.rst
 
 .. index:: tmp_dir/xrst_index.rst
@@ -172,5 +157,5 @@ rst_dir/index.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 161-168
+   :lines: 147-154
    :language: py

@@ -223,7 +223,7 @@ def table_of_contents(
    # {xrst_end table_of_contents}
    #
    # content
-   content  = '\n.. _xrst_table_of_contents-title:\n\n'
+   content  = '.. _xrst_table_of_contents-title:\n\n'
    content += 'Table of Contents\n'
    content += '*****************\n'
    #

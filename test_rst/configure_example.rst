@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _configure_example-name:
 
 !!!!!!!!!!!!!!!!!
@@ -22,33 +20,33 @@ Example Using TOML Configure File
    :local:
 
 .. meta::
-   :keywords: preamble
+   :keywords: include_all
 
-.. index:: preamble
+.. index:: include_all
 
-.. _configure_example@preamble:
+.. _configure_example@include_all:
 
-preamble
-********
+include_all
+***********
 
 .. meta::
-   :keywords: rst_substitution
+   :keywords: rst_prolog
 
-.. index:: rst_substitution
+.. index:: rst_prolog
 
-.. _configure_example@preamble@rst_substitution:
+.. _configure_example@include_all@rst_prolog:
 
-rst_substitution
-================
+rst_prolog
+==========
 |tab| This line is indented using ``|tab|``
-which is defined as an rst_substitution.
+which is defined in the rst_prolog for this documentation.
 
 .. meta::
    :keywords: latex_macro
 
 .. index:: latex_macro
 
-.. _configure_example@preamble@latex_macro:
+.. _configure_example@include_all@latex_macro:
 
 latex_macro
 ===========

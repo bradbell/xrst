@@ -31,9 +31,10 @@ navigation_depth = -1
 titles_only      = true
 # END_HTML_THEME_OPTIONS
 #
-# BEGIN_PREAMBLE
-[preamble]
-rst_substitution = '''
+# BEGIN_INCLUDE_ALL
+[include_all]
+rst_epilog = ''
+rst_prolog = '''
 .. |space| unicode:: 0xA0
 .. |tab| replace:: |space| |space| |space|
 '''
@@ -41,7 +42,7 @@ latex_macro = [
    '\newcommand{\B}[1]{ {\bf #1} }' ,
    '\newcommand{\R}[1]{ {\rm #1} }' ,
 ]
-# END_PREAMBLE
+# END_INCLUDE_ALL
 # -----------------------------------------------------------------------------
 # BEGIN_PROJECT_DICTIONARY
 [project_dictionary]

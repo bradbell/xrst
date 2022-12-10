@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _toml_file-name:
 
 !!!!!!!!!
@@ -55,7 +53,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 45-46
+   :lines: 48-49
    :language: toml
 
 .. _toml_file@project_name@Example:
@@ -167,7 +165,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 111-115
+   :lines: 114-118
    :language: toml
 
 .. _toml_file@directory@Example:
@@ -205,7 +203,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 145-146
+   :lines: 148-149
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -252,7 +250,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 180-185
+   :lines: 183-188
    :language: toml
 
 .. _toml_file@html_theme_options@Example:
@@ -265,42 +263,59 @@ Example
    :language: toml
 
 .. meta::
-   :keywords: preamble
+   :keywords: include_all
 
-.. index:: preamble
+.. index:: include_all
 
-.. _toml_file@preamble:
+.. _toml_file@include_all:
 
-preamble
-********
-This table is used to create a xrst_preamble.rst file that is included
-at the beginning of every page.
+include_all
+***********
+This table is used to create input that is included
+at the beginning or end of every page.
 This table has the following keys:
 
 .. meta::
-   :keywords: rst_substitution
+   :keywords: rst_epilog
 
-.. index:: rst_substitution
+.. index:: rst_epilog
 
-.. _toml_file@preamble@rst_substitution:
+.. _toml_file@include_all@rst_epilog:
 
-rst_substitution
-================
-The value corresponding to this key is a set of rst substitution commands
-that get included at the top of every section.
+rst_epilog
+==========
+The value corresponding to this key is a set of rst commands
+that get included at the end of every section.
+This is the same as the rst_epilog variable in the sphinx conf.py file.
+
+.. meta::
+   :keywords: rst_prolog
+
+.. index:: rst_prolog
+
+.. _toml_file@include_all@rst_prolog:
+
+rst_prolog
+==========
+The value corresponding to this key is a set of rst commands
+that get included at the beginning of every section.
+This is the same as the rst_epilog variable in the sphinx conf.py file
+except that the latex macros are added at the end when
+:ref:`run_xrst@target` is html.
 
 .. meta::
    :keywords: latex_macro
 
 .. index:: latex_macro
 
-.. _toml_file@preamble@latex_macro:
+.. _toml_file@include_all@latex_macro:
 
 latex_macro
 ===========
 The value corresponding to this key is a list of latex macros.
 If :ref:`run_xrst@target` is html, these macros get included at the
-top of every page using the sphinx ``:math`` role.
+beginning of every page using the sphinx ``:math`` role in the
+rst_epilog variable in the sphinx conf.py file.
 Otherwise *target* is 'tex' and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
@@ -310,22 +325,22 @@ It either case they can be used by every page in the documentation.
 
 .. index:: default
 
-.. _toml_file@preamble@Default:
+.. _toml_file@include_all@Default:
 
 Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 230-232
+   :lines: 243-246
    :language: toml
 
-.. _toml_file@preamble@Example:
+.. _toml_file@include_all@Example:
 
 Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 35-43
+   :lines: 35-44
    :language: toml
 
 .. meta::
@@ -355,7 +370,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 262-263
+   :lines: 277-278
    :language: toml
 
 .. _toml_file@project_dictionary@Example:
@@ -364,7 +379,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 47-63
+   :lines: 48-64
    :language: toml
 
 .. meta::
@@ -401,7 +416,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 296-297
+   :lines: 311-312
    :language: toml
 
 .. _toml_file@not_in_index@Example:
@@ -410,5 +425,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 67-96
+   :lines: 68-97
    :language: toml

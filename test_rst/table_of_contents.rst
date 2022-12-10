@@ -1,5 +1,3 @@
-.. include:: xrst_preamble.rst
-
 .. _table_of_contents-name:
 
 !!!!!!!!!!!!!!!!!
