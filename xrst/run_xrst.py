@@ -7,6 +7,7 @@
 {xrst_spell
    furo
    github
+   grep
    pdf
    pyspellchecker
    rtd
@@ -108,23 +109,32 @@ There are two reasons to build this file.
 One is to create the file *project_name*\ ``.pdf``
 which is a pdf version of the documentation.
 The other is to test for errors in the latex sections of the documentation.
-(MathJax displays latex errors in red, but has to check
+(MathJax displays latex errors in red, but one has to check
 every page that has latex to find all the errors this way.)
-Once you have build *project_name*\ ``.tex``, the following command
+Once you have built *project_name*\ ``.tex``, the following command
 executed in :ref:`toml_file@directory@project_directory`
 will accomplish both purposes:
 
    make -C *tex_directory* *project_name*\ ``.pdf``
 
 #. The :ref:`toml_file@project_name` is specified in the configuration file.
-#. Latex error messages will are reported using line numbers in
-   the file *project*\ ``.tex`` .
-   The page numbers in the :ref:`xrst_table_of_contents-title` are
-   present in the latex input (often near ``section*{`` above the error)
-   and may help translate these line numbers
-   to page numbers and from there to the original xrst input file.
 #. The resulting output file will be *project*\ ``.pdf`` in the
    *tex_directory* .
+#. If a Latex error is encountered, the pdf build will stop with a message
+   at the ``?`` prompt. If you enter ``q`` at this prompt, it will complete
+   its processing in batch mode. You will be able to find the error messages
+   in the file *project_name*\ ``.log`` in the *tex_directory* .
+#. Translating Latex errors to the corresponding xrst input file:
+
+   #. Latex error messages are reported using line numbers in
+      the file *project*\ ``.tex`` .
+   #. You may be able to find the corresponding xrst input file
+      using by using ``grep`` to find text that is near the error.
+   #. The page numbers in the :ref:`xrst_table_of_contents-title` are
+      present in the latex input (often near ``section*{`` above the error)
+      and may help translate these line numbers to page names.
+   #. Given a page name, the corresponding xrst input file can
+      be found at the top of the html version of the page.
 
 group_list
 **********
