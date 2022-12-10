@@ -38,6 +38,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-10
+=====
+#. Remove the Sphinx Error Messages with list entry because
+   it was completed on :ref:`2022@mm-dd@11-13`.
+#. Add the :ref:`wish_list@View Page Sources` wish list entry.
+
 12-09
 =====
 Add the :ref:`run_xrst@rename_group` command line option.
