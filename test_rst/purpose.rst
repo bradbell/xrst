@@ -9,20 +9,20 @@ purpose
 xrst input file: ``user/user.xrst``
 
 .. meta::
-   :keywords: purpose, need, xrst
+   :keywords: purpose, motivation
 
-.. index:: purpose, need, xrst
+.. index:: purpose, motivation
 
 .. _purpose-title:
 
-The Need for xrst
-#################
+Motivation
+##########
 
 This is a sphinx wrapper that provides the features listed below.
 It was motivated by cases like the GNU Scientific library,
 which is not written in python, uses sphinx, and has its documentation
 in separate files from the corresponding source code; see `gsl doc`_ .
-It provides a system that extracts documentation from any source code
+It provides a system that extracts rst documentation files from any source code
 language and has some of the benefits of doxygen and autodoc without
 some of the drawbacks.
 
@@ -52,6 +52,8 @@ Features
 #. For each pages, the rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
    while also having long descriptive titles attached to each page.
+#. Sphinx error messages are translated from rst file and line number
+   to the file and line number in corresponding xrst input file.
 #. The are two levels to the table of contents. Each entry at the
    first level is a page name or page title; e.g.,
    the :ref:`xrst_table_of_contents-title` for this documentation.
@@ -82,7 +84,8 @@ Features
    in this documentation the text
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
-   which discusses these labels.
+   which discusses these labels in more detail.
 #. The configuration file :ref:`toml_file@html_theme_options` allows for
    multiple themes and the command line argument :ref:`run_xrst@html_theme`
-   enable one to chose a theme without having to change the source code.
+   enable one to chose a theme without having to change the
+   configuration file.

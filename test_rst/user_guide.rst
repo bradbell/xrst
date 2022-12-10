@@ -26,10 +26,10 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@Version 2022.12.9:
+.. _user_guide@Version 2022.12.10:
 
 Version 2022.12.10
-*****************
+******************
 
 .. meta::
    :keywords: git, repository
