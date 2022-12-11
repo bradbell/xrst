@@ -33,7 +33,7 @@ and not include tabs in any of the processing after that.
 Path
 ****
 It would be nice to have a way, in sphinx, to make file names relative
-to the :ref:`toml_file@directory@project_directory` .
+to the :ref:`conf_file@directory@project_directory` .
 
 Search
 ******

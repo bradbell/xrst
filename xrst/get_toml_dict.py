@@ -11,7 +11,7 @@ def system_exit(msg) :
 default_dict = dict()
 #
 '''
-{xrst_begin toml_file user}
+{xrst_begin conf_file user}
 {xrst_spell
    booleans
    conf
@@ -28,7 +28,7 @@ Configuration File for xrst
 A toml file is used to configure xrst.
 
 #. The location of this file is specified by the xrst
-   :ref:`run_xrst@toml_file` argument.
+   :ref:`run_xrst@conf_file` argument.
 #. This file is a sequence of toml tables,
    if a table can only have one entry, the entry is named data.
 #. Each table, has a default value that is used when the table
@@ -139,7 +139,7 @@ root_file
 This table maps the :ref:`group names <begin_cmd@group_name>`
 to its root (top) xrst input file.
 These file names are relative to the
-:ref:`toml_file@directory@project_directory` .
+:ref:`conf_file@directory@project_directory` .
 Multiple groups can use the same root file.
 
 Default
@@ -323,7 +323,7 @@ Example
    # END_NOT_IN_INDEX
 }
 
-{xrst_end toml_file}
+{xrst_end conf_file}
 -----------------------------------------------------------------------------
 '''
 def iterable2string(iterable) :
@@ -338,6 +338,7 @@ def iterable2string(iterable) :
 # {xrst_begin get_toml_dict dev}
 # {xrst_comment_ch #}
 # {xrst_spell
+#     conf
 #     toml
 #     dict
 # }
@@ -348,9 +349,9 @@ def iterable2string(iterable) :
 # the *project_directory* (because it determines the project directory)
 # so it cannot use the xrst :ref:`system_exit-name` .
 #
-# toml_file
+# conf_file
 # *********
-# is the location of the :ref:`run_xrst@toml_file` specified on
+# is the location of the :ref:`run_xrst@conf_file` specified on
 # the xrst command line.
 #
 # toml_dict
@@ -362,8 +363,8 @@ def iterable2string(iterable) :
 #
 # {xrst_code py}
 # toml_dict =
-def get_toml_dict(toml_file) :
-   assert type(toml_file) == str
+def get_toml_dict(conf_file) :
+   assert type(conf_file) == str
    # {xrst_code}
    # {xrst_literal
    #     BEGIN_RETURN
@@ -372,14 +373,14 @@ def get_toml_dict(toml_file) :
    # {xrst_end get_toml_dict}
    #
    # msg
-   msg  = f'toml_file = {toml_file}\n'
+   msg  = f'conf_file = {conf_file}\n'
    #
    # toml_dict
-   file_ptr  = open(toml_file, 'r')
+   file_ptr  = open(conf_file, 'r')
    file_data = file_ptr.read()
    toml_dict = toml.loads(file_data)
    #
-   # check top level keys in toml_file
+   # check top level keys in conf_file
    for table in toml_dict :
       if table not in default_dict :
          msg += 'This file has the unexpected table:\n'

@@ -23,15 +23,15 @@ so it cannot use the xrst :ref:`system_exit-name` .
    :local:
 
 .. meta::
-   :keywords: toml_file
+   :keywords: conf_file
 
-.. index:: toml_file
+.. index:: conf_file
 
-.. _get_toml_dict@toml_file:
+.. _get_toml_dict@conf_file:
 
-toml_file
+conf_file
 *********
-is the location of the :ref:`run_xrst@toml_file` specified on
+is the location of the :ref:`run_xrst@conf_file` specified on
 the xrst command line.
 
 .. meta::
@@ -49,9 +49,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 364-366
+   :lines: 365-367
    :language: py
 
 .. literalinclude:: ../../xrst/get_toml_dict.py
-   :lines: 493-494
+   :lines: 494-495
    :language: py

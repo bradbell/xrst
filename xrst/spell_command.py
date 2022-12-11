@@ -58,7 +58,7 @@ are not include in spell checking.
 project_dictionary
 ******************
 The list of words in the
-:ref:`toml_file@project_dictionary`
+:ref:`conf_file@project_dictionary`
 are considered correct spellings for all pages.
 
 Capital Letters

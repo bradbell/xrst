@@ -1,24 +1,24 @@
-.. _toml_file-name:
+.. _conf_file-name:
 
 !!!!!!!!!
-toml_file
+conf_file
 !!!!!!!!!
 
 xrst input file: ``xrst/get_toml_dict.py``
 
 .. meta::
-   :keywords: toml_file, configuration, xrst
+   :keywords: conf_file, configuration, xrst
 
-.. index:: toml_file, configuration, xrst
+.. index:: conf_file, configuration, xrst
 
-.. _toml_file-title:
+.. _conf_file-title:
 
 Configuration File for xrst
 ###########################
 A toml file is used to configure xrst.
 
 #. The location of this file is specified by the xrst
-   :ref:`run_xrst@toml_file` argument.
+   :ref:`run_xrst@conf_file` argument.
 #. This file is a sequence of toml tables,
    if a table can only have one entry, the entry is named data.
 #. Each table, has a default value that is used when the table
@@ -36,7 +36,7 @@ A toml file is used to configure xrst.
 
 .. index:: project_name
 
-.. _toml_file@project_name:
+.. _conf_file@project_name:
 
 project_name
 ************
@@ -47,7 +47,7 @@ The only value in this table is the name of this project.
 
 .. index:: default
 
-.. _toml_file@project_name@Default:
+.. _conf_file@project_name@Default:
 
 Default
 =======
@@ -56,7 +56,7 @@ Default
    :lines: 48-49
    :language: toml
 
-.. _toml_file@project_name@Example:
+.. _conf_file@project_name@Example:
 
 Example
 =======
@@ -70,7 +70,7 @@ Example
 
 .. index:: directory
 
-.. _toml_file@directory:
+.. _conf_file@directory:
 
 directory
 *********
@@ -81,7 +81,7 @@ This table specifies the locations of some xrst directories:
 
 .. index:: project_directory
 
-.. _toml_file@directory@project_directory:
+.. _conf_file@directory@project_directory:
 
 project_directory
 =================
@@ -97,7 +97,7 @@ This directory must exists when xrst is run.
 
 .. index:: html_directory
 
-.. _toml_file@directory@html_directory:
+.. _conf_file@directory@html_directory:
 
 html_directory
 ==============
@@ -111,7 +111,7 @@ If *target* is html and this directory does not exist, it will be created.
 
 .. index:: tex_directory
 
-.. _toml_file@directory@tex_directory:
+.. _conf_file@directory@tex_directory:
 
 tex_directory
 =============
@@ -125,7 +125,7 @@ If *target* is tex and this directory does not exist, it will be created.
 
 .. index:: rst_directory
 
-.. _toml_file@directory@rst_directory:
+.. _conf_file@directory@rst_directory:
 
 rst_directory
 =============
@@ -145,7 +145,7 @@ is not added at the end.
 
 .. index:: other, generated, files
 
-.. _toml_file@directory@rst_directory@Other Generated Files:
+.. _conf_file@directory@rst_directory@Other Generated Files:
 
 Other Generated Files
 ---------------------
@@ -157,7 +157,7 @@ and placed in the *rst_directory*.
 
 .. index:: default
 
-.. _toml_file@directory@Default:
+.. _conf_file@directory@Default:
 
 Default
 =======
@@ -168,7 +168,7 @@ Note that '.' denotes the directory where
    :lines: 114-118
    :language: toml
 
-.. _toml_file@directory@Example:
+.. _conf_file@directory@Example:
 
 Example
 =======
@@ -182,14 +182,14 @@ Example
 
 .. index:: root_file
 
-.. _toml_file@root_file:
+.. _conf_file@root_file:
 
 root_file
 *********
 This table maps the :ref:`group names <begin_cmd@group_name>`
 to its root (top) xrst input file.
 These file names are relative to the
-:ref:`toml_file@directory@project_directory` .
+:ref:`conf_file@directory@project_directory` .
 Multiple groups can use the same root file.
 
 .. meta::
@@ -197,7 +197,7 @@ Multiple groups can use the same root file.
 
 .. index:: default
 
-.. _toml_file@root_file@Default:
+.. _conf_file@root_file@Default:
 
 Default
 =======
@@ -210,7 +210,7 @@ Note that ``default`` corresponds to the
 :ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
 is the default root file.
 
-.. _toml_file@root_file@Example:
+.. _conf_file@root_file@Example:
 
 Example
 =======
@@ -224,7 +224,7 @@ Example
 
 .. index:: html_theme_options
 
-.. _toml_file@html_theme_options:
+.. _conf_file@html_theme_options:
 
 html_theme_options
 ******************
@@ -244,7 +244,7 @@ In the default below, these values are integers and booleans.
 
 .. index:: default
 
-.. _toml_file@html_theme_options@Default:
+.. _conf_file@html_theme_options@Default:
 
 Default
 =======
@@ -253,7 +253,7 @@ Default
    :lines: 183-188
    :language: toml
 
-.. _toml_file@html_theme_options@Example:
+.. _conf_file@html_theme_options@Example:
 
 Example
 =======
@@ -267,7 +267,7 @@ Example
 
 .. index:: include_all
 
-.. _toml_file@include_all:
+.. _conf_file@include_all:
 
 include_all
 ***********
@@ -280,7 +280,7 @@ This table has the following keys:
 
 .. index:: rst_epilog
 
-.. _toml_file@include_all@rst_epilog:
+.. _conf_file@include_all@rst_epilog:
 
 rst_epilog
 ==========
@@ -293,7 +293,7 @@ This is the same as the rst_epilog variable in the sphinx conf.py file.
 
 .. index:: rst_prolog
 
-.. _toml_file@include_all@rst_prolog:
+.. _conf_file@include_all@rst_prolog:
 
 rst_prolog
 ==========
@@ -308,7 +308,7 @@ except that the latex macros are added at the end when
 
 .. index:: latex_macro
 
-.. _toml_file@include_all@latex_macro:
+.. _conf_file@include_all@latex_macro:
 
 latex_macro
 ===========
@@ -325,7 +325,7 @@ It either case they can be used by every page in the documentation.
 
 .. index:: default
 
-.. _toml_file@include_all@Default:
+.. _conf_file@include_all@Default:
 
 Default
 =======
@@ -334,7 +334,7 @@ Default
    :lines: 243-246
    :language: toml
 
-.. _toml_file@include_all@Example:
+.. _conf_file@include_all@Example:
 
 Example
 =======
@@ -348,7 +348,7 @@ Example
 
 .. index:: project_dictionary
 
-.. _toml_file@project_dictionary:
+.. _conf_file@project_dictionary:
 
 project_dictionary
 ******************
@@ -364,7 +364,7 @@ Special words, for a particular page, are specified using the
 
 .. index:: default
 
-.. _toml_file@project_dictionary@Default:
+.. _conf_file@project_dictionary@Default:
 
 Default
 =======
@@ -373,7 +373,7 @@ Default
    :lines: 277-278
    :language: toml
 
-.. _toml_file@project_dictionary@Example:
+.. _conf_file@project_dictionary@Example:
 
 Example
 =======
@@ -387,7 +387,7 @@ Example
 
 .. index:: not_in_index
 
-.. _toml_file@not_in_index:
+.. _conf_file@not_in_index:
 
 not_in_index
 ************
@@ -410,7 +410,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 
 .. index:: default
 
-.. _toml_file@not_in_index@Default:
+.. _conf_file@not_in_index@Default:
 
 Default
 =======
@@ -419,7 +419,7 @@ Default
    :lines: 311-312
    :language: toml
 
-.. _toml_file@not_in_index@Example:
+.. _conf_file@not_in_index@Example:
 
 Example
 =======

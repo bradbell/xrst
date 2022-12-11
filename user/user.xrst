@@ -45,11 +45,11 @@ Features
    level for each page.
 #. Words in each heading are automatically included in the
    index in a way that can be configured;
-   see :ref:`toml_file@not_in_index` .
+   see :ref:`conf_file@not_in_index` .
    These words are also automatically included as html keyword meta data.
 #. Includes a spell checker with special words at two levels;
    :ref:`spell_cmd-name` for the page level
-   and :ref:`toml_file@project_dictionary` at the project level.
+   and :ref:`conf_file@project_dictionary` at the project level.
    The spell checker catches double word errors.
 #. It is easy to include source code that executes
    directly below the current location; see :ref:`code_cmd-name` .
@@ -68,7 +68,7 @@ Features
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels in more detail.
-#. The configuration file :ref:`toml_file@html_theme_options` allows for
+#. The configuration file :ref:`conf_file@html_theme_options` allows for
    multiple themes and the command line argument :ref:`run_xrst@html_theme`
    enable one to chose a theme without having to change the
    configuration file.

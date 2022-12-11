@@ -30,8 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|pdf_directory|tex_directory|
-s|'pdf'|'tex'|
-s|``pdf``|``tex``|
-s/(html|pdf)/(html|tex)/
-s|build/pdf|build/tex|
+s|toml_file|conf_file|g

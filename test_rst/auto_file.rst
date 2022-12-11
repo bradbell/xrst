@@ -15,7 +15,7 @@ xrst input file: ``xrst/auto_file.py``
 
 Automatically Generated Files
 #############################
-These files are located in the :ref:`toml_file@directory@rst_directory` .
+These files are located in the :ref:`conf_file@directory@rst_directory` .
 A new version of these files is created each time ``xrst`` is run.
 The files in the ``rst`` subdirectory that do not change are not replaced.
 (This reduces the amount of processing that sphinx needs to do.)
@@ -49,7 +49,7 @@ index.rst
 *********
 This file is the top of the documentation tree
 built by sphinx. It is one level above the first page in
-:ref:`toml_file@root_file`.
+:ref:`conf_file@root_file`.
 
 .. meta::
    :keywords: xrst_table_of_contents.rst
