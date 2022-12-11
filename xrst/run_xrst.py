@@ -142,7 +142,7 @@ group_list
 It is possible to select one or more groups of pages
 to include in the output using this optional argument.
 
-#. The *group_list* is a list of
+#. The *group_list* is a list of one or more
    :ref:`group names<begin_cmd@group_name>`.
 #. The :ref:`begin_cmd@group_name@Default Group` is represented by
    the group name ``default`` .

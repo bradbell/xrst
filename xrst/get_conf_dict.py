@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # -----------------------------------------------------------------------------
+import re
 import toml
 import sys
 #
@@ -138,7 +139,7 @@ Example
 
 root_file
 *********
-This table maps the :ref:`group names <begin_cmd@group_name>`
+This table maps each :ref:`begin_cmd@group_name`
 to its root (top) xrst input file.
 These file names are relative to the
 :ref:`conf_file@directory@project_directory` .
@@ -425,11 +426,22 @@ def get_conf_dict(conf_file) :
          system_exit(msg)
    #
    # root_file
+   p_group_name = re.compile( r'[a-z]+' )
    table_dict = conf_dict['root_file']
    for key in table_dict :
+      if key == '' :
+         msg += 'root_file uses the empty group name\n'
+         msg += 'Use default for the empty group name'
+         system_exit(msg)
+      m_group_name = p_group_name.fullmatch(key)
+      if m_group_name == None :
+         msg += f'root_file: "{key}" is not a valid group name\n'
+         msg += 'A valid group name is a sequence of the letters a-z.'
+         system_exit(msg)
       value = table_dict[key]
       if type(value) != str :
-         msg += f'root_file.{key} has python type ' + str(type(value)) + '\n'
+         msg += f'root_file.{key} value has python type '
+         msg += str(type(value)) + '\n'
          msg += 'Expected it to have type ' + str( str )
          system_exit(msg)
    #

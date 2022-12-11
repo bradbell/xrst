@@ -29,6 +29,14 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@12-11:
+
+12-11
+=====
+#. Add condition that :ref:`begin_cmd@group_name` must be a sequence of
+   the letters a-z to the documentation. Check this condition in the
+   :ref:`conf_file@root_file` settings.
+
 .. _2022@mm-dd@12-10:
 
 12-10

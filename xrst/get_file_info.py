@@ -38,6 +38,7 @@ The page name is also added to the html keyword meta data.
 
 group_name
 **********
+The *group_name* can be empty or a sequence of the letters a-z.
 This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
 

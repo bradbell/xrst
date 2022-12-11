@@ -55,7 +55,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 50-51
+   :lines: 51-52
    :language: toml
 
 .. _conf_file@project_name@Example:
@@ -167,7 +167,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 116-120
+   :lines: 117-121
    :language: toml
 
 .. _conf_file@directory@Example:
@@ -188,7 +188,7 @@ Example
 
 root_file
 *********
-This table maps the :ref:`group names <begin_cmd@group_name>`
+This table maps each :ref:`begin_cmd@group_name`
 to its root (top) xrst input file.
 These file names are relative to the
 :ref:`conf_file@directory@project_directory` .
@@ -205,7 +205,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 150-151
+   :lines: 151-152
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -252,7 +252,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 185-190
+   :lines: 186-191
    :language: toml
 
 .. _conf_file@html_theme_options@Example:
@@ -333,7 +333,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 245-248
+   :lines: 246-249
    :language: toml
 
 .. _conf_file@include_all@Example:
@@ -372,7 +372,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 279-280
+   :lines: 280-281
    :language: toml
 
 .. _conf_file@project_dictionary@Example:
@@ -418,7 +418,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 313-314
+   :lines: 314-315
    :language: toml
 
 .. _conf_file@not_in_index@Example:

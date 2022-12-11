@@ -167,9 +167,9 @@ is the line number in *file_in* where this page begins; i.e.,
 the line number where the begin command is located.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 166-178
+   :lines: 167-179
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 394-397
+   :lines: 395-398
    :language: py
