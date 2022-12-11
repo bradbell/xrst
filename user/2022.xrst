@@ -47,6 +47,7 @@ mm-dd
    :ref:`toml_file@include_all`
    table and change the rst_substitution name to
    :ref:`toml_file@include_all@rst_prolog` .
+#. Improve `toml_file-title` error messaging.
 
 12-09
 =====

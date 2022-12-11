@@ -326,6 +326,14 @@ Example
 {xrst_end toml_file}
 -----------------------------------------------------------------------------
 '''
+def iterable2string(iterable) :
+   iterable = sorted( iterable )
+   string = ''
+   for item in iterable :
+      if string != '' :
+         string += ', '
+      string += str(item)
+   return string
 #
 # {xrst_begin get_toml_dict dev}
 # {xrst_comment_ch #}
@@ -374,7 +382,10 @@ def get_toml_dict(toml_file) :
    # check top level keys in toml_file
    for table in toml_dict :
       if table not in default_dict :
-         msg += f'This file has the unexpected table {table}'
+         msg += 'This file has the unexpected table:\n'
+         msg += f'   {table}\n'
+         msg += 'The value table names are:\n'
+         msg += iterable2string( default_dict.keys() )
          system_exit(msg)
    #
    # toml_dict
@@ -386,8 +397,8 @@ def get_toml_dict(toml_file) :
       else :
          table_dict = toml_dict[table]
          if type(table_dict) != dict :
-            msg += f'{table} is not a table: it has python type '
-            msg += str( type(table_dict) )
+            msg += f'Table {table} is not a python dictionary\n'
+            msg += 'it has python type '+ str( type(table_dict) )
             system_exit(msg)
    #
    # directory
@@ -399,8 +410,10 @@ def get_toml_dict(toml_file) :
       'tex_directory',
    }
    if set( table_dict.keys() ) != valid_set :
-      msg += 'The directory has the following keys: '
-      msg += str( list( table_dict.keys() ) )
+      msg += 'The directory has the following keys:\n'
+      msg += iterable2string( table_dict.keys() ) + '\n'
+      msg += 'Expected the following keys:\n'
+      msg += iterable2string( valid_set ) + '\n'
       system_exit(msg)
    for key in table_dict :
       value = table_dict[key]
@@ -413,7 +426,8 @@ def get_toml_dict(toml_file) :
    for key in table_dict :
       value = table_dict[key]
       if type(value) != str :
-         msg += f'root_file.{key} has python type ' + str(type(value))
+         msg += f'root_file.{key} has python type ' + str(type(value)) + '\n'
+         msg += 'Expected it to have type ' + str( str )
          system_exit(msg)
    #
    # html_theme_options
@@ -424,29 +438,40 @@ def get_toml_dict(toml_file) :
          dict( value )
       except :
          msg += f'html_theme_options.{key} has python type ' + str(type(value))
+         msg += '\nExpected it to have type ' + str( dict )
          system_exit(msg)
    #
    # include_all
    table_dict = toml_dict['include_all']
-   if set(table_dict.keys()) != {'rst_epilog', 'rst_prolog',  'latex_macro'} :
-      msg += 'The include_all has the following keys: '
-      msg += str( list( table_dict.keys() ) )
+   valid_set  = {
+      'rst_epilog',
+      'rst_prolog',
+      'latex_macro'
+   }
+   if set(table_dict.keys()) != valid_set :
+      msg += 'The include_all has the following keys:\n'
+      msg += iterable2string( table_dict.keys() ) + '\n'
+      msg += 'Expected the following keys:\n'
+      msg += iterable2string( valid_set ) + '\n'
       system_exit(msg)
    for key in [ 'rst_epilog', 'rst_prolog' ] :
       value = table_dict[key]
       if type( value ) != str :
          msg += f'include_all.{key} has python type '
-         msg += str(type(value))
+         msg += str(type(value)) + '\n'
+         msg += 'Expected it to have type ' + str( str )
          system_exit(msg)
    value = table_dict['latex_macro']
    if type( value ) != list :
       msg += f'include_all.latex_macro has python type '
-      msg += str(type(value))
+      msg += str(type(value)) + '\n'
+      msg += 'Expected it to have type ' + str( list )
       system_exit(msg)
    for (index, entry) in enumerate(value) :
       if type(entry) != str :
          msg += f'include_all.latex_macro[{index}] has python type '
-         msg += str(type(entry))
+         msg += str(type(entry)) + '\n'
+         msg += 'Expected it to have type ' + str( str )
          system_exit(msg)
    #
    # project_dictionary, not_in_index
@@ -454,12 +479,14 @@ def get_toml_dict(toml_file) :
       value = toml_dict[table]['data']
       if type(value) != list :
             msg += f'project_dictionary.data has python type '
-            msg += str(type(value))
+            msg += str(type(value)) + '\n'
+            msg += 'Expected it to have type ' + str( list )
             system_exit(msg)
       for (index, entry) in enumerate(value) :
          if type(entry) != str :
             msg += f'output_direcory.data[{index}] has python type '
-            msg += str(type(entry))
+            msg += str(type(entry)) + '\n'
+            msg += 'Expected it to have type ' + str( str )
             system_exit(msg)
    #
    # BEGIN_RETURN
