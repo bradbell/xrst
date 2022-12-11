@@ -23,9 +23,11 @@ default_dict = dict()
    toml
 }
 
+.. _toml file: https://toml.io/en/
+
 Configuration File for xrst
 ###########################
-A toml file is used to configure xrst.
+A `toml file`_ is used to configure xrst.
 
 #. The location of this file is specified by the xrst
    :ref:`run_xrst@conf_file` argument.

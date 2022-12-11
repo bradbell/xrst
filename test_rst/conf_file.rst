@@ -6,6 +6,8 @@ conf_file
 
 xrst input file: ``xrst/get_conf_dict.py``
 
+.. _toml file: https://toml.io/en/
+
 .. meta::
    :keywords: conf_file, configuration, xrst
 
@@ -15,7 +17,7 @@ xrst input file: ``xrst/get_conf_dict.py``
 
 Configuration File for xrst
 ###########################
-A toml file is used to configure xrst.
+A `toml file`_ is used to configure xrst.
 
 #. The location of this file is specified by the xrst
    :ref:`run_xrst@conf_file` argument.
@@ -53,7 +55,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 48-49
+   :lines: 50-51
    :language: toml
 
 .. _conf_file@project_name@Example:
@@ -165,7 +167,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 114-118
+   :lines: 116-120
    :language: toml
 
 .. _conf_file@directory@Example:
@@ -203,7 +205,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 148-149
+   :lines: 150-151
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -250,7 +252,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 183-188
+   :lines: 185-190
    :language: toml
 
 .. _conf_file@html_theme_options@Example:
@@ -331,7 +333,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 243-246
+   :lines: 245-248
    :language: toml
 
 .. _conf_file@include_all@Example:
@@ -370,7 +372,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 277-278
+   :lines: 279-280
    :language: toml
 
 .. _conf_file@project_dictionary@Example:
@@ -416,7 +418,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 311-312
+   :lines: 313-314
    :language: toml
 
 .. _conf_file@not_in_index@Example:
