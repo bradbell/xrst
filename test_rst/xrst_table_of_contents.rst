@@ -49,7 +49,7 @@ Table of Contents
 |    :ref:`4.7<comment_cmd_dev-title>` Remove all comment commands
 |    :ref:`4.8<create_spell_checker-title>` Create a pyspellchecker object
 |    :ref:`4.9<get_file_info-title>` Get information for all pages in a file
-|    :ref:`4.10<get_toml_dict-title>` Get Configuration Dictionary
+|    :ref:`4.10<get_conf_dict-title>` Get Configuration Dictionary
 |    :ref:`4.11<literal_cmd_dev-title>` Process the literal commands in a page
 |    :ref:`4.12<newline_indices-title>` Find index of all the newlines in a string
 |    :ref:`4.13<next_heading-title>` Return location of the next heading in a page

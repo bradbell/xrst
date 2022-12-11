@@ -20,13 +20,13 @@ Create the automatically generated files
    :local:
 
 .. meta::
-   :keywords: toml_dict
+   :keywords: conf_dict
 
-.. index:: toml_dict
+.. index:: conf_dict
 
-.. _auto_file_dev@toml_dict:
+.. _auto_file_dev@conf_dict:
 
-toml_dict
+conf_dict
 *********
 is a python dictionary representation of the xrst.toml file.
 (It is empty if there is no such file).
@@ -36,18 +36,18 @@ is a python dictionary representation of the xrst.toml file.
 
 .. index:: rst_dir
 
-.. _auto_file_dev@toml_dict@rst_dir:
+.. _auto_file_dev@conf_dict@rst_dir:
 
 rst_dir
 =======
-we use *rst_dir* to denote *toml_dict* ['directory']['rst_directory'] .
+we use *rst_dir* to denote *conf_dict* ['directory']['rst_directory'] .
 
 .. meta::
    :keywords: tmp_dir
 
 .. index:: tmp_dir
 
-.. _auto_file_dev@toml_dict@tmp_dir:
+.. _auto_file_dev@conf_dict@tmp_dir:
 
 tmp_dir
 =======

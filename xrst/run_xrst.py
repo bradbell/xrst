@@ -454,11 +454,11 @@ def run_xrst() :
          msg += execution_directory
       system_exit(msg)
    #
-   # toml_dict
-   toml_dict  = xrst.get_toml_dict(conf_file)
+   # conf_dict
+   conf_dict  = xrst.get_conf_dict(conf_file)
    #
    # project_directory
-   project_directory = toml_dict['directory']['project_directory']
+   project_directory = conf_dict['directory']['project_directory']
    #
    # make project directory the current working directory
    os.chdir(project_directory)
@@ -514,13 +514,13 @@ def run_xrst() :
    #
    # target_directory
    if target == 'html' :
-      target_directory = toml_dict['directory']['html_directory']
+      target_directory = conf_dict['directory']['html_directory']
    else :
       assert target == 'tex'
-      target_directory = toml_dict['directory']['tex_directory']
+      target_directory = conf_dict['directory']['tex_directory']
    #
    # rst_directory
-   rst_directory = toml_dict['directory']['rst_directory']
+   rst_directory = conf_dict['directory']['rst_directory']
    if rst_directory[0] == '/' :
       msg  = 'rst_directory = ' + rst_directory + '\n'
       msg += 'must be a path relative to the project_directory'
@@ -543,7 +543,7 @@ def run_xrst() :
    #
    # spell_checker
    spell_list  = list()
-   for entry in toml_dict['project_dictionary']['data'] :
+   for entry in conf_dict['project_dictionary']['data'] :
       word_list = entry.split('\n')
       for word in word_list :
          word = word.strip(' \t')
@@ -552,7 +552,7 @@ def run_xrst() :
    #
    # not_in_index_list
    not_in_index_list = list()
-   for entry in toml_dict['not_in_index']['data'] :
+   for entry in conf_dict['not_in_index']['data'] :
       pattern_list = entry.split('\n')
       for pattern in pattern_list :
          pattern = pattern.strip(' \t')
@@ -565,10 +565,10 @@ def run_xrst() :
    # -------------------------------------------------------------------------
    #
    # root_file
-   root_file = toml_dict['root_file']
+   root_file = conf_dict['root_file']
    #
    # project_name
-   project_name = toml_dict['project_name']['data']
+   project_name = conf_dict['project_name']['data']
    #
    # pinfo_list
    # This list accumulates over all the group names
@@ -813,7 +813,7 @@ def run_xrst() :
    #
    # auto_file
    xrst.auto_file(
-      toml_dict, html_theme, target, pinfo_list, root_page_list
+      conf_dict, html_theme, target, pinfo_list, root_page_list
    )
    #
    # -------------------------------------------------------------------------

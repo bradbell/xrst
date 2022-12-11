@@ -335,7 +335,7 @@ def iterable2string(iterable) :
       string += str(item)
    return string
 #
-# {xrst_begin get_toml_dict dev}
+# {xrst_begin get_conf_dict dev}
 # {xrst_comment_ch #}
 # {xrst_spell
 #     conf
@@ -354,7 +354,7 @@ def iterable2string(iterable) :
 # is the location of the :ref:`run_xrst@conf_file` specified on
 # the xrst command line.
 #
-# toml_dict
+# conf_dict
 # *********
 # is the python dictionary corresponding to the toml file with the defaults
 # filled in. All of the values in the dictionary have been check for
@@ -362,26 +362,26 @@ def iterable2string(iterable) :
 # to make sure its elements have the proper type.
 #
 # {xrst_code py}
-# toml_dict =
-def get_toml_dict(conf_file) :
+# conf_dict =
+def get_conf_dict(conf_file) :
    assert type(conf_file) == str
    # {xrst_code}
    # {xrst_literal
    #     BEGIN_RETURN
    #     END_RETURN
    # }
-   # {xrst_end get_toml_dict}
+   # {xrst_end get_conf_dict}
    #
    # msg
    msg  = f'conf_file = {conf_file}\n'
    #
-   # toml_dict
+   # conf_dict
    file_ptr  = open(conf_file, 'r')
    file_data = file_ptr.read()
-   toml_dict = toml.loads(file_data)
+   conf_dict = toml.loads(file_data)
    #
    # check top level keys in conf_file
-   for table in toml_dict :
+   for table in conf_dict :
       if table not in default_dict :
          msg += 'This file has the unexpected table:\n'
          msg += f'   {table}\n'
@@ -389,21 +389,21 @@ def get_toml_dict(conf_file) :
          msg += iterable2string( default_dict.keys() )
          system_exit(msg)
    #
-   # toml_dict
+   # conf_dict
    # also check that all the top keys the correct type
    for table in default_dict :
       default = default_dict[table]
-      if table not in toml_dict :
-         toml_dict[table] = default
+      if table not in conf_dict :
+         conf_dict[table] = default
       else :
-         table_dict = toml_dict[table]
+         table_dict = conf_dict[table]
          if type(table_dict) != dict :
             msg += f'Table {table} is not a python dictionary\n'
             msg += 'it has python type '+ str( type(table_dict) )
             system_exit(msg)
    #
    # directory
-   table_dict = toml_dict['directory']
+   table_dict = conf_dict['directory']
    valid_set = {
       'project_directory',
       'rst_directory',
@@ -423,7 +423,7 @@ def get_toml_dict(conf_file) :
          system_exit(msg)
    #
    # root_file
-   table_dict = toml_dict['root_file']
+   table_dict = conf_dict['root_file']
    for key in table_dict :
       value = table_dict[key]
       if type(value) != str :
@@ -432,7 +432,7 @@ def get_toml_dict(conf_file) :
          system_exit(msg)
    #
    # html_theme_options
-   table_dict = toml_dict['html_theme_options']
+   table_dict = conf_dict['html_theme_options']
    for key in table_dict :
       value = table_dict[key]
       try :
@@ -443,7 +443,7 @@ def get_toml_dict(conf_file) :
          system_exit(msg)
    #
    # include_all
-   table_dict = toml_dict['include_all']
+   table_dict = conf_dict['include_all']
    valid_set  = {
       'rst_epilog',
       'rst_prolog',
@@ -477,7 +477,7 @@ def get_toml_dict(conf_file) :
    #
    # project_dictionary, not_in_index
    for table in [ 'project_dictionary', 'not_in_index' ] :
-      value = toml_dict[table]['data']
+      value = conf_dict[table]['data']
       if type(value) != list :
             msg += f'project_dictionary.data has python type '
             msg += str(type(value)) + '\n'
@@ -491,6 +491,6 @@ def get_toml_dict(conf_file) :
             system_exit(msg)
    #
    # BEGIN_RETURN
-   assert type(toml_dict) == dict
-   return toml_dict
+   assert type(conf_dict) == dict
+   return conf_dict
    # END_RETURN

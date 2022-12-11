@@ -4,7 +4,7 @@
 conf_file
 !!!!!!!!!
 
-xrst input file: ``xrst/get_toml_dict.py``
+xrst input file: ``xrst/get_conf_dict.py``
 
 .. meta::
    :keywords: conf_file, configuration, xrst
@@ -52,7 +52,7 @@ The only value in this table is the name of this project.
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 48-49
    :language: toml
 
@@ -164,7 +164,7 @@ Default
 Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 114-118
    :language: toml
 
@@ -202,7 +202,7 @@ Multiple groups can use the same root file.
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 148-149
    :language: toml
 
@@ -249,7 +249,7 @@ In the default below, these values are integers and booleans.
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 183-188
    :language: toml
 
@@ -330,7 +330,7 @@ It either case they can be used by every page in the documentation.
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 243-246
    :language: toml
 
@@ -369,7 +369,7 @@ Special words, for a particular page, are specified using the
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 277-278
    :language: toml
 
@@ -415,7 +415,7 @@ In this case you could have a line containing just ``[0-9]*`` .
 Default
 =======
 
-.. literalinclude:: ../../xrst/get_toml_dict.py
+.. literalinclude:: ../../xrst/get_conf_dict.py
    :lines: 311-312
    :language: toml
 

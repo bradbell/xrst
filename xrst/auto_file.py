@@ -83,14 +83,14 @@ extensions = [
 # Create the automatically generated files
 # ########################################
 #
-# toml_dict
+# conf_dict
 # *********
 # is a python dictionary representation of the xrst.toml file.
 # (It is empty if there is no such file).
 #
 # rst_dir
 # =======
-# we use *rst_dir* to denote *toml_dict* ['directory']['rst_directory'] .
+# we use *rst_dir* to denote *conf_dict* ['directory']['rst_directory'] .
 #
 # tmp_dir
 # =======
@@ -145,9 +145,9 @@ extensions = [
 #
 # {xrst_code py}
 def auto_file(
-   toml_dict, html_theme, target, pinfo_list, root_page_list
+   conf_dict, html_theme, target, pinfo_list, root_page_list
    ) :
-   assert type(toml_dict) == dict
+   assert type(conf_dict) == dict
    assert type(html_theme) == str
    assert type(target) == str
    assert type(pinfo_list) == list
@@ -156,13 +156,13 @@ def auto_file(
    # {xrst_end auto_file_dev}
    #
    # rst_dir
-   rst_dir = toml_dict['directory']['rst_directory']
+   rst_dir = conf_dict['directory']['rst_directory']
    #
    # tmp_dir
    tmp_dir = f'{rst_dir}/tmp'
    #
    # project_name
-   project_name = toml_dict['project_name']['data']
+   project_name = conf_dict['project_name']['data']
    #
    # ------------------------------------------------------------------------
    # tmp_dir/xrst_table_of_contents.rst
@@ -196,10 +196,10 @@ def auto_file(
    # rst_dir/conf.py
    #
    # html_theme_options
-   if html_theme not in toml_dict['html_theme_options'] :
+   if html_theme not in conf_dict['html_theme_options'] :
       html_theme_options = None
    else :
-      html_theme_options = toml_dict['html_theme_options'][html_theme]
+      html_theme_options = conf_dict['html_theme_options'][html_theme]
       html_theme_optiosn = str( html_theme_options )
       assert '"' not in html_theme_options
    #
@@ -215,9 +215,9 @@ def auto_file(
       conf_py += f'html_theme_options = {html_theme_options}\n'
    #
    # rst_epilog, rst_prolog, latex_macro
-   rst_epilog  = toml_dict['include_all']['rst_epilog']
-   rst_prolog  = toml_dict['include_all']['rst_prolog']
-   latex_macro = toml_dict['include_all']['latex_macro']
+   rst_epilog  = conf_dict['include_all']['rst_epilog']
+   rst_prolog  = conf_dict['include_all']['rst_prolog']
+   latex_macro = conf_dict['include_all']['latex_macro']
    #
    # rst_prolog
    if target == 'html' and len(latex_macro) != 0 :

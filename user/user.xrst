@@ -98,7 +98,7 @@ Run Program
 Contents
 ********
 {xrst_toc_list
-   xrst/get_toml_dict.py
+   xrst/get_conf_dict.py
    xrst/run_xrst.py
    user/commands.xrst
    user/automatic.xrst
