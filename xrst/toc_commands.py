@@ -244,9 +244,9 @@ def toc_commands(data_in, file_name, page_name, group_name) :
       # child_data
       # errors in the begin and end commands will be detected later
       # when this file is processed.
-      file_ptr    = open(child_file, 'r')
-      child_data  = file_ptr.read()
-      file_ptr.close()
+      file_obj    = open(child_file, 'r')
+      child_data  = file_obj.read()
+      file_obj.close()
       file_index  = 0
       #
       # m_begin

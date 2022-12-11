@@ -185,9 +185,9 @@ def get_file_info(
    # {xrst_end get_file_info}
    #
    # file_data
-   file_ptr   = open(file_in, 'r')
-   file_data  = file_ptr.read()
-   file_ptr.close()
+   file_obj   = open(file_in, 'r')
+   file_data  = file_obj.read()
+   file_obj.close()
    #
    # file_data
    file_data = xrst.add_line_numbers(file_data)

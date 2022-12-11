@@ -161,9 +161,9 @@ def temporary_file(
       file_out = tmp_dir + '/' + page_name
    else :
       file_out = tmp_dir + '/' + page_name + '.rst'
-   file_ptr = open(file_out, 'w')
-   file_ptr.write(data_out)
-   file_ptr.close()
+   file_obj = open(file_out, 'w')
+   file_obj.write(data_out)
+   file_obj.close()
    #
    # BEGIN_RETURN
    assert type(line_pair) == list

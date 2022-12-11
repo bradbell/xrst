@@ -113,9 +113,9 @@ def start_stop_file(
       )
    #
    # data
-   file_ptr  = open(display_file, 'r')
-   data      = file_ptr.read()
-   file_ptr.close()
+   file_obj  = open(display_file, 'r')
+   data      = file_obj.read()
+   file_obj.close()
    #
    # start_line
    start_index = data.find(start_text)

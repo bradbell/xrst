@@ -352,17 +352,17 @@ def main() :
    file_out = sys.argv[3]
    #
    # file_data
-   file_ptr   = open(file_in, 'r')
-   file_data  = file_ptr.read()
-   file_ptr.close()
+   file_obj   = open(file_in, 'r')
+   file_data  = file_obj.read()
+   file_obj.close()
    #
    # file_out
    file_data = operation_dict[operation](file_data)
    #
    # file_out
-   file_ptr = open(file_out, 'w')
-   file_ptr.write(file_data)
-   file_ptr.close()
+   file_obj = open(file_out, 'w')
+   file_obj.write(file_data)
+   file_obj.close()
 #
 main()
 print('update_xrst.py: OK')

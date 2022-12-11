@@ -41,8 +41,8 @@ def rename_group(tmp_dir, old_group_name, new_group_name) :
    # {xrst_end rename_group}
    #
    # spell_toml
-   file_ptr  = open( f'{tmp_dir}/spell.toml' )
-   file_data = file_ptr.read()
+   file_obj  = open( f'{tmp_dir}/spell.toml' )
+   file_data = file_obj.read()
    spell_toml = toml.loads(file_data)
    #
    # file_name
@@ -59,9 +59,9 @@ def rename_group(tmp_dir, old_group_name, new_group_name) :
       page_list = sorted(page_list, key = order_fun )
       #
       # data_in
-      file_ptr = open(file_name, 'r')
-      data_in  = file_ptr.read()
-      file_ptr.close()
+      file_obj = open(file_name, 'r')
+      data_in  = file_obj.read()
+      file_obj.close()
       #
       # data_out
       data_out      = ''
@@ -109,8 +109,8 @@ def rename_group(tmp_dir, old_group_name, new_group_name) :
       data_out += data_in[data_in_index :]
       #
       # file_name
-      file_ptr = open(file_name, 'w')
-      file_ptr.write( data_out )
-      file_ptr.close()
+      file_obj = open(file_name, 'w')
+      file_obj.write( data_out )
+      file_obj.close()
    #
    return

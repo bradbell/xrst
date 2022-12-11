@@ -349,9 +349,9 @@ def fix_latex(latex_dir, project_name) :
    file_name = f'{latex_dir}/{project_name}.tex'
    #
    # file_data
-   file_ptr  = open(file_name, 'r')
-   file_data = file_ptr.read()
-   file_ptr.close()
+   file_obj  = open(file_name, 'r')
+   file_data = file_obj.read()
+   file_obj.close()
    #
    # file_data
    pattern   = re.compile( r'\n\\section{' )
@@ -366,9 +366,9 @@ def fix_latex(latex_dir, project_name) :
    file_data = pattern.sub( r'\n\\subsubsection*{', file_data)
    #
    # file_name
-   file_ptr  = open(file_name, 'w')
-   file_ptr.write(file_data)
-   file_ptr.close()
+   file_obj  = open(file_name, 'w')
+   file_obj.write(file_data)
+   file_obj.close()
    #
    return
 # ---------------------------------------------------------------------------

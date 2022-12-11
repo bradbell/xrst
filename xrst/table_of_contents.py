@@ -100,17 +100,17 @@ def page_table_of_contents(
       file_name = tmp_dir + '/' + page_name + '.rst'
    #
    # page_data
-   file_ptr  = open(file_name, 'r')
-   page_data = file_ptr.read()
-   file_ptr.close()
+   file_obj  = open(file_name, 'r')
+   page_data = file_obj.read()
+   file_obj.close()
    page_data = xrst.add_before_title(
       page_data, target, page_number, page_name
    )
    #
    # file_name
-   file_ptr  = open(file_name, 'w')
-   file_ptr.write(page_data)
-   file_ptr.close()
+   file_obj  = open(file_name, 'w')
+   file_obj.write(page_data)
+   file_obj.close()
    #
    # in_parent_file_list, in_toc_cmd_list
    in_parent_file_list = list()

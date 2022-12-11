@@ -175,9 +175,9 @@ def auto_file(
    #
    # xrst_table_of_contents.rst
    file_out    = tmp_dir + '/' + 'xrst_table_of_contents.rst'
-   file_ptr    = open(file_out, 'w')
-   file_ptr.write(file_data)
-   file_ptr.close()
+   file_obj    = open(file_out, 'w')
+   file_obj.write(file_data)
+   file_obj.close()
    #
    # ------------------------------------------------------------------------
    # tmp_dir/xrst_index.rst
@@ -190,9 +190,9 @@ def auto_file(
       #
       # xrst_index.rst
       file_out    = tmp_dir + '/' + 'xrst_index.rst'
-      file_ptr    = open(file_out, 'w')
-      file_ptr.write(file_data)
-      file_ptr.close()
+      file_obj    = open(file_out, 'w')
+      file_obj.write(file_data)
+      file_obj.close()
    # ------------------------------------------------------------------------
    # rst_dir/conf.py
    #
@@ -251,9 +251,9 @@ def auto_file(
    #
    # rst_dir/conf.py
    file_out    = rst_dir + '/conf.py'
-   file_ptr    = open(file_out, 'w')
-   file_ptr.write(conf_py)
-   file_ptr.close()
+   file_obj    = open(file_out, 'w')
+   file_obj.write(conf_py)
+   file_obj.close()
    # ------------------------------------------------------------------------
    # rst_dir/xrst_root_doc.rst
    #
@@ -273,6 +273,6 @@ def auto_file(
    #
    # xrst_root_doc.rst
    file_name    = rst_dir + '/xrst_root_doc.rst'
-   file_ptr     = open(file_name, 'w')
-   file_ptr.write(file_data)
-   file_ptr.close()
+   file_obj     = open(file_name, 'w')
+   file_obj.write(file_data)
+   file_obj.close()

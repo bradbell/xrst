@@ -379,8 +379,8 @@ def get_conf_dict(conf_file) :
    msg  = f'conf_file = {conf_file}\n'
    #
    # conf_dict
-   file_ptr  = open(conf_file, 'r')
-   file_data = file_ptr.read()
+   file_obj  = open(conf_file, 'r')
+   file_data = file_obj.read()
    conf_dict = toml.loads(file_data)
    #
    # check top level keys in conf_file

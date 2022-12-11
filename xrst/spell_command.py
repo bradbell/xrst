@@ -491,9 +491,9 @@ def spell_command(
       file_data += ']\n\n'
    #
    # spell.toml
-   file_ptr   = open(f'{tmp_dir}/spell.toml', 'a')
-   file_ptr.write(file_data)
-   file_ptr.close()
+   file_obj   = open(f'{tmp_dir}/spell.toml', 'a')
+   file_obj.write(file_data)
+   file_obj.close()
    #
    # data_out
    data_out = pattern['spell_off'].sub( '', data_out)
