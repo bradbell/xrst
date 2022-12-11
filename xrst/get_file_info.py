@@ -29,7 +29,7 @@ A *page_name* must satisfy the following conditions:
 #. It must be a non-empty sequence of the following characters:
    period ``.``, underbar ``_``, the letters A-Z, letters a-z,
    and decimal digits 0-9.
-#. The page name can not be ``index`` , ``genindex`` ,
+#. The page name can not be ``genindex`` ,
    and it can not begin with the characters ``xrst_``.
 #. The lower case version of two page names cannot be equal.
 

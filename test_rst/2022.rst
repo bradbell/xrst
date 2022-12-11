@@ -41,6 +41,8 @@ mm-dd
    table and change the rst_substitution name to
    :ref:`conf_file@include_all@rst_prolog` .
 #. Improve `conf_file-title` error messaging.
+#. It is now ok for a :ref:`begin_cmd@page_name` to be ``index``
+   (it still cannot be ``genindex`` ).
 
 .. _2022@mm-dd@12-09:
 
@@ -628,8 +630,7 @@ and remove the corresponding :ref:`wish_list-name` item.
 =====
 Fix build when :ref:`run_xrst@target` is pdf.
 To be specific, do not include
-:ref:`auto_file@xrst_index.rst` in
-:ref:`auto_file@index.rst` .
+:ref:`auto_file@xrst_index.rst` in index.rst.
 
 .. _2022@mm-dd@08-24:
 

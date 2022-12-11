@@ -833,7 +833,7 @@ def run_xrst() :
    for name in rst_list :
       if name.endswith('.rst') :
          if name not in tmp_list :
-            if name != 'index.rst' :
+            if name != 'xrst_root_doc.rst' :
                os.remove( f'{rst_directory}/{name}' )
    #
    # tmp_dir

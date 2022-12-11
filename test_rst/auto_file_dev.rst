@@ -146,16 +146,16 @@ rst_dir/conf.py
 This is the configuration file used by sphinx to build the documentation.
 
 .. meta::
-   :keywords: rst_dir/index.rst
+   :keywords: rst_dir/xrst_root_doc.rst
 
-.. index:: rst_dir/index.rst
+.. index:: rst_dir/xrst_root_doc.rst
 
-.. _auto_file_dev@rst_dir/index.rst:
+.. _auto_file_dev@rst_dir/xrst_root_doc.rst:
 
-rst_dir/index.rst
-*****************
+rst_dir/xrst_root_doc.rst
+*************************
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 147-154
+   :lines: 148-155
    :language: py
