@@ -148,10 +148,13 @@ def check_input_files(
          m_non_empty = p_non_empty.search( file_data )
          if m_non_empty != None :
             if file_name not in toc_file_set :
-               msg  = 'warning: file = ' + file_name + ' '
-               msg += 'has a page with group_name = ' + group_name + '\n'
-               msg += '         but it is not in any xrst_toc commands '
-               msg += 'starting at the root_file for this group\n'
+               if warning_count == 0 :
+                  msg  = '\nwarning: group_name = ' + group_name + '\n'
+                  msg += 'The following files have pages with this group name '
+                  msg += 'but they are not in any xrst_toc commands '
+                  msg += 'starting at the root_file for this group\n'
+                  sys.stderr.write(msg)
+               msg = 3 * ' ' +file_name + '\n'
                sys.stderr.write(msg)
                warning_count += 1
          #
@@ -160,10 +163,14 @@ def check_input_files(
             m_empty = p_empty.search( file_data )
             if m_empty != None :
                if file_name not in toc_file_set :
-                  msg  = 'warning: file = ' + file_name + ' '
-                  msg += 'has a page with the empty group_name\n'
-                  msg += '         but it is not in any xrst_toc commands '
-                  msg += 'starting at the root_file for the default group\n'
+                  if warning_count == 0 :
+                     msg  = '\nwarning: group_name = ' + group_name + '\n'
+                     msg += 'The following files have pages with '
+                     msg += 'the empty group name\n'
+                     msg += 'but they are not in any xrst_toc commands '
+                     msg += 'starting at the root_file for the default group\n'
+                     sys.stderr.write(msg)
+                  msg = 3 * ' ' +file_name + '\n'
                   sys.stderr.write(msg)
                   warning_count += 1
             #
