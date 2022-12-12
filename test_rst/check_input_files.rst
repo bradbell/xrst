@@ -107,5 +107,5 @@ Prototype
    :language: py
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 161-164
+   :lines: 169-172
    :language: py
