@@ -20,6 +20,17 @@ Check That Expected xrst Input Files Are Included
    :local:
 
 .. meta::
+   :keywords: conf_file
+
+.. index:: conf_file
+
+.. _check_input_files@conf_file:
+
+conf_file
+*********
+is the name of the configuration file.
+
+.. meta::
    :keywords: conf_dict
 
 .. index:: conf_dict
@@ -55,11 +66,46 @@ at the root file for this group.
 A warning is printed if a file has a begin command for this group
 and it is not in *toc_file_set*.
 
-.. _check_input_files@Syntax:
+.. meta::
+   :keywords: file_list_in
 
-Syntax
-******
+.. index:: file_list_in
+
+.. _check_input_files@file_list_in:
+
+file_list_in
+************
+If file_list_in is None, the :ref:`conf_file@input_files` commands
+will be executed to determine the file list.
+Otherwise, *file_list_in* will be used as the output of the first
+successful command.
+
+.. meta::
+   :keywords: file_list_out
+
+.. index:: file_list_out
+
+.. _check_input_files@file_list_out:
+
+file_list_out
+*************
+This is a value that can be used for *file_list_in* to avoid
+having to re-execute the input_files commands.
+
+.. meta::
+   :keywords: prototype
+
+.. index:: prototype
+
+.. _check_input_files@Prototype:
+
+Prototype
+*********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 37-45
+   :lines: 54-70
+   :language: py
+
+.. literalinclude:: ../../xrst/check_input_files.py
+   :lines: 161-164
    :language: py

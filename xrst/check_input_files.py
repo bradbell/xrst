@@ -10,11 +10,16 @@ import dismod_at
 #     conf
 #     dict
 #     fullmatch
+#     len
 # }
 # {xrst_comment_ch #}
 #
 # Check That Expected xrst Input Files Are Included
 # #################################################
+#
+# conf_file
+# *********
+# is the name of the configuration file.
 #
 # conf_dict
 # *********
@@ -31,39 +36,75 @@ import dismod_at
 # A warning is printed if a file has a begin command for this group
 # and it is not in *toc_file_set*.
 #
-# Syntax
-# ******
+# file_list_in
+# ************
+# If file_list_in is None, the :ref:`conf_file@input_files` commands
+# will be executed to determine the file list.
+# Otherwise, *file_list_in* will be used as the output of the first
+# successful command.
+#
+# file_list_out
+# *************
+# This is a value that can be used for *file_list_in* to avoid
+# having to re-execute the input_files commands.
+#
+# Prototype
+# *********
 # {xrst_code py}
-def check_input_files(conf_dict, group_name, toc_file_set) :
+# file_list_out =
+def check_input_files(
+   conf_file, conf_dict, group_name, toc_file_set, file_list_in
+) :
    #
+   assert type(conf_file) == str
    assert type(conf_dict) == dict
    assert type(group_name) == str
    assert type(toc_file_set) == set
+   if file_list_in != None :
+      assert type(file_list_in) == list
+      if len(file_list_in) > 0 :
+         assert type( file_list_in[0] ) == str
    #
    assert group_name != ''
    p_group_name = re.compile( r'[a-z]+' )
    assert p_group_name.fullmatch( group_name )
    # {xrst_code}
+   # {xrst_literal
+   #     # BEGIN_RETURN
+   #     # END_RETURN
+   # }
    # {xrst_end check_input_files}
    #
    # input_files
    input_files = conf_dict['input_files']['data']
-   if len(input_files) == 0 :
-      return
    #
-   # file_list
-   result  = dismod_at.system_command_prc(
-      command       = input_files,
-      print_command = True,
-      return_stdout = True,
-      return_stderr = True,
-   )
-   if result.returncode != 0 :
-      msg += 'warning: source comamd specified in configure file failed\n'
-      msg += result.stderr
-      sys.stderr.write(msg)
-      return
-   file_list = result.stdout.split()
+   # file_list_out
+   if file_list_in != None :
+      file_list_out = file_list_in
+   elif len(input_files) == 0 :
+      file_list_out = list()
+   else :
+      file_list_out = None
+      command       = None
+      for cmd in input_files :
+         result  = dismod_at.system_command_prc(
+            command       = cmd,
+            print_command = False,
+            return_stdout = True,
+            return_stderr = True,
+         )
+         if result.returncode == 0 :
+            file_list_out = result.stdout.split()
+            command       = cmd
+      if file_list_out != None :
+         command = ' '.join(command)
+         msg = f'Using following input_files: {command}\n'
+         sys.stdout.write(msg)
+      elif len(input_files) > 0 :
+         msg  = 'warning: None of the commands in '
+         msg += f'{conf_file}.input_files succeeded\n'
+         sys.stderr.write(msg)
+         file_list_out = list()
    #
    # p_empty
    p_empty  = r'(^|[^\\])\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)[ \t]*}'
@@ -82,7 +123,7 @@ def check_input_files(conf_dict, group_name, toc_file_set) :
    warning_count = 0
    #
    # file_name
-   for file_name in file_list :
+   for file_name in file_list_out :
       if warning_count < 10 :
          #
          # file_data
@@ -116,3 +157,9 @@ def check_input_files(conf_dict, group_name, toc_file_set) :
             if warning_count == 10 :
                msg+= f'Surpressing this warning after {warning_count} files.\n'
                sys.stderr.write(msg)
+   # BEGIN_RETURN
+   assert type(file_list_out) == list
+   if len(file_list_out) > 0 :
+      assert type( file_list_out[0] ) == str
+   return file_list_out
+   # END_RETURN

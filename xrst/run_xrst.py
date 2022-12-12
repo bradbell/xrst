@@ -564,6 +564,9 @@ def run_xrst() :
             system_exit(msg)
    # -------------------------------------------------------------------------
    #
+   # input_file_list
+   input_file_list = None
+   #
    # root_file
    root_file = conf_dict['root_file']
    #
@@ -796,7 +799,9 @@ def run_xrst() :
          toc_file_set = set()
          for finfo_tmp in finfo_done :
             toc_file_set.add( finfo_tmp['file_in'] )
-         xrst.check_input_files(conf_dict, group_name, toc_file_set)
+         input_file_list = xrst.check_input_files(
+            conf_file, conf_dict, group_name, toc_file_set, input_file_list
+         )
    #
    # rename_group
    if rename_group != None :

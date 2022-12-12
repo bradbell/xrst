@@ -173,15 +173,28 @@ input_files
 This table is used to list the files that should be include in the
 documentation if they have a :ref:`begin command<begin_cmd-name>`
 for a group in :ref:`run_xrst@group_list` .
-The only value in this table is a list of strings.
-The first string is a program to execute and the other strings
-are the program's command line arguments in order.
-The standard output for this command should be a space separated
+The only value in this table is a list of program commands.
+
+Each program command is a list of strings.
+The list is the program to execute followed by
+the program's command line arguments in order.
+The standard output for the program should be a space separated
 list of file names to be checked.
 If a file name has spaces in it, it should be surrounded by single
 or double quotes.
 The single and double quotes are not part of the file name.
 If this list of strings is empty, no files are checked.
+
+Each program command is tried in order,
+the frist to return without an error is used for the list of files.
+The intention here is that different programs
+may be intended for different systems.
+
+If the list of program commands is empty,
+no checking of input file list is done.
+If the list of program commands is non-empty,
+and none of the program commands succeed,
+a warning is printed.
 
 Default
 =======
@@ -493,12 +506,18 @@ def get_conf_dict(conf_file) :
          msg += str(type(value)) + '\n'
          msg += 'Expected it to have type ' + str( list )
          system_exit(msg)
-   for (index, entry) in enumerate(value) :
-      if type(entry) != str :
-         msg += f'input_files.data[{index}] has python type '
-         msg += str(type(entry)) + '\n'
-         msg += 'Expected it to have type ' + str( str )
+   for (index1, entry1) in enumerate(value) :
+      if type(entry1) != list :
+         msg += f'input_files.data[{index1}] has python type '
+         msg += str(type(entry1)) + '\n'
+         msg += 'Expected it to have type ' + str( list )
          system_exit(msg)
+      for (index2, entry2) in enumerate(entry1) :
+         if type(entry2) != str :
+            msg += f'input_files.data[{index1}][{index2}] has python type '
+            msg += str(type(entry1)) + '\n'
+            msg += 'Expected it to have type ' + str( str )
+            system_exit(msg)
    #
    # html_theme_options
    table_dict = conf_dict['html_theme_options']
