@@ -94,8 +94,16 @@ def check_input_files(
             return_stderr = True,
          )
          if result.returncode == 0 :
-            file_list_out = result.stdout.split()
             command       = cmd
+            file_list_out = result.stdout
+            if 0 <= file_list_out.find('"')  or 0 <= file_list_out.find("'") :
+               msg  = 'warning: single or double quote in output of '
+               msg += f'the input_files command: {command}\n'
+               msg += 'This feature is not yet supported\n'
+               sys.write(msg)
+               file_list_out == list()
+            else :
+               file_list_out = file_list_out.split()
       if file_list_out != None :
          command = ' '.join(command)
          msg = f'Using following input_files: {command}\n'
