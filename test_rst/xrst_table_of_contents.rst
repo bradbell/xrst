@@ -43,28 +43,29 @@ Table of Contents
 |    :ref:`4.1<add_before_title-title>` If PDF, Add Page Number and Name to Title
 |    :ref:`4.2<add_line_numbers-title>` Add Line Numbers to File Data
 |    :ref:`4.3<auto_file_dev-title>` Create the automatically generated files
-|    :ref:`4.4<check_page_name-title>` Check the rules for a page name
-|    :ref:`4.5<check_syntax_error-title>` Check that an xrst command has been removed
-|    :ref:`4.6<code_cmd_dev-title>` Process the xrst code commands for a page
-|    :ref:`4.7<comment_cmd_dev-title>` Remove all comment commands
-|    :ref:`4.8<create_spell_checker-title>` Create a pyspellchecker object
-|    :ref:`4.9<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.4<check_input_files-title>` Check That Expected xrst Input Files Are Included
+|    :ref:`4.5<check_page_name-title>` Check the rules for a page name
+|    :ref:`4.6<check_syntax_error-title>` Check that an xrst command has been removed
+|    :ref:`4.7<code_cmd_dev-title>` Process the xrst code commands for a page
+|    :ref:`4.8<comment_cmd_dev-title>` Remove all comment commands
+|    :ref:`4.9<create_spell_checker-title>` Create a pyspellchecker object
 |    :ref:`4.10<get_conf_dict-title>` Get Configuration Dictionary
-|    :ref:`4.11<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`4.12<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`4.13<next_heading-title>` Return location of the next heading in a page
-|    :ref:`4.14<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`4.15<process_children-title>` Add child information to a page
-|    :ref:`4.16<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.17<remove_indent-title>` Remove indentation for a page
-|    :ref:`4.18<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.19<rename_group-title>` Rename a Subset of a Group
-|    :ref:`4.20<replace_spell-title>` Replace spelling commands
-|    :ref:`4.21<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`4.22<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.23<start_stop_file-title>` Convert literal command start, stop from text to line numbers
-|    :ref:`4.24<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`4.25<system_exit-title>` Form error message and exit
-|    :ref:`4.26<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`4.27<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`4.28<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`4.11<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.12<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`4.13<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`4.14<next_heading-title>` Return location of the next heading in a page
+|    :ref:`4.15<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`4.16<process_children-title>` Add child information to a page
+|    :ref:`4.17<process_headings-title>` Add labels and index entries for headings
+|    :ref:`4.18<remove_indent-title>` Remove indentation for a page
+|    :ref:`4.19<remove_line_numbers-title>` Remove the number numbers
+|    :ref:`4.20<rename_group-title>` Rename a Subset of a Group
+|    :ref:`4.21<replace_spell-title>` Replace spelling commands
+|    :ref:`4.22<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`4.23<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`4.24<start_stop_file-title>` Convert literal command start, stop from text to line numbers
+|    :ref:`4.25<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`4.26<system_exit-title>` Form error message and exit
+|    :ref:`4.27<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`4.28<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`4.29<toc_cmd_dev-title>` Get file and page names for children of this page

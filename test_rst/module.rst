@@ -23,13 +23,14 @@ The xrst Module
    "add_before_title", :ref:`add_before_title-title`
    "add_line_numbers", :ref:`add_line_numbers-title`
    "auto_file_dev", :ref:`auto_file_dev-title`
+   "check_input_files", :ref:`check_input_files-title`
    "check_page_name", :ref:`check_page_name-title`
    "check_syntax_error", :ref:`check_syntax_error-title`
    "code_cmd_dev", :ref:`code_cmd_dev-title`
    "comment_cmd_dev", :ref:`comment_cmd_dev-title`
    "create_spell_checker", :ref:`create_spell_checker-title`
-   "get_file_info", :ref:`get_file_info-title`
    "get_conf_dict", :ref:`get_conf_dict-title`
+   "get_file_info", :ref:`get_file_info-title`
    "literal_cmd_dev", :ref:`literal_cmd_dev-title`
    "newline_indices", :ref:`newline_indices-title`
    "next_heading", :ref:`next_heading-title`
@@ -56,13 +57,14 @@ The xrst Module
    add_before_title
    add_line_numbers
    auto_file_dev
+   check_input_files
    check_page_name
    check_syntax_error
    code_cmd_dev
    comment_cmd_dev
    create_spell_checker
-   get_file_info
    get_conf_dict
+   get_file_info
    literal_cmd_dev
    newline_indices
    next_heading

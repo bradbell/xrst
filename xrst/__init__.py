@@ -13,13 +13,14 @@
 #  xrst/add_before_title.py
 #  xrst/add_line_numbers.py
 #  xrst/auto_file.py
+#  xrst/check_input_files.py
 #  xrst/check_page_name.py
 #  xrst/check_syntax_error.py
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/create_spell_checker.py
-#  xrst/get_file_info.py
 #  xrst/get_conf_dict.py
+#  xrst/get_file_info.py
 #  xrst/literal_command.py
 #  xrst/newline_indices.py
 #  xrst/next_heading.py
@@ -50,14 +51,15 @@ from .pattern                import pattern
 from .add_before_title       import add_before_title
 from .add_line_numbers       import add_line_numbers
 from .auto_file              import auto_file
+from .check_input_files      import check_input_files
 from .check_page_name        import check_page_name
 from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
-from .get_file_info          import get_file_info
 from .get_conf_dict          import get_conf_dict
+from .get_file_info          import get_file_info
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading

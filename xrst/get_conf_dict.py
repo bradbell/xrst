@@ -21,6 +21,7 @@ default_dict = dict()
    newline
    prolog
    rtd
+   sh
    toml
 }
 
@@ -165,6 +166,45 @@ Example
    xrst.toml
    # BEGIN_ROOT_FILE
    # END_ROOT_FILE
+}
+
+input_files
+***********
+This table is used to list the files that should be include in the
+documentation if they have a :ref:`begin command<begin_cmd-name>`
+for a group in :ref:`run_xrst@group_list` .
+The only value in this table is a list of strings.
+The first string is a program to execute and the other strings
+are the program's command line arguments in order.
+The standard output for this command should be a space separated
+list of file names to be checked.
+If a file name has spaces in it, it should be surrounded by single
+or double quotes.
+The single and double quotes are not part of the file name.
+If this list of strings is empty, no files are checked.
+
+Default
+=======
+{xrst_code toml}
+[input_files]
+data = []
+{xrst_code}
+{xrst_suspend}'''
+default_dict['input_files'] = { 'data' : [] }
+'''{xrst_resume}
+
+Example
+=======
+{xrst_literal
+   xrst.toml
+   # BEGIN_INPUT_FILES
+   # END_INPUT_FILES
+}
+
+input_files.sh
+==============
+{xrst_literal
+   bin/input_files.sh
 }
 
 html_theme_options
@@ -442,6 +482,21 @@ def get_conf_dict(conf_file) :
       if type(value) != str :
          msg += f'root_file.{key} value has python type '
          msg += str(type(value)) + '\n'
+         msg += 'Expected it to have type ' + str( str )
+         system_exit(msg)
+   #
+   # input_files
+   table_dict = conf_dict['input_files']
+   value      = table_dict['data']
+   if type(value) != list :
+         msg += f'input_files.data has python type '
+         msg += str(type(value)) + '\n'
+         msg += 'Expected it to have type ' + str( list )
+         system_exit(msg)
+   for (index, entry) in enumerate(value) :
+      if type(entry) != str :
+         msg += f'input_files.data[{index}] has python type '
+         msg += str(type(entry)) + '\n'
          msg += 'Expected it to have type ' + str( str )
          system_exit(msg)
    #

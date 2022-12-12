@@ -624,6 +624,8 @@ def run_xrst() :
       finfo_stack.append(finfo)
       #
       while 0 < len(finfo_stack) :
+         #
+         # finfo
          # pop first element of stack so that order in tex file and
          # table of contents is correct
          finfo  = finfo_stack.pop(0)
@@ -788,6 +790,13 @@ def run_xrst() :
             # page_name2line_pair, page_name2file_in
             page_name2line_pair[page_name] = line_pair
             page_name2file_in[page_name]   = file_in
+      #
+      # check_input_files
+      if rename_group == None :
+         toc_file_set = set()
+         for finfo_tmp in finfo_done :
+            toc_file_set.add( finfo_tmp['file_in'] )
+         xrst.check_input_files(conf_dict, group_name, toc_file_set)
    #
    # rename_group
    if rename_group != None :

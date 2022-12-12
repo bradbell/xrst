@@ -55,7 +55,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 51-52
+   :lines: 52-53
    :language: toml
 
 .. _conf_file@project_name@Example:
@@ -167,7 +167,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 117-121
+   :lines: 118-122
    :language: toml
 
 .. _conf_file@directory@Example:
@@ -205,7 +205,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 151-152
+   :lines: 152-153
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -220,6 +220,64 @@ Example
 .. literalinclude:: ../../xrst.toml
    :lines: 18-21
    :language: toml
+
+.. meta::
+   :keywords: input_files
+
+.. index:: input_files
+
+.. _conf_file@input_files:
+
+input_files
+***********
+This table is used to list the files that should be include in the
+documentation if they have a :ref:`begin command<begin_cmd-name>`
+for a group in :ref:`run_xrst@group_list` .
+The only value in this table is a list of strings.
+The first string is a program to execute and the other strings
+are the program's command line arguments in order.
+The standard output for this command should be a space separated
+list of file names to be checked.
+If a file name has spaces in it, it should be surrounded by single
+or double quotes.
+The single and double quotes are not part of the file name.
+If this list of strings is empty, no files are checked.
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _conf_file@input_files@Default:
+
+Default
+=======
+
+.. literalinclude:: ../../xrst/get_conf_dict.py
+   :lines: 189-190
+   :language: toml
+
+.. _conf_file@input_files@Example:
+
+Example
+=======
+
+.. literalinclude:: ../../xrst.toml
+   :lines: 25-28
+   :language: toml
+
+.. meta::
+   :keywords: input_files.sh
+
+.. index:: input_files.sh
+
+.. _conf_file@input_files@input_files.sh:
+
+input_files.sh
+==============
+
+.. literalinclude:: ../../bin/input_files.sh
+   :language: sh
 
 .. meta::
    :keywords: html_theme_options
@@ -252,7 +310,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 186-191
+   :lines: 226-231
    :language: toml
 
 .. _conf_file@html_theme_options@Example:
@@ -261,7 +319,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 25-31
+   :lines: 32-38
    :language: toml
 
 .. meta::
@@ -333,7 +391,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 246-249
+   :lines: 286-289
    :language: toml
 
 .. _conf_file@include_all@Example:
@@ -342,7 +400,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 35-44
+   :lines: 42-51
    :language: toml
 
 .. meta::
@@ -372,7 +430,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 280-281
+   :lines: 320-321
    :language: toml
 
 .. _conf_file@project_dictionary@Example:
@@ -381,7 +439,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 48-64
+   :lines: 55-71
    :language: toml
 
 .. meta::
@@ -418,7 +476,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 314-315
+   :lines: 354-355
    :language: toml
 
 .. _conf_file@not_in_index@Example:
@@ -427,5 +485,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 68-97
+   :lines: 75-104
    :language: toml

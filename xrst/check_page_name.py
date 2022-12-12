@@ -56,7 +56,7 @@ def check_page_name(page_name, file_name, m_obj, data) :
    #
    m_page_name = re.search('[._A-Za-z0-9]+', page_name)
    if m_page_name.group(0) != page_name :
-      msg  = f'in begin comamnd page_name = "{page_name}"'
+      msg  = f'begin command: page_name = "{page_name}"'
       msg += '\nIt must be non-empty and only contain the following'
       msg += ' characters: ., _, A-Z, a-z, 0-9'
       xrst.system_exit(msg,

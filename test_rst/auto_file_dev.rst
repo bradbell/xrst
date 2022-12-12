@@ -28,8 +28,7 @@ Create the automatically generated files
 
 conf_dict
 *********
-is a python dictionary representation of the xrst.toml file.
-(It is empty if there is no such file).
+is a python dictionary representation of the configuration file.
 
 .. meta::
    :keywords: rst_dir
@@ -157,5 +156,5 @@ rst_dir/xrst_root_doc.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 148-155
+   :lines: 146-153
    :language: py

@@ -77,7 +77,6 @@ root_doc = 'xrst_root_doc'
 #     genindex
 #     pinfo
 #     tmp
-#     toml
 # }
 # {xrst_comment_ch #}
 #
@@ -86,8 +85,7 @@ root_doc = 'xrst_root_doc'
 #
 # conf_dict
 # *********
-# is a python dictionary representation of the xrst.toml file.
-# (It is empty if there is no such file).
+# is a python dictionary representation of the configuration file.
 #
 # rst_dir
 # =======

@@ -20,7 +20,14 @@ default = 'example/example.xrst'
 user    = 'user/user.xrst'
 dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
-#
+# -----------------------------------------------------------------------------
+# BEGIN_INPUT_FILES
+[input_files]
+data = [
+   'bin/input_files.sh'
+]
+# END_INPUT_FILES
+# -----------------------------------------------------------------------------
 # BEGIN_HTML_THEME_OPTIONS
 # This is same as the default and only used as an example
 [html_theme_options.sphinx_book_theme]

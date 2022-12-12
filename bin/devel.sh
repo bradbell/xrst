@@ -28,6 +28,7 @@ ignore_files='
    .gitignore
    batch_edit.sed
    bin/devel.sh
+   bin/input_files.sh
    gpl-3.0.txt
    readme.md
    rst/
