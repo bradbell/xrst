@@ -55,7 +55,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 52-53
+   :lines: 53-54
    :language: toml
 
 .. _conf_file@project_name@Example:
@@ -167,7 +167,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 118-122
+   :lines: 119-123
    :language: toml
 
 .. _conf_file@directory@Example:
@@ -205,7 +205,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 152-153
+   :lines: 153-154
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -245,8 +245,9 @@ or double quotes.
 The single and double quotes are not part of the file name.
 If this list of strings is empty, no files are checked.
 
-Each program command is tried in order,
-the frist to return without an error is used for the list of files.
+Each program is execute, in order, with the *project_directory*
+as the current working directory.
+The frist program to return without an error is used for the list of files.
 The intention here is that different programs
 may be intended for different systems.
 
@@ -267,7 +268,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 202-203
+   :lines: 204-207
    :language: toml
 
 .. _conf_file@input_files@Example:
@@ -323,7 +324,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 239-244
+   :lines: 245-250
    :language: toml
 
 .. _conf_file@html_theme_options@Example:
@@ -404,7 +405,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 299-302
+   :lines: 305-308
    :language: toml
 
 .. _conf_file@include_all@Example:
@@ -443,7 +444,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 333-334
+   :lines: 339-340
    :language: toml
 
 .. _conf_file@project_dictionary@Example:
@@ -489,7 +490,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 367-368
+   :lines: 373-374
    :language: toml
 
 .. _conf_file@not_in_index@Example:

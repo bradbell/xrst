@@ -22,7 +22,7 @@ Heading: Steps
    contents of this example file
    (project.xrst is the default root level input file).
 
-#. Create an empty file toml file called ``xrst.toml``
+#. Create an empty file called ``xrst.toml``
    in the working directory
    (xrst.toml is the default configure file).
 
@@ -30,8 +30,17 @@ Heading: Steps
 
       xrst
 
+
 #. Use your web browser to open the file ``html/index.html`` .
    This location is relative to your working directory.
+
+#. You should have gotten a warning that none of the input_files commands
+   succeeded. You can fix this by putting the text below text in your
+   xrst.toml file and then re-executing the xrst command::
+
+      [input_files]
+      data = [ [] ]
+
 
 Heading: Links to this Page
 ***************************

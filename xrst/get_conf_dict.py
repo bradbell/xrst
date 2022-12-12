@@ -17,6 +17,7 @@ default_dict = dict()
    booleans
    conf
    epilog
+   ls
    macros
    newline
    prolog
@@ -185,8 +186,9 @@ or double quotes.
 The single and double quotes are not part of the file name.
 If this list of strings is empty, no files are checked.
 
-Each program command is tried in order,
-the frist to return without an error is used for the list of files.
+Each program is execute, in order, with the *project_directory*
+as the current working directory.
+The frist program to return without an error is used for the list of files.
 The intention here is that different programs
 may be intended for different systems.
 
@@ -200,10 +202,14 @@ Default
 =======
 {xrst_code toml}
 [input_files]
-data = []
+data = [
+   [ 'git', 'ls-files' ]
+]
 {xrst_code}
 {xrst_suspend}'''
-default_dict['input_files'] = { 'data' : [] }
+default_dict['input_files'] = { 'data' : [
+   [ 'git', 'ls-files'] ,
+] }
 '''{xrst_resume}
 
 Example
@@ -304,7 +310,7 @@ latex_macro  = []
 {xrst_suspend}'''
 default_dict['include_all'] = {
       'rst_epilog'   : ''     ,
-      'rst_epilog'   : ''     ,
+      'rst_prolog'   : ''     ,
       'latex_macro'  : list() ,
 }
 '''{xrst_resume}

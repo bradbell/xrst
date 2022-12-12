@@ -15,6 +15,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    genindex
    len
    literalinclude
+   ls
    macros
    matlab
    mm
@@ -41,8 +42,14 @@ mm-dd
 
 12-12
 =====
-Remove dependency on ``import dismod_at``.
-This was a mistake added when input_files was added to the configuration files yesterday.
+#. Remove dependency on ``import dismod_at``.
+   This was a mistake added when input_files was added to the
+   configuration files yesterday.
+#. Fix default value of :ref:`conf_file@input_files` and
+   :ref:`conf_file@include_all` .
+#. Make ``git ls-files`` the default input_files command and
+   add discussion of warning about input_files in
+   :ref:`get_started-name` example.
 
 12-11
 =====
