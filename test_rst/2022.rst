@@ -29,6 +29,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@12-12:
+
+12-12
+=====
+Remove dependency on ``import dismod_at``.
+This was a mistake added when input_files was added to the configuration files yesterday.
+
 .. _2022@mm-dd@12-11:
 
 12-11

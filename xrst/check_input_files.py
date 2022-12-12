@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 import re
 import sys
-import dismod_at
+import subprocess
 # -----------------------------------------------------------------------------
 # {xrst_begin check_input_files dev}
 # {xrst_spell
@@ -87,13 +87,18 @@ def check_input_files(
       file_list_out = None
       command       = None
       for cmd in input_files :
-         result  = dismod_at.system_command_prc(
-            command       = cmd,
-            print_command = False,
-            return_stdout = True,
-            return_stderr = True,
-         )
-         if result.returncode == 0 :
+         try :
+            result  = subprocess.run(
+               cmd,
+               stdout   = subprocess.PIPE,
+               stderr   = subprocess.PIPE,
+               encoding = 'utf-8',
+            )
+         except:
+            result = None
+         if result == None :
+            pass
+         elif result.returncode == 0 :
             command       = cmd
             file_list_out = result.stdout
             if 0 <= file_list_out.find('"')  or 0 <= file_list_out.find("'") :
