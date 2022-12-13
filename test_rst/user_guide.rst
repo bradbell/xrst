@@ -24,7 +24,7 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@Version 2022.12.12:
+.. _user_guide@Version 2022.12.13:
 
 Version 2022.12.13
 ******************
@@ -38,7 +38,7 @@ Version 2022.12.13
 
 Git Repository
 **************
-https://github.com/bradbell/xrst
+`<https://github.com/bradbell/xrst>`_
 
 .. meta::
    :keywords: pip, install
