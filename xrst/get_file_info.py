@@ -96,12 +96,12 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # Arguments
 # *********
 #
-# page_info
-# =========
+# all_page_info
+# =============
 # a list of with information for pages that came before this file.
-# For each list index, page_info[index] is a dict and
-# page_info[index]['page_name'] is an str
-# containing the name of a pager that came before this file.
+# For each list index, all_page_info[index] is a dict and
+# all_page_info[index]['page_name'] is an str
+# containing the name of a page that came before this file.
 # This includes pages for all the groups that came before this group.
 #
 # group_name
@@ -120,9 +120,10 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # Returns
 # *******
 #
-# file_info
-# =========
-# The value file_info is a list of dict. Each dict contains the information
+# file_page_info
+# ==============
+# The value file_page_info is a list of dict.
+# Each dict contains the information
 # for one page in this file. We use info below for one element of the list:
 #
 # info['page_name']
@@ -165,14 +166,14 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #
 # {xrst_code py}
 def get_file_info(
-      page_info,
+      all_page_info,
       group_name,
       parent_file,
       file_in,
 ) :
-   assert type(page_info) == list
-   if 0 < len(page_info) :
-      type( page_info[0] ) == dict
+   assert type(all_page_info) == list
+   if 0 < len(all_page_info) :
+      type( all_page_info[0] ) == dict
    assert type(group_name) == str
    assert group_name != ''
    assert type(parent_file) == str or parent_file == None
@@ -192,8 +193,8 @@ def get_file_info(
    # file_data
    file_data = xrst.add_line_numbers(file_data)
    #
-   # file_info
-   file_info = list()
+   # file_page_info
+   file_page_info = list()
    #
    # parent_page_name
    parent_page_name = None
@@ -264,7 +265,7 @@ def get_file_info(
          )
          #
          # check if page_name appears multiple times in this file
-         for info in file_info :
+         for info in file_page_info :
             previous_page_name = info['page_name']
             if page_name.lower() == previous_page_name.lower() :
                msg  = 'Lower case version of two page names are equal.\n'
@@ -278,7 +279,7 @@ def get_file_info(
                )
          #
          # check if page_name appears in another file
-         for info in page_info :
+         for info in all_page_info :
             previous_page_name = info['page_name']
             if page_name.lower() == previous_page_name.lower() :
                msg  = 'Lower case version of two page names are equal.\n'
@@ -291,7 +292,7 @@ def get_file_info(
          #
          # check if parent pages is the first page in this file
          if is_parent :
-            if len(file_info) != 0 :
+            if len(file_page_info) != 0 :
                msg  = 'xrst_begin_parent'
                msg += ' is not the first begin command in this file'
                xrst.system_exit(msg,
@@ -355,8 +356,8 @@ def get_file_info(
             pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
             page_data   = pattern_ch.sub(r'\n', page_data)
          #
-         # file_info
-         file_info.append( {
+         # file_page_info
+         file_page_info.append( {
             'page_name'    : page_name,
             'page_data'    : page_data,
             'is_parent'    : is_parent,
@@ -368,7 +369,7 @@ def get_file_info(
          # place to start search for next page
          data_index = m_end.end()
    #
-   if parent_page_name != None and len(file_info) < 2 :
+   if parent_page_name != None and len(file_page_info) < 2 :
       msg  = 'begin_parent command appears with '
       if group_name == '' :
          msg += 'the empty group name\n'
@@ -392,8 +393,8 @@ def get_file_info(
       )
    #
    # BEGIN_return
-   assert type(file_info) == list
-   assert type(file_info[0]) == dict
+   assert type(file_page_info) == list
+   assert type(file_page_info[0]) == dict
    #
-   return file_info
+   return file_page_info
    # END_return

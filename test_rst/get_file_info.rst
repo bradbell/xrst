@@ -30,18 +30,18 @@ Arguments
 *********
 
 .. meta::
-   :keywords: page_info
+   :keywords: all_page_info
 
-.. index:: page_info
+.. index:: all_page_info
 
-.. _get_file_info@Arguments@page_info:
+.. _get_file_info@Arguments@all_page_info:
 
-page_info
-=========
+all_page_info
+=============
 a list of with information for pages that came before this file.
-For each list index, page_info[index] is a dict and
-page_info[index]['page_name'] is an str
-containing the name of a pager that came before this file.
+For each list index, all_page_info[index] is a dict and
+all_page_info[index]['page_name'] is an str
+containing the name of a page that came before this file.
 This includes pages for all the groups that came before this group.
 
 .. meta::
@@ -89,15 +89,16 @@ Returns
 *******
 
 .. meta::
-   :keywords: file_info
+   :keywords: file_page_info
 
-.. index:: file_info
+.. index:: file_page_info
 
-.. _get_file_info@Returns@file_info:
+.. _get_file_info@Returns@file_page_info:
 
-file_info
-=========
-The value file_info is a list of dict. Each dict contains the information
+file_page_info
+==============
+The value file_page_info is a list of dict.
+Each dict contains the information
 for one page in this file. We use info below for one element of the list:
 
 .. meta::
@@ -105,7 +106,7 @@ for one page in this file. We use info below for one element of the list:
 
 .. index:: info['page_name']
 
-.. _get_file_info@Returns@file_info@info['page_name']:
+.. _get_file_info@Returns@file_page_info@info['page_name']:
 
 info['page_name']
 -----------------
@@ -116,7 +117,7 @@ is an str containing the name of a page in this file.
 
 .. index:: info['page_data']
 
-.. _get_file_info@Returns@file_info@info['page_data']:
+.. _get_file_info@Returns@file_page_info@info['page_data']:
 
 info['page_data']
 -----------------
@@ -140,7 +141,7 @@ is an str containing the data for this page.
 
 .. index:: info['is_parent']
 
-.. _get_file_info@Returns@file_info@info['is_parent']:
+.. _get_file_info@Returns@file_page_info@info['is_parent']:
 
 info['is_parent']
 -----------------
@@ -155,7 +156,7 @@ i.e., len(file_info) >= 2.
 
 .. index:: info['is_child']
 
-.. _get_file_info@Returns@file_info@info['is_child']:
+.. _get_file_info@Returns@file_page_info@info['is_child']:
 
 info['is_child']
 ----------------
@@ -167,9 +168,9 @@ is the line number in *file_in* where this page begins; i.e.,
 the line number where the begin command is located.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 167-179
+   :lines: 168-180
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 395-398
+   :lines: 396-399
    :language: py
