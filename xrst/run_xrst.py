@@ -649,7 +649,7 @@ def run_xrst() :
          assert os.path.isfile(file_in)
          #
          # get xrst docuemntation in this file
-         sinfo_file_in = xrst.get_file_info(
+         file_page_info = xrst.get_file_info(
             all_page_info,
             old_group_name,
             parent_file,
@@ -659,29 +659,29 @@ def run_xrst() :
          # root_page_list
          if finfo['parent_file'] == None :
             assert file_in == root_file[new_group_name]
-            if sinfo_file_in[0]['is_parent'] :
+            if file_page_info[0]['is_parent'] :
                n_page = 1
             else :
-               n_page = len( sinfo_file_in )
+               n_page = len( file_page_info )
             for i_page in range( n_page ) :
-               page_name = sinfo_file_in[i_page]['page_name']
+               page_name = file_page_info[i_page]['page_name']
                root_page_list.append(page_name)
          #
          # parent_page_file_in
          # index in all_page_info of parent page for this file
          parent_page_file_in = None
-         if sinfo_file_in[0]['is_parent'] :
+         if file_page_info[0]['is_parent'] :
             parent_page_file_in = len(all_page_info)
          #
          # add this files pages to all_page_info
-         for i_page in range( len(sinfo_file_in) ) :
+         for i_page in range( len(file_page_info) ) :
             # ------------------------------------------------------------
             # page_name, page_data, is_parent, begin_line
-            page_name  = sinfo_file_in[i_page]['page_name']
-            page_data  = sinfo_file_in[i_page]['page_data']
-            is_parent  = sinfo_file_in[i_page]['is_parent']
-            is_child   = sinfo_file_in[i_page]['is_child']
-            begin_line = sinfo_file_in[i_page]['begin_line']
+            page_name  = file_page_info[i_page]['page_name']
+            page_data  = file_page_info[i_page]['page_data']
+            is_parent  = file_page_info[i_page]['is_parent']
+            is_child   = file_page_info[i_page]['is_child']
+            begin_line = file_page_info[i_page]['begin_line']
             #
             # parent_page
             if is_parent or parent_page_file_in is None :
@@ -765,10 +765,10 @@ def run_xrst() :
             # page_name for each of the children of the current page
             list_children = child_page_list
             if is_parent :
-               for i in range( len(sinfo_file_in) ) :
+               for i in range( len(file_page_info) ) :
                   if i != i_page :
                      list_children.append(
-                        sinfo_file_in[i]['page_name']
+                        file_page_info[i]['page_name']
                      )
             # -------------------------------------------------------------
             # process children
