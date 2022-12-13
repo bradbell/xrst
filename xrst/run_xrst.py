@@ -573,9 +573,9 @@ def run_xrst() :
    # project_name
    project_name = conf_dict['project_name']['data']
    #
-   # pinfo_list
+   # all_page_info
    # This list accumulates over all the group names
-   pinfo_list       = list()
+   all_page_info  = list()
    #
    # root_page_list
    # Each group has a root secion (in root_file) at the top if its tree.
@@ -650,7 +650,7 @@ def run_xrst() :
          #
          # get xrst docuemntation in this file
          sinfo_file_in = xrst.get_file_info(
-            pinfo_list,
+            all_page_info,
             old_group_name,
             parent_file,
             file_in,
@@ -668,12 +668,12 @@ def run_xrst() :
                root_page_list.append(page_name)
          #
          # parent_page_file_in
-         # index in pinfo_list of parent page for this file
+         # index in all_page_info of parent page for this file
          parent_page_file_in = None
          if sinfo_file_in[0]['is_parent'] :
-            parent_page_file_in = len(pinfo_list)
+            parent_page_file_in = len(all_page_info)
          #
-         # add this files pages to pinfo_list
+         # add this files pages to all_page_info
          for i_page in range( len(sinfo_file_in) ) :
             # ------------------------------------------------------------
             # page_name, page_data, is_parent, begin_line
@@ -689,8 +689,8 @@ def run_xrst() :
             else :
                parent_page = parent_page_file_in
             #
-            # pinfo_list
-            pinfo_list.append( {
+            # all_page_info
+            all_page_info.append( {
                'page_name'      : page_name,
                'file_in'        : file_in,
                'parent_page'    : parent_page,
@@ -722,7 +722,7 @@ def run_xrst() :
             )
             #
             # page_index, finfo_stack
-            page_index = len(pinfo_list) - 1
+            page_index = len(all_page_info) - 1
             for file_tmp in child_file :
                finfo_stack.append( {
                   'file_in'        : file_tmp,
@@ -748,7 +748,7 @@ def run_xrst() :
             # ------------------------------------------------------------
             # process headings
             #
-            # pseudo_heading, pinfo_list
+            # pseudo_heading, all_page_info
             page_data, page_title, pseudo_heading = \
             xrst.process_headings(
                local_toc,
@@ -757,9 +757,9 @@ def run_xrst() :
                page_name,
                not_in_index_list,
             )
-            # pinfo_list
+            # all_page_info
             # page title is used by table_of_contents
-            pinfo_list[page_index]['page_title'] = page_title
+            all_page_info[page_index]['page_title'] = page_title
             # -------------------------------------------------------------
             # list_children
             # page_name for each of the children of the current page
@@ -827,7 +827,7 @@ def run_xrst() :
    #
    # auto_file
    xrst.auto_file(
-      conf_dict, html_theme, target, pinfo_list, root_page_list
+      conf_dict, html_theme, target, all_page_info, root_page_list
    )
    #
    # -------------------------------------------------------------------------

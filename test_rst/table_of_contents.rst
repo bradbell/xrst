@@ -79,16 +79,16 @@ If target is 'html',
 \\n{xrst_before_title} is removed without other changes.
 
 .. meta::
-   :keywords: pinfo_list
+   :keywords: all_page_info
 
-.. index:: pinfo_list
+.. index:: all_page_info
 
-.. _table_of_contents@Arguments@pinfo_list:
+.. _table_of_contents@Arguments@all_page_info:
 
-pinfo_list
-==========
+all_page_info
+=============
 is a list with length equal to the number of pages.
-The value pinfo_list[page_index] is a dictionary for this page
+The value all_page_info[page_index] is a dictionary for this page
 with the following key, value pairs (all the keys are strings):
 
 ..  csv-table::
@@ -96,7 +96,7 @@ with the following key, value pairs (all the keys are strings):
 
     page_name, contains the name of this page, str
     page_title,  contains the title for this page, str
-    parent_page, index in pinfo_list for the parent of this page, int
+    parent_page, index in all_page_info for the parent of this page, int
     in_parent_file, is this page in same input file as its parent, bool
 
 .. meta::
@@ -136,9 +136,9 @@ The title Table of Contents and the label xrst_table_of_contents
 are placed at the beginning of the of content.
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 208-217
+   :lines: 207-216
    :language: py
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 248-249
+   :lines: 247-248
    :language: py

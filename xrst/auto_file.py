@@ -75,7 +75,6 @@ root_doc = 'xrst_root_doc'
 #     dict
 #     dir
 #     genindex
-#     pinfo
 #     tmp
 # }
 # {xrst_comment_ch #}
@@ -105,8 +104,8 @@ root_doc = 'xrst_root_doc'
 # ******
 # is html or tex
 #
-# pinfo_list
-# **********
+# all_page_info
+# *************
 # is a list with length equal to the number of pages.
 # with the following key, value pairs (all the keys are strings):
 #
@@ -115,7 +114,7 @@ root_doc = 'xrst_root_doc'
 #
 #     page_name, (str) containing the name of this page.
 #     page_title,  (str) containing the title for this page.
-#     parent_page, (int) index in pinfo_list for the parent of this page.
+#     parent_page, (int) index in all_page_info for the parent of this page.
 #     in_parent_file, (bool) is this page in same input file as its parent.
 #
 # root_page_list
@@ -144,12 +143,12 @@ root_doc = 'xrst_root_doc'
 #
 # {xrst_code py}
 def auto_file(
-   conf_dict, html_theme, target, pinfo_list, root_page_list
+   conf_dict, html_theme, target, all_page_info, root_page_list
    ) :
    assert type(conf_dict) == dict
    assert type(html_theme) == str
    assert type(target) == str
-   assert type(pinfo_list) == list
+   assert type(all_page_info) == list
    assert type(root_page_list) == list
    # {xrst_code}
    # {xrst_end auto_file_dev}
@@ -168,7 +167,7 @@ def auto_file(
    #
    # file_data
    file_data     = xrst.table_of_contents(
-      tmp_dir, target, pinfo_list, root_page_list
+      tmp_dir, target, all_page_info, root_page_list
    )
    #
    # xrst_table_of_contents.rst

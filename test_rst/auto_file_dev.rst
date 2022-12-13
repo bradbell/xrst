@@ -77,14 +77,14 @@ target
 is html or tex
 
 .. meta::
-   :keywords: pinfo_list
+   :keywords: all_page_info
 
-.. index:: pinfo_list
+.. index:: all_page_info
 
-.. _auto_file_dev@pinfo_list:
+.. _auto_file_dev@all_page_info:
 
-pinfo_list
-**********
+all_page_info
+*************
 is a list with length equal to the number of pages.
 with the following key, value pairs (all the keys are strings):
 
@@ -93,7 +93,7 @@ with the following key, value pairs (all the keys are strings):
 
     page_name, (str) containing the name of this page.
     page_title,  (str) containing the title for this page.
-    parent_page, (int) index in pinfo_list for the parent of this page.
+    parent_page, (int) index in all_page_info for the parent of this page.
     in_parent_file, (bool) is this page in same input file as its parent.
 
 .. meta::
@@ -156,5 +156,5 @@ rst_dir/xrst_root_doc.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 146-153
+   :lines: 145-152
    :language: py

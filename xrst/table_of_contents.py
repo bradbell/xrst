@@ -4,8 +4,8 @@
 import xrst
 # ----------------------------------------------------------------------------
 # page_index =
-def page_name2index(pinfo_list, page_name) :
-   for (page_index, info) in enumerate(pinfo_list) :
+def page_name2index(all_page_info, page_name) :
+   for (page_index, info) in enumerate(all_page_info) :
       if info['page_name'] == page_name :
          return page_index
    return None
@@ -38,11 +38,11 @@ def page_name2index(pinfo_list, page_name) :
 # contents tree.
 #
 # page_index:
-# is the index of this page in pinfo_list
+# is the index of this page in all_page_info
 #
-# pinfo_list:
+# all_page_info:
 # is a list with length equal to the number of pages.
-# The value pinfo_list[page_index] is a dictionary for this page
+# The value all_page_info[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings:
 # key            value
 # page_name   a str continaing the name of this page.
@@ -56,19 +56,19 @@ def page_name2index(pinfo_list, page_name) :
 #
 # content =
 def page_table_of_contents(
-   tmp_dir, target, count, pinfo_list, page_index
+   tmp_dir, target, count, all_page_info, page_index
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
    assert type(count) == list
-   assert type(pinfo_list) == list
+   assert type(all_page_info) == list
    assert type(page_index) == int
    #
    assert target in [ 'html', 'tex' ]
    #
    # page_name, page_title
-   page_name   = pinfo_list[page_index]['page_name']
-   page_title  = pinfo_list[page_index]['page_title']
+   page_name   = all_page_info[page_index]['page_name']
+   page_title  = all_page_info[page_index]['page_title']
    #
    # page_number, content
    page_number = ''
@@ -115,9 +115,9 @@ def page_table_of_contents(
    # in_parent_file_list, in_toc_cmd_list
    in_parent_file_list = list()
    in_toc_cmd_list   = list()
-   for child_index in range( len( pinfo_list ) ) :
-      if pinfo_list[child_index]['parent_page'] == page_index :
-         if pinfo_list[child_index]['in_parent_file'] :
+   for child_index in range( len( all_page_info ) ) :
+      if all_page_info[child_index]['parent_page'] == page_index :
+         if all_page_info[child_index]['in_parent_file'] :
             in_parent_file_list.append(child_index)
          else :
             in_toc_cmd_list.append(child_index)
@@ -130,7 +130,7 @@ def page_table_of_contents(
       # child_count
       child_count[-1] += 1
       child_content += page_table_of_contents(
-         tmp_dir, target, child_count, pinfo_list, child_index
+         tmp_dir, target, child_count, all_page_info, child_index
       )
    #
    # content
@@ -143,7 +143,6 @@ def page_table_of_contents(
 #     bool
 #     dict
 #     dir
-#     pinfo
 #     tmp
 # }
 # {xrst_comment_ch #}
@@ -175,10 +174,10 @@ def page_table_of_contents(
 # If target is 'html',
 # \\n{xrst_before_title} is removed without other changes.
 #
-# pinfo_list
-# ==========
+# all_page_info
+# =============
 # is a list with length equal to the number of pages.
-# The value pinfo_list[page_index] is a dictionary for this page
+# The value all_page_info[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings):
 #
 # ..  csv-table::
@@ -186,7 +185,7 @@ def page_table_of_contents(
 #
 #     page_name, contains the name of this page, str
 #     page_title,  contains the title for this page, str
-#     parent_page, index in pinfo_list for the parent of this page, int
+#     parent_page, index in all_page_info for the parent of this page, int
 #     in_parent_file, is this page in same input file as its parent, bool
 #
 # root_page_list
@@ -206,13 +205,13 @@ def page_table_of_contents(
 #
 # {xrst_code py}
 def table_of_contents(
-   tmp_dir, target, pinfo_list, root_page_list
+   tmp_dir, target, all_page_info, root_page_list
 ) :
    assert type(tmp_dir) == str
    assert type(target) == str
    assert target in [ 'html', 'tex']
-   assert type(pinfo_list) == list
-   assert type(pinfo_list[0]) == dict
+   assert type(all_page_info) == list
+   assert type(all_page_info[0]) == dict
    assert type(root_page_list) == list
    assert type(root_page_list[0]) == str
    # {xrst_code}
@@ -231,17 +230,17 @@ def table_of_contents(
    if len(root_page_list) == 1 :
       count = []
       page_name  = root_page_list[0]
-      page_index = page_name2index(pinfo_list, page_name)
+      page_index = page_name2index(all_page_info, page_name)
       content += page_table_of_contents(
-         tmp_dir, target, count, pinfo_list, page_index
+         tmp_dir, target, count, all_page_info, page_index
       )
    else :
       count = [0]
       for page_name in  root_page_list :
-         page_index = page_name2index(pinfo_list, page_name)
+         page_index = page_name2index(all_page_info, page_name)
          count[0]     += 1
          content      += page_table_of_contents(
-            tmp_dir, target, count, pinfo_list, page_index
+            tmp_dir, target, count, all_page_info, page_index
          )
    #
    # BEGIN_return

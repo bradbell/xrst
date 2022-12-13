@@ -30,4 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|file_ptr|file_obj|g
+s|pinfo_list|all_page_info|g
