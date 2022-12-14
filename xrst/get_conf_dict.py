@@ -12,7 +12,7 @@ def system_exit(msg) :
 default_dict = dict()
 #
 '''
-{xrst_begin conf_file user}
+{xrst_begin config_file user}
 {xrst_spell
    booleans
    conf
@@ -33,15 +33,17 @@ Configuration File for xrst
 A `toml file`_ is used to configure xrst.
 
 #. The location of this file is specified by the xrst
-   :ref:`run_xrst@conf_file` argument.
+   :ref:`run_xrst@config_file` argument.
 #. This file is a sequence of toml tables,
    if a table can only have one entry, the entry is named data.
-#. Each table, has a default value that is used when the table
+#. Each table has a default value that is used when the table
    is not present in the toml file.
-#. All of the entries in the table have the same type
+#. All of the entries in a table have the same type
    as its corresponding default.
    If an entry has components, all of the comments have the same
    type as the default components.
+   There is one exception to this rule; see
+   :ref:`config_file@html_theme_options` .
 
 project_name
 ************
@@ -144,7 +146,7 @@ root_file
 This table maps each :ref:`begin_cmd@group_name`
 to its root (top) xrst input file.
 These file names are relative to the
-:ref:`conf_file@directory@project_directory` .
+:ref:`config_file@directory@project_directory` .
 Multiple groups can use the same root file.
 
 Default
@@ -385,7 +387,7 @@ Example
    # END_NOT_IN_INDEX
 }
 
-{xrst_end conf_file}
+{xrst_end config_file}
 -----------------------------------------------------------------------------
 '''
 def iterable2string(iterable) :
@@ -401,6 +403,7 @@ def iterable2string(iterable) :
 # {xrst_comment_ch #}
 # {xrst_spell
 #     conf
+#     config
 #     toml
 #     dict
 # }
@@ -411,9 +414,9 @@ def iterable2string(iterable) :
 # the *project_directory* (because it determines the project directory)
 # so it cannot use the xrst :ref:`system_exit-name` .
 #
-# conf_file
-# *********
-# is the location of the :ref:`run_xrst@conf_file` specified on
+# config_file
+# ***********
+# is the location of the :ref:`run_xrst@config_file` specified on
 # the xrst command line.
 #
 # conf_dict
@@ -425,8 +428,8 @@ def iterable2string(iterable) :
 #
 # {xrst_code py}
 # conf_dict =
-def get_conf_dict(conf_file) :
-   assert type(conf_file) == str
+def get_conf_dict(config_file) :
+   assert type(config_file) == str
    # {xrst_code}
    # {xrst_literal
    #     BEGIN_RETURN
@@ -435,14 +438,14 @@ def get_conf_dict(conf_file) :
    # {xrst_end get_conf_dict}
    #
    # msg
-   msg  = f'conf_file = {conf_file}\n'
+   msg  = f'config_file = {config_file}\n'
    #
    # conf_dict
-   file_obj  = open(conf_file, 'r')
+   file_obj  = open(config_file, 'r')
    file_data = file_obj.read()
    conf_dict = toml.loads(file_data)
    #
-   # check top level keys in conf_file
+   # check top level keys in config_file
    for table in conf_dict :
       if table not in default_dict :
          msg += 'This file has the unexpected table:\n'

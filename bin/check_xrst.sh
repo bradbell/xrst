@@ -47,7 +47,7 @@ do
       echo_eval rm -r rst
    fi
    args='--local_toc'
-   args="$args --conf_file xrst.toml"
+   args="$args --config_file xrst.toml"
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
    echo "python -m xrst $args"

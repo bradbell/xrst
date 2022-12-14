@@ -74,8 +74,8 @@ for error reporting.
 
 rst2project_dir
 ===============
-is a relative path from the :ref:`conf_file@directory@rst_directory`
-to the :ref:`conf_file@directory@project_directory` .
+is a relative path from the :ref:`config_file@directory@rst_directory`
+to the :ref:`config_file@directory@project_directory` .
 
 .. meta::
    :keywords: returns

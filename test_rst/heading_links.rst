@@ -175,7 +175,7 @@ Discussion
 #. Including all the levels above a heading in its label may seem verbose,
    but it avoids ambiguity when the same heading appears twice in one page.
    For example, this link to the project name
-   :ref:`conf_file@project_name@Default`
+   :ref:`config_file@project_name@Default`
    which is one of many Default headings on that page.
    This also helps keep the links up to date.
    If a heading changes, all the links to that heading, and all the

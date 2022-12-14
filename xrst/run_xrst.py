@@ -5,7 +5,7 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
-   conf
+   config
    furo
    github
    grep
@@ -24,7 +24,7 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
-| |tab| [ ``--conf_file``     *conf_file* ] \\
+| |tab| [ ``--config_file``   *config_file* ] \\
 | |tab| [ ``--html_theme``    *html_theme* ] \\
 | |tab| [ ``--target``        *target* ]  \\
 | |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
@@ -47,17 +47,17 @@ The page name and page title are not in this table of contents.
 Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
 
-conf_file
-*********
-The command line argument *conf_file* specifies the location of the
-:ref:`conf_file-name` for this project.
+config_file
+***********
+The command line argument *config_file* specifies the location of the
+:ref:`config_file-name` for this project.
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst-name>` is run.
 
 xrst.toml
 =========
-If *conf_file* is not present on the command line,
-the default value ``xrst.toml`` is used for *conf_file* .
+If *config_file* is not present on the command line,
+the default value ``xrst.toml`` is used for *config_file* .
 
 html_theme
 **********
@@ -69,7 +69,7 @@ The default value for *html_theme* is ``furo`` .
 Theme Choices
 =============
 The following is a list of some themes that work well with the
-default settings in :ref:`conf_file@html_theme_options` .
+default settings in :ref:`config_file@html_theme_options` .
 If you have a theme together with html_theme_options
 that work well with xrst,
 please post an issue on github so that it can be added to the list below.
@@ -97,15 +97,15 @@ target
 ******
 The optional command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
-Note thet :ref:`conf_file@directory@html_directory` and
-:ref:`conf_file@directory@tex_directory` will determine the location
+Note thet :ref:`config_file@directory@html_directory` and
+:ref:`config_file@directory@tex_directory` will determine the location
 of the corresponding output files.
 The default value for *target* is ``html`` .
 
 tex
 ===
 If you choose this target, xrst will create the file
-*project_name*\ ``.tex`` in the :ref:`conf_file@directory@tex_directory` .
+*project_name*\ ``.tex`` in the :ref:`config_file@directory@tex_directory` .
 There are two reasons to build this file.
 One is to create the file *project_name*\ ``.pdf``
 which is a pdf version of the documentation.
@@ -113,12 +113,12 @@ The other is to test for errors in the latex sections of the documentation.
 (MathJax displays latex errors in red, but one has to check
 every page that has latex to find all the errors this way.)
 Once you have built *project_name*\ ``.tex``, the following command
-executed in :ref:`conf_file@directory@project_directory`
+executed in :ref:`config_file@directory@project_directory`
 will accomplish both purposes:
 
    make -C *tex_directory* *project_name*\ ``.pdf``
 
-#. The :ref:`conf_file@project_name` is specified in the configuration file.
+#. The :ref:`config_file@project_name` is specified in the configuration file.
 #. The resulting output file will be *project*\ ``.pdf`` in the
    *tex_directory* .
 #. If a Latex error is encountered, the pdf build will stop with a message
@@ -150,7 +150,7 @@ to include in the output using this optional argument.
 #. The default value for *group_list* is ``default`` .
 
 For each group name in the *group_list*
-there must be an entry in :ref:`conf_file@root_file` specifying the
+there must be an entry in :ref:`config_file@root_file` specifying the
 root file for that group name.
 
 The xrst examples are a subset of its user documentation
@@ -198,7 +198,7 @@ Use ``default``, instead of the empty group name, for the
 
 new_group_name
 ==============
-Only the pages below the :ref:`conf_file@root_file`
+Only the pages below the :ref:`config_file@root_file`
 for *new_group_name* are modified.
 You can rename a subset of the old group by making the root file
 for the new group different than the root file for the old group.
@@ -213,7 +213,7 @@ If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
-to the :ref:`conf_file@project_dictionary` or when there is an update
+to the :ref:`config_file@project_dictionary` or when there is an update
 of the pyspellchecker_ package (which is used to do the spell checking).
 If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
@@ -401,7 +401,7 @@ def run_xrst() :
       help='add a local table of contents at the top of each page'
    )
    parser.add_argument(
-      '--conf_file', metavar='conf_file', default='xrst.toml',
+      '--config_file', metavar='config_file', default='xrst.toml',
       help='location of the xrst configuration file which is in toml format' + \
          '(default is .)'
    )
@@ -441,13 +441,13 @@ def run_xrst() :
    # local_toc
    local_toc = arguments.local_toc
    #
-   # conf_file
+   # config_file
    # can not use system_exit until os.getcwd() returns project_directory
-   conf_file = arguments.conf_file
-   if not os.path.isfile(conf_file) :
+   config_file = arguments.config_file
+   if not os.path.isfile(config_file) :
       msg  = 'xsrst: Error\n'
-      msg += f'conf_file = {conf_file}\n'
-      if conf_file[0] == '/' :
+      msg += f'config_file = {config_file}\n'
+      if config_file[0] == '/' :
          msg += 'is not a file\n'
       else :
          msg += f'is not a file relative to the execution directory\n'
@@ -455,7 +455,7 @@ def run_xrst() :
       system_exit(msg)
    #
    # conf_dict
-   conf_dict  = xrst.get_conf_dict(conf_file)
+   conf_dict  = xrst.get_conf_dict(config_file)
    #
    # project_directory
    project_directory = conf_dict['directory']['project_directory']
@@ -563,7 +563,7 @@ def run_xrst() :
          try :
             not_in_index_list.append( re.compile(pattern) )
          except :
-            msg  = f'not_in_index table in conf_file = {conf_file}\n'
+            msg  = f'not_in_index table in config_file = {config_file}\n'
             msg += f'The regular expression "{pattern}" would not compile'
             system_exit(msg)
    # -------------------------------------------------------------------------
@@ -610,7 +610,7 @@ def run_xrst() :
          else :
             msg += 'is new_group_name in --rename_group\n'
          msg += 'but it is not a valid key for the root_file table of\n'
-         msg += f'the configuration file {conf_file}'
+         msg += f'the configuration file {config_file}'
          xrst.system_exit(msg)
       #
       if not os.path.isfile( root_file[new_group_name] ) :
@@ -807,7 +807,7 @@ def run_xrst() :
          for finfo_tmp in finfo_done :
             toc_file_set.add( finfo_tmp['file_in'] )
          input_file_list = xrst.check_input_files(
-            conf_file, conf_dict, group_name, toc_file_set, input_file_list
+            config_file, conf_dict, group_name, toc_file_set, input_file_list
          )
    #
    # rename_group

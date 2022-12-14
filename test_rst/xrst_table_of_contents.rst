@@ -20,7 +20,7 @@ Table of Contents
 |    :ref:`1.13<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Motivation
 | :ref:`3<user_guide-title>` Extract Sphinx RST Files
-|    :ref:`3.1<conf_file-title>` Configuration File for xrst
+|    :ref:`3.1<config_file-title>` Configuration File for xrst
 |    :ref:`3.2<run_xrst-title>` Run Extract Sphinx RST And Sphinx
 |    :ref:`3.3<commands-title>` Commands
 |       :ref:`3.3.1<begin_cmd-title>` Begin and End Commands

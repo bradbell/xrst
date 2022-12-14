@@ -24,7 +24,7 @@ Extract Sphinx RST Files
 
 .. index:: version
 
-.. _user_guide@Version 2022.12.13:
+.. _user_guide@Version 2022.12.14:
 
 Version 2022.12.14
 ******************
@@ -72,7 +72,7 @@ Run Program
 Contents
 ********
 
--  :ref:`conf_file-title`
+-  :ref:`config_file-title`
 -  :ref:`run_xrst-title`
 -  :ref:`commands-title`
 -  :ref:`automatic-title`
@@ -83,7 +83,7 @@ Contents
    :maxdepth: 1
    :hidden:
 
-   conf_file
+   config_file
    run_xrst
    commands
    automatic

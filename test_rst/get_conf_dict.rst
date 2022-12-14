@@ -23,15 +23,15 @@ so it cannot use the xrst :ref:`system_exit-name` .
    :local:
 
 .. meta::
-   :keywords: conf_file
+   :keywords: config_file
 
-.. index:: conf_file
+.. index:: config_file
 
-.. _get_conf_dict@conf_file:
+.. _get_conf_dict@config_file:
 
-conf_file
-*********
-is the location of the :ref:`run_xrst@conf_file` specified on
+config_file
+***********
+is the location of the :ref:`run_xrst@config_file` specified on
 the xrst command line.
 
 .. meta::
@@ -49,9 +49,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 427-429
+   :lines: 430-432
    :language: py
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 588-589
+   :lines: 591-592
    :language: py

@@ -8,6 +8,7 @@ import subprocess
 # {xrst_begin check_input_files dev}
 # {xrst_spell
 #     conf
+#     config
 #     dict
 #     fullmatch
 #     len
@@ -17,8 +18,8 @@ import subprocess
 # Check That Expected xrst Input Files Are Included
 # #################################################
 #
-# conf_file
-# *********
+# config_file
+# ***********
 # is the name of the configuration file.
 #
 # conf_dict
@@ -38,7 +39,7 @@ import subprocess
 #
 # file_list_in
 # ************
-# If file_list_in is None, the :ref:`conf_file@input_files` commands
+# If file_list_in is None, the :ref:`config_file@input_files` commands
 # will be executed to determine the file list.
 # Otherwise, *file_list_in* will be used as the output of the first
 # successful command.
@@ -53,10 +54,10 @@ import subprocess
 # {xrst_code py}
 # file_list_out =
 def check_input_files(
-   conf_file, conf_dict, group_name, toc_file_set, file_list_in
+   config_file, conf_dict, group_name, toc_file_set, file_list_in
 ) :
    #
-   assert type(conf_file) == str
+   assert type(config_file) == str
    assert type(conf_dict) == dict
    assert type(group_name) == str
    assert type(toc_file_set) == set
@@ -115,7 +116,7 @@ def check_input_files(
          sys.stdout.write(msg)
       elif len(input_files) > 0 :
          msg  = 'warning: None of the commands in '
-         msg += f'{conf_file}.input_files succeeded\n'
+         msg += f'{config_file}.input_files succeeded\n'
          sys.stderr.write(msg)
          file_list_out = list()
    #

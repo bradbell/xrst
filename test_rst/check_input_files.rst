@@ -20,14 +20,14 @@ Check That Expected xrst Input Files Are Included
    :local:
 
 .. meta::
-   :keywords: conf_file
+   :keywords: config_file
 
-.. index:: conf_file
+.. index:: config_file
 
-.. _check_input_files@conf_file:
+.. _check_input_files@config_file:
 
-conf_file
-*********
+config_file
+***********
 is the name of the configuration file.
 
 .. meta::
@@ -75,7 +75,7 @@ and it is not in *toc_file_set*.
 
 file_list_in
 ************
-If file_list_in is None, the :ref:`conf_file@input_files` commands
+If file_list_in is None, the :ref:`config_file@input_files` commands
 will be executed to determine the file list.
 Otherwise, *file_list_in* will be used as the output of the first
 successful command.
@@ -103,9 +103,9 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 54-70
+   :lines: 55-71
    :language: py
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 181-184
+   :lines: 182-185
    :language: py

@@ -30,4 +30,14 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|pinfo_list|all_page_info|g
+s|conf_file|config_file|g
+/^config_file$/! b one
+N
+s|\n\**$|&**|
+#
+: one
+/^# config_file$/! b two
+N
+s|\n# \**$|&**|
+#
+: two
