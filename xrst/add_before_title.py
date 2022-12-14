@@ -77,13 +77,8 @@ def add_before_title(data_in, target, page_number, page_name) :
    assert 0 <= start_cmd
    index = data_in.find(pattern, start_cmd + len(pattern))
    if 0 <= index :
-      pattern_source = r'\nxrst input file: ``([^`]*)``'
-      m_source       = re.search(pattern_source, data_in)
-      # make sure that pattern_source is still valid
-      assert m_source != None
-      file_name = m_source.group(1)
       msg = '{xrst_before_title} cannot appear at beginning of a line'
-      xrst.system_exit(msg, file_name = file_name, page_name = page_name)
+      xrst.system_exit(msg, page_name = page_name)
    #
    # data_out
    if target == 'html' :

@@ -120,6 +120,10 @@ def temporary_file(
    # }
    # {xrst_end temporary_file}
    #
+   # punctuation
+   # Headings uses repeated copies of one of these characters
+   punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+   #
    # label
    # label that displays page name (which is text in pseudo heading)
    label = f'.. _{page_name}-name:\n\n'
@@ -139,8 +143,24 @@ def temporary_file(
       data_out  = before + data_in
    else :
       if page_source :
-         # not yet implemented
-         data_out   = data_in
+         new_text   = f'xrst input file: {file_in}\n'
+         #
+         index      = data_in.find('\n{xrst_before_title}')
+         first_line = index + len('\n{xrst_before_title}')
+         assert data_in[first_line] == '\n'
+         second_line = data_in.find('\n', first_line + 1)
+         third_line  = data_in.find('\n', second_line + 1)
+         fourth_line = data_in.find('\n', third_line + 1)
+         #
+         line     = data_in[first_line + 1 : second_line]
+         overline = line[0] * len(line) == line and line[0] in punctuation
+         if overline :
+            text_index = fourth_line + 1
+         else :
+            text_index = third_line + 1
+         data_before = data_in[: text_index]
+         data_after  = data_in[text_index :]
+         data_out    = data_before + new_text + data_after
       #
       data_out   = pattern_ref_page_name_1.sub(
          r':ref:`\1<\1-title>`' , data_out
