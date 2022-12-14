@@ -53,6 +53,9 @@ mm-dd
 #. Change ``html/index.html`` to ``html/get_started.html`` in
    :ref:`get_started-name`  (index.html no longer works and
    get_started.html is a better place to start).
+#. Fix the group_list :ref:`run_xrst@group_list@Example` command for
+   building the xrst developer documentation (remove xrst.xrst from
+   command line).
 
 12-12
 =====

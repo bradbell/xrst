@@ -267,7 +267,7 @@ and it is your current working directory.
 #. The xrst developer documentation uses the default, user, and dev
    groups and its documentation can be built using
 
-      ``xrst xrst.xrst --group_list default user dev``
+      ``xrst --group_list default user dev``
 
 .. meta::
    :keywords: rename_group
