@@ -541,6 +541,10 @@ def run_xrst() :
       shutil.rmtree(tmp_dir)
    os.mkdir(tmp_dir)
    #
+   # _sources
+   if not os.path.isdir(rst_directory + '/_sources') :
+      os.mkdir(rst_directory + '/_sources')
+   #
    # spell_checker
    spell_list  = list()
    for entry in conf_dict['project_dictionary']['data'] :
@@ -682,6 +686,7 @@ def run_xrst() :
             is_parent  = file_page_info[i_page]['is_parent']
             is_child   = file_page_info[i_page]['is_child']
             begin_line = file_page_info[i_page]['begin_line']
+            end_line   = file_page_info[i_page]['end_line']
             #
             # parent_page
             if is_parent or parent_page_file_in is None :
@@ -695,6 +700,8 @@ def run_xrst() :
                'file_in'        : file_in,
                'parent_page'    : parent_page,
                'in_parent_file' : is_child,
+               'begin_line'     : begin_line,
+               'end_line'       : end_line,
             } )
             # -------------------------------------------------------------
             # comment_command
@@ -727,7 +734,7 @@ def run_xrst() :
                finfo_stack.append( {
                   'file_in'        : file_tmp,
                   'parent_file'    : file_in,
-                  'parent_page' : page_index,
+                  'parent_page'    : page_index,
                } )
             # ------------------------------------------------------------
             # code commands
@@ -772,7 +779,7 @@ def run_xrst() :
                      )
             # -------------------------------------------------------------
             # process children
-            # want this as late as possible to toctree at end of input
+            # want this as late as possible so toctree at end of input
             page_data = xrst.process_children(
                page_name,
                page_data,
@@ -861,6 +868,13 @@ def run_xrst() :
          system_command(command)
       else :
          system_command(command, page_name2line_pair, page_name2file_in)
+         #
+         # _sources
+         # replace sphinx _sources directory with proper xrst sources
+         src_dir = f'{rst_directory}/_sources'
+         des_dir = f'{target_directory}/_sources'
+         shutil.rmtree(des_dir)
+         os.rename(src_dir, des_dir)
    else :
       assert target == 'tex'
       #

@@ -164,6 +164,10 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # is the line number in *file_in* where this page begins; i.e.,
 # the line number where the begin command is located.
 #
+# info['end_line']
+# is the line number in *file_in* where this page ends; i.e.,
+# the line number where the end command is located.
+#
 # {xrst_code py}
 def get_file_info(
       all_page_info,
@@ -334,6 +338,11 @@ def get_file_info(
                data      = file_data
             )
          #
+         # end_line
+         m_line     = xrst.pattern['line'].search(file_data, m_end.start())
+         end_line = int( m_line.group(1) )
+         #
+         #
          # page_data
          page_start = data_index
          page_end   = m_end.start() + 1
@@ -363,6 +372,7 @@ def get_file_info(
             'is_parent'    : is_parent,
             'is_child'     : is_child,
             'begin_line'   : begin_line,
+            'end_line'     : end_line,
          } )
          #
          # data_index

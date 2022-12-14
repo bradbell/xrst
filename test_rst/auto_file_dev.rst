@@ -134,6 +134,22 @@ This file just contains a link to the genindex.rst file.
 It is (is not) included if target is html (tex).
 
 .. meta::
+   :keywords: rst_dir/_sources
+
+.. index:: rst_dir/_sources
+
+.. _auto_file_dev@rst_dir/_sources:
+
+rst_dir/_sources
+****************
+The sub-directory is used to store the replacement
+for the _sources directory. This contains the xrst sources that were used
+to create the rst files that sphinx used as sources.
+This is (is not) included if target is html (tex).
+If target is html, this sub-directory must exist and should be empty,
+before calling auto_file.
+
+.. meta::
    :keywords: rst_dir/conf.py
 
 .. index:: rst_dir/conf.py
@@ -156,5 +172,5 @@ rst_dir/xrst_root_doc.rst
 This is the root level in the sphinx documentation tree.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 145-152
+   :lines: 154-161
    :language: py

@@ -40,6 +40,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-14
+=====
+Change the pages sources to be the proper section of the xrst input files,
+instead of the extracted rst files.
+
 12-12
 =====
 #. Remove dependency on ``import dismod_at``.

@@ -167,10 +167,14 @@ info['begin_line']
 is the line number in *file_in* where this page begins; i.e.,
 the line number where the begin command is located.
 
+info['end_line']
+is the line number in *file_in* where this page ends; i.e.,
+the line number where the end command is located.
+
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 168-180
+   :lines: 172-184
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 396-399
+   :lines: 406-409
    :language: py

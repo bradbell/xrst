@@ -133,6 +133,15 @@ root_doc = 'xrst_root_doc'
 # This file just contains a link to the genindex.rst file.
 # It is (is not) included if target is html (tex).
 #
+# rst_dir/_sources
+# ****************
+# The sub-directory is used to store the replacement
+# for the _sources directory. This contains the xrst sources that were used
+# to create the rst files that sphinx used as sources.
+# This is (is not) included if target is html (tex).
+# If target is html, this sub-directory must exist and should be empty,
+# before calling auto_file.
+#
 # rst_dir/conf.py
 # ***************
 # This is the configuration file used by sphinx to build the documentation.
@@ -190,6 +199,55 @@ def auto_file(
       file_obj    = open(file_out, 'w')
       file_obj.write(file_data)
       file_obj.close()
+   # ------------------------------------------------------------------------
+   # rst_dir/_sources
+   if target == 'html' :
+      #
+      # file_in, file_daa
+      file_in   = None
+      file_data = None
+      for info in all_page_info :
+         if info['file_in'] != file_in :
+            #
+            # file_in, file_data
+            file_in    = info['file_in']
+            file_obj   = open(file_in, 'r')
+            file_data  = file_obj.read()
+            file_obj.close()
+            #
+            # newline_list
+            newline_list = xrst.newline_indices(file_data)
+         #
+         # begin_index
+         begin_line  = info['begin_line']
+         assert 1 <= begin_line
+         if begin_line == 1 :
+            begin_index = 0
+         else :
+            assert begin_line < len(newline_list)
+            begin_index = newline_list[begin_line-2] + 1
+         #
+         # end_index
+         end_line  = info['end_line']
+         assert end_line - 1 <= len(newline_list)
+         if end_line - 1 == len(newline_list) :
+            end_index = len(file_data)
+         else :
+            end_index = newline_list[end_line-1] + 1
+         #
+         # page_data
+         page_data  = f'lines {begin_line}-{end_line} of file: {file_in}\n\n'
+         page_data += file_data[begin_index : end_index]
+         #
+         # file_out
+         page_name = info['page_name']
+         file_out  = rst_dir + '/_sources/' + page_name
+         if not page_name.endswith('.rst') :
+            file_out += '.rst'
+         file_out += '.txt'
+         file_obj = open(file_out, 'w')
+         file_obj.write(page_data)
+         file_obj.close()
    # ------------------------------------------------------------------------
    # rst_dir/conf.py
    #
