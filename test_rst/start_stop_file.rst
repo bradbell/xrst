@@ -4,8 +4,6 @@
 start_stop_file
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/start_stop_file.py``
-
 .. meta::
    :keywords: start_stop_file, convert, literal, start,, stop, from, text, line, numbers
 

@@ -4,8 +4,6 @@
 temporary_file
 !!!!!!!!!!!!!!
 
-xrst input file: ``xrst/temporary_file.py``
-
 .. meta::
    :keywords: temporary_file, write, temporary, rst, page
 
@@ -18,6 +16,22 @@ Write the temporary RST file for a page
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: page_source
+
+.. index:: page_source
+
+.. _temporary_file@page_source:
+
+page_source
+***********
+If *page_source* is true and *target* is html,
+a link to the xrst source code is included at the
+top of each page.
+If *page_source* is true and *target* is tex,
+the location of the xrst source code is reported at the
+top of each page.
 
 .. meta::
    :keywords: target
@@ -143,9 +157,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 89-102
+   :lines: 99-114
    :language: py
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 169-174
+   :lines: 183-188
    :language: py

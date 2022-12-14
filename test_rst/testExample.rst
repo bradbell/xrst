@@ -4,8 +4,6 @@
 testExample
 !!!!!!!!!!!
 
-xrst input file: ``example/test.py``
-
 .. meta::
    :keywords: testExample, test, special, conditions
 

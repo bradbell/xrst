@@ -4,8 +4,6 @@
 check_input_files
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/check_input_files.py``
-
 .. meta::
    :keywords: check_input_files, check, expected, xrst, input, files, are, included
 

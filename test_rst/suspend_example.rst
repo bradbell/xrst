@@ -4,8 +4,6 @@
 suspend_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``example/suspend.py``
-
 .. meta::
    :keywords: suspend_example, suspend
 

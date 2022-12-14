@@ -4,8 +4,6 @@
 literal_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``example/literal.cpp``
-
 .. meta::
    :keywords: literal_example, literal
 

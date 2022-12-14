@@ -4,8 +4,6 @@
 process_children
 !!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/process_children.py``
-
 .. meta::
    :keywords: process_children, add, child, information, page
 

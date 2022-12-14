@@ -4,8 +4,6 @@
 child_example_two
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/children.xrst``
-
 .. meta::
    :keywords: child_example_two, second, child, page
 

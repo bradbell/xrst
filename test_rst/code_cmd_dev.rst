@@ -4,8 +4,6 @@
 code_cmd_dev
 !!!!!!!!!!!!
 
-xrst input file: ``xrst/code_command.py``
-
 .. meta::
    :keywords: code_cmd_dev, process, xrst, code, commands, page
 

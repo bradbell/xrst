@@ -4,8 +4,6 @@
 get_conf_dict
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/get_conf_dict.py``
-
 .. meta::
    :keywords: get_conf_dict, get, configuration, dictionary
 

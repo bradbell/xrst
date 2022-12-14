@@ -4,8 +4,6 @@
 code_example
 !!!!!!!!!!!!
 
-xrst input file: ``example/code.py``
-
 .. meta::
    :keywords: code_example, code
 

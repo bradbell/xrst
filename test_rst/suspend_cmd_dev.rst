@@ -4,8 +4,6 @@
 suspend_cmd_dev
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/suspend_command.py``
-
 .. meta::
    :keywords: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
 

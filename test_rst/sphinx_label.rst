@@ -4,8 +4,6 @@
 sphinx_label
 !!!!!!!!!!!!
 
-xrst input file: ``xrst/sphinx_label.py``
-
 .. meta::
    :keywords: sphinx_label, get, labels, declared, using, sphinx, commands
 

@@ -4,8 +4,6 @@
 comment_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``example/comment.r``
-
 .. meta::
    :keywords: comment_example, comment
 

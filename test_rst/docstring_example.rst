@@ -4,8 +4,6 @@
 docstring_example
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/docstring.py``
-
 .. meta::
    :keywords: docstring_example, docstring
 

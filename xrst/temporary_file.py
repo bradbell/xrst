@@ -10,6 +10,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
+#     bool
 #     dir
 #     tmp
 # }
@@ -17,6 +18,15 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 #
 # Write the temporary RST file for a page
 # #######################################
+#
+# page_source
+# ***********
+# If *page_source* is true and *target* is html,
+# a link to the xrst source code is included at the
+# top of each page.
+# If *page_source* is true and *target* is tex,
+# the location of the xrst source code is reported at the
+# top of each page.
 #
 # target
 # ******
@@ -88,6 +98,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # {xrst_code py}
 # line_pair =
 def temporary_file(
+   page_source,
    target,
    pseudo_heading,
    file_in,
@@ -96,6 +107,7 @@ def temporary_file(
    data_in,
 ) :
    assert target == 'html' or target == 'tex'
+   assert type(page_source) == bool
    assert type(pseudo_heading) == str
    assert type(file_in) == str
    assert type(page_name) == str
@@ -108,26 +120,28 @@ def temporary_file(
    # }
    # {xrst_end temporary_file}
    #
-   # title_index
-   title_index = None
-   if target == 'tex' :
-      page_number_index = data_in.index('\n{xrst_before_title}\n')
-      assert 0 <= page_number_index
-   #
    # label
    # label that displays page name (which is text in pseudo heading)
    label = f'.. _{page_name}-name:\n\n'
    #
    # data_out
-   # before  = '.. include:: xrst_preamble.rst\n\n'
-   before  = ''
    if target == 'html' :
-      before  += label
+      before   = label
       before  += pseudo_heading
-      before  += f'xrst input file: ``{file_in}``\n\n'
-      data_out = before + data_in
+      if page_source :
+         if page_name.endswith('.rst') :
+            destination = f'_sources/{page_name}.txt'
+         else :
+            destination = f'_sources/{page_name}.rst.txt'
+         raw_html  = '.. raw:: html\n\n' + 3 * ' '
+         raw_html += f'<a href="{destination}">View page source</a>\n\n'
+         before   += raw_html
+      data_out  = before + data_in
    else :
-      data_out   = before + data_in
+      if page_source :
+         # not yet implemented
+         data_out   = data_in
+      #
       data_out   = pattern_ref_page_name_1.sub(
          r':ref:`\1<\1-title>`' , data_out
       )

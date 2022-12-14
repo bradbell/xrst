@@ -4,8 +4,6 @@
 remove_line_numbers
 !!!!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/remove_line_numbers.py``
-
 .. meta::
    :keywords: remove_line_numbers, remove, number, numbers
 

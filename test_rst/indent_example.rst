@@ -4,8 +4,6 @@
 indent_example
 !!!!!!!!!!!!!!
 
-xrst input file: ``example/indent.py``
-
 .. meta::
    :keywords: indent_example, indent
 

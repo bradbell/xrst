@@ -4,8 +4,6 @@
 auto_file
 !!!!!!!!!
 
-xrst input file: ``xrst/auto_file.py``
-
 .. meta::
    :keywords: auto_file, automatically, generated, files
 

@@ -4,8 +4,6 @@
 xrst.pattern
 !!!!!!!!!!!!
 
-xrst input file: ``xrst/pattern.py``
-
 .. meta::
    :keywords: xrst.pattern, xrst.pattern, dictionary
 

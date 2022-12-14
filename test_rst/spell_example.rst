@@ -4,8 +4,6 @@
 spell_example
 !!!!!!!!!!!!!
 
-xrst input file: ``example/spell.xrst``
-
 .. meta::
    :keywords: spell_example, spell
 

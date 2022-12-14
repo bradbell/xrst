@@ -4,8 +4,6 @@
 add_before_title
 !!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/add_before_title.py``
-
 .. meta::
    :keywords: add_before_title, if, pdf,, add, page, number, name, title
 

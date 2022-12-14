@@ -4,8 +4,6 @@
 toc_cmd_dev
 !!!!!!!!!!!
 
-xrst input file: ``xrst/toc_commands.py``
-
 .. meta::
    :keywords: toc_cmd_dev, get, page, names, children, page
 

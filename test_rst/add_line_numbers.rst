@@ -4,8 +4,6 @@
 add_line_numbers
 !!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/add_line_numbers.py``
-
 .. meta::
    :keywords: add_line_numbers, add, line, numbers, data
 

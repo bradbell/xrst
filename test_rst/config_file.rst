@@ -4,8 +4,6 @@
 config_file
 !!!!!!!!!!!
 
-xrst input file: ``xrst/get_conf_dict.py``
-
 .. _toml file: https://toml.io/en/
 
 .. meta::

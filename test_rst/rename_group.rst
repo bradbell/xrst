@@ -4,8 +4,6 @@
 rename_group
 !!!!!!!!!!!!
 
-xrst input file: ``xrst/rename_group.py``
-
 .. meta::
    :keywords: rename_group, rename, subset, group
 

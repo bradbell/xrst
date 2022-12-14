@@ -24,6 +24,7 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
+| |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--config_file``   *config_file* ] \\
 | |tab| [ ``--html_theme``    *html_theme* ] \\
 | |tab| [ ``--target``        *target* ]  \\
@@ -45,7 +46,17 @@ is included at the top of every page.
 The page name and page title are not in this table of contents.
 
 Some :ref:`html themes<run_xrst@html_theme>` include this information
-on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
+on a side bar; e.g., ``furo`` and ``sphinx_book_theme`` .
+
+page_source
+***********
+If this option is present and *target* is ``html`` ,
+a link to the xrst source code is included at the top of each page.
+Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
+``sphinx_rtd_theme`` .
+
+If this option is present and *target* is ``tex`` ,
+the xrst source code file is reported at the top of each page.
 
 config_file
 ***********
@@ -400,6 +411,9 @@ def run_xrst() :
    parser.add_argument('--local_toc', action='store_true',
       help='add a local table of contents at the top of each page'
    )
+   parser.add_argument('--page_source', action='store_true',
+      help='add link to the xrst source code be included at top of each page'
+   )
    parser.add_argument(
       '--config_file', metavar='config_file', default='xrst.toml',
       help='location of the xrst configuration file which is in toml format' + \
@@ -440,6 +454,9 @@ def run_xrst() :
    #
    # local_toc
    local_toc = arguments.local_toc
+   #
+   # page_source
+   page_source = arguments.page_source
    #
    # config_file
    # can not use system_exit until os.getcwd() returns project_directory
@@ -789,6 +806,7 @@ def run_xrst() :
             #
             # line_pair and file tmp_dir/page_name.rst
             line_pair = xrst.temporary_file(
+               page_source,
                target,
                pseudo_heading,
                file_in,

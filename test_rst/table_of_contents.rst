@@ -4,8 +4,6 @@
 table_of_contents
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/table_of_contents.py``
-
 .. meta::
    :keywords: table_of_contents, create, table, contents, modify, titles
 

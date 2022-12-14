@@ -4,8 +4,6 @@
 system_exit
 !!!!!!!!!!!
 
-xrst input file: ``xrst/system_exit.py``
-
 .. meta::
    :keywords: system_exit, form, error, message, exit
 

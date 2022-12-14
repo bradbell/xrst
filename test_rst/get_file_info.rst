@@ -4,8 +4,6 @@
 get_file_info
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/get_file_info.py``
-
 .. meta::
    :keywords: get_file_info, get, information, all, pages, in
 

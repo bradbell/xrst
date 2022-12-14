@@ -4,8 +4,6 @@
 begin_cmd
 !!!!!!!!!
 
-xrst input file: ``xrst/get_file_info.py``
-
 .. meta::
    :keywords: begin_cmd, begin, end, commands
 

@@ -4,8 +4,6 @@
 example
 !!!!!!!
 
-xrst input file: ``example/example.xrst``
-
 .. meta::
    :keywords: example, examples
 

@@ -4,8 +4,6 @@
 auto_file_dev
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/auto_file.py``
-
 .. meta::
    :keywords: auto_file_dev, create, automatically, generated, files
 

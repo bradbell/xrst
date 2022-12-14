@@ -4,8 +4,6 @@
 comment_cmd_dev
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/comment_command.py``
-
 .. meta::
    :keywords: comment_cmd_dev, remove, all, comment, commands
 

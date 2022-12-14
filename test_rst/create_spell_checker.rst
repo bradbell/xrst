@@ -4,8 +4,6 @@
 create_spell_checker
 !!!!!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/create_spell_checker.py``
-
 .. meta::
    :keywords: create_spell_checker, create, pyspellchecker, object
 

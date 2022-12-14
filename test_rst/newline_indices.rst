@@ -4,8 +4,6 @@
 newline_indices
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/newline_indices.py``
-
 .. meta::
    :keywords: newline_indices, find, index, all, newlines, in, string
 

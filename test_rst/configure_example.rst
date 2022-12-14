@@ -4,8 +4,6 @@
 configure_example
 !!!!!!!!!!!!!!!!!
 
-xrst input file: ``example/configure.xrst``
-
 .. meta::
    :keywords: configure_example, using, toml, configure
 

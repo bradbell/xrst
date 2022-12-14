@@ -4,8 +4,6 @@
 check_page_name
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/check_page_name.py``
-
 .. meta::
    :keywords: check_page_name, check, rules, page, name
 

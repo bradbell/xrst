@@ -4,8 +4,6 @@
 get_started
 !!!!!!!!!!!
 
-xrst input file: ``example/get_started.xrst``
-
 .. meta::
    :keywords: get_started, page, title:, getting, started
 

@@ -4,8 +4,6 @@
 release_notes
 !!!!!!!!!!!!!
 
-xrst input file: ``user/release_notes.xrst``
-
 .. meta::
    :keywords: release_notes, xrst, release, notes, year
 

@@ -4,8 +4,6 @@
 toc_list_example
 !!!!!!!!!!!!!!!!
 
-xrst input file: ``example/toc_list.xrst``
-
 .. meta::
    :keywords: toc_list_example, toc_list, parent, page
 

@@ -4,8 +4,6 @@
 heading_links
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/process_headings.py``
-
 .. meta::
    :keywords: heading_links, heading, cross, reference, links
 

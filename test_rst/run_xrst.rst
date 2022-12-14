@@ -4,8 +4,6 @@
 run_xrst
 !!!!!!!!
 
-xrst input file: ``xrst/run_xrst.py``
-
 .. meta::
    :keywords: run_xrst, run, extract, sphinx, rst, sphinx
 
@@ -26,6 +24,7 @@ Syntax
 | ``xrst`` \\
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
+| |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--config_file``   *config_file* ] \\
 | |tab| [ ``--html_theme``    *html_theme* ] \\
 | |tab| [ ``--target``        *target* ]  \\
@@ -61,7 +60,24 @@ is included at the top of every page.
 The page name and page title are not in this table of contents.
 
 Some :ref:`html themes<run_xrst@html_theme>` include this information
-on a side bar; e.g. ``furo`` and ``sphinx_book_theme`` .
+on a side bar; e.g., ``furo`` and ``sphinx_book_theme`` .
+
+.. meta::
+   :keywords: page_source
+
+.. index:: page_source
+
+.. _run_xrst@page_source:
+
+page_source
+***********
+If this option is present and *target* is ``html`` ,
+a link to the xrst source code is included at the top of each page.
+Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
+``sphinx_rtd_theme`` .
+
+If this option is present and *target* is ``tex`` ,
+the xrst source code file is reported at the top of each page.
 
 .. meta::
    :keywords: config_file

@@ -4,8 +4,6 @@
 comment_cmd
 !!!!!!!!!!!
 
-xrst input file: ``xrst/comment_command.py``
-
 .. meta::
    :keywords: comment_cmd, comment
 

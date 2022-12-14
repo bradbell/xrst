@@ -33,7 +33,7 @@ Syntax
 
 Table of Contents
 *****************
-These commands specify the page that are children
+These commands specify the pages that are children
 of the current page; i.e., pages that are at the
 next level in the table of contents.
 

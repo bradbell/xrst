@@ -46,6 +46,7 @@ mm-dd
 #. Change the page sources to be the proper section of the xrst input files,
    instead of the extracted rst files.
 #. Change ``conf_file`` to :ref:`run_xrst@config_file` .
+#. Add the :ref:`run_xrst@page_source` option.
 
 12-12
 =====

@@ -4,8 +4,6 @@
 check_syntax_error
 !!!!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/check_syntax_error.py``
-
 .. meta::
    :keywords: check_syntax_error, check, xrst, removed
 

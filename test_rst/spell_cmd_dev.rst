@@ -4,8 +4,6 @@
 spell_cmd_dev
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/spell_command.py``
-
 .. meta::
    :keywords: spell_cmd_dev, process, spell, page
 

@@ -4,8 +4,6 @@
 indent
 !!!!!!
 
-xrst input file: ``xrst/remove_indent.py``
-
 .. meta::
    :keywords: indent, indentation
 

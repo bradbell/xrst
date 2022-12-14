@@ -4,8 +4,6 @@
 wish_list
 !!!!!!!!!
 
-xrst input file: ``user/wish_list.xrst``
-
 .. meta::
    :keywords: wish_list, wish, list
 

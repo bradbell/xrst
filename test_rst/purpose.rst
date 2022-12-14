@@ -4,8 +4,6 @@
 purpose
 !!!!!!!
 
-xrst input file: ``user/user.xrst``
-
 .. meta::
    :keywords: purpose, motivation
 

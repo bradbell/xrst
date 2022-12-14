@@ -4,8 +4,6 @@
 literal_cmd_dev
 !!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/literal_command.py``
-
 .. meta::
    :keywords: literal_cmd_dev, process, literal, commands, in, page
 

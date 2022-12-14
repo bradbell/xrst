@@ -4,8 +4,6 @@
 remove_indent
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/remove_indent.py``
-
 .. meta::
    :keywords: remove_indent, remove, indentation, page
 

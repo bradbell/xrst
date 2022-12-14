@@ -4,8 +4,6 @@
 literal_cmd
 !!!!!!!!!!!
 
-xrst input file: ``xrst/literal_command.py``
-
 .. meta::
    :keywords: literal_cmd, literal
 

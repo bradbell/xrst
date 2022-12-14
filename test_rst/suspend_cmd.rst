@@ -4,8 +4,6 @@
 suspend_cmd
 !!!!!!!!!!!
 
-xrst input file: ``xrst/suspend_command.py``
-
 .. meta::
    :keywords: suspend_cmd, suspend, resume, commands
 

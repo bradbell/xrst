@@ -4,8 +4,6 @@
 heading_example
 !!!!!!!!!!!!!!!
 
-xrst input file: ``example/heading.py``
-
 .. meta::
    :keywords: heading_example, heading, link
 

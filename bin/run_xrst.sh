@@ -28,6 +28,7 @@ target="$1"
 rst_line_numbers="$2"
 # -----------------------------------------------------------------------------
 echo_eval python -m xrst  \
+   --page_source \
    --group_list  default user \
    --html_theme  sphinx_book_theme \
    --target      $target \

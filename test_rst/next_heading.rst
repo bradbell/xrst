@@ -4,8 +4,6 @@
 next_heading
 !!!!!!!!!!!!
 
-xrst input file: ``xrst/next_heading.py``
-
 .. meta::
    :keywords: next_heading, return, location, next, heading, in, page
 

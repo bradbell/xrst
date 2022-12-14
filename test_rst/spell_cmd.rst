@@ -4,8 +4,6 @@
 spell_cmd
 !!!!!!!!!
 
-xrst input file: ``xrst/spell_command.py``
-
 .. meta::
    :keywords: spell_cmd, spell
 

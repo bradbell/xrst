@@ -4,8 +4,6 @@
 replace_spell
 !!!!!!!!!!!!!
 
-xrst input file: ``xrst/replace_spell.py``
-
 .. meta::
    :keywords: replace_spell, replace, spelling, commands
 

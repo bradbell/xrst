@@ -4,8 +4,6 @@
 process_headings
 !!!!!!!!!!!!!!!!
 
-xrst input file: ``xrst/process_headings.py``
-
 .. meta::
    :keywords: process_headings, add, labels, index, entries, headings
 
