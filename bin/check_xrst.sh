@@ -47,7 +47,12 @@ do
       echo_eval rm -r rst
    fi
    args='--local_toc'
-   args="$args --config_file xrst.toml"
+   if [ "$group_list" == 'default' ]
+   then
+      args="$args --config_file ../xrst.toml"
+   else
+      args="$args --config_file xrst.toml"
+   fi
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
    echo "python -m xrst $args"

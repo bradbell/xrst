@@ -74,7 +74,8 @@ This table specifies the locations of some xrst directories:
 project_directory
 =================
 This *project_directory* can be an absolute path,
-or a path relative to the location where :ref:`xrst <run_xrst-name>` is run.
+or a path relative to the location where the
+:ref:`run_xrst@config_file` is located.
 All of the other directories are specified relative to this directory.
 The other directories may have ``../`` in their specifications; i.e.,
 they do not need to be sub-directories of the project directory.

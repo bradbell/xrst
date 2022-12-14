@@ -474,6 +474,12 @@ def run_xrst() :
    # conf_dict
    conf_dict  = xrst.get_conf_dict(config_file)
    #
+   # config_dir
+   index = config_file.rfind('/')
+   if 0 <= index :
+      config_dir = config_file[: index]
+      os.chdir(config_dir)
+   #
    # project_directory
    project_directory = conf_dict['directory']['project_directory']
    #

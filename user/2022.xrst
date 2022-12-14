@@ -47,6 +47,9 @@ mm-dd
    instead of the extracted rst files.
 #. Change ``conf_file`` to :ref:`run_xrst@config_file` .
 #. Add the :ref:`run_xrst@page_source` option.
+#. Make the :ref:`config_file@directory@project_directory`
+   relative to where the configuration file is located,
+   not where the xrst is run.
 
 12-12
 =====

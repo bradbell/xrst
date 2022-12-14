@@ -88,7 +88,8 @@ This table specifies the locations of some xrst directories:
 project_directory
 =================
 This *project_directory* can be an absolute path,
-or a path relative to the location where :ref:`xrst <run_xrst-name>` is run.
+or a path relative to the location where the
+:ref:`run_xrst@config_file` is located.
 All of the other directories are specified relative to this directory.
 The other directories may have ``../`` in their specifications; i.e.,
 they do not need to be sub-directories of the project directory.
@@ -167,7 +168,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 121-125
+   :lines: 122-126
    :language: toml
 
 .. _config_file@directory@Example:
@@ -205,7 +206,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 155-156
+   :lines: 156-157
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -268,7 +269,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 206-209
+   :lines: 207-210
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -324,7 +325,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 247-252
+   :lines: 248-253
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -405,7 +406,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 307-310
+   :lines: 308-311
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -444,7 +445,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 341-342
+   :lines: 342-343
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -490,7 +491,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 375-376
+   :lines: 376-377
    :language: toml
 
 .. _config_file@not_in_index@Example:
