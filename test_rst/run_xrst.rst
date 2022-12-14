@@ -77,7 +77,7 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 ``sphinx_rtd_theme`` .
 
 If this option is present and *target* is ``tex`` ,
-the xrst source code file is reported at the top of each page.
+the xrst source code file is reported at the beginning of each page.
 
 .. meta::
    :keywords: config_file

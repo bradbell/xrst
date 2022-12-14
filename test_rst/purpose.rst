@@ -45,11 +45,13 @@ Features
 #. One can build subsets of the documentation; e.g., user, developer,
    examples. Pages for different subsets can be in the
    same input file; see :ref:`run_xrst@group_list`.
-#. For each pages, the rst file name is used as an abbreviated title
+#. For each page, the rst file name is used as an abbreviated title
    in the navigation bar. This makes the navigation bar more useful
    while also having long descriptive titles attached to each page.
 #. Sphinx error messages are translated from rst file and line number
    to the file and line number in corresponding xrst input file.
+   In addition, :ref:`run_xrst@page_source` is the xrst input,
+   not the extracted rst file.
 #. The are two levels to the table of contents. Each entry at the
    first level is a page name or page title; e.g.,
    the :ref:`xrst_table_of_contents-title` for this documentation.
