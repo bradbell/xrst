@@ -31,11 +31,12 @@ Heading: Steps
       xrst
 
 
-#. Use your web browser to open the file ``html/index.html`` .
+#. Use your web browser to open the file ``html/get_started.html`` .
    This location is relative to your working directory.
 
 #. You should have gotten a warning that none of the input_files commands
-   succeeded. You can fix this by putting the text below text in your
+   succeeded (during the xrst command).
+   You can fix this by putting the text below in your
    xrst.toml file and then re-executing the xrst command::
 
       [input_files]

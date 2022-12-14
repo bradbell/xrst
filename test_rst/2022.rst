@@ -38,6 +38,9 @@ mm-dd
 #. Make the :ref:`config_file@directory@project_directory`
    relative to where the configuration file is located,
    not where the xrst is run.
+#. Change ``html/index.html`` to ``html/get_started.html`` in
+   :ref:`get_started-name`  (index.html no longer works and
+   get_started.html is a better place to start).
 
 .. _2022@mm-dd@12-12:
 
