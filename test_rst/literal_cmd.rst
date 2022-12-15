@@ -29,14 +29,14 @@ Syntax
    | :code:`}`
 
 -  | ``{xrst_literal``
-   |     *start*
-   |     *stop*
+   |     *start_after*
+   |     *end_before*
    | :code:`}`
 
 -  | ``{xrst_literal``
    |     *display_file*
-   |     *start*
-   |     *stop*
+   |     *start_after*
+   |     *end_before*
    | :code:`}`
 
 .. _literal_cmd@Purpose:
@@ -45,6 +45,7 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above.
+This is similar to the rst literalinclude directive.
 
 .. meta::
    :keywords: white, space
@@ -56,7 +57,7 @@ can be included by the command above.
 White Space
 ***********
 Leading and trailing white space is not included in
-*start*, *stop* or *display_file*.
+*start_after*, *end_before* or *display_file*.
 The new line character separates these tokens.
 The line containing the ``}`` must have nothing but white space after it.
 
@@ -83,49 +84,49 @@ The file name *display_file* is relative to the
    to the project_directory.
 
 .. meta::
-   :keywords: no, start, or, stop
+   :keywords: no, start, or, end
 
-.. index:: no, start, or, stop
+.. index:: no, start, or, end
 
-.. _literal_cmd@No start or stop:
+.. _literal_cmd@No start or end:
 
-No start or stop
-****************
-In the case where there is no *start* or *stop*,
+No start or end
+***************
+In the case where there is no *start_after* or *end_before*,
 the entire display file is displayed.
 In the case of the ``{xrst_literal}`` syntax,
 the entire current input file is displayed.
 
 .. meta::
-   :keywords: start
+   :keywords: start_after
 
-.. index:: start
+.. index:: start_after
 
-.. _literal_cmd@start:
+.. _literal_cmd@start_after:
 
-start
-*****
+start_after
+***********
 The code block starts with the line following the occurrence
-of the text *start* in *display_file*.
+of the text *start_after* in *display_file*.
 If this is the same as the file containing the command,
-the text *start* will not match any text in the command.
-There must be one and only one occurrence of *start* in *display_file*,
+the text *start_after* will not match any text in the command.
+There must be one and only one occurrence of *start_after* in *display_file*,
 not counting the command itself when the files are the same.
 
 .. meta::
-   :keywords: stop
+   :keywords: end_before
 
-.. index:: stop
+.. index:: end_before
 
-.. _literal_cmd@stop:
+.. _literal_cmd@end_before:
 
-stop
-****
+end_before
+**********
 The code block ends with the line before the occurrence
-of the text *start* in *display_file*.
+of the text *end_before* in *display_file*.
 If this is the same as the file containing the command,
-the text *stop* will not match any text in the command.
-There must be one and only one occurrence of *stop* in *display_file*,
+the text *end_before* will not match any text in the command.
+There must be one and only one occurrence of *end_before* in *display_file*,
 not counting the command itself when the files are the same.
 
 .. meta::

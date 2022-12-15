@@ -6,6 +6,7 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    autodoc
    doxygen
    gsl
+   literalinclude
 }
 
 Motivation
@@ -41,7 +42,7 @@ Features
    not the extracted rst file.
 #. The are two levels to the table of contents. Each entry at the
    first level is a page name or page title; e.g.,
-   the :ref:`xrst_table_of_contents-title` for this documentation.
+   see the :ref:`xrst_table_of_contents-title` for this documentation.
    Each entry at the second level is a headings with in a page.
    The :ref:`run_xrst@local_toc` option can be used to display the second
    level for each page.
@@ -57,13 +58,12 @@ Features
    directly below the current location; see :ref:`code_cmd-name` .
 #. Source code can also be included from any location in any file;
    see :ref:`literal_cmd-name`.
-   This uses tokens in source code, not line numbers,
-   to signify start and stop of the inclusion.
-   This makes it easy to move things, like function prototypes,
-   to different places in the documentation.
+   This is similar to the rst literalinclude directive.
+   The main difference is the special features that make it easier
+   to display text in the same file as the one containing the command.
 #. It is possible to document a feature using one language
-   and implement the feature using a different language; e.g.,
-   see :ref:`suspend_example-name` .
+   and implement the feature, right next to the documentation,
+   using a different language; e.g., see :ref:`suspend_example-name` .
 #. Automatically generates labels for linking to a heading in any page.
    These labels are designed with changing documentation in mind; e.g.,
    in this documentation the text
