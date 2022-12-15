@@ -141,9 +141,12 @@ def check_input_files(
       if warning_count < 10 :
          #
          # file_data
-         file_obj     = open(file_name, 'r')
-         file_data    = file_obj.read()
-         file_obj.close()
+         try :
+            file_obj     = open(file_name, 'r')
+            file_data    = file_obj.read()
+            file_obj.close()
+         except :
+            file_data = ''
          #
          # m_non_empty
          m_non_empty = p_non_empty.search( file_data )

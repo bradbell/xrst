@@ -56,6 +56,9 @@ mm-dd
 #. Fix the group_list :ref:`run_xrst@group_list@Example` command for
    building the xrst developer documentation (remove xrst.xrst from
    command line).
+#. Fix case were an :ref:`config_file@input_files` command includes
+   a binary file in its list.
+   (If a file cannot be read as text, it is ignored.)
 
 12-12
 =====
