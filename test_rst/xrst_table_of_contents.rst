@@ -3,7 +3,7 @@
 Table of Contents
 *****************
 | :ref:`1<example-title>` Examples
-|    :ref:`1.1<get_started-title>` Page Title: Getting Started
+|    :ref:`1.1<get_started-title>` Title: Getting Started
 |    :ref:`1.2<literal_example-title>` Literal Command Example
 |    :ref:`1.3<toc_list_example-title>` toc_list Example Parent Page
 |       :ref:`1.3.1<child_example_one-title>` First Child Example Page

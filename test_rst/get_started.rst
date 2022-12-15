@@ -5,14 +5,14 @@ get_started
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: get_started, page, title:, getting, started
+   :keywords: get_started, title:, getting, started
 
-.. index:: get_started, page, title:, getting, started
+.. index:: get_started, title:, getting, started
 
 .. _get_started-title:
 
-Page Title: Getting Started
-###########################
+Title: Getting Started
+######################
 
 .. contents::
    :local:
@@ -33,13 +33,17 @@ Heading: Steps
 
 #. Create an empty directory and make it your current working directory.
 
-#. Create a file called ``project.xrst`` in the working directory with the
-   contents of this example file
-   (project.xrst is the default root level input file).
+#. Create a file called ``xrst.toml`` in the working directory
+   with the following contents::
 
-#. Create an empty file called ``xrst.toml``
-   in the working directory
-   (xrst.toml is the default configure file).
+      [root_file]
+      default = 'get_started.xrst'
+
+   This is the xrst configure file.
+
+#. Create a file called ``get_started.xrst``, in the working directory,
+   with the contents of
+   :ref:`this example file<get_started@Heading: This Example File>` .
 
 #. Execute the following command::
 
@@ -50,7 +54,8 @@ Heading: Steps
 
 #. You should have gotten a warning that none of the input_files commands
    succeeded (during the xrst command).
-   You can fix this by putting the text below in your
+   These commands are used to check that all the input files get used.
+   You can suppress this check by adding the text below at the end of your
    xrst.toml file and then re-executing the xrst command::
 
       [input_files]

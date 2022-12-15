@@ -31,9 +31,12 @@ mm-dd
 
 12-15
 =====
-Change *start* to :ref:`literal_cmd@start_after`
-and *stop* to :ref:`literal_cmd@end_before` so that
-the xrst literal command is more like the rst literalinclude directive.
+#. Change *start* to :ref:`literal_cmd@start_after`
+   and *stop* to :ref:`literal_cmd@end_before` so that
+   the xrst literal command is more like the rst literalinclude directive.
+#. Change the :ref:`get_started-name` example so that is used the name
+   get_started.xrst for its input file and so it has a link to the
+   texts that goes in this file.
 
 .. _2022@mm-dd@12-14:
 
