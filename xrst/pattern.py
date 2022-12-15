@@ -11,6 +11,7 @@ import re
 #     arg
 #     ch
 #     dict
+#     dir
 #     newline
 # }
 # {xrst_comment_ch #}
@@ -90,6 +91,20 @@ pattern['code'] = re.compile(
 # {xrst_code py}
 pattern['comment_ch'] = re.compile(
    r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
+)
+# {xrst_code}
+#
+# dir
+# ***
+# Pattern for dir command
+#
+# 1. Is either empty of character before command
+# 2. Is the file_name in the command
+#
+# {xrst_code py}
+# pattern_dir
+pattern['dir'] = re.compile(
+   r'(^|[^\\]){xrst_dir[ \t]+([^}]*)}'
 )
 # {xrst_code}
 #

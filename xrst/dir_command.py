@@ -37,11 +37,8 @@ Example
 # ----------------------------------------------------------------------------
 import re
 import os
+import xrst
 #
-# pattern_dir
-pattern_dir  = re.compile(
-   r'(^|[^\\]){xrst_dir[ \t]+([^}]*)}'
-)
 # {xrst_begin dir_cmd_dev dev}
 # {xrst_spell
 #     dir
@@ -87,7 +84,7 @@ def dir_command(data_in, rst2project_dir) :
    data_out = data_in
    #
    # m_dir
-   m_dir  = pattern_dir.search(data_out)
+   m_dir  = xrst.pattern['dir'].search(data_out)
    while m_dir != None :
       #
       # data_before, data_after
@@ -101,7 +98,7 @@ def dir_command(data_in, rst2project_dir) :
       data_out     = data_left + data_after
       #
       # m_dir
-      m_dir = pattern_dir.search(data_out, len(data_left))
+      m_dir = xrst.pattern['dir'].search(data_out, len(data_left))
    #
    # BEGIN_RETURN
    assert type(data_out) == str

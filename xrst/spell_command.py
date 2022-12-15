@@ -107,6 +107,7 @@ pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
 #
 # pattern
 # global pattern values used by spell command
+pattern['dir']       = xrst.pattern['dir']
 pattern['toc']       = xrst.pattern['toc']
 pattern['code']      = xrst.pattern['code']
 pattern['literal_1'] = xrst.pattern['literal_1']
@@ -326,6 +327,7 @@ def spell_command(
    # data_tmp
    # commands with file names as arugments
    # Use @ character to avoid mistaken double word errors
+   data_tmp = pattern['dir'].sub('@', data_tmp)
    data_tmp = pattern['literal_1'].sub('@', data_tmp)
    data_tmp = pattern['literal_2'].sub('@', data_tmp)
    data_tmp = pattern['literal_3'].sub('@', data_tmp)
