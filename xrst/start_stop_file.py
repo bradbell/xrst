@@ -34,14 +34,14 @@ import xrst
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
 # are in the xrst_literal command and are excluded from the search.
 #
-# start_text
-# ==========
+# start_after
+# ===========
 # is the starting text. There must be one and only one copy of this text in the
 # file (not counting the excluded text). This text has no newlines and cannot
 # be empty.  If not, an the error is reported and the program stops.
 #
-# stop_text
-# =========
+# end_before
+# ==========
 # is the stopping text. There must be one and only one copy of this text in the
 # file (not counting the excluded text). This text has no newlines and cannot
 # be empty.  Furthermore, the stopping text must come after the end of the
@@ -52,11 +52,11 @@ import xrst
 #
 # start_line
 # ==========
-# is the line number where start_text appears.
+# is the line number where start_after appears.
 #
-# stop_line
-# =========
-# is the line number where stop_text appears.
+# end_line
+# ========
+# is the line number where end_before appears.
 #
 # {xrst_code py}
 def start_stop_file(
@@ -64,8 +64,8 @@ def start_stop_file(
    page_name,
    display_file,
    cmd_line,
-   start_text,
-   stop_text
+   start_after,
+   end_before
 ) :
    assert type(file_cmd) == str
    assert type(page_name) == str
@@ -73,8 +73,8 @@ def start_stop_file(
    assert type(cmd_line[0]) == int
    assert type(cmd_line[1]) == int
    assert cmd_line[0] <= cmd_line[1]
-   assert type(start_text) == str
-   assert type(stop_text) == str
+   assert type(start_after) == str
+   assert type(end_before) == str
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -91,23 +91,23 @@ def start_stop_file(
    # msg
    msg  = f'in literal command:'
    #
-   if start_text == '' :
-      msg += ' start is empty'
+   if start_after == '' :
+      msg += ' start_after is empty'
       xrst.system_exit(msg,
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
-   if stop_text == '' :
-      msg += ' stop is empty'
+   if end_before == '' :
+      msg += ' end_before is empty'
       xrst.system_exit(msg,
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
-   if 0 <= start_text.find('\n') :
-      msg += ' a newline appears in start'
+   if 0 <= start_after.find('\n') :
+      msg += ' a newline appears in start_after'
       xrst.system_exit(msg,
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
-   if 0 <= stop_text.find('\n') :
-      msg += ' a newline appears in stop'
+   if 0 <= end_before.find('\n') :
+      msg += ' a newline appears in end_before'
       xrst.system_exit(msg,
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
@@ -118,16 +118,16 @@ def start_stop_file(
    file_obj.close()
    #
    # start_line
-   start_index = data.find(start_text)
+   start_index = data.find(start_after)
    count = 0
    while 0 <= start_index :
       line = data[: start_index].count('\n') + 1
       if  line < exclude_line[0] or exclude_line[1] < line :
          start_line = line
          count      = count + 1
-      start_index = data.find(start_text, start_index + len(start_text) )
+      start_index = data.find(start_after, start_index + len(start_after) )
    if count != 1 :
-      msg += f'\nstart         = "{start_text}"'
+      msg += f'\nstart_after   = "{start_after}"'
       msg += f'\ndisplay_file  =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
@@ -136,17 +136,17 @@ def start_stop_file(
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    #
-   # stop_line
-   stop_index = data.find(stop_text)
+   # end_line
+   stop_index = data.find(end_before)
    count = 0
    while 0 <= stop_index :
       line = data[: stop_index].count('\n') + 1
       if  line < exclude_line[0] or exclude_line[1] < line :
-         stop_line = line
+         end_line = line
          count     = count + 1
-      stop_index = data.find(stop_text, stop_index + len(stop_text) )
+      stop_index = data.find(end_before, stop_index + len(end_before) )
    if count != 1 :
-      msg += f'\nstop         = "{stop_text}"'
+      msg += f'\nend_before   = "{end_before}"'
       msg += f'\ndisplay_file =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
@@ -157,7 +157,7 @@ def start_stop_file(
    # ------------------------------------------------------------------------
    # BEGIN_return
    assert type(start_line) == int
-   assert type(stop_line) == int
+   assert type(end_line) == int
    #
-   return start_line, stop_line
+   return start_line, end_line
    # END_return

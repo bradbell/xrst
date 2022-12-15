@@ -75,27 +75,27 @@ between line numbers cmd_line[0] and cmd_line[1] inclusive
 are in the xrst_literal command and are excluded from the search.
 
 .. meta::
-   :keywords: start_text
+   :keywords: start_after
 
-.. index:: start_text
+.. index:: start_after
 
-.. _start_stop_file@Arguments@start_text:
+.. _start_stop_file@Arguments@start_after:
 
-start_text
-==========
+start_after
+===========
 is the starting text. There must be one and only one copy of this text in the
 file (not counting the excluded text). This text has no newlines and cannot
 be empty.  If not, an the error is reported and the program stops.
 
 .. meta::
-   :keywords: stop_text
+   :keywords: end_before
 
-.. index:: stop_text
+.. index:: end_before
 
-.. _start_stop_file@Arguments@stop_text:
+.. _start_stop_file@Arguments@end_before:
 
-stop_text
-=========
+end_before
+==========
 is the stopping text. There must be one and only one copy of this text in the
 file (not counting the excluded text). This text has no newlines and cannot
 be empty.  Furthermore, the stopping text must come after the end of the
@@ -120,18 +120,18 @@ Returns
 
 start_line
 ==========
-is the line number where start_text appears.
+is the line number where start_after appears.
 
 .. meta::
-   :keywords: stop_line
+   :keywords: end_line
 
-.. index:: stop_line
+.. index:: end_line
 
-.. _start_stop_file@Returns@stop_line:
+.. _start_stop_file@Returns@end_line:
 
-stop_line
-=========
-is the line number where stop_text appears.
+end_line
+========
+is the line number where end_before appears.
 
 .. literalinclude:: ../../xrst/start_stop_file.py
    :lines: 62-77

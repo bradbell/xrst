@@ -238,17 +238,17 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
       m_file  = xrst.pattern[key].search(data_out)
       while m_file != None :
          #
-         # display_file, start_text, stop_text, display_file, cmd_line
+         # display_file, start_after, end_before, display_file, cmd_line
          if key == 'literal_2' :
             display_file  = file_name
-            start_text    = m_file.group(2).strip()
-            stop_text     = m_file.group(4) .strip()
-            cmd_stop_line = int( m_file.group(6) )
+            start_after   = m_file.group(2).strip()
+            end_before    = m_file.group(4) .strip()
+            cmd_end_line = int( m_file.group(6) )
          else :
             display_file  = m_file.group(2).strip()
-            start_text    = m_file.group(4).strip()
-            stop_text     = m_file.group(6) .strip()
-            cmd_stop_line = int( m_file.group(8) )
+            start_after   = m_file.group(4).strip()
+            end_before    = m_file.group(6) .strip()
+            cmd_end_line = int( m_file.group(8) )
             if not os.path.isfile(display_file) :
                msg  = 'literal command: can not find the display_file.\n'
                msg += f'display_file = {display_file}'
@@ -262,26 +262,26 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
             if same_file :
                display_file = file_name
          cmd_start_line = int( m_file.group(1) )
-         cmd_line       = (cmd_start_line, cmd_stop_line)
+         cmd_line       = (cmd_start_line, cmd_end_line)
          #
-         # start_line, stop_line
-         start_line, stop_line = xrst.start_stop_file(
+         # start_line, end_line
+         start_line, end_line = xrst.start_stop_file(
             file_cmd     = file_name,
             page_name = page_name,
             display_file = display_file,
             cmd_line     = cmd_line,
-            start_text   = start_text,
-            stop_text    = stop_text
+            start_after  = start_after,
+            end_before   = end_before
          )
          #
          # locations in display_file
          start_line  = start_line + 1
-         stop_line   = stop_line  - 1
+         end_line    = end_line  - 1
          #
          # cmd
          display_path = os.path.join(rst2project_dir, display_file)
          cmd          = f'.. literalinclude:: {display_path}\n'
-         cmd         += 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+         cmd         += 3 * ' ' + f':lines: {start_line}-{end_line}\n'
          #
          # cmd
          # Add language to literalinclude, sphinx seems to be brain
