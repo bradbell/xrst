@@ -265,7 +265,7 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          cmd_line       = (cmd_start_line, cmd_end_line)
          #
          # start_line, end_line
-         start_line, end_line = xrst.start_stop_file(
+         start_line, end_line = xrst.start_end_file(
             file_cmd     = file_name,
             page_name = page_name,
             display_file = display_file,

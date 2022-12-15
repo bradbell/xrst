@@ -2,15 +2,15 @@
 # SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
 # ----------------------------------------------------------------------------
 import xrst
-# {xrst_begin start_stop_file dev}
+# {xrst_begin start_end_file dev}
 # {xrst_spell
 #     cmd
 #     newlines
 # }
 # {xrst_comment_ch #}
 #
-# Convert literal command start, stop from text to line numbers
-# #############################################################
+# Convert literal command start, end from text to line numbers
+# ############################################################
 #
 # Arguments
 # *********
@@ -59,7 +59,7 @@ import xrst
 # is the line number where end_before appears.
 #
 # {xrst_code py}
-def start_stop_file(
+def start_end_file(
    file_cmd,
    page_name,
    display_file,
@@ -80,7 +80,7 @@ def start_stop_file(
    #  BEGIN_return
    #  END_return
    # }
-   # {xrst_end start_stop_file}
+   # {xrst_end start_end_file}
    # ------------------------------------------------------------------------
    # exclude_line
    if file_cmd == display_file :

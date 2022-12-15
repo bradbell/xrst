@@ -41,7 +41,7 @@ The xrst Module
    "replace_spell", :ref:`replace_spell-title`
    "spell_cmd_dev", :ref:`spell_cmd_dev-title`
    "sphinx_label", :ref:`sphinx_label-title`
-   "start_stop_file", :ref:`start_stop_file-title`
+   "start_end_file", :ref:`start_end_file-title`
    "suspend_cmd_dev", :ref:`suspend_cmd_dev-title`
    "system_exit", :ref:`system_exit-title`
    "table_of_contents", :ref:`table_of_contents-title`
@@ -75,7 +75,7 @@ The xrst Module
    replace_spell
    spell_cmd_dev
    sphinx_label
-   start_stop_file
+   start_end_file
    suspend_cmd_dev
    system_exit
    table_of_contents

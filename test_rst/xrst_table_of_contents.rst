@@ -63,7 +63,7 @@ Table of Contents
 |    :ref:`4.21<replace_spell-title>` Replace spelling commands
 |    :ref:`4.22<spell_cmd_dev-title>` Process the spell command for a page
 |    :ref:`4.23<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.24<start_stop_file-title>` Convert literal command start, stop from text to line numbers
+|    :ref:`4.24<start_end_file-title>` Convert literal command start, end from text to line numbers
 |    :ref:`4.25<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
 |    :ref:`4.26<system_exit-title>` Form error message and exit
 |    :ref:`4.27<table_of_contents-title>` Create the table of contents and Modify Titles

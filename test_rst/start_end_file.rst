@@ -1,18 +1,18 @@
-.. _start_stop_file-name:
+.. _start_end_file-name:
 
-!!!!!!!!!!!!!!!
-start_stop_file
-!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!
+start_end_file
+!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: start_stop_file, convert, literal, start,, stop, from, text, line, numbers
+   :keywords: start_end_file, convert, literal, start,, end, from, text, line, numbers
 
-.. index:: start_stop_file, convert, literal, start,, stop, from, text, line, numbers
+.. index:: start_end_file, convert, literal, start,, end, from, text, line, numbers
 
-.. _start_stop_file-title:
+.. _start_end_file-title:
 
-Convert literal command start, stop from text to line numbers
-#############################################################
+Convert literal command start, end from text to line numbers
+############################################################
 
 .. contents::
    :local:
@@ -22,7 +22,7 @@ Convert literal command start, stop from text to line numbers
 
 .. index:: arguments
 
-.. _start_stop_file@Arguments:
+.. _start_end_file@Arguments:
 
 Arguments
 *********
@@ -32,7 +32,7 @@ Arguments
 
 .. index:: file_cmd
 
-.. _start_stop_file@Arguments@file_cmd:
+.. _start_end_file@Arguments@file_cmd:
 
 file_cmd
 ========
@@ -43,7 +43,7 @@ is the name of the file where the xrst_literal command appears.
 
 .. index:: page_name
 
-.. _start_stop_file@Arguments@page_name:
+.. _start_end_file@Arguments@page_name:
 
 page_name
 =========
@@ -54,7 +54,7 @@ is the name of the page where the xrst_literal command appears.
 
 .. index:: display_file
 
-.. _start_stop_file@Arguments@display_file:
+.. _start_end_file@Arguments@display_file:
 
 display_file
 ============
@@ -66,7 +66,7 @@ file_cmd, then it must have appeared in the xrst_literal command.
 
 .. index:: cmd_line
 
-.. _start_stop_file@Arguments@cmd_line:
+.. _start_end_file@Arguments@cmd_line:
 
 cmd_line
 ========
@@ -79,7 +79,7 @@ are in the xrst_literal command and are excluded from the search.
 
 .. index:: start_after
 
-.. _start_stop_file@Arguments@start_after:
+.. _start_end_file@Arguments@start_after:
 
 start_after
 ===========
@@ -92,7 +92,7 @@ be empty.  If not, an the error is reported and the program stops.
 
 .. index:: end_before
 
-.. _start_stop_file@Arguments@end_before:
+.. _start_end_file@Arguments@end_before:
 
 end_before
 ==========
@@ -106,7 +106,7 @@ starting text. If not, an the error is reported and the program stops.
 
 .. index:: returns
 
-.. _start_stop_file@Returns:
+.. _start_end_file@Returns:
 
 Returns
 *******
@@ -116,7 +116,7 @@ Returns
 
 .. index:: start_line
 
-.. _start_stop_file@Returns@start_line:
+.. _start_end_file@Returns@start_line:
 
 start_line
 ==========
@@ -127,16 +127,16 @@ is the line number where start_after appears.
 
 .. index:: end_line
 
-.. _start_stop_file@Returns@end_line:
+.. _start_end_file@Returns@end_line:
 
 end_line
 ========
 is the line number where end_before appears.
 
-.. literalinclude:: ../../xrst/start_stop_file.py
+.. literalinclude:: ../../xrst/start_end_file.py
    :lines: 62-77
    :language: py
 
-.. literalinclude:: ../../xrst/start_stop_file.py
+.. literalinclude:: ../../xrst/start_end_file.py
    :lines: 159-162
    :language: py

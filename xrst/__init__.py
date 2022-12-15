@@ -33,7 +33,7 @@
 #  xrst/replace_spell.py
 #  xrst/spell_command.py
 #  xrst/sphinx_label.py
-#  xrst/start_stop_file.py
+#  xrst/start_end_file.py
 #  xrst/suspend_command.py
 #  xrst/system_exit.py
 #  xrst/table_of_contents.py
@@ -72,7 +72,7 @@ from .replace_spell          import replace_spell
 from .run_xrst               import run_xrst
 from .spell_command          import spell_command
 from .sphinx_label           import sphinx_label
-from .start_stop_file        import start_stop_file
+from .start_end_file        import start_end_file
 from .suspend_command        import suspend_command
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents
