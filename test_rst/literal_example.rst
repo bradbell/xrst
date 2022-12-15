@@ -13,6 +13,7 @@ literal_example
 
 Literal Command Example
 #######################
+This example is similar to the :ref:`dir_example-name` .
 
 .. contents::
    :local:

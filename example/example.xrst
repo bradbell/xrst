@@ -8,6 +8,7 @@ Examples
 {xrst_toc_list
    example/get_started.xrst
    example/literal.cpp
+   example/dir.cpp
    example/toc_list.xrst
    example/spell.xrst
    example/suspend.py

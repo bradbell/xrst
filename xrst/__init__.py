@@ -19,6 +19,7 @@
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/create_spell_checker.py
+#  xrst/dir_command.py
 #  xrst/get_conf_dict.py
 #  xrst/get_file_info.py
 #  xrst/literal_command.py
@@ -58,6 +59,7 @@ from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
 from .create_spell_checker   import create_spell_checker
+from .dir_command            import dir_command
 from .get_conf_dict          import get_conf_dict
 from .get_file_info          import get_file_info
 from .literal_command        import literal_command

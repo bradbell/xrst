@@ -741,6 +741,9 @@ def run_xrst() :
                spell_checker,
             )
             # -------------------------------------------------------------
+            # dir commands
+            page_data = xrst.dir_command(page_data, rst2project_directory)
+            # -------------------------------------------------------------
             # toc commands
             page_data, child_file, child_page_list = \
                xrst.toc_commands(

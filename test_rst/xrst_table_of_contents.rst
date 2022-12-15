@@ -5,19 +5,20 @@ Table of Contents
 | :ref:`1<example-title>` Examples
 |    :ref:`1.1<get_started-title>` Title: Getting Started
 |    :ref:`1.2<literal_example-title>` Literal Command Example
-|    :ref:`1.3<toc_list_example-title>` toc_list Example Parent Page
-|       :ref:`1.3.1<child_example_one-title>` First Child Example Page
-|       :ref:`1.3.2<child_example_two-title>` Second Child Example Page
-|    :ref:`1.4<spell_example-title>` Spell Command Example
-|    :ref:`1.5<suspend_example-title>` Suspend Command Example
-|    :ref:`1.6<code_example-title>` Code Command Example
-|    :ref:`1.7<comment_example-title>` Comment Command Example
-|    :ref:`1.8<comment_ch_example-title>` Comment Character Command Example
-|    :ref:`1.9<heading_example-title>` Heading and Link Example
-|    :ref:`1.10<indent_example-title>` Indent Example
-|    :ref:`1.11<docstring_example-title>` Docstring Example
-|    :ref:`1.12<configure_example-title>` Example Using TOML Configure File
-|    :ref:`1.13<testExample-title>` Test Special Conditions
+|    :ref:`1.3<dir_example-title>` Dir Command Example
+|    :ref:`1.4<toc_list_example-title>` toc_list Example Parent Page
+|       :ref:`1.4.1<child_example_one-title>` First Child Example Page
+|       :ref:`1.4.2<child_example_two-title>` Second Child Example Page
+|    :ref:`1.5<spell_example-title>` Spell Command Example
+|    :ref:`1.6<suspend_example-title>` Suspend Command Example
+|    :ref:`1.7<code_example-title>` Code Command Example
+|    :ref:`1.8<comment_example-title>` Comment Command Example
+|    :ref:`1.9<comment_ch_example-title>` Comment Character Command Example
+|    :ref:`1.10<heading_example-title>` Heading and Link Example
+|    :ref:`1.11<indent_example-title>` Indent Example
+|    :ref:`1.12<docstring_example-title>` Docstring Example
+|    :ref:`1.13<configure_example-title>` Example Using TOML Configure File
+|    :ref:`1.14<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Motivation
 | :ref:`3<user_guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst
@@ -29,8 +30,9 @@ Table of Contents
 |       :ref:`3.3.4<suspend_cmd-title>` Suspend and Resume Commands
 |       :ref:`3.3.5<code_cmd-title>` Code Command
 |       :ref:`3.3.6<literal_cmd-title>` Literal Command
-|       :ref:`3.3.7<comment_cmd-title>` Comment Command
-|       :ref:`3.3.8<comment_ch_cmd-title>` Comment Character Command
+|       :ref:`3.3.7<dir_cmd-title>` Convert a File Name From Project Directory to RST Directory
+|       :ref:`3.3.8<comment_cmd-title>` Comment Command
+|       :ref:`3.3.9<comment_ch_cmd-title>` Comment Character Command
 |    :ref:`3.4<automatic-title>` Automatic Processing
 |       :ref:`3.4.1<indent-title>` Indentation
 |       :ref:`3.4.2<heading_links-title>` Heading Cross Reference Links
@@ -49,23 +51,24 @@ Table of Contents
 |    :ref:`4.7<code_cmd_dev-title>` Process the xrst code commands for a page
 |    :ref:`4.8<comment_cmd_dev-title>` Remove all comment commands
 |    :ref:`4.9<create_spell_checker-title>` Create a pyspellchecker object
-|    :ref:`4.10<get_conf_dict-title>` Get Configuration Dictionary
-|    :ref:`4.11<get_file_info-title>` Get information for all pages in a file
-|    :ref:`4.12<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`4.13<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`4.14<next_heading-title>` Return location of the next heading in a page
-|    :ref:`4.15<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`4.16<process_children-title>` Add child information to a page
-|    :ref:`4.17<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.18<remove_indent-title>` Remove indentation for a page
-|    :ref:`4.19<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.20<rename_group-title>` Rename a Subset of a Group
-|    :ref:`4.21<replace_spell-title>` Replace spelling commands
-|    :ref:`4.22<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`4.23<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.24<start_end_file-title>` Convert literal command start, end from text to line numbers
-|    :ref:`4.25<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`4.26<system_exit-title>` Form error message and exit
-|    :ref:`4.27<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`4.28<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`4.29<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`4.10<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
+|    :ref:`4.11<get_conf_dict-title>` Get Configuration Dictionary
+|    :ref:`4.12<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.13<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`4.14<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`4.15<next_heading-title>` Return location of the next heading in a page
+|    :ref:`4.16<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`4.17<process_children-title>` Add child information to a page
+|    :ref:`4.18<process_headings-title>` Add labels and index entries for headings
+|    :ref:`4.19<remove_indent-title>` Remove indentation for a page
+|    :ref:`4.20<remove_line_numbers-title>` Remove the number numbers
+|    :ref:`4.21<rename_group-title>` Rename a Subset of a Group
+|    :ref:`4.22<replace_spell-title>` Replace spelling commands
+|    :ref:`4.23<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`4.24<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`4.25<start_end_file-title>` Convert literal command start, end from text to line numbers
+|    :ref:`4.26<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`4.27<system_exit-title>` Form error message and exit
+|    :ref:`4.28<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`4.29<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`4.30<toc_cmd_dev-title>` Get file and page names for children of this page

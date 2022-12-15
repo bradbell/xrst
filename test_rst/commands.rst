@@ -24,6 +24,7 @@ These commands are described in the pages below:
 -  :ref:`suspend_cmd-title`
 -  :ref:`code_cmd-title`
 -  :ref:`literal_cmd-title`
+-  :ref:`dir_cmd-title`
 -  :ref:`comment_cmd-title`
 -  :ref:`comment_ch_cmd-title`
 
@@ -37,5 +38,6 @@ These commands are described in the pages below:
    suspend_cmd
    code_cmd
    literal_cmd
+   dir_cmd
    comment_cmd
    comment_ch_cmd

@@ -16,6 +16,7 @@ These commands are described in the pages below:
    xrst/suspend_command.py
    xrst/code_command.py
    xrst/literal_command.py
+   xrst/dir_command.py
    xrst/comment_command.py
    xrst/comment_ch_command.py
 }

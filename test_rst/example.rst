@@ -16,6 +16,7 @@ Examples
 
 -  :ref:`get_started-title`
 -  :ref:`literal_example-title`
+-  :ref:`dir_example-title`
 -  :ref:`toc_list_example-title`
 -  :ref:`spell_example-title`
 -  :ref:`suspend_example-title`
@@ -34,6 +35,7 @@ Examples
 
    get_started
    literal_example
+   dir_example
    toc_list_example
    spell_example
    suspend_example

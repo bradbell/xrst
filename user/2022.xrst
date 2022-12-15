@@ -49,6 +49,7 @@ mm-dd
 #. Change the :ref:`get_started-name` example so that is uses the name
    get_started.xrst for its input file and so it has a link to the
    text that goes in this file.
+#. Add the :ref:`dir command<dir_cmd-title>` .
 
 12-14
 =====

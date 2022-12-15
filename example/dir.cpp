@@ -21,43 +21,42 @@ template<class T> tangent(const T& x)
 }
 /*
 ------------------------------------------------------------------------------
-{xrst_begin literal_example}
+{xrst_begin dir_example}
+{xrst_spell
+   dir
+}
 
-Literal Command Example
-#######################
-This example is similar to the :ref:`dir_example-name` .
+Dir Command Example
+###################
+This example is similar to the :ref:`literal_example-name` .
 
 factorial
 *********
-{xrst_literal
-   // BEGIN_FACTORIAL
-   // END_FACTORIAL
-}
+.. literalinclude:: {xrst_dir example/dir.cpp}
+   :start-after: // BEGIN_FACTORIAL
+   :end-before:  // END_FACTORIAL
 
 square
 ******
-{xrst_literal
-   // BEGIN_SQUARE
-   // END_SQUARE
-}
+.. literalinclude:: {xrst_dir example/dir.cpp}
+   :start-after: // BEGIN_SQUARE
+   :end-before:  // END_SQUARE
 
 tangent
 *******
-{xrst_literal
-   example/literal.cpp
-   // BEGIN_TANGENT
-   // END_TANGENT
-}
+.. literalinclude:: {xrst_dir example/dir.cpp}
+   :start-after: // BEGIN_TANGENT
+   :end-before:  // END_TANGENT
 
 
 xrst_literal
 ************
-The file below demonstrates the use of ``xrst_literal`` .
+The file below demonstrates the use of ``xrst_dir`` .
 
 This Example File
 *****************
 {xrst_literal}
 
-{xrst_end literal_example}
+{xrst_end dir_example}
 ------------------------------------------------------------------------------
 */
