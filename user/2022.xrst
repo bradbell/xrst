@@ -41,6 +41,11 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-16
+=====
+Add a comparison between the xrst literal command and the sphinx
+:ref:`literal_cmd@literalinclude` directive.
+
 12-15
 =====
 #. Change *start* to :ref:`literal_cmd@start_after`

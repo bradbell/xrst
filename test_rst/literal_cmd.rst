@@ -45,7 +45,32 @@ Purpose
 *******
 A code block, from any where in any file,
 can be included by the command above.
-This is similar to the rst literalinclude directive.
+
+.. meta::
+   :keywords: literalinclude
+
+.. index:: literalinclude
+
+.. _literal_cmd@literalinclude:
+
+literalinclude
+**************
+This command is similar to the following sphinx directive
+(see :ref:`dir_cmd-name`) :
+
+| |tab| .. literalinclude:: {xrst_dir *display_file*}
+| |tab| |tab| :start-after: *start_after*
+| |tab| |tab| :end-before: *end_before*
+
+The xrst literal command has the following difference:
+
+#. If the *display_file* is not specified, the current input file is used.
+#. The copy of *start_after* and *end_before* in the command is not considered
+   a match for the corresponding text. This makes it possible to put the
+   command above the text when *display_file* is in the current input file.
+#. It is an error for there to be more than one copy of *start_after*
+   or *end_before* in the *display_file* (not counting the copy in the
+   command when the display file is the current input file).
 
 .. meta::
    :keywords: white, space
