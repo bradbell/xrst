@@ -43,8 +43,9 @@ mm-dd
 
 12-16
 =====
-Add a comparison between the xrst literal command and the sphinx
-:ref:`literal_cmd@literalinclude` directive.
+#. Add a comparison between the xrst literal command and the sphinx
+   :ref:`literal_cmd@literalinclude` directive.
+#. Update the :ref:`wish_list@Path` wish list entry.
 
 12-15
 =====
@@ -97,7 +98,8 @@ Add a comparison between the xrst literal command and the sphinx
 =====
 #. Remove the Sphinx Error Messages with list entry because
    it was completed on :ref:`2022@mm-dd@11-13`.
-#. Add the :ref:`wish_list@View Page Sources` wish list entry.
+#. Add the View Page Sources wish list entry
+   (which was completed on :ref:`2022@mm-dd@11-14` ).
 #. Change the configuration file preamble table to the
    :ref:`config_file@include_all`
    table and change the rst_substitution name to
