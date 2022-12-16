@@ -6,7 +6,6 @@ SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
    autodoc
    doxygen
    gsl
-   literalinclude
 }
 
 Motivation
@@ -24,6 +23,8 @@ some of the drawbacks.
 
 Features
 ********
+One can consider some of the xrst features listed below as a wish list for sphinx:
+
 #. Makes it easy to put documentation in source code comments,
    even when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd-name` .
@@ -57,10 +58,8 @@ Features
 #. It is easy to include source code that executes
    directly below the current location; see :ref:`code_cmd-name` .
 #. Source code can also be included from any location in any file;
-   see :ref:`literal_cmd-name`.
-   This is similar to the rst literalinclude directive.
-   The main difference is the special features that make it easier
-   to display text in the same file as the one containing the command.
+   see the discussion of how this is different than the
+   :ref:`literal_cmd@literalinclude` directive.
 #. It is possible to document a feature using one language
    and implement the feature, right next to the documentation,
    using a different language; e.g., see :ref:`suspend_example-name` .

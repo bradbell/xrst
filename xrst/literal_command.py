@@ -54,6 +54,7 @@ The xrst literal command has the following difference:
 #. It is an error for there to be more than one copy of *start_after*
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
+   This makes sure that the intended section of *display_file* is displayed.
 
 White Space
 ***********
