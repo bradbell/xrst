@@ -5,27 +5,47 @@ purpose
 !!!!!!!
 
 .. meta::
-   :keywords: purpose, motivation
+   :keywords: purpose, sphinx, wrapper
 
-.. index:: purpose, motivation
+.. index:: purpose, sphinx, wrapper
 
 .. _purpose-title:
 
-Motivation
-##########
-
-This is a sphinx wrapper that provides the features listed below.
-It was motivated by cases like the GNU Scientific library,
-which is not written in python, uses sphinx, and has its documentation
-in separate files from the corresponding source code; see `gsl doc`_ .
-It provides a system that extracts rst documentation files from any source code
-language and has some of the benefits of doxygen and autodoc without
-some of the drawbacks.
-
-.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+Purpose of this Sphinx Wrapper
+##############################
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: motivation
+
+.. index:: motivation
+
+.. _purpose@Motivation:
+
+Motivation
+**********
+This wrapper was motivated by cases like the GNU Scientific library,
+which is written in C, uses sphinx for its documentation,
+and has its documentation
+in separate files from the corresponding source code; see `gsl doc`_ .
+
+.. meta::
+   :keywords: goal
+
+.. index:: goal
+
+.. _purpose@Goal:
+
+Goal
+****
+The goal is to provide one documentation language that can be
+used in the comments of any source code language.
+This wrapper has some of the benefits of doxygen and autodoc without
+some of the drawbacks.
+
+.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
 .. meta::
    :keywords: features
@@ -54,7 +74,7 @@ One can consider some of the xrst features listed below as a wish list for sphin
    to the file and line number in corresponding xrst input file.
    In addition, :ref:`run_xrst@page_source` is the xrst input,
    not the extracted rst file.
-#. The are two levels to the table of contents. Each entry at the
+#. There are two levels to the table of contents. Each entry at the
    first level is a page name or page title; e.g.,
    see the :ref:`xrst_table_of_contents-title` for this documentation.
    Each entry at the second level is a headings with in a page.
@@ -69,9 +89,11 @@ One can consider some of the xrst features listed below as a wish list for sphin
    and :ref:`config_file@project_dictionary` at the project level.
    The spell checker catches double word errors.
 #. It is easy to include source code that executes
-   directly below the current location; see :ref:`code_cmd-name` .
+   directly below the current location;
+   see the discussion of how this different from the
+   :ref:`code_cmd@code-block` directive.
 #. Source code can also be included from any location in any file;
-   see the discussion of how this is different than the
+   see the discussion of how this is different from the
    :ref:`literal_cmd@literalinclude` directive.
 #. It is possible to document a feature using one language
    and implement the feature, right next to the documentation,

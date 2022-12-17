@@ -98,9 +98,9 @@ is a copy of data_in with the xrst code commands replaced by a corresponding
 sphinx command.
 
 .. literalinclude:: ../../xrst/code_command.py
-   :lines: 102-106
+   :lines: 118-122
    :language: py
 
 .. literalinclude:: ../../xrst/code_command.py
-   :lines: 212-213
+   :lines: 228-229
    :language: py

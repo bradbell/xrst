@@ -19,7 +19,7 @@ Table of Contents
 |    :ref:`1.12<docstring_example-title>` Docstring Example
 |    :ref:`1.13<configure_example-title>` Example Using TOML Configure File
 |    :ref:`1.14<testExample-title>` Test Special Conditions
-| :ref:`2<purpose-title>` Motivation
+| :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user_guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst
 |    :ref:`3.2<run_xrst-title>` Run Extract Sphinx RST And Sphinx

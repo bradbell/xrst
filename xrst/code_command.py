@@ -16,10 +16,26 @@ Purpose
 *******
 A code block, directly below in the current input file, begins (ends) with
 a code command that contains *language* (not containing *language*).
-Lines containing the code commands are not included in the rst output.
-One can use these lines to end and begin comments so that the
-code also executes.
-If this is not useful, one can instead use a sphinx code-block directive.
+
+code-block
+**********
+This command is similar to the following sphinx directive
+
+| |tab| .. code-block:: *language*
+|
+| |tab| |tab| Source code in the specified language
+
+
+The xrst code command has the following difference:
+
+#. Other characters on the same line as the code commands
+   are not included in the rst output or the displayed source code.
+   One can use these characters to end and begin comments so that the
+   code also executes.
+#. The source code does not need to be indented. This is especially useful
+   with languages like python and rst where the indentation is used to
+   begin and end sections of code.
+#. The source code does not need to be surrounded by empty lines.
 
 Requirements
 ************
