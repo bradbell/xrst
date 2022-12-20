@@ -305,11 +305,13 @@ def system_command(
    if ok :
       return
    if page_name2line_pair == None :
-      message  = f'system command failed: stderr = \n{stderr}'
+      message  = stderr
       if result.returncode == 0 :
+         message  += 'Warning: see system comand message above.\n'
          sys.stderr.write(message)
          warning[0] = True
          return
+      message  += 'Error: see system comand message above.\n'
       system_exit(message)
    #
    # pattern_error
@@ -377,9 +379,11 @@ def system_command(
       message += '\n' + error
    #
    if result.returncode == 0 :
+      message  += 'Warning: see system comand message above.\n'
       sys.stderr.write(message)
       warning[0] = True
       return
+   message  += 'Error: see system comand message above.\n'
    system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
