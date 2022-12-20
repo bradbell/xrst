@@ -236,8 +236,10 @@ Normally sphinx error and warning messages are reported using line numbers
 in the xrst source code files.
 If this option is present, these messages are reported
 using the line numbers in the RST files created by xrst.
+In addition the :ref:`run_xrst@page_source` links to the rst files,
+instead of the xrst source files.
 This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using source code line numbers.
+and it does not make sense using xrst source code line numbers.
 It is also helpful for determining if an incorrect line number is due to
 sphinx or xrst.
 
@@ -942,10 +944,11 @@ def run_xrst() :
          #
          # _sources
          # replace sphinx _sources directory with proper xrst sources
-         src_dir = f'{rst_directory}/_sources'
-         des_dir = f'{target_directory}/_sources'
-         shutil.rmtree(des_dir)
-         os.rename(src_dir, des_dir)
+         if not rst_line_numbers :
+            src_dir = f'{rst_directory}/_sources'
+            des_dir = f'{target_directory}/_sources'
+            shutil.rmtree(des_dir)
+            os.rename(src_dir, des_dir)
    else :
       assert target == 'tex'
       #

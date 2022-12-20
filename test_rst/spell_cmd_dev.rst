@@ -121,6 +121,9 @@ data_out
 is the data for this page after the spell command (if it exists)
 is removed.
 
+spell_warning
+is true (false) if a spelling warning occurred (did not occur).
+
 .. meta::
    :keywords: spelling, warnings
 
@@ -136,9 +139,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 203-210
+   :lines: 206-213
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 513-515
+   :lines: 517-520
    :language: py
