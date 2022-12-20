@@ -264,7 +264,7 @@ def system_exit(msg) :
    # assert False, msg
    sys.exit(msg)
 # ---------------------------------------------------------------------------
-# Execute a system comamnd
+# Execute a system command
 #
 # command:
 # the command to execute
@@ -307,11 +307,11 @@ def system_command(
    if page_name2line_pair == None :
       message  = stderr
       if result.returncode == 0 :
-         message  += 'Warning: see system comand message above.\n'
+         message  += 'Warning: see system command message above.\n'
          sys.stderr.write(message)
          warning[0] = True
          return
-      message  += 'Error: see system comand message above.\n'
+      message  += 'Error: see system command message above.\n'
       system_exit(message)
    #
    # pattern_error
@@ -379,11 +379,11 @@ def system_command(
       message += '\n' + error
    #
    if result.returncode == 0 :
-      message  += 'Warning: see system comand message above.\n'
+      message  += 'Warning: see system command message above.\n'
       sys.stderr.write(message)
       warning[0] = True
       return
-   message  += 'Error: see system comand message above.\n'
+   message  += 'Error: see system command message above.\n'
    system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
