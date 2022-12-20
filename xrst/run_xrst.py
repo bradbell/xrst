@@ -264,13 +264,36 @@ def system_exit(msg) :
    # assert False, msg
    sys.exit(msg)
 # ---------------------------------------------------------------------------
+# Execute a system comamnd
+#
+# command:
+# the command to execute
+#
+# warning:
+# If a warning is printed, this flag is set True
+#
+# page_name2line_pair
+# a mapping from page name to to a list of line number pairs.
+# The first number is the pair is a line number in the rst file for this page.
+# The secon number is a corresponding xrst input line number.
+#
+# page_name2file_in
+# a mapping from page name to the correspoind xrst input file.
+#
 def system_command(
       command                    ,
+      warning                    ,
       page_name2line_pair = None ,
       page_name2file_in   = None ,
 ) :
    assert type(command) == str
-   if type(page_name2line_pair) == dict :
+   #
+   assert type(warning) == list
+   assert len(warning) == 1
+   assert type(warning[0]) == bool
+   #
+   if page_name2line_pair != None :
+      assert type(page_name2line_pair) == dict
       assert type(page_name2file_in) == dict
    #
    # subprocess.run, stderr
@@ -283,6 +306,10 @@ def system_command(
       return
    if page_name2line_pair == None :
       message  = f'system command failed: stderr = \n{stderr}'
+      if result.returncode == 0 :
+         sys.stderr.write(msg)
+         warning[0] = True
+         return
       system_exit(message)
    #
    # pattern_error
@@ -349,6 +376,10 @@ def system_command(
       # message
       message += '\n' + error
    #
+   if result.returncode == 0 :
+      sys.stderr.write(msg)
+      warning[0] = True
+      return
    system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
@@ -613,6 +644,9 @@ def run_xrst() :
    page_name2line_pair = dict()
    page_name2file_in   = dict()
    #
+   # any_warning
+   any_warning = [ False ]
+   #
    # group_name
    for group_name in group_list :
       #
@@ -832,9 +866,11 @@ def run_xrst() :
          toc_file_set = set()
          for finfo_tmp in finfo_done :
             toc_file_set.add( finfo_tmp['file_in'] )
-         input_file_list = xrst.check_input_files(
+         input_file_list, file_list_warning = xrst.check_input_files(
             config_file, conf_dict, group_name, toc_file_set, input_file_list
          )
+         if file_list_warning :
+            any_warning[0] = True
    #
    # rename_group
    if rename_group != None :
@@ -887,13 +923,16 @@ def run_xrst() :
    # reset tmp_dir because rmtree is such a dangerous command
    tmp_dir = f'{rst_directory}/tmp'
    shutil.rmtree(tmp_dir)
+   #
    # -------------------------------------------------------------------------
    if target == 'html' :
       command = f'sphinx-build -b html {rst_directory} {target_directory}'
       if rst_line_numbers :
-         system_command(command)
+         system_command(command, any_warning)
       else :
-         system_command(command, page_name2line_pair, page_name2file_in)
+         system_command(
+            command, any_warning, page_name2line_pair, page_name2file_in
+         )
          #
          # _sources
          # replace sphinx _sources directory with proper xrst sources
@@ -907,9 +946,11 @@ def run_xrst() :
       latex_dir = f'{target_directory}'
       command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
       if rst_line_numbers :
-         system_command(command)
+         system_command(command, any_warning)
       else :
-         system_command(command, page_name2line_pair, page_name2file_in)
+         system_command(
+            command, any_warning, page_name2line_pair, page_name2file_in
+         )
       #
       # latex_dir/project_name.tex
       fix_latex(latex_dir, project_name)
@@ -959,9 +1000,13 @@ def run_xrst() :
       if not ok :
          msg       = 'warning: cannot modify widths in sphinx_rtd_theme\n'
          sys.stderr.write(msg)
+         any_warning[0] = True
       else :
          file_obj  = open(file_name, 'w')
          file_obj.write(data_out)
          file_obj.close()
    # -------------------------------------------------------------------------
-   print('xrst: OK')
+   if any_warning[0] :
+      system_exit('xrst: See warnings above')
+   else :
+      print('xrst: OK')

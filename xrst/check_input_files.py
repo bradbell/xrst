@@ -49,10 +49,14 @@ import subprocess
 # This is a value that can be used for *file_list_in* to avoid
 # having to re-execute the input_files commands.
 #
+# file_list_warning
+# *****************
+# This is true (false) if an input file list warning is (is not) printed
+#
 # Prototype
 # *********
 # {xrst_code py}
-# file_list_out =
+# file_list_out, file_list_warning =
 def check_input_files(
    config_file, conf_dict, group_name, toc_file_set, file_list_in
 ) :
@@ -181,9 +185,11 @@ def check_input_files(
             if warning_count == 10 :
                msg+= f'Surpressing this warning after {warning_count} files.\n'
                sys.stderr.write(msg)
+   file_list_warning = 0 < warning_count
    # BEGIN_RETURN
+   assert type(file_list_warning) == bool
    assert type(file_list_out) == list
    if len(file_list_out) > 0 :
       assert type( file_list_out[0] ) == str
-   return file_list_out
+   return file_list_out, file_list_warning
    # END_RETURN

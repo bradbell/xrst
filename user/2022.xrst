@@ -41,6 +41,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-20
+=====
+It used to be that processing was terminated when a warning occurred.
+This could end up with the output rst files being reported as the source files.
+This has been fixed and xrst now completes its processing and exits
+with non-zero status (when a warning occurs).
+
 12-16
 =====
 #. Add a comparison between the xrst literal command and the sphinx

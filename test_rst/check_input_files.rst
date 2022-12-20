@@ -91,6 +91,17 @@ This is a value that can be used for *file_list_in* to avoid
 having to re-execute the input_files commands.
 
 .. meta::
+   :keywords: file_list_warning
+
+.. index:: file_list_warning
+
+.. _check_input_files@file_list_warning:
+
+file_list_warning
+*****************
+This is true (false) if an input file list warning is (is not) printed
+
+.. meta::
    :keywords: prototype
 
 .. index:: prototype
@@ -101,9 +112,9 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 55-71
+   :lines: 59-75
    :language: py
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 185-188
+   :lines: 190-194
    :language: py
