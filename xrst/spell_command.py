@@ -192,6 +192,9 @@ pattern['word']  = re.compile(
 # is the data for this page after the spell command (if it exists)
 # is removed.
 #
+# spell_warning
+# is true (false) if a spelling warning occurred (did not occur).
+#
 # Spelling Warnings
 # *****************
 # A spelling warning is reported for each word (and double word) that is not
@@ -347,8 +350,8 @@ def spell_command(
    # any left over xrst commands
    data_tmp = re.sub( r'{xrst_comment_ch' , '@', data_tmp)
    #
-   # first_spell_error
-   first_spell_error = True
+   # first_spell_warning
+   first_spell_warning = True
    #
    # previous_word
    previous_word = ''
@@ -377,12 +380,12 @@ def spell_command(
             if not word_lower in special_used :
                # word is not in the list of special words
                #
-               # first_spell_error
-               if first_spell_error :
+               # first_spell_warning
+               if first_spell_warning :
                   msg  = '\nwarning: file = ' + file_name
                   msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
-                  first_spell_error = False
+                  first_spell_warning = False
                #
                # line_number
                m_tmp  = pattern['line'].search(data_tmp, m_obj.end() )
@@ -421,12 +424,12 @@ def spell_command(
             if not word_lower in double_used :
                # word is not in list of special double words
                #
-               # first_spell_error
-               if first_spell_error :
+               # first_spell_warning
+               if first_spell_warning :
                   msg  = 'warning: file = ' + file_name
                   msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
-                  first_spell_error = False
+                  first_spell_warning = False
                #
                # line_number
                m_tmp = pattern['line'].search(data_tmp, m_obj.end() )
@@ -446,20 +449,20 @@ def spell_command(
    # check for words that were not used
    for word_lower in special_used :
       if not (special_used[word_lower] or word_lower in double_used) :
-         if first_spell_error :
+         if first_spell_warning :
             msg  = '\nwarning: file = ' + file_name
             msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
-            first_spell_error = False
+            first_spell_warning = False
          msg = 'spelling word "' + word_lower + '" not needed\n'
          sys.stderr.write(msg)
    for word_lower in double_used :
       if not double_used[word_lower] :
-         if first_spell_error :
+         if first_spell_warning :
             msg  = '\nwarning: file = ' + file_name
             msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
-            first_spell_error = False
+            first_spell_warning = False
          msg  = 'double word "' + word_lower + ' ' + word_lower
          msg += '" not needed\n'
          sys.stderr.write(msg)
@@ -509,8 +512,10 @@ def spell_command(
       page_name     = page_name,
    )
    #
+   spell_warning = not first_spell_warning
    # BEGIN_return
+   assert type(spell_warning) == bool
    assert type(data_out) == str
    #
-   return data_out
+   return data_out, spell_warning
    # END_return

@@ -307,7 +307,7 @@ def system_command(
    if page_name2line_pair == None :
       message  = f'system command failed: stderr = \n{stderr}'
       if result.returncode == 0 :
-         sys.stderr.write(msg)
+         sys.stderr.write(message)
          warning[0] = True
          return
       system_exit(message)
@@ -377,7 +377,7 @@ def system_command(
       message += '\n' + error
    #
    if result.returncode == 0 :
-      sys.stderr.write(msg)
+      sys.stderr.write(message)
       warning[0] = True
       return
    system_exit(message)
@@ -766,7 +766,7 @@ def run_xrst() :
             # spell_command
             # do after suspend and before other commands to help ignore
             # pages of text that do not need spell checking
-            page_data = xrst.spell_command(
+            page_data, spell_warning = xrst.spell_command(
                tmp_dir,
                page_data,
                file_in,
@@ -774,6 +774,8 @@ def run_xrst() :
                begin_line,
                spell_checker,
             )
+            if spell_warning :
+               any_warning[0] = True
             # -------------------------------------------------------------
             # dir commands
             page_data = xrst.dir_command(page_data, rst2project_directory)
