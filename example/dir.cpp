@@ -38,15 +38,16 @@ factorial
 
 square
 ******
-.. literalinclude:: {xrst_dir example/dir.cpp}
+.. include:: {xrst_dir example/dir.cpp}
    :start-after: // BEGIN_SQUARE
    :end-before:  // END_SQUARE
 
 tangent
 *******
-.. literalinclude:: {xrst_dir example/dir.cpp}
+.. include:: {xrst_dir example/dir.cpp}
    :start-after: // BEGIN_TANGENT
    :end-before:  // END_TANGENT
+   :literal:
 
 
 xrst_literal

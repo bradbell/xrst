@@ -40,7 +40,7 @@ factorial
 
 square
 ******
-.. literalinclude:: ../../example/dir.cpp
+.. include:: ../../example/dir.cpp
    :start-after: // BEGIN_SQUARE
    :end-before:  // END_SQUARE
 
@@ -53,9 +53,10 @@ square
 
 tangent
 *******
-.. literalinclude:: ../../example/dir.cpp
+.. include:: ../../example/dir.cpp
    :start-after: // BEGIN_TANGENT
    :end-before:  // END_TANGENT
+   :literal:
 
 .. meta::
    :keywords: xrst_literal

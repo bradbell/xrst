@@ -7,8 +7,8 @@
    dir
 }
 
-Convert a File Name From Project Directory to RST Directory
-###########################################################
+Converting Sphinx Command File Names
+####################################
 
 Syntax
 ******
@@ -16,10 +16,11 @@ Syntax
 
 Purpose
 *******
-This command converts a file name relative to the
+Sphinx commands that use file names must specify the file
+relative to the :ref:`config_file@directory@rst_directory` .
+The xrst dir command converts a file name relative to the
 :ref:`config_file@directory@project_directory` to be relative to the
-:ref:`config_file@directory@rst_directory` so it can be used by
-sphinx commands.
+:ref:`config_file@directory@rst_directory` .
 
 file_name
 *********

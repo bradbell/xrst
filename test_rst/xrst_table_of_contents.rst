@@ -30,7 +30,7 @@ Table of Contents
 |       :ref:`3.3.4<suspend_cmd-title>` Suspend and Resume Commands
 |       :ref:`3.3.5<code_cmd-title>` Code Command
 |       :ref:`3.3.6<literal_cmd-title>` Literal Command
-|       :ref:`3.3.7<dir_cmd-title>` Convert a File Name From Project Directory to RST Directory
+|       :ref:`3.3.7<dir_cmd-title>` Converting Sphinx Command File Names
 |       :ref:`3.3.8<comment_cmd-title>` Comment Command
 |       :ref:`3.3.9<comment_ch_cmd-title>` Comment Character Command
 |    :ref:`3.4<automatic-title>` Automatic Processing
