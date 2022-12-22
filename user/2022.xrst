@@ -41,6 +41,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-22
+=====
+Add the :ref:`wish_list@Theme` wish list item,
+and a warning that corresponding html theme options
+:ref:`config_file@html_theme_options@Default` may change in the future.
+
 12-20
 =====
 It used to be that processing was terminated when a warning occurred.

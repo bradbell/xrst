@@ -38,11 +38,14 @@ A `toml file`_ is used to configure xrst.
    if a table can only have one entry, the entry is named data.
 #. Each table has a default value that is used when the table
    is not present in the toml file.
+   All of the defaults below will be the same in future versions
+   of xrst with the possible exception of the html theme options
+   :ref:`config_file@html_theme_options@Default` .
 #. All of the entries in a table have the same type
    as its corresponding default.
    If an entry has components, all of the comments have the same
    type as the default components.
-   There is one exception to this rule; see
+   The html theme options default is one exception to this rule; see
    :ref:`config_file@html_theme_options` .
 
 project_name
@@ -244,6 +247,7 @@ In the default below, these values are integers and booleans.
 
 Default
 =======
+The html_theme_options default value below my change in the future.
 {xrst_code toml}
 [html_theme_options.sphinx_book_theme]
 show_toc_level = 4
