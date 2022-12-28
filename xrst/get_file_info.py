@@ -287,7 +287,7 @@ def get_file_info(
             previous_page_name = info['page_name']
             if page_name.lower() == previous_page_name.lower() :
                msg  = 'Lower case version of two page names are equal.\n'
-               msg  = f'previous_page_name  = "{previous_page_name}", '
+               msg += f'previous_page_name  = "{previous_page_name}"\n'
                msg += 'previous_file        = ' +  info['file_in'] + '\n'
                xrst.system_exit(msg,
                   file_name = file_in  ,
