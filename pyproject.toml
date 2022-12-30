@@ -8,7 +8,7 @@ build-backend = 'hatchling.build'
 
 [project]
 name    = 'xrst'
-version = '2022.12.30'
+version = '2023.0.0'
 authors = [
   {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
 ]
@@ -22,11 +22,12 @@ classifiers       = [
 'Operating System :: OS Independent',
 ]
 dependencies  = [
-  'furo',
-  'pyspellchecker',
-  'sphinx',
-  'sphinx-rtd-theme',
-  'sphinx-book-theme',
+   'furo',
+   'pyspellchecker',
+   'sphinx',
+   'sphinx-rtd-theme',
+   'sphinx-book-theme',
+   'toml',
 ]
 
 [project.scripts]
