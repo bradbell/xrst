@@ -27,6 +27,12 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+.. _2022@mm-dd@12-30:
+
+12-30
+=====
+Add the :ref:`run_xrst@rst_only` option.
+
 .. _2022@mm-dd@12-22:
 
 12-22

@@ -25,13 +25,14 @@ Syntax
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
+| |tab| [ ``--rst_line_numbers`` ] \\
+| |tab| [ ``--rst_only`` ] \\
 | |tab| [ ``--config_file``   *config_file* ] \\
 | |tab| [ ``--html_theme``    *html_theme* ] \\
 | |tab| [ ``--target``        *target* ]  \\
 | |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
-| |tab| [ ``--rst_line_numbers`` ] \\
 
 .. meta::
    :keywords: version
@@ -78,6 +79,45 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
+
+.. meta::
+   :keywords: rst_line_numbers
+
+.. index:: rst_line_numbers
+
+.. _run_xrst@rst_line_numbers:
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+In addition the :ref:`run_xrst@page_source` links to the rst files,
+instead of the xrst source files.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using xrst source code line numbers.
+It is also helpful for determining if an incorrect line number is due to
+sphinx or xrst.
+
+.. meta::
+   :keywords: rst_only
+
+.. index:: rst_only
+
+.. _run_xrst@rst_only:
+
+rst_only
+********
+Normally, after extraction the RST files,
+xrst automatically runs sphinx to produce the target output (html or tex).
+If this option is present, only the rst files are generated and sphinx
+is not run.
+This may be useful when creating rst files for uses else where; e.g.,
+for use with `Read the Docs <https://docs.readthedocs.io>`_ .
+The sphinx commands are printed after xrst finishes and can be executed
+by hand.
+This may be useful if there is a problem during these commands.
 
 .. meta::
    :keywords: config_file
@@ -335,23 +375,3 @@ If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
 .. _pyspellchecker: https://pypi.org/project/pyspellchecker
-
-.. meta::
-   :keywords: rst_line_numbers
-
-.. index:: rst_line_numbers
-
-.. _run_xrst@rst_line_numbers:
-
-rst_line_numbers
-****************
-Normally sphinx error and warning messages are reported using line numbers
-in the xrst source code files.
-If this option is present, these messages are reported
-using the line numbers in the RST files created by xrst.
-In addition the :ref:`run_xrst@page_source` links to the rst files,
-instead of the xrst source files.
-This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using xrst source code line numbers.
-It is also helpful for determining if an incorrect line number is due to
-sphinx or xrst.

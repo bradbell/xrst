@@ -24,13 +24,14 @@ Syntax
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
+| |tab| [ ``--rst_line_numbers`` ] \\
+| |tab| [ ``--rst_only`` ] \\
 | |tab| [ ``--config_file``   *config_file* ] \\
 | |tab| [ ``--html_theme``    *html_theme* ] \\
 | |tab| [ ``--target``        *target* ]  \\
 | |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
-| |tab| [ ``--rst_line_numbers`` ] \\
 
 version
 *******
@@ -56,6 +57,31 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+In addition the :ref:`run_xrst@page_source` links to the rst files,
+instead of the xrst source files.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using xrst source code line numbers.
+It is also helpful for determining if an incorrect line number is due to
+sphinx or xrst.
+
+rst_only
+********
+Normally, after extraction the RST files,
+xrst automatically runs sphinx to produce the target output (html or tex).
+If this option is present, only the rst files are generated and sphinx
+is not run.
+This may be useful when creating rst files for uses else where; e.g.,
+for use with `Read the Docs <https://docs.readthedocs.io>`_ .
+The sphinx commands are printed after xrst finishes and can be executed
+by hand.
+This may be useful if there is a problem during these commands.
 
 config_file
 ***********
@@ -229,19 +255,6 @@ If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
 .. _pyspellchecker: https://pypi.org/project/pyspellchecker
-
-rst_line_numbers
-****************
-Normally sphinx error and warning messages are reported using line numbers
-in the xrst source code files.
-If this option is present, these messages are reported
-using the line numbers in the RST files created by xrst.
-In addition the :ref:`run_xrst@page_source` links to the rst files,
-instead of the xrst source files.
-This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using xrst source code line numbers.
-It is also helpful for determining if an incorrect line number is due to
-sphinx or xrst.
 
 {xrst_end run_xrst}
 """
@@ -480,6 +493,9 @@ def run_xrst() :
    parser.add_argument('--rst_line_numbers', action='store_true',
       help='report sphinx errors and warnings using rst file line numbers'
    )
+   parser.add_argument('--rst_only', action='store_true',
+      help='report sphinx errors and warnings using rst file line numbers'
+   )
    #
    # arguments
    arguments = parser.parse_args()
@@ -527,6 +543,9 @@ def run_xrst() :
    #
    # rst_line_numbers
    rst_line_numbers = arguments.rst_line_numbers
+   #
+   # rst_only
+   rst_only = arguments.rst_only
    #
    # html_theme
    html_theme = arguments.html_theme
@@ -931,6 +950,32 @@ def run_xrst() :
    # reset tmp_dir because rmtree is such a dangerous command
    tmp_dir = f'{rst_directory}/tmp'
    shutil.rmtree(tmp_dir)
+   # -------------------------------------------------------------------------
+   if rst_only :
+      print('xrst rst_only: OK')
+      indent = '\n' + 3 * ' '
+      if target == 'html' :
+         txt  = f'The following commands will build the html:'
+         txt += indent
+         txt += f'sphinx-build -b html {rst_directory} {target_directory}'
+         txt += indent
+         txt += f'rm -r {target_directory}/_sources'
+         txt += indent
+         txt += f'mv {rst_directory}/_sources {target_directory}/_sources'
+         if html_theme == 'sphinx_rtd_theme' :
+            txt += '\nThis will not modify the sphinx_rtd_theme maximum width'
+      else :
+         assert target == 'tex'
+         latex_dir = f'{target_directory}'
+         txt  = f'The following command will build the tex:'
+         txt += indent
+         txt += f'sphinx-build -b latex {rst_directory} {latex_dir}'
+         txt += '\n'
+         txt += f'The following command will build the pdf from the tex:'
+         txt += indent
+         txt += f'make -C {project_directory}/{latex_dir} {project_name}.pdf'
+      print(txt)
+      return
    #
    # -------------------------------------------------------------------------
    if target == 'html' :
@@ -947,7 +992,9 @@ def run_xrst() :
          if not rst_line_numbers :
             src_dir = f'{rst_directory}/_sources'
             des_dir = f'{target_directory}/_sources'
+            print( f'rm -r {des_dir}' )
             shutil.rmtree(des_dir)
+            print( f'mv {src_dir} {des_dir}' )
             os.rename(src_dir, des_dir)
    else :
       assert target == 'tex'
