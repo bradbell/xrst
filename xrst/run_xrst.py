@@ -13,6 +13,7 @@
    pyspellchecker
    rtd
    toml
+   txt
 }
 
 Run Extract Sphinx RST And Sphinx
@@ -75,8 +76,13 @@ rst_only
 ********
 Normally, after extraction the RST files,
 xrst automatically runs sphinx to produce the target output (html or tex).
-If this option is present, only the rst files are generated and sphinx
-is not run.
+If this option is present, sphinx not run.
+Only the rst files, and their corresponding sources,
+are generated; i.e.,
+
+| |tab| :ref:`config_file@directory@rst_directory`/\*.rst
+| |tab| *rst_directory*\ /_sources/\*.txt
+
 This may be useful when creating rst files for uses else where; e.g.,
 for use with `Read the Docs <https://docs.readthedocs.io>`_ .
 The sphinx commands are printed after xrst finishes and can be executed
@@ -943,7 +949,7 @@ def run_xrst() :
    for name in rst_list :
       if name.endswith('.rst') :
          if name not in tmp_list :
-            if name != 'xrst_root_doc.rst' :
+            if name != 'index.rst' :
                os.remove( f'{rst_directory}/{name}' )
    #
    # tmp_dir
@@ -994,8 +1000,8 @@ def run_xrst() :
             des_dir = f'{target_directory}/_sources'
             print( f'rm -r {des_dir}' )
             shutil.rmtree(des_dir)
-            print( f'mv {src_dir} {des_dir}' )
-            os.rename(src_dir, des_dir)
+            print( f'cp -r {src_dir} {des_dir}' )
+            shutil.copytree(src_dir, des_dir)
    else :
       assert target == 'tex'
       #

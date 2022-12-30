@@ -31,7 +31,9 @@ mm-dd
 
 12-30
 =====
-Add the :ref:`run_xrst@rst_only` option.
+#. Add the :ref:`run_xrst@rst_only` option.
+#. Change to name of the root level file back to ``index`` and
+   prohibit a :ref:`begin_cmd@page_name` from being ``index``.
 
 .. _2022@mm-dd@12-22:
 

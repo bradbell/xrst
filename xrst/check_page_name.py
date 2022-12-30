@@ -27,7 +27,7 @@ import xrst
 # #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
 #     period and underbar.
 # #.  A page name cannot begin with ``xrst_`` .
-# #.  A page name cannot be ``genindex`` .
+# #.  A page name cannot be ``index`` or ``genindex`` .
 #
 # If *page_name* does not follow
 # these rules, a message is printed and the program exits.
@@ -64,6 +64,11 @@ def check_page_name(page_name, file_name, m_obj, data) :
       )
    if page_name.startswith('xrst_') :
       msg = 'page_name cannot start with xrst_'
+      xrst.system_exit(msg,
+         file_name=file_name, m_obj=m_obj, data=data
+      )
+   if page_name == 'index' or page_name == 'genindex' :
+      msg = 'page_name cannot be index or genindex'
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )

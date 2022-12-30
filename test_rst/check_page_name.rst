@@ -37,7 +37,7 @@ A valid page name must satisfy the following conditions:
 #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
     period and underbar.
 #.  A page name cannot begin with ``xrst_`` .
-#.  A page name cannot be ``genindex`` .
+#.  A page name cannot be ``index`` or ``genindex`` .
 
 If *page_name* does not follow
 these rules, a message is printed and the program exits.

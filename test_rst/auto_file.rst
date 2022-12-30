@@ -37,14 +37,14 @@ not an rst file.
 .. _configuration:  http://www.sphinx-doc.org/en/master/config
 
 .. meta::
-   :keywords: xrst_root_doc.rst
+   :keywords: index.rst
 
-.. index:: xrst_root_doc.rst
+.. index:: index.rst
 
-.. _auto_file@xrst_root_doc.rst:
+.. _auto_file@index.rst:
 
-xrst_root_doc.rst
-*****************
+index.rst
+*********
 This file is the top of the documentation tree
 built by sphinx. It is one level above the first page in
 :ref:`config_file@root_file`.
