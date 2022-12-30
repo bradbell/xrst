@@ -8,6 +8,7 @@ data = 'xrst'
 #
 # BEGIN_DIRECTORY
 [directory]
+# This is same as the default and only used as an example
 project_directory = '.'
 rst_directory     = 'build/rst'
 html_directory    = 'build/html'

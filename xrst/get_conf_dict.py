@@ -124,16 +124,16 @@ Note that '.' denotes the directory where
 {xrst_code toml}
 [directory]
 project_directory  = '.'
-rst_directory      = 'rst'
-html_directory     = 'html'
-tex_directory      = 'tex'
+rst_directory      = 'build/rst'
+html_directory     = 'build/html'
+tex_directory      = 'build/tex'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['directory'] = {
    'project_directory' : '.'    ,
-   'rst_directory'     : 'rst'  ,
-   'html_directory'    : 'html' ,
-   'tex_directory'     : 'tex'  ,
+   'rst_directory'     : 'build/rst'  ,
+   'html_directory'    : 'build/html' ,
+   'tex_directory'     : 'build/tex'  ,
 }
 '''{xrst_resume}
 
