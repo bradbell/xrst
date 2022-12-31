@@ -1,7 +1,10 @@
 # Extract Sphinx RST Files
 
-## User Documentation
+## Documentation
 https://xrst.readthedocs.io
 
-## Run xrst
-`xsrst --help`
+## Install
+`pip install xrst`
+
+## Get Started
+[get_started](https://xrst.readthedocs.io/en/latest/get_started.html)
