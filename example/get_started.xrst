@@ -14,7 +14,7 @@ Heading: Steps
 
 #. Use pip as follows to install xrst::
 
-      pip install --index-url https://test.pypi.org/simple/ xrst
+      pip install xrst
 
 #. Create an empty directory and make it your current working directory.
 
@@ -35,17 +35,20 @@ Heading: Steps
       xrst
 
 
-#. Use your web browser to open the file ``html/get_started.html`` .
-   This location is relative to your working directory.
+#. Use your web browser to open the file below
+   (this file name above is relative to your working directory)::
+
+      build/html/get_started.html
 
 #. You should have gotten a warning that none of the input_files commands
    succeeded (during the xrst command).
    These commands are used to check that all the input files get used.
-   You can suppress this check by adding the text below at the end of your
-   xrst.toml file and then re-executing the xrst command::
+   You can remove this check by adding the text below at the end of your
+   xrst.toml file. If you then re-execute the xrst command, the
+   warning should not appear::
 
       [input_files]
-      data = [ [] ]
+      data = [ ]
 
 
 Heading: Links to this Page

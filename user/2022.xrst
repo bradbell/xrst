@@ -41,6 +41,13 @@ xrst Release Notes for 2022
 mm-dd
 *****
 
+12-31
+=====
+Bring :ref:`get_started-name` up to date with current xrst.
+To be specific, :ref:`user_guide@Install Stable Version`,
+correct location of get_started.html,
+and fix setting of :ref:`config_file@input_files`.
+
 12-30
 =====
 #. Add the :ref:`run_xrst@rst_only` option.
