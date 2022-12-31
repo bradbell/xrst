@@ -1,9 +1,7 @@
 # Extract Sphinx RST Files
 
 ## User Documentation
-https://bradbell.github.io/xrst
+[link](https://xrst.readthedocs.io)
 
 ## Run xrst
-```
-xsrst --help
-```
+`xsrst --help`
