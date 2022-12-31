@@ -125,9 +125,9 @@ one page in child_page_list for that file. Otherwise all of the
 pages in the file are in child_page_list.
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 164-168
+   :lines: 170-174
    :language: py
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 323-331
+   :lines: 329-337
    :language: py

@@ -15,7 +15,7 @@ The xrst Module
 ###############
 
 .. csv-table::
-   :header:  "Child", "Title"
+   :header:  "Name", "Title"
    :widths: auto
 
    "add_before_title", :ref:`add_before_title-title`

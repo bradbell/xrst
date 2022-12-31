@@ -44,10 +44,13 @@ mm-dd
 
 12-31
 =====
-Bring :ref:`get_started-name` up to date with current xrst.
-To be specific, :ref:`user_guide@Install Stable Version`,
-correct location of get_started.html,
-and fix setting of :ref:`config_file@input_files`.
+#. Bring :ref:`get_started-name` up to date with current xrst.
+   To be specific, :ref:`user_guide@Install Stable Version`,
+   correct location of get_started.html,
+   and fix setting of :ref:`config_file@input_files`.
+#. The :ref:`toc_cmd@Syntax@toc_table` command was changed
+   to use **Name** instead of **Child** as the heading for the
+   page name column.
 
 12-30
 =====

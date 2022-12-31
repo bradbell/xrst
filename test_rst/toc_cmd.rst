@@ -22,23 +22,50 @@ Table of Children Commands
 Syntax
 ******
 
--  | ``{xrst_toc_hidden``
-   |   *file_1*
-   |   ...
-   |   *file_n*
-   | :code:`}`
+.. meta::
+   :keywords: toc_hidden
 
--  | ``{xrst_toc_list``
-   |   *file_1*
-   |   ...
-   |   *file_n*
-   | :code:`}`
+.. index:: toc_hidden
 
--  | ``{xrst_toc_table``
-   |   *file_1*
-   |   ...
-   |   *file_n*
-   | :code:`}`
+.. _toc_cmd@Syntax@toc_hidden:
+
+toc_hidden
+==========
+| ``{xrst_toc_hidden``
+|   *file_1*
+|   ...
+|   *file_n*
+| ``}``
+
+.. meta::
+   :keywords: toc_list
+
+.. index:: toc_list
+
+.. _toc_cmd@Syntax@toc_list:
+
+toc_list
+========
+| ``{xrst_toc_list``
+|   *file_1*
+|   ...
+|   *file_n*
+| ``}``
+
+.. meta::
+   :keywords: toc_table
+
+.. index:: toc_table
+
+.. _toc_cmd@Syntax@toc_table:
+
+toc_table
+=========
+| ``{xrst_toc_table``
+|   *file_1*
+|   ...
+|   *file_n*
+| ``}``
 
 .. meta::
    :keywords: table, contents
@@ -117,7 +144,7 @@ Child Links
 #. If a page has a toc_list or toc_table command,
    links to all the children of the page are placed where the
    toc command is located.
-   You can place a heading directly before the these commands
+   You can place a heading directly before these commands
    to make the links easier to find.
 
 #. If a page uses the hidden syntax,
@@ -136,7 +163,7 @@ Child Links
 
 toctree
 *******
-This command replaces the sphinx ``toctree`` directive.
+These commands replaces the sphinx ``toctree`` directive.
 A ``toctree`` directive is automatically generated and includes each
 page that is a child of the current page.
 

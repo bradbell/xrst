@@ -14,21 +14,25 @@ example
 Examples
 ########
 
--  :ref:`get_started-title`
--  :ref:`literal_example-title`
--  :ref:`dir_example-title`
--  :ref:`toc_list_example-title`
--  :ref:`spell_example-title`
--  :ref:`suspend_example-title`
--  :ref:`code_example-title`
--  :ref:`comment_example-title`
--  :ref:`comment_ch_example-title`
--  :ref:`heading_example-title`
--  :ref:`indent_example-title`
--  :ref:`docstring_example-title`
--  :ref:`configure_example-title`
--  :ref:`.readthedocs.yaml-title`
--  :ref:`testExample-title`
+.. csv-table::
+   :header:  "Name", "Title"
+   :widths: auto
+
+   "get_started", :ref:`get_started-title`
+   "literal_example", :ref:`literal_example-title`
+   "dir_example", :ref:`dir_example-title`
+   "toc_list_example", :ref:`toc_list_example-title`
+   "spell_example", :ref:`spell_example-title`
+   "suspend_example", :ref:`suspend_example-title`
+   "code_example", :ref:`code_example-title`
+   "comment_example", :ref:`comment_example-title`
+   "comment_ch_example", :ref:`comment_ch_example-title`
+   "heading_example", :ref:`heading_example-title`
+   "indent_example", :ref:`indent_example-title`
+   "docstring_example", :ref:`docstring_example-title`
+   "configure_example", :ref:`configure_example-title`
+   ".readthedocs.yaml", :ref:`.readthedocs.yaml-title`
+   "testExample", :ref:`testExample-title`
 
 .. toctree::
    :maxdepth: 1

@@ -103,7 +103,7 @@ def process_children(
       elif toc_type == 'table' :
          cmd  = '\n\n'
          cmd += '.. csv-table::\n'
-         cmd += '   :header:  "Child", "Title"\n'
+         cmd += '   :header:  "Name", "Title"\n'
          cmd += '   :widths: auto\n\n'
          for child in list_children :
             cmd += '   "' + child + '"'
