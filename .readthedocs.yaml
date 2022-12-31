@@ -28,4 +28,5 @@ build:
       # _readthedocs/html
       # The directory that Read the Docs uploads when commands is used.
       - mkdir _readthedocs
+      - rm -r build/html/.doctrees
       - cp -r build/html _readthedocs/html
