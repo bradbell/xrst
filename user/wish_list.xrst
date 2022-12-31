@@ -18,6 +18,15 @@ It would be nice to have better
 :ref:`config_file@html_theme_options@Default` options more themes
 so that they work will with xrst.
 
+Search
+******
+It would be nice for the search to only match pages that index
+all of the words entered into the search box.
+It would also be nice if each matching page had a list of all its index
+words below the corresponding page name.
+(In xrst, the :ref:`heading_links@Index` words are
+all words that appear in headings in the page.)
+
 Path
 ****
 It would be nice if all sphinx commands that used file names were automatically
@@ -36,11 +45,6 @@ and not include tabs in any of the processing after that.
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
-
-Search
-******
-It would be nice for a search to display all of the index words for each
-web page that matches the search.
 
 
 {xrst_end wish_list}

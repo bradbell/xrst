@@ -32,6 +32,22 @@ It would be nice to have better
 so that they work will with xrst.
 
 .. meta::
+   :keywords: search
+
+.. index:: search
+
+.. _wish_list@Search:
+
+Search
+******
+It would be nice for the search to only match pages that index
+all of the words entered into the search box.
+It would also be nice if each matching page had a list of all its index
+words below the corresponding page name.
+(In xrst, the :ref:`heading_links@Index` words are
+all words that appear in headings in the page.)
+
+.. meta::
    :keywords: path
 
 .. index:: path
@@ -63,15 +79,3 @@ and not include tabs in any of the processing after that.
 
 .. _stackoverflow: https://stackoverflow.com/questions/1686837/
    sphinx-documentation-tool-set-tab-width-in-output
-
-.. meta::
-   :keywords: search
-
-.. index:: search
-
-.. _wish_list@Search:
-
-Search
-******
-It would be nice for a search to display all of the index words for each
-web page that matches the search.
