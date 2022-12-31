@@ -107,8 +107,9 @@ The xrst features below can be considered a wish list for sphinx:
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels in more detail.
-#. The :ref:`config_file@html_theme_options`, in the :ref:`config_file-name` ,
-   allow for multiple themes and the command line argument
-   :ref:`run_xrst@html_theme`
-   enables one to choose different themes without having to change the
-   configuration file.
+#. Enable more build option to change without changing the source code.
+   For example, the configure file :ref:`config_file@html_theme_options`
+   enable different :ref:`run_xrst@html_theme` values at the command line.
+   Another example is that the automatic changes to how
+   :ref:`latex macros <config_file@include_all@latex_macro>`
+   are handled depending on if we are generating html or tex.

@@ -300,10 +300,10 @@ except that the latex macros are added at the end when
 latex_macro
 ===========
 The value corresponding to this key is a list of latex macros.
-If :ref:`run_xrst@target` is html, these macros get included at the
+If :ref:`run_xrst@target` is ``html``, these macros get included at the
 beginning of every page using the sphinx ``:math`` role in the
 rst_epilog variable in the sphinx conf.py file.
-Otherwise *target* is 'tex' and these macros get included once
+Otherwise *target* is ``tex`` and these macros get included once
 at the beginning of the corresponding latex document.
 It either case they can be used by every page in the documentation.
 
