@@ -48,6 +48,9 @@ mm-dd
    prohibit a :ref:`begin_cmd@page_name` from being ``index``.
 #. Change the default html, tex, and rst :ref:`config_file@directory`
    to be build/html, build/tex, and build/rst respectively.
+#. Add the :ref:`.readthedocs.yaml-name` example.
+#. Create the first
+   :ref:`stable install <user_guide@Install Stable Version>` .
 
 12-22
 =====
@@ -742,7 +745,8 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 07-28
 =====
 1. Change ``xsrst`` to ``xrst``
-2. Create the first :ref:`user_guide@Pip Install` of xrst.
+2. Create the first
+   :ref:`pip install <user_guide@Install Stable Version>` of xrst.
 
 07-27
 =====

@@ -18,17 +18,6 @@ Extract Sphinx RST Files
    :local:
 
 .. meta::
-   :keywords: version
-
-.. index:: version
-
-.. _user_guide@Version:
-
-Version
-*******
-xrst-2023.0.0
-
-.. meta::
    :keywords: git, repository
 
 .. index:: git, repository
@@ -40,15 +29,41 @@ Git Repository
 `<https://github.com/bradbell/xrst>`_
 
 .. meta::
-   :keywords: pip, install
+   :keywords: version, documentation
 
-.. index:: pip, install
+.. index:: version, documentation
 
-.. _user_guide@Pip Install:
+.. _user_guide@Version of this Documentation:
 
-Pip Install
-***********
--  ``pip install --index-url https://test.pypi.org/simple/ xrst``
+Version of this Documentation
+*****************************
+xrst-2023.0.0
+
+.. meta::
+   :keywords: install, stable, version
+
+.. index:: install, stable, version
+
+.. _user_guide@Install Stable Version:
+
+Install Stable Version
+**********************
+::
+
+   pip install xrst
+
+.. meta::
+   :keywords: install, testing, version
+
+.. index:: install, testing, version
+
+.. _user_guide@Install Testing Version:
+
+Install Testing Version
+***********************
+::
+
+   pip install --index-url https://test.pypi.org/simple/ xrst
 
 .. meta::
    :keywords: run, program

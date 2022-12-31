@@ -22,6 +22,7 @@ version_files='
 # BEGIN_SORT_THIS_LINE_PLUS_2
 ignore_files='
    .gitignore
+   .readthedocs.yaml
    batch_edit.sed
    bin/devel.sh
    bin/input_files.sh

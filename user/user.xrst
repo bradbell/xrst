@@ -89,17 +89,25 @@ One can consider some of the xrst features listed below as a wish list for sphin
 Extract Sphinx RST Files
 ########################
 
-Version
-*******
-xrst-2023.0.0
-
 Git Repository
 **************
 `<https://github.com/bradbell/xrst>`_
 
-Pip Install
-***********
--  ``pip install --index-url https://test.pypi.org/simple/ xrst``
+Version of this Documentation
+*****************************
+xrst-2023.0.0
+
+Install Stable Version
+**********************
+::
+
+   pip install xrst
+
+Install Testing Version
+***********************
+::
+
+   pip install --index-url https://test.pypi.org/simple/ xrst
 
 Run Program
 ***********

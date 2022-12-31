@@ -19,6 +19,7 @@ Examples
    example/indent.py
    example/docstring.py
    example/configure.xrst
+   .readthedocs.yaml
    example/test.py
 }
 

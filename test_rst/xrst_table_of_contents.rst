@@ -18,7 +18,8 @@ Table of Contents
 |    :ref:`1.11<indent_example-title>` Indent Example
 |    :ref:`1.12<docstring_example-title>` Docstring Example
 |    :ref:`1.13<configure_example-title>` Example Using TOML Configure File
-|    :ref:`1.14<testExample-title>` Test Special Conditions
+|    :ref:`1.14<.readthedocs.yaml-title>` Example Read the Docs Configuration
+|    :ref:`1.15<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user_guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst

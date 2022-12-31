@@ -27,6 +27,7 @@ Examples
 -  :ref:`indent_example-title`
 -  :ref:`docstring_example-title`
 -  :ref:`configure_example-title`
+-  :ref:`.readthedocs.yaml-title`
 -  :ref:`testExample-title`
 
 .. toctree::
@@ -46,4 +47,5 @@ Examples
    indent_example
    docstring_example
    configure_example
+   .readthedocs.yaml
    testExample
