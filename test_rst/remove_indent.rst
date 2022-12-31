@@ -93,9 +93,9 @@ indent
 is the white space that was removed from each line (except for empty lines)
 
 .. literalinclude:: ../../xrst/remove_indent.py
-   :lines: 59-62
+   :lines: 60-63
    :language: py
 
 .. literalinclude:: ../../xrst/remove_indent.py
-   :lines: 120-123
+   :lines: 121-124
    :language: py

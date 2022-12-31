@@ -83,9 +83,9 @@ The return data_out is a copy of data_in except that the text between
 and including each suspend / resume pair has been removed.
 
 .. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 70-73
+   :lines: 71-74
    :language: py
 
 .. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 137-138
+   :lines: 138-139
    :language: py

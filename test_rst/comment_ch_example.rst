@@ -43,7 +43,7 @@ The xrst_code command reports the original source code, before removing
 the comment character or the indentation.
 
 .. literalinclude:: ../../example/comment_ch.m
-   :lines: 25-32
+   :lines: 26-33
    :language: matlab
 
 .. meta::

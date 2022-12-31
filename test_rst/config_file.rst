@@ -58,7 +58,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 58-59
+   :lines: 59-60
    :language: toml
 
 .. _config_file@project_name@Example:
@@ -67,7 +67,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 5-6
+   :lines: 6-7
    :language: toml
 
 .. meta::
@@ -171,7 +171,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 125-129
+   :lines: 126-130
    :language: toml
 
 .. _config_file@directory@Example:
@@ -180,7 +180,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 10-15
+   :lines: 11-16
    :language: toml
 
 .. meta::
@@ -209,7 +209,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 159-160
+   :lines: 160-161
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -222,7 +222,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 19-22
+   :lines: 20-23
    :language: toml
 
 .. meta::
@@ -272,7 +272,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 210-213
+   :lines: 211-214
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -281,7 +281,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 26-29
+   :lines: 27-30
    :language: toml
 
 .. meta::
@@ -329,7 +329,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 252-257
+   :lines: 253-258
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -338,7 +338,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 33-39
+   :lines: 34-40
    :language: toml
 
 .. meta::
@@ -410,7 +410,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 312-315
+   :lines: 313-316
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -419,7 +419,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 43-52
+   :lines: 44-53
    :language: toml
 
 .. meta::
@@ -449,7 +449,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 346-347
+   :lines: 347-348
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -458,7 +458,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 56-72
+   :lines: 57-73
    :language: toml
 
 .. meta::
@@ -495,7 +495,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 380-381
+   :lines: 381-382
    :language: toml
 
 .. _config_file@not_in_index@Example:
@@ -504,5 +504,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 76-105
+   :lines: 77-106
    :language: toml

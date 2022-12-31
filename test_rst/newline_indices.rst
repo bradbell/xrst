@@ -61,9 +61,9 @@ The return newline_list is the list of indices in data that
 represent all of the newlines; i.e. '\n'.
 
 .. literalinclude:: ../../xrst/newline_indices.py
-   :lines: 31-32
+   :lines: 32-33
    :language: py
 
 .. literalinclude:: ../../xrst/newline_indices.py
-   :lines: 47-50
+   :lines: 48-51
    :language: py

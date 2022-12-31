@@ -170,9 +170,9 @@ is the line number in *file_in* where this page ends; i.e.,
 the line number where the end command is located.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 172-184
+   :lines: 173-185
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 406-409
+   :lines: 407-410
    :language: py

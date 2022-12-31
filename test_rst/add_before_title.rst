@@ -105,9 +105,9 @@ data_out
 the return data_out is the data after replacement.
 
 .. literalinclude:: ../../xrst/add_before_title.py
-   :lines: 56-60
+   :lines: 57-61
    :language: py
 
 .. literalinclude:: ../../xrst/add_before_title.py
-   :lines: 146-148
+   :lines: 147-149
    :language: py

@@ -15,12 +15,10 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#  xrst/start_stop_file.py
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#  s|start_stop_file.py|start_end_file.py|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
@@ -32,14 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-#
-/command start, stop from/ ! b one
-N
-s|stop from|end from|
-s|#$||
-b end
-#
-: one
-s|start_stop_file|start_end_file|g
-#
-: end
+s|^\(.*\)\(SPDX-FileCopyrightText:\).*|\1\2 Bradley M. Bell <bradbell@seanet.com>\
+\1SPDX-FileContributor: 2020-22 Bradley M. Bell|

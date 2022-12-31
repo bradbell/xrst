@@ -28,7 +28,7 @@ Factorial
 *********
 
 .. literalinclude:: ../../example/code.py
-   :lines: 13-16
+   :lines: 14-17
    :language: py
 
 .. meta::
@@ -42,7 +42,7 @@ Git Hash
 ********
 
 .. literalinclude:: ../../example/code.py
-   :lines: 23-23
+   :lines: 24-24
    :language: py
 
 .. meta::

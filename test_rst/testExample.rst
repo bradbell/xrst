@@ -41,7 +41,7 @@ Code Command in List
 #. The ``{xrst_code py}`` cannot be on the first line of a list item.
 
    .. literalinclude:: ../../example/test.py
-      :lines: 23-26
+      :lines: 24-27
       :language: py
 
 #. This is the second item for this list

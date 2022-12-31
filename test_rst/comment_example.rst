@@ -57,7 +57,7 @@ Factorial
 *********
 
 .. literalinclude:: ../../example/comment.r
-   :lines: 32-37
+   :lines: 33-38
    :language: r
 
 .. meta::

@@ -1,6 +1,7 @@
 #! /bin/bash -e
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileCopyrightText: 2020-22 Bradley M. Bell <bradbell@seanet.com>
+# SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
+# SPDX-FileContributor: 2020-22 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {

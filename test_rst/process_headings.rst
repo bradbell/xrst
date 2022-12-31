@@ -143,9 +143,9 @@ It has three lines each terminated by a newline:
  3. an underline line
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 227-234
+   :lines: 228-235
    :language: py
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 464-468
+   :lines: 465-469
    :language: py

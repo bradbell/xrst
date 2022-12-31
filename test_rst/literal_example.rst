@@ -29,7 +29,7 @@ factorial
 *********
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 5-5
+   :lines: 6-6
    :language: cpp
 
 .. meta::
@@ -43,7 +43,7 @@ square
 ******
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 13-13
+   :lines: 14-14
    :language: cpp
 
 .. meta::
@@ -57,7 +57,7 @@ tangent
 *******
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 18-18
+   :lines: 19-19
    :language: cpp
 
 .. meta::
