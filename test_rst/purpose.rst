@@ -104,7 +104,7 @@ One can consider some of the xrst features listed below as a wish list for sphin
    ``:ref:`heading_links@Labels@Discussion``
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels in more detail.
-#. The configuration file :ref:`config_file@html_theme_options` allows for
+#. The :ref:`config_file@html_theme_options`, in the configure file, allow for
    multiple themes and the command line argument :ref:`run_xrst@html_theme`
-   enable one to chose a theme without having to change the
+   enables one to choose different themes without having to change the
    configuration file.
