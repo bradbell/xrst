@@ -13,10 +13,25 @@ wish_list
 
 Wish List
 #########
-The following is a wish list for future improvements to ``run_xrst``:
+The following is a wish list for future improvements to ``run_xrst``.
+If you want to work on one of these, or some other aspect of xrst,
+open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 
 .. contents::
    :local:
+
+.. meta::
+   :keywords: testing
+
+.. index:: testing
+
+.. _wish_list@Testing:
+
+Testing
+*******
+Use github actions to test xrst on multiple systems.
+The script ``bin/check_xrst.sh`` will need to be modified so that
+it can run in batch mode and fail when the results change.
 
 .. meta::
    :keywords: theme

@@ -6,11 +6,21 @@ SPDX-FileContributor: 2020-22 Bradley M. Bell
 {xrst_spell
    dir
    stackoverflow
+   github
+   sh
 }
 
 Wish List
 #########
-The following is a wish list for future improvements to ``run_xrst``:
+The following is a wish list for future improvements to ``run_xrst``.
+If you want to help with one of these, or some other aspect of xrst,
+open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
+
+Testing
+*******
+Use github actions to test xrst on multiple systems.
+The script ``bin/check_xrst.sh`` will need to be modified so that
+it can run in batch mode and fail when the results change.
 
 Theme
 *****
