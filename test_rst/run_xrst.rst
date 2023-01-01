@@ -27,11 +27,12 @@ Syntax
 | |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 | |tab| [ ``--rst_only`` ] \\
-| |tab| [ ``--config_file``   *config_file* ] \\
-| |tab| [ ``--html_theme``    *html_theme* ] \\
-| |tab| [ ``--target``        *target* ]  \\
-| |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
-| |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
+| |tab| [ ``--index_page_name`` *index_page_name* ] \\
+| |tab| [ ``--config_file``     *config_file* ] \\
+| |tab| [ ``--html_theme``      *html_theme* ] \\
+| |tab| [ ``--target``          *target* ]  \\
+| |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 
 .. meta::
@@ -123,6 +124,23 @@ for use with `Read the Docs <https://docs.readthedocs.io>`_ .
 The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.
+
+.. meta::
+   :keywords: index_page_name
+
+.. index:: index_page_name
+
+.. _run_xrst@index_page_name:
+
+index_page_name
+***************
+This option has no effect when *target* is ``tex`` .
+If *target* is ``html``,
+the file ``index.html`` in the
+:ref:`config_file@directory@html_directory` will be a redirect
+to the page specified by *index_page_name* .
+If this option is not present, ``index.html`` wil be a redirect
+to the root of the documentation tree.
 
 .. meta::
    :keywords: config_file

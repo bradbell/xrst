@@ -28,11 +28,12 @@ Syntax
 | |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
 | |tab| [ ``--rst_only`` ] \\
-| |tab| [ ``--config_file``   *config_file* ] \\
-| |tab| [ ``--html_theme``    *html_theme* ] \\
-| |tab| [ ``--target``        *target* ]  \\
-| |tab| [ ``--group_list``    *group_name_1* *group_name_2* ... ] \\
-| |tab| [ ``--rename_group``  *old_group_name* *new_group_name* ] \\
+| |tab| [ ``--index_page_name`` *index_page_name* ] \\
+| |tab| [ ``--config_file``     *config_file* ] \\
+| |tab| [ ``--html_theme``      *html_theme* ] \\
+| |tab| [ ``--target``          *target* ]  \\
+| |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
+| |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 
 version
@@ -89,6 +90,16 @@ for use with `Read the Docs <https://docs.readthedocs.io>`_ .
 The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.
+
+index_page_name
+***************
+This option has no effect when *target* is ``tex`` .
+If *target* is ``html``,
+the file ``index.html`` in the
+:ref:`config_file@directory@html_directory` will be a redirect
+to the page specified by *index_page_name* .
+If this option is not present, ``index.html`` wil be a redirect
+to the root of the documentation tree.
 
 config_file
 ***********
@@ -471,6 +482,11 @@ def run_xrst() :
       help='add link to the xrst source code be included at top of each page'
    )
    parser.add_argument(
+      '--index_page_name', metavar='index_page_name', default='xrst_root_doc',
+      help='The file index.html will be a redirect to this page' + \
+         '(default is root of documentation tree)'
+   )
+   parser.add_argument(
       '--config_file', metavar='config_file', default='xrst.toml',
       help='location of the xrst configuration file which is in toml format' + \
          '(default is .)'
@@ -516,6 +532,9 @@ def run_xrst() :
    #
    # page_source
    page_source = arguments.page_source
+   #
+   # index_page_name
+   index_page_name = arguments.index_page_name
    #
    # config_file
    # can not use system_exit until os.getcwd() returns project_directory
@@ -906,6 +925,14 @@ def run_xrst() :
          if file_list_warning :
             any_warning[0] = True
    #
+   # index_page_name
+   ok = index_page_name == 'xrst_root_doc' or target == 'tex'
+   for page_info in all_page_info :
+      ok = ok or page_info['page_name'] == index_page_name
+   if not ok :
+      msg = f'index_page_name = {index_page_name} is not a valid page name.'
+      xrst.system_exit(msg)
+   #
    # rename_group
    if rename_group != None :
       xrst.rename_group(tmp_dir, rename_group[0], rename_group[1])
@@ -950,8 +977,7 @@ def run_xrst() :
    for name in rst_list :
       if name.endswith('.rst') :
          if name not in tmp_list :
-            if name != 'index.rst' :
-               os.remove( f'{rst_directory}/{name}' )
+            os.remove( f'{rst_directory}/{name}' )
    #
    # tmp_dir
    # reset tmp_dir because rmtree is such a dangerous command
@@ -1003,6 +1029,15 @@ def run_xrst() :
             shutil.rmtree(des_dir)
             print( f'cp -r {src_dir} {des_dir}' )
             shutil.copytree(src_dir, des_dir)
+         #
+         # index.html
+         file_data = '<html><script>\n';
+         file_data += f'window.location.href="{index_page_name}.html"\n';
+         file_data += '</script></html>\n'
+         file_obj   = open( f'{target_directory}/index.html', 'w' )
+         file_obj.write( file_data )
+         file_obj.close()
+
    else :
       assert target == 'tex'
       #

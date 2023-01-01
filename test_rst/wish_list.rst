@@ -14,7 +14,7 @@ wish_list
 Wish List
 #########
 The following is a wish list for future improvements to ``run_xrst``.
-If you want to work on one of these, or some other aspect of xrst,
+If you want to help with one of these, or some other aspect of xrst,
 open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 
 .. contents::

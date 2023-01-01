@@ -30,9 +30,10 @@ rst_line_numbers="$2"
 # -----------------------------------------------------------------------------
 echo_eval python -m xrst  \
    --page_source \
-   --group_list  default user \
-   --html_theme  sphinx_book_theme \
-   --target      $target \
+   --group_list      default user \
+   --html_theme      sphinx_book_theme \
+   --target          $target \
+   --index_page_name user_guide
    $rst_line_numbers
 # -----------------------------------------------------------------------------
 echo 'run_xrst.sh: OK'

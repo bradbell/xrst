@@ -132,6 +132,17 @@ This file just contains a link to the genindex.rst file.
 It is (is not) included if target is html (tex).
 
 .. meta::
+   :keywords: tmp_dir/xrst_root_doc.rst
+
+.. index:: tmp_dir/xrst_root_doc.rst
+
+.. _auto_file_dev@tmp_dir/xrst_root_doc.rst:
+
+tmp_dir/xrst_root_doc.rst
+*************************
+This is the root level in the sphinx documentation tree.
+
+.. meta::
    :keywords: rst_dir/_sources
 
 .. index:: rst_dir/_sources
@@ -158,17 +169,6 @@ rst_dir/conf.py
 ***************
 This is the configuration file used by sphinx to build the documentation.
 
-.. meta::
-   :keywords: rst_dir/index.rst
-
-.. index:: rst_dir/index.rst
-
-.. _auto_file_dev@rst_dir/index.rst:
-
-rst_dir/index.rst
-*****************
-This is the root level in the sphinx documentation tree.
-
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 155-162
+   :lines: 156-163
    :language: py

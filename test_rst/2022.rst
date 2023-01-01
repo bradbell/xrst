@@ -38,6 +38,8 @@ mm-dd
 #. The :ref:`toc_cmd@Syntax@toc_table` command was changed
    to use **Name** instead of **Child** as the heading for the
    page name column.
+#. The :ref:`run_xrst@index_page_name` option was added to
+   the command line.
 
 .. _2022@mm-dd@12-30:
 
