@@ -59,6 +59,18 @@ It would be nice if there were a way to make this theme use more
 horizontal space (currently xrst tires to modify its output to do this).
 
 .. meta::
+   :keywords: sphinx_book_theme
+
+.. index:: sphinx_book_theme
+
+.. _wish_list@Theme@sphinx_book_theme:
+
+sphinx_book_theme
+=================
+The sphinx_book_theme seems to crash sphinx on readthedocs; see the
+heading :ref:`2023@mm-dd@01-01` in the release notes for 2023.
+
+.. meta::
    :keywords: search
 
 .. index:: search

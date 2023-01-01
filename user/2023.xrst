@@ -8,7 +8,6 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    dd
    furo
    readthedocs
-   gh
 }
 
 xrst Release Notes for 2023
@@ -19,9 +18,13 @@ mm-dd
 
 01-01
 =====
-Change the html_theme in :ref:`.readthedocs.yaml-name` from furo
-to sphinx_book_theme to get better coloring of code font .
-This uses more disk space, but that is not as much of an issue when
-using readthedocs instead of gh-pages.
+Tried to change the html_theme in :ref:`.readthedocs.yaml-name` from furo
+to sphinx_book_theme to get better coloring of code font; see git hash
+{xrst_spell_off}
+``2bea5b4fc`` .
+{xrst_spell_on}
+This generated a  `sphinx_crash`_  on readthedocs .
+
+.. _sphinx_crash: https://readthedocs.org/projects/xrst/builds/19048700/
 
 {xrst_end 2023}
