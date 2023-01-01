@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
@@ -28,12 +28,18 @@ fi
 target="$1"
 rst_line_numbers="$2"
 # -----------------------------------------------------------------------------
+# index_page_name
+index_page_name=$(\
+   sed -n -e '/^ *--index_page_name*/p' .readthedocs.yaml | \
+   sed -e 's|^ *--index_page_name *||' \
+)
+# -----------------------------------------------------------------------------
 echo_eval python -m xrst  \
    --page_source \
-   --group_list      default user \
+   --group_list      default user dev \
    --html_theme      sphinx_book_theme \
    --target          $target \
-   --index_page_name user_guide
+   --index_page_name $index_page_name
    $rst_line_numbers
 # -----------------------------------------------------------------------------
 echo 'run_xrst.sh: OK'
