@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-22 Bradley M. Bell
+SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell
@@ -8,6 +8,7 @@ SPDX-FileContributor: 2020-22 Bradley M. Bell
    stackoverflow
    github
    sh
+   rtd
 }
 
 Wish List
@@ -27,6 +28,11 @@ Theme
 It would be nice to have better
 :ref:`config_file@html_theme_options@Default` options more themes
 so that they work will with xrst.
+
+sphinx_rtd_theme
+================
+It would be nice if there were a way to make this theme use more
+horizontal space (currently xrst tires to modify its output to do this).
 
 Search
 ******

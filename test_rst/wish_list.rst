@@ -47,6 +47,18 @@ It would be nice to have better
 so that they work will with xrst.
 
 .. meta::
+   :keywords: sphinx_rtd_theme
+
+.. index:: sphinx_rtd_theme
+
+.. _wish_list@Theme@sphinx_rtd_theme:
+
+sphinx_rtd_theme
+================
+It would be nice if there were a way to make this theme use more
+horizontal space (currently xrst tires to modify its output to do this).
+
+.. meta::
    :keywords: search
 
 .. index:: search

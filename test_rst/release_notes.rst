@@ -14,6 +14,7 @@ release_notes
 xrst Release Notes By Year
 ##########################
 
+:ref:`2023-name`,
 :ref:`2022-name`,
 :ref:`2021-name`
 
@@ -21,5 +22,6 @@ xrst Release Notes By Year
    :maxdepth: 1
    :hidden:
 
+   2023
    2022
    2021

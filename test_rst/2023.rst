@@ -1,0 +1,37 @@
+.. _2023-name:
+
+!!!!
+2023
+!!!!
+
+.. meta::
+   :keywords: 2023, xrst, release, notes, 2023
+
+.. index:: 2023, xrst, release, notes, 2023
+
+.. _2023-title:
+
+xrst Release Notes for 2023
+###########################
+
+.. contents::
+   :local:
+
+.. meta::
+   :keywords: mm-dd
+
+.. index:: mm-dd
+
+.. _2023@mm-dd:
+
+mm-dd
+*****
+
+.. _2023@mm-dd@01-01:
+
+01-01
+=====
+Change the html_theme in :ref:`.readthedocs.yaml-name` from furo
+to sphinx_book_theme to get better coloring of code font .
+This uses more disk space, but that is not as much of an issue when
+using readthedocs instead of gh-pages.

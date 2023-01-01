@@ -1,0 +1,27 @@
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
+SPDX-FileContributor: 2020-23 Bradley M. Bell
+----------------------------------------------------------------------------
+{xrst_begin 2023 user}
+{xrst_spell
+   mm
+   dd
+   furo
+   readthedocs
+   gh
+}
+
+xrst Release Notes for 2023
+###########################
+
+mm-dd
+*****
+
+01-01
+=====
+Change the html_theme in :ref:`.readthedocs.yaml-name` from furo
+to sphinx_book_theme to get better coloring of code font .
+This uses more disk space, but that is not as much of an issue when
+using readthedocs instead of gh-pages.
+
+{xrst_end 2023}

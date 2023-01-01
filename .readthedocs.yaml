@@ -24,8 +24,8 @@ build:
       # The xsrst html_directory for this configuration is build/html.
       # Build the default (example) and user (user_guide) groups.
       - xrst
-         --page_source 
-         --html_theme furo 
+         --page_source
+         --html_theme sphinx_book_theme
          --group_list default user
          --index_page_name user_guide
       #

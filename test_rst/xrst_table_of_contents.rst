@@ -40,8 +40,9 @@ Table of Contents
 |       :ref:`3.4.3<auto_file-title>` Automatically Generated Files
 |    :ref:`3.5<wish_list-title>` Wish List
 |    :ref:`3.6<release_notes-title>` xrst Release Notes By Year
-|       :ref:`3.6.1<2022-title>` xrst Release Notes for 2022
-|       :ref:`3.6.2<2021-title>` xrst Release Notes for 2021
+|       :ref:`3.6.1<2023-title>` xrst Release Notes for 2023
+|       :ref:`3.6.2<2022-title>` xrst Release Notes for 2022
+|       :ref:`3.6.3<2021-title>` xrst Release Notes for 2021
 | :ref:`4<module-title>` The xrst Module
 |    :ref:`4.1<add_before_title-title>` If PDF, Add Page Number and Name to Title
 |    :ref:`4.2<add_line_numbers-title>` Add Line Numbers to File Data
