@@ -21,6 +21,11 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
+It may be helpful to remove the :ref:`config_file@directory@html_directory`
+before running the command below.
+This will check for error messages that are not repeated due
+to caching the results of previous builds.
+
 | ``xrst`` \\
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\

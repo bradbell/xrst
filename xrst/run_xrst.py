@@ -1,11 +1,12 @@
 #! /usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 """
 {xrst_begin run_xrst user}
 {xrst_spell
+   caching
    config
    furo
    github
@@ -22,6 +23,11 @@ Run Extract Sphinx RST And Sphinx
 
 Syntax
 ******
+It may be helpful to remove the :ref:`config_file@directory@html_directory`
+before running the command below.
+This will check for error messages that are not repeated due
+to caching the results of previous builds.
+
 | ``xrst`` \\
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
