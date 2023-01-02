@@ -26,18 +26,18 @@ Syntax
 
 -  | ``{xrst_literal``
    |     *display_file*
-   | :code:`}`
+   | ``}``
 
 -  | ``{xrst_literal``
    |     *start_after*
    |     *end_before*
-   | :code:`}`
+   | ``}``
 
 -  | ``{xrst_literal``
    |     *display_file*
    |     *start_after*
    |     *end_before*
-   | :code:`}`
+   | ``}``
 
 .. _literal_cmd@Purpose:
 

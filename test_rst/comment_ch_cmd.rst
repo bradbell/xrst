@@ -21,7 +21,7 @@ Comment Character Command
 
 Syntax
 ******
-``{xrst_comment_ch`` *ch* :code:`}`
+``{xrst_comment_ch`` *ch* ``}``
 
 .. _comment_ch_cmd@Purpose:
 

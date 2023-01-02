@@ -21,7 +21,7 @@ Code Command
 
 Syntax
 ******
-- ``{xrst_code`` *language* :code:`}`
+- ``{xrst_code`` *language* ``}``
 - ``{xrst_code}``
 
 .. _code_cmd@Purpose:

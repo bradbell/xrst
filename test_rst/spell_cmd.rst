@@ -21,7 +21,7 @@ Spell Command
 
 Syntax
 ******
-- ``{xrst_spell`` *word_1* ...  *word_n* :code:`}`
+- ``{xrst_spell`` *word_1* ...  *word_n* ``}``
 - ``{xrst_spell_off}``
 - ``{xrst_spell_on}``
 

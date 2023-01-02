@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 """
 {xrst_begin begin_cmd user}
@@ -14,9 +14,9 @@ Begin and End Commands
 
 Syntax
 ******
-- ``\{xrst_begin_parent`` *page_name* *group_name* :code:`}`
-- ``\{xrst_begin``        *page_name* *group_name* :code:`}`
-- ``\{xrst_end``          *page_name* :code:`}`
+- ``\{xrst_begin_parent`` *page_name* *group_name* ``}``
+- ``\{xrst_begin``        *page_name* *group_name* ``}``
+- ``\{xrst_end``          *page_name* ``}``
 
 Page
 ****

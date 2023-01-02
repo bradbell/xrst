@@ -21,7 +21,7 @@ Comment Command
 
 Syntax
 ******
-``{xrst_comment`` *text* :code:`}`
+``{xrst_comment`` *text* ``}``
 
 .. _comment_cmd@Purpose:
 

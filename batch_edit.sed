@@ -30,5 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|^\(.*\)\(SPDX-FileCopyrightText:\).*|\1\2 Bradley M. Bell <bradbell@seanet.com>\
-\1SPDX-FileContributor: 2020-22 Bradley M. Bell|
+s|:code:`}`|``}``|g

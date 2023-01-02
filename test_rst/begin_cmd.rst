@@ -21,9 +21,9 @@ Begin and End Commands
 
 Syntax
 ******
-- ``{xrst_begin_parent`` *page_name* *group_name* :code:`}`
-- ``{xrst_begin``        *page_name* *group_name* :code:`}`
-- ``{xrst_end``          *page_name* :code:`}`
+- ``{xrst_begin_parent`` *page_name* *group_name* ``}``
+- ``{xrst_begin``        *page_name* *group_name* ``}``
+- ``{xrst_end``          *page_name* ``}``
 
 .. meta::
    :keywords: page
