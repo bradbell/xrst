@@ -31,9 +31,11 @@ mm-dd
 
 01-02
 =====
-If you ran xrst twice with the sphinx_rtd_theme,
-you would get a warning that xrst could not modify the widths in the theme.
-This has been fixed (and will be included in version 2023.0.2).
+#. If you ran xrst twice with the sphinx_rtd_theme,
+   you would get a warning that xrst could not modify the widths in the theme.
+   This has been fixed (and will be included in version 2023.0.2).
+#. Add :ref:`user_guide@Install From Source` instructions and add more
+   discussion to the other installs.
 
 .. _2023@mm-dd@01-01:
 

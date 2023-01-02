@@ -48,6 +48,8 @@ xrst-2023.1.2
 
 Install Stable Version
 **********************
+The current stable version freezes features at the beginning of 2023
+and only includes bug fixed after that.
 ::
 
    pip install xrst
@@ -61,9 +63,35 @@ Install Stable Version
 
 Install Testing Version
 ***********************
+Search for ``xrst`` on `test.pypi <https://test.pypi.org>`_
+to determine the date corresponding to this version.
 ::
 
    pip install --index-url https://test.pypi.org/simple/ xrst
+
+.. meta::
+   :keywords: install, from, source
+
+.. index:: install, from, source
+
+.. _user_guide@Install From Source:
+
+Install From Source
+*******************
+The following command will install the current version from
+the master branch.
+::
+
+   git clone https://github.com/bradbell/xrst.git xrst.git
+   cd xrst.git
+   python3 -m build
+   pip install dist/*
+
+You can determine the date corresponding to a version of the source code
+using the following command:
+::
+
+   grep '^version *=' pyproject.toml
 
 .. meta::
    :keywords: run, program
