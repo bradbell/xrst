@@ -27,6 +27,14 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@01-02:
+
+01-02
+=====
+If you ran xrst twice with the sphinx_rtd_theme,
+you would get a warning that xrst could not modify the widths in the theme.
+This has been fixed (and will be included in version 2023.0.2).
+
 .. _2023@mm-dd@01-01:
 
 01-01

@@ -1078,6 +1078,10 @@ def run_xrst() :
       )
       new_value = { 'content':'100%', 'sidebar':'250px', 'search':'250px' }
       file_name = f'{target_directory}/_static/css/theme.css'
+      if os.path.exists(file_name + '.bak' ) :
+        shutil.copyfile(file_name + '.bak', file_name)
+      else :
+        shutil.copyfile(file_name, file_name + '.bak')
       try :
          file_obj  = open(file_name, 'r')
          ok        = True
