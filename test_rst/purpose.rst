@@ -93,7 +93,7 @@ The xrst features below can be considered a wish list for sphinx:
    The spell checker catches double word errors.
 #. Make it easier to include source code that executes
    directly below the current location;
-   see the discussion of how this different from the
+   see the discussion of how this is different from the
    :ref:`code_cmd@code-block` directive.
 #. Source code can also be included from any location in any file;
    see the discussion of how this is different from the

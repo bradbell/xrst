@@ -27,7 +27,7 @@ it can run in batch mode and fail when the results change.
 Theme
 *****
 It would be nice to have better
-:ref:`config_file@html_theme_options@Default` options more themes
+:ref:`config_file@html_theme_options@Default` options for more themes
 so that they work will with xrst.
 
 sphinx_rtd_theme
