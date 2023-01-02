@@ -84,7 +84,7 @@ the master branch.
 
    git clone https://github.com/bradbell/xrst.git xrst.git
    cd xrst.git
-   python3 -m build
+   python3 -m build --sdist
    pip install dist/*
 
 You can determine the date corresponding to a version of the source code
