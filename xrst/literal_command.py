@@ -51,7 +51,7 @@ The xrst literal command has the following difference:
 #. If the *display_file* is not specified, the current input file is used.
 #. The copy of *start_after* and *end_before* in the command is not considered
    a match for the corresponding text. This makes it possible to put the
-   command above the text when *display_file* is in the current input file.
+   command above the text when *display_file* is the current input file.
 #. It is an error for there to be more than one copy of *start_after*
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
