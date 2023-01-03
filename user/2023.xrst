@@ -17,6 +17,10 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+01-03
+=====
+Add the :ref:`wish_list@Spell Checking` wish list item.
+
 01-02
 =====
 #. If you ran xrst twice with the sphinx_rtd_theme,

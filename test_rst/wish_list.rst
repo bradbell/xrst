@@ -21,6 +21,21 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
    :local:
 
 .. meta::
+   :keywords: spell, checking
+
+.. index:: spell, checking
+
+.. _wish_list@Spell Checking:
+
+Spell Checking
+**************
+Spell checking not require a special word for any valid role names; .e.g,
+the following text should not require a special spelling entry for ``samp``
+::
+
+   :samp:`print 1+{variable}`
+
+.. meta::
    :keywords: testing
 
 .. index:: testing

@@ -10,6 +10,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    sh
    rtd
    readthedocs
+   samp
 }
 
 Wish List
@@ -17,6 +18,15 @@ Wish List
 The following is a wish list for future improvements to ``run_xrst``.
 If you want to help with one of these, or some other aspect of xrst,
 open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
+
+Spell Checking
+**************
+Spell checking not require a special word for any valid role names; .e.g,
+the following text should not require a special spelling entry for ``samp``
+::
+
+   :samp:`print 1+{variable}`
+
 
 Testing
 *******
