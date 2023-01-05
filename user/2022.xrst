@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-22 Bradley M. Bell
+SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2022 user}
 {xrst_spell
@@ -82,7 +82,7 @@ with non-zero status (when a warning occurs).
 =====
 #. Add a comparison between the xrst literal command and the sphinx
    :ref:`literal_cmd@literalinclude` directive.
-#. Update the :ref:`wish_list@Path` wish list entry.
+#. Update the :ref:`wish_list@RST Command File Names` wish list entry.
 
 12-15
 =====

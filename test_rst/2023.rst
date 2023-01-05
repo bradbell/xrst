@@ -27,6 +27,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@01-05:
+
+01-05
+=====
+Edit the :ref:`wish_list@RST Command File Names` wish list entry.
+
 .. _2023@mm-dd@01-03:
 
 01-03

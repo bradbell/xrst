@@ -102,19 +102,21 @@ words below the corresponding page name.
 all words that appear in headings in the page.)
 
 .. meta::
-   :keywords: path
+   :keywords: rst, names
 
-.. index:: path
+.. index:: rst, names
 
-.. _wish_list@Path:
+.. _wish_list@RST Command File Names:
 
-Path
-****
-It would be nice if all sphinx commands that used file names were automatically
+RST Command File Names
+**********************
+It would be nice if all commands in the rst files used file names were automatically
 mapped so they were relative to the
 :ref:`config_file@directory@project_directory` .
 If this were the case, one would not need the
 :ref:`dir command<dir_cmd-title>` .
+In addition, the file names should not be checked for spelling
+(this is already true for the ``ref`` role).
 
 .. meta::
    :keywords: tabs
