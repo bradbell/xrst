@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
@@ -24,6 +24,6 @@ then
    rm -r dist
 fi
 echo_eval python -m build
-echo_eval twine upload --repository testpypi dist/* -u$USER -p$PASSWORD
+echo_eval twine upload dist/* -u$USER -p$PASSWORD
 echo 'upload.sh: OK'
 exit 0
