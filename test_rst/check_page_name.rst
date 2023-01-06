@@ -35,7 +35,7 @@ The page_name appears in *m_obj* in one of the following ways
 A valid page name must satisfy the following conditions:
 
 #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
-    period and underbar.
+    dash, period and underbar.
 #.  A page name cannot begin with ``xrst_`` .
 #.  A page name cannot be ``index`` or ``genindex`` .
 
