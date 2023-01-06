@@ -34,3 +34,4 @@ build:
       - mkdir _readthedocs
       - rm -r build/html/.doctrees
       - cp -r build/html _readthedocs/html
+      - cat _readthedocs/html/index.html
