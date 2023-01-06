@@ -1026,7 +1026,7 @@ def run_xrst() :
             command, any_warning, page_name2line_pair, page_name2file_in
          )
          #
-         # _sources
+         # target_directory/_sources
          # replace sphinx _sources directory with proper xrst sources
          if not rst_line_numbers :
             src_dir = f'{rst_directory}/_sources'
@@ -1036,13 +1036,10 @@ def run_xrst() :
             print( f'cp -r {src_dir} {des_dir}' )
             shutil.copytree(src_dir, des_dir)
          #
-         # index.html
-         file_data = '<html><script>\n';
-         file_data += f'window.location.href="{index_page_name}.html"\n';
-         file_data += '</script></html>\n'
-         file_obj   = open( f'{target_directory}/index.html', 'w' )
-         file_obj.write( file_data )
-         file_obj.close()
+         # target_directory/index.html
+         src_file = f'{target_directory}/{index_page_name}.html'
+         des_file = f'{target_directory}/index.html'
+         shutil.copyfile(src_file, des_file)
 
    else :
       assert target == 'tex'

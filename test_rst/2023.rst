@@ -31,11 +31,17 @@ mm-dd
 
 01-06
 =====
-The dash characters ``-`` was added to the characters allowed in a
-:ref:`begin_cmd@page_name` .
-This change will be included in version 2023.0.2.
-The page name user_guide was changed to :ref:`user-guide-name` as
-a demonstration of using dashes in page names.
+#. The dash characters ``-`` was added to the characters allowed in a
+   :ref:`begin_cmd@page_name` .
+   This change will be included in version 2023.0.2.
+   The page name user_guide was changed to :ref:`user-guide-name` as
+   a demonstration of using dashes in page names.
+#. Change the index.html file in the
+   :ref:`config_file@directory@html_directory`
+   to be a copy of the :ref:`run_xrst@index_page_name` html file
+   instead of a redirect to it.
+   This was done because firefox cached the redirect and you could not
+   change it without clearing all the cache.
 
 .. _2023@mm-dd@01-05:
 
