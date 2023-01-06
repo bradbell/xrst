@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -26,7 +26,7 @@ import xrst
 # A valid page name must satisfy the following conditions:
 #
 # #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
-#     period and underbar.
+#     dash, period and underbar.
 # #.  A page name cannot begin with ``xrst_`` .
 # #.  A page name cannot be ``index`` or ``genindex`` .
 #
@@ -55,11 +55,11 @@ def check_page_name(page_name, file_name, m_obj, data) :
    # {xrst_code}
    # {xrst_end check_page_name}
    #
-   m_page_name = re.search('[._A-Za-z0-9]+', page_name)
+   m_page_name = re.search('[-._A-Za-z0-9]+', page_name)
    if m_page_name.group(0) != page_name :
       msg  = f'begin command: page_name = "{page_name}"'
       msg += '\nIt must be non-empty and only contain the following'
-      msg += ' characters: ., _, A-Z, a-z, 0-9'
+      msg += ' characters: -, ., _, A-Z, a-z, 0-9'
       xrst.system_exit(msg,
          file_name=file_name, m_obj=m_obj, data=data
       )

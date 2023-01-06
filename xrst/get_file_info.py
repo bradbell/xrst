@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 """
 {xrst_begin begin_cmd user}
@@ -28,7 +28,7 @@ page_name
 A *page_name* must satisfy the following conditions:
 
 #. It must be a non-empty sequence of the following characters:
-   period ``.``, underbar ``_``, the letters A-Z, letters a-z,
+   dash ``-``, period ``.``, underbar ``_``, the letters A-Z, letters a-z,
    and decimal digits 0-9.
 #. The page name can not be ``index`` or ``genindex`` ,
    and it can not begin with the characters ``xrst_``.
