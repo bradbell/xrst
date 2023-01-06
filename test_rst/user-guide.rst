@@ -13,6 +13,9 @@ user-guide
 
 Extract Sphinx RST Files
 ########################
+This is a sphinx wrapper that extracts RST file from source code
+and then runs sphinx to obtain html, tex, or pdf output files.
+It includes automatic processing and commands that make sphinx easier to use.
 
 .. contents::
    :local:

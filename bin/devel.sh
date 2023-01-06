@@ -30,6 +30,7 @@ ignore_files='
    readme.md
    rst/
    test_rst/
+   xrst.spec
 '
 # END_SORT_THIS_LINE_MINUS_2
 # ----------------------------------------------------------------------------

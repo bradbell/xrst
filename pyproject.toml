@@ -13,7 +13,11 @@ version = '2023.1.6'
 authors = [
   {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
 ]
-description       = 'Exract Sphinx RST Files'
+description       = '''
+This is a sphinx wrapper that extracts RST file from source code
+and then runs sphinx to obtain html, tex, or pdf output files.
+It includes automatic processing and commands that make sphinx easier to use.
+'''
 readme            = 'readme.md'
 license           = { file = 'gpl-3.0.txt' }
 requires-python   = '>=3.0'

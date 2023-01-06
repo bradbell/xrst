@@ -100,10 +100,14 @@ The xrst features below can be considered a wish list for sphinx:
    pyproject
    toml
    sdist
+   pdf
 }
 
 Extract Sphinx RST Files
 ########################
+This is a sphinx wrapper that extracts RST file from source code
+and then runs sphinx to obtain html, tex, or pdf output files.
+It includes automatic processing and commands that make sphinx easier to use.
 
 Git Repository
 **************
