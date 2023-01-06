@@ -1,15 +1,15 @@
-.. _user_guide-name:
+.. _user-guide-name:
 
 !!!!!!!!!!
-user_guide
+user-guide
 !!!!!!!!!!
 
 .. meta::
-   :keywords: user_guide, extract, sphinx, rst, files
+   :keywords: user-guide, extract, sphinx, rst, files
 
-.. index:: user_guide, extract, sphinx, rst, files
+.. index:: user-guide, extract, sphinx, rst, files
 
-.. _user_guide-title:
+.. _user-guide-title:
 
 Extract Sphinx RST Files
 ########################
@@ -22,7 +22,7 @@ Extract Sphinx RST Files
 
 .. index:: git, repository
 
-.. _user_guide@Git Repository:
+.. _user-guide@Git Repository:
 
 Git Repository
 **************
@@ -33,7 +33,7 @@ Git Repository
 
 .. index:: version, documentation
 
-.. _user_guide@Version of this Documentation:
+.. _user-guide@Version of this Documentation:
 
 Version of this Documentation
 *****************************
@@ -44,7 +44,7 @@ xrst-2023.1.6
 
 .. index:: install, stable, version
 
-.. _user_guide@Install Stable Version:
+.. _user-guide@Install Stable Version:
 
 Install Stable Version
 **********************
@@ -59,7 +59,7 @@ and only includes bug fixed after that.
 
 .. index:: install, testing, version
 
-.. _user_guide@Install Testing Version:
+.. _user-guide@Install Testing Version:
 
 Install Testing Version
 ***********************
@@ -74,7 +74,7 @@ to determine the date corresponding to this version.
 
 .. index:: install, from, source
 
-.. _user_guide@Install From Source:
+.. _user-guide@Install From Source:
 
 Install From Source
 *******************
@@ -98,7 +98,7 @@ using the following command:
 
 .. index:: run, program
 
-.. _user_guide@Run Program:
+.. _user-guide@Run Program:
 
 Run Program
 ***********
@@ -109,7 +109,7 @@ Run Program
 
 .. index:: contents
 
-.. _user_guide@Contents:
+.. _user-guide@Contents:
 
 Contents
 ********

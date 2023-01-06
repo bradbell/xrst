@@ -9,6 +9,6 @@ xrst
    xrst_table_of_contents
    example
    purpose
-   user_guide
+   user-guide
    module
    xrst_index

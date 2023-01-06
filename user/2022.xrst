@@ -45,7 +45,7 @@ mm-dd
 12-31
 =====
 #. Bring :ref:`get_started-name` up to date with current xrst.
-   To be specific, :ref:`user_guide@Install Stable Version`,
+   To be specific, :ref:`user-guide@Install Stable Version`,
    correct location of get_started.html,
    and fix setting of :ref:`config_file@input_files`.
 #. The :ref:`toc_cmd@Syntax@toc_table` command was changed
@@ -63,7 +63,7 @@ mm-dd
    to be build/html, build/tex, and build/rst respectively.
 #. Add the :ref:`.readthedocs.yaml-name` example.
 #. Create the first
-   :ref:`stable install <user_guide@Install Stable Version>` .
+   :ref:`stable install <user-guide@Install Stable Version>` .
 
 12-22
 =====
@@ -759,7 +759,7 @@ pdf version of the documentation (see :ref:`run_xrst@target` .
 =====
 1. Change ``xsrst`` to ``xrst``
 2. Create the first
-   :ref:`pip install <user_guide@Install Stable Version>` of xrst.
+   :ref:`pip install <user-guide@Install Stable Version>` of xrst.
 
 07-27
 =====

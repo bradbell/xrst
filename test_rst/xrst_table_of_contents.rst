@@ -21,7 +21,7 @@ Table of Contents
 |    :ref:`1.14<.readthedocs.yaml-title>` Example Read the Docs Configuration
 |    :ref:`1.15<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
-| :ref:`3<user_guide-title>` Extract Sphinx RST Files
+| :ref:`3<user-guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst
 |    :ref:`3.2<run_xrst-title>` Run Extract Sphinx RST And Sphinx
 |    :ref:`3.3<commands-title>` Commands

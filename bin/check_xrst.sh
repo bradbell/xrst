@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 function echo_eval {
@@ -29,6 +29,12 @@ then
 fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
+# index_page_name
+index_page_name=$(\
+   sed -n -e '/^ *--index_page_name*/p' .readthedocs.yaml | \
+   sed -e 's|^ *--index_page_name *||' \
+)
+# -----------------------------------------------------------------------------
 # html
 # run from html directory so that project_directory is not working directory
 if [ ! -e build ]
@@ -52,6 +58,7 @@ do
    then
       args="$args --config_file ../xrst.toml"
    else
+      args="$args --index_page_name $index_page_name"
       args="$args --config_file xrst.toml"
    fi
    args="$args --group_list $group_list"
