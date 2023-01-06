@@ -81,30 +81,32 @@ done
 rm check_xrst.$$
 cd ..
 # -----------------------------------------------------------------------------
-file_list=$(ls build/rst/*.rst | sed -e 's|^build/rst/||' )
+rst_dir='build/rst'
+file_list=$(ls -a $rst_dir | sed -n -e "s|^$rst_dir/||" -e '/[.]rst$/p' )
 for file in $file_list
 do
    if [ ! -e test_rst/$file ]
    then
       echo "The output file test_rst/$file does not exist."
       echo 'Should we use the following command to fix this'
-      echo "    cp build/rst/$file test_rst/$file"
+      echo "    cp $rst_dir/$file test_rst/$file"
       continue_yes_no
-      cp build/rst/$file test_rst/$file
-   elif ! diff build/rst/$file test_rst/$file
+      cp $rst_dir/$file test_rst/$file
+   elif ! diff $rst_dir/$file test_rst/$file
    then
-      echo "build/rst/$file changed; above is output of"
-      echo "    diff build/rst/$file test_rst/$file"
+      echo "$rst_dir/$file changed; above is output of"
+      echo "    diff $rst_dir/$file test_rst/$file"
       echo 'Should we use the following command to fix this'
-      echo "    cp build/rst/$file test_rst/$file"
+      echo "    cp $rst_dir/$file test_rst/$file"
       continue_yes_no
-      cp build/rst/$file test_rst/$file
+      cp $rst_dir/$file test_rst/$file
    else
       echo "$file: OK"
    fi
 done
 # -----------------------------------------------------------------------------
 file_list=$(ls test_rst/*.rst | sed -e 's|^test_rst/||' )
+file_list=$(ls -a test_rst | sed -n -e "s|^test_rst/||" )
 for file in $file_list
 do
    if [ ! -e build/rst/$file ]
