@@ -10,7 +10,7 @@ copyright_owner='Bradley M. Bell'
 version_files='
    xrst/run_xrst.py
    user/user.xrst
-   test_rst/user_guide.rst
+   test_rst/user-guide.rst
 '
 #
 # List of special files, for this repository, that the devel tools ignore.
