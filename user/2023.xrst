@@ -10,6 +10,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    readthedocs
    rtd
    firefox
+   pytest
 }
 
 xrst Release Notes for 2023
@@ -17,6 +18,11 @@ xrst Release Notes for 2023
 
 mm-dd
 *****
+
+01-08
+=====
+Add the pytest directory and instructions for using it under
+:ref:`user-guide@Install From Source` .
 
 01-06
 =====

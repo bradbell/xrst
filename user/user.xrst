@@ -101,6 +101,7 @@ The xrst features below can be considered a wish list for sphinx:
    toml
    sdist
    pdf
+   pytest
 }
 
 Extract Sphinx RST Files
@@ -135,12 +136,13 @@ to determine the date corresponding to this version.
 
 Install From Source
 *******************
-The following command will install the current version from
-the master branch.
+The following commands will download, test, build, and install
+the current version from the master branch.
 ::
 
    git clone https://github.com/bradbell/xrst.git xrst.git
    cd xrst.git
+   pytest -s pytest
    python3 -m build --sdist
    pip install dist/*
 

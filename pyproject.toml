@@ -29,6 +29,7 @@ classifiers       = [
 dependencies  = [
    'furo',
    'pyspellchecker',
+   'pytest',
    'sphinx',
    'sphinx-rtd-theme',
    'sphinx-book-theme',
