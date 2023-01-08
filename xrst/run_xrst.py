@@ -293,7 +293,6 @@ import re
 import os
 import toml
 import string
-import spellchecker
 import shutil
 import filecmp
 import argparse

@@ -11,6 +11,7 @@ def get_index_page_name() :
    file_data = file_obj.read()
    pattern   = r'\n *--index_page_name *([-._a-zA-Z0-9]*)'
    m_obj     = re.search(pattern, file_data)
+   file_obj.close()
    return m_obj.group(1)
 # ----------------------------------------------------------------------------
 def get_rst_directory() :
@@ -18,6 +19,7 @@ def get_rst_directory() :
    file_data = file_obj.read()
    pattern   = r"\nrst_directory *= *'([^']*)'"
    m_obj     = re.search(pattern, file_data)
+   file_obj.close()
    return m_obj.group(1)
 # ----------------------------------------------------------------------------
 def run_xrst() :
@@ -57,7 +59,7 @@ def run_test() :
    while rst_index < len(rst_list) and check_index < len(check_list) :
       #
       # rst_name, check_name
-      rst_name  = rst_list[rst_index]
+      rst_name   = rst_list[rst_index]
       check_name = check_list[check_index]
       if rst_name < check_name :
          rst_index += 1
@@ -66,9 +68,12 @@ def run_test() :
          check_index += 1
          assert False, f'{check_name} is in test_rst but not {rst_directory}'
       else :
+         #
+         # rst_index, check_index
          rst_index     += 1
          check_index   += 1
          #
+         # rst_file_data, check_file_data
          rst_file      = f'{rst_directory}/{rst_name}'
          check_file    = f'test_rst/{check_name}'
          #
@@ -78,6 +83,9 @@ def run_test() :
          rst_data      = rst_file_obj.read()
          check_data    = check_file_obj.read()
          #
+         rst_file_obj.close()
+         check_file_obj.close()
+         #
          if rst_data == check_data :
             print( f'{rst_name}: OK' )
          else :
@@ -86,8 +94,8 @@ def run_test() :
             assert False, msg
 # ----------------------------------------------------------------------------
 def test_rst() :
-   if not os.path.exists('.git') :
-      assert False, 'test_rst: from the xrst top source directory'
+   if not os.path.exists('xrst.toml') :
+      assert False, 'test_rst.py: must start in the xrst top source directory'
    else :
       run_test()
 # ----------------------------------------------------------------------------
