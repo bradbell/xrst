@@ -33,16 +33,18 @@ Summary:        %{summary}
 %autosetup -p1 -n xrst-%{version}
 
 # tox.ini
-# pyspellchecker is not available on fedora. enchant is but can't seem
-# to get it to work in tox.ini and passes test without it. Seems like the
-# tox virtual environment has python3-enchant installed.
+# pyspellchecker is not available on fedora, so we remove it from tox.ini.
+# python3-enchange is available, but we have not been able to include it
+# as a dependency in tox.ini. The tox test seems to pass without it
+# when I do an rpmuild -ba but I am not sure this will work when
+# fedpkg does the build ?
 sed \
    -i tox.ini \
    -e '/^ *pyspellchecker$/d' \
    -e '/^ *enchant$/d'
 #
 # pytest/test_rst.py
-# this is not a git repository, so use different technique to check top
+# This is not a git repository, use different technique to check top directory
 sed \
    -i pytest/test_rst.py \
    -e "s|os.path.exists('.git')|os.path.exists('xrst.toml')|"
@@ -63,22 +65,11 @@ sed \
 %check
 %tox
 #
-# build/rst
-# remove files that are not *.rst files
-rm build/rst/conf.py
-rm -r build/rst/_sources
-#
-# check
-# Make sure that build/rst is the same as test_rst
-diff build/rst test_rst
 
 %files -n python3-xrst -f %{pyproject_files}
 %doc readme.md
 
-# The line below was in the empty spec file, not sure what it is suppsed to do.
-# http://ftp.rpm.org/max-rpm/s1-rpm-inside-files-list-directives.html 
-# It appears from the page above that is a documentation file and it gets
-# stored in /usr/bin (so it is an executable) ?.
+# install the xrst executable
 %{_bindir}/xrst
 
 %changelog
