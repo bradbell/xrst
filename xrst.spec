@@ -1,20 +1,13 @@
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/
 
 Name:           python-xrst
-Version:        2023.0.3
+Version:        2023.0.2
 Release:        1%{?dist}
 Summary:        Extract Sphinx RST Files
 
 License:        GPL-3.0-or-later
 URL:            https://github.com/bradbell/xrst
-Source:         %{url}/releases/refs/tags/%{version}.tar.gz
-# The tarball for this github project is in the location above.
-# Even thought this tarball is named %{version}.tar.gz, it will create
-# the xrst-%{version} directory with a copy of the source.
-#
-# The example spec file suggests the location
-# %{url}/archive/v%{version}/xrst-%{version}.tar.gz
-# but that does not seem to work.
+Source:         %{url}/archive/%{version}/xrst-%{version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-devel
@@ -24,15 +17,15 @@ This is a sphinx wrapper that extracts RST file from source code
 and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.}
 
+# First %%description command.
 %description %_description
-# First %description command.
 
 %package -n python3-xrst
 Summary:        %{summary}
 
-%description -n python3-xrst %_description
-# Second %description command.
+# Second %%description command.
 # What is the difference between the two %description commands ?
+%description -n python3-xrst %_description
 
 
 %prep
@@ -53,6 +46,7 @@ Summary:        %{summary}
 
 
 %check
+%tox
 #
 # build/rst
 # Use xrst source code to create build/rst. We could change this locaion
@@ -80,10 +74,11 @@ diff build/rst test_rst
 
 %files -n python3-xrst -f %{pyproject_files}
 %doc readme.md
-# %{_bindir}/...
+
 # The line below was in the empty spec file, not sure what it is suppsed to do.
 # http://ftp.rpm.org/max-rpm/s1-rpm-inside-files-list-directives.html 
 # It appears from the page above that is a documentation file and it gets
 # stored in /usr/bin (so it is an executable) ?.
+%{_bindir}/...
 
 %changelog
