@@ -234,10 +234,9 @@ Example
 
 spell_package
 *************
-The only value in this table is the name of spell checker
-and is either 'pyspellchecker' or 'enchant' .
+This str is either 'pyspellchecker' or 'enchant' .
 These are the only spell checkers support so far.
-If you use one spell checker the other on need not be installed
+If you use one spell checker the other one need not be installed
 on your system.
 
 .. meta::
@@ -251,7 +250,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 191-192
+   :lines: 190-191
    :language: toml
 
 .. _config_file@spell_package@Example:
@@ -310,7 +309,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 238-241
+   :lines: 237-240
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -367,7 +366,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 280-285
+   :lines: 279-284
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -448,7 +447,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 340-343
+   :lines: 339-342
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -487,7 +486,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 374-375
+   :lines: 373-374
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -533,7 +532,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 408-409
+   :lines: 407-408
    :language: toml
 
 .. _config_file@not_in_index@Example:

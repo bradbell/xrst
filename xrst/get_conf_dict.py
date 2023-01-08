@@ -179,10 +179,9 @@ Example
 
 spell_package
 *************
-The only value in this table is the name of spell checker
-and is either 'pyspellchecker' or 'enchant' .
+This str is either 'pyspellchecker' or 'enchant' .
 These are the only spell checkers support so far.
-If you use one spell checker the other on need not be installed
+If you use one spell checker the other one need not be installed
 on your system.
 
 Default
