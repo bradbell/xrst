@@ -26,8 +26,9 @@ def run_xrst() :
    # This command should be the same as the one in bin/check_xrst.sh
    # that's used to keep the test_rst directory up to date.
    command = [
-      'python', '-m', 'xrst',
+      'python3', '-m', 'xrst',
       '--local_toc',
+      '--rst_only',
       '--config_file',     'xrst.toml',
       '--index_page_name', index_page_name,
       '--group_list',      'default', 'user', 'dev',
