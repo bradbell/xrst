@@ -69,9 +69,9 @@ is added at the end of each non-empty line.
 Spaces and tabs in empty lines are removed (so they are truly empty).
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 44-45
+   :lines: 41-42
    :language: py
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 102-103
+   :lines: 99-100
    :language: py

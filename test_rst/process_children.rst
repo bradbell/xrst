@@ -83,9 +83,9 @@ The return value data_out has the child information added.
     placed at the end of the data_out (before the toctree).
 
 .. literalinclude:: ../../xrst/process_children.py
-   :lines: 57-66
+   :lines: 58-67
    :language: py
 
 .. literalinclude:: ../../xrst/process_children.py
-   :lines: 148-150
+   :lines: 149-151
    :language: py

@@ -86,9 +86,9 @@ The second return line_pair is a list of two element tuples.
     the maker line numbers are non-decreasing.
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 53-54
+   :lines: 50-51
    :language: py
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 111-118
+   :lines: 108-115
    :language: py

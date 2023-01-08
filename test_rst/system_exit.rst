@@ -85,5 +85,5 @@ is the line number in file specified by file_name where the error
 was detected.
 
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 44-54
+   :lines: 43-53
    :language: py

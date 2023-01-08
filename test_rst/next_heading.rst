@@ -125,9 +125,9 @@ if 0 <= heading_index, this is the underline text.
 If there is an overline present, it is the same as the underline text.
 
 .. literalinclude:: ../../xrst/next_heading.py
-   :lines: 61-67
+   :lines: 60-66
    :language: py
 
 .. literalinclude:: ../../xrst/next_heading.py
-   :lines: 160-164
+   :lines: 159-163
    :language: py

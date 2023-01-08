@@ -134,9 +134,9 @@ end_line
 is the line number where end_before appears.
 
 .. literalinclude:: ../../xrst/start_end_file.py
-   :lines: 63-78
+   :lines: 62-77
    :language: py
 
 .. literalinclude:: ../../xrst/start_end_file.py
-   :lines: 160-163
+   :lines: 159-162
    :language: py
