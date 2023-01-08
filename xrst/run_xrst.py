@@ -6,16 +6,19 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
-   caching
    config
+   dev
    furo
    github
-   grep
+   jax
    pdf
    pyspellchecker
    rtd
+   thet
+   toc
    toml
    txt
+   wil
 }
 
 Run Extract Sphinx RST And Sphinx

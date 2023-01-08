@@ -7,7 +7,6 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    autodoc
    doxygen
    gsl
-   macros
 }
 
 Purpose of this Sphinx Wrapper
@@ -93,15 +92,14 @@ The xrst features below can be considered a wish list for sphinx:
 ----------------------------------------------------------------------------
 {xrst_begin user-guide user}
 {xrst_spell
-   pypi
    cd
-   dist
-   grep
-   pyproject
-   toml
-   sdist
    pdf
+   pypi
+   pyproject
    pytest
+   sdist
+   toml
+   url
 }
 
 Extract Sphinx RST Files

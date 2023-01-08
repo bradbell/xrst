@@ -5,7 +5,7 @@
 %
    % {xrst_begin comment_ch_example}
    % {xrst_spell
-   %     ch
+   %     fac
    % }
    % {xrst_comment_ch %}
    %

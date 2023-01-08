@@ -5,12 +5,11 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 {xrst_begin wish_list user}
 {xrst_spell
    dir
-   stackoverflow
    github
-   sh
-   rtd
    readthedocs
+   rtd
    samp
+   stackoverflow
 }
 
 Wish List

@@ -1,12 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 """
 {xrst_begin heading_links user}
-{xrst_spell
-   backslashes
-}
 
 Heading Cross Reference Links
 #############################
@@ -161,8 +158,8 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # {xrst_spell
 #     bool
 #     fullmatch
-#     newline
 #     overline
+#     toc
 # }
 # {xrst_comment_ch #}
 #

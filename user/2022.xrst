@@ -4,24 +4,20 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2022 user}
 {xrst_spell
-   backslashes
+   amd
    breakpoint
-   colons
    conf
    config
    css
-   dd
+   dev
    dir
    dismod
    docstring
    genindex
    len
    literalinclude
-   ls
-   macros
    matlab
-   mm
-   newline
+   ok
    overline
    pdf
    pyproject
@@ -29,6 +25,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    rtd
    selectable
    spdx
+   toc
    toctree
    toml
    txt

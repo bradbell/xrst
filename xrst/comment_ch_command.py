@@ -4,9 +4,6 @@
 # ----------------------------------------------------------------------------
 """
 {xrst_begin comment_ch_cmd user}
-{xrst_spell
-   ch
-}
 
 Comment Character Command
 #########################

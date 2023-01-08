@@ -18,14 +18,12 @@ default_dict = dict()
    booleans
    conf
    epilog
-   ls
-   macros
-   newline
+   frist
    prolog
-   rtd
-   sh
-   toml
    pyspellchecker
+   rtd
+   toc
+   toml
 }
 
 .. _toml file: https://toml.io/en/
@@ -432,13 +430,12 @@ def iterable2string(iterable) :
    return string
 #
 # {xrst_begin get_conf_dict dev}
-# {xrst_comment_ch #}
 # {xrst_spell
 #     conf
 #     config
 #     toml
-#     dict
 # }
+# {xrst_comment_ch #}
 #
 # Get Configuration Dictionary
 # ############################

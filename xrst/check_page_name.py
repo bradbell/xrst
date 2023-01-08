@@ -7,7 +7,6 @@ import xrst
 # {xrst_begin check_page_name dev}
 # {xrst_spell
 #     genindex
-#     obj
 #     underbar
 # }
 # {xrst_comment_ch #}

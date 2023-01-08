@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
 # ----------------------------------------------------------------------------
@@ -142,7 +142,6 @@ def page_table_of_contents(
 # {xrst_begin table_of_contents dev}
 # {xrst_spell
 #     bool
-#     dict
 #     dir
 #     tmp
 # }

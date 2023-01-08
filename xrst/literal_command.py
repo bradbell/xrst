@@ -5,8 +5,8 @@
 """
 {xrst_begin literal_cmd user}
 {xrst_spell
-   literalinclude
    dir
+   literalinclude
 }
 
 Literal Command

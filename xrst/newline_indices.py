@@ -1,13 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 # {xrst_begin newline_indices dev}
-# {xrst_spell
-#     newline
-#     newlines
-# }
 # {xrst_comment_ch #}
 #
 # Find index of all the newlines in a string

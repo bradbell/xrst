@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -8,9 +8,6 @@ import xrst
 #
 pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # {xrst_begin remove_line_numbers dev}
-# {xrst_spell
-#     tuples
-# }
 # {xrst_comment_ch #}
 #
 # Remove the number numbers

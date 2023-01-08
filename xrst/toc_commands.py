@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 """
 {xrst_begin toc_cmd user}
 {xrst_spell
+   frist
+   toc
    toctree
 }
 
@@ -115,7 +117,7 @@ import xrst
 import re
 # {xrst_begin toc_cmd_dev dev}
 # {xrst_spell
-#     newline
+#     toc
 # }
 # {xrst_comment_ch #}
 #

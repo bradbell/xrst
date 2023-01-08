@@ -6,6 +6,7 @@
 {xrst_begin begin_cmd user}
 {xrst_spell
    genindex
+   toc
    underbar
 }
 
@@ -86,7 +87,6 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # ---------------------------------------------------------------------------
 # {xrst_begin get_file_info dev}
 # {xrst_spell
-#     dict
 #     len
 # }
 # {xrst_comment_ch #}

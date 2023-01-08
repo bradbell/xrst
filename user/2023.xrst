@@ -4,13 +4,11 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2023 user}
 {xrst_spell
-   mm
-   dd
+   firefox
    furo
+   pytest
    readthedocs
    rtd
-   firefox
-   pytest
 }
 
 xrst Release Notes for 2023
