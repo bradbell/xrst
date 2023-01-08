@@ -52,10 +52,10 @@ Table of Contents
 |    :ref:`4.6<check_syntax_error-title>` Check that an xrst command has been removed
 |    :ref:`4.7<code_cmd_dev-title>` Process the xrst code commands for a page
 |    :ref:`4.8<comment_cmd_dev-title>` Remove all comment commands
-|    :ref:`4.9<create_spell_checker-title>` Create a pyspellchecker object
-|    :ref:`4.10<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
-|    :ref:`4.11<get_conf_dict-title>` Get Configuration Dictionary
-|    :ref:`4.12<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.9<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
+|    :ref:`4.10<get_conf_dict-title>` Get Configuration Dictionary
+|    :ref:`4.11<get_file_info-title>` Get information for all pages in a file
+|    :ref:`4.12<get_spell_checker-title>` Get A Spell Checker Object
 |    :ref:`4.13<literal_cmd_dev-title>` Process the literal commands in a page
 |    :ref:`4.14<newline_indices-title>` Find index of all the newlines in a string
 |    :ref:`4.15<next_heading-title>` Return location of the next heading in a page

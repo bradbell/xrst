@@ -96,8 +96,8 @@ appears. This is only used for spell.toml.
 
 spell_checker
 =============
-Is the pyspellchecker object used for error checking; see
-:ref:`create_spell_checker-name`.
+Is a spell checking object used for error checking; see
+:ref:`get_spell_checker-name`.
 
 .. meta::
    :keywords: returns
@@ -139,9 +139,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 207-214
+   :lines: 206-213
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 518-521
+   :lines: 517-520
    :language: py

@@ -64,7 +64,7 @@ def run_test() :
          assert False, f'{rst_name} is in {rst_directory} but not test_rst'
       elif check_name < rst_name :
          check_index += 1
-         assert False, f'{check_name} is in test_dir but not {rst_directory}'
+         assert False, f'{check_name} is in test_rst but not {rst_directory}'
       else :
          rst_index     += 1
          check_index   += 1

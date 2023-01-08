@@ -26,10 +26,10 @@ The xrst Module
    "check_syntax_error", :ref:`check_syntax_error-title`
    "code_cmd_dev", :ref:`code_cmd_dev-title`
    "comment_cmd_dev", :ref:`comment_cmd_dev-title`
-   "create_spell_checker", :ref:`create_spell_checker-title`
    "dir_cmd_dev", :ref:`dir_cmd_dev-title`
    "get_conf_dict", :ref:`get_conf_dict-title`
    "get_file_info", :ref:`get_file_info-title`
+   "get_spell_checker", :ref:`get_spell_checker-title`
    "literal_cmd_dev", :ref:`literal_cmd_dev-title`
    "newline_indices", :ref:`newline_indices-title`
    "next_heading", :ref:`next_heading-title`
@@ -61,10 +61,10 @@ The xrst Module
    check_syntax_error
    code_cmd_dev
    comment_cmd_dev
-   create_spell_checker
    dir_cmd_dev
    get_conf_dict
    get_file_info
+   get_spell_checker
    literal_cmd_dev
    newline_indices
    next_heading

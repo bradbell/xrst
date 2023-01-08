@@ -662,7 +662,8 @@ def run_xrst() :
       for word in word_list :
          word = word.strip(' \t')
          spell_list.append(word)
-   spell_checker = xrst.create_spell_checker(spell_list)
+   package = 'pyspellchecker'
+   spell_checker = xrst.get_spell_checker(spell_list, package)
    #
    # not_in_index_list
    not_in_index_list = list()

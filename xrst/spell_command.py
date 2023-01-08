@@ -143,7 +143,6 @@ pattern['word']  = re.compile(
 # {xrst_begin spell_cmd_dev dev}
 # {xrst_spell
 #     dir
-#     pyspellchecker
 #     tmp
 #     toml
 # }
@@ -182,8 +181,8 @@ pattern['word']  = re.compile(
 #
 # spell_checker
 # =============
-# Is the pyspellchecker object used for error checking; see
-# :ref:`create_spell_checker-name`.
+# Is a spell checking object used for error checking; see
+# :ref:`get_spell_checker-name`.
 #
 # Returns
 # *******
@@ -369,8 +368,8 @@ def spell_command(
       #
       if not word.startswith('{xrst_line') and word[0].isalpha()  :
          #
-         unknown = len( spell_checker.unknown( [word] ) ) > 0
-         if unknown :
+         known =  spell_checker.known( word )
+         if not known :
             #
             # unknown_word_list
             if not word_lower in unknown_word_list :
@@ -395,7 +394,7 @@ def spell_command(
                #
                # msg
                msg  = 'spelling = ' + word
-               suggest = spell_checker.correction(word)
+               suggest = spell_checker.suggest(word)
                if suggest != None :
                   msg += ', suggest = ' + suggest
                msg += ', line ' + line_number + '\n'

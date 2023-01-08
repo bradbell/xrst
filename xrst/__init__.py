@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 #
 # {xrst_begin module dev}
@@ -19,10 +19,10 @@
 #  xrst/check_syntax_error.py
 #  xrst/code_command.py
 #  xrst/comment_command.py
-#  xrst/create_spell_checker.py
 #  xrst/dir_command.py
 #  xrst/get_conf_dict.py
 #  xrst/get_file_info.py
+#  xrst/get_spell_checker.py
 #  xrst/literal_command.py
 #  xrst/newline_indices.py
 #  xrst/next_heading.py
@@ -59,10 +59,10 @@ from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
-from .create_spell_checker   import create_spell_checker
 from .dir_command            import dir_command
 from .get_conf_dict          import get_conf_dict
 from .get_file_info          import get_file_info
+from .get_spell_checker      import get_spell_checker
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading
