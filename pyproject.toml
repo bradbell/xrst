@@ -28,6 +28,7 @@ classifiers       = [
 ]
 dependencies  = [
    'build',
+   'enchant',
    'furo',
    'pyspellchecker',
    'pytest',
