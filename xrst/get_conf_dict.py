@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
 import toml
@@ -25,6 +25,7 @@ default_dict = dict()
    rtd
    sh
    toml
+   pyspellchecker
 }
 
 .. _toml file: https://toml.io/en/
@@ -174,6 +175,32 @@ Example
    xrst.toml
    # BEGIN_ROOT_FILE
    # END_ROOT_FILE
+}
+
+spell_package
+*************
+The only value in this table is the name of spell checker
+and is either 'pyspellchecker' or 'enchant' .
+These are the only spell checkers support so far.
+If you use one spell checker the other on need not be installed
+on your system.
+
+Default
+=======
+{xrst_code toml}
+[spell_package]
+data = 'pyspellchecker'
+{xrst_code}
+{xrst_suspend}'''
+default_dict['spell_package'] = { 'data' : 'pyspellchecker' }
+'''{xrst_resume}
+
+Example
+=======
+{xrst_literal
+   xrst.toml
+   # BEGIN_SPELL_PACKAGE
+   # END_SPELL_PACKAGE
 }
 
 input_files
@@ -492,6 +519,12 @@ def get_conf_dict(config_file) :
       if type(value) != str :
          msg += f'directory.{key} has python type ' + str(type(value))
          system_exit(msg)
+   #
+   # spell_package
+   value = conf_dict['spell_package']['data']
+   if value not in [ 'pyspellchecker', 'enchant' ] :
+      msg += 'spell_package has is not pyspellchecker or enchant'
+      system_exit(msg)
    #
    # root_file
    p_group_name = re.compile( r'[a-z]+' )

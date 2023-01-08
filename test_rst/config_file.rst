@@ -58,7 +58,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 59-60
+   :lines: 60-61
    :language: toml
 
 .. _config_file@project_name@Example:
@@ -171,7 +171,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 126-130
+   :lines: 127-131
    :language: toml
 
 .. _config_file@directory@Example:
@@ -209,7 +209,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 160-161
+   :lines: 161-162
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -223,6 +223,44 @@ Example
 
 .. literalinclude:: ../../xrst.toml
    :lines: 20-23
+   :language: toml
+
+.. meta::
+   :keywords: spell_package
+
+.. index:: spell_package
+
+.. _config_file@spell_package:
+
+spell_package
+*************
+The only value in this table is the name of spell checker
+and is either 'pyspellchecker' or 'enchant' .
+These are the only spell checkers support so far.
+If you use one spell checker the other on need not be installed
+on your system.
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _config_file@spell_package@Default:
+
+Default
+=======
+
+.. literalinclude:: ../../xrst/get_conf_dict.py
+   :lines: 191-192
+   :language: toml
+
+.. _config_file@spell_package@Example:
+
+Example
+=======
+
+.. literalinclude:: ../../xrst.toml
+   :lines: 27-28
    :language: toml
 
 .. meta::
@@ -272,7 +310,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 211-214
+   :lines: 238-241
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -281,7 +319,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 27-30
+   :lines: 32-35
    :language: toml
 
 .. meta::
@@ -329,7 +367,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 253-258
+   :lines: 280-285
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -338,7 +376,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 34-40
+   :lines: 39-45
    :language: toml
 
 .. meta::
@@ -410,7 +448,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 313-316
+   :lines: 340-343
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -419,7 +457,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 44-53
+   :lines: 49-58
    :language: toml
 
 .. meta::
@@ -449,7 +487,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 347-348
+   :lines: 374-375
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -458,7 +496,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 57-73
+   :lines: 62-78
    :language: toml
 
 .. meta::
@@ -495,7 +533,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 381-382
+   :lines: 408-409
    :language: toml
 
 .. _config_file@not_in_index@Example:
@@ -504,5 +542,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 77-106
+   :lines: 82-111
    :language: toml

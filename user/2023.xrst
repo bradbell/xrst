@@ -21,8 +21,9 @@ mm-dd
 
 01-08
 =====
-Add the pytest directory and instructions for using it under
-:ref:`user-guide@Install From Source` .
+#. Add the pytest directory and instructions for using it under
+   :ref:`user-guide@Install From Source` .
+#. Add the :ref:`config_file@spell_package` configure file option.
 
 01-06
 =====

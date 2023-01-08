@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
-#
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# -----------------------------------------------------------------------------
 # BEGIN_PROJECT_NAME
 [project_name]
 data = 'xrst'
 # END_PROJECT_NAME
-#
+# -----------------------------------------------------------------------------
 # BEGIN_DIRECTORY
 [directory]
 # This is same as the default and only used as an example
@@ -15,13 +15,18 @@ rst_directory     = 'build/rst'
 html_directory    = 'build/html'
 tex_directory     = 'build/tex'
 # END_DIRECTORY
-#
+# -----------------------------------------------------------------------------
 # BEGIN_ROOT_FILE
 [root_file]
 default = 'example/example.xrst'
 user    = 'user/user.xrst'
 dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
+# -----------------------------------------------------------------------------
+# BEGIN_SPELL_PACKAGE
+[spell_package]
+data = 'pyspellchecker'
+# END_SPELL_PACKAGE
 # -----------------------------------------------------------------------------
 # BEGIN_INPUT_FILES
 [input_files]

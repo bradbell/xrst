@@ -21,7 +21,7 @@ Syntax
 local_words
 ***********
 is a list of words
-(each word is an str)
+(each word is a non-empty str)
 that get added to the dictionary for this spell checker.
 No need to add single letter words because they are considered correct
 by spell_command routine.
