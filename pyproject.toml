@@ -13,7 +13,7 @@ build-backend = 'hatchling.build'
 name        = 'xrst'
 version     = '2023.1.9'
 description = '''
-This is a sphinx wrapper that extracts RST file from source code
+This is a Sphinx wrapper that extracts RST file from source code
 and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.
 '''
@@ -25,14 +25,16 @@ authors           = [
 ]
 keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 #
-# see https://peps.python.org/pep-0301/#distutils-trove-classification
 classifiers       = [
-   'Programming Language :: Python :: 3',
+   'Topic :: Documentation',
+   'Topic :: Sphinx',
+   'Development Status' :: '5 - Production/Stable',
    'License :: OSI Approved :: PL-3.0-or-later',
    'Operating System :: OS Independent',
-   'Programming Language :: Language Independent',
    'Environment :: Console',
-   'Topic :: Documentation',
+   'Intended Audience' :: 'Developers',
+   'Natural Language'  :: 'English',
+  s
 ]
 dependencies  = [
    'build',
