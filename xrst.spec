@@ -33,8 +33,14 @@ Summary:        %{summary}
 %autosetup -p1 -n xrst-%{version}
 
 # tox.ini
-# Why does my rmpbuild tox reject pyspellchecker (it is available on pypi.org) ?
-sed -i tox.ini -e '/^ *pyspellchecker$/d'
+# Using rmpbuild -ba SPECS/xrst.spec on 6.0.15-200.fc36.x86_64:
+# .1 If we do not remove pyspellchecker from tox.ini we get errror the message
+#    python3dist(pyspellchecker) is needed by python-xrst ...
+# 2. If we try dnf install 'python3dist(pyspellchecker)' we get the message
+#    No match for argument: python3dist(pyspellchecker)
+# 3. If we try pip install pyspellchecker we get the message
+#    Requirement already satisfied: ...
+sed -i tox.ini -e '/^ *pyspellchecker$/d' 
 
 %generate_buildrequires
 %pyproject_buildrequires -t
