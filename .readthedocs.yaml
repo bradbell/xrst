@@ -18,7 +18,7 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst --upgrade
+      - pip install --index-url https://test.pypi.org/simple/ xrst
       #
       # build/html
       # The xsrst html_directory for this configuration is build/html.
