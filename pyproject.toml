@@ -26,15 +26,13 @@ authors           = [
 keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 #
 classifiers       = [
-   'Topic :: Documentation',
-   'Topic :: Sphinx',
-   'Development Status' :: '5 - Production/Stable',
-   'License :: OSI Approved :: PL-3.0-or-later',
+   'Topic :: Documentation :: Sphinx',
+   'Development Status :: 5 - Production/Stable',
+   'License :: OSI Approved',
    'Operating System :: OS Independent',
    'Environment :: Console',
-   'Intended Audience' :: 'Developers',
-   'Natural Language'  :: 'English',
-  s
+   'Intended Audience :: Developers',
+   'Natural Language :: English',
 ]
 dependencies  = [
    'build',
