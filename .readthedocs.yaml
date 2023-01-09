@@ -19,7 +19,7 @@ build:
       #
       # xrst
       # try including all pyproject.toml dependencies on command line
-      - pip install --index-url https://test.pypi.org/simple/ xrst build pyenchant furo pyspellchecker pytest sphinx toml
+      - pip install xrst build pyenchant furo pyspellchecker pytest sphinx toml
       #
       # build/html
       # The xsrst html_directory for this configuration is build/html.
