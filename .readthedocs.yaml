@@ -18,7 +18,7 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst
+      - pip install xrst --upgrade
       #
       # build/html
       # The xsrst html_directory for this configuration is build/html.
