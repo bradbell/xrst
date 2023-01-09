@@ -2,29 +2,37 @@
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# See https://hatch.pypa.io/latest/config/metadata/
 
 [build-system]
 requires      = ['hatchling']
 build-backend = 'hatchling.build'
 
+# -----------------------------------------------------------------------------
 [project]
-name    = 'xrst'
-version = '2023.1.9'
-authors = [
-  {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
-]
-description       = '''
+name        = 'xrst'
+version     = '2023.1.9'
+description = '''
 This is a sphinx wrapper that extracts RST file from source code
 and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.
 '''
 readme            = 'readme.md'
-license           = { file = 'gpl-3.0.txt' }
 requires-python   = '>=3.0'
+license           = 'GPL-3.0-or-later'
+authors           = [
+  {name  = 'Bradley M. Bell', email = 'bradbell@seanet.com'},
+]
+keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
+#
+# see https://peps.python.org/pep-0301/#distutils-trove-classification
 classifiers       = [
-'Programming Language :: Python :: 3',
-'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
-'Operating System :: OS Independent',
+   'Programming Language :: Python :: 3',
+   'License :: OSI Approved :: PL-3.0-or-later',
+   'Operating System :: OS Independent',
+   'Programming Language :: Language Independent',
+   'Environment :: Console',
+   'Topic :: Documentation',
 ]
 dependencies  = [
    'build',
@@ -37,6 +45,10 @@ dependencies  = [
    'sphinx-book-theme',
    'toml',
 ]
+# -----------------------------------------------------------------------------
+[projet.urls]
+Documentation = 'https://xrst.readthedocs.io'
+'Source code' = 'https://github.com/bradbell/xrst'
 
 [project.scripts]
 xrst = 'xrst:run_xrst'
