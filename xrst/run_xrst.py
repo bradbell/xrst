@@ -44,11 +44,13 @@ to caching the results of previous builds.
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
+{xrst_comment --------------------------------------------------------------- }
 
 version
 *******
 If ``--version`` is present on the command line,
 the version of xrst is printed and none of the other arguments matter.
+{xrst_comment --------------------------------------------------------------- }
 
 local_toc
 *********
@@ -59,6 +61,7 @@ The page name and page title are not in this table of contents.
 
 Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g., ``furo`` and ``sphinx_book_theme`` .
+{xrst_comment --------------------------------------------------------------- }
 
 page_source
 ***********
@@ -69,6 +72,7 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
+{xrst_comment --------------------------------------------------------------- }
 
 rst_line_numbers
 ****************
@@ -82,6 +86,7 @@ This may be helpful if you have an error or warning for a sphinx command
 and it does not make sense using xrst source code line numbers.
 It is also helpful for determining if an incorrect line number is due to
 sphinx or xrst.
+{xrst_comment --------------------------------------------------------------- }
 
 rst_only
 ********
@@ -99,6 +104,7 @@ for use with `Read the Docs <https://docs.readthedocs.io>`_ .
 The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.
+{xrst_comment --------------------------------------------------------------- }
 
 index_page_name
 ***************
@@ -109,6 +115,7 @@ the file ``index.html`` in the
 to the page specified by *index_page_name* .
 If this option is not present, ``index.html`` wil be a redirect
 to the root of the documentation tree.
+{xrst_comment --------------------------------------------------------------- }
 
 config_file
 ***********
@@ -121,6 +128,7 @@ xrst.toml
 =========
 If *config_file* is not present on the command line,
 the default value ``xrst.toml`` is used for *config_file* .
+{xrst_comment --------------------------------------------------------------- }
 
 html_theme
 **********
@@ -155,6 +163,7 @@ so it is suggested to use it for testing (with the ``--local_toc`` option).
 A special modification is made to this theme when *target* is html,
 so that it displays wider than its normal limit.
 This modification may be removed in the future.
+{xrst_comment --------------------------------------------------------------- }
 
 target
 ******
@@ -199,6 +208,7 @@ will accomplish both purposes:
       and may help translate these line numbers to page names.
    #. Given a page name, the corresponding xrst input file can
       be found at the top of the html version of the page.
+{xrst_comment --------------------------------------------------------------- }
 
 group_list
 **********
@@ -243,6 +253,7 @@ and it is your current working directory.
    groups and its documentation can be built using
 
       ``xrst --group_list default user dev``
+{xrst_comment --------------------------------------------------------------- }
 
 rename_group
 ************
@@ -269,6 +280,7 @@ Each page in the old group, and below the root file for the new group,
 will have its group name changed from *old_group_name* to *new_group_name*.
 Use ``default``, instead of the empty group name, for the
 :ref:`begin_cmd@group_name@Default Group` .
+{xrst_comment --------------------------------------------------------------- }
 
 replace_spell_commands
 **********************

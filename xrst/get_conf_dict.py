@@ -48,6 +48,7 @@ A `toml file`_ is used to configure xrst.
    type as the default components.
    The html theme options default is one exception to this rule; see
    :ref:`config_file@html_theme_options` .
+{xrst_comment --------------------------------------------------------------- }
 
 project_name
 ************
@@ -70,6 +71,7 @@ Example
    # BEGIN_PROJECT_NAME
    # END_PROJECT_NAME
 }
+{xrst_comment --------------------------------------------------------------- }
 
 directory
 *********
@@ -145,6 +147,7 @@ Example
    # BEGIN_DIRECTORY
    # END_DIRECTORY
 }
+{xrst_comment --------------------------------------------------------------- }
 
 root_file
 *********
@@ -175,6 +178,7 @@ Example
    # BEGIN_ROOT_FILE
    # END_ROOT_FILE
 }
+{xrst_comment --------------------------------------------------------------- }
 
 spell_package
 *************
@@ -200,6 +204,7 @@ Example
    # BEGIN_SPELL_PACKAGE
    # END_SPELL_PACKAGE
 }
+{xrst_comment --------------------------------------------------------------- }
 
 input_files
 ***********
@@ -257,6 +262,7 @@ input_files.sh
 {xrst_literal
    bin/input_files.sh
 }
+{xrst_comment --------------------------------------------------------------- }
 
 html_theme_options
 ******************
@@ -301,6 +307,7 @@ Example
    # BEGIN_HTML_THEME_OPTIONS
    # END_HTML_THEME_OPTIONS
 }
+{xrst_comment --------------------------------------------------------------- }
 
 include_all
 ***********
@@ -356,6 +363,7 @@ Example
    # BEGIN_INCLUDE_ALL
    # END_INCLUDE_ALL
 }
+{xrst_comment --------------------------------------------------------------- }
 
 project_dictionary
 ******************
@@ -383,6 +391,7 @@ Example
    # BEGIN_PROJECT_DICTIONARY
    # END_PROJECT_DICTIONARY
 }
+{xrst_comment --------------------------------------------------------------- }
 
 not_in_index
 ************

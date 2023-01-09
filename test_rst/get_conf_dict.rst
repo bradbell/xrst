@@ -47,9 +47,9 @@ the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 460-462
+   :lines: 469-471
    :language: py
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 627-628
+   :lines: 636-637
    :language: py
