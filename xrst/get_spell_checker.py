@@ -223,4 +223,5 @@ def get_spell_checker(local_words, package) :
    if package == 'pyspellchecker' :
       return py_spell_checker(local_words)
    else :
+      assert package == 'pyenchant'
       return enchant_spell_checker(local_words)

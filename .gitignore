@@ -1,7 +1,7 @@
 # temporary files
 temp
 temp.*
-# automatically created files
+# automatically created file used to help with git commits
 /git_commit.sh
 # used to build documentation
 /build/

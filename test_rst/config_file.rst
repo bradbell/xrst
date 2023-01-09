@@ -58,7 +58,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 58-59
+   :lines: 59-60
    :language: toml
 
 .. _config_file@project_name@Example:
@@ -171,7 +171,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 125-129
+   :lines: 126-130
    :language: toml
 
 .. _config_file@directory@Example:
@@ -209,7 +209,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 159-160
+   :lines: 160-161
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -234,7 +234,7 @@ Example
 
 spell_package
 *************
-This str is either 'pyspellchecker' or 'enchant' .
+This str is either 'pyspellchecker' or 'pyenchant' .
 These are the only spell checkers support so far.
 If you use one spell checker the other one need not be installed
 on your system.
@@ -250,7 +250,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 188-189
+   :lines: 189-190
    :language: toml
 
 .. _config_file@spell_package@Example:
@@ -309,7 +309,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 235-238
+   :lines: 236-239
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -366,7 +366,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 277-282
+   :lines: 278-283
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -447,7 +447,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 337-340
+   :lines: 338-341
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -486,7 +486,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 371-372
+   :lines: 372-373
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -532,7 +532,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 405-406
+   :lines: 406-407
    :language: toml
 
 .. _config_file@not_in_index@Example:

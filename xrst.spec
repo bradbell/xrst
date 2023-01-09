@@ -33,21 +33,8 @@ Summary:        %{summary}
 %autosetup -p1 -n xrst-%{version}
 
 # tox.ini
-# pyspellchecker is not available on fedora, so we remove it from tox.ini.
-# python3-enchange is available, but we have not been able to include it
-# as a dependency in tox.ini. The tox test seems to pass without it
-# when I do an rpmuild -ba but I am not sure this will work when
-# fedpkg does the build ?
-sed \
-   -i tox.ini \
-   -e '/^ *pyspellchecker$/d' \
-   -e '/^ *enchant$/d'
-#
-# pytest/test_rst.py
-# This is not a git repository, use different technique to check top directory
-sed \
-   -i pytest/test_rst.py \
-   -e "s|os.path.exists('.git')|os.path.exists('xrst.toml')|"
+# Why does my rmpbuild tox reject pyspellchecker (it is available on pypi.org) ?
+sed -i tox.ini -e '/^ *pyspellchecker$/d'
 
 %generate_buildrequires
 %pyproject_buildrequires -t

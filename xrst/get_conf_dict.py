@@ -20,6 +20,7 @@ default_dict = dict()
    epilog
    frist
    prolog
+   pyenchant
    pyspellchecker
    rtd
    toc
@@ -177,7 +178,7 @@ Example
 
 spell_package
 *************
-This str is either 'pyspellchecker' or 'enchant' .
+This str is either 'pyspellchecker' or 'pyenchant' .
 These are the only spell checkers support so far.
 If you use one spell checker the other one need not be installed
 on your system.
@@ -518,8 +519,8 @@ def get_conf_dict(config_file) :
    #
    # spell_package
    value = conf_dict['spell_package']['data']
-   if value not in [ 'pyspellchecker', 'enchant' ] :
-      msg += 'spell_package has is not pyspellchecker or enchant'
+   if value not in [ 'pyspellchecker', 'pyenchant' ] :
+      msg += 'spell_package has is not pyspellchecker or pyenchant'
       system_exit(msg)
    #
    # root_file
