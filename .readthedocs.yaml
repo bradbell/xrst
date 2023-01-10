@@ -20,15 +20,10 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst toml
-      # The dependencies below are sometimes needed
+      # The dependencies below are in pyproject.toml but they are needed
       # (prehaps because commands is in beta) ?
-      # - pip install xrst \
-      # build pyenchant furo pyspellchecker pytest sphinx toml
+      - pip install xrst pyenchant furo sphinx toml
       #
-      # build/html
-      # The xsrst html_directory for this configuration is build/html.
-      # Build the default (example) and user (user-guide) groups.
       - xrst
          --page_source
          --html_theme furo
