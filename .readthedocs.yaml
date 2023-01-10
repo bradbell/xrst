@@ -19,13 +19,13 @@ build:
    # The readthedocs commands feature is still in beta
    commands:
       #
-      # pip3
-      - pip3 install --upgrade pip
-      - pip3 --version
+      # pip
+      - pip install --upgrade pip
+      - pip --version
       #
       # xrst
-      - pip3 install xrst
-      - pip3 list
+      - pip install xrst
+      - pip list
       #
       # xrst
       # The dependencies below are in pyproject.toml but they are needed
