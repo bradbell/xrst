@@ -19,6 +19,9 @@ build:
    # The readthedocs commands feature is still in beta
    commands:
       #
+      # pip
+      - pip --version
+      #
       # xrst
       - pip install xrst
       - pip list
