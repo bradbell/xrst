@@ -43,6 +43,28 @@ Version of this Documentation
 xrst-2023.1.10
 
 .. meta::
+   :keywords: dependencies
+
+.. index:: dependencies
+
+.. _user-guide@Dependencies:
+
+Dependencies
+************
+The `pep-621 <https://peps.python.org/pep-0621>`_ standard
+is for the dependencies to be in the pyproject.toml file.
+For xrst, these are as follows:
+
+.. literalinclude:: ../../pyproject.toml
+   :lines: 30-35
+   :language: toml
+
+see :ref:`run_xrst@html_theme`  and :ref:`config_file@spell_package` .
+Some older versions of pip and setuptools do not yet handle these
+correctly and you may need include some of the dependencies on
+the pip install command line.
+
+.. meta::
    :keywords: install, stable, version
 
 .. index:: install, stable, version

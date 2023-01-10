@@ -100,6 +100,8 @@ The xrst features below can be considered a wish list for sphinx:
    sdist
    toml
    url
+   pyproject
+   setuptools
 }
 
 Extract Sphinx RST Files
@@ -115,6 +117,21 @@ Git Repository
 Version of this Documentation
 *****************************
 xrst-2023.1.10
+
+Dependencies
+************
+The `pep-621 <https://peps.python.org/pep-0621>`_ standard
+is for the dependencies to be in the pyproject.toml file.
+For xrst, these are as follows:
+{xrst_literal
+   pyproject.toml
+   # BEGIN_DEPENDENCIES
+   # END_DEPENDENCIES
+}
+see :ref:`run_xrst@html_theme`  and :ref:`config_file@spell_package` .
+Some older versions of pip and setuptools do not yet handle these
+correctly and you may need include some of the dependencies on
+the pip install command line.
 
 Install Stable Version
 **********************

@@ -35,6 +35,7 @@ mm-dd
    now that tox and pytest are used to test versions of python.
 #. Switch from using hatchling to setuptools as the backend
    for building this project.
+#. Add a discussion of the :ref:`user-guide@Dependencies` .
 
 .. _2023@mm-dd@01-08:
 
