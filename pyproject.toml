@@ -11,7 +11,7 @@ build-backend = 'hatchling.build'
 # -----------------------------------------------------------------------------
 [project]
 name        = 'xrst'
-version     = '2023.1.9'
+version = '2023.1.10'
 description = '''
 This is a Sphinx wrapper that extracts RST file from source code
 and then runs sphinx to obtain html, tex, or pdf output files.
