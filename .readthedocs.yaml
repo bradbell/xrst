@@ -19,13 +19,13 @@ build:
    # The readthedocs commands feature is still in beta
    commands:
       #
-      # pip
-      # This version number must be >= 22.3.1 for dependencies to work
-      - pip --version
+      # pip3
+      pip3 install --upgrade pip
+      - pip3 --version
       #
       # xrst
-      - pip install xrst
-      - pip list
+      - pip3 install xrst
+      - pip3 list
       #
       # xrst
       # The dependencies below are in pyproject.toml but they are needed
