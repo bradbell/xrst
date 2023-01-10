@@ -20,9 +20,13 @@ build:
    commands:
       #
       # xrst
+      - pip install xrst
+      - pip list
+      #
+      # xrst
       # The dependencies below are in pyproject.toml but they are needed
       # (prehaps because commands is in beta) ?
-      - pip install xrst pyenchant furo sphinx toml
+      # - pip install xrst pyenchant furo sphinx toml
       #
       - xrst
          --page_source
