@@ -20,9 +20,11 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst
-      # The dependencies below are sometimes needed (prehaps because commands is in beta) ?
-      # - pip install xrst build pyenchant furo pyspellchecker pytest sphinx toml
+      - pip install xrst toml
+      # The dependencies below are sometimes needed
+      # (prehaps because commands is in beta) ?
+      # - pip install xrst \
+      # build pyenchant furo pyspellchecker pytest sphinx toml
       #
       # build/html
       # The xsrst html_directory for this configuration is build/html.
