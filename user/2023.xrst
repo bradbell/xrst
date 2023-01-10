@@ -10,6 +10,9 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    readthedocs
    rtd
    tox
+   hatchling
+   setuptools
+   backend
 }
 
 xrst Release Notes for 2023
@@ -20,8 +23,10 @@ mm-dd
 
 01-10
 =====
-Modify the wish list :ref:`wish_list@Testing` item
-now that tox and pytest are used to test versions of python.
+#. Modify the wish list :ref:`wish_list@Testing` item
+   now that tox and pytest are used to test versions of python.
+#. Switch from using hatchling to setuptools as the backend
+   for building this project.
 
 01-08
 =====
