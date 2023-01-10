@@ -45,8 +45,11 @@ the following text should not require a special spelling entry for ``samp``
 Testing
 *******
 Use github actions to test xrst on multiple systems.
-The script ``bin/check_xrst.sh`` will need to be modified so that
-it can run in batch mode and fail when the results change.
+Note that tox and pytest are used to test xrst in different versions
+of python. The following is the tox.ini file for xrst:
+
+.. literalinclude:: ../../tox.ini
+   :language: ini
 
 .. meta::
    :keywords: theme

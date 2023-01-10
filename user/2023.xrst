@@ -9,6 +9,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    pytest
    readthedocs
    rtd
+   tox
 }
 
 xrst Release Notes for 2023
@@ -16,6 +17,11 @@ xrst Release Notes for 2023
 
 mm-dd
 *****
+
+01-10
+=====
+Modify the wish list :ref:`wish_list@Testing` item
+now that tox and pytest are used to test versions of python.
 
 01-08
 =====
