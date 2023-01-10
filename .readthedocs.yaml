@@ -15,6 +15,7 @@ build:
    os: "ubuntu-20.04"
    tools:
       python: "3.10"
+      pip: ">=22.3.1"
    #
    # The readthedocs commands feature is still in beta
    commands:
