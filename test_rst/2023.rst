@@ -36,6 +36,8 @@ mm-dd
    This will no longer be necessary when
    setuptools gets the dependencies right.
 #. Change the Development Status in pip from Production to Beta.
+#. Simplify :ref:`.readthedocs.yaml-name` (now the dependency problem
+   has been fixed).
 
 .. _2023@mm-dd@01-10:
 

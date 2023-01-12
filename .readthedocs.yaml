@@ -19,14 +19,8 @@ build:
    # The readthedocs commands feature is still in beta
    commands:
       #
-      # pip
-      - pip install --upgrade pip
-      - pip --version
-      #
       # xrst
-      # The dependencies below are in pyproject.toml but they are not
-      # getting installed, so we add them explicitly after xrst.
-      - pip install xrst pyenchant furo sphinx toml
+      - pip install xrst
       #
       - xrst
          --page_source
