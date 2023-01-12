@@ -23,7 +23,7 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
-01-11
+01-12
 =====
 #. Include a temporary fix for the dependency problem
    by including a setup.py file.
