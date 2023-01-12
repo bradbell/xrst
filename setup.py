@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
+# ----------------------------------------------------------------------------
+# This is a temporary fix and duplicates information in pyproject.toml.
+# It will be removed when seutptools gets the pyproject.toml dependencies right
 from setuptools import setup
 
 setup(
