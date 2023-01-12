@@ -19,7 +19,7 @@ keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 license           = { text = 'GPL-3.0-or-later' }
 classifiers       = [
    'Topic :: Documentation :: Sphinx',
-   'Development Status :: 5 - Production/Stable',
+   'Development Status :: 4 - Beta',
    'License :: OSI Approved',
    'Operating System :: OS Independent',
    'Environment :: Console',
@@ -34,6 +34,7 @@ dependencies       = [
    'furo', 'sphinx-rtd-theme', 'sphinx-book-theme',   # need the ones you use
 ]
 # END_DEPENDENCIES
+dynamic = [ "entry-points" ]
 # -----------------------------------------------------------------------------
 [tool.setuptools]
 packages = ['xrst']

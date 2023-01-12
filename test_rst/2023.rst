@@ -27,6 +27,16 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@01-11:
+
+01-11
+=====
+#. Include a temporary fix for the dependency problem
+   by including a setup.py file.
+   This will no longer be necessary when
+   setuptools gets the dependencies right.
+#. Change the Development Status in pip from Production to Beta.
+
 .. _2023@mm-dd@01-10:
 
 01-10
@@ -35,7 +45,17 @@ mm-dd
    now that tox and pytest are used to test versions of python.
 #. Switch from using hatchling to setuptools as the backend
    for building this project.
-#. Add a discussion of the :ref:`user-guide@Dependencies` .
+#. Add following discussion to install instructions (it has since been removed).
+   The `pep-621 <https://peps.python.org/pep-0621>`_ standard
+   is for the dependencies to be in the pyproject.toml file.
+   Some older versions of setuptools do not yet handle these
+   correctly and you may need include some of the dependencies on
+   the pip install command line.
+   For xrst, the dependencies are as follows:
+
+.. literalinclude:: ../../pyproject.toml
+   :lines: 30-35
+   :language: toml
 
 .. _2023@mm-dd@01-08:
 
