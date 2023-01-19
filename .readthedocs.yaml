@@ -25,7 +25,7 @@ build:
       # Install dependencies form production server (do not need this
       # if you use the command commented out above). Then install most recent
       # verison from test.pypi server.
-      pip install sphinx toml pyenchant furo
+      - pip install sphinx toml pyenchant furo
       - pip install --index-url https://test.pypi.org/simple/ xrst
       #
       - xrst
