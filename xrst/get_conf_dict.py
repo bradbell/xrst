@@ -218,7 +218,7 @@ These list must have the same length and only headings up the
 that level are checked.
 The elements of the character list have type string and are used
 to check the underline character at each heading level.
-The elements of the overline list have type boolean and are used
+The elements of the overline list have type Boolean and are used
 to check if the heading is overlined at each heading level.
 The first entry in each list is level zero and corresponds to
 :ref:`page titles <heading_links@Labels@Level Zero@page_title>` .
