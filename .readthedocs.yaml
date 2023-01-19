@@ -20,7 +20,9 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst
+      # - pip install xrst
+      # Another attempt to get install most recent version from  test pypi.
+      - pip install --index-url https://test.pypi.org/simple/ xrst
       #
       - xrst
          --page_source
