@@ -28,6 +28,9 @@ build:
       - pip install sphinx toml pyenchant furo
       - pip install --index-url https://test.pypi.org/simple/ xrst
       #
+      # debugging
+      - xrst --version
+      #
       - xrst
          --page_source
          --html_theme furo
