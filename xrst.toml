@@ -23,6 +23,13 @@ user    = 'user/user.xrst'
 dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 # -----------------------------------------------------------------------------
+# BEGIN_HEADING
+[heading]
+# level           0,     1,     2,     3,     4,
+character = [   '#',   '*',   '=',   '-',   '.',  ]
+overline  = [ false, false, false, false, false,  ]
+# END_HEADING
+# -----------------------------------------------------------------------------
 # BEGIN_SPELL_PACKAGE
 [spell_package]
 data = 'pyenchant'

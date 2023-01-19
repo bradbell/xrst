@@ -892,6 +892,7 @@ def run_xrst() :
             # pseudo_heading, all_page_info
             page_data, page_title, pseudo_heading = \
             xrst.process_headings(
+               conf_dict,
                local_toc,
                page_data,
                file_in,

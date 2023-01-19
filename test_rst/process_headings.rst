@@ -28,6 +28,17 @@ Arguments
 *********
 
 .. meta::
+   :keywords: conf_dict
+
+.. index:: conf_dict
+
+.. _process_headings@Arguments@conf_dict:
+
+conf_dict
+=========
+is a python dictionary representation of the configuration file.
+
+.. meta::
    :keywords: local_toc
 
 .. index:: local_toc
@@ -143,9 +154,9 @@ It has three lines each terminated by a newline:
  3. an underline line
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 225-232
+   :lines: 230-238
    :language: py
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 462-466
+   :lines: 498-502
    :language: py

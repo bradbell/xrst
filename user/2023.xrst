@@ -13,6 +13,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    hatchling
    setuptools
    backend
+   overline
    pyproject
    toml
 }
@@ -22,6 +23,12 @@ xrst Release Notes for 2023
 
 mm-dd
 *****
+
+01-19
+=====
+Add the :ref:`config_file@heading` configuration file option.
+This can be used to check that all the pages in a project use the same
+underline and overline conventions.
 
 01-12
 =====

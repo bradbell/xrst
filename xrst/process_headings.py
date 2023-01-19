@@ -157,6 +157,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # {xrst_begin process_headings dev}
 # {xrst_spell
 #     bool
+#     conf
 #     fullmatch
 #     overline
 #     toc
@@ -168,6 +169,10 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #
 # Arguments
 # *********
+#
+# conf_dict
+# =========
+# is a python dictionary representation of the configuration file.
 #
 # local_toc
 # =========
@@ -223,8 +228,9 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #
 # {xrst_code py}
 def process_headings(
-      local_toc, data_in, file_name, page_name, not_in_index_list
+      conf_dict, local_toc, data_in, file_name, page_name, not_in_index_list
 ) :
+   assert type(conf_dict) == dict
    assert type(local_toc) == bool
    assert type(data_in) == str
    assert type(file_name) == str
@@ -236,6 +242,28 @@ def process_headings(
    #  END_return
    # }
    # {xrst_end process_headings}
+   #
+   # headinge_character, heading_overline
+   heading_character = conf_dict['heading']['character']
+   heading_overline  = conf_dict['heading']['overline']
+   def check_heading(line, level, character, overline) :
+      if not level < len( heading_character ) :
+         return
+      ok =        character == heading_character[level]
+      ok = ok and overline  == heading_overline[level]
+      if not ok :
+         msg  = f'This heading is at level {level} and its\n'
+         msg +=  f'underline character is "{character}"'
+         msg += f' and overline is {overline}\n'
+         msg += 'In the config_file this level has\n'
+         msg +=  'underline character "' + heading_character[level]
+         msg += '" and overline = ' + str( heading_overline[level] ) + '\n'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            line      = int(line) + 1
+         )
    #
    # pattern_colon_in_label
    pattern_colon_space = re.compile( r':(\s)' )
@@ -287,7 +315,7 @@ def process_headings(
       #
       # character
       character = underline_text[0]
-      #
+
       # heading
       heading   = {
          'overline' : overline,
@@ -343,6 +371,14 @@ def process_headings(
          if not found_level :
             # this heading at a higher level
             heading_list.append( heading )
+      #
+      # check_heading
+      check_heading(
+         line      = m_line.group(1),
+         level     = len( heading_list) - 1,
+         character = character,
+         overline  = overline,
+      )
       #
       # label
       label = None

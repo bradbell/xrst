@@ -58,7 +58,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 60-61
+   :lines: 62-63
    :language: toml
 
 .. _config_file@project_name@Example:
@@ -171,7 +171,7 @@ Note that '.' denotes the directory where
 :ref:`xrst <run_xrst-name>` is run.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 128-132
+   :lines: 130-134
    :language: toml
 
 .. _config_file@directory@Example:
@@ -209,7 +209,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 163-164
+   :lines: 165-166
    :language: toml
 
 Note that ``default`` corresponds to the
@@ -250,7 +250,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 193-194
+   :lines: 195-196
    :language: toml
 
 .. _config_file@spell_package@Example:
@@ -259,7 +259,52 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 27-28
+   :lines: 34-35
+   :language: toml
+
+.. meta::
+   :keywords: heading
+
+.. index:: heading
+
+.. _config_file@heading:
+
+heading
+*******
+This table can be used to check that the underlining and overlining
+of headings is consistent for all pages.
+This table has two lists,
+one named ``character`` the other named ``overline``.
+These list must have the same length and only headings up the
+that level are checked.
+The elements of the character list have type string and are used
+to check the underline character at each heading level.
+The elements of the overline list have type boolean and are used
+to check if the heading is overlined at each heading level.
+The first entry in each list is level zero and corresponds to
+:ref:`page titles <heading_links@Labels@Level Zero@page_title>` .
+
+.. meta::
+   :keywords: default
+
+.. index:: default
+
+.. _config_file@heading@Default:
+
+Default
+=======
+
+.. literalinclude:: ../../xrst/get_conf_dict.py
+   :lines: 229-231
+   :language: toml
+
+.. _config_file@heading@Example:
+
+Example
+=======
+
+.. literalinclude:: ../../xrst.toml
+   :lines: 27-30
    :language: toml
 
 .. meta::
@@ -288,7 +333,7 @@ If this list of strings is empty, no files are checked.
 
 Each program is execute, in order, with the *project_directory*
 as the current working directory.
-The frist program to return without an error is used for the list of files.
+The first program to return without an error is used for the list of files.
 The intention here is that different programs
 may be intended for different systems.
 
@@ -309,7 +354,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 241-244
+   :lines: 279-282
    :language: toml
 
 .. _config_file@input_files@Example:
@@ -318,7 +363,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 32-35
+   :lines: 39-42
    :language: toml
 
 .. meta::
@@ -366,7 +411,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 284-289
+   :lines: 322-327
    :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -375,7 +420,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 39-45
+   :lines: 46-52
    :language: toml
 
 .. meta::
@@ -447,7 +492,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 345-348
+   :lines: 383-386
    :language: toml
 
 .. _config_file@include_all@Example:
@@ -456,7 +501,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 49-58
+   :lines: 56-65
    :language: toml
 
 .. meta::
@@ -486,7 +531,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 380-381
+   :lines: 418-419
    :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -495,7 +540,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 62-78
+   :lines: 69-85
    :language: toml
 
 .. meta::
@@ -532,7 +577,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 415-416
+   :lines: 453-454
    :language: toml
 
 .. _config_file@not_in_index@Example:
@@ -541,5 +586,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 82-111
+   :lines: 89-118
    :language: toml

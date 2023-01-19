@@ -18,7 +18,9 @@ default_dict = dict()
    booleans
    conf
    epilog
-   frist
+   overline
+   overlined
+   overlining
    prolog
    pyenchant
    pyspellchecker
@@ -206,6 +208,42 @@ Example
 }
 {xrst_comment --------------------------------------------------------------- }
 
+heading
+*******
+This table can be used to check that the underlining and overlining
+of headings is consistent for all pages.
+This table has two lists,
+one named ``character`` the other named ``overline``.
+These list must have the same length and only headings up the
+that level are checked.
+The elements of the character list have type string and are used
+to check the underline character at each heading level.
+The elements of the overline list have type boolean and are used
+to check if the heading is overlined at each heading level.
+The first entry in each list is level zero and corresponds to
+:ref:`page titles <heading_links@Labels@Level Zero@page_title>` .
+
+Default
+=======
+{xrst_code toml}
+[heading]
+character = []
+overline  = []
+{xrst_code}
+{xrst_suspend}'''
+default_dict['heading'] = { 'character' : [], 'overline' : [] }
+'''{xrst_resume}
+
+Example
+=======
+{xrst_literal
+   xrst.toml
+   # BEGIN_HEADING
+   # END_HEADING
+}
+
+{xrst_comment --------------------------------------------------------------- }
+
 input_files
 ***********
 This table is used to list the files that should be include in the
@@ -225,7 +263,7 @@ If this list of strings is empty, no files are checked.
 
 Each program is execute, in order, with the *project_directory*
 as the current working directory.
-The frist program to return without an error is used for the list of files.
+The first program to return without an error is used for the list of files.
 The intention here is that different programs
 may be intended for different systems.
 
@@ -531,6 +569,37 @@ def get_conf_dict(config_file) :
    if value not in [ 'pyspellchecker', 'pyenchant' ] :
       msg += 'spell_package has is not pyspellchecker or pyenchant'
       system_exit(msg)
+   #
+   # heading
+   table_dict = conf_dict['heading']
+   valid_set = { 'character', 'overline' }
+   if set( table_dict.keys() ) != valid_set :
+      msg += 'The heading has the following keys:\n'
+      msg += iterable2string( table_dict.keys() ) + '\n'
+      msg += 'Expected the following keys:\n'
+      msg += iterable2string( valid_set ) + '\n'
+      system_exit(msg)
+   for key in table_dict :
+      value = table_dict[key]
+      if type(value) != list :
+         msg += f'directory.{key} has python type ' + str(type(value))
+         msg += ' explected a list'
+         system_exit(msg)
+   if len( table_dict['character'] ) != len( table_dict['overline'] ) :
+      msg  = 'The heading character list and overline lists '
+      msg += 'have different length:\n'
+      system_exit(msg)
+   punctuation  = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+   for i in range( len( table_dict['character'] ) ) :
+      ch = table_dict['character'][i]
+      if ch not in punctuation :
+         msg  = f'The character {ch} in heading.character is not a valid '
+         msg += 'underline character\n'
+         msg += 'The valid characters are ' + punctuation
+         system_exit(msg)
+      if type( table_dict['overline'][i] ) != bool :
+         msg  = f'A value in heading.overline is not true or false'
+         system_exit(msg)
    #
    # root_file
    p_group_name = re.compile( r'[a-z]+' )
