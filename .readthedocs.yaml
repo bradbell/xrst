@@ -21,7 +21,11 @@ build:
       #
       # xrst
       # - pip install xrst
-      # Another attempt to get install most recent version from  test pypi.
+      #
+      # Install dependencies form production server (do not need this
+      # if you use the command commented out above). Then install most recent
+      # verison from test.pypi server.
+      pip install sphinx toml pyenchant furo
       - pip install --index-url https://test.pypi.org/simple/ xrst
       #
       - xrst
