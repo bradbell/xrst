@@ -24,10 +24,11 @@ dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 # -----------------------------------------------------------------------------
 # BEGIN_HEADING
-[heading]
-# level           0,     1,     2,     3,     4,
-character = [   '#',   '*',   '=',   '-',   '.',  ]
-overline  = [ false, false, false, false, false,  ]
+# This settting of the xrst heading values is temporarly commented out
+# [heading]
+#     level         0,     1,     2,     3,     4,
+# character = [   '#',   '*',   '=',   '-',   '.',  ]
+# overline  = [ false, false, false, false, false,  ]
 # END_HEADING
 # -----------------------------------------------------------------------------
 # BEGIN_SPELL_PACKAGE
