@@ -67,7 +67,8 @@ mkdir -p %{buildroot}/%{_mandir}/man1
 %{python3} -m xrst --rst_only --group_list default user
 #
 # install %%{_mandir}/man1/xrst.1
-bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
+%{python3} bin/rst2man.py \
+   build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
 # -----------------------------------------------------------------------------
 
 %check
@@ -88,4 +89,6 @@ bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
 * Fri Jan 20 2023 Brad Bell <bradbell at seanet dot com> - 2023.1.9-1
 - Fix spelling errror -> error
 - Change python3 to %%{python} as 'Mandatory macors' in of python guidelines
-- Include license file in files section 
+- Include license file in files section
+- Change bin/rst2man.py -> %%{python3} bin/rst2man.py
+- rename this file from xrst.spec to python-xrst.spec
