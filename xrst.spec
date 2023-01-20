@@ -42,7 +42,7 @@ Summary:        %{summary}
 #    No match for argument: python3dist(pyspellchecker)
 # 3. If we try pip install pyspellchecker we get the message
 #    Requirement already satisfied: ...
-sed -i tox.ini -e '/^ *pyspellchecker$/d' 
+sed -i tox.ini -e '/^ *pyspellchecker$/d'
 # -----------------------------------------------------------------------------
 
 %generate_buildrequires
@@ -64,7 +64,7 @@ sed -i tox.ini -e '/^ *pyspellchecker$/d'
 mkdir -p %{buildroot}/%{_mandir}/man1
 #
 # create build/rst/run_xrst.rst
-python -m xrst --rst_only --group_list default user
+python3 -m xrst --rst_only --group_list default user
 #
 # install %%{_mandir}/man1/xrst.1
 bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
