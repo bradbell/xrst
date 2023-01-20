@@ -36,7 +36,7 @@ Summary:        %{summary}
 # -----------------------------------------------------------------------------
 # tox.ini
 # Using rmpbuild -ba SPECS/xrst.spec on 6.0.15-200.fc36.x86_64:
-# .1 If we do not remove pyspellchecker from tox.ini we get errror the message
+# .1 If we do not remove pyspellchecker from tox.ini we get error the message
 #    python3dist(pyspellchecker) is needed by python-xrst ...
 # 2. If we try dnf install 'python3dist(pyspellchecker)' we get the message
 #    No match for argument: python3dist(pyspellchecker)
@@ -64,7 +64,7 @@ sed -i tox.ini -e '/^ *pyspellchecker$/d'
 mkdir -p %{buildroot}/%{_mandir}/man1
 #
 # create build/rst/run_xrst.rst
-python3 -m xrst --rst_only --group_list default user
+%{python3} -m xrst --rst_only --group_list default user
 #
 # install %%{_mandir}/man1/xrst.1
 bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
@@ -76,6 +76,7 @@ bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
 
 %files -n python3-xrst -f %{pyproject_files}
 %doc readme.md
+%license gpl-3.0.txt
 
 # xrst executable
 %{_bindir}/xrst
@@ -84,3 +85,7 @@ bin/rst2man.py build/rst/run_xrst.rst %{buildroot}/%{_mandir}/man1/xrst.1
 %{_mandir}/man1/xrst.1*
 
 %changelog
+* Fri Jan 20 2023 Brad Bell <bradbell at seanet dot com> - 2023.1.9-1
+- Fix spelling errror -> error
+- Change python3 to %%{python} as 'Mandatory macors' in of python guidelines
+- Include license file in files section 
