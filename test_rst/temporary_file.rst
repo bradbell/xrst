@@ -157,9 +157,9 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
     with respect to *index* .
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 100-115
+   :lines: 99-114
    :language: py
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 204-209
+   :lines: 203-208
    :language: py
