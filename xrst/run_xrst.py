@@ -6,7 +6,6 @@
 """
 {xrst_begin run_xrst user}
 {xrst_spell
-   config
    dev
    furo
    github

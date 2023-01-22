@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -11,7 +11,6 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
-#     bool
 #     dir
 #     tmp
 # }
