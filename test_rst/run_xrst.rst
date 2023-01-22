@@ -39,6 +39,7 @@ to caching the results of previous builds.
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
+| |tab| [ ``--suppress_spell_warnings`` ] \\
 
 .. meta::
    :keywords: version
@@ -398,8 +399,21 @@ If this option is present on the command line, the source code
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
 to the :ref:`config_file@project_dictionary` or when there is an update
-of the pyspellchecker_ package (which is used to do the spell checking).
+to the :ref:`config_file@spell_package` .
 If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
-.. _pyspellchecker: https://pypi.org/project/pyspellchecker
+.. meta::
+   :keywords: suppress_spell_warnings
+
+.. index:: suppress_spell_warnings
+
+.. _run_xrst@suppress_spell_warnings:
+
+suppress_spell_warnings
+***********************
+If this option is present on the command line, none of the spelling warnings
+will be printed.
+This is useful when there are no spelling warnings with one spelling package
+and you are temporarily using a different version of the package
+or a different package altogether.

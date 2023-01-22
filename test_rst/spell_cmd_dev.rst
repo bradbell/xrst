@@ -88,6 +88,17 @@ is the line number in *file_name* where the begin command for this page
 appears. This is only used for spell.toml.
 
 .. meta::
+   :keywords: print_warning
+
+.. index:: print_warning
+
+.. _spell_cmd_dev@Arguments@print_warning:
+
+print_warning
+=============
+if true (false) print (do not print) the spelling warnings.
+
+.. meta::
    :keywords: spell_checker
 
 .. index:: spell_checker
@@ -121,7 +132,15 @@ data_out
 is the data for this page after the spell command (if it exists)
 is removed.
 
+.. meta::
+   :keywords: spell_warning
+
+.. index:: spell_warning
+
+.. _spell_cmd_dev@Returns@spell_warning:
+
 spell_warning
+=============
 is true (false) if a spelling warning occurred (did not occur).
 
 .. meta::
@@ -139,9 +158,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 206-213
+   :lines: 211-225
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 517-520
+   :lines: 530-533
    :language: py

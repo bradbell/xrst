@@ -27,6 +27,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@01-22:
+
+01-22
+=====
+Add the :ref:`run_xrst@suppress_spell_warnings` command line option.
+
 .. _2023@mm-dd@01-19:
 
 01-19

@@ -179,6 +179,10 @@ pattern['word']  = re.compile(
 # is the line number in *file_name* where the begin command for this page
 # appears. This is only used for spell.toml.
 #
+# print_warning
+# =============
+# if true (false) print (do not print) the spelling warnings.
+#
 # spell_checker
 # =============
 # Is a spell checking object used for error checking; see
@@ -193,6 +197,7 @@ pattern['word']  = re.compile(
 # is removed.
 #
 # spell_warning
+# =============
 # is true (false) if a spelling warning occurred (did not occur).
 #
 # Spelling Warnings
@@ -204,13 +209,20 @@ pattern['word']  = re.compile(
 #
 # {xrst_code py}
 def spell_command(
-   tmp_dir, data_in, file_name, page_name, begin_line, spell_checker
+   tmp_dir,
+   data_in,
+   file_name,
+   page_name,
+   begin_line,
+   print_warning,
+   spell_checker
 ) :
    assert type(tmp_dir) == str
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(begin_line) == int
+   assert type(print_warning) == bool
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -377,7 +389,7 @@ def spell_command(
             #
             # word is not in the dictionary
             #
-            if not word_lower in special_used :
+            if not word_lower in special_used and print_warning :
                # word is not in the list of special words
                #
                # first_spell_warning
@@ -421,7 +433,7 @@ def spell_command(
                else :
                   unknown_word_list.append(word_lower)
             #
-            if not word_lower in double_used :
+            if not word_lower in double_used and print_warning :
                # word is not in list of special double words
                #
                # first_spell_warning
@@ -448,7 +460,8 @@ def spell_command(
    #
    # check for words that were not used
    for word_lower in special_used :
-      if not (special_used[word_lower] or word_lower in double_used) :
+      ok = special_used[word_lower] or word_lower in double_used
+      if print_warning and not ok :
          if first_spell_warning :
             msg  = '\nwarning: file = ' + file_name
             msg += ', page = ' + page_name + '\n'
@@ -457,7 +470,7 @@ def spell_command(
          msg = 'spelling word "' + word_lower + '" not needed\n'
          sys.stderr.write(msg)
    for word_lower in double_used :
-      if not double_used[word_lower] :
+      if not double_used[word_lower] and print_warning :
          if first_spell_warning :
             msg  = '\nwarning: file = ' + file_name
             msg += ', page = ' + page_name + '\n'

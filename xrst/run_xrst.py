@@ -11,7 +11,6 @@
    github
    jax
    pdf
-   pyspellchecker
    rtd
    thet
    toc
@@ -43,6 +42,7 @@ to caching the results of previous builds.
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
+| |tab| [ ``--suppress_spell_warnings`` ] \\
 {xrst_comment --------------------------------------------------------------- }
 
 version
@@ -288,11 +288,19 @@ If this option is present on the command line, the source code
 there will be no spelling warnings during future processing by xrst.
 This is useful when there are no spelling warnings before a change
 to the :ref:`config_file@project_dictionary` or when there is an update
-of the pyspellchecker_ package (which is used to do the spell checking).
+to the :ref:`config_file@spell_package` .
 If this option is present,
 none of the output files are created; e.g., the \*.rst and \*.html files.
 
-.. _pyspellchecker: https://pypi.org/project/pyspellchecker
+suppress_spell_warnings
+***********************
+If this option is present on the command line, none of the spelling warnings
+will be printed.
+This is useful when there are no spelling warnings with one spelling package
+and you are temporarily using a different version of the package
+or a different package altogether.
+
+
 
 {xrst_end run_xrst}
 """
@@ -480,7 +488,7 @@ import xrst
 # version
 # The script that updates version numbers expects version at begining of line
 # and to have the value surrounded by single quotes.
-version = '2023.1.22'
+version = '2023.1.20'
 #
 def run_xrst() :
    #
@@ -531,6 +539,9 @@ def run_xrst() :
    )
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
+   )
+   parser.add_argument('--suppress_spell_warnings', action='store_true',
+      help='do not print any of the spell checker wrnings'
    )
    parser.add_argument('--rst_line_numbers', action='store_true',
       help='report sphinx errors and warnings using rst file line numbers'
@@ -585,6 +596,9 @@ def run_xrst() :
    #
    # replace_spell_commands
    replace_spell_commands = arguments.replace_spell_commands
+   #
+   # suppress_spell_warnings
+   suppress_spell_warnings = arguments.suppress_spell_warnings
    #
    # rst_line_numbers
    rst_line_numbers = arguments.rst_line_numbers
@@ -839,14 +853,15 @@ def run_xrst() :
             # do after suspend and before other commands to help ignore
             # pages of text that do not need spell checking
             page_data, spell_warning = xrst.spell_command(
-               tmp_dir,
-               page_data,
-               file_in,
-               page_name,
-               begin_line,
-               spell_checker,
+               tmp_dir         = tmp_dir ,
+               data_in         = page_data,
+               file_name       = file_in,
+               page_name       = page_name,
+               begin_line      = begin_line,
+               print_warning   = not suppress_spell_warnings,
+               spell_checker   = spell_checker,
             )
-            if spell_warning :
+            if spell_warning and not suppress_spell_warnings :
                any_warning[0] = True
             # -------------------------------------------------------------
             # dir commands

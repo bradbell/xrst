@@ -4,18 +4,18 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2023 user}
 {xrst_spell
-   backend
    firefox
    furo
-   hatchling
-   overline
-   pyproject
    pytest
    readthedocs
    rtd
-   setuptools
-   toml
    tox
+   hatchling
+   setuptools
+   backend
+   overline
+   pyproject
+   toml
 }
 
 xrst Release Notes for 2023
@@ -23,6 +23,10 @@ xrst Release Notes for 2023
 
 mm-dd
 *****
+
+01-22
+=====
+Add the :ref:`run_xrst@suppress_spell_warnings` command line option.
 
 01-19
 =====
