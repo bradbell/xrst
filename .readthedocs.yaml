@@ -30,12 +30,14 @@ build:
       - xrst --version
       #
       # build/html
-      # This comamnd buils the xrst user documentaiton
+      # This comamnd builds the xrst user documentaiton.
+      # Suppress spell warnings because readthdocs uses a different dictionry.
       - xrst
          --page_source
          --html_theme furo
          --group_list default user
          --index_page_name user-guide
+         --suppress_spell_warnings
       #
       # _readthedocs/html
       # The directory that Read the Docs uploads when commands is used.
