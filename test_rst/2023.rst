@@ -31,14 +31,16 @@ mm-dd
 
 01-23
 =====
-If you had a :ref:`toc_cmd-name` with no files
-(e.g., ``{xrst_toc_hidden}`` )
-the program would crash with the message
-::
+
+#. If you had a :ref:`toc_cmd-name` with no files,
+   e.g. ``{xrst_toc_hidden}`` ,
+   the program would crash with the message below.
+   This has been fixed by printing a useful error message in this case::
 
       assert m_child is None
 
-This has been fixed by printing a useful error message in this case.
+#. The :ref:`.readthedocs.yaml-name` example file was modified to
+   show how to use the most recent testing version of xrst.
 
 .. _2023@mm-dd@01-22:
 
