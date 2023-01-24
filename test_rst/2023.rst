@@ -27,6 +27,19 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@01-23:
+
+01-23
+=====
+If you had a :ref:`toc_cmd-name` with no files
+(e.g., ``{xrst_toc_hidden}`` )
+the program would crash with the message
+::
+
+      assert m_child is None
+
+This has been fixed by printing a useful error message in this case.
+
 .. _2023@mm-dd@01-22:
 
 01-22

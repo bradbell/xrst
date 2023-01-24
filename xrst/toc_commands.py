@@ -236,6 +236,15 @@ def toc_commands(data_in, file_name, page_name, group_name) :
             file_list.append(child_file)
             file_line.append(line_number)
    #
+   if len(file_list) == 0 :
+      msg = f'No files were specified on the toc {command} command'
+      xrst.system_exit(msg,
+         file_name=file_name,
+         page_name=page_name,
+         m_obj=m_toc,
+         data=data_out
+      )
+   #
    # child_page_list
    assert len(child_page_list) == 0
    for i in range( len(file_list) ) :
