@@ -9,6 +9,7 @@ import subprocess
 # {xrst_begin check_input_files dev}
 # {xrst_spell
 #     conf
+#     config
 #     fullmatch
 #     len
 #     toc

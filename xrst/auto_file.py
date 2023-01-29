@@ -6,6 +6,7 @@
 {xrst_begin auto_file user}
 {xrst_spell
    conf
+   config
 }
 
 Automatically Generated Files
@@ -70,6 +71,7 @@ root_doc = 'xrst_root_doc'
 # ----------------------------------------------------------------------------
 # {xrst_begin auto_file_dev dev}
 # {xrst_spell
+#     bool
 #     conf
 #     dir
 #     genindex

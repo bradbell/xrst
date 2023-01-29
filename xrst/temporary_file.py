@@ -11,6 +11,7 @@ pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' 
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
+#     bool
 #     dir
 #     tmp
 # }

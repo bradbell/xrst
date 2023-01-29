@@ -156,6 +156,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # -----------------------------------------------------------------------------
 # {xrst_begin process_headings dev}
 # {xrst_spell
+#     bool
 #     conf
 #     fullmatch
 #     overline
