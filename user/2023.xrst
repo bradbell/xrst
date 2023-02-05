@@ -25,6 +25,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+02-05
+=====
+Improve the :ref:`user-guide@Install Testing Version` instructions
+so that it properly fetches the xrst dependencies.
+
 01-23
 =====
 

@@ -68,8 +68,11 @@ Install Testing Version
 ***********************
 Search for ``xrst`` on `test.pypi <https://test.pypi.org>`_
 to determine the date corresponding to this version.
-::
+This installs the xrst dependencies and then replaces xrst
+by its most recent test version::
 
+   pip install xrst
+   pip uninstall -y xrst
    pip install --index-url https://test.pypi.org/simple/ xrst
 
 .. meta::
