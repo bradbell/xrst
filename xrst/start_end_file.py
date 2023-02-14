@@ -127,7 +127,7 @@ def start_end_file(
          count      = count + 1
       start_index = data.find(start_after, start_index + len(start_after) )
    if count != 1 :
-      msg += f'\nstart_after   = "{start_after}"'
+      msg += f'\nstart_after   =  {start_after}'
       msg += f'\ndisplay_file  =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
@@ -146,7 +146,7 @@ def start_end_file(
          count     = count + 1
       stop_index = data.find(end_before, stop_index + len(end_before) )
    if count != 1 :
-      msg += f'\nend_before   = "{end_before}"'
+      msg += f'\nend_before   =  {end_before}'
       msg += f'\ndisplay_file =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
       if file_cmd == display_file :
