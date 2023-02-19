@@ -141,7 +141,6 @@ def page_table_of_contents(
 # ----------------------------------------------------------------------------
 # {xrst_begin table_of_contents dev}
 # {xrst_spell
-#     bool
 #     dir
 #     tmp
 # }

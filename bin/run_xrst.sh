@@ -37,7 +37,7 @@ index_page_name=$(\
 echo_eval python -m xrst  \
    --page_source \
    --group_list      default user dev \
-   --html_theme      sphinx_book_theme \
+   --html_theme      furo \
    --target          $target \
    --index_page_name $index_page_name
    $rst_line_numbers

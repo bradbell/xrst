@@ -142,7 +142,6 @@ pattern['word']  = re.compile(
 # -----------------------------------------------------------------------------
 # {xrst_begin spell_cmd_dev dev}
 # {xrst_spell
-#     bool
 #     dir
 #     tmp
 #     toml
