@@ -30,8 +30,6 @@ to caching the results of previous builds.
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
-| |tab| [ ``--rst_line_numbers`` ] \\
-| |tab| [ ``--rst_only`` ] \\
 | |tab| [ ``--index_page_name`` *index_page_name* ] \\
 | |tab| [ ``--config_file``     *config_file* ] \\
 | |tab| [ ``--html_theme``      *html_theme* ] \\
@@ -40,6 +38,9 @@ to caching the results of previous builds.
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
+| |tab| [ ``--continue_with_warnings`` ] \\
+| |tab| [ ``--rst_line_numbers`` ] \\
+| |tab| [ ``--rst_only`` ] \\
 
 .. meta::
    :keywords: version
@@ -86,50 +87,6 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
-
-.. meta::
-   :keywords: rst_line_numbers
-
-.. index:: rst_line_numbers
-
-.. _run_xrst@rst_line_numbers:
-
-rst_line_numbers
-****************
-Normally sphinx error and warning messages are reported using line numbers
-in the xrst source code files.
-If this option is present, these messages are reported
-using the line numbers in the RST files created by xrst.
-In addition the :ref:`run_xrst@page_source` links to the rst files,
-instead of the xrst source files.
-This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using xrst source code line numbers.
-It is also helpful for determining if an incorrect line number is due to
-sphinx or xrst.
-
-.. meta::
-   :keywords: rst_only
-
-.. index:: rst_only
-
-.. _run_xrst@rst_only:
-
-rst_only
-********
-Normally, after extraction the RST files,
-xrst automatically runs sphinx to produce the target output (html or tex).
-If this option is present, sphinx not run.
-Only the rst files, and their corresponding sources,
-are generated; i.e.,
-
-| |tab| :ref:`config_file@directory@rst_directory`/\*.rst
-| |tab| *rst_directory*\ /_sources/\*.txt
-
-This may be useful when creating rst files for uses else where; e.g.,
-for use with `Read the Docs <https://docs.readthedocs.io>`_ .
-The sphinx commands are printed after xrst finishes and can be executed
-by hand.
-This may be useful if there is a problem during these commands.
 
 .. meta::
    :keywords: index_page_name
@@ -413,7 +370,64 @@ none of the output files are created; e.g., the \*.rst and \*.html files.
 suppress_spell_warnings
 ***********************
 If this option is present on the command line, none of the spelling warnings
-will be printed.
+will be generated.
 This is useful when there are no spelling warnings with one spelling package
 and you are temporarily using a different version of the package
 or a different package altogether.
+
+.. meta::
+   :keywords: continue_with_warnings
+
+.. index:: continue_with_warnings
+
+.. _run_xrst@continue_with_warnings:
+
+continue_with_warnings
+**********************
+If this option is (is not) present on the command line,
+the program will not exit (will exit) with an error when warnings are
+generated.
+
+.. meta::
+   :keywords: rst_line_numbers
+
+.. index:: rst_line_numbers
+
+.. _run_xrst@rst_line_numbers:
+
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+In addition the :ref:`run_xrst@page_source` links to the rst files,
+instead of the xrst source files.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using xrst source code line numbers.
+It is also helpful for determining if an incorrect line number is due to
+sphinx or xrst.
+
+.. meta::
+   :keywords: rst_only
+
+.. index:: rst_only
+
+.. _run_xrst@rst_only:
+
+rst_only
+********
+Normally, after extraction the RST files,
+xrst automatically runs sphinx to produce the target output (html or tex).
+If this option is present, sphinx not run.
+Only the rst files, and their corresponding sources,
+are generated; i.e.,
+
+| |tab| :ref:`config_file@directory@rst_directory`/\*.rst
+| |tab| *rst_directory*\ /_sources/\*.txt
+
+This may be useful when creating rst files for uses else where; e.g.,
+for use with `Read the Docs <https://docs.readthedocs.io>`_ .
+The sphinx commands are printed after xrst finishes and can be executed
+by hand.
+This may be useful if there is a problem during these commands.

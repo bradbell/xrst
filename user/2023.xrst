@@ -25,6 +25,10 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+02-19
+=====
+Add the :ref:`run_xrst@continue_with_warnings` command line option.
+
 02-05
 =====
 Improve the :ref:`user-guide@Install Testing Version` instructions

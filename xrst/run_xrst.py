@@ -33,8 +33,6 @@ to caching the results of previous builds.
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
-| |tab| [ ``--rst_line_numbers`` ] \\
-| |tab| [ ``--rst_only`` ] \\
 | |tab| [ ``--index_page_name`` *index_page_name* ] \\
 | |tab| [ ``--config_file``     *config_file* ] \\
 | |tab| [ ``--html_theme``      *html_theme* ] \\
@@ -43,6 +41,9 @@ to caching the results of previous builds.
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
+| |tab| [ ``--continue_with_warnings`` ] \\
+| |tab| [ ``--rst_line_numbers`` ] \\
+| |tab| [ ``--rst_only`` ] \\
 {xrst_comment --------------------------------------------------------------- }
 
 version
@@ -71,38 +72,6 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
-{xrst_comment --------------------------------------------------------------- }
-
-rst_line_numbers
-****************
-Normally sphinx error and warning messages are reported using line numbers
-in the xrst source code files.
-If this option is present, these messages are reported
-using the line numbers in the RST files created by xrst.
-In addition the :ref:`run_xrst@page_source` links to the rst files,
-instead of the xrst source files.
-This may be helpful if you have an error or warning for a sphinx command
-and it does not make sense using xrst source code line numbers.
-It is also helpful for determining if an incorrect line number is due to
-sphinx or xrst.
-{xrst_comment --------------------------------------------------------------- }
-
-rst_only
-********
-Normally, after extraction the RST files,
-xrst automatically runs sphinx to produce the target output (html or tex).
-If this option is present, sphinx not run.
-Only the rst files, and their corresponding sources,
-are generated; i.e.,
-
-| |tab| :ref:`config_file@directory@rst_directory`/\*.rst
-| |tab| *rst_directory*\ /_sources/\*.txt
-
-This may be useful when creating rst files for uses else where; e.g.,
-for use with `Read the Docs <https://docs.readthedocs.io>`_ .
-The sphinx commands are printed after xrst finishes and can be executed
-by hand.
-This may be useful if there is a problem during these commands.
 {xrst_comment --------------------------------------------------------------- }
 
 index_page_name
@@ -295,12 +264,47 @@ none of the output files are created; e.g., the \*.rst and \*.html files.
 suppress_spell_warnings
 ***********************
 If this option is present on the command line, none of the spelling warnings
-will be printed.
+will be generated.
 This is useful when there are no spelling warnings with one spelling package
 and you are temporarily using a different version of the package
 or a different package altogether.
 
+continue_with_warnings
+**********************
+If this option is (is not) present on the command line,
+the program will not exit (will exit) with an error when warnings are
+generated.
 
+rst_line_numbers
+****************
+Normally sphinx error and warning messages are reported using line numbers
+in the xrst source code files.
+If this option is present, these messages are reported
+using the line numbers in the RST files created by xrst.
+In addition the :ref:`run_xrst@page_source` links to the rst files,
+instead of the xrst source files.
+This may be helpful if you have an error or warning for a sphinx command
+and it does not make sense using xrst source code line numbers.
+It is also helpful for determining if an incorrect line number is due to
+sphinx or xrst.
+
+rst_only
+********
+Normally, after extraction the RST files,
+xrst automatically runs sphinx to produce the target output (html or tex).
+If this option is present, sphinx not run.
+Only the rst files, and their corresponding sources,
+are generated; i.e.,
+
+| |tab| :ref:`config_file@directory@rst_directory`/\*.rst
+| |tab| *rst_directory*\ /_sources/\*.txt
+
+This may be useful when creating rst files for uses else where; e.g.,
+for use with `Read the Docs <https://docs.readthedocs.io>`_ .
+The sphinx commands are printed after xrst finishes and can be executed
+by hand.
+This may be useful if there is a problem during these commands.
+{xrst_comment --------------------------------------------------------------- }
 
 {xrst_end run_xrst}
 """
@@ -367,12 +371,11 @@ def system_command(
    if page_name2line_pair == None :
       message  = stderr
       if result.returncode == 0 :
-         message  += 'Warning: see system command message above.\n'
          sys.stderr.write(message)
          warning[0] = True
-         return
-      message  += 'Error: see system command message above.\n'
-      system_exit(message)
+      else :
+         message  += 'Error: see message above.\n'
+         system_exit(message)
    #
    # pattern_error
    pattern_error = re.compile( r'.*/rst/([a-z0-9_.]+).rst:([0-9]+):' )
@@ -488,7 +491,7 @@ import xrst
 # version
 # The script that updates version numbers expects version at begining of line
 # and to have the value surrounded by single quotes.
-version = '2023.2.19'
+version = '2023.2.14'
 #
 def run_xrst() :
    #
@@ -541,7 +544,10 @@ def run_xrst() :
       help='replace the xrst spell commands in source code files'
    )
    parser.add_argument('--suppress_spell_warnings', action='store_true',
-      help='do not print any of the spell checker wrnings'
+      help='do not generate any of the spell checker wrnings'
+   )
+   parser.add_argument('--continue_with_warnings', action='store_true',
+      help='do not exit with an error when warnings are generated'
    )
    parser.add_argument('--rst_line_numbers', action='store_true',
       help='report sphinx errors and warnings using rst file line numbers'
@@ -599,6 +605,9 @@ def run_xrst() :
    #
    # suppress_spell_warnings
    suppress_spell_warnings = arguments.suppress_spell_warnings
+   #
+   # continue_with_warnings
+   continue_with_warnings = arguments.continue_with_warnings
    #
    # rst_line_numbers
    rst_line_numbers = arguments.rst_line_numbers
@@ -1142,7 +1151,7 @@ def run_xrst() :
          file_obj.write(data_out)
          file_obj.close()
    # -------------------------------------------------------------------------
-   if any_warning[0] :
+   if any_warning[0] and not continue_with_warnings :
       system_exit('xrst: See warnings above')
    else :
       print('xrst: OK')
