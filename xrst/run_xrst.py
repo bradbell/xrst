@@ -19,8 +19,8 @@
    wil
 }
 
-Run Extract Sphinx RST And Sphinx
-#################################
+Extract RST Files And Run Sphinx
+################################
 
 Syntax
 ******

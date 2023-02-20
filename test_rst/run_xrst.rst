@@ -5,14 +5,14 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-   :keywords: run_xrst, run, extract, sphinx, rst, sphinx
+   :keywords: run_xrst, extract, rst, files, run, sphinx
 
-.. index:: run_xrst, run, extract, sphinx, rst, sphinx
+.. index:: run_xrst, extract, rst, files, run, sphinx
 
 .. _run_xrst-title:
 
-Run Extract Sphinx RST And Sphinx
-#################################
+Extract RST Files And Run Sphinx
+################################
 
 .. contents::
    :local:
