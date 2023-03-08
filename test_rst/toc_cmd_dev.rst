@@ -28,6 +28,17 @@ Arguments
 *********
 
 .. meta::
+   :keywords: is_parent
+
+.. index:: is_parent
+
+.. _toc_cmd_dev@Arguments@is_parent:
+
+is_parent
+=========
+is this the parent page for other pages in the file specified by file_name.
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
@@ -125,9 +136,9 @@ one page in child_page_list for that file. Otherwise all of the
 pages in the file are in child_page_list.
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 172-176
+   :lines: 176-181
    :language: py
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 340-348
+   :lines: 347-355
    :language: py

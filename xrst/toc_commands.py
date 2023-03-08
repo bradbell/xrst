@@ -127,6 +127,10 @@ import re
 # Arguments
 # *********
 #
+# is_parent
+# =========
+# is this the parent page for other pages in the file specified by file_name.
+#
 # data_in
 # =======
 # is the data for the page before the toc commands have been processed.
@@ -169,7 +173,8 @@ import re
 # pages in the file are in child_page_list.
 #
 # {xrst_code py}
-def toc_commands(data_in, file_name, page_name, group_name) :
+def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
+   assert type(is_parent) == bool
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
@@ -237,6 +242,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
             file_line.append(line_number)
    #
    if len(file_list) == 0 :
+      if is_parent :
+         return data_out, file_list, child_page_list
       msg = f'No files were specified on the toc {command} command'
       xrst.system_exit(msg,
          file_name=file_name,
@@ -306,8 +313,8 @@ def toc_commands(data_in, file_name, page_name, group_name) :
          if this_group_name == '' :
             this_group_name = 'default'
          if this_group_name == group_name :
-            is_parent       = m_begin.group(2) == 'begin_parent'
-            if is_parent :
+            child_is_parent  = m_begin.group(2) == 'begin_parent'
+            if child_is_parent :
                msg  = 'Found a begin_parent command that is'
                msg += ' not the first begin command in this file'
                msg += f' for group name {group_name}'

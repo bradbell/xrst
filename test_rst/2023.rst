@@ -27,6 +27,15 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@03-08:
+
+03-08
+=====
+The program used to abort when a :ref:`toc_cmd-name` did not specify any files.
+In the special case where the current page starts with ``begin_parent`` ,
+an empty file list can be useful to specify the location of the child links
+and the type of children; i.e., hidden, list, or table.
+
 .. _2023@mm-dd@02-19:
 
 02-19

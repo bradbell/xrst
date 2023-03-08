@@ -879,6 +879,7 @@ def run_xrst() :
             # toc commands
             page_data, child_file, child_page_list = \
                xrst.toc_commands(
+                  is_parent,
                   page_data,
                   file_in,
                   page_name,
