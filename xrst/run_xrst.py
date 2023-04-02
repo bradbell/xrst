@@ -292,7 +292,7 @@ rst_only
 ********
 Normally, after extraction the RST files,
 xrst automatically runs sphinx to produce the target output (html or tex).
-If this option is present, sphinx not run.
+If this option is present, sphinx is not run.
 Only the rst files, and their corresponding sources,
 are generated; i.e.,
 
@@ -300,7 +300,8 @@ are generated; i.e.,
 | |tab| *rst_directory*\ /_sources/\*.txt
 
 This may be useful when creating rst files for uses else where; e.g.,
-for use with `Read the Docs <https://docs.readthedocs.io>`_ .
+for use with `Read the Docs <https://docs.readthedocs.io>`_
+(see :ref:`.readthedocs.yaml-name` for a better way to use Read the Docs.)
 The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.
@@ -553,7 +554,7 @@ def run_xrst() :
       help='report sphinx errors and warnings using rst file line numbers'
    )
    parser.add_argument('--rst_only', action='store_true',
-      help='report sphinx errors and warnings using rst file line numbers'
+      help='Only extract the sphinx rst files; i.e., do not run sphinx.'
    )
    #
    # arguments

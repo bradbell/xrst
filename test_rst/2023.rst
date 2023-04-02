@@ -27,6 +27,14 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@04-02:
+
+04-02
+=====
+The ``xrst --help`` message was reporting the wrong help for ``--rst_only``.
+This has been fixed. In addition, the
+:ref:`run_xrst@rst_only` documentation has been improved.
+
 .. _2023@mm-dd@03-08:
 
 03-08
