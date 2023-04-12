@@ -26,9 +26,10 @@ Comment Character Command Example
 
 Discussion
 **********
-The ``%`` at the beginning of a line,
-and space directly after it (if it exists), are removed before
-processing xrst commands.
+The comment character at the beginning of a line,
+and one space, if a space exists directly after it the comment character,
+are removed before processing xrst commands.
+For this example, the comment character is ``%`` .
 
 .. meta::
    :keywords: xrst_code
@@ -43,7 +44,7 @@ The xrst_code command reports the original source code, before removing
 the comment character or the indentation.
 
 .. literalinclude:: ../../example/comment_ch.m
-   :lines: 26-33
+   :lines: 27-34
    :language: matlab
 
 .. meta::

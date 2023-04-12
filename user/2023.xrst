@@ -25,6 +25,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+04-12
+=====
+The :ref:`comment_ch_example@Discussion` paragraph of the
+comment character example was improved.
+
 04-02
 =====
 The ``xrst --help`` message was reporting the wrong help for ``--rst_only``.

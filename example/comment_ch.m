@@ -14,9 +14,10 @@
    %
    % Discussion
    % **********
-   % The ``%`` at the beginning of a line,
-   % and space directly after it (if it exists), are removed before
-   % processing xrst commands.
+   % The comment character at the beginning of a line,
+   % and one space, if a space exists directly after it the comment character,
+   % are removed before processing xrst commands.
+   % For this example, the comment character is ``%`` .
    %
    % xrst_code
    % *********

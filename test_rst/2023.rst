@@ -27,6 +27,13 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@04-12:
+
+04-12
+=====
+The :ref:`comment_ch_example@Discussion` paragraph of the
+comment character example was improved.
+
 .. _2023@mm-dd@04-02:
 
 04-02
