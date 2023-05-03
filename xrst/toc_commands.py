@@ -208,7 +208,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    # m_tmp
    m_tmp = xrst.pattern['toc'].search(data_out[m_toc.end() :] )
    if m_tmp is not None :
-      msg = 'More than one children or toc_list command in a page.'
+      msg = 'More than one {xrst_toc_ ...} command in a page.'
       xrst.system_exit(msg,
          file_name=file_name,
          page_name=page_name,

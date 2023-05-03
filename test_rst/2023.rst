@@ -27,6 +27,13 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@05-03:
+
+05-03
+=====
+Improve the error message when there is more than one
+:ref:`toc_cmd-name` in a page.
+
 .. _2023@mm-dd@04-12:
 
 04-12
