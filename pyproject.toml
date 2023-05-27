@@ -29,7 +29,7 @@ classifiers       = [
 # BEGIN_DEPENDENCIES
 dependencies       = [
    'sphinx', 'toml',                                  # required
-   'build', 'pytest',                                 # ned for testing xrst
+   'pytest',                                          # need for testing xrst
    'pyenchant', 'pyspellchecker',                     # need the one you use
    'furo', 'sphinx-rtd-theme', 'sphinx-book-theme',   # need the ones you use
 ]

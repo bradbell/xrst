@@ -27,6 +27,15 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@05-27:
+
+05-27
+=====
+#. Remove the ``build`` package from the required packages
+   (not even needed for testing).
+#. Remove the shebang from the ``xrst/run_xrst.py`` file
+   because it is not directly executed at the shell command line.
+
 .. _2023@mm-dd@05-03:
 
 05-03
