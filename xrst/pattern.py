@@ -8,6 +8,7 @@
 import re
 # {xrst_begin xrst.pattern dev}
 # {xrst_spell
+#     arg
 #     dir
 #     lin
 #     toc

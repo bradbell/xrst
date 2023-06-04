@@ -79,10 +79,12 @@ data = [
    # python types
    '''
       str
+      bool
    ''',
    # special words
    '''
       factorial
+      config
    ''',
 ]
 # END_PROJECT_DICTIONARY

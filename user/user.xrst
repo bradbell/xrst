@@ -96,6 +96,7 @@ The xrst features below can be considered a wish list for sphinx:
 ----------------------------------------------------------------------------
 {xrst_begin user-guide user}
 {xrst_spell
+   cd
    pdf
    pypi
    pyproject
