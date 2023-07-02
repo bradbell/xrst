@@ -28,8 +28,10 @@ mm-dd
 
 07-02
 =====
-Move all the command line true / false flags to the beginning of the
-xrst :ref:`run_xrst@Syntax` ; e.g., ``--rst_only`` .
+#. Move all the command line true / false flags to the beginning of the
+   xrst :ref:`run_xrst@Syntax` ; e.g., ``--rst_only`` .
+#. Add the :ref:`run_xrst@number_jobs` command line argument
+   (for parallel processing).
 
 06-04
 =====

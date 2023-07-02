@@ -37,6 +37,7 @@ Syntax
 | |tab| [ ``--config_file``     *config_file* ] \\
 | |tab| [ ``--html_theme``      *html_theme* ] \\
 | |tab| [ ``--target``          *target* ]  \\
+| |tab| [ ``--number_jobs``     *number_jobs* ] \\
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 
@@ -203,7 +204,7 @@ This modification may be removed in the future.
 
 target
 ******
-The optional command line argument *target* must be ``html`` or ``tex``.
+The command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
 Note thet :ref:`config_file@directory@html_directory` and
 :ref:`config_file@directory@tex_directory` will determine the location
@@ -246,10 +247,18 @@ will accomplish both purposes:
       be found at the top of the html version of the page.
 {xrst_comment --------------------------------------------------------------- }
 
+number_jobs
+***********
+This is a positive integer specifying the number of parallel jobs
+that xrst is allowed to use.
+The default value for *number_jobs* is ``1`` .
+
+{xrst_comment --------------------------------------------------------------- }
+
 group_list
 **********
 It is possible to select one or more groups of pages
-to include in the output using this optional argument.
+to include in the output using this argument.
 
 #. The *group_list* is a list of one or more
    :ref:`group names<begin_cmd@group_name>`.
@@ -539,6 +548,10 @@ def run_xrst() :
          '(default is furo)',
    )
    parser.add_argument(
+      '--number_jobs', metavar='number_jobs', default='1',
+      help='number of parallel jobs xrst is allowed to use (default is 1)'
+   )
+   parser.add_argument(
       '--group_list', nargs='+', default='default',
       metavar= 'group_name' ,
       help='list of group_names to include in this build (default is default)'
@@ -629,6 +642,12 @@ def run_xrst() :
    #
    # html_theme
    html_theme = arguments.html_theme
+   #
+   # number_jobs
+   number_jobs = int( arguments.number_jobs )
+   if number_jobs <= 0 :
+      msg = 'xrst number_jobs is less than or equal zero.'
+      system_exit(msg)
    #
    # group_list
    group_list = arguments.group_list
@@ -1049,7 +1068,8 @@ def run_xrst() :
       if target == 'html' :
          txt  = f'The following commands will build the html:'
          txt += indent
-         txt += f'sphinx-build -b html {rst_directory} {target_directory}'
+         txt += f'sphinx-build -b html -j {number_jobs} '
+         txt += f'{rst_directory} {target_directory}'
          txt += indent
          txt += f'rm -r {target_directory}/_sources'
          txt += indent
@@ -1061,7 +1081,8 @@ def run_xrst() :
          latex_dir = f'{target_directory}'
          txt  = f'The following command will build the tex:'
          txt += indent
-         txt += f'sphinx-build -b latex {rst_directory} {latex_dir}'
+         txt += f'sphinx-build -b latex -j {number_jobs} '
+         txt += f'{rst_directory} {latex_dir}'
          txt += '\n'
          txt += f'The following command will build the pdf from the tex:'
          txt += indent
@@ -1071,7 +1092,8 @@ def run_xrst() :
    #
    # -------------------------------------------------------------------------
    if target == 'html' :
-      command = f'sphinx-build -b html {rst_directory} {target_directory}'
+      command  = f'sphinx-build -b html -j {number_jobs} '
+      command += f'{rst_directory} {target_directory}'
       if rst_line_numbers :
          system_command(command, any_warning)
       else :
@@ -1098,7 +1120,8 @@ def run_xrst() :
       assert target == 'tex'
       #
       latex_dir = f'{target_directory}'
-      command = f'sphinx-build -b latex {rst_directory} {latex_dir}'
+      command  = f'sphinx-build -b latex -j {number_jobs} '
+      command += f'{rst_directory} {latex_dir}'
       if rst_line_numbers :
          system_command(command, any_warning)
       else :

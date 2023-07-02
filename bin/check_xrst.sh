@@ -29,6 +29,14 @@ then
 fi
 PYTHONPATH="$PYTHONPATH:$(pwd)"
 # -----------------------------------------------------------------------------
+# number_jobs
+if [ $(nproc) == '1' ] || [ $(nproc) == '2' ]
+then
+   number_jobs='1'
+else
+   let number_jobs="$(nproc) - 1"
+fi
+# -----------------------------------------------------------------------------
 # index_page_name
 index_page_name=$(\
    sed -n -e '/^ *--index_page_name*/p' .readthedocs.yaml | \
@@ -63,6 +71,7 @@ do
    fi
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
+   args="$args --number_jobs $number_jobs"
    echo "python -m xrst $args"
    if ! python -m xrst $args 2> check_xrst.$$
    then

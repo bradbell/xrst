@@ -35,6 +35,7 @@ Syntax
 | |tab| [ ``--config_file``     *config_file* ] \\
 | |tab| [ ``--html_theme``      *html_theme* ] \\
 | |tab| [ ``--target``          *target* ]  \\
+| |tab| [ ``--number_jobs``     *number_jobs* ] \\
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 
@@ -291,7 +292,7 @@ This modification may be removed in the future.
 
 target
 ******
-The optional command line argument *target* must be ``html`` or ``tex``.
+The command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
 Note thet :ref:`config_file@directory@html_directory` and
 :ref:`config_file@directory@tex_directory` will determine the location
@@ -341,6 +342,19 @@ will accomplish both purposes:
       be found at the top of the html version of the page.
 
 .. meta::
+   :keywords: number_jobs
+
+.. index:: number_jobs
+
+.. _run_xrst@number_jobs:
+
+number_jobs
+***********
+This is a positive integer specifying the number of parallel jobs
+that xrst is allowed to use.
+The default value for *number_jobs* is ``1`` .
+
+.. meta::
    :keywords: group_list
 
 .. index:: group_list
@@ -350,7 +364,7 @@ will accomplish both purposes:
 group_list
 **********
 It is possible to select one or more groups of pages
-to include in the output using this optional argument.
+to include in the output using this argument.
 
 #. The *group_list* is a list of one or more
    :ref:`group names<begin_cmd@group_name>`.
