@@ -523,62 +523,78 @@ def run_xrst() :
    parser = argparse.ArgumentParser(
       prog='xrst', description='extract Sphinx RST files'
    )
+   # --version
    parser.add_argument('--version', action='store_true',
       help='just print version of xrst'
    )
+   # --local_toc
    parser.add_argument('--local_toc', action='store_true',
       help='add a local table of contents at the top of each page'
    )
+   # --page_source
    parser.add_argument('--page_source', action='store_true',
       help='add link to the xrst source code be included at top of each page'
    )
+   # --replace_spell_commands
+   parser.add_argument('--replace_spell_commands', action='store_true',
+      help='replace the xrst spell commands in source code files'
+   )
+   # --suppress_spell_warnings
+   parser.add_argument('--suppress_spell_warnings', action='store_true',
+      help='do not generate any of the spell checker wrnings'
+   )
+   # --continue_with_warning
+   parser.add_argument('--continue_with_warnings', action='store_true',
+      help='do not exit with an error when warnings are generated'
+   )
+   # --rst_line_numbers
+   parser.add_argument('--rst_line_numbers', action='store_true',
+      help='report sphinx errors and warnings using rst file line numbers'
+   )
+   # --rst_only
+   parser.add_argument('--rst_only', action='store_true',
+      help='Only extract the sphinx rst files; i.e., do not run sphinx.'
+   )
+   # --index_page_name
    parser.add_argument(
       '--index_page_name', metavar='index_page_name', default='xrst_root_doc',
       help='The file index.html will be a redirect to this page' + \
          '(default is root of documentation tree)'
    )
+   # --config_file
    parser.add_argument(
       '--config_file', metavar='config_file', default='xrst.toml',
       help='location of the xrst configuration file which is in toml format' + \
          '(default is .)'
    )
+   # --html_theme
    parser.add_argument(
       '--html_theme', metavar='html_theme', default='furo',
       help='sphinx html_theme that is used to display web pages ' + \
          '(default is furo)',
    )
+   # --target
+   parser.add_argument(
+      '--target', metavar='target', choices=['html', 'tex'], default='html',
+      help='type of output files, choices are html or tex (default is html)'
+   )
+   # --number_jobs
    parser.add_argument(
       '--number_jobs', metavar='number_jobs', default='1',
       help='number of parallel jobs xrst is allowed to use (default is 1)'
    )
+   # --group_list
    parser.add_argument(
       '--group_list', nargs='+', default='default',
       metavar= 'group_name' ,
       help='list of group_names to include in this build (default is default)'
    )
+   # rename_group
    parser.add_argument(
       '--rename_group', nargs=2, default=None,
       metavar=('old_group_name', 'new_group_name'),
-      help='list of group_names to include in this build (default is default)'
-   )
-   parser.add_argument(
-      '--target', metavar='target', choices=['html', 'tex'], default='html',
-      help='type of output files, choices are html or tex (default is html)'
-   )
-   parser.add_argument('--replace_spell_commands', action='store_true',
-      help='replace the xrst spell commands in source code files'
-   )
-   parser.add_argument('--suppress_spell_warnings', action='store_true',
-      help='do not generate any of the spell checker wrnings'
-   )
-   parser.add_argument('--continue_with_warnings', action='store_true',
-      help='do not exit with an error when warnings are generated'
-   )
-   parser.add_argument('--rst_line_numbers', action='store_true',
-      help='report sphinx errors and warnings using rst file line numbers'
-   )
-   parser.add_argument('--rst_only', action='store_true',
-      help='Only extract the sphinx rst files; i.e., do not run sphinx.'
+      help='change group name for pages below root page for new_group_name' \
+         + '(no default)'
    )
    #
    # arguments

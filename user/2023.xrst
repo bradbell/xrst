@@ -26,6 +26,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+07-10
+=====
+#. Fix the ``xrst --help`` message for the :ref:`run_xrst@rename_group` option.
+#. Make the order of the ``xrst --help`` output the same as in the command
+   :ref:`run_xrst@Syntax` .
+
 07-02
 =====
 #. Move all the command line true / false flags to the beginning of the
