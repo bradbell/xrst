@@ -1,17 +1,17 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
 #
-pattern_start_literal = re.compile( r'\n::{xrst_line [0-9]+@\n\n' )
+pattern_start_literal = re.compile( r'\n::@xrst_line [0-9]+@\n\n' )
 pattern_end_literal   = re.compile( r'\n[^ \t]')
 pattern_declare = re.compile(
-   r'\n\.\. _([^:\n]+):([^\n]*)\{xrst_line ([0-9]+)@'
+   r'\n\.\. _([^:\n]+):([^\n]*)@xrst_line ([0-9]+)@'
 )
 pattern_use = re.compile(
-   r'`([^<\n]+)(<[^>\n]*>)`_[^\n]*\{xrst_line ([0-9]+)@'
+   r'`([^<\n]+)(<[^>\n]*>)`_[^\n]*@xrst_line ([0-9]+)@'
 )
 # ----------------------------------------------------------------------------
 # {xrst_begin sphinx_label dev}

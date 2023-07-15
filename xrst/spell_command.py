@@ -102,7 +102,7 @@ import xrst
 pattern = dict()
 pattern['spell']     = re.compile(
    r'[^\\]{xrst_spell([^_a-z][^}]*)}' +
-   r'([ \t]*{xrst_line ([0-9]+)@)?'
+   r'([ \t]*@xrst_line ([0-9]+)@)?'
 )
 pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
 #
@@ -127,7 +127,7 @@ pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
 pattern['spell_on']   = re.compile( r'[^\\]{xrst_spell_on}' )
 #
 # pattern['spell_on'], pattern['spell_off']
-lin = r'[ \t]*\{xrst_line ([0-9]+)@'
+lin = r'[ \t]*@xrst_line ([0-9]+)@'
 pattern['spell_on']  = re.compile( r'\n[ \t]*\{xrst_spell_on}' + lin )
 pattern['spell_off'] = re.compile( r'\n[ \t]*\{xrst_spell_off}' + lin )
 #
@@ -137,7 +137,7 @@ pattern['spell_off'] = re.compile( r'\n[ \t]*\{xrst_spell_off}' + lin )
 # These character separate double words so they are not an error.
 # The third is for the actual words (plus a possible backlash at start).
 pattern['word']  = re.compile(
-   r'({xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)'
+   r'(@xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)'
 )
 # -----------------------------------------------------------------------------
 # {xrst_begin spell_cmd_dev dev}
@@ -279,7 +279,7 @@ def spell_command(
       previous_lower = ''
       for m_obj in pattern['word'].finditer( word_list ) :
          word_lower = m_obj.group(0).lower()
-         if not word_lower.startswith('{xrst_line') :
+         if not word_lower.startswith('@xrst_line') :
             special_used[ word_lower ] = False
             if word_lower == previous_lower :
                double_used[ word_lower ] = False
@@ -378,7 +378,7 @@ def spell_command(
       word       = m_obj.group(0)
       word_lower = word.lower()
       #
-      if not word.startswith('{xrst_line') and word[0].isalpha()  :
+      if not word.startswith('@xrst_line') and word[0].isalpha()  :
          #
          known =  spell_checker.known( word )
          if not known :
@@ -453,7 +453,7 @@ def spell_command(
             #
             # double_used
             double_used[word_lower]  = True
-      if not word.startswith('{xrst_line') :
+      if not word.startswith('@xrst_line') :
          # previous_word
          # This captures when there are non space characters between words
          previous_word = word

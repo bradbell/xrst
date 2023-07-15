@@ -76,7 +76,7 @@ pattern['toc']   = re.compile(
 # {xrst_code py}
 pattern['code'] = re.compile(
    r'\n([ \t]*)(\{xrst_code *|([^\n]*[^\n\\])\{xrst_code *)' +
-   r'([^}]*)}[^\n]*\{xrst_line ([0-9]+)@'
+   r'([^@]*)}[^\n]*@xrst_line ([0-9]+)@'
 )
 # {xrst_code}
 #
@@ -127,7 +127,7 @@ pattern['end'] = re.compile( r'[^\\]\{xrst_end\s+([^}]*)}' )
 # 1. the line_number.
 #
 # {xrst_code py}
-pattern['line'] = re.compile( r'\{xrst_line ([0-9]+)@' )
+pattern['line'] = re.compile( r'@xrst_line ([0-9]+)@' )
 # {xrst_code}
 #
 # arg, lin
@@ -141,7 +141,7 @@ pattern['line'] = re.compile( r'\{xrst_line ([0-9]+)@' )
 # 1. line number where } at end of command appears
 #
 # {xrst_code py}
-lin = r'[ \t]*\{xrst_line ([0-9]+)@\n'
+lin = r'[ \t]*@xrst_line ([0-9]+)@\n'
 pattern['literal_0'] = re.compile(
    r'[^\\]\{xrst_literal}' + lin
 )
@@ -158,7 +158,7 @@ pattern['literal_0'] = re.compile(
 # 4. line number where } at end of command appears
 #
 # {xrst_code py}
-arg = r'([^{]*)\{xrst_line ([0-9]+)@\n'
+arg = r'([^@]*)@xrst_line ([0-9]+)@\n'
 pattern['literal_1']  = re.compile(
    r'[^\\]\{xrst_literal' + lin + arg + r'[ \t]*}' + lin
 )

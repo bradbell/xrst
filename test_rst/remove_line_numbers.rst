@@ -39,7 +39,7 @@ data_in
 is a string with line number markers added by :ref:`add_line_numbers-name` .
 These lines number markers have the form:
 
-    ``{xrst_line`` *line_number* ``@`` .
+    ``@xrst_line`` *line_number* ``@`` .
 
 .. meta::
    :keywords: returns

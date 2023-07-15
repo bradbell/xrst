@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
-pattern_line_number     = re.compile( r'\n[ \t]*{xrst_line [0-9]+@' )
+pattern_line_number     = re.compile( r'\n[ \t]*@xrst_line [0-9]+@' )
 pattern_newline_3       = re.compile( r'(\n[ \t]*){2,}\n' )
 pattern_ref_page_name_1 = re.compile( r':ref:`([._A-Za-z0-9]+)-name`' )
 pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' )

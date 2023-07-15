@@ -32,7 +32,7 @@ pattern = re.compile( r'^\n[ \t]*' )
 # ========
 # The return data_out is a modified version of data_in. The text
 #
-#  | ``\{xrst_line`` *line_number@*
+#  | ``@xrst_line`` *line_number@*
 #
 # is added at the end of each non-empty line.
 # Spaces and tabs in empty lines are removed (so they are truly empty).
@@ -85,7 +85,7 @@ def add_line_numbers(data_in) :
       if empty_line :
          line = '\n'
       else :
-         line += '{xrst_line ' + str(i + line_start) + '@'
+         line += '@xrst_line ' + str(i + line_start) + '@'
       #
       # data_out, previous
       data_out  += line

@@ -82,7 +82,7 @@ def comment_command(data_in) :
          text_before  = ''
       #
       # data_after, text_after
-      if text_before == '' and text_after.startswith('{xrst_line ') :
+      if text_before == '' and text_after.startswith('@xrst_line ') :
          text_after = ''
       #
       # data_out

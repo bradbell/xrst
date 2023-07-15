@@ -63,7 +63,7 @@ data_out
 ========
 The return data_out is a modified version of data_in. The text
 
- | ``{xrst_line`` *line_number@*
+ | ``@xrst_line`` *line_number@*
 
 is added at the end of each non-empty line.
 Spaces and tabs in empty lines are removed (so they are truly empty).

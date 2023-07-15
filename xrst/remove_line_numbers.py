@@ -6,7 +6,7 @@ import re
 import xrst
 #
 #
-pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
+pattern_error = re.compile( r'@xrst_line [0-9]+@[^\n]' )
 # {xrst_begin remove_line_numbers dev}
 # {xrst_comment_ch #}
 #
@@ -21,7 +21,7 @@ pattern_error = re.compile( r'{xrst_line [0-9]+@[^\n]' )
 # is a string with line number markers added by :ref:`add_line_numbers-name` .
 # These lines number markers have the form:
 #
-#     ``{xrst_line`` *line_number* ``@`` .
+#     ``@xrst_line`` *line_number* ``@`` .
 #
 # Returns
 # *******
