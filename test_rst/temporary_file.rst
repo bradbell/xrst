@@ -110,7 +110,7 @@ tmp_dir/page_name.rst.
 data_in
 *******
 is the data for this page with all the xrst commands converted to
-their sphinx RST values, except the \\n{xrst_before_title} command.
+their sphinx RST values, except the \\n{xrst@before_title} command.
 The following is added to this data before writing it to the output file:
 
  #. The preamble is included at the beginning.
@@ -148,7 +148,7 @@ This is the value returned by ``temporary_file`` .
 For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
 
 -   The first number in a pair is a line number in *file_out*
-    These line numbers to not count `{xrst_before_title}` lines
+    These line numbers to not count `{xrst@before_title}` lines
     because they are removed before the final rst output is created.
 
 -   The second number in a pair is the corresponding line number in *file_in*

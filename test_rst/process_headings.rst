@@ -120,7 +120,7 @@ is a copy of data_in with the following extra command added:
 
  #. The index entries, and meta keyword entries (same as index),
     and the :ref:`heading_links@Labels` for this page.
- #. The command \\n{xrst_before_title} is placed directly before the
+ #. The command \\n{xrst@before_title} is placed directly before the
     first heading for this page; i.e. its title.
     This is makes it easy to add the page number to the heading text.
 

@@ -30,5 +30,4 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|\\{xrst_line|@xrst_line|g
-s|{xrst_line|@xrst_line|g
+s|{xrst_before_title}|{xrst@before_title}|g

@@ -21,7 +21,7 @@ import xrst
 # =======
 # data for this page before replacement.
 #
-#  #. data_in must contain '\\n{xrst_before_title}'
+#  #. data_in must contain '\\n{xrst@before_title}'
 #     which is referred to as the command below.
 #  #. The page title must come directly after the command
 #     and start with a newline.
@@ -66,7 +66,7 @@ def add_before_title(data_in, target, page_number, page_name) :
    # {xrst_end add_before_title}
    #
    # pattern
-   pattern   = '\n{xrst_before_title}'
+   pattern   = '\n{xrst@before_title}'
    #
    # punctuation
    # Headings uses repeated copies of one of these characters
@@ -77,7 +77,7 @@ def add_before_title(data_in, target, page_number, page_name) :
    assert 0 <= start_cmd
    index = data_in.find(pattern, start_cmd + len(pattern))
    if 0 <= index :
-      msg = '{xrst_before_title} cannot appear at beginning of a line'
+      msg = '{xrst@before_title} cannot appear at beginning of a line'
       xrst.system_exit(msg, page_name = page_name)
    #
    # data_out

@@ -38,7 +38,7 @@ data_in
 =======
 data for this page before replacement.
 
- #. data_in must contain '\\n{xrst_before_title}'
+ #. data_in must contain '\\n{xrst@before_title}'
     which is referred to as the command below.
  #. The page title must come directly after the command
     and start with a newline.

@@ -77,7 +77,7 @@ The second return line_pair is a list of two element tuples.
 -   The first element is the line number in data_out corresponding to
     the line number marker that was removed.
     These line numbers, in data_out, do not count
-    lines that only contain ``{xrst_before_title}`` .
+    lines that only contain ``{xrst@before_title}`` .
 
 -   The second element is the *line_number*, in the line number marker,
     that was removed.

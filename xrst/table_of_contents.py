@@ -12,7 +12,7 @@ def page_name2index(all_page_info, page_name) :
    return None
 
 # ----------------------------------------------------------------------------
-# Create the table of contents and replace the '{xrst_before_title}'
+# Create the table of contents and replace the '{xrst@before_title}'
 # for this page and all its child pages.
 #
 # tmp_dir
@@ -20,10 +20,10 @@ def page_name2index(all_page_info, page_name) :
 #
 # target:
 # is either 'html' or 'tex'. If target is 'tex',  in the temporary files
-# tmp_dir/page_name.rst, the text {xrst_before_title}
+# tmp_dir/page_name.rst, the text {xrst@before_title}
 # is removed and  page number followed by page name is added to the
 # title. The page number includes the counter for each level.
-# If target is 'html', {xrst_before_title} is removed without other changes.
+# If target is 'html', {xrst@before_title} is removed without other changes.
 #
 # count:
 # is a list where each element is a non-negative int.
@@ -163,7 +163,7 @@ def page_table_of_contents(
 # tex
 # ---
 # If target is 'tex',  for each temporary file
-# tmp_dir/page_name.rst the text \\n{xrst_before_title}
+# tmp_dir/page_name.rst the text \\n{xrst@before_title}
 # is removed and  the page number followed by the page name is added
 # at the front of the title for the page.
 # The page number includes the counter for each level.
@@ -171,7 +171,7 @@ def page_table_of_contents(
 # html
 # ----
 # If target is 'html',
-# \\n{xrst_before_title} is removed without other changes.
+# \\n{xrst@before_title} is removed without other changes.
 #
 # all_page_info
 # =============
