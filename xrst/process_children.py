@@ -46,9 +46,9 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #
 #  #. A hidden table of contents (toctree) for the children is added at the
 #     end of data_out.
-#  #. If the TOC command in data_in is {xrst_TOC_list} or {xrst_TOC_table},
+#  #. If the TOC command in data_in is \{xrst_TOC_list} or \{xrst_TOC_table},
 #     the corresponding links will replace the command.
-#  #. If the child command is {xrst_TOC_hidden}, the command is removed
+#  #. If the child command is \{xrst_TOC_hidden}, the command is removed
 #     and no table of links is added.
 #  #. If there is no TOC command and list_children is non-empty,
 #     the toc_table style is used for the links to the children which are

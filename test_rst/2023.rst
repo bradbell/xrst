@@ -31,12 +31,15 @@ mm-dd
 
 07-15
 =====
-Make it an error for the following text to appear in an input file:
+#. Make it an error for the following text to appear in an input file:
 
-|  ``@xrst_line`` *number*
+   |  ``@xrst_line`` *number*
 
-where *number* is an integer.
-(This pattern used is used to report line numbers in error messages.)
+   where *number* is an integer.
+   (This pattern used is used to report line numbers in error messages.)
+#. A check was added that will report an error when the text ``{xrst_``
+   is not the beginning of a recognized command and
+   it is not preceded by a backslash.
 
 .. _2023@mm-dd@07-10:
 

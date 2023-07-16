@@ -4,10 +4,11 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
-pattern_line_number     = re.compile( r'\n[ \t]*@xrst_line [0-9]+@' )
-pattern_newline_3       = re.compile( r'(\n[ \t]*){2,}\n' )
-pattern_ref_page_name_1 = re.compile( r':ref:`([._A-Za-z0-9]+)-name`' )
-pattern_ref_page_name_2 = re.compile( r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`' )
+pattern_line_number     = re.compile(r'\n[ \t]*@xrst_line [0-9]+@')
+pattern_newline_3       = re.compile(r'(\n[ \t]*){2,}\n')
+pattern_ref_page_name_1 = re.compile(r':ref:`([._A-Za-z0-9]+)-name`')
+pattern_ref_page_name_2 = re.compile(r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`')
+pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_spell
@@ -180,6 +181,18 @@ def temporary_file(
    # remove empty lines at the end
    while data_out[-2 :] == '\n\n' :
       data_out = data_out[: -1]
+   #
+   m_obj = pattern_any_command.search( data_out )
+   if m_obj != None :
+      cmd  = m_obj.group(1)
+      msg  = f'The xrst command {cmd} was not recognized.\n'
+      msg += f'Use \\{cmd} if its not intented to be an xrst command.'
+      xrst.system_exit(msg,
+         file_name=file_in,
+         page_name=page_name,
+         m_obj=m_obj,
+         data=data_out
+      )
    #
    # data_out
    # The last step removing line numbers. This is done last for two reasons:
