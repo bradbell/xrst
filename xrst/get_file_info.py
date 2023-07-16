@@ -196,7 +196,7 @@ def get_file_info(
    file_obj.close()
    #
    # file_data
-   file_data = xrst.add_line_numbers(file_data)
+   file_data = xrst.add_line_numbers(file_data, file_in)
    #
    # file_page_info
    file_page_info = list()

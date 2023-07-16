@@ -43,6 +43,17 @@ line_number is the number of newlines before a line plus one; i.e.,
 the first line is number one.
 
 .. meta::
+   :keywords: file_in
+
+.. index:: file_in
+
+.. _add_line_numbers@Arguments@file_in:
+
+file_in
+=======
+is the file corresponding to data_in (used for error reporting).
+
+.. meta::
    :keywords: returns
 
 .. index:: returns
@@ -63,15 +74,17 @@ data_out
 ========
 The return data_out is a modified version of data_in. The text
 
- | ``@xrst_line`` *line_number@*
+ | ``@xrst_line`` *line_number* ``@``
 
 is added at the end of each non-empty line.
+There is one space between ``@xrst_line`` and *line_number*.
+There is no space between *line_number* and ``@`` .
 Spaces and tabs in empty lines are removed (so they are truly empty).
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 41-42
+   :lines: 50-52
    :language: py
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 99-100
+   :lines: 119-120
    :language: py

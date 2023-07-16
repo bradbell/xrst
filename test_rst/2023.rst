@@ -27,6 +27,17 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@07-15:
+
+07-15
+=====
+Make it an error for the following text to appear in an input file:
+
+|  ``@xrst_line`` *number*
+
+where *number* is an integer.
+(This pattern used is used to report line numbers in error messages.)
+
 .. _2023@mm-dd@07-10:
 
 07-10

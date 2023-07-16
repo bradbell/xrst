@@ -5,8 +5,11 @@
 import re
 import xrst
 #
-# pattern
-pattern = re.compile( r'^\n[ \t]*' )
+# indent_pattern
+indent_pattern = re.compile( r'^\n[ \t]*' )
+#
+# line_number_pattern
+line_number_pattern = xrst.pattern['line']
 #
 # {xrst_begin add_line_numbers dev}
 # {xrst_comment_ch #}
@@ -25,6 +28,10 @@ pattern = re.compile( r'^\n[ \t]*' )
 # line_number is the number of newlines before a line plus one; i.e.,
 # the first line is number one.
 #
+# file_in
+# =======
+# is the file corresponding to data_in (used for error reporting).
+#
 # Returns
 # *******
 #
@@ -32,14 +39,17 @@ pattern = re.compile( r'^\n[ \t]*' )
 # ========
 # The return data_out is a modified version of data_in. The text
 #
-#  | ``@xrst_line`` *line_number@*
+#  | ``@xrst_line`` *line_number* ``@``
 #
 # is added at the end of each non-empty line.
+# There is one space between ``@xrst_line`` and *line_number*.
+# There is no space between *line_number* and ``@`` .
 # Spaces and tabs in empty lines are removed (so they are truly empty).
 #
 # {xrst_code py}
-def add_line_numbers(data_in) :
+def add_line_numbers(data_in, file_in) :
    assert type(data_in) == str
+   assert type(file_in) == str
    # {xrst_code}
    # {xrst_literal
    #  BEGIN_return
@@ -51,6 +61,16 @@ def add_line_numbers(data_in) :
    data_extend = data_in
    if data_extend[-1] != '\n' :
       data_extend += '\n'
+   #
+   # m_obj
+   m_obj = line_number_pattern.search(data_in)
+   if m_obj != None :
+      line = data_in[: m_obj.start() ].count('\n') + 1
+      msg  = 'It is an error for the following text to appear in xrst input:\n'
+      msg += '@xrst_line<space><number>@\n'
+      msg += 'where <space> is a single space '
+      msg += 'and <number> is an integer'
+      xrst.system_exit(msg, file_name = file_in, line = line)
    #
    # newline_list, line_start
    newline_list = xrst.newline_indices(data_extend)
@@ -75,10 +95,10 @@ def add_line_numbers(data_in) :
       #
       # empty_line
       if previous == 0 :
-         m_obj = pattern.search( '\n' + line )
+         m_obj = indent_pattern.search( '\n' + line )
          empty_line = m_obj.end() == len(line) + 1
       else :
-         m_obj = pattern.search( line )
+         m_obj = indent_pattern.search( line )
          empty_line = m_obj.end() == len(line)
       #
       # line
