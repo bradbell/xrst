@@ -27,6 +27,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@07-16:
+
+07-16
+=====
+Add an optional :ref:`literal_cmd@separator` to the literal command.
+
 .. _2023@mm-dd@07-15:
 
 07-15

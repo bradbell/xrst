@@ -26,6 +26,10 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+07-16
+=====
+Add an optional :ref:`literal_cmd@separator` to the literal command.
+
 07-15
 =====
 #. Make it an error for the following text to appear in an input file:

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-// SPDX-FileContributor: 2020-22 Bradley M. Bell
+// SPDX-FileContributor: 2020-23 Bradley M. Bell
 // ----------------------------------------------------------------------------
 // BEGIN_FACTORIAL
 template<class T> factorial(const T& n)
@@ -28,27 +28,29 @@ Literal Command Example
 #######################
 This example is similar to the :ref:`dir_example-name` .
 
+Syntax
+******
+{xrst_literal ,
+   // BEGIN_FACTORIAL, // END_FACTORIAL
+   // BEGIN_SQUARE,    // END_SQUARE
+   // BEGIN_TANGENT,   // END_TANGENT
+}
+
+T
+*
+This is a numeric type that is used for the calculation.
+
 factorial
 *********
-{xrst_literal
-   // BEGIN_FACTORIAL
-   // END_FACTORIAL
-}
+Returns the factorial of its argument *n* .
 
 square
 ******
-{xrst_literal
-   // BEGIN_SQUARE
-   // END_SQUARE
-}
+Returns the square of its argument *x* .
 
 tangent
 *******
-{xrst_literal
-   example/literal.cpp
-   // BEGIN_TANGENT
-   // END_TANGENT
-}
+Returns the tangent corresponding to its argument *x* .
 
 
 xrst_literal

@@ -18,6 +18,26 @@ This example is similar to the :ref:`dir_example-name` .
 .. contents::
    :local:
 
+.. _literal_example@Syntax:
+
+Syntax
+******
+
+.. literalinclude:: ../../example/literal.cpp
+   :lines: 6-6,14-14,19-19
+   :language: cpp
+
+.. meta::
+   :keywords: t
+
+.. index:: t
+
+.. _literal_example@T:
+
+T
+*
+This is a numeric type that is used for the calculation.
+
 .. meta::
    :keywords: factorial
 
@@ -27,10 +47,7 @@ This example is similar to the :ref:`dir_example-name` .
 
 factorial
 *********
-
-.. literalinclude:: ../../example/literal.cpp
-   :lines: 6-6
-   :language: cpp
+Returns the factorial of its argument *n* .
 
 .. meta::
    :keywords: square
@@ -41,10 +58,7 @@ factorial
 
 square
 ******
-
-.. literalinclude:: ../../example/literal.cpp
-   :lines: 14-14
-   :language: cpp
+Returns the square of its argument *x* .
 
 .. meta::
    :keywords: tangent
@@ -55,10 +69,7 @@ square
 
 tangent
 *******
-
-.. literalinclude:: ../../example/literal.cpp
-   :lines: 19-19
-   :language: cpp
+Returns the tangent corresponding to its argument *x* .
 
 .. meta::
    :keywords: xrst_literal

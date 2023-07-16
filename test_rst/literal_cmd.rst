@@ -24,27 +24,27 @@ Syntax
 
 -  ``{xrst_literal}``
 
--  | ``{xrst_literal``
+-  | ``{xrst_literal`` *separator*
    |     *display_file*
-   | ``}``
-
--  | ``{xrst_literal``
-   |     *start_after*
-   |     *end_before*
+   |     *start_after_1* *separator* *end_before_1*
+   |     *start_after_2* *separator* *end_before_2*
+   |     ...
    | ``}``
 
 -  | ``{xrst_literal``
    |     *display_file*
-   |     *start_after*
-   |     *end_before*
+   |     *start_after_1*
+   |     *end_before_1*
+   |     *start_after_2*
+   |     ...
    | ``}``
 
 .. _literal_cmd@Purpose:
 
 Purpose
 *******
-A code block, from any where in any file,
-can be included by the command above.
+Literal text, from any where in any file,
+can be included using this command.
 
 .. meta::
    :keywords: literalinclude
@@ -59,33 +59,49 @@ This command is similar to the following sphinx directive
 (see :ref:`dir_cmd-name`) :
 
 | |tab| .. literalinclude:: {xrst_dir *display_file*}
-| |tab| |tab| :start-after: *start_after*
-| |tab| |tab| :end-before: *end_before*
+| |tab| |tab| :start-after: *start_after_1*
+| |tab| |tab| :end-before: *end_before_1*
 
 The xrst literal command has the following difference:
 
 #. If the *display_file* is not specified, the current input file is used.
-#. The copy of *start_after* and *end_before* in the command is not considered
+#. The *start_after* and *end_before* in the command are not considered
    a match for the corresponding text. This makes it possible to put the
    command above the text when *display_file* is the current input file.
-#. It is an error for there to be more than one copy of *start_after*
+#. It is an error for there to be more than one copy of each *start_after*
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
    This makes sure that the intended section of *display_file* is displayed.
 
 .. meta::
-   :keywords: white, space
+   :keywords: tokens
 
-.. index:: white, space
+.. index:: tokens
 
-.. _literal_cmd@White Space:
+.. _literal_cmd@Tokens:
 
-White Space
-***********
-Leading and trailing white space is not included in
-*start_after*, *end_before* or *display_file*.
-The new line character separates these tokens.
-The line containing the ``}`` must have nothing but white space after it.
+Tokens
+******
+#. Leading and trailing spaces are not included in
+   *separator*, *display_file*, each *start_after*, and each *end_before*.
+#. Each *start_after* must have a corresponding *end_before*.
+#. If there are an even number of tokens (not counting *separator*),
+   the *display_file* is not present and the current input file is used.
+#. The new line character separates the tokens.
+#. If there are multiple lines in the command, the last line contains
+   the ``}`` and must have nothing else but white space.
+
+.. meta::
+   :keywords: separator
+
+.. index:: separator
+
+.. _literal_cmd@separator:
+
+separator
+*********
+If *separator* is present, it must be a single character.
+At most one *separator* can be in each line and it also separates tokens.
 
 .. meta::
    :keywords: display_file
@@ -96,9 +112,9 @@ The line containing the ``}`` must have nothing but white space after it.
 
 display_file
 ************
-If *display_file* is not in the syntax,
-the code block is in the current input file.
-Otherwise, the code block is in *display_file*.
+If *display_file* is not present,
+the literal input block is in the current input file.
+Otherwise, the literal input block is in *display_file*.
 The file name *display_file* is relative to the
 :ref:`config_file@directory@project_directory` .
 
@@ -107,7 +123,7 @@ The file name *display_file* is relative to the
 2. Note that if you use the sphinx ``literalinclude`` directive,
    the corresponding file name will be relative to the
    :ref:`config_file@directory@rst_directory` , which is a path relative
-   to the project_directory.
+   to the project_directory; see :ref:`dir_cmd-name` .
 
 .. meta::
    :keywords: no, start, or, end
@@ -132,7 +148,7 @@ the entire current input file is displayed.
 
 start_after
 ***********
-The code block starts with the line following the occurrence
+Each literal input block starts with the line following the occurrence
 of the text *start_after* in *display_file*.
 If this is the same as the file containing the command,
 the text *start_after* will not match any text in the command.
@@ -148,7 +164,7 @@ not counting the command itself when the files are the same.
 
 end_before
 **********
-The code block ends with the line before the occurrence
+Each literal input block ends with the line before the occurrence
 of the text *end_before* in *display_file*.
 If this is the same as the file containing the command,
 the text *end_before* will not match any text in the command.
@@ -164,7 +180,7 @@ not counting the command itself when the files are the same.
 
 Spell Checking
 **************
-Spell checking is **not** done for these code blocks.
+Spell checking is **not** done for these literal input blocks.
 
 .. _literal_cmd@Example:
 

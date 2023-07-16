@@ -17,25 +17,25 @@ Syntax
 
 -  ``\{xrst_literal}``
 
--  | ``\{xrst_literal``
+-  | ``\{xrst_literal`` *separator*
    |     *display_file*
-   | ``}``
-
--  | ``\{xrst_literal``
-   |     *start_after*
-   |     *end_before*
+   |     *start_after_1* *separator* *end_before_1*
+   |     *start_after_2* *separator* *end_before_2*
+   |     ...
    | ``}``
 
 -  | ``\{xrst_literal``
    |     *display_file*
-   |     *start_after*
-   |     *end_before*
+   |     *start_after_1*
+   |     *end_before_1*
+   |     *start_after_2*
+   |     ...
    | ``}``
 
 Purpose
 *******
-A code block, from any where in any file,
-can be included by the command above.
+Literal text, from any where in any file,
+can be included using this command.
 
 literalinclude
 **************
@@ -43,32 +43,42 @@ This command is similar to the following sphinx directive
 (see :ref:`dir_cmd-name`) :
 
 | |tab| .. literalinclude:: \{xrst_dir *display_file*}
-| |tab| |tab| :start-after: *start_after*
-| |tab| |tab| :end-before: *end_before*
+| |tab| |tab| :start-after: *start_after_1*
+| |tab| |tab| :end-before: *end_before_1*
 
 The xrst literal command has the following difference:
 
 #. If the *display_file* is not specified, the current input file is used.
-#. The copy of *start_after* and *end_before* in the command is not considered
+#. The *start_after* and *end_before* in the command are not considered
    a match for the corresponding text. This makes it possible to put the
    command above the text when *display_file* is the current input file.
-#. It is an error for there to be more than one copy of *start_after*
+#. It is an error for there to be more than one copy of each *start_after*
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
    This makes sure that the intended section of *display_file* is displayed.
 
-White Space
-***********
-Leading and trailing white space is not included in
-*start_after*, *end_before* or *display_file*.
-The new line character separates these tokens.
-The line containing the ``}`` must have nothing but white space after it.
+Tokens
+******
+#. Leading and trailing spaces are not included in
+   *separator*, *display_file*, each *start_after*, and each *end_before*.
+#. Each *start_after* must have a corresponding *end_before*.
+#. If there are an even number of tokens (not counting *separator*),
+   the *display_file* is not present and the current input file is used.
+#. The new line character separates the tokens.
+#. If there are multiple lines in the command, the last line contains
+   the ``}`` and must have nothing else but white space.
+
+
+separator
+*********
+If *separator* is present, it must be a single character.
+At most one *separator* can be in each line and it also separates tokens.
 
 display_file
 ************
-If *display_file* is not in the syntax,
-the code block is in the current input file.
-Otherwise, the code block is in *display_file*.
+If *display_file* is not present,
+the literal input block is in the current input file.
+Otherwise, the literal input block is in *display_file*.
 The file name *display_file* is relative to the
 :ref:`config_file@directory@project_directory` .
 
@@ -77,7 +87,7 @@ The file name *display_file* is relative to the
 2. Note that if you use the sphinx ``literalinclude`` directive,
    the corresponding file name will be relative to the
    :ref:`config_file@directory@rst_directory` , which is a path relative
-   to the project_directory.
+   to the project_directory; see :ref:`dir_cmd-name` .
 
 No start or end
 ***************
@@ -88,7 +98,7 @@ the entire current input file is displayed.
 
 start_after
 ***********
-The code block starts with the line following the occurrence
+Each literal input block starts with the line following the occurrence
 of the text *start_after* in *display_file*.
 If this is the same as the file containing the command,
 the text *start_after* will not match any text in the command.
@@ -97,7 +107,7 @@ not counting the command itself when the files are the same.
 
 end_before
 **********
-The code block ends with the line before the occurrence
+Each literal input block ends with the line before the occurrence
 of the text *end_before* in *display_file*.
 If this is the same as the file containing the command,
 the text *end_before* will not match any text in the command.
@@ -106,7 +116,7 @@ not counting the command itself when the files are the same.
 
 Spell Checking
 **************
-Spell checking is **not** done for these code blocks.
+Spell checking is **not** done for these literal input blocks.
 
 
 Example
@@ -138,6 +148,99 @@ def file_extension(display_file) :
       if extension in extension_map :
          extension = extension_map[extension]
    return extension
+#
+# pattern_literal
+pattern_literal    = re.compile(
+r'[^\\]{xrst_literal([^\n]*)@xrst_line [0-9]+@\n([^}]*)}|[^\\]{xrst_literal}'
+)
+#
+# pattern_arg
+pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
+#
+# arg_list, line_list, start_command, end_command =
+def next_literal_cmd(data_in, file_name, page_name, start_search) :
+   assert type(data_in) == str
+   assert type(file_name) == str
+   assert type(page_name) == str
+   assert type(start_search) == int
+   #
+   # arg_list, line_list
+   arg_list   = list()
+   line_list  = list()
+   #
+   # m_literal
+   m_literal  = pattern_literal.search( data_in , start_search)
+   if m_literal == None :
+      return None, None, None, None
+   #
+   # separator, arg_text
+   if m_literal.group(1) == None :
+      separator = ''
+      arg_text  = ''
+   else :
+      separator = m_literal.group(1).strip()
+      arg_text  = m_literal.group(2)
+   #
+   if len(separator) > 1 :
+      msg  =  '{xrst_literal separator\n'
+      msg += f'separator = "{separator}" is more than one character'
+      xrst.system_exit(
+         msg,
+         file_name = file_name,
+         page_name = page_name,
+         m_obj     = m_literal,
+         data      = data_in
+      )
+   #
+   # arg_list
+   m_arg = pattern_arg.search( arg_text )
+   while m_arg != None :
+      if m_arg.group(1) == None :
+         msg = 'There is an empty line inside a literal command.'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            m_obj     = m_arg,
+            data      = arg_text
+         )
+      end    = m_arg.end()
+      arg    = m_arg.group(1)
+      line   = int( m_arg.group(2) )
+      if len(separator) > 0 and arg.count(separator) > 1 :
+         msg  =  f'xrst_literal separator = {separator}\n'
+         msg += 'separator appears more than once in a line'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            m_obj     = m_arg,
+            data      = m_arg.group(0)
+         )
+      if separator == '' or arg.count(separator) == 0 :
+         arg_list.append( arg.strip() )
+         line_list.append( line )
+      else :
+         assert arg.count(separator) == 1
+         arg = arg.split(separator)
+         arg_list.append( arg[0].strip() )
+         arg_list.append( arg[1].strip() )
+         line_list.append( line )
+         line_list.append( line )
+      m_arg  = pattern_arg.search( arg_text , end)
+   #
+   # start_command, end_command
+   start_command = m_literal.start() + 1
+   end_command   = m_literal.end()
+   #
+   assert len(arg_list) == len(line_list)
+   for arg in arg_list :
+      assert type(arg) == str
+   for line in line_list :
+      assert type(line) == int
+   assert type(start_command) == int
+   assert type(end_command) == int
+   return arg_list, line_list, start_command, end_command
 # ----------------------------------------------------------------------------
 # {xrst_begin literal_cmd_dev dev}
 # {xrst_spell
@@ -192,145 +295,96 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
    # }
    # {xrst_end literal_cmd_dev}
    #
-   assert xrst.pattern['literal_0'].groups == 1
-   assert xrst.pattern['literal_1'].groups == 4
-   assert xrst.pattern['literal_2'].groups == 6
-   assert xrst.pattern['literal_3'].groups == 8
-   #
    # data_out
    data_out = data_in
    #
-   # key
-   for key in [ 'literal_0', 'literal_1' ] :
-      #
-      # m_file
-      m_file  = xrst.pattern[key].search(data_out)
-      while m_file != None :
-         #
-         # display_file
-         if key == 'literal_0' :
-            display_file = file_name
-         else :
-            display_file = m_file.group(2).strip()
-            if not os.path.isfile(display_file) :
-               msg  = 'literal command: can not find the display_file.\n'
-               msg += f'display_file = {display_file}'
-               xrst.system_exit(msg,
-                  file_name    = file_name,
-                  page_name = page_name,
-                  m_obj        = m_file,
-                  data         = data_out
-               )
-            if os.path.samefile(display_file, file_name) :
-               display_file = file_name
-         #
-         # cmd
-         display_path = os.path.join(rst2project_dir, display_file)
-         cmd          = f'.. literalinclude:: {display_path}\n'
-         extension = file_extension( display_file )
-         if extension != '' :
-            cmd += 3 * ' ' + f':language: {extension}\n'
-         cmd = '\n' + cmd + '\n'
-         if data_out[m_file.start() ] != '\n' :
-            cmd = '\n' + cmd
-         #
-         # data_out
-         data_tmp  = data_out[: m_file.start() + 1 ]
-         data_tmp += cmd
-         data_tmp += data_out[ m_file.end() : ]
-         data_out  = data_tmp
-         #
-         # m_file
-         m_file  = xrst.pattern[key].search(data_out)
-         if m_file and key == 'literal_0' :
-            msg  = 'More than one {xrst_literal} command in this page.\n'
-            msg += 'This command includes the entire current input file.'
-            xrst.system_exit(msg,
-               file_name    = file_name,
-               page_name = page_name,
-               m_obj        = m_file,
-               data         = data_out
-            )
+   # arg_list, line_list, start_command, end_command
+   start_search = 0
+   arg_list, line_list, start_command, end_command = next_literal_cmd(
+      data_out, file_name, page_name, start_search
+   )
    #
-   # key
-   for key in [ 'literal_2', 'literal_3' ] :
+   while arg_list != None :
       #
-      # m_file
-      m_file  = xrst.pattern[key].search(data_out)
-      while m_file != None :
-         #
-         # display_file, start_after, end_before, display_file, cmd_line
-         if key == 'literal_2' :
-            display_file  = file_name
-            start_after   = m_file.group(2).strip()
-            end_before    = m_file.group(4) .strip()
-            cmd_end_line = int( m_file.group(6) )
-         else :
-            display_file  = m_file.group(2).strip()
-            start_after   = m_file.group(4).strip()
-            end_before    = m_file.group(6) .strip()
-            cmd_end_line = int( m_file.group(8) )
-            if not os.path.isfile(display_file) :
-               msg  = 'literal command: can not find the display_file.\n'
-               msg += f'display_file = {display_file}'
-               xrst.system_exit(msg,
-                  file_name    = file_name,
-                  page_name = page_name,
-                  m_obj        = m_file,
-                  data         = data_out
-               )
-            same_file   = os.path.samefile(display_file, file_name)
-            if same_file :
-               display_file = file_name
-         cmd_start_line = int( m_file.group(1) )
-         cmd_line       = (cmd_start_line, cmd_end_line)
+      # even
+      even = len(arg_list) % 2 == 0
+      #
+      # display_file, arg_list
+      if even :
+         display_file = file_name
+      else :
+         display_file = arg_list.pop(0)
+         if not os.path.isfile(display_file) :
+            msg  = 'literal command: can not find the display_file.\n'
+            msg += f'display_file = {display_file}'
+            xrst.system_exit(msg,
+               file_name = file_name,
+               page_name = page_name,
+               line      = line_list[0],
+            )
+         if os.path.samefile(display_file, file_name) :
+            display_file = file_name
+      #
+      # cmd_line
+      if len(arg_list) >= 2 :
+         cmd_line = ( line_list[0], line_list[-1] )
+      #
+      # start_end_line_list
+      assert len(arg_list) % 2 == 0
+      start_end_line_list = list()
+      for i in range(0, len(arg_list), 2) :
+         start_after = arg_list[i]
+         end_before  = arg_list[i+1]
          #
          # start_line, end_line
          start_line, end_line = xrst.start_end_file(
             file_cmd     = file_name,
-            page_name = page_name,
+            page_name    = page_name,
             display_file = display_file,
             cmd_line     = cmd_line,
             start_after  = start_after,
             end_before   = end_before
          )
          #
-         # locations in display_file
-         start_line  = start_line + 1
-         end_line    = end_line  - 1
-         #
-         # cmd
-         display_path = os.path.join(rst2project_dir, display_file)
-         cmd          = f'.. literalinclude:: {display_path}\n'
-         cmd         += 3 * ' ' + f':lines: {start_line}-{end_line}\n'
-         #
-         # cmd
-         # Add language to literalinclude, sphinx seems to be brain
-         # dead and does not do this automatically.
-         extension = file_extension( display_file )
-         if extension != '' :
-            cmd += 3 * ' ' + f':language: {extension}\n'
-         cmd = '\n' + cmd + '\n\n'
-         if m_file.start() > 0 :
-            if data_out[m_file.start() - 1] != '\n' :
-               cmd = '\n' + cmd
-         #
-         # data_out
-         data_tmp  = data_out[: m_file.start() + 1 ]
-         data_tmp += cmd
-         data_tmp += data_out[ m_file.end() : ]
-         data_out  = data_tmp
-         #
-         # m_file
-         m_file  = xrst.pattern[key].search(data_out)
-         #
-   #
-   xrst.check_syntax_error(
-      command_name    = 'literal',
-      data            = data_out,
-      file_name       = file_name,
-      page_name    = page_name,
-   )
+         # start_end_line_list
+         start_end_line_list.append( (start_line + 1, end_line - 1) )
+      #
+      # cmd
+      display_path = os.path.join(rst2project_dir, display_file)
+      cmd          = f'.. literalinclude:: {display_path}\n'
+      #
+      # cmd
+      for i in range( len(start_end_line_list) ) :
+         start_line, end_line = start_end_line_list[i]
+         if i == 0 :
+            cmd += 3 * ' ' + f':lines: {start_line}-{end_line}'
+         else :
+            cmd += f',{start_line}-{end_line}'
+      if( len(start_end_line_list) > 0 ) :
+         cmd += '\n'
+      #
+      # cmd
+      # Add language to literalinclude, sphinx seems to be brain
+      # dead and does not do this automatically.
+      extension = file_extension( display_file )
+      if extension != '' :
+         cmd += 3 * ' ' + f':language: {extension}\n'
+      cmd = '\n' + cmd + '\n\n'
+      if start_command > 0 :
+         if data_out[start_command - 1] != '\n' :
+            cmd = '\n' + cmd
+      #
+      # data_tmp, data_out
+      data_tmp  = data_out[: start_command ]
+      data_tmp += cmd
+      data_out  = data_tmp + data_out[ end_command : ]
+      #
+      # start_search
+      start_search = len(data_tmp)
+      #
+      arg_list, line_list, start_command, end_command = next_literal_cmd(
+         data_out, file_name, page_name, start_search
+      )
    # BEGIN_return
    assert type(data_out) == str
    #
