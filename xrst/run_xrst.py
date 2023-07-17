@@ -512,7 +512,7 @@ import xrst
 # version
 # The script that updates version numbers expects version at begining of line
 # and to have the value surrounded by single quotes.
-version = '2023.7.16'
+version = '2023.7.17'
 #
 def run_xrst() :
    #
