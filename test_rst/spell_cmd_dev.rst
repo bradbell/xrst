@@ -158,9 +158,9 @@ more letter characters. If a word is directly preceded by a backslash,
 it is ignored (so that latex commands do not generate warnings).
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 211-225
+   :lines: 209-223
    :language: py
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 530-533
+   :lines: 526-529
    :language: py

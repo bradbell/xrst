@@ -8,9 +8,7 @@
 import re
 # {xrst_begin xrst.pattern dev}
 # {xrst_spell
-#     arg
 #     dir
-#     lin
 #     toc
 # }
 # {xrst_comment_ch #}
@@ -130,75 +128,19 @@ pattern['end'] = re.compile( r'[^\\]\{xrst_end\s+([^}]*)}' )
 pattern['line'] = re.compile( r'@xrst_line ([0-9]+)@' )
 # {xrst_code}
 #
-# arg, lin
-# ********
-#
-# literal_0
-# *********
-# xrst_literal with no arguments
-#
-# 0. preceding newline + white space + the command.
-# 1. line number where } at end of command appears
-#
-# {xrst_code py}
-lin = r'[ \t]*@xrst_line ([0-9]+)@\n'
-pattern['literal_0'] = re.compile(
-   r'[^\\]\{xrst_literal}' + lin
-)
-# {xrst_code}
-#
-# literal_1
-# *********
-# xrst_literal with display_file
-#
-# 0. preceding newline + white space + the command.
-# 1. the line number where this command starts
-# 2. the display file
-# 3. line number where display file appears
-# 4. line number where } at end of command appears
-#
-# {xrst_code py}
-arg = r'([^@]*)@xrst_line ([0-9]+)@\n'
-pattern['literal_1']  = re.compile(
-   r'[^\\]\{xrst_literal' + lin + arg + r'[ \t]*}' + lin
-)
-# {xrst_code}
-#
-# literal_2
-# *********
-# xrst_literal with start, stop
-#
-# 0. preceding newline + white space + the command.
-# 1. the line number where this command starts
-# 2. the start text + surrounding white space
-# 3. line number where start text appears
-# 4. the stop text + surrounding white space
-# 5. the line number where stop text appears
-# 6. line number where } at end of command appears
-#
-# {xrst_code py}
-pattern['literal_2']  = re.compile(
-   r'[^\\]\{xrst_literal' + lin + arg + arg + r'[ \t]*}' + lin
-)
-# {xrst_code}
-#
-# literal_3
-# *********
-# xrst_literal with start, stop, display_file
+# literal
+# *******
+# Pattern for the literal command. Groups 1 and 2 will be None for this
+# pattern if \{xrst_literal} is matched.
 #
 # 0. preceding character + the command.
-# 1. the line number where this command starts
-# 2. the display file
-# 3. line number where display file appears
-# 4. the start text + surrounding white space
-# 5. line number where start text appears
-# 6. the stop text + surrounding white space
-# 7. the line number where stop text appears
-# 8. line number where } at end of command appears
+# 1. characters, not including line number or command name, on first line.
+# 2. rest of command, not including first \\n or final }.
 #
 # {xrst_code py}
-pattern['literal_3']  = re.compile(
-   r'[^\\]\{xrst_literal' + lin + arg + arg + arg + r'[ \t]*}' + lin
+pattern['literal'] = re.compile(
+r'[^\\]\{xrst_literal([^\n}]*)@xrst_line [0-9]+@\n([^}]*)}|[^\\]\{xrst_literal}'
 )
 # {xrst_code}
+#
 # {xrst_end xrst.pattern}

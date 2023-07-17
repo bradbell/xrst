@@ -150,9 +150,7 @@ def file_extension(display_file) :
    return extension
 #
 # pattern_literal
-pattern_literal    = re.compile(
-r'[^\\]{xrst_literal([^\n]*)@xrst_line [0-9]+@\n([^}]*)}|[^\\]{xrst_literal}'
-)
+pattern_literal    = xrst.pattern['literal']
 #
 # pattern_arg
 pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )

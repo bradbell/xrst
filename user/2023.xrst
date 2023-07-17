@@ -26,6 +26,10 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+07-17
+=====
+Fix spell checking inside new version of literal command.
+
 07-16
 =====
 Add an optional :ref:`literal_cmd@separator` to the literal command.
