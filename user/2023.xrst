@@ -26,6 +26,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+07-19
+=====
+Make the ``.in``:ref:`literal_cmd@display_file@extension`
+a special case in the literal command.
+
 07-17
 =====
 Fix spell checking inside new version of literal command.

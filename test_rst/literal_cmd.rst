@@ -126,6 +126,23 @@ The file name *display_file* is relative to the
    to the project_directory; see :ref:`dir_cmd-name` .
 
 .. meta::
+   :keywords: extension
+
+.. index:: extension
+
+.. _literal_cmd@display_file@extension:
+
+extension
+=========
+The *display_file* extension is used to determine what language
+to use when highlighting the input block.
+In the special case where *display_file* ends with ``.in`` ,
+the final ``.in`` is not included when file name
+when determining the extension.
+This is done because configure files use the ``.in`` extension,
+and usually create a file with the ``.in`` dropped.
+
+.. meta::
    :keywords: no, start, or, end
 
 .. index:: no, start, or, end

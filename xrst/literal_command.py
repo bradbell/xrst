@@ -89,6 +89,16 @@ The file name *display_file* is relative to the
    :ref:`config_file@directory@rst_directory` , which is a path relative
    to the project_directory; see :ref:`dir_cmd-name` .
 
+extension
+=========
+The *display_file* extension is used to determine what language
+to use when highlighting the input block.
+In the special case where *display_file* ends with ``.in`` ,
+the final ``.in`` is not included when file name
+when determining the extension.
+This is done because configure files use the ``.in`` extension,
+and usually create a file with the ``.in`` dropped.
+
 No start or end
 ***************
 In the case where there is no *start_after* or *end_before*,
@@ -141,7 +151,11 @@ extension_map = {
    'txt'  : ''       ,
 }
 def file_extension(display_file) :
-   index = display_file.rfind('.')
+   if display_file.endswith('.in') :
+      display_file = display_file[: -3]
+      index        = display_file.rfind('.')
+   else :
+      index = display_file.rfind('.')
    extension = ''
    if 0 <= index and index + 1 < len(display_file) :
       extension = display_file[index + 1 :]
