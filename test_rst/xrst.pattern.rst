@@ -68,14 +68,15 @@ Patterns for the toc_hidden, toc_list, and toc_table commands.
 0. preceding character + the command.
 1. command name; i.e., hidden, list, or table
 2. the rest of the command that comes after the command name.
-   This is a list of file names with one name per line.
+   This is an option order (on same line) followed by
+   a list of file names with one name per line.
    The } at the end of the command is not included.
    This pattern may be empty.
 
 If you change this pattern, check pattern_toc in process_children.py
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 56-58
+   :lines: 57-59
    :language: py
 
 .. meta::
@@ -99,7 +100,7 @@ Pattern for code command.
 5. the line number for this line; see pattern['line'] above.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 75-78
+   :lines: 76-79
    :language: py
 
 .. meta::
@@ -117,7 +118,7 @@ Pattern for comment_ch command
 2. is the character (matched as any number of not space, tab or }
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 89-91
+   :lines: 90-92
    :language: py
 
 .. meta::
@@ -135,7 +136,7 @@ Pattern for dir command
 2. Is the file_name in the command
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 102-105
+   :lines: 103-106
    :language: py
 
 .. meta::
@@ -153,7 +154,7 @@ Pattern for end command
 1. the page name.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 116-116
+   :lines: 117-117
    :language: py
 
 .. meta::
@@ -171,7 +172,7 @@ Pattern for line numbers are added to the input by add_line_number
 1. the line_number.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 128-128
+   :lines: 129-129
    :language: py
 
 .. meta::
@@ -191,5 +192,5 @@ pattern if {xrst_literal} is matched.
 2. rest of command, not including first \\n or final }.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 141-143
+   :lines: 142-144
    :language: py

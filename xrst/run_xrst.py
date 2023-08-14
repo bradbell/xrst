@@ -924,7 +924,8 @@ def run_xrst() :
             page_data = xrst.dir_command(page_data, rst2project_directory)
             # -------------------------------------------------------------
             # toc commands
-            page_data, child_file, child_page_list = \
+            # page_data, finfo_stack, child_page_list, order
+            page_data, child_file, child_page_list, order = \
                xrst.toc_commands(
                   is_parent,
                   page_data,
@@ -932,6 +933,9 @@ def run_xrst() :
                   page_name,
                   old_group_name,
             )
+            #
+            # all_page_info
+            all_page_info[-1]['child_order'] = order
             #
             # page_index, finfo_stack
             page_index = len(all_page_info) - 1
@@ -976,13 +980,20 @@ def run_xrst() :
             # -------------------------------------------------------------
             # list_children
             # page_name for each of the children of the current page
-            list_children = child_page_list
-            if is_parent :
+            if not is_parent :
+               list_children = child_page_list
+            else :
+               assert order in [ 'before', 'after' ]
+               list_children = list()
                for i in range( len(file_page_info) ) :
                   if i != i_page :
                      list_children.append(
                         file_page_info[i]['page_name']
                      )
+               if order == 'before' :
+                  list_children = child_page_list + list_children
+               else :
+                  list_children = list_children + child_page_list
             # -------------------------------------------------------------
             # process children
             # want this as late as possible so toctree at end of input

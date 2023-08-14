@@ -18,7 +18,7 @@ Syntax
 
 toc_hidden
 ==========
-| ``\{xrst_toc_hidden``
+| ``\{xrst_toc_hidden`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -26,7 +26,7 @@ toc_hidden
 
 toc_list
 ========
-| ``\{xrst_toc_list``
+| ``\{xrst_toc_list`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -34,7 +34,7 @@ toc_list
 
 toc_table
 =========
-| ``\{xrst_toc_table``
+| ``\{xrst_toc_table`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -45,6 +45,17 @@ Table of Contents
 These commands specify the pages that are children
 of the current page; i.e., pages that are at the
 next level in the table of contents.
+
+order
+*****
+The *order* argument is optional.
+It can only be present when this page begins with a
+:ref:`parent begin<begin_cmd@Parent Page>` command.
+If it is present it must be ``before`` or ``after`` .
+It specifies if the child pages in the toc command should come
+before or after the child pages in the current input file.
+If *order* is not present and this is a parent page,
+the default value ``before`` is used for *order* .
 
 File Names
 **********
@@ -75,8 +86,9 @@ The first of these pages may use a
    page where the toc command appears.
 
 #. If the first page in a file is a begin parent page,
-   and there is also a toc command in this page,
-   links to the toc command children come first and then links to
+   there is also a toc command in this page,
+   and *order* is ``before`` ( ``after`` )
+   links to the toc command children come before (after) links to
    the children that are other pages in the same file.
 
 Child Links
@@ -172,6 +184,12 @@ import re
 # one page in child_page_list for that file. Otherwise all of the
 # pages in the file are in child_page_list.
 #
+# order
+# =====
+# If *is_parent* is True, *order*
+# specifies if the pages in *child_page_list* come before or after
+# the rest of the children for this page.
+#
 # {xrst_code py}
 def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    assert type(is_parent) == bool
@@ -189,10 +207,11 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    # data_out
    data_out = data_in
    #
-   # file_list, file_line, child_page_list
+   # file_list, file_line, child_page_list, order
    file_list       = list()
    file_line       = list()
    child_page_list = list()
+   order           = 'before'
    #
    # m_toc
    m_toc        = xrst.pattern['toc'].search(data_out)
@@ -203,7 +222,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
          file_name       = file_name,
          page_name       = page_name,
       )
-      return data_out, file_list, child_page_list
+      return data_out, file_list, child_page_list, order
    #
    # m_tmp
    m_tmp = xrst.pattern['toc'].search(data_out[m_toc.end() :] )
@@ -228,9 +247,35 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
    data_out = xrst.pattern['toc'].sub(replace, data_out)
    #
-   # file_list, file_line
+   # child_list, first_line
    child_list =  m_toc.group(2).split('\n')
-   child_list = child_list[: -1]
+   first_line = child_list[0]
+   child_list = child_list[1 : -1]
+   #
+   # order
+   order = xrst.pattern['line'].sub('', first_line).strip()
+   if order == '' :
+      order = 'before'
+   else :
+      if order not in [ 'before' , 'after' ] :
+         msg = f'order is not before or after in the toc {command} command'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            page_name=page_name,
+            m_obj=m_toc,
+            data=data_out
+         )
+      if not is_parent :
+         msg  = 'This is not a parent page and order is specified in its '
+         msg += f'toc {command} command'
+         xrst.system_exit(msg,
+            file_name=file_name,
+            page_name=page_name,
+            m_obj=m_toc,
+            data=data_out
+         )
+   #
+   # file_list, file_line
    for child_line in child_list :
       if child_line != '' :
          m_child = xrst.pattern['line'].search(child_line)
@@ -243,7 +288,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    #
    if len(file_list) == 0 :
       if is_parent :
-         return data_out, file_list, child_page_list
+         return data_out, file_list, child_page_list, order
       msg = f'No files were specified on the toc {command} command'
       xrst.system_exit(msg,
          file_name=file_name,
@@ -351,6 +396,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    assert type(child_page_list) == list
    if 0 < len(child_page_list) :
       assert type(child_page_list[0]) == str
+   assert order in [ 'before' , 'after' ]
    #
-   return data_out, file_list, child_page_list
+   return data_out, file_list, child_page_list, order
    # END_return

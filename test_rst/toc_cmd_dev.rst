@@ -135,10 +135,23 @@ If a file in file_list has a begin_parent command, there is only
 one page in child_page_list for that file. Otherwise all of the
 pages in the file are in child_page_list.
 
+.. meta::
+   :keywords: order
+
+.. index:: order
+
+.. _toc_cmd_dev@Returns@order:
+
+order
+=====
+If *is_parent* is True, *order*
+specifies if the pages in *child_page_list* come before or after
+the rest of the children for this page.
+
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 176-181
+   :lines: 194-199
    :language: py
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 347-355
+   :lines: 392-401
    :language: py

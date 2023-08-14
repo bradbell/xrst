@@ -101,10 +101,10 @@ do
       echo "    cp $rst_dir/$file test_rst/$file"
       continue_yes_no
       cp $rst_dir/$file test_rst/$file
-   elif ! diff $rst_dir/$file test_rst/$file
+   elif ! diff test_rst/$file $rst_dir/$file
    then
       echo "$rst_dir/$file changed; above is output of"
-      echo "    diff $rst_dir/$file test_rst/$file"
+      echo "    diff test_rst/$file $rst_dir/$file"
       echo 'Should we use the following command to fix this'
       echo "    cp $rst_dir/$file test_rst/$file"
       continue_yes_no

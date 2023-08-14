@@ -29,6 +29,7 @@ Links to Child Pages
 
 -  :ref:`child_example_one-title`
 -  :ref:`child_example_two-title`
+-  :ref:`child_example_three-title`
 
 .. meta::
    :keywords: xrst_toc_list
@@ -55,3 +56,4 @@ This Example File
 
    child_example_one
    child_example_two
+   child_example_three

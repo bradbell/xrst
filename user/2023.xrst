@@ -28,10 +28,12 @@ mm-dd
 
 08-14
 =====
-The :ref:`heading_links@Labels@Discussion` of the html location
-corresponding to a heading was improved. To specific,
-"an html heading location is still valid after changing its
-documentation and/or source code locations" .
+#. The :ref:`heading_links@Labels@Discussion` of the html location
+   corresponding to a heading was improved. To specific,
+   "an html heading location is still valid after changing its
+   documentation and/or source code locations" .
+#. The optional :ref:`toc_cmd@order` argument was added to the
+   table of children command.
 
 
 07-19

@@ -47,7 +47,8 @@ pattern['begin'] = re.compile(
 # 0. preceding character + the command.
 # 1. command name; i.e., hidden, list, or table
 # 2. the rest of the command that comes after the command name.
-#    This is a list of file names with one name per line.
+#    This is an option order (on same line) followed by
+#    a list of file names with one name per line.
 #    The } at the end of the command is not included.
 #    This pattern may be empty.
 #

@@ -67,9 +67,10 @@ def page_table_of_contents(
    #
    assert target in [ 'html', 'tex' ]
    #
-   # page_name, page_title
+   # page_name, page_title, child_order
    page_name   = all_page_info[page_index]['page_name']
    page_title  = all_page_info[page_index]['page_title']
+   child_order = all_page_info[page_index]['child_order']
    #
    # page_number, content
    page_number = ''
@@ -126,7 +127,12 @@ def page_table_of_contents(
    # child_content
    child_content = ''
    child_count   = count + [0]
-   for child_index in in_toc_cmd_list + in_parent_file_list :
+   if child_order == 'before' :
+      child_index_list = in_toc_cmd_list + in_parent_file_list
+   else :
+      assert child_order == 'after'
+      child_index_list = in_parent_file_list + in_toc_cmd_list
+   for child_index in child_index_list :
       #
       # child_count
       child_count[-1] += 1

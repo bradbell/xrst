@@ -9,6 +9,7 @@ Table of Contents
 |    :ref:`1.4<toc_list_example-title>` toc_list Example Parent Page
 |       :ref:`1.4.1<child_example_one-title>` First Child Example Page
 |       :ref:`1.4.2<child_example_two-title>` Second Child Example Page
+|       :ref:`1.4.3<child_example_three-title>` Third Child Example Page
 |    :ref:`1.5<spell_example-title>` Spell Command Example
 |    :ref:`1.6<suspend_example-title>` Suspend Command Example
 |    :ref:`1.7<code_example-title>` Code Command Example

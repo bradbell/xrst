@@ -31,7 +31,7 @@ Syntax
 
 toc_hidden
 ==========
-| ``{xrst_toc_hidden``
+| ``{xrst_toc_hidden`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -46,7 +46,7 @@ toc_hidden
 
 toc_list
 ========
-| ``{xrst_toc_list``
+| ``{xrst_toc_list`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -61,7 +61,7 @@ toc_list
 
 toc_table
 =========
-| ``{xrst_toc_table``
+| ``{xrst_toc_table`` *order*
 |   *file_1*
 |   ...
 |   *file_n*
@@ -79,6 +79,24 @@ Table of Contents
 These commands specify the pages that are children
 of the current page; i.e., pages that are at the
 next level in the table of contents.
+
+.. meta::
+   :keywords: order
+
+.. index:: order
+
+.. _toc_cmd@order:
+
+order
+*****
+The *order* argument is optional.
+It can only be present when this page begins with a
+:ref:`parent begin<begin_cmd@Parent Page>` command.
+If it is present it must be ``before`` or ``after`` .
+It specifies if the child pages in the toc command should come
+before or after the child pages in the current input file.
+If *order* is not present and this is a parent page,
+the default value ``before`` is used for *order* .
 
 .. meta::
    :keywords: names
@@ -123,8 +141,9 @@ The first of these pages may use a
    page where the toc command appears.
 
 #. If the first page in a file is a begin parent page,
-   and there is also a toc command in this page,
-   links to the toc command children come first and then links to
+   there is also a toc command in this page,
+   and *order* is ``before`` ( ``after`` )
+   links to the toc command children come before (after) links to
    the children that are other pages in the same file.
 
 .. meta::

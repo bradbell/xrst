@@ -28,10 +28,12 @@ Links
 *****
 - :ref:`parent<toc_list_example-title>`
 - :ref:`first child<child_example_one-title>`
+- :ref:`third child<child_example_three-title>`
 
 .. _child_example_two@This Example File:
 
 This Example File
 *****************
-:ref:`child_example_one@This Example File`
-is the same as for the first child page.
+
+.. literalinclude:: ../../example/children.xrst
+   :language: rst
