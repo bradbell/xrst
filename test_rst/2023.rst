@@ -27,6 +27,15 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@08-14:
+
+08-14
+=====
+The :ref:`heading_links@Labels@Discussion` of the html location
+corresponding to a heading was improved. To specific,
+"an html heading location is still valid after changing its
+documentation and/or source code locations" .
+
 .. _2023@mm-dd@07-19:
 
 07-19

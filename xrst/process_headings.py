@@ -103,9 +103,13 @@ Discussion
    headings below it,  will break.  This identifies the links that should be
    checked to make sure they are still valid.
 #. It is an error for two headings have the same HTML anchor.
-   This makes the html links to a heading valid as long as its label
+   This makes the html location of a heading valid as long as its label
    does not change. This is useful when posting the answer to a questions
-   using a link to a particular heading.
+   using a particular heading.
+#. The html location of a heading does not depend on the location of its
+   page in the documentation tree or the source code.
+   Hence an html heading location is still valid after changing its
+   documentation and/or source code locations.
 
 Example
 *******
