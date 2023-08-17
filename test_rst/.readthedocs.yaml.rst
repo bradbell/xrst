@@ -17,6 +17,17 @@ Example Read the Docs Configuration
 .. contents::
    :local:
 
+.. meta::
+   :keywords: read, docs, specification
+
+.. index:: read, docs, specification
+
+.. _.readthedocs.yaml@Read the Docs Specification:
+
+Read the Docs Specification
+***************************
+`<https://docs.readthedocs.io/en/stable/config-file>`_
+
 .. _.readthedocs.yaml@This Example File:
 
 This Example File

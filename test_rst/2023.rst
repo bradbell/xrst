@@ -27,6 +27,13 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@08-17:
+
+08-17
+=====
+Add a link for Read the Docs configuration file
+:ref:`specification <.readthedocs.yaml@Read The Docs Specification>` .
+
 .. _2023@mm-dd@08-14:
 
 08-14
