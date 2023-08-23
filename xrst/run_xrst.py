@@ -360,7 +360,7 @@ def system_exit(msg) :
 # page_name2line_pair
 # a mapping from page name to to a list of line number pairs.
 # The first number is the pair is a line number in the rst file for this page.
-# The secon number is a corresponding xrst input line number.
+# The second number is a corresponding xrst input line number.
 #
 # page_name2file_in
 # a mapping from page name to the correspoind xrst input file.
@@ -459,6 +459,18 @@ def system_command(
             else :
                error = f'{file_in}:{line_before}-{line_after}:{msg}'
       #
+      # pattern_undefined
+      pattern_undefined = re.compile(r"undefined *label: *'([^']*)'")
+      m_undefined       = pattern_undefined.search(error)
+      if m_undefined != None :
+         label      = m_undefined.group(1)
+         xrst_label = 0 < label.find('@')
+         if label.endswith('-name') or label.endswith('-title') :
+            xrst_label = True
+         if not xrst_label :
+            error += '\n   The label above does not contain an @'
+            error += ' or end with -name or -title.'
+            error += '\n   Hence it is not automatically generates by xrst.'
       # message
       message += '\n' + error
    #

@@ -27,6 +27,17 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@08-23:
+
+08-23
+=====
+If there is an undefined label,
+that could not be an xrst :ref:`label <heading_links@Labels>` ,
+then following message is added to the warning:
+
+   | The label above does not contain an @ or end with -name or -title.
+   | Hence it is not automatically generates by xrst.
+
 .. _2023@mm-dd@08-17:
 
 08-17
