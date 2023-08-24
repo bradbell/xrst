@@ -72,6 +72,9 @@ The xrst literal command has the following difference:
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
    This makes sure that the intended section of *display_file* is displayed.
+#. It is possible to specify multiple sections of a file using
+   the start after and end before patterns. (These automatically get converted
+   to line numbers in a sphinx literalinclude directive.)
 
 .. meta::
    :keywords: tokens

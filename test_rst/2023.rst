@@ -27,6 +27,18 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@08-24:
+
+08-24
+=====
+#. The :ref:`heading_links@Labels@Discussion` about labels being verbose
+   was improved by splitting the corresponding item into sub-items.
+#. The comparison between xrst literal command and the sphinx
+   :ref:`literal_cmd@literalinclude` directive was improved.
+   To be specific, the following paragraph was added:
+   'It is possible to specify multiple sections of a file using the
+   start after and end before patterns ...`
+
 .. _2023@mm-dd@08-23:
 
 08-23

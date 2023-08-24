@@ -93,15 +93,17 @@ Discussion
    or have a ``@`` character in them. Other labels, that you create using
    rst commands, should not satisfy this condition
    (and hence are easy to distinguish).
-#. Including all the levels above a heading in its label may seem verbose,
-   but it avoids ambiguity when the same heading appears twice in one page.
-   For example, this link to the project name
-   :ref:`config_file@project_name@Default`
-   which is one of many Default headings on that page.
-   This also helps keep the links up to date.
-   If a heading changes, all the links to that heading, and all the
-   headings below it,  will break.  This identifies the links that should be
-   checked to make sure they are still valid.
+#. Including all the levels above a heading in its label may seem verbose.
+
+   A. This avoids ambiguity when the same heading appears twice in one page.
+      For example, this link to the project name
+      :ref:`config_file@project_name@Default`
+      which is one of many Default headings on that page.
+   B. It also helps keep the links up to date.
+      If a heading changes, all the links to that heading, and all the
+      headings below it, will break. This identifies the links that should be
+      checked to make sure they are still valid.
+
 #. It is an error for two headings have the same HTML anchor.
    This makes the html location of a heading valid as long as its label
    does not change. This is useful when posting the answer to a questions
