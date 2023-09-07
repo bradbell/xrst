@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 default_dict = dict()
-'''
+r'''
 {xrst_begin suspend_example}
 {xrst_spell
    toml
@@ -33,7 +33,7 @@ data = 'project'
 
 {xrst_suspend}'''
 default_dict['project_name'] = { 'data' : 'project' }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 xrst_code
 *********

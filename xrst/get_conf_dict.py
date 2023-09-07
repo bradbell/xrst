@@ -12,7 +12,7 @@ def system_exit(msg) :
 # -----------------------------------------------------------------------------
 default_dict = dict()
 #
-'''
+r'''
 {xrst_begin config_file user}
 {xrst_spell
    booleans
@@ -64,7 +64,7 @@ data = 'project'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['project_name'] = { 'data' : 'project' }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -140,7 +140,7 @@ default_dict['directory'] = {
    'html_directory'    : 'build/html' ,
    'tex_directory'     : 'build/tex'  ,
 }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -167,7 +167,7 @@ default = 'project.xrst'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['root_file'] = { 'default' : 'project.xrst' }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Note that ``default`` corresponds to the
 :ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
@@ -197,7 +197,7 @@ data = 'pyspellchecker'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['spell_package'] = { 'data' : 'pyspellchecker' }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -232,7 +232,7 @@ overline  = []
 {xrst_code}
 {xrst_suspend}'''
 default_dict['heading'] = { 'character' : [], 'overline' : [] }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -285,7 +285,7 @@ data = [
 default_dict['input_files'] = { 'data' : [
    [ 'git', 'ls-files'] ,
 ] }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -336,7 +336,7 @@ default_dict['html_theme_options'] = {
       'titles_only'      : True ,
    },
 }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -391,7 +391,7 @@ default_dict['include_all'] = {
       'rst_prolog'   : ''     ,
       'latex_macro'  : list() ,
 }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 
 Example
@@ -420,7 +420,7 @@ data = []
 {xrst_code}
 {xrst_suspend}'''
 default_dict['project_dictionary'] = { 'data' : list() }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
@@ -455,7 +455,7 @@ data = []
 {xrst_code}
 {xrst_suspend}'''
 default_dict['not_in_index'] = { 'data' : list() }
-'''{xrst_resume}
+r'''{xrst_resume}
 
 Example
 =======
