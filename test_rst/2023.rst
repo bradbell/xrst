@@ -27,6 +27,17 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@09-07:
+
+09-07
+=====
+#. Change python doc strings form using ``'''`` and ``"""``
+   to using ``r'''`` and ``r"""`` ; e.g, see :ref:`docstring_example-name` .
+   This avoids python syntax highlighting in the documentation code
+   (in some editors).
+#. Remove the ``'''`` form the :ref:`configure_example@This Example File` because
+   it is not a python file and so does not need them.
+
 .. _2023@mm-dd@08-24:
 
 08-24
