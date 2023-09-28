@@ -27,9 +27,11 @@ Title: Getting Started
 Heading: Steps
 **************
 
-#. Use pip as follows to install xrst::
+#. Use pip as follows to install the most recent test version of xrst::
 
       pip install xrst
+      pip uninstall -y xrst
+      pip install --index-url https://test.pypi.org/simple/ xrst
 
 #. Create an empty directory and make it your current working directory.
 

@@ -26,6 +26,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+09-28
+=====
+Change the :ref:`get_started-name` example to install the current test
+version of xrst.
+
 09-07
 =====
 #. Change python doc strings form using ``'''`` and ``"""``

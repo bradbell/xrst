@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 {xrst_begin get_started}
 {xrst_spell
    toml
+   url
 }
 
 Title: Getting Started
@@ -13,9 +14,11 @@ Title: Getting Started
 Heading: Steps
 **************
 
-#. Use pip as follows to install xrst::
+#. Use pip as follows to install the most recent test version of xrst::
 
       pip install xrst
+      pip uninstall -y xrst
+      pip install --index-url https://test.pypi.org/simple/ xrst
 
 #. Create an empty directory and make it your current working directory.
 
