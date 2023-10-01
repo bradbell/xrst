@@ -26,6 +26,19 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+10-01
+=====
+There was a bug in the :ref:`run_xrst@replace_spell_commands` option.
+To be specific, the program would halt with the following message::
+
+   ... line 92, in replace_spell
+   data_copy = xrst.add_line_numbers(data_copy)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ... add_line_numbers() missing 1 required positional argument: 'file_in'
+
+This has been fixed.
+
+
 09-28
 =====
 Change the :ref:`get_started-name` example to install the current test
