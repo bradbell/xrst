@@ -27,6 +27,15 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@10-07:
+
+10-07
+=====
+Change html theme from ``sphinx_book_theme`` to ``furo``
+because sphinx book theme does not support as many levels; see
+`sphinx_book_theme issue 603
+<https://github.com/executablebooks/sphinx-book-theme/issues/603#issuecomment-1751873569>`_ .
+
 .. _2023@mm-dd@10-01:
 
 10-01
