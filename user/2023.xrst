@@ -27,6 +27,14 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+10-08
+=====
+There was a bug in the conversion of error messages from the
+extracted rst file location to the location in the original source file.
+The converter did not recognize a :ref:`begin_cmd@page_name` that
+had capital letters, A-Z, or the dash character, - .
+This has been fixed.
+
 10-07
 =====
 Change html theme from ``sphinx_book_theme`` to ``furo``

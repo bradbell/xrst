@@ -399,7 +399,7 @@ def system_command(
          system_exit(message)
    #
    # pattern_error
-   pattern_error = re.compile( r'.*/rst/([a-z0-9_.]+).rst:([0-9]+):' )
+   pattern_error = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
    #
    # message
    message = ''
