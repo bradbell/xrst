@@ -4,6 +4,10 @@
 # ----------------------------------------------------------------------------
 import re
 import xrst
+#
+# PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
+# use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
+#
 # {xrst_begin check_page_name dev}
 # {xrst_spell
 #     genindex

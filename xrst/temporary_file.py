@@ -6,6 +6,9 @@ import re
 import xrst
 pattern_line_number     = re.compile(r'\n[ \t]*@xrst_line [0-9]+@')
 pattern_newline_3       = re.compile(r'(\n[ \t]*){2,}\n')
+#
+# PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
+# use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
 pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'

@@ -41,8 +41,8 @@ mm-dd
    the location of the page source file name was changed so it stands out.
 
 #. When *target* was ``tex`` , and there were dash characters ``-`` in a
-   :ref:`begin_cmd@page_name` , the cross reference would fail .
-   This has been fixed.
+   :ref:`begin_cmd@page_name` , a cross reference to *page_name*\ ``-name``
+   would fail.  This has been fixed.
 
 .. _2023@mm-dd@10-08:
 

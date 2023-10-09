@@ -77,5 +77,5 @@ data
 is that data that was searched to get the match object.
 
 .. literalinclude:: ../../xrst/check_page_name.py
-   :lines: 49-53
+   :lines: 53-57
    :language: py

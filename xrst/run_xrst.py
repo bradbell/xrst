@@ -399,6 +399,9 @@ def system_command(
          system_exit(message)
    #
    # pattern_error
+   #
+   # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
+   # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
    pattern_error = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
    #
    # message
