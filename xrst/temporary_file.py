@@ -6,8 +6,10 @@ import re
 import xrst
 pattern_line_number     = re.compile(r'\n[ \t]*@xrst_line [0-9]+@')
 pattern_newline_3       = re.compile(r'(\n[ \t]*){2,}\n')
-pattern_ref_page_name_1 = re.compile(r':ref:`([._A-Za-z0-9]+)-name`')
-pattern_ref_page_name_2 = re.compile(r':ref:`([^`<]*)<([._A-Za-z0-9]+)-name>`')
+pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
+pattern_ref_page_name_2 = re.compile(
+                           r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
+)
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
@@ -144,7 +146,7 @@ def temporary_file(
       data_out  = before + data_in
    else :
       if page_source :
-         new_text   = f'xrst input file: {file_in}\n'
+         new_text   = f'**xrst input file** : {file_in}\n\n'
          #
          index      = data_in.find('\n{xrst@before_title}')
          first_line = index + len('\n{xrst@before_title}')
@@ -162,6 +164,8 @@ def temporary_file(
          data_before = data_in[: text_index]
          data_after  = data_in[text_index :]
          data_out    = data_before + new_text + data_after
+      else :
+         data_out = data_in
       #
       data_out   = pattern_ref_page_name_1.sub(
          r':ref:`\1<\1-title>`' , data_out

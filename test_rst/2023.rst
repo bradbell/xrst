@@ -27,6 +27,33 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@10-09:
+
+10-09
+=====
+#. The following problem has been fixed.
+   If :ref:`run_xrst@page_source` was not present on the xrst command line,
+   and :ref:`run_xrst@target` was tex, the program crashed with the message::
+
+      UnboundLocalError: cannot access local variable 'data_out' ...
+
+#. When ``page_source`` is present and *target* is ``tex`` ,
+   the location of the page source file name was changed so it stands out.
+
+#. When *target* was ``tex`` , and there were dash characters ``-`` in a
+   :ref:`begin_cmd@page_name` , the cross reference would fail .
+   This has been fixed.
+
+.. _2023@mm-dd@10-08:
+
+10-08
+=====
+There was a bug in the conversion of error messages from the
+extracted rst file location to the location in the original source file.
+The converter did not recognize a :ref:`begin_cmd@page_name` that
+had capital letters, A-Z, or the dash character, - .
+This has been fixed.
+
 .. _2023@mm-dd@10-07:
 
 10-07

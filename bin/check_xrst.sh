@@ -27,7 +27,7 @@ then
    echo "bin/check_xrst.sh: must be executed from its parent directory"
    exit 1
 fi
-PYTHONPATH="$PYTHONPATH:$(pwd)"
+PYTHONPATH="$(pwd):$PYTHONPATH"
 # -----------------------------------------------------------------------------
 # number_jobs
 if [ $(nproc) == '1' ] || [ $(nproc) == '2' ]
