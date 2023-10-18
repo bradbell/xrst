@@ -28,6 +28,7 @@ These commands are described in the pages below:
 -  :ref:`dir_cmd-title`
 -  :ref:`comment_cmd-title`
 -  :ref:`comment_ch_cmd-title`
+-  :ref:`ref_cmd-title`
 
 .. toctree::
    :maxdepth: 1
@@ -42,3 +43,4 @@ These commands are described in the pages below:
    dir_cmd
    comment_cmd
    comment_ch_cmd
+   ref_cmd

@@ -36,6 +36,7 @@ The xrst Module
    "xrst.pattern", :ref:`xrst.pattern-title`
    "process_children", :ref:`process_children-title`
    "process_headings", :ref:`process_headings-title`
+   "ref_cmd_dev", :ref:`ref_cmd_dev-title`
    "remove_indent", :ref:`remove_indent-title`
    "remove_line_numbers", :ref:`remove_line_numbers-title`
    "rename_group", :ref:`rename_group-title`
@@ -71,6 +72,7 @@ The xrst Module
    xrst.pattern
    process_children
    process_headings
+   ref_cmd_dev
    remove_indent
    remove_line_numbers
    rename_group

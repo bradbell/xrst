@@ -21,6 +21,7 @@ These commands are described in the pages below:
    xrst/dir_command.py
    xrst/comment_command.py
    xrst/comment_ch_command.py
+   xrst/ref_command.py
 }
 
 {xrst_end commands}

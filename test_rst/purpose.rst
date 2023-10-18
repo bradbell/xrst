@@ -107,6 +107,8 @@ The xrst features below can be considered a wish list for sphinx:
    ``:ref:``\ \`\ ``heading_links@Labels@Discussion``\ \`
    generates a link to :ref:`heading_links@Labels@Discussion`,
    which discusses these labels in more detail.
+#. Allow for newlines in the target for a sphinx ``ref`` role;
+   see :ref:`ref_example-name` and :ref:`ref_cmd-name` .
 #. The :ref:`config_file@heading` configuration option
    can be used to check that all the pages in a project use the same
    underline and overline convention.

@@ -28,6 +28,7 @@ Examples
    "comment_example", :ref:`comment_example-title`
    "comment_ch_example", :ref:`comment_ch_example-title`
    "heading_example", :ref:`heading_example-title`
+   "ref_example", :ref:`ref_example-title`
    "indent_example", :ref:`indent_example-title`
    "docstring_example", :ref:`docstring_example-title`
    "configure_example", :ref:`configure_example-title`
@@ -48,6 +49,7 @@ Examples
    comment_example
    comment_ch_example
    heading_example
+   ref_example
    indent_example
    docstring_example
    configure_example

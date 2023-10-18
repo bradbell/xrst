@@ -917,6 +917,11 @@ def run_xrst() :
                'end_line'       : end_line,
             } )
             # -------------------------------------------------------------
+            # ref commands
+            # Do this before spell checking so spell checking does not have
+            # to deal with newlines in ref roles.
+            page_data = xrst.ref_command(page_data)
+            # -------------------------------------------------------------
             # comment_command
             page_data = xrst.comment_command(page_data)
             # -------------------------------------------------------------

@@ -16,11 +16,12 @@ Table of Contents
 |    :ref:`1.8<comment_example-title>` Comment Command Example
 |    :ref:`1.9<comment_ch_example-title>` Comment Character Command Example
 |    :ref:`1.10<heading_example-title>` Heading and Link Example
-|    :ref:`1.11<indent_example-title>` Indent Example
-|    :ref:`1.12<docstring_example-title>` Docstring Example
-|    :ref:`1.13<configure_example-title>` Example Using TOML Configure File
-|    :ref:`1.14<.readthedocs.yaml-title>` Example Read the Docs Configuration
-|    :ref:`1.15<testExample-title>` Test Special Conditions
+|    :ref:`1.11<ref_example-title>` Sphinx ref Role Example
+|    :ref:`1.12<indent_example-title>` Indent Example
+|    :ref:`1.13<docstring_example-title>` Docstring Example
+|    :ref:`1.14<configure_example-title>` Example Using TOML Configure File
+|    :ref:`1.15<.readthedocs.yaml-title>` Example Read the Docs Configuration
+|    :ref:`1.16<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user-guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst
@@ -35,6 +36,7 @@ Table of Contents
 |       :ref:`3.3.7<dir_cmd-title>` Converting Sphinx Command File Names
 |       :ref:`3.3.8<comment_cmd-title>` Comment Command
 |       :ref:`3.3.9<comment_ch_cmd-title>` Comment Character Command
+|       :ref:`3.3.10<ref_cmd-title>` Allow Multiple Lines in Sphinx ref Role
 |    :ref:`3.4<automatic-title>` Automatic Processing
 |       :ref:`3.4.1<indent-title>` Indentation
 |       :ref:`3.4.2<heading_links-title>` Heading Cross Reference Links
@@ -63,15 +65,16 @@ Table of Contents
 |    :ref:`4.16<xrst.pattern-title>` The xrst.pattern Dictionary
 |    :ref:`4.17<process_children-title>` Add child information to a page
 |    :ref:`4.18<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.19<remove_indent-title>` Remove indentation for a page
-|    :ref:`4.20<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.21<rename_group-title>` Rename a Subset of a Group
-|    :ref:`4.22<replace_spell-title>` Replace spelling commands
-|    :ref:`4.23<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`4.24<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.25<start_end_file-title>` Convert literal command start, end from text to line numbers
-|    :ref:`4.26<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`4.27<system_exit-title>` Form error message and exit
-|    :ref:`4.28<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`4.29<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`4.30<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`4.19<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
+|    :ref:`4.20<remove_indent-title>` Remove indentation for a page
+|    :ref:`4.21<remove_line_numbers-title>` Remove the number numbers
+|    :ref:`4.22<rename_group-title>` Rename a Subset of a Group
+|    :ref:`4.23<replace_spell-title>` Replace spelling commands
+|    :ref:`4.24<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`4.25<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`4.26<start_end_file-title>` Convert literal command start, end from text to line numbers
+|    :ref:`4.27<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`4.28<system_exit-title>` Form error message and exit
+|    :ref:`4.29<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`4.30<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`4.31<toc_cmd_dev-title>` Get file and page names for children of this page

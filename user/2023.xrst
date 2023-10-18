@@ -27,6 +27,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+10-18
+=====
+Allow for newlines in sphinx ``ref`` role targets; see
+:ref:`ref_cmd-name` .
+
 10-09
 =====
 #. The following problem has been fixed.
