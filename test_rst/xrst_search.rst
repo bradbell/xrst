@@ -1,4 +1,4 @@
-'.. _xrst_search-title:
+.. _xrst_search-title:
 
 Search
 ######

@@ -97,8 +97,9 @@ root_doc = 'xrst_root_doc'
 #
 #
 # xrst_search_rst
-xrst_search_rst = r'''
-'.. _xrst_search-title:
+# Do not start with a newine because it will get removed from
+# test_rst/xrst_search.rst during the check for invisible white space.
+xrst_search_rst = r'''.. _xrst_search-title:
 
 Search
 ######
