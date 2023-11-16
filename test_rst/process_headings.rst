@@ -153,10 +153,22 @@ It has three lines each terminated by a newline:
  2. heading text line for this page title
  3. an underline line
 
+.. meta::
+   :keywords: keywords
+
+.. index:: keywords
+
+.. _process_headings@Returns@keywords:
+
+keywords
+========
+This is a space separated list of all the keywords that are in the index
+for this page.
+
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 235-243
+   :lines: 240-248
    :language: py
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 503-507
+   :lines: 515-520
    :language: py

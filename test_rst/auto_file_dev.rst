@@ -93,6 +93,7 @@ with the following key, value pairs (all the keys are strings):
     page_title,  (str) containing the title for this page.
     parent_page, (int) index in all_page_info for the parent of this page.
     in_parent_file, (bool) is this page in same input file as its parent.
+    keywords, (str) space separated list of index entries for this page.
 
 .. meta::
    :keywords: root_page_list
@@ -129,6 +130,30 @@ to this page.
 tmp_dir/xrst_index.rst
 **********************
 This file just contains a link to the genindex.rst file.
+It is (is not) included if target is html (tex).
+
+.. meta::
+   :keywords: tmp_dir/xrst_search.rst
+
+.. index:: tmp_dir/xrst_search.rst
+
+.. _auto_file_dev@tmp_dir/xrst_search.rst:
+
+tmp_dir/xrst_search.rst
+***********************
+This file contains the xrst search utility.
+It is (is not) included if target is html (tex).
+
+.. meta::
+   :keywords: tmp_dir/xrst_search.js
+
+.. index:: tmp_dir/xrst_search.js
+
+.. _auto_file_dev@tmp_dir/xrst_search.js:
+
+tmp_dir/xrst_search.js
+**********************
+This file contains the java script used by xrst_search.rst.
 It is (is not) included if target is html (tex).
 
 .. meta::
@@ -170,5 +195,5 @@ rst_dir/conf.py
 This is the configuration file used by sphinx to build the documentation.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 153-160
+   :lines: 364-371
    :language: py

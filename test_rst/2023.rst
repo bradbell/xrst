@@ -27,6 +27,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@11-15:
+
+11-15
+=====
+Add the :ref:`xrst search page<auto_file@xrst_search.rst>`.
+
 .. _2023@mm-dd@10-18:
 
 10-18

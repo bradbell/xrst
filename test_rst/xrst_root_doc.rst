@@ -12,3 +12,4 @@ xrst
    user-guide
    module
    xrst_index
+   xrst_search

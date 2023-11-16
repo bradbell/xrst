@@ -231,6 +231,11 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #  2. heading text line for this page title
 #  3. an underline line
 #
+# keywords
+# ========
+# This is a space separated list of all the keywords that are in the index
+# for this page.
+#
 # {xrst_code py}
 def process_headings(
       conf_dict, local_toc, data_in, file_name, page_name, not_in_index_list
@@ -301,7 +306,8 @@ def process_headings(
    # found_level_one_heading
    found_level_one_heading = False
    #
-   # heading_list, heading_index, heading_text, underline_text
+   # keywords, heading_list, heading_index, heading_text, underline_text
+   keywords         = ''
    heading_list     = list()
    data_index       = 0
    heading_index, heading_text, underline_text = \
@@ -437,6 +443,9 @@ def process_headings(
             else :
                index_entries += ', ' + word
       #
+      # keywords
+      keywords += ' ' + index_entries.replace(',', ' ')
+      #
       # data_tmp
       # data that comes before this heading
       data_tmp   = data_out[: heading_index]
@@ -499,10 +508,14 @@ def process_headings(
    # page_title
    page_title = heading_list[0]['text']
    #
+   # keywords
+   keywords = ' '.join( keywords.split() )
+   #
    # BEGIN_return
    assert type(data_out) == str
    assert type(page_title) == str
    assert type(pseudo_heading) == str
+   assert type(keywords) == str
    #
-   return data_out, page_title, pseudo_heading
+   return data_out, page_title, pseudo_heading, keywords
    # END_return

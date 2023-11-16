@@ -984,8 +984,8 @@ def run_xrst() :
             # ------------------------------------------------------------
             # process headings
             #
-            # pseudo_heading, all_page_info
-            page_data, page_title, pseudo_heading = \
+            # pseudo_heading, page_title, keywords
+            page_data, page_title, pseudo_heading, keywords = \
             xrst.process_headings(
                conf_dict,
                local_toc,
@@ -994,9 +994,11 @@ def run_xrst() :
                page_name,
                not_in_index_list,
             )
+            #
             # all_page_info
             # page title is used by table_of_contents
-            all_page_info[page_index]['page_title'] = page_title
+            all_page_info[page_index]['page_title']  = page_title
+            all_page_info[page_index]['keywords']    = keywords
             # -------------------------------------------------------------
             # list_children
             # page_name for each of the children of the current page
@@ -1085,6 +1087,8 @@ def run_xrst() :
       conf_dict, html_theme, target, all_page_info, root_page_list
    )
    #
+   # not_rst_list
+   not_rst_list = [ 'conf.py' , 'xrst_search.js' ]
    # -------------------------------------------------------------------------
    #
    # rst_directory/*.rst
@@ -1093,7 +1097,7 @@ def run_xrst() :
    for name in tmp_list :
       src = f'{tmp_dir}/{name}'
       des = f'{rst_directory}/{name}'
-      if name.endswith('.rst') :
+      if name.endswith('.rst') or name in not_rst_list :
          if name not in rst_list :
                shutil.copyfile(src, des)
          else :
@@ -1162,7 +1166,12 @@ def run_xrst() :
          src_file = f'{target_directory}/{index_page_name}.html'
          des_file = f'{target_directory}/index.html'
          shutil.copyfile(src_file, des_file)
-
+         #
+         # target_directory/xrst_search.js
+         src_file = f'{rst_directory}/xrst_search.js'
+         des_file = f'{target_directory}/xrst_search.js'
+         shutil.copyfile(src_file, des_file)
+         #
    else :
       assert target == 'tex'
       #
