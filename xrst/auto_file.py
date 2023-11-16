@@ -226,12 +226,12 @@ function update_match()
    //
    // document.search.name_match
    document.search.name_match.value    = name_match;
-   document.search.name_match.readOnly = true;
+   document.search.name_match.readOnly = false;
    document.search.name_match.setAttribute('wrap', 'off');
    //
    // document.search.title_match
    document.search.title_match.value    = title_match;
-   document.search.title_match.readOnly = true;
+   document.search.title_match.readOnly = false;
    document.search.title_match.setAttribute('wrap', 'off');
 }
 // select_match
