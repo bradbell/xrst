@@ -46,7 +46,7 @@ Search
             cols='15'
             onclick='select_match(this)'
             ondblclick='goto_match(this)'
-            onkeydown='check_for_return(this)'
+            onkeydown='page_or_title_entry(this)'
          ></textarea>
       </td><td>
          <textarea
@@ -55,7 +55,7 @@ Search
             cols='50'
             onclick='select_match(this)'
             ondblclick='goto_match(this)'
-            onkeydown='check_for_return(this)'
+            onkeydown='page_or_title_entry(this)'
          ></textarea>
       </td></tr>
    </table></p>

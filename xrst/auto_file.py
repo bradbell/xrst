@@ -147,7 +147,7 @@ Search
             cols='15'
             onclick='select_match(this)'
             ondblclick='goto_match(this)'
-            onkeydown='check_for_return(this)'
+            onkeydown='page_or_title_entry(this)'
          ></textarea>
       </td><td>
          <textarea
@@ -156,7 +156,7 @@ Search
             cols='50'
             onclick='select_match(this)'
             ondblclick='goto_match(this)'
-            onkeydown='check_for_return(this)'
+            onkeydown='page_or_title_entry(this)'
          ></textarea>
       </td></tr>
    </table></p>
@@ -258,12 +258,10 @@ function goto_match(textarea)
    //
    parent.location  = page_name + '.html'
 }
-// check_for_return()
-function check_for_return(textarea)
-{
-   var key = event.which;
-   if( key == 13 )
-      goto_match(textarea);
+// page_or_title_entry()
+function page_or_title_entry(textarea)
+{  alert( 'Only use single or double click below Page Name and Page Title');
+   parent.location  = 'xrst_search.html'
 }
 '''
 #
