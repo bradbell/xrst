@@ -394,6 +394,7 @@ def system_command(
       if result.returncode == 0 :
          sys.stderr.write(message)
          warning[0] = True
+         return
       else :
          message  += 'Error: see message above.\n'
          system_exit(message)
