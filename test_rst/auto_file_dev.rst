@@ -195,5 +195,5 @@ rst_dir/conf.py
 This is the configuration file used by sphinx to build the documentation.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 363-370
+   :lines: 364-371
    :language: py

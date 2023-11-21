@@ -27,6 +27,13 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@11-21:
+
+11-21
+=====
+Add mention in :ref:`purpose-name` of the new
+:ref:`xrst_search<auto_file@xrst_search.rst>` web page.
+
 .. _2023@mm-dd@11-20:
 
 11-20
@@ -39,7 +46,7 @@ This has been fixed.
 
 11-15
 =====
-Add the :ref:`xrst search page<auto_file@xrst_search.rst>`.
+Add the :ref:`xrst_search<auto_file@xrst_search.rst>` web page.
 
 .. _2023@mm-dd@10-18:
 
