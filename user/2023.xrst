@@ -27,6 +27,14 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+12-04
+=====
+Words in the current :ref:`spell_cmd@page_name`
+are now automatically consider correct spellings and are
+no longer needed in the spell command.
+If this causes a lot of spelling warnings for a project,
+consider using :ref:`run_xrst@replace_spell_commands` to fix them.
+
 11-21
 =====
 Add mention in :ref:`purpose-name` of the new

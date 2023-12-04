@@ -74,9 +74,9 @@ The return data_out is a copy of data_in except that all the occurrences of
 relative to the rst directory.
 
 .. literalinclude:: ../../xrst/dir_command.py
-   :lines: 75-77
+   :lines: 69-71
    :language: py
 
 .. literalinclude:: ../../xrst/dir_command.py
-   :lines: 106-107
+   :lines: 100-101
    :language: py

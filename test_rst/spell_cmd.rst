@@ -112,6 +112,18 @@ The list of words in the
 are considered correct spellings for all pages.
 
 .. meta::
+   :keywords: page_name
+
+.. index:: page_name
+
+.. _spell_cmd@page_name:
+
+page_name
+*********
+The words in the :ref:`begin_cmd@page_name`
+are considered correct spellings for that page.
+
+.. meta::
    :keywords: capital, letters
 
 .. index:: capital, letters

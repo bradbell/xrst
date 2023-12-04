@@ -5,9 +5,6 @@
 def factorial(n) :
    r"""
 {xrst_begin docstring_example}
-{xrst_spell
-   docstring
-}
 
 Docstring Example
 #################

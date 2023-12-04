@@ -62,6 +62,11 @@ The list of words in the
 :ref:`config_file@project_dictionary`
 are considered correct spellings for all pages.
 
+page_name
+*********
+The words in the :ref:`begin_cmd@page_name`
+are considered correct spellings for that page.
+
 Capital Letters
 ***************
 The case of the first letter does not matter when checking spelling;
@@ -137,6 +142,10 @@ pattern['spell_off'] = re.compile( r'\n[ \t]*\{xrst_spell_off}' + lin )
 pattern['word']  = re.compile(
    r'(@xrst_line [0-9]+@|[^A-Za-z\s\\]+|\\?[A-Za-z][a-z]+)'
 )
+#
+# pattern['page_name_word']
+# The pattern for a word in the page name.
+pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # -----------------------------------------------------------------------------
 # {xrst_begin spell_cmd_dev dev}
 # {xrst_spell
@@ -228,17 +237,17 @@ def spell_command(
    # }
    # {xrst_end spell_cmd_dev}
    #
+   # first_spell_warning
+   first_spell_warning = True
+   #
    # m_spell
    m_spell       = pattern['spell'].search(data_in)
-   #
-   # special_used, double_used
-   special_used  = dict()
-   double_used   = dict()
    #
    # data_out
    data_out = data_in
    #
-   # special_used, double_used
+   # special_list, data_out
+   special_list = list()
    if m_spell != None :
       #
       # check for multiple spell commands in one page
@@ -273,20 +282,34 @@ def spell_command(
             line = line,
          )
       #
-      # special_used, double_used
-      previous_lower = ''
+      # special_list
       for m_obj in pattern['word'].finditer( word_list ) :
          word_lower = m_obj.group(0).lower()
          if not word_lower.startswith('@xrst_line') :
-            special_used[ word_lower ] = False
-            if word_lower == previous_lower :
-               double_used[ word_lower ] = False
-            previous_lower = word_lower
+            special_list.append( word_lower )
       #
       # remove spell command
       start    = m_spell.start()
       end      = m_spell.end()
       data_out = data_in[: start+1] + data_in[end :]
+   #
+   # special_used, double_used
+   special_used   = dict()
+   double_used    = dict()
+   previous_word  = ''
+   for word_lower in special_list :
+      if word_lower == previous_word :
+         double_used[ word_lower ] = False
+      else :
+         special_used[ word_lower ] = False
+      #
+      previous_word = word_lower
+   #
+   # page_name_word
+   page_name_word = list()
+   for m_word in pattern['page_name_word'].finditer(page_name) :
+      word_lower = m_word.group(0).lower()
+      page_name_word.append( word_lower )
    #
    # data_tmp
    # version of data_in with certain commands removed
@@ -358,9 +381,6 @@ def spell_command(
    # any left over xrst commands
    data_tmp = re.sub( r'{xrst_comment_ch' , '@', data_tmp)
    #
-   # first_spell_warning
-   first_spell_warning = True
-   #
    # previous_word
    previous_word = ''
    #
@@ -376,8 +396,10 @@ def spell_command(
       #
       if not word.startswith('@xrst_line') and word[0].isalpha()  :
          #
-         known =  spell_checker.known( word )
+         known =  spell_checker.known( word ) or word_lower in page_name_word
          if not known :
+            if page_name == 'docstring_example' :
+               breakpoint()
             #
             # unknown_word_list
             if not word_lower in unknown_word_list :
@@ -410,7 +432,8 @@ def spell_command(
                sys.stderr.write(msg)
             #
             # special_used
-            special_used[word_lower] = True
+            if word_lower in special_used :
+               special_used[word_lower] = True
          #
          double_word = word_lower == previous_word.lower()
          if double_word :
@@ -448,7 +471,8 @@ def spell_command(
                sys.stderr.write(msg)
             #
             # double_used
-            double_used[word_lower]  = True
+            if word_lower in double_used :
+               double_used[word_lower]  = True
       if not word.startswith('@xrst_line') :
          # previous_word
          # This captures when there are non space characters between words

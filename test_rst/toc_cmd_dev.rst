@@ -149,9 +149,9 @@ specifies if the pages in *child_page_list* come before or after
 the rest of the children for this page.
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 194-199
+   :lines: 189-194
    :language: py
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 392-401
+   :lines: 387-396
    :language: py

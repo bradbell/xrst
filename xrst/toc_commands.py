@@ -5,8 +5,6 @@
 r"""
 {xrst_begin toc_cmd user}
 {xrst_spell
-   frist
-   toc
    toctree
 }
 
@@ -77,7 +75,7 @@ The first of these pages may use a
    page where the toc command appears..
 
 #. If the first page in a file is a begin parent page,
-   the other pages in the file are children of the frist page.
+   the other pages in the file are children of the first page.
    Hence the other pages are grand children of the page
    where the begin toc command appears.
 
@@ -128,9 +126,6 @@ import os
 import xrst
 import re
 # {xrst_begin toc_cmd_dev dev}
-# {xrst_spell
-#     toc
-# }
 # {xrst_comment_ch #}
 #
 # Get file and page names for children of this page

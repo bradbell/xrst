@@ -4,9 +4,6 @@
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin dir_cmd user}
-{xrst_spell
-   dir
-}
 
 Converting Sphinx Command File Names
 ####################################
@@ -42,9 +39,6 @@ import os
 import xrst
 #
 # {xrst_begin dir_cmd_dev dev}
-# {xrst_spell
-#     dir
-# }
 # {xrst_comment_ch #}
 #
 # Convert File Names to be Relative to the RST Directory

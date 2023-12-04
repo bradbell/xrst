@@ -479,7 +479,6 @@ def iterable2string(iterable) :
 #
 # {xrst_begin get_conf_dict dev}
 # {xrst_spell
-#     conf
 #     toml
 # }
 # {xrst_comment_ch #}
