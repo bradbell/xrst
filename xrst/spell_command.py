@@ -122,7 +122,7 @@ pattern['literal']   = xrst.pattern['literal']
 # pattern
 # local pattern values only used by spell command
 pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
-pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.]*' )
+pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.#-]*' )
 pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )

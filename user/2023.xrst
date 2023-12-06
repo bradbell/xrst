@@ -18,7 +18,6 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    toml
    tox
    pyspellchecker
-   issuecomment
    doxygen
    autodoc
 }
@@ -35,6 +34,8 @@ mm-dd
    :ref:`class_example-name` .
 #. The comparison between xrst with doxygen and autodoc was made
    more explicit; see :ref:`purpose@Goal` .
+#. The pound sign ``#`` and the dash character ``-`` were added to the list
+   of characters allowed in the web address that do not get spell checked.
 
 12-04
 =====
