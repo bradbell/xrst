@@ -21,6 +21,7 @@ Examples
    example/indent.py
    example/docstring.py
    example/configure.xrst
+   example/class.cpp
    .readthedocs.yaml
    example/test.py
 }

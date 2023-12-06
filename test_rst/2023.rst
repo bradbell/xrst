@@ -27,6 +27,13 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@12-06:
+
+12-06
+=====
+An example that documents a class was added; see
+:ref:`class_example-name` .
+
 .. _2023@mm-dd@12-04:
 
 12-04

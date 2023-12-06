@@ -20,8 +20,11 @@ Table of Contents
 |    :ref:`1.12<indent_example-title>` Indent Example
 |    :ref:`1.13<docstring_example-title>` Docstring Example
 |    :ref:`1.14<configure_example-title>` Example Using TOML Configure File
-|    :ref:`1.15<.readthedocs.yaml-title>` Example Read the Docs Configuration
-|    :ref:`1.16<testExample-title>` Test Special Conditions
+|    :ref:`1.15<class_example-title>` Example Documenting a Class
+|       :ref:`1.15.1<example_ad_double-title>` An Example Using the ad_double Class
+|       :ref:`1.15.2<test_ad_double-title>` Run ad_double Example and Check its Result
+|    :ref:`1.16<.readthedocs.yaml-title>` Example Read the Docs Configuration
+|    :ref:`1.17<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user-guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst

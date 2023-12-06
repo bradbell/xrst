@@ -27,6 +27,11 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+12-06
+=====
+An example that documents a class was added; see
+:ref:`class_example-name` .
+
 12-04
 =====
 Words in the current :ref:`spell_cmd@page_name`

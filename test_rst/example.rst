@@ -32,6 +32,7 @@ Examples
    "indent_example", :ref:`indent_example-title`
    "docstring_example", :ref:`docstring_example-title`
    "configure_example", :ref:`configure_example-title`
+   "class_example", :ref:`class_example-title`
    ".readthedocs.yaml", :ref:`.readthedocs.yaml-title`
    "testExample", :ref:`testExample-title`
 
@@ -53,5 +54,6 @@ Examples
    indent_example
    docstring_example
    configure_example
+   class_example
    .readthedocs.yaml
    testExample

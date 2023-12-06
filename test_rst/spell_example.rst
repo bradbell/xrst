@@ -38,8 +38,9 @@ so we have included it in the special words for this page.
 
 Spelling File
 *************
-The word ``xrst`` is included by the spelling file used to build this
-documentation and hence need not be in the special words for this page.
+The word ``xrst`` is not in the special words for this page because
+it is in the configuration file's project dictionary
+that was used to build this documentation.
 
 .. meta::
    :keywords: math
@@ -51,7 +52,7 @@ documentation and hence need not be in the special words for this page.
 Math
 ****
 Words that are preceded by a backslash; e.g., latex commands,
-are automatically included as correct spelling.
+are automatically considered correct spelling.
 
 .. math::
 
@@ -66,10 +67,10 @@ are automatically included as correct spelling.
 
 Double Words
 ************
-It is consider an error to have only white space between
+It is considered an error to have only white space between
 two occurrences of the same word; e.g.,
 no no would be an error if there
-were not two occurrences of :code:`no` next to each other in the
+were not two occurrences of ``no`` next to each other in the
 spelling command for this page.
 
 .. meta::
