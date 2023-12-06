@@ -31,8 +31,10 @@ mm-dd
 
 12-06
 =====
-An example that documents a class was added; see
-:ref:`class_example-name` .
+#. An example that documents a class was added; see
+   :ref:`class_example-name` .
+#. The comparison between xrst with doxygen and autodoc was made
+   more explicit; see :ref:`purpose@Goal` .
 
 .. _2023@mm-dd@12-04:
 

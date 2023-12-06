@@ -21,14 +21,14 @@ Example Documenting a Class
 
 Syntax
 ******
-| ``ad_double`` *var* ( *value* , *derivative* )
-| ``ad_double`` *other* ( *value* , *derivative* )
-| *var*.\ ``value``\ ()
-| *var*.\ ``derivative``\ ()
-| *var* + *other*
-| *var* - *other*
-| *var* * *other*
-| *var* / *other*
+| |tab| ``ad_double`` *var* ( *value* , *derivative* )
+| |tab| ``ad_double`` *other* ( *value* , *derivative* )
+| |tab| *var*.\ ``value``\ ()
+| |tab| *var*.\ ``derivative``\ ()
+| |tab| *var* + *other*
+| |tab| *var* - *other*
+| |tab| *var* * *other*
+| |tab| *var* / *other*
 
 .. meta::
    :keywords: prototype
@@ -41,7 +41,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 67-67,72-72,77-77,82-82,90-90,98-98,107-107
+   :lines: 74-74,79-79,84-84,89-89,97-97,105-105,114-114
    :language: cpp
 
 .. meta::
@@ -72,6 +72,14 @@ The function :ref:`example_ad_double-name` is an example for using this class.
 Test
 ****
 The main program :ref:`test_ad_double-name` runs the example above.
+
+.. _class_example@This Example File:
+
+This Example File
+*****************
+
+.. literalinclude:: ../../example/class.cpp
+   :language: cpp
 
 .. toctree::
    :maxdepth: 1

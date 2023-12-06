@@ -19,6 +19,8 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    tox
    pyspellchecker
    issuecomment
+   doxygen
+   autodoc
 }
 
 xrst Release Notes for 2023
@@ -29,8 +31,10 @@ mm-dd
 
 12-06
 =====
-An example that documents a class was added; see
-:ref:`class_example-name` .
+#. An example that documents a class was added; see
+   :ref:`class_example-name` .
+#. The comparison between xrst with doxygen and autodoc was made
+   more explicit; see :ref:`purpose@Goal` .
 
 12-04
 =====

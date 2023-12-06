@@ -11,16 +11,19 @@
 Example Documenting a Class
 ###########################
 
+{xrst_comment
+   |tab| is defined as part of rst_prolog in xrst.toml for this project
+}
 Syntax
 ******
-| ``ad_double`` *var* ( *value* , *derivative* )
-| ``ad_double`` *other* ( *value* , *derivative* )
-| *var*.\ ``value``\ ()
-| *var*.\ ``derivative``\ ()
-| *var* + *other*
-| *var* - *other*
-| *var* * *other*
-| *var* / *other*
+| |tab| ``ad_double`` *var* ( *value* , *derivative* )
+| |tab| ``ad_double`` *other* ( *value* , *derivative* )
+| |tab| *var*.\ ``value``\ ()
+| |tab| *var*.\ ``derivative``\ ()
+| |tab| *var* + *other*
+| |tab| *var* - *other*
+| |tab| *var* * *other*
+| |tab| *var* / *other*
 
 Prototype
 *********
@@ -53,6 +56,10 @@ The main program :ref:`test_ad_double-name` runs the example above.
    because they are discussed under Example and Test above
 }
 {xrst_toc_hidden }
+
+This Example File
+*****************
+{xrst_literal}
 
 {xrst_end class_example}
 */
@@ -190,6 +197,11 @@ ok is true if all the test above pass and false otherwise.
    return ok;
 }
 /* {xrst_code}
+
+Example File
+************
+:ref:`class_example@This Example File`
+is the same as for the parent of this page.
 {xrst_end example_ad_double}
 ------------------------------------------------------------------------------
 {xrst_begin test_ad_double}
@@ -200,6 +212,11 @@ Run ad_double Example and Check its Result
    BEGIN MAIN
    END MAIN
 }
+
+Example File
+************
+:ref:`class_example@This Example File`
+is the same as for the parent of this page.
 {xrst_end test_ad_double}
 */
 // BEGIN MAIN

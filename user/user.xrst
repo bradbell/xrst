@@ -24,8 +24,11 @@ Goal
 ****
 The goal is to extend RST and sphinx so that they can be
 used in the comments of any source code language.
-This wrapper has some of the benefits of doxygen and autodoc without
-some of the drawbacks.
+This wrapper differs from doxygen and autodoc in how
+the user chooses the sections of source code
+that are part of the documentation and API; e.g., see
+:ref:`class_example-name`.
+
 
 .. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
