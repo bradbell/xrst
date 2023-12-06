@@ -33,7 +33,7 @@ This function has no arguments and returns a boolean that is true,
 if all it's tests pass, and false otherwise.
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 128-130
+   :lines: 137-139
    :language: cpp
 
 .. meta::
@@ -47,7 +47,7 @@ Independent Variable
 ********************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 136-138
+   :lines: 145-147
    :language: cpp
 
 .. meta::
@@ -61,7 +61,7 @@ Addition
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 144-147
+   :lines: 153-156
    :language: cpp
 
 .. meta::
@@ -75,7 +75,7 @@ Subtraction
 ***********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 153-156
+   :lines: 162-165
    :language: cpp
 
 .. meta::
@@ -89,7 +89,7 @@ Multiplication
 **************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 162-165
+   :lines: 171-174
    :language: cpp
 
 .. meta::
@@ -103,7 +103,7 @@ Division
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 171-174
+   :lines: 180-183
    :language: cpp
 
 .. meta::
@@ -118,5 +118,5 @@ End Function
 ok is true if all the test above pass and false otherwise.
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 181-182
+   :lines: 190-191
    :language: cpp

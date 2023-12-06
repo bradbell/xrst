@@ -48,6 +48,12 @@ Test
 ****
 The main program :ref:`test_ad_double-name` runs the example above.
 
+{xrst_comment
+   Hide the table of contents for the children of this page
+   because they are discussed under Example and Test above
+}
+{xrst_toc_hidden }
+
 {xrst_end class_example}
 */
 # include <iostream>

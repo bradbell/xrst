@@ -41,7 +41,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 58-58,63-63,68-68,73-73,81-81,89-89,98-98
+   :lines: 67-67,72-72,77-77,82-82,90-90,98-98,107-107
    :language: cpp
 
 .. meta::
@@ -72,13 +72,6 @@ The function :ref:`example_ad_double-name` is an example for using this class.
 Test
 ****
 The main program :ref:`test_ad_double-name` runs the example above.
-
-.. csv-table::
-   :header: "Child", "Title"
-   :widths: 20, 80
-
-   "example_ad_double", :ref:`example_ad_double-title`
-   "test_ad_double", :ref:`test_ad_double-title`
 
 .. toctree::
    :maxdepth: 1
