@@ -351,12 +351,8 @@ def get_file_info(
          #
          # page_data
          # order of these operations is important
-         page_data  = xrst.suspend_command(
-            page_data, file_in, page_name
-         )
-         page_data, indent = xrst.remove_indent(
-            page_data, file_in, page_name
-         )
+         page_data = xrst.suspend_command( page_data, file_in, page_name)
+         page_data = xrst.remove_indent(   page_data, file_in, page_name)
          #
          # page_data
          page_data, comment_ch = xrst.comment_ch_command(

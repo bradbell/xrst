@@ -110,9 +110,7 @@ def replace_spell(tmp_dir) :
          page_data = data_copy[m_begin.end() : m_end.start() ]
          #
          # indent
-         not_used, indent = xrst.remove_indent(
-            page_data, file_name, page_name
-         )
+         indent = xrst.auto_indent(page_data, file_name, page_name)
          #
          # comment_ch
          not_used, comment_ch = xrst.comment_ch_command(

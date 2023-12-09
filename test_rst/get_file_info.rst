@@ -174,5 +174,5 @@ the line number where the end command is located.
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 407-410
+   :lines: 403-406
    :language: py

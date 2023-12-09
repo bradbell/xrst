@@ -193,7 +193,7 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
       data_after   = data_out[m_end.end() : ]
       #
       # indent
-      not_used, indent = xrst.remove_indent(data_between, file_name, page_name)
+      indent = xrst.auto_indent(data_between, file_name, page_name)
       #
       # start_line, stop_line
       assert data_out[m_begin.end()] == '\n'

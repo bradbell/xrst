@@ -21,6 +21,7 @@ The xrst Module
    "add_before_title", :ref:`add_before_title-title`
    "add_line_numbers", :ref:`add_line_numbers-title`
    "auto_file_dev", :ref:`auto_file_dev-title`
+   "auto_indent", :ref:`auto_indent-title`
    "check_input_files", :ref:`check_input_files-title`
    "check_page_name", :ref:`check_page_name-title`
    "check_syntax_error", :ref:`check_syntax_error-title`
@@ -57,6 +58,7 @@ The xrst Module
    add_before_title
    add_line_numbers
    auto_file_dev
+   auto_indent
    check_input_files
    check_page_name
    check_syntax_error
