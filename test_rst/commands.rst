@@ -23,6 +23,7 @@ These commands are described in the pages below:
 -  :ref:`toc_cmd-title`
 -  :ref:`spell_cmd-title`
 -  :ref:`suspend_cmd-title`
+-  :ref:`indent_cmd-title`
 -  :ref:`code_cmd-title`
 -  :ref:`literal_cmd-title`
 -  :ref:`dir_cmd-title`
@@ -38,6 +39,7 @@ These commands are described in the pages below:
    toc_cmd
    spell_cmd
    suspend_cmd
+   indent_cmd
    code_cmd
    literal_cmd
    dir_cmd

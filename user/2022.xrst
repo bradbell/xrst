@@ -552,7 +552,7 @@ This has been fixed.
    file example.
 #. The :ref:`run_xrst@replace_spell_commands` option did not work properly
    in files that contained a :ref:`comment_ch_cmd-name`.  This has been fixed.
-#. The :ref:`indent-name` did not work properly in files that contained
+#. The :ref:`indent_cmd-name` did not work properly in files that contained
    :ref:`comment_ch_cmd-name`. This has been fixed.
 #. The comment command was added; see :ref:`comment_example-name`.
 #. Add an error message when :ref:`comment_ch_cmd-name` is present but not

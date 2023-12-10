@@ -46,10 +46,10 @@ and the ``def`` token indented the same amount:
          return 1
       return n * factorial(n-1)
 
-Indent
-******
-The :ref:`indent-name` is calculated before removing the special character
-and its white space.
+Indentation
+***********
+The :ref:`indent commands<indent_cmd-name>`
+are processed before removing the special character and its white space.
 
 Example
 *******

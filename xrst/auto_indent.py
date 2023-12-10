@@ -20,7 +20,7 @@ Prototype
 
 data
 ****
-is the data we are computing the indent for.
+is the data we are computing the indentation for.
 The text before the first new_line does not matter.
 If you want to include this text, add a newline at the beginning of *data*.
 
@@ -34,9 +34,9 @@ page_name
 used for error reporting when *data* mixes spaces and tabs in
 the indentation.
 
-indent
-******
-The return value *indent* is the automatically computed indent.
+indentation
+***********
+The return value *indentation* is the automatically computed indentation.
 It will be a sequence of spaces or tabs but it will not mix
 spaces and tabs.
 
@@ -45,8 +45,8 @@ spaces and tabs.
 import re
 import xrst
 #
-# pattern_indent
-pattern_indent = re.compile( r'\n([ \t]*)[^ \t\n]' )
+# pattern_newline
+pattern_newline = re.compile( r'\n([ \t]*)[^ \t\n]' )
 #
 # BEGIN PROTOTYPE
 def auto_indent(data, file_name, page_name) :
@@ -63,7 +63,7 @@ def auto_indent(data, file_name, page_name) :
    #
    # n_indent
    n_indent = len(data)
-   m_itr    = pattern_indent.finditer(data)
+   m_itr    = pattern_newline.finditer(data)
    for m_obj in m_itr :
       n_indent = min(n_indent, len( m_obj.group(1) ) )
    #
@@ -93,10 +93,10 @@ def auto_indent(data, file_name, page_name) :
          next_ += 1
    #
    #
-   # indent
-   indent = n_indent * indent_ch
+   # indentation
+   indentation = n_indent * indent_ch
    #
    # BEGIN RETURN
-   assert type(indent) == str
-   return indent
+   assert type(indentation) == str
+   return indentation
    # END RETURN

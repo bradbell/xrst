@@ -14,7 +14,9 @@ def factorial(n) :
 
    Discussion
    **********
-   The file below demonstrates indenting an entire xrst page.
+   The file below demonstrates a single indentation for an entire xrst page.
+   (See :ref:`example_ad_double@xrst_indent` for an example
+   that has different indentation for different parts of a page.)
    Note that underling headings works even though it is indented.
 
    Python Docstring

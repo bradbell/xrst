@@ -16,6 +16,7 @@ These commands are described in the pages below:
    xrst/toc_commands.py
    xrst/spell_command.py
    xrst/suspend_command.py
+   xrst/indent_command.py
    xrst/code_command.py
    xrst/literal_command.py
    xrst/dir_command.py

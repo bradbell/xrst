@@ -134,19 +134,21 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # info['page_data']
 # -----------------
 # is an str containing the data for this page.
+# This data has been processed in the following way and order.
 #
 #  #. Line numbers have been added using :ref:`add_line_numbers-name` .
 #     This is the first operation done on a page and other operations
 #     assume that line numbers are present. They are removed near the end
 #     when the temporary file corresponding to a page is created.
-#  #. If present for this page, the comment character and possible space
-#     after have been removed.
-#  #. The xrst begin and end commands are not include in this data.
-#  #. The first (last) line number corresponds to the begin (end) command
+#  #. The page data has been restricted to the text between
+#     the end of the begin command and the start of the end command.
 #  #. The suspend / resume commands and data between such pairs
-#     have been removed.
-#  #. If there is a common :ref`indent` for the entire page,
-#     it has been removed.
+#     have been removed; see :ref:`suspend_cmd-name` .
+#  #. The indentations for this page have been removed; see
+#     :ref:`indent_cmd-name` .
+#  #. If a comment character command is present for this page,
+#     the command is remove and for each line, the possible
+#     comment character and possible space after have been removed.
 #
 # info['is_parent']
 # -----------------
@@ -352,7 +354,7 @@ def get_file_info(
          # page_data
          # order of these operations is important
          page_data = xrst.suspend_command( page_data, file_in, page_name)
-         page_data = xrst.remove_indent(   page_data, file_in, page_name)
+         page_data = xrst.indent_command( page_data, file_in, page_name)
          #
          # page_data
          page_data, comment_ch = xrst.comment_ch_command(

@@ -28,6 +28,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+12-10
+=====
+The :ref:`indent command<indent_cmd-name>` was added so that
+the amount of indentation could be different for different parts of a page;
+e.g. see :ref:`example_ad_double@xrst_indent` .
+
 12-06
 =====
 #. An example that documents a class was added; see

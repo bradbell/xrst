@@ -136,6 +136,11 @@ This example mixes the documentation and the example code.
 Another choice is to put the documentation and the beginning
 an then just have comments in the code.
 
+xrst_indent
+***********
+This example make uses of ``xrst_indent`` so that
+the xrst input can be indented at the same level as the code it is next to.
+
 Begin Function
 **************
 This function has no arguments and returns a boolean that is true,
@@ -143,56 +148,62 @@ if all it's tests pass, and false otherwise.
 {xrst_code cpp} */
 bool test_ad_double(void)
 {
-   bool ok = true;
 /* {xrst_code}
+   {xrst_indent}
 
-Independent Variable
-********************
-{xrst_code cpp} */
+   Initialize ok
+   *************
+   {xrst_code cpp} */
+   bool ok = true;
+   /* {xrst_code}
+
+   Independent Variable
+   ********************
+   {xrst_code cpp} */
    double x  = 2.0;
    double dx = 3.0;
    ad_double ax(x, dx);
-/* {xrst_code}
+   /* {xrst_code}
 
-Addition
-********
-{xrst_code cpp} */
+   Addition
+   ********
+   {xrst_code cpp} */
    {  ad_double ay = ax + ax;
       double    dy = ay.derivative();
       ok          &= dy == 2.0 * dx;
    }
-/* {xrst_code}
+   /* {xrst_code}
 
-Subtraction
-***********
-{xrst_code cpp} */
+   Subtraction
+   ***********
+   {xrst_code cpp} */
    {  ad_double ay = ax - ax;
       double    dy = ay.derivative();
       ok          &= dy == 0.0;
    }
-/* {xrst_code}
+   /* {xrst_code}
 
-Multiplication
-**************
-{xrst_code cpp} */
+   Multiplication
+   **************
+   {xrst_code cpp} */
    {  ad_double ay = ax * ax;
       double    dy = ay.derivative();
       ok          &= dy == 2.0 * x * dx;
    }
-/* {xrst_code}
+   /* {xrst_code}
 
-Division
-********
-{xrst_code cpp} */
+   Division
+   ********
+   {xrst_code cpp} */
    {  ad_double ay = ax / ax;
       double    dy = ay.derivative();
       ok          &= dy == 0.0;
    }
-/* {xrst_code}
+   /* {xrst_code}
 
-End Function
-************
-ok is true if all the test above pass and false otherwise.
+   Return ok
+   *********
+{xrst_indent}
 {xrst_code cpp} */
    return ok;
 }

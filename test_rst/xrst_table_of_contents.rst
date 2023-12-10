@@ -34,16 +34,16 @@ Table of Contents
 |       :ref:`3.3.2<toc_cmd-title>` Table of Children Commands
 |       :ref:`3.3.3<spell_cmd-title>` Spell Command
 |       :ref:`3.3.4<suspend_cmd-title>` Suspend and Resume Commands
-|       :ref:`3.3.5<code_cmd-title>` Code Command
-|       :ref:`3.3.6<literal_cmd-title>` Literal Command
-|       :ref:`3.3.7<dir_cmd-title>` Converting Sphinx Command File Names
-|       :ref:`3.3.8<comment_cmd-title>` Comment Command
-|       :ref:`3.3.9<comment_ch_cmd-title>` Comment Character Command
-|       :ref:`3.3.10<ref_cmd-title>` Allow Multiple Lines in Sphinx ref Role
+|       :ref:`3.3.5<indent_cmd-title>` Indent Command
+|       :ref:`3.3.6<code_cmd-title>` Code Command
+|       :ref:`3.3.7<literal_cmd-title>` Literal Command
+|       :ref:`3.3.8<dir_cmd-title>` Converting Sphinx Command File Names
+|       :ref:`3.3.9<comment_cmd-title>` Comment Command
+|       :ref:`3.3.10<comment_ch_cmd-title>` Comment Character Command
+|       :ref:`3.3.11<ref_cmd-title>` Allow Multiple Lines in Sphinx ref Role
 |    :ref:`3.4<automatic-title>` Automatic Processing
-|       :ref:`3.4.1<indent-title>` Indentation
-|       :ref:`3.4.2<heading_links-title>` Heading Cross Reference Links
-|       :ref:`3.4.3<auto_file-title>` Automatically Generated Files
+|       :ref:`3.4.1<heading_links-title>` Heading Cross Reference Links
+|       :ref:`3.4.2<auto_file-title>` Automatically Generated Files
 |    :ref:`3.5<wish_list-title>` Wish List
 |    :ref:`3.6<release_notes-title>` xrst Release Notes By Year
 |       :ref:`3.6.1<2023-title>` xrst Release Notes for 2023
@@ -63,14 +63,14 @@ Table of Contents
 |    :ref:`4.11<get_conf_dict-title>` Get Configuration Dictionary
 |    :ref:`4.12<get_file_info-title>` Get information for all pages in a file
 |    :ref:`4.13<get_spell_checker-title>` Get A Spell Checker Object
-|    :ref:`4.14<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`4.15<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`4.16<next_heading-title>` Return location of the next heading in a page
-|    :ref:`4.17<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`4.18<process_children-title>` Add child information to a page
-|    :ref:`4.19<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.20<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
-|    :ref:`4.21<remove_indent-title>` Remove indentation for a page
+|    :ref:`4.14<indent_cmd_dev-title>` Process indent commands in a page
+|    :ref:`4.15<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`4.16<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`4.17<next_heading-title>` Return location of the next heading in a page
+|    :ref:`4.18<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`4.19<process_children-title>` Add child information to a page
+|    :ref:`4.20<process_headings-title>` Add labels and index entries for headings
+|    :ref:`4.21<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
 |    :ref:`4.22<remove_line_numbers-title>` Remove the number numbers
 |    :ref:`4.23<rename_group-title>` Rename a Subset of a Group
 |    :ref:`4.24<replace_spell-title>` Replace spelling commands

@@ -31,6 +31,7 @@ The xrst Module
    "get_conf_dict", :ref:`get_conf_dict-title`
    "get_file_info", :ref:`get_file_info-title`
    "get_spell_checker", :ref:`get_spell_checker-title`
+   "indent_cmd_dev", :ref:`indent_cmd_dev-title`
    "literal_cmd_dev", :ref:`literal_cmd_dev-title`
    "newline_indices", :ref:`newline_indices-title`
    "next_heading", :ref:`next_heading-title`
@@ -38,7 +39,6 @@ The xrst Module
    "process_children", :ref:`process_children-title`
    "process_headings", :ref:`process_headings-title`
    "ref_cmd_dev", :ref:`ref_cmd_dev-title`
-   "remove_indent", :ref:`remove_indent-title`
    "remove_line_numbers", :ref:`remove_line_numbers-title`
    "rename_group", :ref:`rename_group-title`
    "replace_spell", :ref:`replace_spell-title`
@@ -68,6 +68,7 @@ The xrst Module
    get_conf_dict
    get_file_info
    get_spell_checker
+   indent_cmd_dev
    literal_cmd_dev
    newline_indices
    next_heading
@@ -75,7 +76,6 @@ The xrst Module
    process_children
    process_headings
    ref_cmd_dev
-   remove_indent
    remove_line_numbers
    rename_group
    replace_spell

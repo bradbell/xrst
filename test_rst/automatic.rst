@@ -15,7 +15,6 @@ Automatic Processing
 ####################
 The processing described below happens without any commands:
 
--  :ref:`indent-title`
 -  :ref:`heading_links-title`
 -  :ref:`auto_file-title`
 
@@ -23,6 +22,5 @@ The processing described below happens without any commands:
    :maxdepth: 1
    :hidden:
 
-   indent
    heading_links
    auto_file

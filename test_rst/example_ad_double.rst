@@ -21,6 +21,18 @@ an then just have comments in the code.
    :local:
 
 .. meta::
+   :keywords: xrst_indent
+
+.. index:: xrst_indent
+
+.. _example_ad_double@xrst_indent:
+
+xrst_indent
+***********
+This example make uses of ``xrst_indent`` so that
+the xrst input can be indented at the same level as the code it is next to.
+
+.. meta::
    :keywords: begin, function
 
 .. index:: begin, function
@@ -33,7 +45,21 @@ This function has no arguments and returns a boolean that is true,
 if all it's tests pass, and false otherwise.
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 144-146
+   :lines: 149-150
+   :language: cpp
+
+.. meta::
+   :keywords: initialize, ok
+
+.. index:: initialize, ok
+
+.. _example_ad_double@Initialize ok:
+
+Initialize ok
+*************
+
+.. literalinclude:: ../../example/class.cpp
+   :lines: 157-157
    :language: cpp
 
 .. meta::
@@ -47,7 +73,7 @@ Independent Variable
 ********************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 152-154
+   :lines: 163-165
    :language: cpp
 
 .. meta::
@@ -61,7 +87,7 @@ Addition
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 160-163
+   :lines: 171-174
    :language: cpp
 
 .. meta::
@@ -75,7 +101,7 @@ Subtraction
 ***********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 169-172
+   :lines: 180-183
    :language: cpp
 
 .. meta::
@@ -89,7 +115,7 @@ Multiplication
 **************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 178-181
+   :lines: 189-192
    :language: cpp
 
 .. meta::
@@ -103,22 +129,21 @@ Division
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 187-190
+   :lines: 198-201
    :language: cpp
 
 .. meta::
-   :keywords: end, function
+   :keywords: return, ok
 
-.. index:: end, function
+.. index:: return, ok
 
-.. _example_ad_double@End Function:
+.. _example_ad_double@Return ok:
 
-End Function
-************
-ok is true if all the test above pass and false otherwise.
+Return ok
+*********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 197-198
+   :lines: 208-209
    :language: cpp
 
 .. _example_ad_double@Example File:

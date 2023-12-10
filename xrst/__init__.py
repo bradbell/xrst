@@ -24,6 +24,7 @@
 #  xrst/get_conf_dict.py
 #  xrst/get_file_info.py
 #  xrst/get_spell_checker.py
+#  xrst/indent_command.py
 #  xrst/literal_command.py
 #  xrst/newline_indices.py
 #  xrst/next_heading.py
@@ -31,7 +32,6 @@
 #  xrst/process_children.py
 #  xrst/process_headings.py
 #  xrst/ref_command.py
-#  xrst/remove_indent.py
 #  xrst/remove_line_numbers.py
 #  xrst/rename_group.py
 #  xrst/replace_spell.py
@@ -66,13 +66,13 @@ from .dir_command            import dir_command
 from .get_conf_dict          import get_conf_dict
 from .get_file_info          import get_file_info
 from .get_spell_checker      import get_spell_checker
+from .indent_command         import indent_command
 from .literal_command        import literal_command
 from .newline_indices        import newline_indices
 from .next_heading           import next_heading
 from .process_children       import process_children
 from .process_headings       import process_headings
 from .ref_command            import ref_command
-from .remove_indent          import remove_indent
 from .remove_line_numbers    import remove_line_numbers
 from .rename_group           import rename_group
 from .replace_spell          import replace_spell

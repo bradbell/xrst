@@ -43,7 +43,7 @@ Prototype
 
 data
 ****
-is the data we are computing the indent for.
+is the data we are computing the indentation for.
 The text before the first new_line does not matter.
 If you want to include this text, add a newline at the beginning of *data*.
 
@@ -72,14 +72,14 @@ used for error reporting when *data* mixes spaces and tabs in
 the indentation.
 
 .. meta::
-   :keywords: indent
+   :keywords: indentation
 
-.. index:: indent
+.. index:: indentation
 
-.. _auto_indent@indent:
+.. _auto_indent@indentation:
 
-indent
-******
-The return value *indent* is the automatically computed indent.
+indentation
+***********
+The return value *indentation* is the automatically computed indentation.
 It will be a sequence of spaces or tabs but it will not mix
 spaces and tabs.

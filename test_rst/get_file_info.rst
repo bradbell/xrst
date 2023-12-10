@@ -120,19 +120,21 @@ is an str containing the name of a page in this file.
 info['page_data']
 -----------------
 is an str containing the data for this page.
+This data has been processed in the following way and order.
 
  #. Line numbers have been added using :ref:`add_line_numbers-name` .
     This is the first operation done on a page and other operations
     assume that line numbers are present. They are removed near the end
     when the temporary file corresponding to a page is created.
- #. If present for this page, the comment character and possible space
-    after have been removed.
- #. The xrst begin and end commands are not include in this data.
- #. The first (last) line number corresponds to the begin (end) command
+ #. The page data has been restricted to the text between
+    the end of the begin command and the start of the end command.
  #. The suspend / resume commands and data between such pairs
-    have been removed.
- #. If there is a common :ref`indent` for the entire page,
-    it has been removed.
+    have been removed; see :ref:`suspend_cmd-name` .
+ #. The indentations for this page have been removed; see
+    :ref:`indent_cmd-name` .
+ #. If a comment character command is present for this page,
+    the command is remove and for each line, the possible
+    comment character and possible space after have been removed.
 
 .. meta::
    :keywords: info['is_parent']
@@ -170,9 +172,9 @@ is the line number in *file_in* where this page ends; i.e.,
 the line number where the end command is located.
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 173-185
+   :lines: 175-187
    :language: py
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 403-406
+   :lines: 405-408
    :language: py

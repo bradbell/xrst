@@ -1,18 +1,18 @@
-.. _remove_indent-name:
+.. _indent_cmd_dev-name:
 
-!!!!!!!!!!!!!
-remove_indent
-!!!!!!!!!!!!!
+!!!!!!!!!!!!!!
+indent_cmd_dev
+!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: remove_indent, remove, indentation, page
+   :keywords: indent_cmd_dev, process, indent, commands, in, page
 
-.. index:: remove_indent, remove, indentation, page
+.. index:: indent_cmd_dev, process, indent, commands, in, page
 
-.. _remove_indent-title:
+.. _indent_cmd_dev-title:
 
-Remove indentation for a page
-#############################
+Process indent commands in a page
+#################################
 
 .. contents::
    :local:
@@ -22,13 +22,13 @@ Remove indentation for a page
 
 .. index:: prototype
 
-.. _remove_indent@Prototype:
+.. _indent_cmd_dev@Prototype:
 
 Prototype
 *********
 
-.. literalinclude:: ../../xrst/remove_indent.py
-   :lines: 58-61,72-73
+.. literalinclude:: ../../xrst/indent_command.py
+   :lines: 105-108,196-197
    :language: py
 
 .. meta::
@@ -36,7 +36,7 @@ Prototype
 
 .. index:: data_in
 
-.. _remove_indent@data_in:
+.. _indent_cmd_dev@data_in:
 
 data_in
 *******
@@ -47,7 +47,7 @@ is the data for this page.
 
 .. index:: file_name
 
-.. _remove_indent@file_name:
+.. _indent_cmd_dev@file_name:
 
 file_name
 *********
@@ -58,7 +58,7 @@ is the input that this page appears in (used for error reporting).
 
 .. index:: page_name
 
-.. _remove_indent@page_name:
+.. _indent_cmd_dev@page_name:
 
 page_name
 *********
@@ -69,7 +69,7 @@ is the name of this page (used for error reporting).
 
 .. index:: data_out
 
-.. _remove_indent@data_out:
+.. _indent_cmd_dev@data_out:
 
 data_out
 ********
