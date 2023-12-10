@@ -31,7 +31,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/auto_indent.py
-   :lines: 48-51,102-103
+   :lines: 52-55,100-101
    :language: py
 
 .. meta::

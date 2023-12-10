@@ -42,7 +42,11 @@ spaces and tabs.
 
 {xrst_end auto_indent}
 """
+import re
 import xrst
+#
+# pattern_indent
+pattern_indent = re.compile( r'\n([ \t]*)[^ \t\n]' )
 #
 # BEGIN PROTOTYPE
 def auto_indent(data, file_name, page_name) :
@@ -57,20 +61,14 @@ def auto_indent(data, file_name, page_name) :
    # newline_list
    newline_list = xrst.newline_indices(data)
    #
-   # num_remove
-   num_remove = len(data)
-   for newline in newline_list :
-      next_ = newline + 1
-      if next_ < len_data and 0 < num_remove :
-         ch = data[next_]
-         while ch in ' \t' and next_ + 1 < len_data :
-            next_ += 1
-            ch     = data[next_]
-         if ch not in ' \t\n' :
-            num_remove = min(num_remove, next_ - newline - 1)
+   # n_indent
+   n_indent = len(data)
+   m_itr    = pattern_indent.finditer(data)
+   for m_obj in m_itr :
+      n_indent = min(n_indent, len( m_obj.group(1) ) )
    #
    # check if there is no indent to remove
-   if num_remove == 0 :
+   if n_indent == 0 :
       return ''
    #
    # indent_ch
@@ -84,7 +82,7 @@ def auto_indent(data, file_name, page_name) :
    check_ch  = indent_ch + '\n'
    for newline in newline_list :
       next_ = newline + 1
-      end   = min( len_data, next_ + num_remove )
+      end   = min( len_data, next_ + n_indent )
       while next_ < end :
          if data[next_] not in check_ch :
             msg  = 'mixing both spaces and tabs for '
@@ -96,7 +94,7 @@ def auto_indent(data, file_name, page_name) :
    #
    #
    # indent
-   indent = num_remove * indent_ch
+   indent = n_indent * indent_ch
    #
    # BEGIN RETURN
    assert type(indent) == str
