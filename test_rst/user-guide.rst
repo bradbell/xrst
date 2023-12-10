@@ -40,7 +40,7 @@ Git Repository
 
 Version of this Documentation
 *****************************
-xrst-2023.12.9
+xrst-2023.12.10
 
 .. meta::
    :keywords: install, stable, version
