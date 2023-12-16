@@ -193,6 +193,7 @@ def indent_command(data_in, file_name, page_name) :
          m_obj = pattern_indent.search(data_out, len(data_left) )
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN

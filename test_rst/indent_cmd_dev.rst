@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/indent_command.py
-   :lines: 105-108,196-197
+   :lines: 105-108,196-198
    :language: py
 
 .. meta::
