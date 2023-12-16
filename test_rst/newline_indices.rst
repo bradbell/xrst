@@ -18,24 +18,28 @@ Find index of all the newlines in a string
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _newline_indices@Arguments:
+.. _newline_indices@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/newline_indices.py
+   :lines: 33-34,43-47
+   :language: py
 
 .. meta::
    :keywords: data
 
 .. index:: data
 
-.. _newline_indices@Arguments@data:
+.. _newline_indices@data:
 
 data
-====
+****
 The string we are searching for newlines.
 
 .. meta::
@@ -53,17 +57,9 @@ Results
 
 .. index:: newline_list
 
-.. _newline_indices@Results@newline_list:
+.. _newline_indices@newline_list:
 
 newline_list
-============
+************
 The return newline_list is the list of indices in data that
 represent all of the newlines; i.e. '\n'.
-
-.. literalinclude:: ../../xrst/newline_indices.py
-   :lines: 28-29
-   :language: py
-
-.. literalinclude:: ../../xrst/newline_indices.py
-   :lines: 44-47
-   :language: py

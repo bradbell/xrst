@@ -12,35 +12,36 @@ import xrst
 # Return location of the next heading in a page
 # #############################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data
-# ====
+# ****
 # is the data that we are searching for a heading in. The heading text must
 # have at least one character and be followed by an underline of at least the
 # same length. The heading text may be proceeded by an overline.
 #
 # data_index
-# ==========
+# **********
 # is the index in the data where the search starts. This must be zero
 # or directly after a newline.
 #
 # file_name
-# =========
+# *********
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
 # page_name
-# =========
+# *********
 # is the name of this page.
 # This is only used for error reporting.
 #
-# Results
-# *******
-#
 # heading_index
-# =============
+# *************
 # If there is an overline, this is the index in data of the beginning of the
 # overline. Otherwise, it is the index of the beginning of the heading text.
 # If 0 < heading_index, there is a newline just before heading_index; i.e.,
@@ -48,15 +49,16 @@ import xrst
 # in data that begins at or after data_index.
 #
 # heading_text
-# ============
+# ************
 # if 0 <= heading_index, this is the heading text.
 #
 # underline_text
-# ==============
+# **************
 # if 0 <= heading_index, this is the underline text.
 # If there is an overline present, it is the same as the underline text.
 #
-# {xrst_code py}
+# {xrst_end next_heading}
+# BEGIN_DEF
 def next_heading(data, data_index, file_name, page_name) :
    assert type(data) == str
    assert type(data_index) == int
@@ -64,12 +66,7 @@ def next_heading(data, data_index, file_name, page_name) :
       assert data[data_index-1] == '\n'
    assert type(file_name) == str
    assert type(page_name) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end next_heading}
+   # END_DEF
    #
    # punctuation
    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
@@ -156,9 +153,9 @@ def next_heading(data, data_index, file_name, page_name) :
    underline_text  = ''
    #
    # BEGIN_RETURN
+   #
    assert type(heading_index) == int
    assert type(heading_text) == str
    assert type(underline_text) == str
-   #
    return heading_index, heading_text, underline_text
    # END_RETURN
