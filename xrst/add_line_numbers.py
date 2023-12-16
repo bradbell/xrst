@@ -19,24 +19,25 @@ line_number_pattern = xrst.pattern['line']
 # Add line numbers to a string in a way that is useful for reporting errors
 # (for modified versions of string) using line number in the original string.
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # The original string.  An empty line is a line with just spaces or tabs.
 # line_number is the number of newlines before a line plus one; i.e.,
 # the first line is number one.
 #
 # file_in
-# =======
+# *******
 # is the file corresponding to data_in (used for error reporting).
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a modified version of data_in. The text
 #
 #  | ``@xrst_line`` *line_number* ``@``
@@ -46,16 +47,12 @@ line_number_pattern = xrst.pattern['line']
 # There is no space between *line_number* and ``@`` .
 # Spaces and tabs in empty lines are removed (so they are truly empty).
 #
-# {xrst_code py}
+# {xrst_end add_line_numbers}
+# BEGIN_DEF
 def add_line_numbers(data_in, file_in) :
    assert type(data_in) == str
    assert type(file_in) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end add_line_numbers}
+   # END_DEF
    #
    # data_extend
    data_extend = data_in
@@ -116,6 +113,7 @@ def add_line_numbers(data_in, file_in) :
    data_out += '\n'
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN
