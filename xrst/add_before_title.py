@@ -14,11 +14,15 @@ import xrst
 # If PDF, Add Page Number and Name to Title
 # #########################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # data for this page before replacement.
 #
 #  #. data_in must contain '\\n{xrst@before_title}'
@@ -30,7 +34,7 @@ import xrst
 #  #. If both an overline and underline follow, they must be equal.
 #
 # target
-# ======
+# ******
 # if *target* is ``html`` , the command is removed and no other action
 # is taken. Otherwise, the *page_number* following by the *page_name* is
 # added at the font of the title for this page.
@@ -38,32 +42,25 @@ import xrst
 # characters added to the title.
 #
 # page_number
-# ===========
+# ***********
 # This is a page number that identifies this page in the table of contents.
 #
 # page_name
-# =========
+# *********
 # This is the name of the page.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # the return data_out is the data after replacement.
 #
-# {xrst_code py}
+# {xrst_end add_before_title}
+# BEGIN_DEF
 def add_before_title(data_in, target, page_number, page_name) :
    assert type(data_in) == str
    assert target == 'html' or target == 'tex'
    assert type(page_number) == str
    assert type(page_name) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end add_before_title}
+   # END_DEF
    #
    # pattern
    pattern   = '\n{xrst@before_title}'
@@ -143,7 +140,7 @@ def add_before_title(data_in, target, page_number, page_name) :
    else :
       data_out += data_in[third_newline :]
    # BEGIN_RETURN
-   assert type(data_out) == str
    #
+   assert type(data_out) == str
    return data_out
    # END_RETURN
