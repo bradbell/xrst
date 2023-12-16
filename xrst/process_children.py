@@ -15,7 +15,6 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
 # {xrst_begin process_children dev}
 # {xrst_spell
-#     len
 #     toc
 #     toctree
 # }
@@ -24,24 +23,25 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # Add child information to a page
 # ###############################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for this page after the toc_command function has processed
 # the toc commands.
 #
 # list_children
-# =============
+# *************
 # is a list of the page names for the children of this page.
 # If this list is empty, data_out is equal to data_in.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return value data_out has the child information added.
 #
 #  #. A hidden table of contents (toctree) for the children is added at the
@@ -54,7 +54,8 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 #     the toc_table style is used for the links to the children which are
 #     placed at the end of the data_out (before the toctree).
 #
-# {xrst_code py}
+# {xrst_end process_children}
+# BEGIN_DEF
 def process_children(
    page_name,
    data_in,
@@ -65,12 +66,7 @@ def process_children(
    assert type(list_children) == list
    if len(list_children) > 0 :
       assert type(list_children[0]) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end process_children}
+   # END_DEF
    #
    if len(list_children) == 0 :
       m_child = pattern_toc.search(data_in)
@@ -146,7 +142,7 @@ def process_children(
    data_out = data_out + toctree
    #
    # BEGIN_RETURN
-   assert type(data_out) == str
    #
+   assert type(data_out) == str
    return data_out
    # END_RETURN
