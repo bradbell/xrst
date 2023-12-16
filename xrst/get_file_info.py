@@ -94,11 +94,15 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # Get information for all pages in a file
 # #######################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # all_page_info
-# =============
+# *************
 # a list of with information for pages that came before this file.
 # For each list index, all_page_info[index] is a dict and
 # all_page_info[index]['page_name'] is an str
@@ -106,33 +110,30 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # This includes pages for all the groups that came before this group.
 #
 # group_name
-# ==========
+# **********
 # We are only retrieving information for pages in this group.
 # (This is non-empty because default is used for the empty group name.)
 #
 # parent_file
-# ===========
+# ***********
 # name of the file that included file_in.
 #
 # file_in
-# =======
+# *******
 # is the name of the file we are getting all the information for.
 #
-# Returns
-# *******
-#
 # file_page_info
-# ==============
+# **************
 # The value file_page_info is a list of dict.
 # Each dict contains the information
 # for one page in this file. We use info below for one element of the list:
 #
 # info['page_name']
-# -----------------
+# =================
 # is an str containing the name of a page in this file.
 #
 # info['page_data']
-# -----------------
+# =================
 # is an str containing the data for this page.
 # This data has been processed in the following way and order.
 #
@@ -151,7 +152,7 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 #     comment character and possible space after have been removed.
 #
 # info['is_parent']
-# -----------------
+# =================
 # is true (false) if this is (is not) the parent page for the other
 # pages in this file. The parent page must be the first for this group,
 # and hence have index zero in file_info. In addition,
@@ -159,19 +160,22 @@ pattern_group_valid = re.compile( r'[a-z]+' )
 # i.e., len(file_info) >= 2.
 #
 # info['is_child']
-# ----------------
+# ================
 # is true (false) if this is (is not) a child of the first page in
 # this file.
 #
 # info['begin_line']
+# ==================
 # is the line number in *file_in* where this page begins; i.e.,
 # the line number where the begin command is located.
 #
 # info['end_line']
+# ================
 # is the line number in *file_in* where this page ends; i.e.,
 # the line number where the end command is located.
 #
-# {xrst_code py}
+# {xrst_end get_file_info}
+# BEGIN_DEF
 def get_file_info(
       all_page_info,
       group_name,
@@ -185,12 +189,7 @@ def get_file_info(
    assert group_name != ''
    assert type(parent_file) == str or parent_file == None
    assert type(file_in) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end get_file_info}
+   # END_DEF
    #
    # file_data
    file_obj   = open(file_in, 'r')
@@ -402,8 +401,8 @@ def get_file_info(
       )
    #
    # BEGIN_RETURN
+   #
    assert type(file_page_info) == list
    assert type(file_page_info[0]) == dict
-   #
    return file_page_info
    # END_RETURN

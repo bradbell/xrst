@@ -18,24 +18,28 @@ Get information for all pages in a file
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _get_file_info@Arguments:
+.. _get_file_info@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/get_file_info.py
+   :lines: 179-191,404-407
+   :language: py
 
 .. meta::
    :keywords: all_page_info
 
 .. index:: all_page_info
 
-.. _get_file_info@Arguments@all_page_info:
+.. _get_file_info@all_page_info:
 
 all_page_info
-=============
+*************
 a list of with information for pages that came before this file.
 For each list index, all_page_info[index] is a dict and
 all_page_info[index]['page_name'] is an str
@@ -47,10 +51,10 @@ This includes pages for all the groups that came before this group.
 
 .. index:: group_name
 
-.. _get_file_info@Arguments@group_name:
+.. _get_file_info@group_name:
 
 group_name
-==========
+**********
 We are only retrieving information for pages in this group.
 (This is non-empty because default is used for the empty group name.)
 
@@ -59,10 +63,10 @@ We are only retrieving information for pages in this group.
 
 .. index:: parent_file
 
-.. _get_file_info@Arguments@parent_file:
+.. _get_file_info@parent_file:
 
 parent_file
-===========
+***********
 name of the file that included file_in.
 
 .. meta::
@@ -70,31 +74,21 @@ name of the file that included file_in.
 
 .. index:: file_in
 
-.. _get_file_info@Arguments@file_in:
+.. _get_file_info@file_in:
 
 file_in
-=======
-is the name of the file we are getting all the information for.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _get_file_info@Returns:
-
-Returns
 *******
+is the name of the file we are getting all the information for.
 
 .. meta::
    :keywords: file_page_info
 
 .. index:: file_page_info
 
-.. _get_file_info@Returns@file_page_info:
+.. _get_file_info@file_page_info:
 
 file_page_info
-==============
+**************
 The value file_page_info is a list of dict.
 Each dict contains the information
 for one page in this file. We use info below for one element of the list:
@@ -104,10 +98,10 @@ for one page in this file. We use info below for one element of the list:
 
 .. index:: info['page_name']
 
-.. _get_file_info@Returns@file_page_info@info['page_name']:
+.. _get_file_info@file_page_info@info['page_name']:
 
 info['page_name']
------------------
+=================
 is an str containing the name of a page in this file.
 
 .. meta::
@@ -115,10 +109,10 @@ is an str containing the name of a page in this file.
 
 .. index:: info['page_data']
 
-.. _get_file_info@Returns@file_page_info@info['page_data']:
+.. _get_file_info@file_page_info@info['page_data']:
 
 info['page_data']
------------------
+=================
 is an str containing the data for this page.
 This data has been processed in the following way and order.
 
@@ -141,10 +135,10 @@ This data has been processed in the following way and order.
 
 .. index:: info['is_parent']
 
-.. _get_file_info@Returns@file_page_info@info['is_parent']:
+.. _get_file_info@file_page_info@info['is_parent']:
 
 info['is_parent']
------------------
+=================
 is true (false) if this is (is not) the parent page for the other
 pages in this file. The parent page must be the first for this group,
 and hence have index zero in file_info. In addition,
@@ -156,25 +150,33 @@ i.e., len(file_info) >= 2.
 
 .. index:: info['is_child']
 
-.. _get_file_info@Returns@file_page_info@info['is_child']:
+.. _get_file_info@file_page_info@info['is_child']:
 
 info['is_child']
-----------------
+================
 is true (false) if this is (is not) a child of the first page in
 this file.
 
+.. meta::
+   :keywords: info['begin_line']
+
+.. index:: info['begin_line']
+
+.. _get_file_info@file_page_info@info['begin_line']:
+
 info['begin_line']
+==================
 is the line number in *file_in* where this page begins; i.e.,
 the line number where the begin command is located.
 
+.. meta::
+   :keywords: info['end_line']
+
+.. index:: info['end_line']
+
+.. _get_file_info@file_page_info@info['end_line']:
+
 info['end_line']
+================
 is the line number in *file_in* where this page ends; i.e.,
 the line number where the end command is located.
-
-.. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 175-187
-   :language: py
-
-.. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 405-408
-   :language: py
