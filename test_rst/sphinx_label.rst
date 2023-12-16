@@ -18,6 +18,20 @@ Get Labels Declared Using Sphinx Commands
    :local:
 
 .. meta::
+   :keywords: prototype
+
+.. index:: prototype
+
+.. _sphinx_label@Prototype:
+
+Prototype
+*********
+
+.. literalinclude:: ../../xrst/sphinx_label.py
+   :lines: 68-72,154-159
+   :language: py
+
+.. meta::
    :keywords: data_in
 
 .. index:: data_in
@@ -93,11 +107,3 @@ Errors
 ******
 If two or external labels have the same lower case value,
 an error is reported using :ref:`system_exit-name` .
-
-.. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 60-64
-   :language: py
-
-.. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 151-156
-   :language: py

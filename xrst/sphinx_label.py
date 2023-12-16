@@ -21,6 +21,13 @@ pattern_use = re.compile(
 #
 # {xrst_comment_ch #}
 #
+# Prototype
+# *********
+# {xrst_literal ,
+#     # BEGIN_DEF, # END_DEF
+#     # BEGIN_RETURN, # END_RETURN
+# }
+#
 # data_in
 # *******
 # is the data for one page.
@@ -53,21 +60,17 @@ pattern_use = re.compile(
 #
 # Errors
 # ******
-# If two or external labels have the same lower case value,
+# If two external labels have the same lower case value,
 # an error is reported using :ref:`system_exit-name` .
 #
-# {xrst_code py}
+# {xrst_end sphinx_label}
+# BEGIN_DEF
 # external_line, internal_line =
 def sphinx_label(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   # {xrst_code}
-   # {xrst_literal
-   #     BEGIN_RETURN
-   #     END_RETURN
-   # }
-   # {xrst_end sphinx_label}
+   # END_DEF
    #
    # external_line, internal_line
    external_line  = dict()
@@ -148,10 +151,10 @@ def sphinx_label(data_in, file_name, page_name) :
          # m_label
          m_label = pattern.search(data, m_label.end())
    # BEGIN_RETURN
+   #
    for result in [ external_line, internal_line ] :
       assert type(result) == dict
       for key in result.keys() :
          assert type( result[key] ) == str
-   #
    return external_line, internal_line
    # END_RETURN
