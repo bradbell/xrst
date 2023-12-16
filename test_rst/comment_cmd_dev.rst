@@ -18,52 +18,38 @@ Remove all comment commands
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _comment_cmd_dev@Arguments:
+.. _comment_cmd_dev@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/comment_command.py
+   :lines: 58-59,100-102
+   :language: py
 
 .. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _comment_cmd_dev@Arguments@data_in:
+.. _comment_cmd_dev@data_in:
 
 data_in
-=======
-is the data for this page.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _comment_cmd_dev@Returns:
-
-Returns
 *******
+is the data for this page.
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _comment_cmd_dev@Returns@data_out:
+.. _comment_cmd_dev@data_out:
 
 data_out
-========
+********
 The return data_out is a copy of data_in except that the comment
 commands have been removed.
-
-.. literalinclude:: ../../xrst/comment_command.py
-   :lines: 56-57
-   :language: py
-
-.. literalinclude:: ../../xrst/comment_command.py
-   :lines: 103-104
-   :language: py

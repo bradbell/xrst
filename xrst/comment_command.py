@@ -37,30 +37,27 @@ pattern = re.compile(
 # Remove all comment commands
 # ###########################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for this page.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a copy of data_in except that the comment
 # commands have been removed.
 #
-# {xrst_code py}
+# {xrst_end comment_cmd_dev}
+# BEGIN_DEF
 def comment_command(data_in) :
    assert type(data_in) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end comment_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -100,6 +97,7 @@ def comment_command(data_in) :
    # the comment_ch commands have already been processed.
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN

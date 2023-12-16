@@ -44,37 +44,34 @@ import xrst
 # Convert File Names to be Relative to the RST Directory
 # ######################################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for this page.
 #
 # rst2project_dir
-# ===============
+# ***************
 # is a relative path from the :ref:`config_file@directory@rst_directory`
 # to the :ref:`config_file@directory@project_directory` .
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a copy of data_in except that all the occurrences of
-# {xrst_dir file_name} have been converted to the file name
+# ``\{xrst_dir`` *file_name*\ ``}`` have been converted to the file name
 # relative to the rst directory.
 #
-# {xrst_code py}
+# {xrst_end dir_cmd_dev}
+# BEGIN_DEF
 def dir_command(data_in, rst2project_dir) :
    assert type(data_in) == str
    assert type(rst2project_dir) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end dir_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -97,6 +94,7 @@ def dir_command(data_in, rst2project_dir) :
       m_dir = xrst.pattern['dir'].search(data_out, len(data_left))
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN
