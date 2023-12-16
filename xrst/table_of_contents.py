@@ -155,32 +155,36 @@ def page_table_of_contents(
 # Create the table of contents and Modify Titles
 # ##############################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # tmp_dir
-# =======
+# *******
 # is the temporary directory where the temporary rst files are written.
 #
 # target
-# ======
+# ******
 # is either 'html' or 'tex'.
 #
 # tex
-# ---
+# ===
 # If target is 'tex',  for each temporary file
-# tmp_dir/page_name.rst the text \\n{xrst@before_title}
-# is removed and  the page number followed by the page name is added
+# tmp_dir/page_name.rst the text \\n\{xrst\@before_title}
+# is removed and the page number followed by the page name is added
 # at the front of the title for the page.
 # The page number includes the counter for each level.
 #
 # html
-# ----
+# ====
 # If target is 'html',
-# \\n{xrst@before_title} is removed without other changes.
+# \\n\{xrst\@before_title} is removed without other changes.
 #
 # all_page_info
-# =============
+# *************
 # is a list with length equal to the number of pages.
 # The value all_page_info[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings):
@@ -194,21 +198,19 @@ def page_table_of_contents(
 #     in_parent_file, is this page in same input file as its parent, bool
 #
 # root_page_list
-# ==============
+# **************
 # is a list of strings containing the root page name for each group.
 # The order of the root page names determine the order of the groups
 # int the table of contents.
 #
-# Returns
-# *******
-#
 # content
-# =======
+# *******
 # The return content is the table of contents entries for all the pages.
 # The title Table of Contents and the label xrst_table_of_contents
 # are placed at the beginning of the of content.
 #
-# {xrst_code py}
+# {xrst_end table_of_contents}
+# BEGIN_DEF
 def table_of_contents(
    tmp_dir, target, all_page_info, root_page_list
 ) :
@@ -219,12 +221,7 @@ def table_of_contents(
    assert type(all_page_info[0]) == dict
    assert type(root_page_list) == list
    assert type(root_page_list[0]) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end table_of_contents}
+   # END_DEF
    #
    # content
    content  = '.. _xrst_table_of_contents-title:\n\n'
@@ -249,6 +246,7 @@ def table_of_contents(
          )
    #
    # BEGIN_RETURN
+   #
    assert type(content) == str
    return content
    # END_RETURN

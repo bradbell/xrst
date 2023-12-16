@@ -18,24 +18,28 @@ Create the table of contents and Modify Titles
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _table_of_contents@Arguments:
+.. _table_of_contents@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/table_of_contents.py
+   :lines: 214-223,249-251
+   :language: py
 
 .. meta::
    :keywords: tmp_dir
 
 .. index:: tmp_dir
 
-.. _table_of_contents@Arguments@tmp_dir:
+.. _table_of_contents@tmp_dir:
 
 tmp_dir
-=======
+*******
 is the temporary directory where the temporary rst files are written.
 
 .. meta::
@@ -43,10 +47,10 @@ is the temporary directory where the temporary rst files are written.
 
 .. index:: target
 
-.. _table_of_contents@Arguments@target:
+.. _table_of_contents@target:
 
 target
-======
+******
 is either 'html' or 'tex'.
 
 .. meta::
@@ -54,13 +58,13 @@ is either 'html' or 'tex'.
 
 .. index:: tex
 
-.. _table_of_contents@Arguments@target@tex:
+.. _table_of_contents@target@tex:
 
 tex
----
+===
 If target is 'tex',  for each temporary file
-tmp_dir/page_name.rst the text \\n{xrst@before_title}
-is removed and  the page number followed by the page name is added
+tmp_dir/page_name.rst the text \\n\{xrst\@before_title}
+is removed and the page number followed by the page name is added
 at the front of the title for the page.
 The page number includes the counter for each level.
 
@@ -69,22 +73,22 @@ The page number includes the counter for each level.
 
 .. index:: html
 
-.. _table_of_contents@Arguments@target@html:
+.. _table_of_contents@target@html:
 
 html
-----
+====
 If target is 'html',
-\\n{xrst@before_title} is removed without other changes.
+\\n\{xrst\@before_title} is removed without other changes.
 
 .. meta::
    :keywords: all_page_info
 
 .. index:: all_page_info
 
-.. _table_of_contents@Arguments@all_page_info:
+.. _table_of_contents@all_page_info:
 
 all_page_info
-=============
+*************
 is a list with length equal to the number of pages.
 The value all_page_info[page_index] is a dictionary for this page
 with the following key, value pairs (all the keys are strings):
@@ -102,41 +106,23 @@ with the following key, value pairs (all the keys are strings):
 
 .. index:: root_page_list
 
-.. _table_of_contents@Arguments@root_page_list:
+.. _table_of_contents@root_page_list:
 
 root_page_list
-==============
+**************
 is a list of strings containing the root page name for each group.
 The order of the root page names determine the order of the groups
 int the table of contents.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _table_of_contents@Returns:
-
-Returns
-*******
 
 .. meta::
    :keywords: content
 
 .. index:: content
 
-.. _table_of_contents@Returns@content:
+.. _table_of_contents@content:
 
 content
-=======
+*******
 The return content is the table of contents entries for all the pages.
 The title Table of Contents and the label xrst_table_of_contents
 are placed at the beginning of the of content.
-
-.. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 212-221
-   :language: py
-
-.. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 252-253
-   :language: py
