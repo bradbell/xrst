@@ -18,6 +18,20 @@ Write the temporary RST file for a page
    :local:
 
 .. meta::
+   :keywords: prototype
+
+.. index:: prototype
+
+.. _temporary_file@Prototype:
+
+Prototype
+*********
+
+.. literalinclude:: ../../xrst/temporary_file.py
+   :lines: 113-128,225-231
+   :language: py
+
+.. meta::
    :keywords: page_source
 
 .. index:: page_source
@@ -110,7 +124,7 @@ tmp_dir/page_name.rst.
 data_in
 *******
 is the data for this page with all the xrst commands converted to
-their sphinx RST values, except the \\n{xrst@before_title} command.
+their sphinx RST values, except the \\n\{xrst\@before_title} command.
 The following is added to this data before writing it to the output file:
 
  #. The preamble is included at the beginning.
@@ -155,11 +169,3 @@ For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
 
 -   The first (second) line number is increasing (no-decreasing)
     with respect to *index* .
-
-.. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 105-120
-   :language: py
-
-.. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 223-228
-   :language: py

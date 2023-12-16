@@ -25,6 +25,13 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # Write the temporary RST file for a page
 # #######################################
 #
+# Prototype
+# *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
+#
 # page_source
 # ***********
 # If *page_source* is true and *target* is html,
@@ -62,7 +69,7 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # data_in
 # *******
 # is the data for this page with all the xrst commands converted to
-# their sphinx RST values, except the \\n{xrst@before_title} command.
+# their sphinx RST values, except the \\n\{xrst\@before_title} command.
 # The following is added to this data before writing it to the output file:
 #
 #  #. The preamble is included at the beginning.
@@ -101,7 +108,8 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # -   The first (second) line number is increasing (no-decreasing)
 #     with respect to *index* .
 #
-# {xrst_code py}
+# {xrst_end temporary_file}
+# BEGIN_DEF
 # line_pair =
 def temporary_file(
    page_source,
@@ -118,13 +126,7 @@ def temporary_file(
    assert type(file_in) == str
    assert type(page_name) == str
    assert type(data_in) == str
-   # {xrst_code}
-   #
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end temporary_file}
+   # END_DEF
    #
    # punctuation
    # Headings uses repeated copies of one of these characters
@@ -220,6 +222,7 @@ def temporary_file(
    file_obj.close()
    #
    # BEGIN_RETURN
+   #
    assert type(line_pair) == list
    assert type( line_pair[0] ) == tuple
    assert len( line_pair[0] ) == 2
