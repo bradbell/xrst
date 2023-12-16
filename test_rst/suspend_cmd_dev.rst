@@ -18,24 +18,28 @@ Remove text specified by suspend / resume pairs
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _suspend_cmd_dev@Arguments:
+.. _suspend_cmd_dev@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/suspend_command.py
+   :lines: 73-76,135-137
+   :language: py
 
 .. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _suspend_cmd_dev@Arguments@data_in:
+.. _suspend_cmd_dev@data_in:
 
 data_in
-=======
+*******
 is the data for this page.
 
 .. meta::
@@ -43,10 +47,10 @@ is the data for this page.
 
 .. index:: file_name
 
-.. _suspend_cmd_dev@Arguments@file_name:
+.. _suspend_cmd_dev@file_name:
 
 file_name
-=========
+*********
 is the input file corresponding to this page.
 
 .. meta::
@@ -54,38 +58,20 @@ is the input file corresponding to this page.
 
 .. index:: page_name
 
-.. _suspend_cmd_dev@Arguments@page_name:
+.. _suspend_cmd_dev@page_name:
 
 page_name
-=========
+*********
 is the name of this page.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _suspend_cmd_dev@Returns:
-
-Returns
-*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _suspend_cmd_dev@Returns@data_out:
+.. _suspend_cmd_dev@data_out:
 
 data_out
-========
+********
 The return data_out is a copy of data_in except that the text between
 and including each suspend / resume pair has been removed.
-
-.. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 71-74
-   :language: py
-
-.. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 138-139
-   :language: py

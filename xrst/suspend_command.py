@@ -44,40 +44,37 @@ pattern_resume  = re.compile(
 # Remove text specified by suspend / resume pairs
 # ###############################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for this page.
 #
 # file_name
-# =========
+# *********
 # is the input file corresponding to this page.
 #
 # page_name
-# =========
+# *********
 # is the name of this page.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a copy of data_in except that the text between
 # and including each suspend / resume pair has been removed.
 #
-# {xrst_code py}
+# {xrst_end suspend_cmd_dev}
+# BEGIN_DEF
 def suspend_command(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end suspend_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -135,6 +132,7 @@ def suspend_command(data_in, file_name, page_name) :
          page_name     = page_name,
       )
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN

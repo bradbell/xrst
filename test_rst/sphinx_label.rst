@@ -105,5 +105,5 @@ and that links to a page in this web site,
 
 Errors
 ******
-If two or external labels have the same lower case value,
+If two external labels have the same lower case value,
 an error is reported using :ref:`system_exit-name` .
