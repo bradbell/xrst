@@ -131,48 +131,49 @@ import re
 # Get file and page names for children of this page
 # #################################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # is_parent
-# =========
+# *********
 # is this the parent page for other pages in the file specified by file_name.
 #
 # data_in
-# =======
+# *******
 # is the data for the page before the toc commands have been processed.
 #
 # file_name
-# =========
+# *********
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
 # page_name
-# =========
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # group_name
-# ==========
+# **********
 # We are only including information for pages in this group.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # is a copy of data_in with the toc commands replaced by \{xrst_command}
 # where command is TOC_hidden, TOC_list, or TOC_table depending on
 # which command was in data_in.
 # There is a newline directly before and after the \{xrst_command}.
 #
 # file_list
-# =========
+# *********
 # is the list of files in the toc command
 # (and in same order as in the toc command).
 #
 # child_page_list
-# ===============
+# ***************
 # Is the a list of page names corresponding to the children of the
 # this page that are in the files specified by file_list.
 # If a file in file_list has a begin_parent command, there is only
@@ -180,24 +181,20 @@ import re
 # pages in the file are in child_page_list.
 #
 # order
-# =====
+# *****
 # If *is_parent* is True, *order*
 # specifies if the pages in *child_page_list* come before or after
 # the rest of the children for this page.
 #
-# {xrst_code py}
+# {xrst_end toc_cmd_dev}
+# BEGIN_DEF
 def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    assert type(is_parent) == bool
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(group_name) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end toc_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -384,6 +381,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    # We know that the lists are no-empty for this return,
    # but use asserts that work for both retures becase in documentation.
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    assert type(file_list) == list
    if 0 < len(file_list) :
@@ -392,6 +390,5 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    if 0 < len(child_page_list) :
       assert type(child_page_list[0]) == str
    assert order in [ 'before' , 'after' ]
-   #
    return data_out, file_list, child_page_list, order
    # END_RETURN

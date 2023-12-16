@@ -18,24 +18,28 @@ Get file and page names for children of this page
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _toc_cmd_dev@Arguments:
+.. _toc_cmd_dev@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/toc_commands.py
+   :lines: 191-196,384-393
+   :language: py
 
 .. meta::
    :keywords: is_parent
 
 .. index:: is_parent
 
-.. _toc_cmd_dev@Arguments@is_parent:
+.. _toc_cmd_dev@is_parent:
 
 is_parent
-=========
+*********
 is this the parent page for other pages in the file specified by file_name.
 
 .. meta::
@@ -43,10 +47,10 @@ is this the parent page for other pages in the file specified by file_name.
 
 .. index:: data_in
 
-.. _toc_cmd_dev@Arguments@data_in:
+.. _toc_cmd_dev@data_in:
 
 data_in
-=======
+*******
 is the data for the page before the toc commands have been processed.
 
 .. meta::
@@ -54,10 +58,10 @@ is the data for the page before the toc commands have been processed.
 
 .. index:: file_name
 
-.. _toc_cmd_dev@Arguments@file_name:
+.. _toc_cmd_dev@file_name:
 
 file_name
-=========
+*********
 is the name of the file that this data comes from. This is only used
 for error reporting.
 
@@ -66,10 +70,10 @@ for error reporting.
 
 .. index:: page_name
 
-.. _toc_cmd_dev@Arguments@page_name:
+.. _toc_cmd_dev@page_name:
 
 page_name
-=========
+*********
 is the name of the page that this data is in. This is only used
 for error reporting.
 
@@ -78,31 +82,21 @@ for error reporting.
 
 .. index:: group_name
 
-.. _toc_cmd_dev@Arguments@group_name:
+.. _toc_cmd_dev@group_name:
 
 group_name
-==========
+**********
 We are only including information for pages in this group.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _toc_cmd_dev@Returns:
-
-Returns
-*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _toc_cmd_dev@Returns@data_out:
+.. _toc_cmd_dev@data_out:
 
 data_out
-========
+********
 is a copy of data_in with the toc commands replaced by {xrst_command}
 where command is TOC_hidden, TOC_list, or TOC_table depending on
 which command was in data_in.
@@ -113,10 +107,10 @@ There is a newline directly before and after the {xrst_command}.
 
 .. index:: file_list
 
-.. _toc_cmd_dev@Returns@file_list:
+.. _toc_cmd_dev@file_list:
 
 file_list
-=========
+*********
 is the list of files in the toc command
 (and in same order as in the toc command).
 
@@ -125,10 +119,10 @@ is the list of files in the toc command
 
 .. index:: child_page_list
 
-.. _toc_cmd_dev@Returns@child_page_list:
+.. _toc_cmd_dev@child_page_list:
 
 child_page_list
-===============
+***************
 Is the a list of page names corresponding to the children of the
 this page that are in the files specified by file_list.
 If a file in file_list has a begin_parent command, there is only
@@ -140,18 +134,10 @@ pages in the file are in child_page_list.
 
 .. index:: order
 
-.. _toc_cmd_dev@Returns@order:
+.. _toc_cmd_dev@order:
 
 order
-=====
+*****
 If *is_parent* is True, *order*
 specifies if the pages in *child_page_list* come before or after
 the rest of the children for this page.
-
-.. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 189-194
-   :language: py
-
-.. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 387-396
-   :language: py
