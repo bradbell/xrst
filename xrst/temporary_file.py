@@ -40,7 +40,7 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 #
 # pseudo_heading
 # **************
-# is the :ref:`process_headings@Returns@pseudo_heading` for this page.
+# is the :ref:`process_headings@pseudo_heading` for this page.
 #
 # file_in
 # *******

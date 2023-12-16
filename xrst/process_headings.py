@@ -172,42 +172,43 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # Add labels and index entries for headings
 # #########################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # conf_dict
-# =========
+# *********
 # is a python dictionary representation of the configuration file.
 #
 # local_toc
-# =========
+# *********
 # is the xrst command line local_toc setting.
 #
 # data_in
-# =======
+# *******
 # contains the data for a page before the headings are processed.
 #
 # file_name
-# =========
+# *********
 # name of the file that contains the input data for this page.
 # This is only used for error reporting.
 #
 # page_name
-# =========
+# *********
 # is the name of this page.
 #
 # not_in_index_list
-# =================
+# *****************
 # is a list of compiled regular expressions. If pattern is in this list,
 # *word* is a lower case version of a word in the heading text, and
 # pattern.fullmatch( *word* ) returns a match, an index entry is not
 # generated for word.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # is a copy of data_in with the following extra command added:
 #
 #  #. The index entries, and meta keyword entries (same as index),
@@ -217,12 +218,12 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #     This is makes it easy to add the page number to the heading text.
 #
 # page_title
-# ==========
+# **********
 # This is the heading text in the first heading for this page.
 # There can only be one heading at this level.
 #
 # pseudo_heading
-# ==============
+# **************
 # This is an automatically generated heading for this page. It is intended
 # to come before the page_title heading.
 # It has three lines each terminated by a newline:
@@ -232,11 +233,12 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 #  3. an underline line
 #
 # keywords
-# ========
+# ********
 # This is a space separated list of all the keywords that are in the index
 # for this page.
 #
-# {xrst_code py}
+# {xrst_end process_headings}
+# BEGIN_DEF
 def process_headings(
       conf_dict, local_toc, data_in, file_name, page_name, not_in_index_list
 ) :
@@ -246,12 +248,7 @@ def process_headings(
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(not_in_index_list) == list
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end process_headings}
+   # END_DEF
    #
    # headinge_character, heading_overline
    heading_character = conf_dict['heading']['character']
@@ -512,10 +509,10 @@ def process_headings(
    keywords = ' '.join( keywords.split() )
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    assert type(page_title) == str
    assert type(pseudo_heading) == str
    assert type(keywords) == str
-   #
    return data_out, page_title, pseudo_heading, keywords
    # END_RETURN

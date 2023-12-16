@@ -53,7 +53,7 @@ If the :ref:`run_xrst@target` command line argument.
 
 pseudo_heading
 **************
-is the :ref:`process_headings@Returns@pseudo_heading` for this page.
+is the :ref:`process_headings@pseudo_heading` for this page.
 
 .. meta::
    :keywords: file_in

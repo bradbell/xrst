@@ -18,24 +18,28 @@ Add labels and index entries for headings
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _process_headings@Arguments:
+.. _process_headings@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/process_headings.py
+   :lines: 242-250,512-517
+   :language: py
 
 .. meta::
    :keywords: conf_dict
 
 .. index:: conf_dict
 
-.. _process_headings@Arguments@conf_dict:
+.. _process_headings@conf_dict:
 
 conf_dict
-=========
+*********
 is a python dictionary representation of the configuration file.
 
 .. meta::
@@ -43,10 +47,10 @@ is a python dictionary representation of the configuration file.
 
 .. index:: local_toc
 
-.. _process_headings@Arguments@local_toc:
+.. _process_headings@local_toc:
 
 local_toc
-=========
+*********
 is the xrst command line local_toc setting.
 
 .. meta::
@@ -54,10 +58,10 @@ is the xrst command line local_toc setting.
 
 .. index:: data_in
 
-.. _process_headings@Arguments@data_in:
+.. _process_headings@data_in:
 
 data_in
-=======
+*******
 contains the data for a page before the headings are processed.
 
 .. meta::
@@ -65,10 +69,10 @@ contains the data for a page before the headings are processed.
 
 .. index:: file_name
 
-.. _process_headings@Arguments@file_name:
+.. _process_headings@file_name:
 
 file_name
-=========
+*********
 name of the file that contains the input data for this page.
 This is only used for error reporting.
 
@@ -77,10 +81,10 @@ This is only used for error reporting.
 
 .. index:: page_name
 
-.. _process_headings@Arguments@page_name:
+.. _process_headings@page_name:
 
 page_name
-=========
+*********
 is the name of this page.
 
 .. meta::
@@ -88,34 +92,24 @@ is the name of this page.
 
 .. index:: not_in_index_list
 
-.. _process_headings@Arguments@not_in_index_list:
+.. _process_headings@not_in_index_list:
 
 not_in_index_list
-=================
+*****************
 is a list of compiled regular expressions. If pattern is in this list,
 *word* is a lower case version of a word in the heading text, and
 pattern.fullmatch( *word* ) returns a match, an index entry is not
 generated for word.
 
 .. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _process_headings@Returns:
-
-Returns
-*******
-
-.. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _process_headings@Returns@data_out:
+.. _process_headings@data_out:
 
 data_out
-========
+********
 is a copy of data_in with the following extra command added:
 
  #. The index entries, and meta keyword entries (same as index),
@@ -129,10 +123,10 @@ is a copy of data_in with the following extra command added:
 
 .. index:: page_title
 
-.. _process_headings@Returns@page_title:
+.. _process_headings@page_title:
 
 page_title
-==========
+**********
 This is the heading text in the first heading for this page.
 There can only be one heading at this level.
 
@@ -141,10 +135,10 @@ There can only be one heading at this level.
 
 .. index:: pseudo_heading
 
-.. _process_headings@Returns@pseudo_heading:
+.. _process_headings@pseudo_heading:
 
 pseudo_heading
-==============
+**************
 This is an automatically generated heading for this page. It is intended
 to come before the page_title heading.
 It has three lines each terminated by a newline:
@@ -158,17 +152,9 @@ It has three lines each terminated by a newline:
 
 .. index:: keywords
 
-.. _process_headings@Returns@keywords:
+.. _process_headings@keywords:
 
 keywords
-========
+********
 This is a space separated list of all the keywords that are in the index
 for this page.
-
-.. literalinclude:: ../../xrst/process_headings.py
-   :lines: 240-248
-   :language: py
-
-.. literalinclude:: ../../xrst/process_headings.py
-   :lines: 515-520
-   :language: py

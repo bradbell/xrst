@@ -18,24 +18,28 @@ Add child information to a page
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _process_children@Arguments:
+.. _process_children@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/process_children.py
+   :lines: 59-68,145-147
+   :language: py
 
 .. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _process_children@Arguments@data_in:
+.. _process_children@data_in:
 
 data_in
-=======
+*******
 is the data for this page after the toc_command function has processed
 the toc commands.
 
@@ -44,32 +48,22 @@ the toc commands.
 
 .. index:: list_children
 
-.. _process_children@Arguments@list_children:
+.. _process_children@list_children:
 
 list_children
-=============
+*************
 is a list of the page names for the children of this page.
 If this list is empty, data_out is equal to data_in.
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _process_children@Returns:
-
-Returns
-*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _process_children@Returns@data_out:
+.. _process_children@data_out:
 
 data_out
-========
+********
 The return value data_out has the child information added.
 
  #. A hidden table of contents (toctree) for the children is added at the
@@ -81,11 +75,3 @@ The return value data_out has the child information added.
  #. If there is no TOC command and list_children is non-empty,
     the toc_table style is used for the links to the children which are
     placed at the end of the data_out (before the toctree).
-
-.. literalinclude:: ../../xrst/process_children.py
-   :lines: 58-67
-   :language: py
-
-.. literalinclude:: ../../xrst/process_children.py
-   :lines: 149-151
-   :language: py
