@@ -18,24 +18,28 @@ Process the literal commands in a page
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _literal_cmd_dev@Arguments:
+.. _literal_cmd_dev@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/literal_command.py
+   :lines: 303-307,401-403
+   :language: py
 
 .. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _literal_cmd_dev@Arguments@data_in:
+.. _literal_cmd_dev@data_in:
 
 data_in
-=======
+*******
 is the data for a page before the
 :ref:`literal commands <literal_cmd-name>` have been removed.
 
@@ -44,10 +48,10 @@ is the data for a page before the
 
 .. index:: file_name
 
-.. _literal_cmd_dev@Arguments@file_name:
+.. _literal_cmd_dev@file_name:
 
 file_name
-=========
+*********
 is the name of the file that this data comes from. This is used
 for error reporting and for the display file (when the display file
 is not included in the command).
@@ -57,10 +61,10 @@ is not included in the command).
 
 .. index:: page_name
 
-.. _literal_cmd_dev@Arguments@page_name:
+.. _literal_cmd_dev@page_name:
 
 page_name
-=========
+*********
 is the name of the page that this data is in. This is only used
 for error reporting.
 
@@ -69,38 +73,20 @@ for error reporting.
 
 .. index:: rst2project_dir
 
-.. _literal_cmd_dev@Arguments@rst2project_dir:
+.. _literal_cmd_dev@rst2project_dir:
 
 rst2project_dir
-===============
+***************
 is a relative path from the :ref:`config_file@directory@rst_directory`
 to the :ref:`config_file@directory@project_directory` .
-
-.. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _literal_cmd_dev@Returns:
-
-Returns
-*******
 
 .. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _literal_cmd_dev@Returns@data_out:
+.. _literal_cmd_dev@data_out:
 
 data_out
-========
+********
 Each xrst literal command is converted to its corresponding sphinx commands.
-
-.. literalinclude:: ../../xrst/literal_command.py
-   :lines: 301-305
-   :language: py
-
-.. literalinclude:: ../../xrst/literal_command.py
-   :lines: 404-406
-   :language: py

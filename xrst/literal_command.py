@@ -266,49 +266,46 @@ def next_literal_cmd(data_in, file_name, page_name, start_search) :
 # Process the literal commands in a page
 # ######################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for a page before the
 # :ref:`literal commands <literal_cmd-name>` have been removed.
 #
 # file_name
-# =========
+# *********
 # is the name of the file that this data comes from. This is used
 # for error reporting and for the display file (when the display file
 # is not included in the command).
 #
 # page_name
-# =========
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # rst2project_dir
-# ===============
+# ***************
 # is a relative path from the :ref:`config_file@directory@rst_directory`
 # to the :ref:`config_file@directory@project_directory` .
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # Each xrst literal command is converted to its corresponding sphinx commands.
 #
-# {xrst_code py}
+# {xrst_end literal_cmd_dev}
+# BEGIN_DEF
 def literal_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(rst2project_dir) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end literal_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -401,7 +398,7 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          data_out, file_name, page_name, start_search
       )
    # BEGIN_RETURN
-   assert type(data_out) == str
    #
+   assert type(data_out) == str
    return data_out
    # END_RETURN
