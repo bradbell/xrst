@@ -84,49 +84,46 @@ import os
 # Process the xrst code commands for a page
 # #########################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for the page before the
 # :ref:`code commands <code_cmd-name>` have been processed.
 #
 # file_name
-# =========
+# *********
 # is the name of the file that this data comes from. This is only used
 # for error reporting.
 #
 # page_name
-# =========
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting.
 #
 # rst2project_dir
-# ===============
+# ***************
 # is a relative path from the :ref:`config_file@directory@rst_directory`
 # to the :ref:`config_file@directory@project_directory` .
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # is a copy of data_in with the xrst code commands replaced by a corresponding
 # sphinx command.
 #
-# {xrst_code py}
+# {xrst_end code_cmd_dev}
+# BEGIN_DEF
 def code_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
    assert type(rst2project_dir) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end code_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -226,6 +223,7 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
       page_name     = page_name,
    )
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN
