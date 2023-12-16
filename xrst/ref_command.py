@@ -49,30 +49,27 @@ line_pattern    = re.compile(  r'@xrst_line ([0-9]+)@\n *' )
 # Remove Leading and Trailing White Space From ref Role Targets
 # #############################################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is the data for this page.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a copy of data_in except that white space
 # surrounding the target components has been removed .
 #
-# {xrst_code py}
+# {xrst_end ref_cmd_dev}
+# BEGIN_DEF
 def ref_command(data_in) :
    assert type(data_in) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end ref_cmd_dev}
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -137,6 +134,7 @@ def ref_command(data_in) :
       m_ref = ref_pattern_two.search(data_out, offset)
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    return data_out
    # END_RETURN
