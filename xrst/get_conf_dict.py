@@ -489,6 +489,13 @@ def iterable2string(iterable) :
 # the *project_directory* (because it determines the project directory)
 # so it cannot use the xrst :ref:`system_exit-name` .
 #
+# Prototype
+# *********
+# {xrst_literal ,
+#     # BEGIN_DEF, # END_DEF
+#     # BEGIN_RETURN, # END_RETURN
+# }
+#
 # config_file
 # ***********
 # is the location of the :ref:`run_xrst@config_file` specified on
@@ -501,16 +508,12 @@ def iterable2string(iterable) :
 # the proper type. This includes recursive checking; e.g. a list is checked
 # to make sure its elements have the proper type.
 #
-# {xrst_code py}
+# {xrst_end get_conf_dict}
+# BEGIN_DEF
 # conf_dict =
 def get_conf_dict(config_file) :
    assert type(config_file) == str
-   # {xrst_code}
-   # {xrst_literal
-   #     BEGIN_RETURN
-   #     END_RETURN
-   # }
-   # {xrst_end get_conf_dict}
+   # END_DEF
    #
    # msg
    msg  = f'config_file = {config_file}\n'
@@ -700,6 +703,7 @@ def get_conf_dict(config_file) :
             system_exit(msg)
    #
    # BEGIN_RETURN
+   #
    assert type(conf_dict) == dict
    return conf_dict
    # END_RETURN

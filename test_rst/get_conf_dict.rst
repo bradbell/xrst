@@ -21,6 +21,20 @@ so it cannot use the xrst :ref:`system_exit-name` .
    :local:
 
 .. meta::
+   :keywords: prototype
+
+.. index:: prototype
+
+.. _get_conf_dict@Prototype:
+
+Prototype
+*********
+
+.. literalinclude:: ../../xrst/get_conf_dict.py
+   :lines: 513-515,706-708
+   :language: py
+
+.. meta::
    :keywords: config_file
 
 .. index:: config_file
@@ -45,11 +59,3 @@ is the python dictionary corresponding to the toml file with the defaults
 filled in. All of the values in the dictionary have been check for
 the proper type. This includes recursive checking; e.g. a list is checked
 to make sure its elements have the proper type.
-
-.. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 505-507
-   :language: py
-
-.. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 703-704
-   :language: py
