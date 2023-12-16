@@ -158,53 +158,54 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # Process the spell command for a page
 # ####################################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # tmp_dir
-# =======
+# *******
 # The file :ref:`replace_spell@spell.toml`
 # is written in the *tmp_dir* directory by the one page at a time
 # by this function call.
 #
 # data_in
-# =======
+# *******
 # is the data for this page before the spell commands are removed.
 #
 # file_name
-# =========
+# *********
 # is the name of the file that the data came from. This is used
 # for error reporting and spell.toml.
 #
 # page_name
-# =========
+# *********
 # is the name of the page that this data is in. This is only used
 # for error reporting and spell.toml.
 #
 # begin_line
-# ==========
+# **********
 # is the line number in *file_name* where the begin command for this page
 # appears. This is only used for spell.toml.
 #
 # print_warning
-# =============
+# *************
 # if true (false) print (do not print) the spelling warnings.
 #
 # spell_checker
-# =============
+# *************
 # Is a spell checking object used for error checking; see
 # :ref:`get_spell_checker-name`.
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # is the data for this page after the spell command (if it exists)
 # is removed.
 #
 # spell_warning
-# =============
+# *************
 # is true (false) if a spelling warning occurred (did not occur).
 #
 # Spelling Warnings
@@ -214,7 +215,8 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # more letter characters. If a word is directly preceded by a backslash,
 # it is ignored (so that latex commands do not generate warnings).
 #
-# {xrst_code py}
+# {xrst_end spell_cmd_dev}
+# BEGIN_DEF
 def spell_command(
    tmp_dir,
    data_in,
@@ -230,12 +232,7 @@ def spell_command(
    assert type(page_name) == str
    assert type(begin_line) == int
    assert type(print_warning) == bool
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end spell_cmd_dev}
+   # END_DEF
    #
    # first_spell_warning
    first_spell_warning = True
@@ -547,8 +544,8 @@ def spell_command(
    #
    spell_warning = not first_spell_warning
    # BEGIN_RETURN
+   #
    assert type(spell_warning) == bool
    assert type(data_out) == str
-   #
    return data_out, spell_warning
    # END_RETURN

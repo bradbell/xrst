@@ -18,48 +18,42 @@ Remove the number numbers
    :local:
 
 .. meta::
-   :keywords: arguments
+   :keywords: prototype
 
-.. index:: arguments
+.. index:: prototype
 
-.. _remove_line_numbers@Arguments:
+.. _remove_line_numbers@Prototype:
 
-Arguments
+Prototype
 *********
+
+.. literalinclude:: ../../xrst/remove_line_numbers.py
+   :lines: 52-53,105-112
+   :language: py
 
 .. meta::
    :keywords: data_in
 
 .. index:: data_in
 
-.. _remove_line_numbers@Arguments@data_in:
+.. _remove_line_numbers@data_in:
 
 data_in
-=======
+*******
 is a string with line number markers added by :ref:`add_line_numbers-name` .
 These lines number markers have the form:
 
     ``@xrst_line`` *line_number* ``@`` .
 
 .. meta::
-   :keywords: returns
-
-.. index:: returns
-
-.. _remove_line_numbers@Returns:
-
-Returns
-*******
-
-.. meta::
    :keywords: data_out
 
 .. index:: data_out
 
-.. _remove_line_numbers@Returns@data_out:
+.. _remove_line_numbers@data_out:
 
 data_out
-========
+********
 The return data_out is a copy of data_in with the
 line number markers removed.
 
@@ -68,10 +62,10 @@ line number markers removed.
 
 .. index:: line_pair
 
-.. _remove_line_numbers@Returns@line_pair:
+.. _remove_line_numbers@line_pair:
 
 line_pair
-=========
+*********
 The second return line_pair is a list of two element tuples.
 
 -   The first element is the line number in data_out corresponding to
@@ -84,11 +78,3 @@ The second return line_pair is a list of two element tuples.
 
 -   The data_out line numbers are in increasing order and
     the maker line numbers are non-decreasing.
-
-.. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 50-51
-   :language: py
-
-.. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 108-115
-   :language: py

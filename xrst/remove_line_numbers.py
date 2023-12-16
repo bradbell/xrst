@@ -13,26 +13,27 @@ pattern_error = re.compile( r'@xrst_line [0-9]+@[^\n]' )
 # Remove the number numbers
 # #########################
 #
-# Arguments
+# Prototype
 # *********
+# {xrst_literal ,
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
+# }
 #
 # data_in
-# =======
+# *******
 # is a string with line number markers added by :ref:`add_line_numbers-name` .
 # These lines number markers have the form:
 #
 #     ``@xrst_line`` *line_number* ``@`` .
 #
-# Returns
-# *******
-#
 # data_out
-# ========
+# ********
 # The return data_out is a copy of data_in with the
 # line number markers removed.
 #
 # line_pair
-# =========
+# *********
 # The second return line_pair is a list of two element tuples.
 #
 # -   The first element is the line number in data_out corresponding to
@@ -46,15 +47,11 @@ pattern_error = re.compile( r'@xrst_line [0-9]+@[^\n]' )
 # -   The data_out line numbers are in increasing order and
 #     the maker line numbers are non-decreasing.
 #
-# {xrst_code py}
+# {xrst_end remove_line_numbers}
+# BEGIN_DEF
 def remove_line_numbers(data_in) :
    assert type(data_in) == str
-   # {xrst_code}
-   # {xrst_literal
-   #  BEGIN_RETURN
-   #  END_RETURN
-   # }
-   # {xrst_end remove_line_numbers}
+   # END_DEF
    #
    # m_error
    m_error = pattern_error.search(data_in)
@@ -105,12 +102,12 @@ def remove_line_numbers(data_in) :
    data_out += data_in[previous_end  :]
    #
    # BEGIN_RETURN
+   #
    assert type(data_out) == str
    assert type(line_pair) == list
    if 0 < len(line_pair) :
       assert type(line_pair[0]) == tuple
       assert type(line_pair[0][0]) == int
       assert type(line_pair[0][1]) == int
-   #
    return data_out, line_pair
    # END_RETURN
