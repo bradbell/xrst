@@ -52,8 +52,8 @@ def add_line_numbers(data_in, file_in) :
    assert type(file_in) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end add_line_numbers}
    #
@@ -115,7 +115,7 @@ def add_line_numbers(data_in, file_in) :
    assert previous == len(data_extend) - 1
    data_out += '\n'
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    return data_out
-   # END_return
+   # END_RETURN

@@ -51,8 +51,8 @@ def remove_line_numbers(data_in) :
    assert type(data_in) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end remove_line_numbers}
    #
@@ -104,7 +104,7 @@ def remove_line_numbers(data_in) :
    # data_out
    data_out += data_in[previous_end  :]
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    assert type(line_pair) == list
    if 0 < len(line_pair) :
@@ -113,4 +113,4 @@ def remove_line_numbers(data_in) :
       assert type(line_pair[0][1]) == int
    #
    return data_out, line_pair
-   # END_return
+   # END_RETURN

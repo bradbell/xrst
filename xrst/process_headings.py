@@ -248,8 +248,8 @@ def process_headings(
    assert type(not_in_index_list) == list
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end process_headings}
    #
@@ -511,11 +511,11 @@ def process_headings(
    # keywords
    keywords = ' '.join( keywords.split() )
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    assert type(page_title) == str
    assert type(pseudo_heading) == str
    assert type(keywords) == str
    #
    return data_out, page_title, pseudo_heading, keywords
-   # END_return
+   # END_RETURN

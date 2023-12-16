@@ -66,8 +66,8 @@ def next_heading(data, data_index, file_name, page_name) :
    assert type(page_name) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end next_heading}
    #
@@ -155,10 +155,10 @@ def next_heading(data, data_index, file_name, page_name) :
    heading_text  = ''
    underline_text  = ''
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(heading_index) == int
    assert type(heading_text) == str
    assert type(underline_text) == str
    #
    return heading_index, heading_text, underline_text
-   # END_return
+   # END_RETURN

@@ -14,8 +14,8 @@ Lines that only have spaces and tabs are not included in this calculation.
 Prototype
 *********
 {xrst_literal ,
-   # BEGIN PROTOTYPE, # END PROTOTYPE
-   # BEGIN RETURN, # END RETURN
+   # BEGIN_DEF, # END_DEF
+   # BEGIN_RETURN, # END_RETURN
 }
 
 data
@@ -48,12 +48,12 @@ import xrst
 # pattern_newline
 pattern_newline = re.compile( r'\n([ \t]*)[^ \t\n]' )
 #
-# BEGIN PROTOTYPE
+# BEGIN_DEF
 def auto_indent(data, file_name, page_name) :
    assert type(data) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   # END PROTOTYPE
+   # END_DEF
    #
    # len_data
    len_data   = len(data)
@@ -96,7 +96,7 @@ def auto_indent(data, file_name, page_name) :
    # indentation
    indentation = n_indent * indent_ch
    #
-   # BEGIN RETURN
+   # BEGIN_RETURN
    assert type(indentation) == str
    return indentation
-   # END RETURN
+   # END_RETURN

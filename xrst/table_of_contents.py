@@ -221,8 +221,8 @@ def table_of_contents(
    assert type(root_page_list[0]) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end table_of_contents}
    #
@@ -248,7 +248,7 @@ def table_of_contents(
             tmp_dir, target, count, all_page_info, page_index
          )
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(content) == str
    return content
-   # END_return
+   # END_RETURN

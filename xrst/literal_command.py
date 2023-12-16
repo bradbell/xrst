@@ -305,8 +305,8 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(rst2project_dir) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end literal_cmd_dev}
    #
@@ -400,8 +400,8 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
       arg_list, line_list, start_command, end_command = next_literal_cmd(
          data_out, file_name, page_name, start_search
       )
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    #
    return data_out
-   # END_return
+   # END_RETURN

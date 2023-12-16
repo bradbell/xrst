@@ -123,8 +123,8 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
    assert type(rst2project_dir) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end code_cmd_dev}
    #
@@ -225,7 +225,7 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
       file_name     = file_name,
       page_name     = page_name,
    )
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    return data_out
-   # END_return
+   # END_RETURN

@@ -232,8 +232,8 @@ def spell_command(
    assert type(print_warning) == bool
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end spell_cmd_dev}
    #
@@ -546,9 +546,9 @@ def spell_command(
    )
    #
    spell_warning = not first_spell_warning
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(spell_warning) == bool
    assert type(data_out) == str
    #
    return data_out, spell_warning
-   # END_return
+   # END_RETURN

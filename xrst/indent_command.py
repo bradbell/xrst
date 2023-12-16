@@ -65,8 +65,8 @@ import xrst
 # Prototype
 # *********
 # {xrst_literal ,
-#  # BEGIN PROTOTYPE, # END PROTOTYPE
-#  # BEGIN RETURN, # END RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # data_in
@@ -101,12 +101,12 @@ pattern_newline = re.compile( r'\n([ \t]*)[^ \t\n]' )
 # pattern_space_or_tab
 pattern_space_or_tab = re.compile( r'[ \n]*' )
 #
-# BEGIN PROTOTYPE
+# BEGIN_DEF
 def indent_command(data_in, file_name, page_name) :
    assert type(data_in) == str
    assert type(file_name) == str
    assert type(page_name) == str
-   # END PROTOTYPE
+   # END_DEF
    #
    # data_out
    data_out = data_in
@@ -192,7 +192,7 @@ def indent_command(data_in, file_name, page_name) :
          # m_obj
          m_obj = pattern_indent.search(data_out, len(data_left) )
    #
-   # BEGIN RETURN
+   # BEGIN_RETURN
    assert type(data_out) == str
    return data_out
-   # END RETURN
+   # END_RETURN

@@ -187,8 +187,8 @@ def get_file_info(
    assert type(file_in) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end get_file_info}
    #
@@ -401,9 +401,9 @@ def get_file_info(
          page_name   = None,
       )
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(file_page_info) == list
    assert type(file_page_info[0]) == dict
    #
    return file_page_info
-   # END_return
+   # END_RETURN

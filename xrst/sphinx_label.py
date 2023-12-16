@@ -64,8 +64,8 @@ def sphinx_label(data_in, file_name, page_name) :
    assert type(page_name) == str
    # {xrst_code}
    # {xrst_literal
-   #     BEGIN_return
-   #     END_return
+   #     BEGIN_RETURN
+   #     END_RETURN
    # }
    # {xrst_end sphinx_label}
    #
@@ -147,11 +147,11 @@ def sphinx_label(data_in, file_name, page_name) :
          #
          # m_label
          m_label = pattern.search(data, m_label.end())
-   # BEGIN_return
+   # BEGIN_RETURN
    for result in [ external_line, internal_line ] :
       assert type(result) == dict
       for key in result.keys() :
          assert type( result[key] ) == str
    #
    return external_line, internal_line
-   # END_return
+   # END_RETURN

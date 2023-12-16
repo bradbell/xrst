@@ -30,4 +30,9 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|{xrst_before_title}|{xrst@before_title}|g
+s|BEGIN \([A-Z]\)|BEGIN_\1|g
+s|END \([A-Z]\)|END_\1|g
+s|BEGIN_PROTOTYPE|BEGIN_DEF|
+s|END_PROTOTYPE|END_DEF|
+s|BEGIN_return|BEGIN_RETURN|
+s|END_return|END_RETURN|

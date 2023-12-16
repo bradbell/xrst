@@ -194,8 +194,8 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    assert type(group_name) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end toc_cmd_dev}
    #
@@ -383,7 +383,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    )
    # We know that the lists are no-empty for this return,
    # but use asserts that work for both retures becase in documentation.
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    assert type(file_list) == list
    if 0 < len(file_list) :
@@ -394,4 +394,4 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    assert order in [ 'before' , 'after' ]
    #
    return data_out, file_list, child_page_list, order
-   # END_return
+   # END_RETURN

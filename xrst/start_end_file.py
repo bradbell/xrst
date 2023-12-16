@@ -77,8 +77,8 @@ def start_end_file(
    assert type(end_before) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end start_end_file}
    # ------------------------------------------------------------------------
@@ -155,9 +155,9 @@ def start_end_file(
          file_name=file_cmd, page_name=page_name, line = cmd_line[0]
       )
    # ------------------------------------------------------------------------
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(start_line) == int
    assert type(end_line) == int
    #
    return start_line, end_line
-   # END_return
+   # END_RETURN

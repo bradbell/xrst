@@ -28,13 +28,13 @@ Syntax
 Prototype
 *********
 {xrst_literal ,
-   // BEGIN CTOR, END CTOR
-   // BEGIN VALUE, END VALUE
-   // BEGIN DERIVATIVE, END DERIVATIVE
-   // BEGIN ADD, END ADD
-   // BEGIN SUB, END SUB
-   // BEGIN MUL, END MUL
-   // BEGIN DIV, END DIV
+   // BEGIN_CTOR, END_CTOR
+   // BEGIN_VALUE, END_VALUE
+   // BEGIN_DERIVATIVE, END_DERIVATIVE
+   // BEGIN_ADD, END_ADD
+   // BEGIN_SUB, END_SUB
+   // BEGIN_MUL, END_MUL
+   // BEGIN_DIV, END_DIV
 }
 
 Discussion
@@ -70,49 +70,49 @@ private:
    const double value_;
    const double derivative_;
 public:
-   // BEGIN CTOR
+   // BEGIN_CTOR
    ad_double(double value, double derivative)
-   // END CTOR
+   // END_CTOR
    : value_(value), derivative_(derivative)
    { }
-   // BEGIN VALUE
+   // BEGIN_VALUE
    double value(void) const
-   // END VALUE
+   // END_VALUE
    {  return value_; }
    //
-   // BEGIN DERIVATIVE
+   // BEGIN_DERIVATIVE
    double derivative(void) const
-   // END DERIVATIVE
+   // END_DERIVATIVE
    {  return derivative_; }
    //
-   // BEGIN ADD
+   // BEGIN_ADD
    ad_double operator+(const ad_double& other) const
-   // END ADD
+   // END_ADD
    {  double value      = value_      + other.value_;
       double derivative = derivative_ + other.derivative_;
       return ad_double(value, derivative);
    }
    //
-   // BEGIN SUB
+   // BEGIN_SUB
    ad_double operator-(const ad_double& other) const
-   // END SUB
+   // END_SUB
    {  double value       = value_      - other.value_;
       double derivative  = derivative_ - other.derivative_;
       return ad_double(value, derivative);
    }
    //
-   // BEGIN MUL
+   // BEGIN_MUL
    ad_double operator*(const ad_double& other) const
-   // END MUL
+   // END_MUL
    {  double value       = value_      * other.value_;
       double derivative  = value_      * other.derivative_
                          + derivative_ * other.value_;
       return ad_double(value, derivative);
    }
    //
-   // BEGIN DIV
+   // BEGIN_DIV
    ad_double operator/(const ad_double& other) const
-   // END DIV
+   // END_DIV
    {  double value       = value_      / other.value_;
       double derivative  = derivative_ / other.value_
          - value_ * other.derivative_ /(other.value_ * other.value_);
@@ -220,8 +220,8 @@ is the same as for the parent of this page.
 Run ad_double Example and Check its Result
 ##########################################
 {xrst_literal
-   BEGIN MAIN
-   END MAIN
+   BEGIN_MAIN
+   END_MAIN
 }
 
 Example File
@@ -230,7 +230,7 @@ Example File
 is the same as for the parent of this page.
 {xrst_end test_ad_double}
 */
-// BEGIN MAIN
+// BEGIN_MAIN
 int main(void)
 {  bool ok = test_ad_double();
 
@@ -240,4 +240,4 @@ int main(void)
    }
    std::cout << "test_ad_double: OK\n";
 }
-// END MAIN
+// END_MAIN

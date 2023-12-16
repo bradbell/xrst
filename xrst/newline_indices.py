@@ -29,8 +29,8 @@ def newline_indices(data) :
    assert type(data) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end newline_indices}
 
@@ -40,9 +40,9 @@ def newline_indices(data) :
    for m_obj in newline_itr :
       next_index = m_obj.start()
       newline_list.append( next_index )
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(newline_list) == list
    if 0 < len( newline_list) :
       assert type(newline_list[0]) == int
    return newline_list
-   # END_return
+   # END_RETURN

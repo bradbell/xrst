@@ -67,8 +67,8 @@ def process_children(
       assert type(list_children[0]) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end process_children}
    #
@@ -145,8 +145,8 @@ def process_children(
       toctree += '   ' + entry + '\n'
    data_out = data_out + toctree
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    #
    return data_out
-   # END_return
+   # END_RETURN

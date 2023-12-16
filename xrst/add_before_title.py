@@ -60,8 +60,8 @@ def add_before_title(data_in, target, page_number, page_name) :
    assert type(page_name) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end add_before_title}
    #
@@ -142,8 +142,8 @@ def add_before_title(data_in, target, page_number, page_name) :
       data_out += data_in[fourth_newline :]
    else :
       data_out += data_in[third_newline :]
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    #
    return data_out
-   # END_return
+   # END_RETURN

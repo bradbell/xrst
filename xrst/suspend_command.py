@@ -74,8 +74,8 @@ def suspend_command(data_in, file_name, page_name) :
    assert type(page_name) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end suspend_cmd_dev}
    #
@@ -134,7 +134,7 @@ def suspend_command(data_in, file_name, page_name) :
          file_name     = file_name,
          page_name     = page_name,
       )
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    return data_out
-   # END_return
+   # END_RETURN

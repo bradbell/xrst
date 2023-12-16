@@ -57,8 +57,8 @@ def comment_command(data_in) :
    assert type(data_in) == str
    # {xrst_code}
    # {xrst_literal
-   #  BEGIN_return
-   #  END_return
+   #  BEGIN_RETURN
+   #  END_RETURN
    # }
    # {xrst_end comment_cmd_dev}
    #
@@ -99,7 +99,7 @@ def comment_command(data_in) :
    # Cannot check for a syntax error in this command unless
    # the comment_ch commands have already been processed.
    #
-   # BEGIN_return
+   # BEGIN_RETURN
    assert type(data_out) == str
    return data_out
-   # END_return
+   # END_RETURN
