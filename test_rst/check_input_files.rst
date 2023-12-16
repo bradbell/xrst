@@ -18,6 +18,20 @@ Check That Expected xrst Input Files Are Included
    :local:
 
 .. meta::
+   :keywords: prototype
+
+.. index:: prototype
+
+.. _check_input_files@Prototype:
+
+Prototype
+*********
+
+.. literalinclude:: ../../xrst/check_input_files.py
+   :lines: 63-77,187-192
+   :language: py
+
+.. meta::
    :keywords: config_file
 
 .. index:: config_file
@@ -100,21 +114,3 @@ having to re-execute the input_files commands.
 file_list_warning
 *****************
 This is true (false) if an input file list warning is (is not) printed
-
-.. meta::
-   :keywords: prototype
-
-.. index:: prototype
-
-.. _check_input_files@Prototype:
-
-Prototype
-*********
-
-.. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 59-75
-   :language: py
-
-.. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 190-194
-   :language: py

@@ -9,14 +9,19 @@ import subprocess
 # {xrst_begin check_input_files dev}
 # {xrst_spell
 #     conf
-#     fullmatch
-#     len
 #     toc
 # }
 # {xrst_comment_ch #}
 #
 # Check That Expected xrst Input Files Are Included
 # #################################################
+#
+# Prototype
+# *********
+# {xrst_literal ,
+#     # BEGIN_DEF, # END_DEF
+#     # BEGIN_RETURN, # END_RETURN
+# }
 #
 # config_file
 # ***********
@@ -53,14 +58,11 @@ import subprocess
 # *****************
 # This is true (false) if an input file list warning is (is not) printed
 #
-# Prototype
-# *********
-# {xrst_code py}
-# file_list_out, file_list_warning =
+# {xrst_end check_input_files}
+# BEGIN_DEF
 def check_input_files(
    config_file, conf_dict, group_name, toc_file_set, file_list_in
 ) :
-   #
    assert type(config_file) == str
    assert type(conf_dict) == dict
    assert type(group_name) == str
@@ -73,12 +75,7 @@ def check_input_files(
    assert group_name != ''
    p_group_name = re.compile( r'[a-z]+' )
    assert p_group_name.fullmatch( group_name )
-   # {xrst_code}
-   # {xrst_literal
-   #     # BEGIN_RETURN
-   #     # END_RETURN
-   # }
-   # {xrst_end check_input_files}
+   # END_DEF
    #
    # input_files
    input_files = conf_dict['input_files']['data']
@@ -187,6 +184,7 @@ def check_input_files(
                sys.stderr.write(msg)
    file_list_warning = 0 < warning_count
    # BEGIN_RETURN
+   #
    assert type(file_list_warning) == bool
    assert type(file_list_out) == list
    if len(file_list_out) > 0 :
