@@ -87,6 +87,7 @@ conf_py_constant = '''#
 # General configuration
 extensions = [
    'sphinx.ext.mathjax',
+   'sphinx_copybutton',
 ]
 root_doc = 'xrst_root_doc'
 #

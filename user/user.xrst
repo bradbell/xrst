@@ -166,6 +166,16 @@ using the following command:
 
    grep '^version *=' pyproject.toml
 
+Dependencies
+************
+The following is a list of the projects that xrst depends on
+(and should be automatically installed by pip when you install xrst):
+{xrst_literal
+   pyproject.toml
+   # BEGIN_DEPENDENCIES
+   # END_DEPENDENCIES
+}
+
 
 Run Program
 ***********

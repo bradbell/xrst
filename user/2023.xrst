@@ -20,6 +20,7 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    pyspellchecker
    doxygen
    autodoc
+   copybutton
 }
 
 xrst Release Notes for 2023
@@ -30,9 +31,11 @@ mm-dd
 
 12-17
 =====
-The discussion of the spell command :ref:`spell_cmd@project_dictionary`
-was improved. In addition, a list of all the misspelled words if included
-after the spelling warnings as a suggestion for the project dictionary.
+#. The discussion of the spell command :ref:`spell_cmd@project_dictionary`
+   was improved. In addition, a list of all the misspelled words if included
+   after the spelling warnings as a suggestion for the project dictionary.
+#. A copy button was added to the all displayed code. This added the
+   ``sphinx-copybutton`` to the :ref:`user-guide@Dependencies` .
 
 12-10
 =====
@@ -295,15 +298,8 @@ underline and overline conventions.
    is for the dependencies to be in the pyproject.toml file.
    Some older versions of setuptools do not yet handle these
    correctly and you may need include some of the dependencies on
-   the pip install command line.
-   For xrst, the dependencies are as follows:
-
-{xrst_literal
-   pyproject.toml
-   # BEGIN_DEPENDENCIES
-   # END_DEPENDENCIES
-}
-
+   the pip install command line; see
+   :ref:`user-guide@Dependencies` .
 
 01-08
 =====
