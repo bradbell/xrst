@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 220-234,547-550
+   :lines: 227-241,558-562
    :language: py
 
 .. meta::
@@ -100,7 +100,11 @@ appears. This is only used for spell.toml.
 
 print_warning
 *************
-if true (false) print (do not print) the spelling warnings.
+if this is false, do not print the spelling warnings. Otherwise,
+a spelling warning is reported for each word (and double word) that is not
+in the spell_checker dictionary or the special word list. A word is two or
+more letter characters. If a word is directly preceded by a backslash,
+it is ignored (so that latex commands do not generate warnings).
 
 .. meta::
    :keywords: spell_checker
@@ -135,18 +139,18 @@ is removed.
 
 spell_warning
 *************
-is true (false) if a spelling warning occurred (did not occur).
+is true if a spelling error occurred and a warning was printed.
+Otherwise, it is false.
 
 .. meta::
-   :keywords: spelling, warnings
+   :keywords: unknown_word_set
 
-.. index:: spelling, warnings
+.. index:: unknown_word_set
 
-.. _spell_cmd_dev@Spelling Warnings:
+.. _spell_cmd_dev@unknown_word_set:
 
-Spelling Warnings
-*****************
-A spelling warning is reported for each word (and double word) that is not
-in the spell_checker dictionary or the special word list. A word is two or
-more letter characters. If a word is directly preceded by a backslash,
-it is ignored (so that latex commands do not generate warnings).
+unknown_word_set
+****************
+is a lower case version of the set of words that are not in the
+spell_checker dictionary or the special word list.
+It does not include double word errors.

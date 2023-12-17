@@ -87,11 +87,16 @@ replace_spell_commands
 If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
-This is useful when there are no spelling warnings before a change
-to the :ref:`config_file@project_dictionary` or when there is an update
-to the :ref:`config_file@spell_package` .
-If this option is present,
-none of the output files are created; e.g., the \*.rst and \*.html files.
+
+#. This is useful when there are no spelling warnings before a change
+   to the :ref:`config_file@project_dictionary` or when there is an update
+   to the :ref:`config_file@spell_package` .
+#. This is also useful when there are no spelling warnings and you want
+   to sort the words in all the spelling commands.
+#. If this option is present,
+   none of the output files are created; e.g., the \*.rst and \*.html files.
+
+See also :ref:`config_file@project_dictionary` .
 {xrst_comment --------------------------------------------------------------- }
 
 suppress_spell_warnings
@@ -805,6 +810,9 @@ def run_xrst() :
    # any_warning
    any_warning = [ False ]
    #
+   # unknown_word_all
+   unknown_word_all = set()
+   #
    # group_name
    for group_name in group_list :
       #
@@ -929,7 +937,9 @@ def run_xrst() :
             # spell_command
             # do after suspend and before other commands to help ignore
             # pages of text that do not need spell checking
-            page_data, spell_warning = xrst.spell_command(
+            #
+            # page_data, any_warning, unknown_word_all
+            page_data, spell_warning, unknown_word_set = xrst.spell_command(
                tmp_dir         = tmp_dir ,
                data_in         = page_data,
                file_name       = file_in,
@@ -938,8 +948,10 @@ def run_xrst() :
                print_warning   = not suppress_spell_warnings,
                spell_checker   = spell_checker,
             )
-            if spell_warning and not suppress_spell_warnings :
+            if spell_warning :
+               assert not suppress_spell_warnings
                any_warning[0] = True
+            unknown_word_all = unknown_word_all.union(unknown_word_set)
             # -------------------------------------------------------------
             # dir commands
             page_data = xrst.dir_command(page_data, rst2project_directory)
@@ -1082,6 +1094,23 @@ def run_xrst() :
       shutil.rmtree(tmp_dir)
       print('xrst --replace_spell_commands: OK')
       return
+   #
+   # unknown_word_all
+   if not suppress_spell_warnings and len(unknown_word_all) > 0 :
+      assert any_warning[0] == True
+      msg = '\nYou can fix the spelling warnings using the spell command.\n'
+      msg += 'You also could add some of the following words to '
+      msg += 'the project_dictionary:\n'
+      sys.stderr.write(msg)
+      unknown_word_list = sorted( unknown_word_all )
+      line  = ''
+      for word in unknown_word_list :
+         line = line + '   ' + word
+         if len(line) > 70 :
+            print(line + '\n')
+            line = ''
+      if len(line) > 0 :
+         print(line + '\n')
    #
    # auto_file
    xrst.auto_file(

@@ -61,6 +61,9 @@ project_dictionary
 The list of words in the
 :ref:`config_file@project_dictionary`
 are considered correct spellings for all pages.
+If multiple people are working on a project using different spell checkers,
+the words that are correct in one spell checker and not another should
+be included in the project_dictionary.
 
 page_name
 *********
@@ -192,7 +195,11 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 #
 # print_warning
 # *************
-# if true (false) print (do not print) the spelling warnings.
+# if this is false, do not print the spelling warnings. Otherwise,
+# a spelling warning is reported for each word (and double word) that is not
+# in the spell_checker dictionary or the special word list. A word is two or
+# more letter characters. If a word is directly preceded by a backslash,
+# it is ignored (so that latex commands do not generate warnings).
 #
 # spell_checker
 # *************
@@ -206,14 +213,14 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 #
 # spell_warning
 # *************
-# is true (false) if a spelling warning occurred (did not occur).
+# is true if a spelling error occurred and a warning was printed.
+# Otherwise, it is false.
 #
-# Spelling Warnings
-# *****************
-# A spelling warning is reported for each word (and double word) that is not
-# in the spell_checker dictionary or the special word list. A word is two or
-# more letter characters. If a word is directly preceded by a backslash,
-# it is ignored (so that latex commands do not generate warnings).
+# unknown_word_set
+# ****************
+# is a lower case version of the set of words that are not in the
+# spell_checker dictionary or the special word list.
+# It does not include double word errors.
 #
 # {xrst_end spell_cmd_dev}
 # BEGIN_DEF
@@ -236,6 +243,9 @@ def spell_command(
    #
    # first_spell_warning
    first_spell_warning = True
+   #
+   # unknown_word_set
+   unknown_word_set = set()
    #
    # m_spell
    m_spell       = pattern['spell'].search(data_in)
@@ -402,10 +412,11 @@ def spell_command(
             if not word_lower in replace_word_list :
                replace_word_list.append( word_lower )
             #
-            # word is not in the dictionary
+            # unknown_word_set
+            if not word_lower in special_used :
+               unknown_word_set.add( word_lower )
             #
             if not word_lower in special_used and print_warning :
-               # word is not in the list of special words
                #
                # first_spell_warning
                if first_spell_warning :
@@ -545,7 +556,8 @@ def spell_command(
    spell_warning = not first_spell_warning
    # BEGIN_RETURN
    #
-   assert type(spell_warning) == bool
    assert type(data_out) == str
-   return data_out, spell_warning
+   assert type(spell_warning) == bool
+   assert type(unknown_word_set) == set
+   return data_out, spell_warning, unknown_word_set
    # END_RETURN

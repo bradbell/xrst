@@ -28,6 +28,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+12-17
+=====
+The discussion of the spell command :ref:`spell_cmd@project_dictionary`
+was improved. In addition, a list of all the misspelled words if included
+after the spelling warnings as a suggestion for the project dictionary.
+
 12-10
 =====
 The :ref:`indent command<indent_cmd-name>` was added so that

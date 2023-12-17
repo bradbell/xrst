@@ -110,6 +110,9 @@ project_dictionary
 The list of words in the
 :ref:`config_file@project_dictionary`
 are considered correct spellings for all pages.
+If multiple people are working on a project using different spell checkers,
+the words that are correct in one spell checker and not another should
+be included in the project_dictionary.
 
 .. meta::
    :keywords: page_name

@@ -108,11 +108,16 @@ replace_spell_commands
 If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
-This is useful when there are no spelling warnings before a change
-to the :ref:`config_file@project_dictionary` or when there is an update
-to the :ref:`config_file@spell_package` .
-If this option is present,
-none of the output files are created; e.g., the \*.rst and \*.html files.
+
+#. This is useful when there are no spelling warnings before a change
+   to the :ref:`config_file@project_dictionary` or when there is an update
+   to the :ref:`config_file@spell_package` .
+#. This is also useful when there are no spelling warnings and you want
+   to sort the words in all the spelling commands.
+#. If this option is present,
+   none of the output files are created; e.g., the \*.rst and \*.html files.
+
+See also :ref:`config_file@project_dictionary` .
 
 .. meta::
    :keywords: suppress_spell_warnings
