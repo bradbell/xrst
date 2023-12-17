@@ -381,8 +381,8 @@ def spell_command(
    # previous_word
    previous_word = ''
    #
-   # unknown_word_list
-   unknown_word_list = list()
+   # replace_word_list
+   replace_word_list = list()
    #
    # m_obj
    for m_obj in pattern['word'].finditer( data_tmp ) :
@@ -398,9 +398,9 @@ def spell_command(
             if page_name == 'docstring_example' :
                breakpoint()
             #
-            # unknown_word_list
-            if not word_lower in unknown_word_list :
-               unknown_word_list.append( word_lower )
+            # replace_word_list
+            if not word_lower in replace_word_list :
+               replace_word_list.append( word_lower )
             #
             # word is not in the dictionary
             #
@@ -436,18 +436,18 @@ def spell_command(
          if double_word :
             # This is the second use of word with only white space between
             #
-            # unknown_word_list
-            if not word_lower in unknown_word_list :
-               unknown_word_list.append( word_lower )
-               unknown_word_list.append( word_lower )
+            # replace_word_list
+            if not word_lower in replace_word_list :
+               replace_word_list.append( word_lower )
+               replace_word_list.append( word_lower )
             else :
-               index = unknown_word_list.index( word_lower )
+               index = replace_word_list.index( word_lower )
                assert 0 < index
-               if index + 1 < len(unknown_word_list) :
-                  if unknown_word_list[index + 1] != word_lower :
-                     unknown_word_list.insert(index, word_lower )
+               if index + 1 < len(replace_word_list) :
+                  if replace_word_list[index + 1] != word_lower :
+                     replace_word_list.insert(index, word_lower )
                else :
-                  unknown_word_list.append(word_lower)
+                  replace_word_list.append(word_lower)
             #
             if not word_lower in double_used and print_warning :
                # word is not in list of special double words
@@ -517,11 +517,11 @@ def spell_command(
    file_data += f'begin_line = {begin_line}\n'
    file_data += f'start_spell = {start_spell}\n'
    file_data += f'end_spell = {end_spell}\n'
-   if len(unknown_word_list) == 0 :
-      file_data += f'unknown = []\n\n'
+   if len(replace_word_list) == 0 :
+      file_data += f'replace = []\n\n'
    else :
-      file_data += f'unknown = [\n'
-      for word_lower in unknown_word_list :
+      file_data += f'replace = [\n'
+      for word_lower in replace_word_list :
          file_data += f'   "{word_lower}",\n'
       file_data += ']\n\n'
    #

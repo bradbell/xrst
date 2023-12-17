@@ -30,7 +30,7 @@ import xrst
 #     begin_line  = integer line number where begin command is located
 #     start_spell = integer line number where the spell command starts
 #     end_spell   = integer line number where the spell command ends
-#     unknown     = array of strings (words) that are not in dictionary
+#     replace     = array of strings (words) that are not in dictionary
 #
 # It is called spell.tom because it is written by the
 # :ref:`spell_cmd_dev-name` one page at a time.
@@ -131,14 +131,14 @@ def replace_spell(tmp_dir) :
          data_in_index = begin_index
          #
          # data_out
-         unknown = page_info['unknown']
-         if len(unknown) > 0 :
+         replace = page_info['replace']
+         if len(replace) > 0 :
             data_out += begin_line + '{xrst_spell'
-            unknown   = sorted(unknown)
+            replace   = sorted(replace)
             i         = 0
-            while i < len(unknown) :
-               word = unknown[i]
-               if i + 1 < len(unknown) and word == unknown[i+1] :
+            while i < len(replace) :
+               word = replace[i]
+               if i + 1 < len(replace) and word == replace[i+1] :
                   data_out += indent_line + word + ' ' + word
                   i         = i + 2
                else :

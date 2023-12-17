@@ -45,7 +45,7 @@ for each page in that file::
     begin_line  = integer line number where begin command is located
     start_spell = integer line number where the spell command starts
     end_spell   = integer line number where the spell command ends
-    unknown     = array of strings (words) that are not in dictionary
+    replace     = array of strings (words) that are not in dictionary
 
 It is called spell.tom because it is written by the
 :ref:`spell_cmd_dev-name` one page at a time.
