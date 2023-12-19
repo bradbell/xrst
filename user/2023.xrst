@@ -29,6 +29,10 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+12-19
+=====
+Improve the summary message about spelling warnings.
+
 12-17
 =====
 #. The discussion of the spell command :ref:`spell_cmd@project_dictionary`

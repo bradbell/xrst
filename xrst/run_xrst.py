@@ -1098,7 +1098,7 @@ def run_xrst() :
    # unknown_word_all
    if not suppress_spell_warnings and len(unknown_word_all) > 0 :
       assert any_warning[0] == True
-      msg = '\nYou can fix the spelling warnings using the spell command.\n'
+      msg = '\nYou can stop the spelling warnings using the spell command.\n'
       msg += 'You also could add some of the following words to '
       msg += 'the project_dictionary:\n'
       sys.stderr.write(msg)
@@ -1107,10 +1107,11 @@ def run_xrst() :
       for word in unknown_word_list :
          line = line + '   ' + word
          if len(line) > 70 :
-            print(line + '\n')
+            sys.stderr.write(line + '\n')
             line = ''
       if len(line) > 0 :
-         print(line + '\n')
+         sys.stderr.write(line + '\n')
+      sys.stderr.write('\n')
    #
    # auto_file
    xrst.auto_file(

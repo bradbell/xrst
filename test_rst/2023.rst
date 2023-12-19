@@ -27,6 +27,12 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@12-19:
+
+12-19
+=====
+Improve the summary message about spelling warnings.
+
 .. _2023@mm-dd@12-17:
 
 12-17
