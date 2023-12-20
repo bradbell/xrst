@@ -90,7 +90,6 @@ def run_test() :
             print( f'{rst_name}: OK' )
          else :
             msg = f'{rst_file} is different from {check_file}'
-            breakpoint()
             assert False, msg
 # ----------------------------------------------------------------------------
 def test_rst() :
