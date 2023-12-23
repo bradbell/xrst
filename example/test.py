@@ -24,7 +24,7 @@ Code Command in List
       if n == 1 :
          return 1
       return n * factorial(n-1)
-   """{xrst_code}
+   r"""{xrst_code}
 #. This is the second item for this list
 
 No Newline at End of File

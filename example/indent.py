@@ -3,7 +3,7 @@
 # SPDX-FileContributor: 2020-22 Bradley M. Bell
 # ----------------------------------------------------------------------------
 def factorial(n) :
-   """
+   r"""
    {xrst_begin indent_example}
    {xrst_spell
       docstring

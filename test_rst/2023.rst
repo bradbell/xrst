@@ -27,6 +27,16 @@ xrst Release Notes for 2023
 mm-dd
 *****
 
+.. _2023@mm-dd@12-23:
+
+12-23
+=====
+Change the python comment delimiter from
+``"""`` to ``r"""`` in the following examples:
+:ref:`code_example-name` ,
+:ref:`indent_example-name` ,  and
+:ref:`testExample-name`  .
+
 .. _2023@mm-dd@12-20:
 
 12-20

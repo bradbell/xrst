@@ -15,14 +15,14 @@ def factorial(n) :
    if n == 1 :
       return 1
    return n * factorial(n-1)
-"""{xrst_code}
+r"""{xrst_code}
 
 Git Hash
 ********
 {xrst_spell_off}
 {xrst_code py}"""
 git_hash='7c35a3ce607a14953f070f0f83b5d74c2296ef93'
-"""{xrst_code}
+r"""{xrst_code}
 {xrst_spell_on}
 
 xrst_code
