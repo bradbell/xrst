@@ -59,31 +59,21 @@ done
 # git_commit.log
 branch=$(git branch --show-current)
 cat << EOF > git_commit.log
-$branch: Replace the contents of this file with a summary for this commit.
-If you delete all the lines in this file, this commit will abort.
-Below is a list of the files that will be changed by this commit.
-You may want to remove these names, or put comments next to individual files:
+# Please enter the commit message for your changes. Lines starting with '#'
+# will be ignored. This commit will abort if the first line does not begin with
+# $branch: because $branch is the branch for this commit. 
+# Below is a list of the files for this commit:
 EOF
-git status --porcelain >> git_commit.log
+git status --porcelain | sed -e 's|^|# |' >> git_commit.log
 $EDITOR git_commit.log
-#
-line[0]=\
-"$branch: Replace the contents of this file with a summary for this commit."
-line[1]=\
-'If you delete all the lines in this file, this commit will abort.'
-line[2]=\
-'Below is a list of the files that will be changed by this commit.'
-line[3]=\
-'You may want to remove these names, or put comments next to individual files:'
-for index in {0..3}
-do
-   if grep "${line[$index]}" git_commit.log > /dev/null
-   then
-      echo 'Aborting because you left following line in commit log:'
-      echo "   ${line[$index]}"
-      exit 1
-   fi
-done
+sed -i git_commit.log -e '/^#/d'
+if ! head -1 git_commit.log | grep "^$branch:" > /dev/null  
+then
+   echo 'The first line in this commit message is:'
+   head -1 git_commit.log
+   echo "Aborting because it does not start with '$branch:'"
+   exit 1
+fi
 # -----------------------------------------------------------------------------
 # git add
 echo_eval git add --all
