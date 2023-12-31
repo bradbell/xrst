@@ -30,7 +30,7 @@ This dictionary contains compiled regular expressions.
 It does not change after its initial setting when this file is imported.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 24-24
+   :lines: 21-21
    :language: py
 
 .. meta::
@@ -51,7 +51,7 @@ Pattern for the begin command.
 4. the group name (with leading and trailing spaces and tabs)
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 38-40
+   :lines: 35-37
    :language: py
 
 .. meta::
@@ -76,7 +76,7 @@ Patterns for the toc_hidden, toc_list, and toc_table commands.
 If you change this pattern, check pattern_toc in process_children.py
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 57-59
+   :lines: 54-56
    :language: py
 
 .. meta::
@@ -100,7 +100,7 @@ Pattern for code command.
 5. the line number for this line; see pattern['line'] above.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 76-79
+   :lines: 73-76
    :language: py
 
 .. meta::
@@ -118,7 +118,7 @@ Pattern for comment_ch command
 2. is the character (matched as any number of not space, tab or }
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 90-92
+   :lines: 87-89
    :language: py
 
 .. meta::
@@ -136,7 +136,7 @@ Pattern for dir command
 2. Is the file_name in the command
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 103-106
+   :lines: 100-103
    :language: py
 
 .. meta::
@@ -154,7 +154,7 @@ Pattern for end command
 1. the page name.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 117-117
+   :lines: 114-114
    :language: py
 
 .. meta::
@@ -172,7 +172,7 @@ Pattern for line numbers are added to the input by add_line_number
 1. the line_number.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 129-129
+   :lines: 126-126
    :language: py
 
 .. meta::
@@ -192,5 +192,5 @@ pattern if {xrst_literal} is matched.
 2. rest of command, not including first \\n or final }.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 142-144
+   :lines: 139-141
    :language: py
