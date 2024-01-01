@@ -24,7 +24,7 @@ build:
    commands:
       #
       # install most recent version of xrst
-      - pip install --index-url https://test.pypi.org/simple/ xrst-2023.12.18
+      - pip install --index-url https://test.pypi.org/simple/ xrst==2023.12.18
       #
       # This command prints the version of xrst that is being used
       - xrst --version
