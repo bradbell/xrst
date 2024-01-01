@@ -62,7 +62,7 @@ fi
 # check_all
 # check_version.sh will use pyproject.toml version becasue it has 0 the form
 # year.0.release.
-bin/check_all.sh
+bin/check_version.sh
 #
 # git_status
 git_status=$(git status --porcelain)
@@ -166,7 +166,7 @@ master_remote_hash=$(
 if [ "$master_local_hash" != "$master_remote_hash" ]
 then
    echo 'bin/new_release.sh: local and remote master differ'
-   echo "local  $mster_local_hash"
+   echo "local  $master_local_hash"
    echo "remote $master_remode_hash"
    echo 'try git checkout master; git push'
    exit 1
