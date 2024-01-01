@@ -11,7 +11,7 @@ build-backend = 'setuptools.build_meta'
 # -----------------------------------------------------------------------------
 [project]
 name              = 'xrst'
-version           = '2024.0.0'
+version           = '2024.1.1'
 description       = 'Extract RST files from source code and run Sphinx'
 readme            = 'readme.md'
 requires-python   = '>=3.0'
@@ -41,13 +41,9 @@ dynamic = [ "entry-points" ]
 [tool.setuptools]
 packages = ['xrst']
 
-[projet.urls]
-Documentation = 'https://xrst.readthedocs.io'
-'Source code' = 'https://github.com/bradbell/xrst'
-
 [project.scripts]
 xrst = 'xrst:run_xrst'
 
 [project.urls]
-'Homepage'    = 'https://bradbell.github.io/xrst'
+'Homepage'    = 'https://github.com/bradbell/xrst'
 'Bug Tracker' = 'https://github.com/bradbell/xrst/issues'

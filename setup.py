@@ -8,7 +8,7 @@ from setuptools import setup
 
 setup(
    name             = 'xrst',
-   version          = '2024.0.0',
+   version          = '2024.1.1',
    description      = 'Extract RST files from source code and run Sphinx',
    license          = 'GPL-3.0-or-later',
    keywords         = 'sphinx rst documentation source',
@@ -25,7 +25,7 @@ setup(
       'Natural Language :: English',
    ],
    install_requires = [
-      'sphinx', 'toml',                                # required
+      'sphinx', 'toml', 'sphinx-copybutton',           # required
       'pytest',                                        # need for testing xrst
       'pyenchant', 'pyspellchecker',                   # need the one you use
       'furo', 'sphinx-rtd-theme', 'sphinx-book-theme', # need the ones you use
