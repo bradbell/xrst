@@ -32,6 +32,9 @@ mm-dd
 01-01
 =====
 
+#. The :ref:`get_started-name` example was simplified by using
+   the stable release for 2024.
+
 #. A stable version of the documentation was created; see
    :ref:`user-guide@Documentation Versions` .
 

@@ -4,9 +4,7 @@
 # ----------------------------------------------------------------------------
 {xrst_begin get_started}
 {xrst_spell
-   copybutton
    toml
-   url
 }
 
 Title: Getting Started
@@ -21,13 +19,6 @@ Heading: Steps
 #. Use pip as follows to install the most recent stable version of xrst::
 
       pip install xrst
-
-#. After installing the stable version, use the following command
-   to install the leading edge version of xrst::
-
-      pip install sphinx-copybutton
-      pip uninstall -y xrst
-      pip install --index-url https://test.pypi.org/simple/ xrst
 
 #. Create an empty directory and make it your current working directory.
 
@@ -47,9 +38,8 @@ Heading: Steps
 
       xrst
 
-
 #. Use your web browser to open the file below
-   (this file name above is relative to your working directory)::
+   (this file name is relative to your working directory)::
 
       build/html/get_started.html
 

@@ -1,15 +1,22 @@
 # Extract Sphinx RST Files
 
 ## Install
-This installs the most recent testing version of xrst:
+This installs the current stable version of xrst:
+
+    pip install xrst
+
+This installs the most recent verion of xrst:
 
     pip install xrst
     pip uninstall -y xrst
     pip install --index-url https://test.pypi.org/simple/ xrst
 
+## Purpose
+https://xrst.readthedocs.io/latest/purpose.html
 
-## Documentation
-https://xrst.readthedocs.io
+## Get Started
+https://xrst.readthedocs.io/latest/get\_started.html
 
 ## Git Repository
 https://github.com/bradbell/xrst
+
