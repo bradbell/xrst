@@ -167,7 +167,7 @@ if [ "$master_local_hash" != "$master_remote_hash" ]
 then
    echo 'bin/new_release.sh: local and remote master differ'
    echo "local  $master_local_hash"
-   echo "remote $master_remode_hash"
+   echo "remote $master_remote_hash"
    echo 'try git checkout master; git push'
    exit 1
 fi
