@@ -103,14 +103,14 @@ bin/check_all.sh
 # stable_local_hash
 stable_local_hash=$(
    git show-ref $stable_branch | \
-   sed -n -e "refs/heads/$stable_branch" | \
+   sed -n -e "/refs[/]heads[/]$stable_branch/p" | \
    sed -e "s| *refs/heads/$stable_branch||"
 ) 
 #
 # stable_remote_hash
 stable_remote_hash=$(
    git show-ref $stable_branch | \
-   sed -n -e "refs/remotes/origin/$stable_branch" | \
+   sed -n -e "/refs[/]remotes[/]origin[/]$stable_branch/p" | \
    sed -e "s| *refs/remotes/origin/$stable_branch||"
 ) 
 #
@@ -152,14 +152,14 @@ fi
 # master_local_hash
 master_local_hash=$(
    git show-ref master | \
-   sed -n -e 'refs/heads/master' | \
+   sed -n -e '/refs[/]heads[/]master/p' | \
    sed -e 's| *refs/heads/master||'
 ) 
 #
 # master_remote_hash
 master_remote_hash=$(
    git show-ref master | \
-   sed -n -e 'refs/remotes/origin/master' | \
+   sed -n -e '/refs[/]remotes[/]origin[/]master/p' | \
    sed -e 's| *refs/remotes/origin/master||'
 ) 
 #
