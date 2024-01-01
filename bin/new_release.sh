@@ -59,10 +59,10 @@ then
    exit 1
 fi
 #
-# check_version
+# check_all
 # check_version.sh will use pyproject.toml version becasue it has 0 the form
 # year.0.release.
-bin/check_version.sh
+bin/check_all.sh
 #
 # git_status
 git_status=$(git status --porcelain)
@@ -96,9 +96,6 @@ then
    echo "Version number should be $tag in pyproject.toml"
    exit 1
 fi
-#
-# check_all
-bin/check_all.sh
 #
 # stable_local_hash
 pattern=$(echo " *refs/heads/$stable_branch" | sed -e 's|/|[/]|g')
@@ -140,10 +137,10 @@ then
    echo "   git push origin $stable_branch"
    exit 1
 fi
-if [ "$stable_local_hash" == "$stable_remote_hash" ]
+if [ "$stable_local_hash" != "$stable_remote_hash" ]
 then
    empty_hash='yes'
-   echo "bin/new_release: locan and remote $stable_branch differ."
+   echo "bin/new_release: local and remote $stable_branch differ."
    echo "local  $stable_local_hash"
    echo "remote $stable_remote_hash"
    echo 'try git push ?'
@@ -176,9 +173,15 @@ then
 fi
 #
 # push tag
-read -p 'More testing or commit release [t/c] ?' response
-if [ "$response" == 'c' ]
+reaponse=''
+while [ "$reponse" != 'check' ] && [ "$response" != 'release' ]
+do
+   read -p 'Run check_all or commit release [check/release] ?' response
+done
+if [ "$response" == 'check' ]
 then
+   bin/check_all.sh
+else
    echo "git tag -a -m 'created by new_release.sh' $tag $stable_remote_hash"
    git tag -a -m 'created by new_release.sh' $tag $stable_remote_hash
    #
