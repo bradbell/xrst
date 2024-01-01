@@ -42,6 +42,9 @@ else
    version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
 fi
 #
+# year
+year=$( echo $version | sed -e 's|\..*||' )
+#
 # version_ok
 version_ok='yes'
 #
@@ -76,7 +79,8 @@ version_files='
 cat << EOF > temp.sed
 #
 # xrst/user.xrst
-s|^xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|
+s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
+s|stable-[0-9]\\{4\\}|stable-$year|g
 #
 # pyproject.toml setup.py and xrst/run_xrst.py
 s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
