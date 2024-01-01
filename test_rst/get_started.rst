@@ -34,13 +34,6 @@ Heading: Steps
 
       pip install xrst
 
-#. After installing the stable version, use the following command
-   to install the leading edge version of xrst::
-
-      pip install sphinx-copybutton
-      pip uninstall -y xrst
-      pip install --index-url https://test.pypi.org/simple/ xrst
-
 #. Create an empty directory and make it your current working directory.
 
 #. Create a file called ``xrst.toml`` (the xrst configure file)
@@ -60,7 +53,7 @@ Heading: Steps
       xrst
 
 #. Use your web browser to open the file below
-   (this file name above is relative to your working directory)::
+   (this file name is relative to your working directory)::
 
       build/html/get_started.html
 
