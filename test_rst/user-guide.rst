@@ -51,7 +51,7 @@ xrst-2024.0.0
 
 Install Stable Version
 **********************
-The current stable version freezes features at the beginning of 2023
+The current stable version freezes features at the beginning of 2024
 and only includes bug fixed after that.
 ::
 
