@@ -15,7 +15,7 @@ This installs the most recent verion of xrst:
 https://xrst.readthedocs.io/latest/purpose.html
 
 ## Get Started
-https://xrst.readthedocs.io/latest/get\_started.html
+https://xrst.readthedocs.io/latest/get_started.html
 
 ## Git Repository
 https://github.com/bradbell/xrst
