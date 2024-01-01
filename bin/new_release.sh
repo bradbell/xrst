@@ -120,7 +120,6 @@ then
    echo "bin/new_release: local $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch master"
-   echo '   bin/check_all.sh'
    exit 1
 fi
 if [ "$stable_local_hash" == '' ] && [ "$stable_remote_hash" != '' ]
