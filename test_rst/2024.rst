@@ -1,0 +1,46 @@
+.. _2024-name:
+
+!!!!
+2024
+!!!!
+
+.. meta::
+   :keywords: 2024, xrst, release, notes, 2024
+
+.. index:: 2024, xrst, release, notes, 2024
+
+.. _2024-title:
+
+xrst Release Notes for 2024
+###########################
+
+.. contents::
+   :local:
+
+.. meta::
+   :keywords: mm-dd
+
+.. index:: mm-dd
+
+.. _2024@mm-dd:
+
+mm-dd
+*****
+
+.. _2024@mm-dd@01-01:
+
+01-01
+=====
+
+#. A stable version of the documentation was created; see
+   :ref:`user-guide@Documentation Versions` .
+
+#. Each *file_name* in the latest documentation was moved
+   (this is important if you have links to previous web pages):
+
+   .. list-table::
+
+      *  - Old Location
+         - ``https://xrst.readthedocs.io/``\ *file_name*
+      *  - New Location
+         - ``https://xrst.readthedocs.io/latest/``\ *file_name*

@@ -7,10 +7,12 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 xrst Release Notes By Year
 ##########################
 {xrst_toc_hidden
+   user/2024.xrst
    user/2023.xrst
    user/2022.xrst
    user/2021.xrst
 }
+:ref:`2024-name`,
 :ref:`2023-name`,
 :ref:`2022-name`,
 :ref:`2021-name`
