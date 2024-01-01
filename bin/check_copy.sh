@@ -16,7 +16,7 @@ then
 fi
 if [ ! -e './.git' ]
 then
-   echo 'bin/git_commit.sh: cannot find ./.git'
+   echo 'bin/check_copy.sh: cannot find ./.git'
    exit 1
 fi
 # ---------------------------------------------------------------------------

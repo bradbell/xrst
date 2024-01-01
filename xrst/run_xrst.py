@@ -531,9 +531,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-# The script that updates version numbers expects version at begining of line
-# and to have the value surrounded by single quotes.
-version = '2023.12.27'
+version = '2024.0.0'
 #
 def run_xrst() :
    #
