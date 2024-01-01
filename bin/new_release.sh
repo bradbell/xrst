@@ -173,7 +173,7 @@ then
 fi
 #
 # push tag
-reaponse=''
+response=''
 while [ "$response" != 'check' ] && [ "$response" != 'release' ]
 do
    read -p 'Run check_all or commit release [check/release] ?' response
