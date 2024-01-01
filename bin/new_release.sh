@@ -122,7 +122,10 @@ fi
 #
 # check_version.sh
 # will use pyproject.toml version becasue it has 0 the form year.0.release.
-bin/check_version.sh
+if ! bin/check_version.sh
+then
+   echo "Version numbers in $stable_branch have been changed to $version"
+fi
 #
 # version
 version=$(
