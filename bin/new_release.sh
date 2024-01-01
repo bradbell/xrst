@@ -5,7 +5,7 @@ set -e -u
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
 year='2024' # Year for this stable version 
-release='1' # first release for each year starts with 0
+release='0' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
