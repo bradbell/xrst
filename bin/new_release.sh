@@ -5,7 +5,7 @@ set -e -u
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
 year='2024' # Year for this stable version 
-release='0' # first release for each year starts with 0
+release='1' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
@@ -45,57 +45,8 @@ then
    exit 1
 fi
 #
-# pyproject.toml
-sed -i pyproject.toml \
--e "s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$tag'|"
-version=$(
-   sed -n -e '/^ *version *=/p' pyproject.toml | \
-      sed -e 's|^ *version *= *||' -e "s|'||g"
-)
-if [ "$version" != "$tag" ]
-then
-   echo "bin/rew_release: branch = master."
-   echo "Version number should be $tag in pyproject.toml"
-   exit 1
-fi
-#
-# check_all
-# check_version.sh will use pyproject.toml version becasue it has 0 the form
-# year.0.release.
-bin/check_version.sh
-#
-# git_status
-git_status=$(git status --porcelain)
-if [ "$git_status" != '' ]
-then
-   echo 'bin/new_release: git staus --porcelean is not empty for master branch'
-   echo 'use bin/git_commit.sh to commit its changes'
-   exit 1
-fi
-# ----------------------------------------------------------------------------
-# stable branch
-# ----------------------------------------------------------------------------
-#
 # stable_branch
 stable_branch=stable/$year
-if ! git checkout $stable_branch
-then
-   echo "branch $stable_branch does not exist. Using following to create it ?"
-   echo "   git branch $stable_branch"
-   exit 1
-fi
-#
-# version
-version=$(
-   sed -n -e '/^ *version *=/p' pyproject.toml | \
-      sed -e 's|^ *version *= *||' -e "s|'||g"
-)
-if [ "$version" != "$tag" ]
-then
-   echo "bin/rew_release: branch = $stable_branch."
-   echo "Version number should be $tag in pyproject.toml"
-   exit 1
-fi
 #
 # stable_local_hash
 pattern=$(echo " *refs/heads/$stable_branch" | sed -e 's|/|[/]|g')
@@ -119,6 +70,7 @@ then
    echo "bin/new_release: local $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch master"
+   echo '   git checkout master'
    exit 1
 fi
 if [ "$stable_local_hash" == '' ] && [ "$stable_remote_hash" != '' ]
@@ -127,8 +79,73 @@ then
    echo "bin/new_release: local $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch origin/$stable_branch"
+   echo '   git checkout master'
    exit 1
 fi
+#
+# git_status
+git_status=$(git status --porcelain)
+if [ "$git_status" != '' ]
+then
+   echo 'bin/new_release: git staus --porcelean is not empty for master branch'
+   echo 'use bin/git_commit.sh to commit its changes'
+   exit 1
+fi
+# ----------------------------------------------------------------------------
+# stable branch
+# ----------------------------------------------------------------------------
+if ! git checkout $stable_branch
+then
+   echo 'bin/new_release: Program error.'
+   echo "branch $stable_branch does not exist"
+   exit 1
+fi
+#
+# pyproject.toml
+sed -i pyproject.toml \
+-e "s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$tag'|"
+#
+# bin/upload.sh
+sed -i bin/upload.sh -e 's|--repository *testpypi|--repository pypi|'
+#
+# version
+version=$(
+   sed -n -e '/^ *version *=/p' pyproject.toml | \
+      sed -e 's|^ *version *= *||' -e "s|'||g"
+)
+if [ "$version" != "$tag" ]
+then
+   echo 'bin/rew_release: Program Error.'
+   echo "Version number should be $tag in pyproject.toml"
+   exit 1
+fi
+#
+# check_version.sh
+# will use pyproject.toml version becasue it has 0 the form year.0.release.
+bin/check_version.sh
+#
+# version
+version=$(
+   sed -n -e '/^ *version *=/p' pyproject.toml | \
+      sed -e 's|^ *version *= *||' -e "s|'||g"
+)
+if [ "$version" != "$tag" ]
+then
+   echo 'bin/rew_release: Program Error.'
+   echo "Version number should be $tag in pyproject.toml"
+   exit 1
+fi
+#
+# git_status
+git_status=$(git status --porcelain)
+if [ "$git_status" != '' ]
+then
+   echo "bin/new_release: git staus --porcelean not empty for $stable_branch"
+   echo 'use bin/git_commit.sh to commit its changes ?'
+   exit 1
+fi
+#
+# stable_remote_hash
 if [ "$stable_remote_hash" == '' ]
 then
    empty_hash='yes'
