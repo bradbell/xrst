@@ -25,6 +25,6 @@ then
    rm -r dist
 fi
 echo_eval python -m build
-echo_eval twine upload --repository pypi dist/* -u__token__ -p$PASSWORD
+echo_eval twine upload dist/* -u__token__ -p$PASSWORD
 echo 'upload.sh: OK'
 exit 0
