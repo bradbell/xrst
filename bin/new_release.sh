@@ -66,7 +66,6 @@ stable_remote_hash=$(
 #
 if [ "$stable_local_hash" == '' ] && [ "$stable_remote_hash" == '' ]
 then
-   empty_hash='yes'
    echo "bin/new_release: local $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch master"
@@ -75,7 +74,6 @@ then
 fi
 if [ "$stable_local_hash" == '' ] && [ "$stable_remote_hash" != '' ]
 then
-   empty_hash='yes'
    echo "bin/new_release: local $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch origin/$stable_branch"
@@ -151,7 +149,6 @@ fi
 # stable_remote_hash
 if [ "$stable_remote_hash" == '' ]
 then
-   empty_hash='yes'
    echo "bin/new_release: remote $stable_branch does not exist."
    echo 'Use the following to create it ?'
    echo "   git push origin $stable_branch"
@@ -159,7 +156,6 @@ then
 fi
 if [ "$stable_local_hash" != "$stable_remote_hash" ]
 then
-   empty_hash='yes'
    echo "bin/new_release: local and remote $stable_branch differ."
    echo "local  $stable_local_hash"
    echo "remote $stable_remote_hash"
@@ -192,7 +188,7 @@ then
    exit 1
 fi
 #
-# push tag
+# test more or create tag
 response=''
 while [ "$response" != 'check' ] && [ "$response" != 'release' ]
 do
