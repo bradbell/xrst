@@ -32,15 +32,24 @@ Git Repository
 `<https://github.com/bradbell/xrst>`_
 
 .. meta::
-   :keywords: version, documentation
+   :keywords: versions
 
-.. index:: version, documentation
+.. index:: versions
 
-.. _user-guide@Version of this Documentation:
+.. _user-guide@Versions:
 
-Version of this Documentation
-*****************************
-xrst-2024.0.0
+Versions
+********
+
+.. list-table::
+   :widths: auto
+
+   *  - Documentation for latest version
+      - `latest <https://xrst.readthedocs.io/latest>`_
+   *  - Documentation for most recent stable version 
+      - `stable-2024 <https://xrst.readthedocs.io/stable-2024>`_
+   *  - Most recent release of this stable version 
+      - `release-2024 <https://github.com/bradbell/xrst/archive/2024.0.0.tar.gz>`_
 
 .. meta::
    :keywords: install, stable, version
@@ -51,8 +60,8 @@ xrst-2024.0.0
 
 Install Stable Version
 **********************
-The current stable version freezes features at the beginning of 2024
-and only includes bug fixed after that.
+Features in stable-2024 were frozen at the beginning of
+the year and only includes bug fixed after that.
 ::
 
    pip install xrst
