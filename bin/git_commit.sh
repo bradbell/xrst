@@ -5,7 +5,6 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023 Bradley M. Bell
 # ---------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
    echo $*

@@ -32,22 +32,24 @@ Git Repository
 `<https://github.com/bradbell/xrst>`_
 
 .. meta::
-   :keywords: documentation, versions
+   :keywords: versions
 
-.. index:: documentation, versions
+.. index:: versions
 
-.. _user-guide@Documentation Versions:
+.. _user-guide@Versions:
 
-Documentation Versions
-**********************
+Versions
+********
 
 .. list-table::
    :widths: auto
 
-   *  - Version for this documentation
-      - xrst-2024.1.1
-   *  - Documentation for current stable version 
+   *  - Documentation for latest version
+      - `latest <https://xrst.readthedocs.io/latest>`_
+   *  - Documentation for most recent stable version 
       - `stable-2024 <https://xrst.readthedocs.io/stable-2024>`_
+   *  - Most recent release of this stable version 
+      - `release-2024 <https://github.com/bradbell/xrst/archive/2024.0.0.tar.gz>`_
 
 .. meta::
    :keywords: install, stable, version

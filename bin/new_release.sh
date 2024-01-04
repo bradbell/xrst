@@ -45,6 +45,12 @@ then
    exit 1
 fi
 #
+# user/user.xrst
+sed -i user/user.xrst \
+   -e "s|stable-[0-9]\{4\}|stable-$year|" \
+   -e "s|release-[0-9]\{4\}|release-$year|" \
+   -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+#
 # stable_branch
 stable_branch=stable/$year
 #

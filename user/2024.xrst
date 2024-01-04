@@ -10,6 +10,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+01-04
+=====
+A link to the current release was included; see 
+:ref:`user-guide@Versions` .
+
 01-01
 =====
 
@@ -17,7 +22,7 @@ mm-dd
    the stable release for 2024.
 
 #. A stable version of the documentation was created; see
-   :ref:`user-guide@Documentation Versions` .
+   :ref:`user-guide@Versions` .
 
 #. Each *file_name* in the latest documentation was moved
    (this is important if you have links to previous web pages):

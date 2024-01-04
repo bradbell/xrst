@@ -28,13 +28,20 @@ version=$(
 )
 if echo $version | grep '[0-9]\{4\}[.]0[.][0-9]*' > /dev/null
 then
-   response=''
-   while [ "$response" != 'yes' ] && [ "$response" != 'no' ]
+   res=''
+   while [ "$res" != 'ok' ] && [ "$res" != 'date' ] && [ "$res" != 'abort' ]
    do
-      read -p \
-      "In pyporject.toml version=$version. Use this version [yes/no] " response
+      echo "In pyproject.toml version = $version"
+      echo 'ok:    use this version.'
+      echo 'date:  repalce this by the current date.'
+      echo 'abort: if you whish to change the version in pyproject.toml.'
+      read -p '[ok/date/abort] ?' res
    done
-   if [ "$response" == 'no' ]
+   if [ "$res" == 'abort' ]
+   then
+      exit 1
+   fi
+   if [ "$res" == 'date' ]
    then
       version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
    fi
