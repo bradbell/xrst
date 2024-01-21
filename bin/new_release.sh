@@ -4,7 +4,7 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
-year='2024' # Year for this stable version 
+year='2024' # Year for this stable version
 release='0' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
@@ -60,7 +60,7 @@ stable_local_hash=$(
    git show-ref $stable_branch | \
       sed -n -e "/$pattern/p" | \
          sed -e "s|$pattern||"
-) 
+)
 #
 # stable_remote_hash
 pattern=$(echo " *refs/remotes/origin/$stable_branch" | sed -e 's|/|[/]|g')
@@ -68,7 +68,7 @@ stable_remote_hash=$(
    git show-ref $stable_branch | \
       sed -n -e "/$pattern/p" | \
          sed -e "s|$pattern||"
-) 
+)
 #
 if [ "$stable_local_hash" == '' ] && [ "$stable_remote_hash" == '' ]
 then
@@ -175,7 +175,7 @@ master_local_hash=$(
    git show-ref master | \
       sed -n -e "/$pattern/p" | \
          sed -e "s|$pattern||"
-) 
+)
 #
 # master_remote_hash
 pattern=$(echo " *refs/remotes/origin/master" | sed -e 's|/|[/]|g')
@@ -183,7 +183,7 @@ master_remote_hash=$(
    git show-ref master | \
       sed -n -e "/$pattern/p" | \
          sed -e "s|$pattern||"
-) 
+)
 #
 if [ "$master_local_hash" != "$master_remote_hash" ]
 then

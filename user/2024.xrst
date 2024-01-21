@@ -26,13 +26,13 @@ mm-dd
       assert page_name == 'xrst_table_of_contents'
 
 #. The information and suggestions printed below the spelling warnings
-   has been improved. 
+   has been improved.
 
-  
+
 
 01-04
 =====
-A link to the current release was included; see 
+A link to the current release was included; see
 :ref:`user-guide@Versions` .
 
 01-01

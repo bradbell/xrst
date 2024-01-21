@@ -4,12 +4,6 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-22 Bradley M. Bell
 # -----------------------------------------------------------------------------
-# bash function that echos and executes a command
-echo_eval() {
-   echo $*
-   eval $*
-}
-# -----------------------------------------------------------------------------
 if [ "$0" != "bin/check_tab.sh" ]
 then
    echo "bin/check_tab.sh: must be executed from its parent directory"
