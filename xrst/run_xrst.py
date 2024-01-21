@@ -812,8 +812,10 @@ def run_xrst() :
    # any_warning
    any_warning = [ False ]
    #
-   # unknown_word_all
-   unknown_word_all = set()
+   # unknown_word_dict
+   # Each key in this dict is a word not in dictionary or special words
+   # The corresponding value is the number of pages it is an error for.
+   unknown_word_dict = dict()
    #
    # group_name
    for group_name in group_list :
@@ -940,7 +942,7 @@ def run_xrst() :
             # do after suspend and before other commands to help ignore
             # pages of text that do not need spell checking
             #
-            # page_data, any_warning, unknown_word_all
+            # page_data, any_warning, unknown_word_dict
             page_data, spell_warning, unknown_word_set = xrst.spell_command(
                tmp_dir         = tmp_dir ,
                data_in         = page_data,
@@ -953,7 +955,11 @@ def run_xrst() :
             if spell_warning :
                assert not suppress_spell_warnings
                any_warning[0] = True
-            unknown_word_all = unknown_word_all.union(unknown_word_set)
+            for word in unknown_word_set :
+               if word in unknown_word_dict :
+                  unknown_word_dict[word] += 1
+               else :
+                  unknown_word_dict[word] = 1
             # -------------------------------------------------------------
             # dir commands
             page_data = xrst.dir_command(page_data, rst2project_directory)
@@ -1097,20 +1103,27 @@ def run_xrst() :
       print('xrst --replace_spell_commands: OK')
       return
    #
-   # unknown_word_all
-   if not suppress_spell_warnings and len(unknown_word_all) > 0 :
+   # unknown_word_dict
+   if not suppress_spell_warnings and len(unknown_word_dict) > 0 :
       assert any_warning[0] == True
-      msg = '\nYou can stop the spelling warnings using the spell command.\n'
-      msg += 'You also could add some of the following words to '
-      msg += 'the project_dictionary:\n'
+      msg  = '\nBelow is a list of (word, count) pairs.\n'
+      msg += 'Fix low count words using the spell command.\n'
+      msg += 'Consider adding high count words to the project dictionary.\n'
+      msg += 'If there are a lot of words and they are all correct,\n'
+      msg += 'consider using --replace_spell_commands.\n'
       sys.stderr.write(msg)
-      unknown_word_list = sorted( unknown_word_all )
+      unknown_word_list = sorted( unknown_word_dict.keys() )
       line  = ''
-      for word in unknown_word_list :
-         line = line + '   ' + word
-         if len(line) > 70 :
+      for word in unknown_word_dict :
+         count = unknown_word_dict[word]
+         pair  = f'({word}, {count})'
+         if len(line) == 0 :
+            line = pair
+         elif len(line + pair) > 80 :
             sys.stderr.write(line + '\n')
-            line = ''
+            line = pair
+         else :
+            line += ' ' + pair
       if len(line) > 0 :
          sys.stderr.write(line + '\n')
       sys.stderr.write('\n')
