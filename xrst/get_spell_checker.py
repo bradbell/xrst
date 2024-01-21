@@ -25,7 +25,6 @@ is a list of words
 that get added to the dictionary for this spell checker.
 No need to add single letter words because they are considered correct
 by spell_command routine.
-}
 
 package
 *******
@@ -163,6 +162,7 @@ class py_spell_checker :
       checker.word_frequency.remove_words(remove_list)
       #
       # checker
+      # these words do not seem to be case sensitive
       checker.word_frequency.load_words(add_to_dictionary)
       checker.word_frequency.load_words(local_words)
       #
@@ -199,6 +199,7 @@ class enchant_spell_checker :
          checker.remove(word)
       #
       # checker
+      # these words do not seem to be case sensitive
       for word in add_to_dictionary + local_words :
          checker.add(word)
       #

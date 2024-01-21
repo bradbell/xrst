@@ -3,12 +3,29 @@ SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 SPDX-FileContributor: 2020-24 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2024 user}
+{xrst_spell
+   docstring
+   breakpoint
+}
 
 xrst Release Notes for 2024
 ###########################
 
 mm-dd
 *****
+
+01-21
+=====
+#. If you used ``docstring_example`` for a :ref:`begin_cmd@page_name`
+   and there was a spelling error in that page,
+   ``xrst`` would stop at a breakpoint before reporting the spelling error.
+   This has been fixed.
+#. It was possible for the assert below to fail.
+   This has been changed into an error message::
+
+      assert page_name == 'xrst_table_of_contents'
+
+  
 
 01-04
 =====

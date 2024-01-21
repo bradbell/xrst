@@ -1,8 +1,6 @@
 # temporary files
 temp
 temp.*
-# automatically created file used to help with git commits
-/git_commit.sh
 # used to build distribution
 /xrst.egg-info/
 # used to build documentation

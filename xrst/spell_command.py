@@ -403,10 +403,10 @@ def spell_command(
       #
       if not word.startswith('@xrst_line') and word[0].isalpha()  :
          #
+         # known
+         # check if word is in dictionary or word_lower is special
          known =  spell_checker.known( word ) or word_lower in page_name_word
          if not known :
-            if page_name == 'docstring_example' :
-               breakpoint()
             #
             # replace_word_list
             if not word_lower in replace_word_list :

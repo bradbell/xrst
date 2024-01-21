@@ -40,7 +40,6 @@ is a list of words
 that get added to the dictionary for this spell checker.
 No need to add single letter words because they are considered correct
 by spell_command routine.
-}
 
 .. meta::
    :keywords: package
