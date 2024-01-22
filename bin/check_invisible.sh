@@ -9,17 +9,27 @@ then
    echo "bin/check_invisible.sh: must be executed from its parent directory"
    exit 1
 fi
+if [ "$#" == 0 ]
+then
+   all='false'
+elif [ "$#" == 1 ] && [ "$1" == 'all' ]
+then
+   all='true'
+else
+   echo 'usage: bin/check_invisible [all]'
+   exit 1
+fi
 # ----------------------------------------------------------------------------
-#
 # file_list
-file_list=$(
-   git ls-files | sed \
-      -e '/^makefile.in$/d' \
-      -e '/^aspell.pwd$/d'
-)
+if [ "$all" == 'true' ]
+then
+   file_list=$(git ls-files)
+else
+   file_list=$(git status --porcelain | sed -e 's|^...||')
+fi
 #
-# check_invisible.$$
-cat << EOF > check_invisible.$$
+# sed.$$
+cat << EOF > sed.$$
 s|[ \\t][ \\t]*\$||
 s| *\t|\t|g
 1{/^[ \\t]*\$/d}
@@ -29,30 +39,34 @@ EOF
 # file
 for file in $file_list
 do
-   sed -f check_invisible.$$ $file > temp.$$
-   if ! diff $file temp.$$ > temp.2.$$
+   if [ -f "$file" ]
    then
-      echo "original (<) invisible white space removed (>)"
-      cat temp.2.$$
-      res=''
-      while [ "$res" != 'yes' ] && [ "$res" != 'no' ]
-      do
-	      read -p "Remove invisible white space in $file [yes/no] ?" res
-      done
-	   if [ "$res" == 'yes' ]
+      sed -f sed.$$ $file > copy.$$
+      if ! diff $file copy.$$ > diff.$$
       then
-         if [ -x $file ]
+         echo "original (<) invisible white space removed (>)"
+         cat diff.$$
+         res=''
+         while [ "$res" != 'yes' ] && [ "$res" != 'no' ]
+         do
+            read -p "Remove invisible white space in $file [yes/no] ?" res
+         done
+         if [ "$res" == 'yes' ]
          then
-            chmod +x temp.$$
+            if [ -x $file ]
+            then
+               chmod +x copy.$$
+            fi
+            mv copy.$$ $file
+         else
+            rm copy.$$
          fi
-         mv temp.$$ $file
       else
-         rm temp.$$
+         rm copy.$$
       fi
-   else
-      rm temp.$$
+      rm diff.$$
    fi
 done
-rm check_invisible.$$
+rm sed.$$
 echo 'check_invisible.sh: OK'
 exit 0
