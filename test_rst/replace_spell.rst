@@ -61,5 +61,5 @@ It is called spell.tom because it is written by the
 #.  The spell start and end lines do not overlap the begin line.
 
 .. literalinclude:: ../../xrst/replace_spell.py
-   :lines: 49-50
+   :lines: 44-45
    :language: py

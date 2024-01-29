@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/literal_command.py
-   :lines: 303-307,401-403
+   :lines: 299-303,397-399
    :language: py
 
 .. meta::

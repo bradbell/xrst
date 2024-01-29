@@ -27,6 +27,13 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@01-29:
+
+01-29
+=====
+Add the :ref:`run_xrst@ignore_spell_commands` option to the
+``xrst`` command line.
+
 .. _2024@mm-dd@01-21:
 
 01-21

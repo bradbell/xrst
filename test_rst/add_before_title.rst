@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/add_before_title.py
-   :lines: 58-62,143-145
+   :lines: 55-59,140-142
    :language: py
 
 .. meta::

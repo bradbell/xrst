@@ -27,6 +27,7 @@ Syntax
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
+| |tab| [ ``--ignore_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
 | |tab| [ ``--continue_with_warnings`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
@@ -108,16 +109,38 @@ replace_spell_commands
 If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
+If this option is present,
+none of the output files are created; e.g., the \*.rst and \*.html files.
 
 #. This is useful when there are no spelling warnings before a change
    to the :ref:`config_file@project_dictionary` or when there is an update
    to the :ref:`config_file@spell_package` .
 #. This is also useful when there are no spelling warnings and you want
    to sort the words in all the spelling commands.
-#. If this option is present,
-   none of the output files are created; e.g., the \*.rst and \*.html files.
 
 See also :ref:`config_file@project_dictionary` .
+
+.. meta::
+   :keywords: ignore_spell_commands
+
+.. index:: ignore_spell_commands
+
+.. _run_xrst@ignore_spell_commands:
+
+ignore_spell_commands
+*********************
+If this option is present on the command line, the
+:ref:`spell commands<spell_cmd-name>` are ignored and
+none of the output files are created; e.g., the \*.rst and \*.html files.
+
+#. This can be used to find words that should be added to the
+   :ref:`config_file@project_dictionary` ; i.e.,
+   words in error and with a high page count .
+#. If you remove a word from the project dictionary, this can be used
+   to check how many pages use that word.
+
+If you change the project dictionary consider using
+:ref:`run_xrst@replace_spell_commands` .
 
 .. meta::
    :keywords: suppress_spell_warnings

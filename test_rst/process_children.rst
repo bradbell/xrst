@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_children.py
-   :lines: 59-68,145-147
+   :lines: 58-67,144-146
    :language: py
 
 .. meta::

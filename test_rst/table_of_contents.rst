@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 214-223,249-251
+   :lines: 210-219,245-247
    :language: py
 
 .. meta::

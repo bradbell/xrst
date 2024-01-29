@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/get_file_info.py
-   :lines: 179-191,404-407
+   :lines: 178-190,403-406
    :language: py
 
 .. meta::

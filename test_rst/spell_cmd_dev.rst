@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 227-241,558-562
+   :lines: 228-243,564-568
    :language: py
 
 .. meta::
@@ -90,6 +90,18 @@ begin_line
 **********
 is the line number in *file_name* where the begin command for this page
 appears. This is only used for spell.toml.
+
+.. meta::
+   :keywords: ignore_commands
+
+.. index:: ignore_commands
+
+.. _spell_cmd_dev@ignore_commands:
+
+ignore_commands
+***************
+If this is true (false), :ref:`run_xrst@ignore_spell_commands`
+was (was not) on the command line.
 
 .. meta::
    :keywords: print_warning

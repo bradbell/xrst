@@ -46,7 +46,7 @@ The only value in this table is the name of this project.
 The default for this table is
 
 .. literalinclude:: ../../example/suspend.py
-   :lines: 30-31
+   :lines: 27-28
    :language: toml
 
 .. meta::

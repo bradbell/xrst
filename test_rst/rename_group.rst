@@ -62,5 +62,5 @@ spell.toml
 see :ref:`replace_spell@spell.toml` .
 
 .. literalinclude:: ../../xrst/rename_group.py
-   :lines: 37-40
+   :lines: 32-35
    :language: py

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 63-77,187-192
+   :lines: 62-76,186-191
    :language: py
 
 .. meta::
