@@ -535,7 +535,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.1.21'
+version = '2024.1.22'
 #
 def run_xrst() :
    #
@@ -1112,18 +1112,19 @@ def run_xrst() :
       msg += 'If there are a lot of words and they are all correct,\n'
       msg += 'consider using --replace_spell_commands.\n'
       sys.stderr.write(msg)
-      unknown_word_list = sorted( unknown_word_dict.keys() )
-      line  = ''
-      for word in unknown_word_dict :
-         count = unknown_word_dict[word]
-         pair  = f'({word}, {count})'
+      unknown_word_list = sorted(
+         unknown_word_dict.items(), key = lambda pair: pair[1]
+      )
+      line = ''
+      for pair in unknown_word_list :
+         pair_str = str(pair)
          if len(line) == 0 :
-            line = pair
-         elif len(line + pair) > 80 :
+            line = pair_str
+         elif len(line + pair_str) > 80 :
             sys.stderr.write(line + '\n')
-            line = pair
+            line = pair_str
          else :
-            line += ' ' + pair
+            line += ' ' + pair_str
       if len(line) > 0 :
          sys.stderr.write(line + '\n')
       sys.stderr.write('\n')
