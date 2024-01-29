@@ -72,19 +72,19 @@ latex_macro = [
 data = [
    # file extensions
    '''
-      cpp
-      py
-      rst
+   toml
    ''',
-   # python types
+   # abbreviations
    '''
-      str
-      bool
+   dir
+   toc
+   tmp
    ''',
    # special words
    '''
-      factorial
-      config
+   xrst
+   overline
+   pyspellchecker
    ''',
 ]
 # END_PROJECT_DICTIONARY

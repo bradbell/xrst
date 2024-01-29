@@ -29,6 +29,7 @@ Syntax
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
+| |tab| [ ``--ignore_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
 | |tab| [ ``--continue_with_warnings`` ] \\
 | |tab| [ ``--rst_line_numbers`` ] \\
@@ -80,24 +81,37 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
-{xrst_comment --------------------------------------------------------------- }
 
 replace_spell_commands
 **********************
 If this option is present on the command line, the source code
 :ref:`spell commands<spell_cmd-name>` are replaced in such a way that the
 there will be no spelling warnings during future processing by xrst.
+If this option is present,
+none of the output files are created; e.g., the \*.rst and \*.html files.
 
 #. This is useful when there are no spelling warnings before a change
    to the :ref:`config_file@project_dictionary` or when there is an update
    to the :ref:`config_file@spell_package` .
 #. This is also useful when there are no spelling warnings and you want
    to sort the words in all the spelling commands.
-#. If this option is present,
-   none of the output files are created; e.g., the \*.rst and \*.html files.
 
 See also :ref:`config_file@project_dictionary` .
-{xrst_comment --------------------------------------------------------------- }
+
+ignore_spell_commands
+*********************
+If this option is present on the command line, the
+:ref:`spell commands<spell_cmd-name>` are ignored and
+none of the output files are created; e.g., the \*.rst and \*.html files.
+
+#. This can be used to find words that should be added to the
+   :ref:`config_file@project_dictionary` ; i.e.,
+   words in error and with a high page count .
+#. If you remove a word from the project dictionary, this can be used
+   to check how many pages use that word.
+
+If you change the project dictionary consider using
+:ref:`run_xrst@replace_spell_commands` .
 
 suppress_spell_warnings
 ***********************
@@ -562,6 +576,10 @@ def run_xrst() :
    parser.add_argument('--replace_spell_commands', action='store_true',
       help='replace the xrst spell commands in source code files'
    )
+   # --ignore_spell_commands
+   parser.add_argument('--ignore_spell_commands', action='store_true',
+      help='ignore the xrst spell commands in source code files'
+   )
    # --suppress_spell_warnings
    parser.add_argument('--suppress_spell_warnings', action='store_true',
       help='do not generate any of the spell checker wrnings'
@@ -666,6 +684,9 @@ def run_xrst() :
    #
    # replace_spell_commands
    replace_spell_commands = arguments.replace_spell_commands
+   #
+   # ignore_spell_commands
+   ignore_spell_commands = arguments.ignore_spell_commands
    #
    # suppress_spell_warnings
    suppress_spell_warnings = arguments.suppress_spell_warnings
@@ -940,7 +961,7 @@ def run_xrst() :
             # -------------------------------------------------------------
             # spell_command
             # do after suspend and before other commands to help ignore
-            # pages of text that do not need spell checking
+            # sectons of text that do not need spell checking
             #
             # page_data, any_warning, unknown_word_dict
             page_data, spell_warning, unknown_word_set = xrst.spell_command(
@@ -949,6 +970,7 @@ def run_xrst() :
                file_name       = file_in,
                page_name       = page_name,
                begin_line      = begin_line,
+               ignore_commands = ignore_spell_commands,
                print_warning   = not suppress_spell_warnings,
                spell_checker   = spell_checker,
             )
@@ -1110,6 +1132,7 @@ def run_xrst() :
       msg += 'Fix low count words using the spell command.\n'
       msg += 'Consider adding high count words to the project dictionary.\n'
       msg += 'If there are a lot of words and they are all correct,\n'
+      msg += 'or a lot of word that are not needed (see above),\n'
       msg += 'consider using --replace_spell_commands.\n'
       sys.stderr.write(msg)
       unknown_word_list = sorted(
@@ -1128,6 +1151,10 @@ def run_xrst() :
       if len(line) > 0 :
          sys.stderr.write(line + '\n')
       sys.stderr.write('\n')
+   #
+   # ignore_spell_commands
+   if ignore_spell_commands :
+      return
    #
    # auto_file
    xrst.auto_file(

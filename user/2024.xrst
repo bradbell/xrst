@@ -14,6 +14,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+01-29
+=====
+Add the :ref:`run_xrst@ignore_spell_commands` option to the
+``xrst`` command line.
+
 01-21
 =====
 #. If you used ``docstring_example`` for a :ref:`begin_cmd@page_name`

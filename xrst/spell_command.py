@@ -193,6 +193,11 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # is the line number in *file_name* where the begin command for this page
 # appears. This is only used for spell.toml.
 #
+# ignore_commands
+# ***************
+# If this is true (false), :ref:`run_xrst@ignore_spell_commands`
+# was (was not) on the command line.
+#
 # print_warning
 # *************
 # if this is false, do not print the spelling warnings. Otherwise,
@@ -230,6 +235,7 @@ def spell_command(
    file_name,
    page_name,
    begin_line,
+   ignore_commands,
    print_warning,
    spell_checker
 ) :
@@ -299,6 +305,10 @@ def spell_command(
       start    = m_spell.start()
       end      = m_spell.end()
       data_out = data_in[: start+1] + data_in[end :]
+   #
+   # special_list
+   if ignore_commands :
+      special_list = list()
    #
    # special_used, double_used
    special_used   = dict()
