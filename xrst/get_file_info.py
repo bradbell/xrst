@@ -6,7 +6,6 @@ r"""
 {xrst_begin begin_cmd user}
 {xrst_spell
    genindex
-   toc
    underbar
 }
 

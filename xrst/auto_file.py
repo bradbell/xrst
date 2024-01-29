@@ -271,9 +271,7 @@ function page_or_title_entry(textarea)
 # {xrst_begin auto_file_dev dev}
 # {xrst_spell
 #     conf
-#     dir
 #     genindex
-#     tmp
 #     js
 # }
 # {xrst_comment_ch #}

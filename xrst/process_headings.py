@@ -164,8 +164,6 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # {xrst_spell
 #     conf
 #     fullmatch
-#     overline
-#     toc
 # }
 # {xrst_comment_ch #}
 #

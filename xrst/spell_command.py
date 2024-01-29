@@ -6,6 +6,7 @@ r"""
 {xrst_begin spell_cmd user}
 {xrst_spell
    abcd
+   cpp
    index index
 }
 
@@ -151,11 +152,6 @@ pattern['word']  = re.compile(
 pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # -----------------------------------------------------------------------------
 # {xrst_begin spell_cmd_dev dev}
-# {xrst_spell
-#     dir
-#     tmp
-#     toml
-# }
 # {xrst_comment_ch #}
 #
 # Process the spell command for a page

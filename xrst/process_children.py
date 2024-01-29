@@ -15,7 +15,6 @@ pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
 # {xrst_begin process_children dev}
 # {xrst_spell
-#     toc
 #     toctree
 # }
 # {xrst_comment_ch #}

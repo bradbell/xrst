@@ -16,10 +16,6 @@ pattern_ref_page_name_2 = re.compile(
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
-# {xrst_spell
-#     dir
-#     tmp
-# }
 # {xrst_comment_ch #}
 #
 # Write the temporary RST file for a page

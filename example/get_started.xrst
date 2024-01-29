@@ -3,9 +3,6 @@
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 {xrst_begin get_started}
-{xrst_spell
-   toml
-}
 
 Title: Getting Started
 ######################

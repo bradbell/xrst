@@ -76,9 +76,6 @@ Example
 import xrst
 import os
 # {xrst_begin code_cmd_dev dev}
-# {xrst_spell
-#     dir
-# }
 # {xrst_comment_ch #}
 #
 # Process the xrst code commands for a page

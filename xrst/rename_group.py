@@ -7,11 +7,6 @@ import toml
 import xrst
 # ----------------------------------------------------------------------------
 # {xrst_begin rename_group dev}
-# {xrst_spell
-#     dir
-#     tmp
-#     toml
-# }
 # {xrst_comment_ch #}
 #
 # Rename a Subset of a Group

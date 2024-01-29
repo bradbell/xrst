@@ -7,7 +7,6 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    autodoc
    doxygen
    gsl
-   overline
 }
 
 Purpose of this Sphinx Wrapper
@@ -111,7 +110,6 @@ The xrst features below can be considered a wish list for sphinx:
    pyproject
    pytest
    sdist
-   toml
    url
 }
 

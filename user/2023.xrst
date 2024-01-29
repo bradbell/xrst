@@ -4,23 +4,19 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2023 user}
 {xrst_spell
+   autodoc
    backend
+   copybutton
+   doxygen
    firefox
    furo
    hatchling
-   overline
    pyproject
    pytest
    readthedocs
    rtd
    setuptools
-   toc
-   toml
    tox
-   pyspellchecker
-   doxygen
-   autodoc
-   copybutton
 }
 
 xrst Release Notes for 2023

@@ -12,8 +12,6 @@ r"""
    pdf
    rtd
    thet
-   toc
-   toml
    txt
    wil
 }

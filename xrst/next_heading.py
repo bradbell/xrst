@@ -4,9 +4,6 @@
 # ----------------------------------------------------------------------------
 import xrst
 # {xrst_begin next_heading dev}
-# {xrst_spell
-#     overline
-# }
 # {xrst_comment_ch #}
 #
 # Return location of the next heading in a page

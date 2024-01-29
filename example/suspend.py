@@ -5,9 +5,6 @@
 default_dict = dict()
 r'''
 {xrst_begin suspend_example}
-{xrst_spell
-   toml
-}
 
 Suspend Command Example
 #######################

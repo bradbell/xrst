@@ -18,15 +18,11 @@ r'''
    booleans
    conf
    epilog
-   overline
    overlined
    overlining
    prolog
    pyenchant
-   pyspellchecker
    rtd
-   toc
-   toml
 }
 
 .. _toml file: https://toml.io/en/
@@ -478,9 +474,6 @@ def iterable2string(iterable) :
    return string
 #
 # {xrst_begin get_conf_dict dev}
-# {xrst_spell
-#     toml
-# }
 # {xrst_comment_ch #}
 #
 # Get Configuration Dictionary

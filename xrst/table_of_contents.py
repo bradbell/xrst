@@ -146,10 +146,6 @@ def page_table_of_contents(
    return content
 # ----------------------------------------------------------------------------
 # {xrst_begin table_of_contents dev}
-# {xrst_spell
-#     dir
-#     tmp
-# }
 # {xrst_comment_ch #}
 #
 # Create the table of contents and Modify Titles

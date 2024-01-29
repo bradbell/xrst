@@ -6,9 +6,6 @@ import re
 import xrst
 #
 # {xrst_begin add_before_title dev}
-# {xrst_spell
-#     overline
-# }
 # {xrst_comment_ch #}
 #
 # If PDF, Add Page Number and Name to Title

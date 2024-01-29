@@ -5,7 +5,6 @@
 r"""
 {xrst_begin literal_cmd user}
 {xrst_spell
-   dir
    literalinclude
 }
 
@@ -258,9 +257,6 @@ def next_literal_cmd(data_in, file_name, page_name, start_search) :
    return arg_list, line_list, start_command, end_command
 # ----------------------------------------------------------------------------
 # {xrst_begin literal_cmd_dev dev}
-# {xrst_spell
-#     dir
-# }
 # {xrst_comment_ch #}
 #
 # Process the literal commands in a page

@@ -9,7 +9,6 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    conf
    css
    dev
-   dir
    dismod
    docstring
    genindex
@@ -17,16 +16,12 @@ SPDX-FileContributor: 2020-23 Bradley M. Bell
    literalinclude
    matlab
    ok
-   overline
    pdf
    pyproject
-   pyspellchecker
    rtd
    selectable
    spdx
-   toc
    toctree
-   toml
    txt
    underbar
    xsrst

@@ -4,9 +4,6 @@
 # ----------------------------------------------------------------------------
 r'''
 {xrst_begin get_spell_checker dev}
-{xrst_spell
-   pyspellchecker
-}
 
 Get A Spell Checker Object
 ##########################
