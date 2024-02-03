@@ -27,6 +27,13 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@02-03:
+
+02-03
+=====
+Adapt pytest/test_rst.py so the tests work on windows and extend
+tox.ini so that versions from 3.8 to 3.12 are tested.
+
 .. _2024@mm-dd@01-29:
 
 01-29
