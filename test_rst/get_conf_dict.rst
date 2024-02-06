@@ -31,7 +31,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 506-508,699-701
+   :lines: 507-509,700-702
    :language: py
 
 .. meta::
