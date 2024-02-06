@@ -34,6 +34,8 @@ overline  = [ false, false, false, false, false,  ]
 # -----------------------------------------------------------------------------
 # BEGIN_SPELL_PACKAGE
 [spell_package]
+# pyenchant is not required by xrst so you must make sure it is installed
+# before you can use it here.
 data = 'pyenchant'
 # END_SPELL_PACKAGE
 # -----------------------------------------------------------------------------

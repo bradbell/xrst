@@ -70,6 +70,7 @@ do
       args="$args --index_page_name $index_page_name"
       args="$args --config_file xrst.toml"
    fi
+   args="$args --suppress_spell_warnings"
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
    args="$args --number_jobs $number_jobs"
