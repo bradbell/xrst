@@ -22,7 +22,7 @@ do
       echo_eval $check
    fi
 done
-pytest -s pytest
+tox
 #
 echo 'check_all.sh: OK'
 exit 0
