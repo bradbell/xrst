@@ -32,8 +32,8 @@ classifiers       = [
 dependencies       = [
    'sphinx', 'toml', 'sphinx-copybutton',           # required
    'pytest',                                        # used for testing xrst
-   'pyspellchecker',                                # default spell checker
-   'furo', 'sphinx-rtd-theme', 'sphinx-book-theme', # only need the ones you use
+   'pyspellchecker', 'pyenchant',                   # only need ones you use
+   'furo', 'sphinx-rtd-theme', 'sphinx-book-theme', # only need ones you use
 ]
 # END_DEPENDENCIES
 #

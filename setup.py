@@ -27,7 +27,7 @@ setup(
    install_requires = [
       'sphinx', 'toml', 'sphinx-copybutton',           # required
       'pytest',                                        # need for testing xrst
-      'pyspellchecker',                                # need the one you use
+      'pyspellchecker', 'pyenchant',                   # need the ones you use
       'furo', 'sphinx-rtd-theme', 'sphinx-book-theme', # need the ones you use
    ],
    entry_points = {

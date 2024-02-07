@@ -259,7 +259,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 36-39
+   :lines: 36-37
    :language: toml
 
 .. meta::
@@ -363,7 +363,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 43-46
+   :lines: 41-44
    :language: toml
 
 .. meta::
@@ -420,7 +420,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 50-56
+   :lines: 48-54
    :language: toml
 
 .. meta::
@@ -501,7 +501,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 60-69
+   :lines: 58-67
    :language: toml
 
 .. meta::
@@ -540,7 +540,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 73-91
+   :lines: 71-89
    :language: toml
 
 .. meta::
@@ -586,5 +586,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 95-124
+   :lines: 93-122
    :language: toml
