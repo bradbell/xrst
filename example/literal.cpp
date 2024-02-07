@@ -28,8 +28,8 @@ Literal Command Example
 #######################
 This example is similar to the :ref:`dir_example-name` .
 
-Syntax
-******
+Prototype
+*********
 {xrst_literal ,
    // BEGIN_FACTORIAL, // END_FACTORIAL
    // BEGIN_SQUARE,    // END_SQUARE
