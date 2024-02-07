@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
+import sys
 import os
 import re
 import subprocess
@@ -28,10 +29,13 @@ def get_rst_directory() :
 def run_xrst() :
    index_page_name = get_index_page_name()
    #
+   # python_executable
+   python_executable = sys.executable
+   #
    # This command should be the same as the one in bin/check_xrst.sh
    # that's used to keep the test_rst directory up to date.
    command = [
-      'python3', '-m', 'xrst',
+      python_executable, '-m', 'xrst',
       '--local_toc',
       '--rst_only',
       '--config_file',     'xrst.toml',
