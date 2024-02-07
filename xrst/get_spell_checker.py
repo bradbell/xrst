@@ -218,8 +218,8 @@ class enchant_spell_checker :
       return suggest_list[0]
 # -----------------------------------------------------------------------------
 def get_spell_checker(local_words, package) :
+   assert package in [ 'pyspellchecker', 'pyenchant' ]
    if package == 'pyspellchecker' :
       return py_spell_checker(local_words)
    else :
-      assert package == 'pyenchant'
       return enchant_spell_checker(local_words)

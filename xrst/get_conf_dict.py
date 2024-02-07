@@ -182,9 +182,6 @@ spell_package
 *************
 This str is either 'pyspellchecker' or 'pyenchant' .
 These are the only spell checkers support so far.
-The pyenchant spell checker is not available on some systems and so is not
-required by xrst. If it is available and you want to use it, make sure it
-is installed on your system.
 
 Default
 =======
