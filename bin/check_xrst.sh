@@ -70,6 +70,8 @@ do
       args="$args --index_page_name $index_page_name"
       args="$args --config_file xrst.toml"
    fi
+   # suppress spelling warnings because this is a stable source and
+   # does not keep up with changes in the spell checker.
    args="$args --suppress_spell_warnings"
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"

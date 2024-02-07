@@ -34,8 +34,11 @@ def run_xrst() :
    #
    # This command should be the same as the one in bin/check_xrst.sh
    # that's used to keep the test_rst directory up to date.
+   # Except that it uses suppress_spell_warning because it is a stable soruce
+   # and does not keep up with changes in the spell checker.
    command = [
       python_executable, '-m', 'xrst',
+      '--suppress_spell_warnings',
       '--local_toc',
       '--rst_only',
       '--config_file',     'xrst.toml',
