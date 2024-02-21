@@ -151,7 +151,6 @@ Contents
 -  :ref:`commands-title`
 -  :ref:`automatic-title`
 -  :ref:`wish_list-title`
--  :ref:`release_notes-title`
 
 .. toctree::
    :maxdepth: 1
@@ -162,4 +161,3 @@ Contents
    commands
    automatic
    wish_list
-   release_notes

@@ -200,8 +200,23 @@ Contents
    user/commands.xrst
    user/automatic.xrst
    user/wish_list.xrst
-   user/release_notes.xrst
 }
 
 {xrst_end user-guide}
 ----------------------------------------------------------------------------
+{xrst_begin release_notes user}
+
+xrst Release Notes By Year
+##########################
+{xrst_toc_hidden
+   user/2024.xrst
+   user/2023.xrst
+   user/2022.xrst
+   user/2021.xrst
+}
+:ref:`2024-name`,
+:ref:`2023-name`,
+:ref:`2022-name`,
+:ref:`2021-name`
+
+{xrst_end release_notes}

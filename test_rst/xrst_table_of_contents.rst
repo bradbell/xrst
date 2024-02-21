@@ -45,41 +45,41 @@ Table of Contents
 |       :ref:`3.4.1<heading_links-title>` Heading Cross Reference Links
 |       :ref:`3.4.2<auto_file-title>` Automatically Generated Files
 |    :ref:`3.5<wish_list-title>` Wish List
-|    :ref:`3.6<release_notes-title>` xrst Release Notes By Year
-|       :ref:`3.6.1<2024-title>` xrst Release Notes for 2024
-|       :ref:`3.6.2<2023-title>` xrst Release Notes for 2023
-|       :ref:`3.6.3<2022-title>` xrst Release Notes for 2022
-|       :ref:`3.6.4<2021-title>` xrst Release Notes for 2021
-| :ref:`4<module-title>` The xrst Module
-|    :ref:`4.1<add_before_title-title>` If PDF, Add Page Number and Name to Title
-|    :ref:`4.2<add_line_numbers-title>` Add Line Numbers to File Data
-|    :ref:`4.3<auto_file_dev-title>` Create the automatically generated files
-|    :ref:`4.4<auto_indent-title>` Automatic Indentation
-|    :ref:`4.5<check_input_files-title>` Check That Expected xrst Input Files Are Included
-|    :ref:`4.6<check_page_name-title>` Check the rules for a page name
-|    :ref:`4.7<check_syntax_error-title>` Check that an xrst command has been removed
-|    :ref:`4.8<code_cmd_dev-title>` Process the xrst code commands for a page
-|    :ref:`4.9<comment_cmd_dev-title>` Remove all comment commands
-|    :ref:`4.10<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
-|    :ref:`4.11<get_conf_dict-title>` Get Configuration Dictionary
-|    :ref:`4.12<get_file_info-title>` Get information for all pages in a file
-|    :ref:`4.13<get_spell_checker-title>` Get A Spell Checker Object
-|    :ref:`4.14<indent_cmd_dev-title>` Process indent commands in a page
-|    :ref:`4.15<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`4.16<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`4.17<next_heading-title>` Return location of the next heading in a page
-|    :ref:`4.18<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`4.19<process_children-title>` Add child information to a page
-|    :ref:`4.20<process_headings-title>` Add labels and index entries for headings
-|    :ref:`4.21<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
-|    :ref:`4.22<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`4.23<rename_group-title>` Rename a Subset of a Group
-|    :ref:`4.24<replace_spell-title>` Replace spelling commands
-|    :ref:`4.25<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`4.26<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`4.27<start_end_file-title>` Convert literal command start, end from text to line numbers
-|    :ref:`4.28<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`4.29<system_exit-title>` Form error message and exit
-|    :ref:`4.30<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`4.31<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`4.32<toc_cmd_dev-title>` Get file and page names for children of this page
+| :ref:`4<release_notes-title>` xrst Release Notes By Year
+|    :ref:`4.1<2024-title>` xrst Release Notes for 2024
+|    :ref:`4.2<2023-title>` xrst Release Notes for 2023
+|    :ref:`4.3<2022-title>` xrst Release Notes for 2022
+|    :ref:`4.4<2021-title>` xrst Release Notes for 2021
+| :ref:`5<module-title>` The xrst Module
+|    :ref:`5.1<add_before_title-title>` If PDF, Add Page Number and Name to Title
+|    :ref:`5.2<add_line_numbers-title>` Add Line Numbers to File Data
+|    :ref:`5.3<auto_file_dev-title>` Create the automatically generated files
+|    :ref:`5.4<auto_indent-title>` Automatic Indentation
+|    :ref:`5.5<check_input_files-title>` Check That Expected xrst Input Files Are Included
+|    :ref:`5.6<check_page_name-title>` Check the rules for a page name
+|    :ref:`5.7<check_syntax_error-title>` Check that an xrst command has been removed
+|    :ref:`5.8<code_cmd_dev-title>` Process the xrst code commands for a page
+|    :ref:`5.9<comment_cmd_dev-title>` Remove all comment commands
+|    :ref:`5.10<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
+|    :ref:`5.11<get_conf_dict-title>` Get Configuration Dictionary
+|    :ref:`5.12<get_file_info-title>` Get information for all pages in a file
+|    :ref:`5.13<get_spell_checker-title>` Get A Spell Checker Object
+|    :ref:`5.14<indent_cmd_dev-title>` Process indent commands in a page
+|    :ref:`5.15<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`5.16<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`5.17<next_heading-title>` Return location of the next heading in a page
+|    :ref:`5.18<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`5.19<process_children-title>` Add child information to a page
+|    :ref:`5.20<process_headings-title>` Add labels and index entries for headings
+|    :ref:`5.21<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
+|    :ref:`5.22<remove_line_numbers-title>` Remove the number numbers
+|    :ref:`5.23<rename_group-title>` Rename a Subset of a Group
+|    :ref:`5.24<replace_spell-title>` Replace spelling commands
+|    :ref:`5.25<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`5.26<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`5.27<start_end_file-title>` Convert literal command start, end from text to line numbers
+|    :ref:`5.28<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`5.29<system_exit-title>` Form error message and exit
+|    :ref:`5.30<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`5.31<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`5.32<toc_cmd_dev-title>` Get file and page names for children of this page

@@ -10,6 +10,7 @@ xrst
    example
    purpose
    user-guide
+   release_notes
    module
    xrst_index
    xrst_search
