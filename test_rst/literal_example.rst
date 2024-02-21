@@ -18,10 +18,15 @@ This example is similar to the :ref:`dir_example-name` .
 .. contents::
    :local:
 
-.. _literal_example@Syntax:
+.. meta::
+   :keywords: prototype
 
-Syntax
-******
+.. index:: prototype
+
+.. _literal_example@Prototype:
+
+Prototype
+*********
 
 .. literalinclude:: ../../example/literal.cpp
    :lines: 6-6,14-14,19-19

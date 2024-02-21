@@ -17,6 +17,14 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+02-14
+=====
+If xrst could not transalte an error message from its rst line number
+to its original input file, a non-zero error flag was set and 
+just a newline printed to stderr.
+This has been fixed and a more meaningful error message is printed
+before the program exists.
+
 02-03
 =====
 Adapt pytest/test_rst.py so the tests work on windows and extend
