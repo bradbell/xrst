@@ -27,6 +27,16 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@02-14:
+
+02-14
+=====
+If xrst could not translate an error message from its rst line number
+to its original input file, a non-zero error flag was set and
+just a newline printed to stderr.
+This has been fixed and a more meaningful error message is printed
+before the program exists.
+
 .. _2024@mm-dd@02-03:
 
 02-03

@@ -9,6 +9,7 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    pytest
    tox
    ini
+   stderr
 }
 
 xrst Release Notes for 2024
@@ -19,8 +20,8 @@ mm-dd
 
 02-14
 =====
-If xrst could not transalte an error message from its rst line number
-to its original input file, a non-zero error flag was set and 
+If xrst could not translate an error message from its rst line number
+to its original input file, a non-zero error flag was set and
 just a newline printed to stderr.
 This has been fixed and a more meaningful error message is printed
 before the program exists.
