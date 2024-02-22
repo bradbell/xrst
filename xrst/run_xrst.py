@@ -442,8 +442,9 @@ def system_command(
          page_name = m_rst_error.group(1)
          if not page_name in page_name2line_pair :
             msg  = f'Cannot map error line numbers for page {page_name}\n'
-            msg += 'to its xrst input file and line number.\n'
-            msg += 'Try removing the html output directory and re-run.'
+            msg += 'to its xrst input file and line number:\n'
+            msg += error
+            msg += '\nTry removing the html output directory and re-run.'
             system_exit(msg)
          else :
             #
@@ -546,7 +547,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.2.21'
+version = '2024.2.22'
 #
 def run_xrst() :
    #
