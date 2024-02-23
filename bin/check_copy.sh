@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2023 Bradley M. Bell
+# SPDX-FileContributor: 2023-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
@@ -46,6 +46,12 @@ do
          missing='yes'
       fi
    fi
+done
+for file_name in $(git diff --name-only | sed -e '/^test_rst\//d')
+do
+   sed -i \
+      -e 's|SPDX-FileContributor: 2023-24 |SPDX-FileContributor: 2023-24 |' \
+      $file_name
 done
 #
 if [ "$missing" = 'yes' ]
