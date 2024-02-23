@@ -20,38 +20,56 @@ then
    exit 1
 fi
 # ---------------------------------------------------------------------------
-ignore_list='
-   .gitignore
-   .readthedocs.yaml
-   readme.md
-   gpl-3.0.txt
-   bin/input_files.sh
-   python-xrst.spec
-'
 license='SPDX-License-Identifier: GPL-3.0-or-later'
 missing='no'
-for file_name in $(git ls-files | sed -e '/^test_rst\//d')
+changed='no'
+for file_name in $(git ls-files | sed \
+   -e '/^.gitignore$/d' \
+   -e '/^.readthedocs.yaml$/d' \
+   -e '/^gpl-3.0.txt$/d' \
+   -e '/^readme.md$/d' \
+   -e '/^bin[/]input_files.sh$/d' \
+   -e '/^test_rst[/]/d' \
+)
 do
-   if ! echo "$ignore_list" | tr '\n' ' ' | grep " $file_name " > /dev/null
+   if ! grep "$license\$" $file_name > /dev/null
    then
-      if ! grep "$license\$" $file_name > /dev/null
+      if [ "$missing" == 'no' ]
       then
-         if [ "$missing" == 'no' ]
-         then
-            echo "Cannotfind line that ends with:"
-            echo "   $license"
-            echo "In the following files:"
-         fi
-         echo "$file_name"
-         missing='yes'
+         echo "Cannot find line that ends with:"
+         echo "   $license"
+         echo "In the following files:"
       fi
+      echo "$file_name"
+      missing='yes'
    fi
 done
-for file_name in $(git diff --name-only | sed -e '/^test_rst\//d')
+for file_name in $(git status --porcelain | sed -e 's|^...||' )
 do
-   sed -i \
-      -e 's|SPDX-FileContributor: 2023-24 |SPDX-FileContributor: 2023-24 |' \
-      $file_name
+   if [ -e $file_name ]
+   then
+      sed \
+      -e 's|\(SPDX-FileContributor\): \([0-9]\{4\}\)[-0-9]* |\1: \2-24 |' \
+      $file_name > temp.$$
+      if diff $file_name temp.$$ > /dev/null
+      then
+         rm temp.$$
+      else
+         if [ "$changed" == 'no' ]
+         then
+            echo 'The following file contributor dates have been updated'
+         fi
+         echo $file_name
+         changed='yes'
+         if [ -x $file_name ]
+         then
+            mv temp.$$ $file_name
+            chmod +x $file_name
+         else
+            mv temp.$$ $file_name
+         fi
+      fi
+   fi
 done
 #
 if [ "$missing" = 'yes' ]
