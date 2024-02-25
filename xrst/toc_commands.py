@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin toc_cmd user}
@@ -43,6 +43,8 @@ Table of Contents
 These commands specify the pages that are children
 of the current page; i.e., pages that are at the
 next level in the table of contents.
+They also specify the form for the table of contents
+and where it appears.
 
 order
 *****
@@ -55,8 +57,8 @@ before or after the child pages in the current input file.
 If *order* is not present and this is a parent page,
 the default value ``before`` is used for *order* .
 
-File Names
-**********
+File List
+*********
 A new line character must precede and follow each
 of the file names *file_1* ... *file_n*.
 Leading and trailing white space is not included in the names
@@ -64,6 +66,14 @@ The file names are  relative to the
 :ref:`config_file@directory@project_directory` .
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
+
+Empty
+=====
+If there are no files specified in the command,
+this page must start with a
+:ref:`parent begin<begin_cmd@Parent Page>` command.
+(Otherwise, this page would have no children and there would be no
+purpose to the command.)
 
 Children
 ********
@@ -281,7 +291,8 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    if len(file_list) == 0 :
       if is_parent :
          return data_out, file_list, child_page_list, order
-      msg = f'No files were specified on the toc {command} command'
+      msg  = f'No files were specified in the toc {command} command\n'
+      msg += 'and this section did not start with xrst_begin_parent.'
       xrst.system_exit(msg,
          file_name=file_name,
          page_name=page_name,

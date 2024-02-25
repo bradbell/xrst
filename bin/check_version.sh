@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
@@ -21,40 +21,6 @@ then
 fi
 # -----------------------------------------------------------------------------
 #
-# version
-version=$(
-   sed -n -e '/^ *version *=/p' pyproject.toml | \
-      sed -e 's|.*= *||' -e "s|'||g"
-)
-if echo $version | grep '[0-9]\{4\}[.]0[.][0-9]*' > /dev/null
-then
-   res=''
-   while [ "$res" != 'ok' ] && [ "$res" != 'date' ] && [ "$res" != 'abort' ]
-   do
-      echo "In pyproject.toml version = $version"
-      echo 'ok:    use this version.'
-      echo 'date:  repalce this by the current date.'
-      echo 'abort: if you whish to change the version in pyproject.toml.'
-      read -p '[ok/date/abort] ?' res
-   done
-   if [ "$res" == 'abort' ]
-   then
-      exit 1
-   fi
-   if [ "$res" == 'date' ]
-   then
-      version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
-   fi
-else
-   version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
-fi
-#
-# year
-year=$( echo $version | sed -e 's|\..*||' )
-#
-# version_ok
-version_ok='yes'
-#
 # check_version
 check_version() {
    sed "$1" -f temp.sed > temp.out
@@ -72,6 +38,34 @@ check_version() {
       echo_eval git diff "$1"
    fi
 }
+#
+# version
+version=$(
+   sed -n -e '/^ *version *=/p' pyproject.toml | \
+      sed -e 's|.*= *||' -e "s|'||g"
+)
+# branch
+branch=$(git branch | sed -n -e '/^[*]/p' | sed -e 's|^[*] *||')
+#
+# version
+if [ "$branch" == 'master' ]
+then
+   version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
+fi
+if echo $branch | grep '^stable/' > /dev/null
+then
+   if ! echo $version | grep '[0-9]\{4\}[.]0[.]' > /dev/null
+   then
+      echo 'check_version.sh: stable version does not begin with yyyy.0.'
+      exit 1
+   fi
+fi
+#
+# year
+year=$( echo $version | sed -e 's|\..*||' )
+#
+# version_ok
+version_ok='yes'
 #
 # version_files
 version_files='

@@ -27,6 +27,15 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@02-25:
+
+02-25
+=====
+A discussion was added for the case where the file list is
+:ref:`toc_cmd@File List@Empty` in a toc command.
+In addition, the error message was improved for the case
+where this list is empty and the page is not a parent page.
+
 .. _2024@mm-dd@02-14:
 
 02-14

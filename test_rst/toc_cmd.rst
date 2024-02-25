@@ -79,6 +79,8 @@ Table of Contents
 These commands specify the pages that are children
 of the current page; i.e., pages that are at the
 next level in the table of contents.
+They also specify the form for the table of contents
+and where it appears.
 
 .. meta::
    :keywords: order
@@ -99,14 +101,14 @@ If *order* is not present and this is a parent page,
 the default value ``before`` is used for *order* .
 
 .. meta::
-   :keywords: names
+   :keywords: list
 
-.. index:: names
+.. index:: list
 
-.. _toc_cmd@File Names:
+.. _toc_cmd@File List:
 
-File Names
-**********
+File List
+*********
 A new line character must precede and follow each
 of the file names *file_1* ... *file_n*.
 Leading and trailing white space is not included in the names
@@ -114,6 +116,21 @@ The file names are  relative to the
 :ref:`config_file@directory@project_directory` .
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
+
+.. meta::
+   :keywords: empty
+
+.. index:: empty
+
+.. _toc_cmd@File List@Empty:
+
+Empty
+=====
+If there are no files specified in the command,
+this page must start with a
+:ref:`parent begin<begin_cmd@Parent Page>` command.
+(Otherwise, this page would have no children and there would be no
+purpose to the command.)
 
 .. meta::
    :keywords: children

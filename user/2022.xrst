@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-23 Bradley M. Bell
+SPDX-FileContributor: 2020-24 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2022 user}
 {xrst_spell
@@ -687,7 +687,7 @@ Change the xrst command
 08-08
 =====
 1. Fix documentation for relative location of :ref:`literal_cmd@display_file`
-   in literal command and :ref:`toc_cmd@File Names` in toc commands.
+   in literal command and :ref:`toc_cmd@File List` in toc commands.
    This changed from where xrst is execute to where root_file
    is located on :ref:`2022@mm-dd@07-30` .
 2. Improve the documentation :ref:`index<genindex>`; for example,

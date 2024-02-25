@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 191-196,384-393
+   :lines: 201-206,395-404
    :language: py
 
 .. meta::
