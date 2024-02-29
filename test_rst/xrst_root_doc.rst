@@ -6,6 +6,7 @@ xrst
 .. toctree::
    :maxdepth: 1
 
+   xrst_search
    xrst_table_of_contents
    example
    purpose
@@ -13,4 +14,3 @@ xrst
    release_notes
    module
    xrst_index
-   xrst_search

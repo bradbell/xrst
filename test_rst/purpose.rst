@@ -91,8 +91,9 @@ The xrst features below can be considered a wish list for sphinx:
    index in a way that can be configured;
    see :ref:`config_file@not_in_index` .
    These words are also automatically included as html keyword meta data.
-#. An extra search utility, that uses the keywords mentioned, above is included;
-   see the link at the bottom of the left side of each web page.
+#. An addition xrst_search utility,
+   that uses the keywords mentioned, above is included;
+   see the link directly below the search utility that comes with sphinx.
 #. Include a spell checker with special words at two levels;
    :ref:`spell_cmd-name` for the page level
    and :ref:`config_file@project_dictionary` for the project level.

@@ -32,7 +32,8 @@ mm-dd
 02-29
 =====
 The name of the xrst search page was changed from ``Search``
-to :ref:`xrst_search-name` .
+to :ref:`xrst_search-name` and its link was moved to directly below
+the sphinx Search link.
 This distinguishes it from the search that comes with sphinx.
 The xrst search page was displaying the number of matches displayed,
 which is at most 100, instead of the total number of matches.

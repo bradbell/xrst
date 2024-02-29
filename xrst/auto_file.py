@@ -567,12 +567,13 @@ def auto_file(
    file_data += '.. toctree::\n'
    file_data += '   :maxdepth: 1\n'
    file_data += '\n'
+   if target == 'html' :
+      file_data += '   xrst_search\n'
    file_data += '   xrst_table_of_contents\n'
    for page_name in root_page_list :
       file_data += '   ' + page_name + '\n'
    if target == 'html' :
       file_data += '   xrst_index\n'
-      file_data += '   xrst_search\n'
    #
    # xrst_root_doc.rst
    file_name    = tmp_dir + '/xrst_root_doc.rst'
