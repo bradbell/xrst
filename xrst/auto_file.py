@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin auto_file user}
@@ -63,9 +63,11 @@ If :ref:`run_xrst@target` is html,
 this file contains the xrst search utility for the last run of ``xrst``.
 A link to this search utility appears at the bottom of the left side of
 each web page.
-You can place a link to it in your documentation using the following command::
+You can place a link to it in your documentation using
+either of the following command::
 
    :ref:`xrst_search-title`
+   :ref:`xrst_search-name`
 
 The xrst_search.rst file is not created when target is tex.
 
@@ -102,9 +104,10 @@ root_doc = 'xrst_root_doc'
 # Do not start with a newine because it will get removed from
 # test_rst/xrst_search.rst during the check for invisible white space.
 xrst_search_rst = r'''.. _xrst_search-title:
+.. _xrst_search-name:
 
-Search
-######
+xrst_search
+###########
 
 .. raw:: html
 
@@ -169,7 +172,7 @@ Search
 #
 # xrst_search_js_constant
 xrst_search_js_constant = r'''
-var max_match_global          = 100;
+var max_match_display_global  = 100;
 var keywords_length_global    = -1;
 var match2page_name_global    = [];
 Initialize();
@@ -204,7 +207,7 @@ function update_match()
    var name_match  = '';
    var title_match = '';
    var n_page      = all_page_info_global.length;
-   for(i = 0; (i < n_page) && (count_match < max_match_global); i++)
+   for(i = 0; i < n_page; i++)
    {
       var match = true;
       for(j = 0; j < n_keyword; j++)
@@ -212,12 +215,14 @@ function update_match()
          match = match && flag;
       }
       if( match )
-      {  var name    = all_page_info_global[i].page_name;
-         var title   = all_page_info_global[i].page_title;
-         name_match  = name_match   + name  + '\n';
-         title_match = title_match + title + '\n';
-         match2page_name_global[count_match] = name;
-         count_match = count_match + 1;
+      {  count_match = count_match + 1;
+         if( count_match <= max_match_display_global )
+         {  var name    = all_page_info_global[i].page_name;
+            var title   = all_page_info_global[i].page_title;
+            name_match  = name_match   + name  + '\n';
+            title_match = title_match + title + '\n';
+            match2page_name_global[count_match] = name;
+         }
       }
    }
    //

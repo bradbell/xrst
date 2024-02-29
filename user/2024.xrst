@@ -18,6 +18,19 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+02-29
+=====
+The name of the xrst search page was changed from ``Search``
+to :ref:`xrst_search-name` .
+This distinguishes it from the search that comes with sphinx.
+The xrst search page was displaying the number of matches displayed,
+which is at most 100, instead of the total number of matches.
+This has been fixed.
+In addition, you can now link to the xrst search using either::
+
+   :ref:`xrst_search-name`
+   :ref:`xrst_search-tilte`
+
 02-25
 =====
 A discussion was added for the case where the file list is
