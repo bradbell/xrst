@@ -18,6 +18,10 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+03-01
+=====
+The :ref:`user-guide@Install From Source` instructions were improved.
+
 02-29
 =====
 The name of the xrst search page was changed from ``Search``

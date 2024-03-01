@@ -27,6 +27,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@03-01:
+
+03-01
+=====
+The :ref:`user-guide@Install From Source` instructions were improved.
+
 .. _2024@mm-dd@02-29:
 
 02-29

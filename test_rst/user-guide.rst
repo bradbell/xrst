@@ -100,8 +100,7 @@ the current version from the master branch.
    git clone https://github.com/bradbell/xrst.git xrst.git
    cd xrst.git
    pytest -s pytest
-   python3 -m build --sdist
-   pip install dist/*
+   pip install .
 
 You can determine the date corresponding to a version of the source code
 using the following command:
