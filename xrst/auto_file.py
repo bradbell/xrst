@@ -215,14 +215,15 @@ function update_match()
          match = match && flag;
       }
       if( match )
-      {  count_match = count_match + 1;
-         if( count_match <= max_match_display_global )
+      {
+         if( count_match < max_match_display_global )
          {  var name    = all_page_info_global[i].page_name;
             var title   = all_page_info_global[i].page_title;
             name_match  = name_match   + name  + '\n';
             title_match = title_match + title + '\n';
             match2page_name_global[count_match] = name;
          }
+         count_match = count_match + 1;
       }
    }
    //

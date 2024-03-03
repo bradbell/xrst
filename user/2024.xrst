@@ -18,6 +18,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+03-02
+=====
+There was a bug in the :ref:`xrst_search-name` page (introduced on 2024-02-29).
+To be more specific, the search was
+loading the page before the one selected. This has been fixed.
+
 03-01
 =====
 The :ref:`user-guide@Install From Source` instructions were improved.
