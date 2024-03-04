@@ -33,7 +33,7 @@ The input below will display the page name as the linking text:
   ``:ref:`` \` *page_name* ``-name`` \`
 
 There is an exception to this, automatically generated pages
-``xrst_search`` , ``xrst_index`` , and ``xrst_contents`` , to not include
+``xrst_search`` , ``xrst_index`` , and ``xrst_contents`` , do not include
 the initial ``xrst_`` in the linking text; see
 :ref:`auto_file@xrst_search.rst` , and
 :ref:`auto_file@xrst_contents.rst` , and
