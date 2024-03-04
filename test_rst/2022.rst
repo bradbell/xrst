@@ -688,7 +688,7 @@ double words exceptions. This has been fixed.
 
 09-05
 =====
-The :ref:`xrst_table_of_contents-title` did not build properly unless
+The :ref:`xrst_contents-title` did not build properly unless
 ``|space|`` was defined in preamble.rst file.
 This has been fixed.
 

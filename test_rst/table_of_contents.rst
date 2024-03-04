@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 210-219,245-247
+   :lines: 213-222,253-255
    :language: py
 
 .. meta::
@@ -124,5 +124,8 @@ int the table of contents.
 content
 *******
 The return content is the table of contents entries for all the pages.
-The title Table of Contents and the label xrst_table_of_contents
-are placed at the beginning of the of content.
+The following are placed at the beginning of the of content.
+
+1.  The page name xrst_contents and corresponding label xrst_contents-name
+2.  The page title Table of Contents and corresponding label
+    xrst_contents-title

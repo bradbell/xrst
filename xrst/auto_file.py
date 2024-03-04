@@ -35,16 +35,16 @@ This file is the top of the documentation tree
 built by sphinx. It is one level above the first page in
 :ref:`config_file@root_file`.
 
-xrst_table_of_contents.rst
-**************************
+xrst_contents.rst
+*****************
 This file contains the table of contents for the last run of ``xrst``.
-You can link to the corresponding page
-:ref:`xrst_table_of_contents-title` with the following command::
+You can link to the corresponding
+page name :ref:`xrst_contents-name`
+or page title :ref:`xrst_contents-title`
+with the following commands::
 
-   :ref:`xrst_table_of_contents-title`
-
-The result of this command in this documentation is
-:ref:`xrst_table_of_contents-title` .
+   :ref:`xrst_contents-name`
+   :ref:`xrst_contents-title`
 
 xrst_index.rst
 **************
@@ -326,10 +326,10 @@ function page_or_title_entry(textarea)
 # is a list of the root page names (one for each group) in the order
 # they will appear in the table of contents.
 #
-# tmp_dir/xrst_table_of_contents.rst
-# **********************************
+# tmp_dir/xrst_contents.rst
+# *************************
 # This file creates is the table of contents for the documentation.
-# It has the label xrst_table_of_contents which can be used to link
+# It has the label xrst_contents which can be used to link
 # to this page.
 #
 # tmp_dir/xrst_index.rst
@@ -387,15 +387,15 @@ def auto_file(
    project_name = conf_dict['project_name']['data']
    #
    # ------------------------------------------------------------------------
-   # tmp_dir/xrst_table_of_contents.rst
+   # tmp_dir/xrst_contents.rst
    #
    # file_data
    file_data     = xrst.table_of_contents(
       tmp_dir, target, all_page_info, root_page_list
    )
    #
-   # xrst_table_of_contents.rst
-   file_out    = tmp_dir + '/' + 'xrst_table_of_contents.rst'
+   # xrst_contents.rst
+   file_out    = tmp_dir + '/' + 'xrst_contents.rst'
    file_obj    = open(file_out, 'w')
    file_obj.write(file_data)
    file_obj.close()
@@ -570,7 +570,7 @@ def auto_file(
    file_data += '\n'
    if target == 'html' :
       file_data += '   xrst_search\n'
-   file_data += '   xrst_table_of_contents\n'
+   file_data += '   xrst_contents\n'
    for page_name in root_page_list :
       file_data += '   ' + page_name + '\n'
    if target == 'html' :

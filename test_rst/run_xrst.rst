@@ -363,7 +363,7 @@ will accomplish both purposes:
       the file *project*\ ``.tex`` .
    #. You may be able to find the corresponding xrst input file
       using by using ``grep`` to find text that is near the error.
-   #. The page numbers in the :ref:`xrst_table_of_contents-title` are
+   #. The page numbers in the :ref:`xrst_contents-title` are
       present in the latex input (often near ``section*{`` above the error)
       and may help translate these line numbers to page names.
    #. Given a page name, the corresponding xrst input file can

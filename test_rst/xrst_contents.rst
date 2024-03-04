@@ -1,4 +1,10 @@
-.. _xrst_table_of_contents-title:
+.. _xrst_contents-name:
+
+!!!!!!!!!!!!!
+xrst_contents
+!!!!!!!!!!!!!
+
+.. _xrst_contents-title:
 
 Table of Contents
 *****************

@@ -108,16 +108,16 @@ is a list of the root page names (one for each group) in the order
 they will appear in the table of contents.
 
 .. meta::
-   :keywords: tmp_dir/xrst_table_of_contents.rst
+   :keywords: tmp_dir/xrst_contents.rst
 
-.. index:: tmp_dir/xrst_table_of_contents.rst
+.. index:: tmp_dir/xrst_contents.rst
 
-.. _auto_file_dev@tmp_dir/xrst_table_of_contents.rst:
+.. _auto_file_dev@tmp_dir/xrst_contents.rst:
 
-tmp_dir/xrst_table_of_contents.rst
-**********************************
+tmp_dir/xrst_contents.rst
+*************************
 This file creates is the table of contents for the documentation.
-It has the label xrst_table_of_contents which can be used to link
+It has the label xrst_contents which can be used to link
 to this page.
 
 .. meta::

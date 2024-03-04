@@ -7,7 +7,7 @@ xrst
    :maxdepth: 1
 
    xrst_search
-   xrst_table_of_contents
+   xrst_contents
    example
    purpose
    user-guide

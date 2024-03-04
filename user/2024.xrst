@@ -18,6 +18,19 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+03-04
+=====
+The table of contents page was moved
+from ``xrst_table_of_contents.rst`` to :ref:`auto_file@xrst_contents.rst` .
+In addition, links were added to the page name.
+Old links to the page title had the form::
+
+   :ref:`xrst_table_of_contents-title`
+
+These links need to be changed to::
+
+   :ref:`xrst_contents-title`
+
 03-02
 =====
 There was a bug in the :ref:`xrst_search-name` page (introduced on 2024-02-29).

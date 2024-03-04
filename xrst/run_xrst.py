@@ -257,7 +257,7 @@ will accomplish both purposes:
       the file *project*\ ``.tex`` .
    #. You may be able to find the corresponding xrst input file
       using by using ``grep`` to find text that is near the error.
-   #. The page numbers in the :ref:`xrst_table_of_contents-title` are
+   #. The page numbers in the :ref:`xrst_contents-title` are
       present in the latex input (often near ``section*{`` above the error)
       and may help translate these line numbers to page names.
    #. Given a page name, the corresponding xrst input file can
@@ -496,6 +496,9 @@ def system_command(
             error += '\n   The label above does not contain an @'
             error += ' or end with -name or -title.'
             error += '\n   Hence it is not automatically generates by xrst.'
+         if label == 'xrst_table_of_contents-title' :
+            error += '\n   2024-03-04: The label above was changed to'
+            error += " 'xrst_contents-title'"
       # message
       message += '\n' + error
    #
@@ -547,7 +550,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.3.2'
+version = '2024.3.4'
 #
 def run_xrst() :
    #

@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
 # ----------------------------------------------------------------------------
@@ -202,8 +202,11 @@ def page_table_of_contents(
 # content
 # *******
 # The return content is the table of contents entries for all the pages.
-# The title Table of Contents and the label xrst_table_of_contents
-# are placed at the beginning of the of content.
+# The following are placed at the beginning of the of content.
+#
+# 1.  The page name xrst_contents and corresponding label xrst_contents-name
+# 2.  The page title Table of Contents and corresponding label
+#     xrst_contents-title
 #
 # {xrst_end table_of_contents}
 # BEGIN_DEF
@@ -220,7 +223,12 @@ def table_of_contents(
    # END_DEF
    #
    # content
-   content  = '.. _xrst_table_of_contents-title:\n\n'
+   content  = '.. _xrst_contents-name:\n\n'
+   content += '!!!!!!!!!!!!!\n'
+   content += 'xrst_contents\n'
+   content += '!!!!!!!!!!!!!\n\n'
+   #
+   content += '.. _xrst_contents-title:\n\n'
    content += 'Table of Contents\n'
    content += '*****************\n'
    #

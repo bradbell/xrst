@@ -56,7 +56,7 @@ The xrst features below can be considered a wish list for sphinx:
    not the extracted rst file.
 #. There are two levels to the table of contents. Each entry at the
    global level is a page name or title; e.g.,
-   see the :ref:`xrst_table_of_contents-title` for this documentation.
+   see the :ref:`xrst_contents-title` for this documentation.
    Each entry at the local level is a headings with in a page.
    The :ref:`run_xrst@local_toc` option can be used to display the second
    level for each page.

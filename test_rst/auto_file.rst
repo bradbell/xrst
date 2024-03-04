@@ -53,22 +53,22 @@ built by sphinx. It is one level above the first page in
 :ref:`config_file@root_file`.
 
 .. meta::
-   :keywords: xrst_table_of_contents.rst
+   :keywords: xrst_contents.rst
 
-.. index:: xrst_table_of_contents.rst
+.. index:: xrst_contents.rst
 
-.. _auto_file@xrst_table_of_contents.rst:
+.. _auto_file@xrst_contents.rst:
 
-xrst_table_of_contents.rst
-**************************
+xrst_contents.rst
+*****************
 This file contains the table of contents for the last run of ``xrst``.
-You can link to the corresponding page
-:ref:`xrst_table_of_contents-title` with the following command::
+You can link to the corresponding
+page name :ref:`xrst_contents-name`
+or page title :ref:`xrst_contents-title`
+with the following commands::
 
-   :ref:`xrst_table_of_contents-title`
-
-The result of this command in this documentation is
-:ref:`xrst_table_of_contents-title` .
+   :ref:`xrst_contents-name`
+   :ref:`xrst_contents-title`
 
 .. meta::
    :keywords: xrst_index.rst
