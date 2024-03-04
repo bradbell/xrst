@@ -1,8 +1,8 @@
 .. _xrst_contents-name:
 
-!!!!!!!!!!!!!
-xrst_contents
-!!!!!!!!!!!!!
+!!!!!!!!
+contents
+!!!!!!!!
 
 .. _xrst_contents-title:
 

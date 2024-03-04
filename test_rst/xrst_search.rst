@@ -1,8 +1,13 @@
-.. _xrst_search-title:
 .. _xrst_search-name:
 
-xrst_search
-###########
+!!!!!!
+search
+!!!!!!
+
+.. _xrst_search-title:
+
+xrst Keyword Search
+*******************
 
 .. raw:: html
 

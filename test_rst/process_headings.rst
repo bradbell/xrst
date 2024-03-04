@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 240-248,510-515
+   :lines: 247-255,517-522
    :language: py
 
 .. meta::

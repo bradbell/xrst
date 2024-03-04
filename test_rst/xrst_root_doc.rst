@@ -7,10 +7,10 @@ xrst
    :maxdepth: 1
 
    xrst_search
+   xrst_index
    xrst_contents
    example
    purpose
    user-guide
    release_notes
    module
-   xrst_index

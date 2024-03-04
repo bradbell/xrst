@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin heading_links user}
@@ -31,6 +31,13 @@ page_name
 The input below will display the page name as the linking text:
 
   ``:ref:`` \` *page_name* ``-name`` \`
+
+There is an exception to this, automatically generated pages
+``xrst_search`` , ``xrst_index`` , and ``xrst_contents`` , to not include
+the initial ``xrst_`` in the linking text; see
+:ref:`auto_file@xrst_search.rst` , and
+:ref:`auto_file@xrst_contents.rst` , and
+:ref:`auto_file@xrst_index.rst` .
 
 page_title
 ----------

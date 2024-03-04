@@ -224,9 +224,9 @@ def table_of_contents(
    #
    # content
    content  = '.. _xrst_contents-name:\n\n'
-   content += '!!!!!!!!!!!!!\n'
-   content += 'xrst_contents\n'
-   content += '!!!!!!!!!!!!!\n\n'
+   content += '!!!!!!!!\n'
+   content += 'contents\n'
+   content += '!!!!!!!!\n\n'
    #
    content += '.. _xrst_contents-title:\n\n'
    content += 'Table of Contents\n'
