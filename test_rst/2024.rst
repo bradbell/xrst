@@ -27,6 +27,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@03-16:
+
+03-16
+=====
+Add the :ref:`wish_list@Template Command` wish list item.
+
 .. _2024@mm-dd@03-04:
 
 03-04
