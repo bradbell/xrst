@@ -951,6 +951,10 @@ def run_xrst() :
                'begin_line'     : begin_line,
                'end_line'       : end_line,
             } )
+            # ------------------------------------------------------------
+            # template command
+            # must come before almost all other commands; see its documentation
+            page_data = xrst.template_command(page_data, file_in, page_name)
             # -------------------------------------------------------------
             # ref commands
             # Do this before spell checking so spell checking does not have

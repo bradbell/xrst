@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-23 Bradley M. Bell
+SPDX-FileContributor: 2020-24 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin commands user}
 
@@ -23,6 +23,7 @@ These commands are described in the pages below:
    xrst/comment_command.py
    xrst/comment_ch_command.py
    xrst/ref_command.py
+   xrst/template_command.py
 }
 
 {xrst_end commands}

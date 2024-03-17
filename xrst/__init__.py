@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 #
 # {xrst_begin module dev}
@@ -41,6 +41,7 @@
 #  xrst/suspend_command.py
 #  xrst/system_exit.py
 #  xrst/table_of_contents.py
+#  xrst/template_command.py
 #  xrst/temporary_file.py
 #  xrst/toc_commands.py
 # }
@@ -83,6 +84,7 @@ from .start_end_file        import start_end_file
 from .suspend_command        import suspend_command
 from .system_exit            import system_exit
 from .table_of_contents      import table_of_contents
+from .template_command       import template_command
 from .temporary_file         import temporary_file
 from .toc_commands           import toc_commands
 # END_SORT_THIS_LINE_MINUS_1

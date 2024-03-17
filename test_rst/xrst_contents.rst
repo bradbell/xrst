@@ -47,6 +47,7 @@ Table of Contents
 |       :ref:`3.3.9<comment_cmd-title>` Comment Command
 |       :ref:`3.3.10<comment_ch_cmd-title>` Comment Character Command
 |       :ref:`3.3.11<ref_cmd-title>` Allow Multiple Lines in Sphinx ref Role
+|       :ref:`3.3.12<template_cmd-title>` Template Command
 |    :ref:`3.4<automatic-title>` Automatic Processing
 |       :ref:`3.4.1<heading_links-title>` Heading Cross Reference Links
 |       :ref:`3.4.2<auto_file-title>` Automatically Generated Files
@@ -87,5 +88,6 @@ Table of Contents
 |    :ref:`5.28<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
 |    :ref:`5.29<system_exit-title>` Form error message and exit
 |    :ref:`5.30<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`5.31<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`5.32<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`5.31<template_cmd_dev-title>` Expand the template commands in a page
+|    :ref:`5.32<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`5.33<toc_cmd_dev-title>` Get file and page names for children of this page

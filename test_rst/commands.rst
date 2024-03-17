@@ -30,6 +30,7 @@ These commands are described in the pages below:
 -  :ref:`comment_cmd-title`
 -  :ref:`comment_ch_cmd-title`
 -  :ref:`ref_cmd-title`
+-  :ref:`template_cmd-title`
 
 .. toctree::
    :maxdepth: 1
@@ -46,3 +47,4 @@ These commands are described in the pages below:
    comment_cmd
    comment_ch_cmd
    ref_cmd
+   template_cmd

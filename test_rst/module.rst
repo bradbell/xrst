@@ -48,6 +48,7 @@ The xrst Module
    "suspend_cmd_dev", :ref:`suspend_cmd_dev-title`
    "system_exit", :ref:`system_exit-title`
    "table_of_contents", :ref:`table_of_contents-title`
+   "template_cmd_dev", :ref:`template_cmd_dev-title`
    "temporary_file", :ref:`temporary_file-title`
    "toc_cmd_dev", :ref:`toc_cmd_dev-title`
 
@@ -85,5 +86,6 @@ The xrst Module
    suspend_cmd_dev
    system_exit
    table_of_contents
+   template_cmd_dev
    temporary_file
    toc_cmd_dev
