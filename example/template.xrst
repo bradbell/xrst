@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# ----------------------------------------------------------------------------
+{xrst_begin_parent template_example}
+
+Template Command Example
+########################
+
+xrst_template
+*************
+The file below demonstrates the use of ``xrst_template`` .
+
+This Example File
+*****************
+{xrst_literal}
+
+{xrst_end template_example}
+# ----------------------------------------------------------------------------
+BEFORE_example_expansion_one
+{xrst_begin example_expansion_one}
+
+{xrst_template ,
+   example/template_file.xrst
+   Title        , First Expansion
+   #####        , ###############
+   @number@     , one
+}
+
+{xrst_end example_expansion_one}
+AFTER_example_expansion_one
+# ----------------------------------------------------------------------------
+BEFORE_example_expansion_two
+{xrst_begin example_expansion_two}
+
+{xrst_template ,
+   example/template_file.xrst
+   Title        , Second Expansion
+   #####        , ################
+   @number@     , two
+}
+
+{xrst_end example_expansion_two}
+AFTER_example_expansion_two
+# ----------------------------------------------------------------------------

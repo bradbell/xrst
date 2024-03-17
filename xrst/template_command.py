@@ -173,7 +173,7 @@ def template_command(data_in, file_name, page_name) :
       m_arg         = pattern_arg.search(arg_text)
       if m_arg != None :
          template_file =  m_arg.group(1).strip()
-      if templalte_file == '' :
+      if template_file == '' :
          msg = 'template command: the template_file is missing.'
          xrst.system_exit(
             msg,
@@ -188,7 +188,7 @@ def template_command(data_in, file_name, page_name) :
       substitute_list = list()
       #
       # m_arg
-      m_arg = pattern_arg.search(arg_text, 0)
+      m_arg = pattern_arg.search(arg_text, m_arg.end())
       while m_arg != None :
          arg = m_arg.group(1).split(separator)
          if len( arg ) != 2 :
@@ -207,7 +207,7 @@ def template_command(data_in, file_name, page_name) :
          pattern = arg[0].strip()
          replace = arg[1].strip()
          line    = m_arg.group(2)
-         substitute_list.append(pattern, replace, line)
+         substitute_list.append( (pattern, replace, line) )
          #
          # m_arg
          m_arg = pattern_arg.search(arg_text, m_arg.end())
@@ -225,28 +225,30 @@ def template_command(data_in, file_name, page_name) :
       template_data  = file_obj.read()
       file_obj.close()
       #
-      # template_data
+      # template_expansion
+      template_expansion = template_data
       for pattern, replace, line in substitute_list :
          #
          try :
-            m_obj = re.match(pattern, template_data)
+            m_obj = re.search(pattern, template_expansion)
             if m_obj == None :
-               msg = 'template_command: This pattern did not match any text.'
+               msg  = 'template_command: This pattern did not match any text'
+               msg += f'\npattern = {pattern}'
                xrst.system_exit(msg,
                   file_name = file_name,
                   page_name = page_name,
                   line      = line
                )
-            template_data = re.sub(pattern, replace, template_data)
-         except Exeption as exception_obj :
-            msg = str(exception)
+            template_expansion = re.sub(pattern, replace, template_expansion)
+         except Exception as error :
+            msg = str(error)
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
                line      = line
             )
       #
-      # template_data
+      # template_expansion
       for cmd in [
          'begin',
          'end',
@@ -257,10 +259,11 @@ def template_command(data_in, file_name, page_name) :
          'spell',
          'template'
       ] :
-         pattern = r'[^\]{xrst_' + cmd + '[^a-zA-Z]'
-         m_obj   = re.find(pattern, template_data)
+         pattern = r'[^\\]{xrst_' + cmd
+         m_obj   = re.search(pattern, template_expansion)
          if m_obj != None :
-            msg = f'found {cmd} command in template expansion'
+            msg  = f'found {cmd} command in template expansion ='
+            breakpoint()
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
@@ -268,8 +271,11 @@ def template_command(data_in, file_name, page_name) :
                data      = data_out
             )
       #
+      # template_expansion
+      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
+      #
       # data_done, data_out
-      data_done = data_out[: m_template.start()] + template_data
+      data_done = data_out[: m_template.start()] + template_expansion
       data_out  = data_done + data_out[m_template.end() :]
       #
       # m_template

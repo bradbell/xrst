@@ -1,0 +1,27 @@
+{xrst_comment: The intended patterns in this template file are:
+   Title
+   #####
+   @number@
+}
+
+Title
+#####
+
+Expansion Number
+****************
+This uses expansion number @number@ of the template file
+``example/template.xrst`` .
+
+This Template File
+******************
+{xrst_literal
+   example/template_file.xrst
+}
+
+This Expansion Page
+*******************
+{xrst_literal
+   example/template.xrst
+   BEFORE_example_expansion_@number@
+   AFTER_example_expansion_@number@
+}
