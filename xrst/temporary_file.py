@@ -13,6 +13,9 @@ pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
 )
+pattern_template_begin  = re.compile( r'\n{xrst_template_begin [^\n]*}\n' )
+pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
+#
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
@@ -84,6 +87,7 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 #        :ref:`add_before_title-name` is called during
 #        :ref:`table_of_contents-name` .
 #
+#  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. Any sequence of more than 2 lines
 #     with only tabs or space are converted to 2 empty lines.
 #  #. Empty lines at the end are removed
@@ -176,6 +180,9 @@ def temporary_file(
       )
    #
    # data_out
+   # begin and end of template markers
+   data_out = pattern_template_begin.sub('', data_out)
+   data_out = pattern_template_end.sub('', data_out)
    #
    # data_out
    # Convert three or more sequential emtpty lines to two empty lines.
@@ -189,6 +196,7 @@ def temporary_file(
    #
    m_obj = pattern_any_command.search( data_out )
    if m_obj != None :
+      breakpoint()
       cmd  = m_obj.group(1)
       msg  = f'The xrst command {cmd} was not recognized.\n'
       msg += f'Use \\{cmd} if its not intented to be an xrst command.'

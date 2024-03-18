@@ -132,7 +132,15 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 #
 # data_out
 # ********
-# Each xrst template command is expanded.
+# Each xrst template command is expanded and
+# xrst.add_line_numbers is used to add line numbers corresponding to the
+# template file.
+# In addition, the following text is added at the beginning and end of the
+# expansion:
+#
+# | |tab| newline ``\{xrst_template_begin`` space *template_file* ``}`` newline
+# | |tab| newline ``\{xrst_template_end}`` newline
+#
 #
 # {xrst_end template_cmd_dev}
 # BEGIN_DEF
@@ -252,7 +260,6 @@ def template_command(data_in, file_name, page_name) :
          m_obj   = re.search(pattern, template_expansion)
          if m_obj != None :
             msg  = f'found {cmd} command in template expansion ='
-            breakpoint()
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
@@ -262,6 +269,11 @@ def template_command(data_in, file_name, page_name) :
       #
       # template_expansion
       template_expansion = xrst.add_line_numbers(template_expansion, file_name)
+      #
+      # template_expansion
+      before  = '\n{xrst_template_begin ' + template_file + '}\n'
+      after   = '\n{xrst_template_end}\n'
+      template_expansion = before + template_expansion + after
       #
       # data_done, data_out
       data_done = data_out[: m_template.start()] + template_expansion

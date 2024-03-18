@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 139-142,274-275
+   :lines: 147-150,286-287
    :language: py
 
 .. meta::
@@ -90,4 +90,11 @@ for error reporting.
 
 data_out
 ********
-Each xrst template command is expanded.
+Each xrst template command is expanded and
+xrst.add_line_numbers is used to add line numbers corresponding to the
+template file.
+In addition, the following text is added at the beginning and end of the
+expansion:
+
+| |tab| newline ``{xrst_template_begin`` space *template_file* ``}`` newline
+| |tab| newline ``{xrst_template_end}`` newline
