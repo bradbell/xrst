@@ -29,6 +29,7 @@ for file_name in $(git ls-files | sed \
    -e '/^gpl-3.0.txt$/d' \
    -e '/^readme.md$/d' \
    -e '/^bin[/]input_files.sh$/d' \
+   -e '/^example[/]template_file.xrst$/d' \
    -e '/^test_rst[/]/d' \
 )
 do

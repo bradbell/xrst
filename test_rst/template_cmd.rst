@@ -23,8 +23,8 @@ Syntax
 ******
 | ``{xrst_template`` *separator*
 | |tab| *template_file*
-| |tab| *pattern_1* *separator* *replace_1*
-| |tab| *pattern_2* *separator* *replace_2*
+| |tab| *match_1* *separator* *replace_1*
+| |tab| *match_2* *separator* *replace_2*
 | |tab| ...
 | ``}``
 
@@ -62,10 +62,8 @@ during the include.
 
 White Space
 ***********
-The newline character separates the lines of input above.
-Other leading and trailing white space around
-*separator* , *template_file* , the patterns , and the replacements
-are ignored.
+The newline character separates the lines of input above
+and excluded from white space in the discussion below..
 
 .. meta::
    :keywords: separator
@@ -77,7 +75,8 @@ are ignored.
 separator
 *********
 The *separator* argument is a single character that separates
-patterns from their replacements.
+matches from their replacements.
+Leading and trailing white space around *separator* is ignored.
 
 .. meta::
    :keywords: template_file
@@ -97,18 +96,19 @@ any of the following xrst commands (after the template expansion):
 :ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template command <template_cmd-name>` .
+Leading and trailing white space around *template_file* is ignored.
 
 .. meta::
-   :keywords: pattern
+   :keywords: match
 
-.. index:: pattern
+.. index:: match
 
-.. _template_cmd@pattern:
+.. _template_cmd@match:
 
-pattern
-*******
-Each pattern is a python regular expression that is used
-to match text in the template file.
+match
+*****
+Each occurrence of a match in the template file gets replaced.
+Leading and trailing white space around *match* is ignored.
 
 .. meta::
    :keywords: replace
@@ -119,11 +119,8 @@ to match text in the template file.
 
 replace
 *******
-Each replacement is a python replacement string.
-The replacements are done in order using the python regular expression
-function:
-
-   ``re.sub`` ( *pattern* , *replace* )
+For each match, the corresponding replacement is used in its place.
+Leading and trailing white space around *replace* is ignored.
 
 .. meta::
    :keywords: end
@@ -142,3 +139,4 @@ terminates the template command.
 
 Example
 *******
+:ref:`template_example-name`

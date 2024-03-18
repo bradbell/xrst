@@ -22,9 +22,9 @@ BEFORE_example_expansion_one
 
 {xrst_template ,
    example/template_file.xrst
-   Title        , First Expansion
-   #####        , ###############
-   @number@     , one
+   @Title@        , First Expansion
+   @#####@        , ###############
+   @number@       , one
 }
 
 {xrst_end example_expansion_one}
@@ -35,9 +35,9 @@ BEFORE_example_expansion_two
 
 {xrst_template ,
    example/template_file.xrst
-   Title        , Second Expansion
-   #####        , ################
-   @number@     , two
+   @Title@        , Second Expansion
+   @#####@        , ################
+   @number@       , two
 }
 
 {xrst_end example_expansion_two}

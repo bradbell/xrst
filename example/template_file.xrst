@@ -1,11 +1,11 @@
-{xrst_comment: The intended patterns in this template file are:
-   Title
-   #####
-   @number@
+{xrst_comment: This template file has the following parameters:
+   @Title@    : is the title for this page
+   @#####@    : is the rst underlining for the title
+   @number@   : is the number for this page; e.g., one, two, ...
 }
 
-Title
-#####
+@Title@
+@#####@
 
 Expansion Number
 ****************
@@ -18,7 +18,7 @@ This Template File
    example/template_file.xrst
 }
 
-This Expansion Page
+This Template Usage
 *******************
 {xrst_literal
    example/template.xrst

@@ -43,13 +43,13 @@ This Template File
    :language: rst
 
 .. meta::
-   :keywords: expansion, page
+   :keywords: template, usage
 
-.. index:: expansion, page
+.. index:: template, usage
 
-.. _example_expansion_two@This Expansion Page:
+.. _example_expansion_two@This Template Usage:
 
-This Expansion Page
+This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
