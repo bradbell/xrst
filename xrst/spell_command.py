@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin spell_cmd user}
@@ -113,6 +113,7 @@ pattern['spell']     = re.compile(
    r'[^\\]{xrst_spell([^_a-z][^}]*)}' +
    r'([ \t]*@xrst_line ([0-9]+)@)?'
 )
+pattern['template']   = re.compile( r'{xrst_template_begin [^}]*}' )
 pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
 #
 # pattern
@@ -131,7 +132,6 @@ pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
 pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
-pattern['spell_on']   = re.compile( r'[^\\]{xrst_spell_on}' )
 #
 # pattern['spell_on'], pattern['spell_off']
 lin = r'[ \t]*@xrst_line ([0-9]+)@'
@@ -376,6 +376,7 @@ def spell_command(
    # data_tmp
    # commands with file names as arugments
    # Use @ character to avoid mistaken double word errors
+   data_tmp = pattern['template'].sub('@', data_tmp)
    data_tmp = pattern['dir'].sub('@', data_tmp)
    data_tmp = pattern['literal'].sub('@', data_tmp)
    data_tmp = pattern['toc'].sub('@', data_tmp)
