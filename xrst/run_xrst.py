@@ -26,6 +26,7 @@ Syntax
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
+| |tab| [ ``--external_links`` ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--ignore_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
@@ -79,6 +80,12 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
+
+external_links
+**************
+If this option is present, the external links are checked.
+The ones that are broken or redirects are reported.
+Broken links are considered errors and redirects are warnings.
 
 replace_spell_commands
 **********************
@@ -398,16 +405,44 @@ def system_command(
       assert type(page_name2line_pair) == dict
       assert type(page_name2file_in) == dict
    #
+   # build_link
+   build_html = command.startswith('sphinx-build -b html')
+   build_tex  = command.startswith('sphinx-build -b tex')
+   build_link = command.startswith('sphinx-build -b linkcheck')
+   assert build_html or build_tex or build_link
+   #
    # subprocess.run, stderr
    print(command)
    command = command.split(' ')
    result = subprocess.run(command, capture_output = True)
    stderr = result.stderr.decode('utf-8')
-   ok     =  result.returncode == 0 and stderr == ''
+   #
+   # error_data, pattern_error
+   if build_html or build_tex :
+      #
+      # error_data
+      error_data = stderr
+      #
+      # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
+      # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
+      pattern_error = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+   else :
+      assert build_link
+      #
+      # error_data
+      target_directory = command[-1]
+      file_obj         = open( f'{target_directory}/output.txt' , 'r')
+      error_data       = stderr + '\n' + file_obj.read()
+      file_obj.close()
+      #
+      # pattern_error
+      pattern_error = re.compile( r'^([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+   #
+   ok  =  result.returncode == 0 and stderr == '' and not build_link
    if ok :
       return
    if page_name2line_pair == None :
-      message  = stderr
+      message  = error_data
       if result.returncode == 0 :
          sys.stderr.write(message)
          warning[0] = True
@@ -416,18 +451,12 @@ def system_command(
          message  += 'Error: see message above.\n'
          system_exit(message)
    #
-   # pattern_error
-   #
-   # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
-   # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
-   pattern_error = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
-   #
    # message
    message = ''
    #
    # error
-   stderr_list = stderr.split('\n')
-   for error in stderr_list :
+   error_list = error_data.split('\n')
+   for error in error_list :
       #
       # m_rst_error
       m_rst_error = pattern_error.search(error)
@@ -500,10 +529,10 @@ def system_command(
             error += '\n   2024-03-04: The label above was changed to'
             error += " 'xrst_contents-title'"
       # message
-      message += '\n' + error
+      if error != '' :
+         message += '\n' + error
    #
    if result.returncode == 0 :
-      message  += 'Warning: see system command message above.\n'
       sys.stderr.write(message)
       warning[0] = True
       return
@@ -550,7 +579,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.3.16'
+version = '2024.3.19'
 #
 def run_xrst() :
    #
@@ -572,6 +601,10 @@ def run_xrst() :
    # --page_source
    parser.add_argument('--page_source', action='store_true',
       help='add link to the xrst source code be included at top of each page'
+   )
+   # --external_links
+   parser.add_argument('--external_links', action='store_true',
+      help='report external links that are broken or redirects'
    )
    # --replace_spell_commands
    parser.add_argument('--replace_spell_commands', action='store_true',
@@ -651,6 +684,9 @@ def run_xrst() :
    #
    # page_source
    page_source = arguments.page_source
+   #
+   # external_links
+   external_links = arguments.external_links
    #
    # index_page_name
    index_page_name = arguments.index_page_name
@@ -1195,8 +1231,15 @@ def run_xrst() :
    if rst_only :
       print('xrst rst_only: OK')
       indent = '\n' + 3 * ' '
+      txt = ''
+      if external_links :
+         txt  = f'The following command will check the external links'
+         txt += indent
+         txt += f'sphinx-build -b linkcheck -j {number_jobs} '
+         txt += f'{rst_directory} {target_directory}'
+         txt += '\n\n'
       if target == 'html' :
-         txt  = f'The following commands will build the html:'
+         txt += f'The following commands will build the html:'
          txt += indent
          txt += f'sphinx-build -b html -j {number_jobs} '
          txt += f'{rst_directory} {target_directory}'
@@ -1209,7 +1252,7 @@ def run_xrst() :
       else :
          assert target == 'tex'
          latex_dir = f'{target_directory}'
-         txt  = f'The following command will build the tex:'
+         txt += f'The following command will build the tex:'
          txt += indent
          txt += f'sphinx-build -b latex -j {number_jobs} '
          txt += f'{rst_directory} {latex_dir}'
@@ -1221,6 +1264,15 @@ def run_xrst() :
       return
    #
    # -------------------------------------------------------------------------
+   if external_links :
+      command  = f'sphinx-build -b linkcheck -j {number_jobs} '
+      command += f'{rst_directory} {target_directory}'
+      if rst_line_numbers :
+         system_command(command, any_warning)
+      else :
+         system_command(
+            command, any_warning, page_name2line_pair, page_name2file_in
+      )
    if target == 'html' :
       command  = f'sphinx-build -b html -j {number_jobs} '
       command += f'{rst_directory} {target_directory}'

@@ -90,8 +90,10 @@ do
       echo "$0: exiting due to $type_error above"
       exit 1
    fi
+   rm check_xrst.$$
 done
-rm check_xrst.$$
+echo "python -m xrst $args --external_links --continue_with_warnings" 
+python -m xrst $args --external_links --continue_with_warnings
 cd ..
 # -----------------------------------------------------------------------------
 rst_dir='build/rst'
