@@ -536,7 +536,7 @@ def system_command(
       sys.stderr.write(message)
       warning[0] = True
       return
-   message  += 'Error: see system command message above.\n'
+   message  += '\nError: see system command message above.\n'
    system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
