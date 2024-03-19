@@ -31,7 +31,7 @@ mm-dd
 
 03-19
 =====
-Add the :ref:`run_xrst@check_links` option to the ``xrst`` command line.
+Add the :ref:`run_xrst@external_links` option to the ``xrst`` command line.
 
 .. _2024@mm-dd@03-16:
 

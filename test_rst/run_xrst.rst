@@ -26,7 +26,7 @@ Syntax
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
-| |tab| [ ``--check_links`` ] \\
+| |tab| [ ``--external_links`` ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--ignore_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
@@ -99,16 +99,17 @@ If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
 
 .. meta::
-   :keywords: check_links
+   :keywords: external_links
 
-.. index:: check_links
+.. index:: external_links
 
-.. _run_xrst@check_links:
+.. _run_xrst@external_links:
 
-check_links
-***********
+external_links
+**************
 If this option is present, the external links are checked.
 The ones that are broken or redirects are reported.
+Broken links are considered errors and redirects are warnings.
 
 .. meta::
    :keywords: replace_spell_commands

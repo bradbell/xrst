@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 function echo_eval {
@@ -58,10 +58,13 @@ sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
 #
 for group_list in 'default' 'default user dev'
 do
-   if [ -e rst ]
-   then
-      echo_eval rm -r rst
-   fi
+   for subdir in html rst
+   do
+      if [ -e $subdir ]
+      then
+         echo_eval rm -r $subdir
+      fi
+   done
    args='--local_toc'
    if [ "$group_list" == 'default' ]
    then
@@ -87,8 +90,10 @@ do
       echo "$0: exiting due to $type_error above"
       exit 1
    fi
+   rm check_xrst.$$
 done
-rm check_xrst.$$
+echo "python -m xrst $args --external_links --continue_with_warnings" 
+python -m xrst $args --external_links --continue_with_warnings
 cd ..
 # -----------------------------------------------------------------------------
 rst_dir='build/rst'

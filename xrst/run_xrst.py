@@ -26,7 +26,7 @@ Syntax
 | |tab| [ ``--version`` ] \\
 | |tab| [ ``--local_toc`` ] \\
 | |tab| [ ``--page_source`` ] \\
-| |tab| [ ``--check_links`` ] \\
+| |tab| [ ``--external_links`` ] \\
 | |tab| [ ``--replace_spell_commands`` ] \\
 | |tab| [ ``--ignore_spell_commands`` ] \\
 | |tab| [ ``--suppress_spell_warnings`` ] \\
@@ -81,11 +81,11 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
 
-check_links
-***********
+external_links
+**************
 If this option is present, the external links are checked.
 The ones that are broken or redirects are reported.
-
+Broken links are considered errors and redirects are warnings.
 
 replace_spell_commands
 **********************
@@ -416,18 +416,6 @@ def system_command(
    command = command.split(' ')
    result = subprocess.run(command, capture_output = True)
    stderr = result.stderr.decode('utf-8')
-   ok     =  result.returncode == 0 and stderr == ''
-   if ok :
-      return
-   if page_name2line_pair == None :
-      message  = stderr
-      if result.returncode == 0 :
-         sys.stderr.write(message)
-         warning[0] = True
-         return
-      else :
-         message  += 'Error: see message above.\n'
-         system_exit(message)
    #
    # error_data, pattern_error
    if build_html or build_tex :
@@ -444,11 +432,24 @@ def system_command(
       # error_data
       target_directory = command[-1]
       file_obj         = open( f'{target_directory}/output.txt' , 'r')
-      error_data       = '\n' + file_obj.read()
+      error_data       = stderr + '\n' + file_obj.read()
       file_obj.close()
       #
       # pattern_error
       pattern_error = re.compile( r'^([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+   #
+   ok  =  result.returncode == 0 and stderr == '' and not build_link
+   if ok :
+      return
+   if page_name2line_pair == None :
+      message  = error_data
+      if result.returncode == 0 :
+         sys.stderr.write(message)
+         warning[0] = True
+         return
+      else :
+         message  += 'Error: see message above.\n'
+         system_exit(message)
    #
    # message
    message = ''
@@ -528,10 +529,10 @@ def system_command(
             error += '\n   2024-03-04: The label above was changed to'
             error += " 'xrst_contents-title'"
       # message
-      message += '\n' + error
+      if error != '' :
+         message += '\n' + error
    #
    if result.returncode == 0 :
-      message  += 'Warning: see system command message above.\n'
       sys.stderr.write(message)
       warning[0] = True
       return
@@ -601,8 +602,8 @@ def run_xrst() :
    parser.add_argument('--page_source', action='store_true',
       help='add link to the xrst source code be included at top of each page'
    )
-   # --check_links
-   parser.add_argument('--check_links', action='store_true',
+   # --external_links
+   parser.add_argument('--external_links', action='store_true',
       help='report external links that are broken or redirects'
    )
    # --replace_spell_commands
@@ -684,8 +685,8 @@ def run_xrst() :
    # page_source
    page_source = arguments.page_source
    #
-   # check_links
-   check_links = arguments.check_links
+   # external_links
+   external_links = arguments.external_links
    #
    # index_page_name
    index_page_name = arguments.index_page_name
@@ -1227,7 +1228,7 @@ def run_xrst() :
       print('xrst rst_only: OK')
       indent = '\n' + 3 * ' '
       txt = ''
-      if check_links :
+      if external_links :
          txt  = f'The following command will check the external links'
          txt += indent
          txt += f'sphinx-build -b linkcheck -j {number_jobs} '
@@ -1259,7 +1260,7 @@ def run_xrst() :
       return
    #
    # -------------------------------------------------------------------------
-   if check_links :
+   if external_links :
       command  = f'sphinx-build -b linkcheck -j {number_jobs} '
       command += f'{rst_directory} {target_directory}'
       if rst_line_numbers :
