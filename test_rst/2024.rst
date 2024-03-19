@@ -27,6 +27,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+.. _2024@mm-dd@03-19:
+
+03-19
+=====
+Add the :ref:`run_xrst@check_links` option to the ``xrst`` command line.
+
 .. _2024@mm-dd@03-16:
 
 03-16
