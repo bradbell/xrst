@@ -85,12 +85,13 @@ import re
 import xrst
 #
 #
-# template_pattern
-# 0. preceding character + the command.
-# 1. characters, not including line number or command name, on first line.
-# 2. rest of command, not including first \\n or final }.
+# pattern_template:
+# 1: character preceeding the template command
+# 2. the separator (including surrounding white space)
+# 3. line number where the template command appeared
+# 4. rest of template command
 pattern_template    = re.compile(
-   r'[^\\]\{xrst_template([^\n}]*)@xrst_line [0-9]+@\n([^}]*)}'
+   r'([^\\]){xrst_template([^\n}]*)@xrst_line ([0-9]+)@\n([^}]*)}'
 )
 # pattern_arg
 pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
@@ -138,8 +139,11 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # In addition, the following text is added at the beginning and end of the
 # expansion:
 #
-# | |tab| newline ``\{xrst_template_begin`` space *template_file* ``}`` newline
-# | |tab| newline ``\{xrst_template_end}`` newline
+# | |tab| NL ``\{xrst_template_begin`` NL *template_file* NL *line* NL ``}`` NL
+# | |tab| NL ``\{xrst_template_end}`` NL
+#
+# where NL is the newline character and *line* is the line where the
+# template command appeared in *file_name* .
 #
 #
 # {xrst_end template_cmd_dev}
@@ -158,7 +162,7 @@ def template_command(data_in, file_name, page_name) :
    while m_template != None :
       #
       # separator
-      separator = m_template.group(1).strip()
+      separator = m_template.group(2).strip()
       if len(separator) != 1 :
          msg  =  '{xrst_template separator\n'
          msg += f'separator = "{separator}" must be one character'
@@ -171,7 +175,8 @@ def template_command(data_in, file_name, page_name) :
          )
       #
       # arg_text
-      arg_text = m_template.group(2)
+      # rest of template command
+      arg_text = m_template.group(4)
       #
       # template_file, template_file_line
       template_file = ''
@@ -246,6 +251,18 @@ def template_command(data_in, file_name, page_name) :
          template_expansion = template_expansion.replace(match, replace)
       #
       # template_expansion
+      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
+      #
+      # template_expansion
+      line    = m_template.group(3).strip()
+      before  = '\n{xrst_template_begin\n'
+      before += template_file + '\n'
+      before += line + '\n'
+      before += '}\n'
+      after   = '\n{xrst_template_end}\n'
+      template_expansion = before + template_expansion + after
+      #
+      # template_expansion
       for cmd in [
          'begin',
          'end',
@@ -256,10 +273,10 @@ def template_command(data_in, file_name, page_name) :
          'spell',
          'template'
       ] :
-         pattern = r'[^\\]{xrst_' + cmd
+         pattern = r'[^\\]{xrst_' + cmd + r'[^a-zA-Z_]'
          m_obj   = re.search(pattern, template_expansion)
          if m_obj != None :
-            msg  = f'found {cmd} command in template expansion ='
+            msg  = f'found {cmd} command in template expansion'
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
@@ -267,16 +284,8 @@ def template_command(data_in, file_name, page_name) :
                data      = data_out
             )
       #
-      # template_expansion
-      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
-      #
-      # template_expansion
-      before  = '\n{xrst_template_begin ' + template_file + '}\n'
-      after   = '\n{xrst_template_end}\n'
-      template_expansion = before + template_expansion + after
-      #
       # data_done, data_out
-      data_done = data_out[: m_template.start()] + template_expansion
+      data_done = data_out[: m_template.start() + 1] + template_expansion
       data_out  = data_done + data_out[m_template.end() :]
       #
       # m_template

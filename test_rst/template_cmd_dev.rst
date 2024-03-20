@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 147-150,286-287
+   :lines: 151-154,295-296
    :language: py
 
 .. meta::
@@ -96,5 +96,8 @@ template file.
 In addition, the following text is added at the beginning and end of the
 expansion:
 
-| |tab| newline ``{xrst_template_begin`` space *template_file* ``}`` newline
-| |tab| newline ``{xrst_template_end}`` newline
+| |tab| NL ``{xrst_template_begin`` NL *template_file* NL *line* NL ``}`` NL
+| |tab| NL ``{xrst_template_end}`` NL
+
+where NL is the newline character and *line* is the line where the
+template command appeared in *file_name* .

@@ -7,7 +7,9 @@ import os
 import re
 import xrst
 #
-pattern_template_begin  = re.compile( r'\n{xrst_template_begin ([^\n]*)}\n' )
+pattern_template_begin  = re.compile(
+   r'\n{xrst_template_begin\n([^\n]*)\n([^\n]*)\n}\n'
+)
 pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
 #
 # {xrst_begin system_exit dev}
@@ -72,22 +74,19 @@ def system_exit(
       line = m_line.group(1)
       #
       # begin_index, end_index
-      begin_index = data[: m_obj.start()].rfind( r'\n{xrst_template_begin' )
-      end_index   = data[: m_obj.start()].rfind( r'\n{xrst_template_end' )
+      begin_index = data[: m_obj.start()].rfind( '\n{xrst_template_begin\n' )
+      end_index   = data[: m_obj.start()].rfind( '\n{xrst_template_end}\n' )
+      breakpoint()
       if end_index < begin_index :
          #
          # tempate_line
          template_line = line
          #
-         # template_file
+         # template_file, line
          m_temp = pattern_template_begin.search( data[begin_index :] )
          assert m_temp != None
          template_file = m_temp.group(1).strip()
-         #
-         # line
-         m_line = xrst.pattern['line'].search( data[begin_index :] )
-         assert m_line
-         line = m_line.group(1)
+         line          = m_temp.group(2).strip()
    #
    # extra
    if page_name != None :

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/next_heading.py
-   :lines: 59-65,153-157
+   :lines: 59-65,154-158
    :language: py
 
 .. meta::

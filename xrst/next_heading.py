@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
 # {xrst_begin next_heading dev}
@@ -120,7 +120,7 @@ def next_heading(data, data_index, file_name, page_name) :
          elif len(next_line) < len(heading_text) :
             state = 'before_overline'
          else :
-            m_line = xrst.pattern['line'].search(data[next_start :])
+            m_line = xrst.pattern['line'].search(data, next_start)
             line   = m_line.group(1)
             msg = ''
             if len(heading_text) < len(next_line) :
@@ -132,7 +132,8 @@ def next_heading(data, data_index, file_name, page_name) :
                      msg,
                      file_name = file_name,
                      page_name = page_name,
-                     line      = line,
+                     m_obj     = m_line,
+                     data      = data,
                )
             #
             # underline_text

@@ -13,7 +13,9 @@ pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
 )
-pattern_template_begin  = re.compile( r'\n{xrst_template_begin [^\n]*}\n' )
+pattern_template_begin  = re.compile(
+   r'\n{xrst_template_begin\n[^\n]*\n[^\n]*\n}\n'
+)
 pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
 #
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
@@ -196,7 +198,6 @@ def temporary_file(
    #
    m_obj = pattern_any_command.search( data_out )
    if m_obj != None :
-      breakpoint()
       cmd  = m_obj.group(1)
       msg  = f'The xrst command {cmd} was not recognized.\n'
       msg += f'Use \\{cmd} if its not intented to be an xrst command.'
