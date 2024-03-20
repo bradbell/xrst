@@ -55,7 +55,8 @@ any of the following xrst commands (after the template expansion):
 :ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template command <template_cmd-name>` .
-Leading and trailing white space around *template_file* is ignored.
+Leading and trailing white space around *template_file* is ignored
+and *template_file* cannot contain the ``@`` character.
 
 match
 *****
@@ -139,11 +140,12 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # In addition, the following text is added at the beginning and end of the
 # expansion:
 #
-# | |tab| NL ``\{xrst_template_begin`` NL *template_file* NL *line* NL ``}`` NL
-# | |tab| NL ``\{xrst_template_end}`` NL
+# | |tab| @ ``\{xrst_template_begin`` @ *template_file* @ *line* @ ``}`` @
+# | |tab| @ ``\{xrst_template_end}`` @
 #
-# where NL is the newline character and *line* is the line where the
-# template command appeared in *file_name* .
+# where *line* is the line where the
+# template command appeared in *file_name* and there is no white space between
+# the tokens above.
 #
 #
 # {xrst_end template_cmd_dev}
@@ -185,6 +187,15 @@ def template_command(data_in, file_name, page_name) :
          template_file =  m_arg.group(1).strip()
       if template_file == '' :
          msg = 'template command: the template_file is missing.'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            m_obj     = m_arg,
+            data      = arg_text
+         )
+      if 0 < template_file.find('@')  :
+         msg = 'template command: template_file contains the @ character.'
          xrst.system_exit(
             msg,
             file_name = file_name,
@@ -251,16 +262,17 @@ def template_command(data_in, file_name, page_name) :
          template_expansion = template_expansion.replace(match, replace)
       #
       # template_expansion
-      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
+      # no newlines in before of after so that add_line_numbers works properly
+      line    = m_template.group(3).strip()
+      before  = '@{xrst_template_begin@'
+      before += template_file + '@'
+      before += line + '@'
+      before += '}@'
+      after   = '@{xrst_template_end}@'
+      template_expansion = before + template_expansion + after
       #
       # template_expansion
-      line    = m_template.group(3).strip()
-      before  = '\n{xrst_template_begin\n'
-      before += template_file + '\n'
-      before += line + '\n'
-      before += '}\n'
-      after   = '\n{xrst_template_end}\n'
-      template_expansion = before + template_expansion + after
+      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
       #
       # template_expansion
       for cmd in [

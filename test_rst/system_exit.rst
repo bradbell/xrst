@@ -37,7 +37,9 @@ Reason for aborting xrst
 
 file_name
 *********
-input file that error appeared in
+is the name of the file that contains the begin command for this page.
+This is different from the current input file if we are processing
+a template command.
 
 .. meta::
    :keywords: page_name
@@ -81,9 +83,9 @@ is the data that was searched to get the match object m_obj.
 
 line
 ****
-is the line number in file specified by file_name where the error
+is the line number in the current input file where the error
 was detected.
 
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 50-60
+   :lines: 52-61
    :language: py

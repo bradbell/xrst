@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -67,7 +67,12 @@ def add_line_numbers(data_in, file_in) :
       msg += '@xrst_line<space><number>@\n'
       msg += 'where <space> is a single space '
       msg += 'and <number> is an integer'
-      xrst.system_exit(msg, file_name = file_in, line = line)
+      xrst.system_exit(msg,
+         file_name = file_in,
+         line      = line,
+         m_obj     = m_obj,
+         data      = data_in
+      )
    #
    # newline_list, line_start
    newline_list = xrst.newline_indices(data_extend)

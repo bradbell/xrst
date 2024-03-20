@@ -14,9 +14,9 @@ pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
 )
 pattern_template_begin  = re.compile(
-   r'\n{xrst_template_begin\n[^\n]*\n[^\n]*\n}\n'
+   r'@{xrst_template_begin@[^@]*@[^@]*@}@'
 )
-pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
+pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 #
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------

@@ -30,7 +30,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-   :lines: 52-54,116-118
+   :lines: 52-54,121-123
    :language: py
 
 .. meta::

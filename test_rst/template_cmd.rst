@@ -96,7 +96,8 @@ any of the following xrst commands (after the template expansion):
 :ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template command <template_cmd-name>` .
-Leading and trailing white space around *template_file* is ignored.
+Leading and trailing white space around *template_file* is ignored
+and *template_file* cannot contain the ``@`` character.
 
 .. meta::
    :keywords: match

@@ -8,9 +8,9 @@ import re
 import xrst
 #
 pattern_template_begin  = re.compile(
-   r'\n{xrst_template_begin\n([^\n]*)\n([^\n]*)\n}\n'
+   r'@{xrst_template_begin@([^@]*)@([^@]*)@}@'
 )
-pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
+pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 #
 # {xrst_begin system_exit dev}
 # {xrst_spell
@@ -27,7 +27,9 @@ pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
 #
 # file_name
 # *********
-# input file that error appeared in
+# is the name of the file that contains the begin command for this page.
+# This is different from the current input file if we are processing
+# a template command.
 #
 # page_name
 # *********
@@ -43,7 +45,7 @@ pattern_template_end    = re.compile( r'\n{xrst_template_end}\n' )
 #
 # line
 # ****
-# is the line number in file specified by file_name where the error
+# is the line number in the current input file where the error
 # was detected.
 #
 # {xrst_code py}
@@ -57,7 +59,6 @@ def system_exit(
    if m_obj != None :
       assert file_name != None
       assert data      != None
-      assert line      == None
    # {xrst_code}
    # {xrst_end system_exit}
    #
@@ -69,14 +70,14 @@ def system_exit(
    template_file = None
    template_line = None
    if m_obj :
-      m_line  = xrst.pattern['line'].search( data[m_obj.start() :] )
-      assert m_line
-      line = m_line.group(1)
+      if line == None :
+         m_line  = xrst.pattern['line'].search( data[m_obj.start() :] )
+         assert m_line
+         line = m_line.group(1)
       #
       # begin_index, end_index
-      begin_index = data[: m_obj.start()].rfind( '\n{xrst_template_begin\n' )
-      end_index   = data[: m_obj.start()].rfind( '\n{xrst_template_end}\n' )
-      breakpoint()
+      begin_index = data[: m_obj.start()].rfind( '@{xrst_template_begin@' )
+      end_index   = data[: m_obj.start()].rfind( '@{xrst_template_end}@' )
       if end_index < begin_index :
          #
          # tempate_line
