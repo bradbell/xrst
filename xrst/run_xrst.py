@@ -432,23 +432,29 @@ def system_command(
       # error_data
       target_directory = command[-1]
       file_obj         = open( f'{target_directory}/output.txt' , 'r')
-      error_data       = stderr + '\n' + file_obj.read()
+      error_data       = file_obj.read()
       file_obj.close()
+      if error_data == '' :
+         error_data = stderr
+      else :
+         error_data = stderr + '\n' + error_data
       #
       # pattern_error
       pattern_error = re.compile( r'^([A-Za-z0-9_.-]+).rst:([0-9]+):' )
    #
-   ok  =  result.returncode == 0 and stderr == '' and not build_link
+   ok  =  result.returncode == 0 and error_data == ''
    if ok :
       return
+   #
    if page_name2line_pair == None :
       message  = error_data
       if result.returncode == 0 :
+         message  += '\nWarning: see message above.\n'
          sys.stderr.write(message)
          warning[0] = True
          return
       else :
-         message  += 'Error: see message above.\n'
+         message  += '\nError: see message above.'
          system_exit(message)
    #
    # message
@@ -533,10 +539,11 @@ def system_command(
          message += '\n' + error
    #
    if result.returncode == 0 :
+      message  += '\nWarning: see messages above.\n'
       sys.stderr.write(message)
       warning[0] = True
       return
-   message  += '\nError: see system command message above.\n'
+   message  += '\nError: see messages above.'
    system_exit(message)
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
@@ -579,7 +586,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.3.19'
+version = '2024.3.20'
 #
 def run_xrst() :
    #
