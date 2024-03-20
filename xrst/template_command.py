@@ -292,8 +292,8 @@ def template_command(data_in, file_name, page_name) :
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
-               m_obj     = m_template,
-               data      = data_out
+               m_obj     = m_obj,
+               data      = template_expansion
             )
       #
       # data_done, data_out

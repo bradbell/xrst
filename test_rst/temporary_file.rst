@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 115-130,230-236
+   :lines: 116-131,236-242
    :language: py
 
 .. meta::
@@ -143,6 +143,7 @@ The following is added to this data before writing it to the output file:
        :ref:`add_before_title-name` is called during
        :ref:`table_of_contents-name` .
 
+ #. Check for an xrst command that was not recognized.
  #. The xrst_template_begin and xrst_template_end markers are removed.
  #. Any sequence of more than 2 lines
     with only tabs or space are converted to 2 empty lines.

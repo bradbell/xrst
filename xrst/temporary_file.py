@@ -89,6 +89,7 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 #        :ref:`add_before_title-name` is called during
 #        :ref:`table_of_contents-name` .
 #
+#  #. Check for an xrst command that was not recognized.
 #  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. Any sequence of more than 2 lines
 #     with only tabs or space are converted to 2 empty lines.
@@ -181,6 +182,23 @@ def temporary_file(
          r':ref:`\1<\2-title>`' , data_out
       )
    #
+   # m_obj
+   m_obj = pattern_any_command.search( data_out )
+   while m_obj != None :
+      ok = m_obj.group(0).startswith('@{xrst_template_begin@')
+      ok = ok or m_obj.group(0).startswith('@{xrst_template_end}')
+      if not ok :
+         cmd  = m_obj.group(1)
+         msg  = f'The xrst command {cmd} was not recognized.\n'
+         msg += f'Use \\{cmd} if its not intented to be an xrst command.'
+         xrst.system_exit(msg,
+            file_name=file_in,
+            page_name=page_name,
+            m_obj=m_obj,
+            data=data_out
+         )
+      m_obj = pattern_any_command.search( data_out , m_obj.end() )
+   #
    # data_out
    # begin and end of template markers
    data_out = pattern_template_begin.sub('', data_out)
@@ -195,18 +213,6 @@ def temporary_file(
    # remove empty lines at the end
    while data_out[-2 :] == '\n\n' :
       data_out = data_out[: -1]
-   #
-   m_obj = pattern_any_command.search( data_out )
-   if m_obj != None :
-      cmd  = m_obj.group(1)
-      msg  = f'The xrst command {cmd} was not recognized.\n'
-      msg += f'Use \\{cmd} if its not intented to be an xrst command.'
-      xrst.system_exit(msg,
-         file_name=file_in,
-         page_name=page_name,
-         m_obj=m_obj,
-         data=data_out
-      )
    #
    # data_out
    # The last step removing line numbers. This is done last for two reasons:

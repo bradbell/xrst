@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin comment_ch_cmd user}
@@ -64,7 +64,7 @@ import xrst
 # pattern
 pattern = dict()
 # need \{xrst_comment_ch so it does not match comment_ch command
-pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^a-z]' )
+pattern['error']      = re.compile( r'[^\\]\{xrst_comment_ch[^_a-z]' )
 pattern['comment_ch'] = xrst.pattern['comment_ch']
 #
 # Returns the beginning of line comment character for a file.
@@ -130,8 +130,14 @@ def comment_ch_command(data_in, file_name, page_name) :
             data      = data_in,
          )
       if comment_ch in '.:]' :
-         msg  = f'Cannot use {comment_ch} as character in comment_ch command\n'
-         xrst.system_exit(msg, file_name=file_name, line=line)
+         msg  = f'Cannot use "{comment_ch}" as character in comment_ch command'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            m_obj     = m_obj,
+            data      = data_in,
+         )
       #
       # m_rest
       data_rest  = data_in[ m_obj.end() : ]
