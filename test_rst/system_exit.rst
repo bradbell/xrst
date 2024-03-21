@@ -39,7 +39,7 @@ file_name
 *********
 is the name of the file that contains the begin command for this page.
 This is different from the current input file if we are processing
-a template command.
+a template expansion.
 
 .. meta::
    :keywords: page_name
@@ -73,6 +73,8 @@ The error was detected in the values returned by this match object.
 data
 ****
 is the data that was searched to get the match object m_obj.
+If the error possibly occurred in a template expansion, you must include
+the entire expansion in the data.
 
 .. meta::
    :keywords: line
@@ -87,5 +89,5 @@ is the line number in the current input file where the error
 was detected.
 
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 52-61
+   :lines: 54-63
    :language: py

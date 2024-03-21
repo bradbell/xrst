@@ -29,7 +29,7 @@ pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 # *********
 # is the name of the file that contains the begin command for this page.
 # This is different from the current input file if we are processing
-# a template command.
+# a template expansion.
 #
 # page_name
 # *********
@@ -42,6 +42,8 @@ pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 # data
 # ****
 # is the data that was searched to get the match object m_obj.
+# If the error possibly occurred in a template expansion, you must include
+# the entire expansion in the data.
 #
 # line
 # ****

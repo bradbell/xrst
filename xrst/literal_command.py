@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin literal_cmd user}
@@ -170,91 +170,6 @@ pattern_literal    = xrst.pattern['literal']
 #
 # pattern_arg
 pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
-#
-# arg_list, line_list, start_command, end_command =
-def next_literal_cmd(data_in, file_name, page_name, start_search) :
-   assert type(data_in) == str
-   assert type(file_name) == str
-   assert type(page_name) == str
-   assert type(start_search) == int
-   #
-   # arg_list, line_list
-   arg_list   = list()
-   line_list  = list()
-   #
-   # m_literal
-   m_literal  = pattern_literal.search( data_in , start_search)
-   if m_literal == None :
-      return None, None, None, None
-   #
-   # separator, arg_text
-   if m_literal.group(1) == None :
-      separator = ''
-      arg_text  = ''
-   else :
-      separator = m_literal.group(1).strip()
-      arg_text  = m_literal.group(2)
-   #
-   if len(separator) > 1 :
-      msg  =  '{xrst_literal separator\n'
-      msg += f'separator = "{separator}" is more than one character'
-      xrst.system_exit(
-         msg,
-         file_name = file_name,
-         page_name = page_name,
-         m_obj     = m_literal,
-         data      = data_in
-      )
-   #
-   # arg_list
-   m_arg = pattern_arg.search( arg_text )
-   while m_arg != None :
-      if m_arg.group(1) == None :
-         msg = 'There is an empty line inside a literal command.'
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_arg,
-            data      = arg_text
-         )
-      end    = m_arg.end()
-      arg    = m_arg.group(1)
-      line   = int( m_arg.group(2) )
-      if len(separator) > 0 and arg.count(separator) > 1 :
-         msg  =  f'xrst_literal separator = {separator}\n'
-         msg += 'separator appears more than once in a line'
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_arg,
-            data      = m_arg.group(0)
-         )
-      if separator == '' or arg.count(separator) == 0 :
-         arg_list.append( arg.strip() )
-         line_list.append( line )
-      else :
-         assert arg.count(separator) == 1
-         arg = arg.split(separator)
-         arg_list.append( arg[0].strip() )
-         arg_list.append( arg[1].strip() )
-         line_list.append( line )
-         line_list.append( line )
-      m_arg  = pattern_arg.search( arg_text , end)
-   #
-   # start_command, end_command
-   start_command = m_literal.start() + 1
-   end_command   = m_literal.end()
-   #
-   assert len(arg_list) == len(line_list)
-   for arg in arg_list :
-      assert type(arg) == str
-   for line in line_list :
-      assert type(line) == int
-   assert type(start_command) == int
-   assert type(end_command) == int
-   return arg_list, line_list, start_command, end_command
 # ----------------------------------------------------------------------------
 # {xrst_begin literal_cmd_dev dev}
 # {xrst_comment_ch #}
@@ -306,13 +221,75 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
    # data_out
    data_out = data_in
    #
-   # arg_list, line_list, start_command, end_command
-   start_search = 0
-   arg_list, line_list, start_command, end_command = next_literal_cmd(
-      data_out, file_name, page_name, start_search
-   )
-   #
-   while arg_list != None :
+   # m_literal
+   m_literal  = pattern_literal.search(data_out)
+   while m_literal != None :
+      #
+      # separator
+      if m_literal.group(1) == None :
+         separator = ''
+      else :
+         separator = m_literal.group(1).strip()
+      if len(separator) > 1 :
+         msg  =  '{xrst_literal separator\n'
+         msg += f'separator = "{separator}" is more than one character'
+         xrst.system_exit(
+            msg,
+            file_name = file_name,
+            page_name = page_name,
+            m_obj     = m_literal,
+            data      = data_out
+         )
+      #
+      # arg_list, line_list
+      arg_list  = list()
+      line_list = list()
+      if m_literal.group(2) != None :
+         #
+         # m_arg
+         index = data_out.find('\n', m_literal.start() + 1)
+         m_arg = pattern_arg.search(data_out, index + 1)
+         while m_arg != None and m_arg.end() < m_literal.end() :
+            if m_arg.group(1) == None :
+               msg = 'There is an empty line inside a literal command.'
+               xrst.system_exit(
+                  msg,
+                  file_name = file_name,
+                  page_name = page_name,
+                  m_obj     = m_arg,
+                  data      = data_out
+               )
+            #
+            # arg, line
+            arg    = m_arg.group(1)
+            line   = int( m_arg.group(2) )
+            if len(separator) > 0 and arg.count(separator) > 1 :
+               msg  =  f'xrst_literal separator = {separator}\n'
+               msg += 'separator appears more than once in a line'
+               xrst.system_exit(
+                  msg,
+                  file_name = file_name,
+                  page_name = page_name,
+                  m_obj     = m_arg,
+                  data      = data_out,
+               )
+            #
+            # arg_list, line_list
+            if separator == '' or arg.count(separator) == 0 :
+               arg_list.append( arg.strip() )
+               line_list.append(line)
+            else :
+               assert arg.count(separator) == 1
+               arg = arg.split(separator)
+               #
+               arg_list.append( arg[0].strip() )
+               line_list.append(line)
+               #
+               arg_list.append( arg[1].strip() )
+               line_list.append(line)
+            #
+            # m_arg
+            m_arg  = pattern_arg.search(data_out , m_arg.end() )
       #
       # even
       even = len(arg_list) % 2 == 0
@@ -378,21 +355,18 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
       if extension != '' :
          cmd += 3 * ' ' + f':language: {extension}\n'
       cmd = '\n' + cmd + '\n\n'
-      if start_command > 0 :
-         if data_out[start_command - 1] != '\n' :
+      if m_literal.start() > 0 :
+         if data_out[m_literal.start() - 1] != '\n' :
             cmd = '\n' + cmd
       #
       # data_tmp, data_out
-      data_tmp  = data_out[: start_command ]
+      data_tmp  = data_out[: m_literal.start() ]
       data_tmp += cmd
-      data_out  = data_tmp + data_out[ end_command : ]
+      data_out  = data_tmp + data_out[ m_literal.end() : ]
       #
-      # start_search
-      start_search = len(data_tmp)
-      #
-      arg_list, line_list, start_command, end_command = next_literal_cmd(
-         data_out, file_name, page_name, start_search
-      )
+      # m_literal
+      m_literal  = pattern_literal.search(data_out, len(data_tmp))
+   #
    # BEGIN_RETURN
    #
    assert type(data_out) == str
