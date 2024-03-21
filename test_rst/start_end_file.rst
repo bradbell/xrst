@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/start_end_file.py
-   :lines: 64-79,156-159
+   :lines: 83-104,181-184
    :language: py
 
 .. meta::
@@ -40,7 +40,9 @@ Prototype
 
 file_cmd
 ********
-is the name of the file where the xrst_literal command appears.
+is the name of the file that contains the begin command for this page.
+This is different from the current input file if we are processing
+a template expansion.
 
 .. meta::
    :keywords: page_name
@@ -126,3 +128,39 @@ is the line number where start_after appears.
 end_line
 ********
 is the line number where end_before appears.
+
+.. meta::
+   :keywords: m_start
+
+.. index:: m_start
+
+.. _start_end_file@m_start:
+
+m_start
+*******
+is a match object corresponding to the location of start_after.
+It is only used for reporting errors.
+
+.. meta::
+   :keywords: m_end
+
+.. index:: m_end
+
+.. _start_end_file@m_end:
+
+m_end
+*****
+is a match object corresponding to the location of end_before.
+It is only used for reporting errors.
+
+.. meta::
+   :keywords: m_data
+
+.. index:: m_data
+
+.. _start_end_file@m_data:
+
+m_data
+******
+is the data for the entire page, including template expansion.
+It corresponds to *m_start* , *m_end* and is only used for reporting errors.

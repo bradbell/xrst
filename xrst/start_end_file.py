@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
+import re
+#
 # {xrst_begin start_end_file dev}
 # {xrst_spell
 #     cmd
@@ -21,7 +23,9 @@ import xrst
 #
 # file_cmd
 # ********
-# is the name of the file where the xrst_literal command appears.
+# is the name of the file that contains the begin command for this page.
+# This is different from the current input file if we are processing
+# a template expansion.
 #
 # page_name
 # *********
@@ -59,6 +63,21 @@ import xrst
 # ********
 # is the line number where end_before appears.
 #
+# m_start
+# *******
+# is a match object corresponding to the location of start_after.
+# It is only used for reporting errors.
+#
+# m_end
+# *****
+# is a match object corresponding to the location of end_before.
+# It is only used for reporting errors.
+#
+# m_data
+# ******
+# is the data for the entire page, including template expansion.
+# It corresponds to *m_start* , *m_end* and is only used for reporting errors.
+#
 # {xrst_end start_end_file}
 # BEGIN_DEF
 def start_end_file(
@@ -67,7 +86,10 @@ def start_end_file(
    display_file,
    cmd_line,
    start_after,
-   end_before
+   end_before,
+   m_start,
+   m_end,
+   m_data,
 ) :
    assert type(file_cmd) == str
    assert type(page_name) == str
@@ -77,6 +99,9 @@ def start_end_file(
    assert cmd_line[0] <= cmd_line[1]
    assert type(start_after) == str
    assert type(end_before) == str
+   assert type(m_start) == re.Match
+   assert type(m_end) == re.Match
+   assert type(m_data) == str
    # END_DEF
    # ------------------------------------------------------------------------
    # exclude_line
@@ -91,22 +116,22 @@ def start_end_file(
    if start_after == '' :
       msg += ' start_after is empty'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
       )
    if end_before == '' :
       msg += ' end_before is empty'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
       )
    if 0 <= start_after.find('\n') :
       msg += ' a newline appears in start_after'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
       )
    if 0 <= end_before.find('\n') :
       msg += ' a newline appears in end_before'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
       )
    #
    # data
@@ -130,7 +155,7 @@ def start_end_file(
       if file_cmd == display_file :
          msg += ' not counting the literal command'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
       )
    #
    # end_line
@@ -149,7 +174,7 @@ def start_end_file(
       if file_cmd == display_file :
          msg += ' not counting the literal command'
       xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, line = cmd_line[0]
+         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
       )
    # ------------------------------------------------------------------------
    # BEGIN_RETURN

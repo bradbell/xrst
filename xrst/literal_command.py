@@ -241,9 +241,9 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
             data      = data_out
          )
       #
-      # arg_list, line_list
+      # arg_list, m_list
       arg_list  = list()
-      line_list = list()
+      m_list    = list()
       if m_literal.group(2) != None :
          #
          # m_arg
@@ -262,7 +262,6 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
             #
             # arg, line
             arg    = m_arg.group(1)
-            line   = int( m_arg.group(2) )
             if len(separator) > 0 and arg.count(separator) > 1 :
                msg  =  f'xrst_literal separator = {separator}\n'
                msg += 'separator appears more than once in a line'
@@ -274,22 +273,28 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
                   data      = data_out,
                )
             #
-            # arg_list, line_list
+            # arg_list, m_list
             if separator == '' or arg.count(separator) == 0 :
                arg_list.append( arg.strip() )
-               line_list.append(line)
+               m_list.append(m_arg)
             else :
                assert arg.count(separator) == 1
                arg = arg.split(separator)
                #
                arg_list.append( arg[0].strip() )
-               line_list.append(line)
+               m_list.append(m_arg)
                #
                arg_list.append( arg[1].strip() )
-               line_list.append(line)
+               m_list.append(m_arg)
             #
             # m_arg
             m_arg  = pattern_arg.search(data_out , m_arg.end() )
+      #
+      # cmd_line
+      if len(arg_list) >= 2 :
+         start_line = int( m_list[0].group(2) )
+         end_line  = int( m_list[-1].group(2) )
+         cmd_line = ( start_line, end_line )
       #
       # even
       even = len(arg_list) % 2 == 0
@@ -299,20 +304,18 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          display_file = file_name
       else :
          display_file = arg_list.pop(0)
+         m_arg        = m_list.pop(0)
          if not os.path.isfile(display_file) :
             msg  = 'literal command: can not find the display_file.\n'
             msg += f'display_file = {display_file}'
             xrst.system_exit(msg,
                file_name = file_name,
                page_name = page_name,
-               line      = line_list[0],
+               m_obj     = m_arg,
+               data      = data_out
             )
          if os.path.samefile(display_file, file_name) :
             display_file = file_name
-      #
-      # cmd_line
-      if len(arg_list) >= 2 :
-         cmd_line = ( line_list[0], line_list[-1] )
       #
       # start_end_line_list
       assert len(arg_list) % 2 == 0
@@ -328,7 +331,10 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
             display_file = display_file,
             cmd_line     = cmd_line,
             start_after  = start_after,
-            end_before   = end_before
+            end_before   = end_before,
+            m_start      = m_list[i],
+            m_end        = m_list[i+1],
+            m_data       = data_out,
          )
          #
          # start_end_line_list
