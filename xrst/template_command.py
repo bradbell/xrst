@@ -121,11 +121,10 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # is the data for a page before the
 # :ref:`template commands <template_cmd-name>` have been expanded.
 #
-# file_name
+# page_file
 # *********
-# is the name of the file that this data comes from. This is used
-# for error reporting and for the display file (when the display file
-# is not included in the command).
+# is the name of the file, for this page, where the begin command appears.
+# This is used for error reporting .
 #
 # page_name
 # *********
@@ -140,19 +139,19 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # In addition, the following text is added at the beginning and end of the
 # expansion:
 #
-# | |tab| @ ``\{xrst_template_begin`` @ *template_file* @ *line* @ ``}`` @
+# | |tab| @ ``\{xrst_template_begin`` @ *template_file* @ *page_line* @ ``}`` @
 # | |tab| @ ``\{xrst_template_end}`` @
 #
-# where *line* is the line where the
-# template command appeared in *file_name* and there is no white space between
+# where *page_line* is the line where the line number in *page_file*
+# where the template command appeared. There is no white space between
 # the tokens above.
 #
 #
 # {xrst_end template_cmd_dev}
 # BEGIN_DEF
-def template_command(data_in, file_name, page_name) :
+def template_command(data_in, page_file, page_name) :
    assert type(data_in) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    # END_DEF
    #
@@ -170,7 +169,7 @@ def template_command(data_in, file_name, page_name) :
          msg += f'separator = "{separator}" must be one character'
          xrst.system_exit(
             msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             m_obj     = m_template,
             data      = data_out
@@ -189,7 +188,7 @@ def template_command(data_in, file_name, page_name) :
          msg = 'template command: the template_file is missing.'
          xrst.system_exit(
             msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             m_obj     = m_arg,
             data      = arg_text
@@ -198,7 +197,7 @@ def template_command(data_in, file_name, page_name) :
          msg = 'template command: template_file contains the @ character.'
          xrst.system_exit(
             msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             m_obj     = m_arg,
             data      = arg_text
@@ -218,7 +217,7 @@ def template_command(data_in, file_name, page_name) :
             msg += 'below the template file line.'
             xrst.system_exit(
                msg,
-               file_name = file_name,
+               file_name = page_file,
                page_name = page_name,
                m_obj     = m_arg,
                data      = m_arg.group(0)
@@ -238,7 +237,7 @@ def template_command(data_in, file_name, page_name) :
          msg  = 'template command: can not find the template file.\n'
          msg += f'template file name = {template_file}'
          xrst.system_exit(msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             line      = template_list
          )
@@ -255,7 +254,7 @@ def template_command(data_in, file_name, page_name) :
             msg  = 'template_command: This match did not appear in template'
             msg += f'\nmatch = {match}'
             xrst.system_exit(msg,
-               file_name = file_name,
+               file_name = page_file,
                page_name = page_name,
                line      = line
             )
@@ -272,7 +271,7 @@ def template_command(data_in, file_name, page_name) :
       template_expansion = before + template_expansion + after
       #
       # template_expansion
-      template_expansion = xrst.add_line_numbers(template_expansion, file_name)
+      template_expansion = xrst.add_line_numbers(template_expansion, page_file)
       #
       # template_expansion
       for cmd in [
@@ -290,7 +289,7 @@ def template_command(data_in, file_name, page_name) :
          if m_obj != None :
             msg  = f'found {cmd} command in template expansion'
             xrst.system_exit(msg,
-               file_name = file_name,
+               file_name = page_file,
                page_name = page_name,
                m_obj     = m_obj,
                data      = template_expansion

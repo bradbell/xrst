@@ -189,11 +189,12 @@ pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # is the data for a page before the
 # :ref:`literal commands <literal_cmd-name>` have been removed.
 #
-# file_name
+# page_file
 # *********
-# is the name of the file that this data comes from. This is used
-# for error reporting and for the display file (when the display file
-# is not included in the command).
+# is the name of the file that contains the begin command for this page.
+# This is used for error reporting and for the display file 
+# when the display file is not included in the command and the command
+# is not in a template expansion.
 #
 # page_name
 # *********
@@ -211,9 +212,9 @@ pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 #
 # {xrst_end literal_cmd_dev}
 # BEGIN_DEF
-def literal_command(data_in, file_name, page_name, rst2project_dir) :
+def literal_command(data_in, page_file, page_name, rst2project_dir) :
    assert type(data_in) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    assert type(rst2project_dir) == str
    # END_DEF
@@ -235,7 +236,7 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          msg += f'separator = "{separator}" is more than one character'
          xrst.system_exit(
             msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             m_obj     = m_literal,
             data      = data_out
@@ -254,7 +255,7 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
                msg = 'There is an empty line inside a literal command.'
                xrst.system_exit(
                   msg,
-                  file_name = file_name,
+                  file_name = page_file,
                   page_name = page_name,
                   m_obj     = m_arg,
                   data      = data_out
@@ -267,7 +268,7 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
                msg += 'separator appears more than once in a line'
                xrst.system_exit(
                   msg,
-                  file_name = file_name,
+                  file_name = page_file,
                   page_name = page_name,
                   m_obj     = m_arg,
                   data      = data_out,
@@ -296,12 +297,20 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          end_line  = int( m_list[-1].group(2) )
          cmd_line = ( start_line, end_line )
       #
+      # input_file
+      page_line, template_file, template_line = \
+         xrst.file_line(m_literal, data_out)
+      if template_file == None :
+         input_file = page_file
+      else :
+         input_file = template_file
+      #
       # even
       even = len(arg_list) % 2 == 0
       #
       # display_file, arg_list
       if even :
-         display_file = file_name
+         display_file = input_file
       else :
          display_file = arg_list.pop(0)
          m_arg        = m_list.pop(0)
@@ -309,13 +318,13 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
             msg  = 'literal command: can not find the display_file.\n'
             msg += f'display_file = {display_file}'
             xrst.system_exit(msg,
-               file_name = file_name,
+               file_name = page_file,
                page_name = page_name,
                m_obj     = m_arg,
                data      = data_out
             )
-         if os.path.samefile(display_file, file_name) :
-            display_file = file_name
+         if os.path.samefile(display_file, input_file) :
+            display_file = input_file
       #
       # start_end_line_list
       assert len(arg_list) % 2 == 0
@@ -326,8 +335,9 @@ def literal_command(data_in, file_name, page_name, rst2project_dir) :
          #
          # start_line, end_line
          start_line, end_line = xrst.start_end_file(
-            file_cmd     = file_name,
+            page_file    = page_file,
             page_name    = page_name,
+            input_file   = input_file,
             display_file = display_file,
             cmd_line     = cmd_line,
             start_after  = start_after,

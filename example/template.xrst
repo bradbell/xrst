@@ -17,29 +17,29 @@ This Example File
 
 {xrst_end template_example}
 # ----------------------------------------------------------------------------
-BEFORE_example_expansion_one
 {xrst_begin example_expansion_one}
 
+{xrst_comment BEGIN_EXPANSION_one}
 {xrst_template ,
    example/template_file.xrst
    @Title@        , First Expansion
    @#####@        , ###############
    @number@       , one
 }
+{xrst_comment END_EXPANSION_one}
 
 {xrst_end example_expansion_one}
-AFTER_example_expansion_one
 # ----------------------------------------------------------------------------
-BEFORE_example_expansion_two
 {xrst_begin example_expansion_two}
 
+{xrst_comment BEGIN_EXPANSION_two}
 {xrst_template ,
    example/template_file.xrst
    @Title@        , Second Expansion
    @#####@        , ################
    @number@       , two
 }
+{xrst_comment END_EXPANSION_two}
 
 {xrst_end example_expansion_two}
-AFTER_example_expansion_two
 # ----------------------------------------------------------------------------

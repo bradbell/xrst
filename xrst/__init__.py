@@ -21,6 +21,7 @@
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/dir_command.py
+#  xrst/file_line.py
 #  xrst/get_conf_dict.py
 #  xrst/get_file_info.py
 #  xrst/get_spell_checker.py
@@ -64,6 +65,7 @@ from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command
 from .dir_command            import dir_command
+from .file_line              import file_line
 from .get_conf_dict          import get_conf_dict
 from .get_file_info          import get_file_info
 from .get_spell_checker      import get_spell_checker

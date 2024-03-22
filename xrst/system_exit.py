@@ -68,36 +68,20 @@ def system_exit(
    project_directory = os.getcwd()
    extra          = f'\nproject_directory = {project_directory}\n'
    #
-   # line, template_file, template_line
+   # page_line, template_file, template_line
+   page_line     = line
    template_file = None
    template_line = None
    if m_obj :
-      if line == None :
-         m_line  = xrst.pattern['line'].search( data[m_obj.start() :] )
-         assert m_line
-         line = m_line.group(1)
-      #
-      # begin_index, end_index
-      begin_index = data[: m_obj.start()].rfind( '@{xrst_template_begin@' )
-      end_index   = data[: m_obj.start()].rfind( '@{xrst_template_end}@' )
-      if end_index < begin_index :
-         #
-         # tempate_line
-         template_line = line
-         #
-         # template_file, line
-         m_temp = pattern_template_begin.search( data[begin_index :] )
-         assert m_temp != None
-         template_file = m_temp.group(1).strip()
-         line          = m_temp.group(2).strip()
+      page_line, template_file, template_line = xrst.file_line(m_obj, data)
    #
    # extra
    if page_name != None :
       extra += f'page = {page_name}\n'
-   if file_name :
+   if file_name != None :
       extra += f'file = {file_name}\n'
-   if line != None :
-      extra += f'line = {line}\n'
+   if page_line != None :
+      extra += f'line = {page_line}\n'
    if template_file != None :
       extra += f'template_file = {template_file}\n'
       extra += f'template_line = {template_line}\n'

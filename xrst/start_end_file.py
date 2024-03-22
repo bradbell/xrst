@@ -21,8 +21,8 @@ import re
 #    # BEGIN_RETURN, # END_RETURN
 # }
 #
-# file_cmd
-# ********
+# page_file
+# *********
 # is the name of the file that contains the begin command for this page.
 # This is different from the current input file if we are processing
 # a template expansion.
@@ -31,14 +31,20 @@ import re
 # *********
 # is the name of the page where the xrst_literal command appears.
 #
+# input_file
+# **********
+# is the name of the file where the xrst_literal command appears.
+# This is different for *page_file* when the command appears in a
+# template expansion.
+#
 # display_file
 # ************
 # is the name of the file that we are displaying. If it is not the same as
-# file_cmd, then it must have appeared in the xrst_literal command.
+# input_file, then it must have appeared in the xrst_literal command.
 #
 # cmd_line
 # ********
-# If file_cmd is equal to display_file, the lines of the file
+# If input_file is equal to display_file, the lines of the file
 # between line numbers cmd_line[0] and cmd_line[1] inclusive
 # are in the xrst_literal command and are excluded from the search.
 #
@@ -81,8 +87,9 @@ import re
 # {xrst_end start_end_file}
 # BEGIN_DEF
 def start_end_file(
-   file_cmd,
+   page_file,
    page_name,
+   input_file,
    display_file,
    cmd_line,
    start_after,
@@ -91,8 +98,9 @@ def start_end_file(
    m_end,
    m_data,
 ) :
-   assert type(file_cmd) == str
+   assert type(page_file) == str
    assert type(page_name) == str
+   assert type(input_file) == str
    assert type(display_file) == str
    assert type(cmd_line[0]) == int
    assert type(cmd_line[1]) == int
@@ -105,7 +113,7 @@ def start_end_file(
    # END_DEF
    # ------------------------------------------------------------------------
    # exclude_line
-   if file_cmd == display_file :
+   if input_file == display_file :
       exclude_line = cmd_line
    else :
       exclude_line = (0, 0)
@@ -115,23 +123,23 @@ def start_end_file(
    #
    if start_after == '' :
       msg += ' start_after is empty'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_start, data = m_data
       )
    if end_before == '' :
       msg += ' end_before is empty'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_end, data = m_data
       )
    if 0 <= start_after.find('\n') :
       msg += ' a newline appears in start_after'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_start, data = m_data
       )
    if 0 <= end_before.find('\n') :
       msg += ' a newline appears in end_before'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_end, data = m_data
       )
    #
    # data
@@ -152,10 +160,10 @@ def start_end_file(
       msg += f'\nstart_after   =  {start_after}'
       msg += f'\ndisplay_file  =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
-      if file_cmd == display_file :
+      if input_file == display_file :
          msg += ' not counting the literal command'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_start, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_start, data = m_data
       )
    #
    # end_line
@@ -171,10 +179,10 @@ def start_end_file(
       msg += f'\nend_before   =  {end_before}'
       msg += f'\ndisplay_file =  {display_file}'
       msg += f'\nfound {count} matches expected 1'
-      if file_cmd == display_file :
+      if input_file == display_file :
          msg += ' not counting the literal command'
-      xrst.system_exit(msg,
-         file_name=file_cmd, page_name=page_name, m_obj = m_end, data = m_data
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+         m_obj = m_end, data = m_data
       )
    # ------------------------------------------------------------------------
    # BEGIN_RETURN
