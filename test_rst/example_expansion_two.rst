@@ -26,8 +26,8 @@ Second Expansion
 
 Expansion Number
 ****************
-This uses expansion number two of the template file
-``example/template.xrst`` .
+This is expansion number two of the template file
+``example/template_file.xrst`` .
 
 .. meta::
    :keywords: template
@@ -53,5 +53,5 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 34-43
+   :lines: 36-41
    :language: rst

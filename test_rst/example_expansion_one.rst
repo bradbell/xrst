@@ -26,8 +26,8 @@ First Expansion
 
 Expansion Number
 ****************
-This uses expansion number one of the template file
-``example/template.xrst`` .
+This is expansion number one of the template file
+``example/template_file.xrst`` .
 
 .. meta::
    :keywords: template
@@ -53,5 +53,5 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 21-30
+   :lines: 23-28
    :language: rst

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 68-72,154-159
+   :lines: 68-72,164-169
    :language: py
 
 .. meta::

@@ -28,18 +28,18 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/start_end_file.py
-   :lines: 83-104,181-184
+   :lines: 89-112,189-192
    :language: py
 
 .. meta::
-   :keywords: file_cmd
+   :keywords: page_file
 
-.. index:: file_cmd
+.. index:: page_file
 
-.. _start_end_file@file_cmd:
+.. _start_end_file@page_file:
 
-file_cmd
-********
+page_file
+*********
 is the name of the file that contains the begin command for this page.
 This is different from the current input file if we are processing
 a template expansion.
@@ -56,6 +56,19 @@ page_name
 is the name of the page where the xrst_literal command appears.
 
 .. meta::
+   :keywords: input_file
+
+.. index:: input_file
+
+.. _start_end_file@input_file:
+
+input_file
+**********
+is the name of the file where the xrst_literal command appears.
+This is different for *page_file* when the command appears in a
+template expansion.
+
+.. meta::
    :keywords: display_file
 
 .. index:: display_file
@@ -65,7 +78,7 @@ is the name of the page where the xrst_literal command appears.
 display_file
 ************
 is the name of the file that we are displaying. If it is not the same as
-file_cmd, then it must have appeared in the xrst_literal command.
+input_file, then it must have appeared in the xrst_literal command.
 
 .. meta::
    :keywords: cmd_line
@@ -76,7 +89,7 @@ file_cmd, then it must have appeared in the xrst_literal command.
 
 cmd_line
 ********
-If file_cmd is equal to display_file, the lines of the file
+If input_file is equal to display_file, the lines of the file
 between line numbers cmd_line[0] and cmd_line[1] inclusive
 are in the xrst_literal command and are excluded from the search.
 

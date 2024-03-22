@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/literal_command.py
-   :lines: 214-218,377-379
+   :lines: 215-219,387-389
    :language: py
 
 .. meta::
@@ -44,17 +44,18 @@ is the data for a page before the
 :ref:`literal commands <literal_cmd-name>` have been removed.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _literal_cmd_dev@file_name:
+.. _literal_cmd_dev@page_file:
 
-file_name
+page_file
 *********
-is the name of the file that this data comes from. This is used
-for error reporting and for the display file (when the display file
-is not included in the command).
+is the name of the file that contains the begin command for this page.
+This is used for error reporting and for the display file 
+when the display file is not included in the command and the command
+is not in a template expansion.
 
 .. meta::
    :keywords: page_name

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 153-156,307-308
+   :lines: 152-155,306-307
    :language: py
 
 .. meta::
@@ -57,17 +57,16 @@ is the data for a page before the
 :ref:`template commands <template_cmd-name>` have been expanded.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _template_cmd_dev@file_name:
+.. _template_cmd_dev@page_file:
 
-file_name
+page_file
 *********
-is the name of the file that this data comes from. This is used
-for error reporting and for the display file (when the display file
-is not included in the command).
+is the name of the file, for this page, where the begin command appears.
+This is used for error reporting .
 
 .. meta::
    :keywords: page_name
@@ -96,9 +95,9 @@ template file.
 In addition, the following text is added at the beginning and end of the
 expansion:
 
-| |tab| @ ``{xrst_template_begin`` @ *template_file* @ *line* @ ``}`` @
+| |tab| @ ``{xrst_template_begin`` @ *template_file* @ *page_line* @ ``}`` @
 | |tab| @ ``{xrst_template_end}`` @
 
-where *line* is the line where the
-template command appeared in *file_name* and there is no white space between
+where *page_line* is the line where the line number in *page_file*
+where the template command appeared. There is no white space between
 the tokens above.

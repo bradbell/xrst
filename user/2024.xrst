@@ -15,6 +15,12 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
 xrst Release Notes for 2024
 ###########################
 
+template Branch
+***************
+#. Correct the definition of :ref:`double word <spell_cmd@Double Words>`
+   errors so that it only refers to the xrst input file, not the
+   output that the user sees.
+
 mm-dd
 *****
 

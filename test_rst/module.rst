@@ -28,6 +28,7 @@ The xrst Module
    "code_cmd_dev", :ref:`code_cmd_dev-title`
    "comment_cmd_dev", :ref:`comment_cmd_dev-title`
    "dir_cmd_dev", :ref:`dir_cmd_dev-title`
+   "file_line", :ref:`file_line-title`
    "get_conf_dict", :ref:`get_conf_dict-title`
    "get_file_info", :ref:`get_file_info-title`
    "get_spell_checker", :ref:`get_spell_checker-title`
@@ -66,6 +67,7 @@ The xrst Module
    code_cmd_dev
    comment_cmd_dev
    dir_cmd_dev
+   file_line
    get_conf_dict
    get_file_info
    get_spell_checker

@@ -18,6 +18,19 @@ xrst Release Notes for 2024
    :local:
 
 .. meta::
+   :keywords: template, branch
+
+.. index:: template, branch
+
+.. _2024@template Branch:
+
+template Branch
+***************
+#. Correct the definition of :ref:`double word <spell_cmd@Double Words>`
+   errors so that it only refers to the xrst input file, not the
+   output that the user sees.
+
+.. meta::
    :keywords: mm-dd
 
 .. index:: mm-dd
