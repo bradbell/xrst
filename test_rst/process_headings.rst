@@ -65,15 +65,15 @@ data_in
 contains the data for a page before the headings are processed.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _process_headings@file_name:
+.. _process_headings@page_file:
 
-file_name
+page_file
 *********
-name of the file that contains the input data for this page.
+name of the file that contains the begin command for this page.
 This is only used for error reporting.
 
 .. meta::

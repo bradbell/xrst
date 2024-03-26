@@ -130,10 +130,10 @@ Example
 import re
 import xrst
 # -----------------------------------------------------------------------------
-def check_anchor( label, line, file_name, page_name, previous_anchor) :
+def check_anchor( label, line, page_file, page_name, previous_anchor) :
    assert type(label) == str
    assert type(line) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(previous_anchor) == dict
    #
    # anchor
@@ -147,7 +147,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
       msg  = 'The anchor correspnding to a header is empty.\n'
       msg += f'label = {label}'
       xrst.system_exit(
-         msg, file_name = file_name, page_name = page_name, line = line,
+         msg, file_name = page_file, page_name = page_name, line = line,
       )
    #
    # check for duplicate anchor
@@ -160,7 +160,7 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
       msg += f'anchor         = {anchor}\n'
       msg += f'previous_line  = {previous_line}'
       xrst.system_exit(
-         msg, file_name = file_name, page_name = page_name, line = line,
+         msg, file_name = page_file, page_name = page_name, line = line,
       )
       assert False, msg
    #
@@ -196,9 +196,9 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # *******
 # contains the data for a page before the headings are processed.
 #
-# file_name
+# page_file
 # *********
-# name of the file that contains the input data for this page.
+# name of the file that contains the begin command for this page.
 # This is only used for error reporting.
 #
 # page_name
@@ -245,12 +245,12 @@ def check_anchor( label, line, file_name, page_name, previous_anchor) :
 # {xrst_end process_headings}
 # BEGIN_DEF
 def process_headings(
-      conf_dict, local_toc, data_in, file_name, page_name, not_in_index_list
+      conf_dict, local_toc, data_in, page_file, page_name, not_in_index_list
 ) :
    assert type(conf_dict) == dict
    assert type(local_toc) == bool
    assert type(data_in) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    assert type(not_in_index_list) == list
    # END_DEF
@@ -272,7 +272,7 @@ def process_headings(
          msg += '" and overline = ' + str( heading_overline[level] ) + '\n'
          xrst.system_exit(
             msg,
-            file_name = file_name,
+            file_name = page_file,
             page_name = page_name,
             line      = int(line) + 1
          )
@@ -285,7 +285,7 @@ def process_headings(
    #
    # external_label, internal_label
    m_external_label, m_internal_label = xrst.sphinx_label(
-      data_in, file_name, page_name
+      data_in, page_file, page_name
    )
    external_line = dict()
    for label in m_external_label :
@@ -298,7 +298,7 @@ def process_headings(
    for label in internal_line :
       line = internal_line[label]
       check_anchor(
-         label, line, file_name, page_name, previous_anchor, exteranl_line
+         label, line, page_file, page_name, previous_anchor, exteranl_line
       )
    #
    # data_out
@@ -319,7 +319,7 @@ def process_headings(
    heading_list     = list()
    data_index       = 0
    heading_index, heading_text, underline_text = \
-      xrst.next_heading(data_out, data_index, file_name, page_name)
+      xrst.next_heading(data_out, data_index, page_file, page_name)
    #
    while 0 <= heading_index :
       if 0 < heading_index :
@@ -366,7 +366,7 @@ def process_headings(
             msg = 'There are multiple titles for this page'
             xrst.system_exit(
                msg,
-               file_name = file_name,
+               file_name = page_file,
                page_name = page_name,
                line      = m_line.group(1),
             )
@@ -428,11 +428,11 @@ def process_headings(
          other_line = external_line[ label.lower() ]
          msg  = 'This label has same lower case representation as anotheer\n'
          msg += 'other line = {other_line}'
-         xrst.system_exit(msg, file_name = file_name, page_name = page_name)
+         xrst.system_exit(msg, file_name = page_file, page_name = page_name)
       #
       # check_anchor
       line = m_line.group(1)
-      check_anchor(label, line, file_name, page_name, previous_anchor)
+      check_anchor(label, line, page_file, page_name, previous_anchor)
       #
       # index_entries
       if len(heading_list) == 1 :
@@ -494,11 +494,11 @@ def process_headings(
       # next heading
       data_index = len(data_tmp) + 1
       heading_index, heading_text, underline_text = \
-         xrst.next_heading(data_out, data_index, file_name, page_name)
+         xrst.next_heading(data_out, data_index, page_file, page_name)
    #
    if len(heading_list) == 0 :
       msg = 'There are no headings in this page'
-      xrst.system_exit(msg, file_name=file_name, page_name=page_name)
+      xrst.system_exit(msg, file_name = page_file, page_name=page_name)
    #
    # pseudo_heading
    i = 0
@@ -508,7 +508,7 @@ def process_headings(
          msg  = 'more than ' + len(punctuation) - 1
          msg += ' overlined heading levels'
          xrst.system_exit(
-            msg, file_name=file_name, page_name=page_name
+            msg, file_name = page_file, page_name=page_name
          )
    line           = len(page_name) * punctuation[i] + '\n'
    pseudo_heading = line + page_name + '\n' + line + '\n'
