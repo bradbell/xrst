@@ -121,7 +121,7 @@ The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 
 .. literalinclude:: ../../pyproject.toml
-   :lines: 30-37
+   :lines: 30-35
    :language: toml
 
 .. meta::
