@@ -3,7 +3,7 @@ set -e -u
 # ---------------------------------------------------------------------------
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2003 Bradley M. Bell
+# SPDX-FileContributor: 2003-24 Bradley M. Bell
 # ---------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
@@ -40,7 +40,7 @@ set -u
 # convert spaces in file names to @@
 list=$(
    git status --porcelain | sed -n -e '/^?? /p' |  \
-      sed -e 's|^?? ||' -e 's|"||g' -e 's| |@@|g' 
+      sed -e 's|^?? ||' -e 's|"||g' -e 's| |@@|g'
 )
 for file in $list
 do
@@ -67,7 +67,7 @@ done
 branch=$(git branch --show-current)
 cat << EOF > temp.log
 $branch:
-# 1. Enter message for this commit above this line. 
+# 1. Enter message for this commit above this line.
 # 2. The message for the previous commit is in git_commit.log (if it exists).
 # 3. This commit will abort if the first line does not begin with "$branch:"
 #    because $branch is the branch for this commit.
