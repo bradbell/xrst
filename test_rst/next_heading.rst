@@ -57,15 +57,15 @@ is the index in the data where the search starts. This must be zero
 or directly after a newline.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _next_heading@file_name:
+.. _next_heading@page_file:
 
-file_name
+page_file
 *********
-name of the file that contains the input data for this page.
+name of the file that contains the input begin command for this page.
 This is only used for error reporting.
 
 .. meta::

@@ -27,9 +27,9 @@ import xrst
 # is the index in the data where the search starts. This must be zero
 # or directly after a newline.
 #
-# file_name
+# page_file
 # *********
-# name of the file that contains the input data for this page.
+# name of the file that contains the input begin command for this page.
 # This is only used for error reporting.
 #
 # page_name
@@ -56,12 +56,12 @@ import xrst
 #
 # {xrst_end next_heading}
 # BEGIN_DEF
-def next_heading(data, data_index, file_name, page_name) :
+def next_heading(data, data_index, page_file, page_name) :
    assert type(data) == str
    assert type(data_index) == int
    if data_index != 0 :
       assert data[data_index-1] == '\n'
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    # END_DEF
    #
@@ -130,7 +130,7 @@ def next_heading(data, data_index, file_name, page_name) :
             if msg != '' :
                xrst.system_exit(
                      msg,
-                     file_name = file_name,
+                     file_name = page_file,
                      page_name = page_name,
                      m_obj     = m_line,
                      data      = data,
