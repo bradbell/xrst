@@ -27,8 +27,6 @@ classifiers       = [
    'Natural Language :: English',
 ]
 # BEGIN_DEPENDENCIES
-# The pyenchant spell checker is not available on some systems, so we do not
-# require it here. Install it separately if you want to use it with xrst.
 dependencies       = [
    'sphinx', 'toml', 'sphinx-copybutton',           # required
    'pytest',                                        # used for testing xrst
