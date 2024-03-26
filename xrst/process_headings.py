@@ -283,10 +283,16 @@ def process_headings(
    # previous_anchor
    previous_anchor = dict()
    #
-   # external_line, internal_line
-   external_line, internal_line = xrst.sphinx_label(
+   # external_label, internal_label
+   m_external_label, m_internal_label = xrst.sphinx_label(
       data_in, file_name, page_name
    )
+   external_line = dict()
+   for label in m_external_label :
+      external_line[label] = m_external_label[label].group(3)
+   internal_line = dict()
+   for label in m_internal_label :
+      internal_line[label] = m_internal_label[label].group(3)
    #
    # previous_anchor
    for label in internal_line :

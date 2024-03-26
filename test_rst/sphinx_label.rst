@@ -28,32 +28,30 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 68-72,164-169
+   :lines: 71-74,156-161
    :language: py
 
 .. meta::
-   :keywords: data_in
+   :keywords: data
 
-.. index:: data_in
+.. index:: data
 
-.. _sphinx_label@data_in:
+.. _sphinx_label@data:
 
-data_in
-*******
-is the data for one page.
-Line numbers have been added to this data; see
-:ref:`add_line_numbers-name` .
+data
+****
+is the data for this page.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _sphinx_label@file_name:
+.. _sphinx_label@page_file:
 
-file_name
+page_file
 *********
-is the name of the xrst input file corresponding to data_in
+is the name of the xrst file containing the begin command for this page
 (only used for error reporting).
 
 .. meta::
@@ -65,36 +63,36 @@ is the name of the xrst input file corresponding to data_in
 
 page_name
 *********
-is the page name corresponding to data_in
+is the page name corresponding to *data*
 (only used for error reporting).
 
 .. meta::
-   :keywords: external_line
+   :keywords: m_external_label
 
-.. index:: external_line
+.. index:: m_external_label
 
-.. _sphinx_label@external_line:
+.. _sphinx_label@m_external_label:
 
-external_line
-*************
-For each label declared in data_in using sphinx commands,
+m_external_label
+****************
+For each label declared in *data* using sphinx commands,
 and that links to an external web site,
-*external_line* [ *label*.lower() ] is the line number in
-*file_name* where the label was defined.
+*m_external_label* [ *label*.lower() ] is a match object
+for the label in *data* .
 
 .. meta::
-   :keywords: internal_line
+   :keywords: m_internal_label
 
-.. index:: internal_line
+.. index:: m_internal_label
 
-.. _sphinx_label@internal_line:
+.. _sphinx_label@m_internal_label:
 
-internal_line
-*************
-For each label declared in data_in using sphinx commands,
+m_internal_label
+****************
+For each label declared in *data* using sphinx commands,
 and that links to a page in this web site,
-*internal* [ *label* ] is the line number in
-*file_name* where the label was defined.
+*internal* [ *label* ] is a match object
+for the label in *data* .
 
 .. meta::
    :keywords: errors
