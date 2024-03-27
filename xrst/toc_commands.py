@@ -150,16 +150,16 @@ import re
 #
 # is_parent
 # *********
-# is this the parent page for other pages in the file specified by file_name.
+# is this the parent page for other pages in the file specified by page_file.
 #
 # data_in
 # *******
 # is the data for the page before the toc commands have been processed.
 #
-# file_name
+# page_file
 # *********
-# is the name of the file that this data comes from. This is only used
-# for error reporting.
+# is the name of the file that contains the begin command for this page.
+# This is used for error reporting.
 #
 # page_name
 # *********
@@ -198,10 +198,10 @@ import re
 #
 # {xrst_end toc_cmd_dev}
 # BEGIN_DEF
-def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
+def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
    assert type(is_parent) == bool
    assert type(data_in) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    assert type(group_name) == str
    # END_DEF
@@ -221,7 +221,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
       xrst.check_syntax_error(
          command_name    = 'toc',
          data            = data_out,
-         file_name       = file_name,
+         file_name       = page_file,
          page_name       = page_name,
       )
       return data_out, file_list, child_page_list, order
@@ -231,7 +231,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    if m_tmp is not None :
       msg = 'More than one {xrst_toc_ ...} command in a page.'
       xrst.system_exit(msg,
-         file_name=file_name,
+         file_name=page_file,
          page_name=page_name,
          m_obj=m_tmp,
          data=data_out[m_toc.end():]
@@ -245,14 +245,20 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
    preceeding_character = data_out[ m_toc.start() ]
    assert preceeding_character != '\\'
    #
-   # data_out
-   replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
-   data_out = xrst.pattern['toc'].sub(replace, data_out)
+   # first_list, child_line_list
+   child_line_list =  m_toc.group(2).split('\n')
+   first_line      = child_line_list[0]
+   child_line_list = child_line_list[1 : -1]
    #
-   # child_list, first_line
-   child_list =  m_toc.group(2).split('\n')
-   first_line = child_list[0]
-   child_list = child_list[1 : -1]
+   # m_file_list
+   m_file_list = list()
+   if len(child_line_list) > 0 :
+      m_file = xrst.pattern['line'].search(data_out, m_toc.start() )
+      m_file = xrst.pattern['line'].search(data_out, m_file.end() )
+      while m_file.start() < m_toc.end() :
+         m_file_list.append(m_file)
+         m_file = xrst.pattern['line'].search(data_out, m_file.end() )
+      assert len(m_file_list) == len(child_line_list)
    #
    # order
    order = xrst.pattern['line'].sub('', first_line).strip()
@@ -262,7 +268,7 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
       if order not in [ 'before' , 'after' ] :
          msg = f'order is not before or after in the toc {command} command'
          xrst.system_exit(msg,
-            file_name=file_name,
+            file_name=page_file,
             page_name=page_name,
             m_obj=m_toc,
             data=data_out
@@ -271,14 +277,15 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
          msg  = 'This is not a parent page and order is specified in its '
          msg += f'toc {command} command'
          xrst.system_exit(msg,
-            file_name=file_name,
+            file_name=page_file,
             page_name=page_name,
             m_obj=m_toc,
             data=data_out
          )
    #
-   # file_list, file_line
-   for child_line in child_list :
+   # file_list, m_file_list, file_line
+   m_tmp_list = list()
+   for (index, child_line) in enumerate(child_line_list) :
       if child_line != '' :
          m_child = xrst.pattern['line'].search(child_line)
          assert m_child != None
@@ -287,31 +294,25 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
          if child_file != '' :
             file_list.append(child_file)
             file_line.append(line_number)
-   #
-   if len(file_list) == 0 :
-      if is_parent :
-         return data_out, file_list, child_page_list, order
-      msg  = f'No files were specified in the toc {command} command\n'
-      msg += 'and this section did not start with xrst_begin_parent.'
-      xrst.system_exit(msg,
-         file_name=file_name,
-         page_name=page_name,
-         m_obj=m_toc,
-         data=data_out
-      )
+            m_tmp_list.append( m_file_list[index] )
+   m_file_list = m_tmp_list
+   assert len(m_file_list) == len(file_list)
    #
    # child_page_list
    assert len(child_page_list) == 0
    for i in range( len(file_list) ) :
       #
-      # child_file, child_line
+      # child_file, m_file
       child_file = file_list[i]
-      child_line = file_line[i]
+      m_file     = m_file_list[i]
       if not os.path.isfile(child_file) :
          msg  = 'The file ' + child_file + ' does not exist\n'
          msg += 'It was used by a toc_' + command + ' command'
          xrst.system_exit(msg,
-            file_name=file_name, page_name=page_name, line=child_line
+            file_name = page_file,
+            page_name = page_name,
+            m_obj     = m_file,
+            data      = data_out,
          )
       #
       # child_data
@@ -323,13 +324,16 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
       file_index  = 0
       #
       # m_begin
-      m_begin         = xrst.pattern['begin'].search(child_data)
+      m_begin  = xrst.pattern['begin'].search(child_data)
       if m_begin is None :
          msg  = 'The file ' + child_file + '\n'
          msg += 'used in a toc_' + command + ' command does not contain any '
          msg += 'begin commands.'
          xrst.system_exit(msg,
-            file_name=file_name, page_name=page_name, line=child_line
+            file_name = page_file,
+            page_name = page_name,
+            m_obj     = m_file,
+            data      = data_out,
          )
       this_group_name = m_begin.group(4).strip(' \t')
       if this_group_name == '' :
@@ -342,7 +346,10 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
             msg += ' command does not contain any '
             msg += f'begin commands with group name {group_name}.'
             xrst.system_exit(msg,
-               file_name=file_name, page_name=page_name, line=child_line
+               file_name = page_file,
+               page_name = page_name,
+               m_obj     = m_file,
+               data      = data_out,
             )
          this_group_name = m_begin.group(4).strip(' \t')
          if this_group_name == '' :
@@ -367,10 +374,10 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
                msg += ' not the first begin command in this file'
                msg += f' for group name {group_name}'
                xrst.system_exit(msg,
-                  file_name=child_file,
-                  page_name=page_name,
-                  m_obj=m_begin,
-                  data=child_data
+                  file_name = page_file,
+                  page_name = page_name,
+                  m_obj     = m_file,
+                  data      = data_out,
                )
             child_name = m_begin.group(3)
             #
@@ -383,10 +390,24 @@ def toc_commands(is_parent, data_in, file_name, page_name, group_name) :
       # child_page_list
       child_page_list += list_children
    #
+   if len(file_list) == 0 and not is_parent :
+      msg  = f'No files were specified in the toc {command} command\n'
+      msg += 'and this section did not start with xrst_begin_parent.'
+      xrst.system_exit(msg,
+         file_name = page_file,
+         page_name = page_name,
+         m_obj     = m_toc,
+         data      = data_out,
+      )
+   #
+   # data_out
+   replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
+   data_out = xrst.pattern['toc'].sub(replace, data_out)
+   #
    xrst.check_syntax_error(
       command_name    = 'toc',
       data            = data_out,
-      file_name       = file_name,
+      file_name       = page_file,
       page_name       = page_name,
    )
    # We know that the lists are no-empty for this return,

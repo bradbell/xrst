@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 201-206,395-404
+   :lines: 201-206,416-425
    :language: py
 
 .. meta::
@@ -40,7 +40,7 @@ Prototype
 
 is_parent
 *********
-is this the parent page for other pages in the file specified by file_name.
+is this the parent page for other pages in the file specified by page_file.
 
 .. meta::
    :keywords: data_in
@@ -54,16 +54,16 @@ data_in
 is the data for the page before the toc commands have been processed.
 
 .. meta::
-   :keywords: file_name
+   :keywords: page_file
 
-.. index:: file_name
+.. index:: page_file
 
-.. _toc_cmd_dev@file_name:
+.. _toc_cmd_dev@page_file:
 
-file_name
+page_file
 *********
-is the name of the file that this data comes from. This is only used
-for error reporting.
+is the name of the file that contains the begin command for this page.
+This is used for error reporting.
 
 .. meta::
    :keywords: page_name
