@@ -288,6 +288,9 @@ def spell_command(
          msg  = 'The word list in spell command contains a character\n'
          msg += 'that is not a letter or white space.\n'
          msg += f'ascii code = {ascii_code}, character = {ch}.'
+         #
+         # The spell command cannot be inside a template file so we can use
+         # line number to report the error.
          xrst.system_exit(
             msg,
             file_name=file_name,

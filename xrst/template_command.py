@@ -234,12 +234,15 @@ def template_command(data_in, page_file, page_name) :
       #
       # template_data
       if not os.path.isfile(template_file) :
-         msg  = 'template command: can not find the template file.\n'
+         msg  = 'template command can not find the template file:\n'
          msg += f'template file name = {template_file}'
+         #
+         # template command cannot be inside a template file so we can use
+         # line number to report the error.
          xrst.system_exit(msg,
             file_name = page_file,
             page_name = page_name,
-            line      = template_list
+            line      = template_file_line,
          )
       file_obj       = open(template_file, 'r')
       template_data  = file_obj.read()
