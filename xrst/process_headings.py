@@ -130,9 +130,12 @@ Example
 import re
 import xrst
 # -----------------------------------------------------------------------------
-def check_anchor( label, line, page_file, page_name, previous_anchor) :
+def check_anchor(
+   label, m_label, data_out, page_file, page_name, previous_anchor
+) :
    assert type(label) == str
-   assert type(line) == str
+   assert type(m_label) == re.Match
+   assert type(data_out) == str
    assert type(page_file) == str
    assert type(previous_anchor) == dict
    #
@@ -146,26 +149,40 @@ def check_anchor( label, line, page_file, page_name, previous_anchor) :
    if anchor == '' :
       msg  = 'The anchor correspnding to a header is empty.\n'
       msg += f'label = {label}'
-      xrst.system_exit(
-         msg, file_name = page_file, page_name = page_name, line = line,
+      xrst.system_exit(msg,
+         file_name = page_file,
+         page_name = page_name,
+         m_obj     = m_label,
+         data      = data_out,
       )
    #
    # check for duplicate anchor
    if anchor in previous_anchor :
-      previous_line  = previous_anchor[anchor]['line']
+      m_previous = previous_anchor[anchor]['m_label']
+      page_line, template_file, template_line = xrst.file_line(
+         m_obj = m_previous, data = data_out
+      )
       previous_label = previous_anchor[anchor]['label']
       msg  = 'A previous header has the same HTML anchor.\n'
-      msg += f'label          = {label}\n'
-      msg += f'previous_label = {previous_label}\n'
       msg += f'anchor         = {anchor}\n'
-      msg += f'previous_line  = {previous_line}'
+      msg += f'label          = {label}\n'
+      msg += f'previous label = {previous_label}\n'
+      msg += f'previous file  = {page_file}\n'
+      msg += f'previous line  = {page_line}'
+      if template_file != None :
+         msg += f'\nprevious template file  = {template_file}'
+         msg += f'\nprevious template line  = {template_line}'
       xrst.system_exit(
-         msg, file_name = page_file, page_name = page_name, line = line,
+         msg,
+         file_name = page_file,
+         page_name = page_name,
+         m_obj     = m_label,
+         data      = data_out,
       )
       assert False, msg
    #
    # previous_anchor
-   previous_anchor[anchor] = { 'line' : line, 'label' : label }
+   previous_anchor[anchor] = { 'm_label' : m_label, 'label' : label }
 # -----------------------------------------------------------------------------
 # {xrst_begin process_headings dev}
 # {xrst_spell
@@ -183,6 +200,14 @@ def check_anchor( label, line, page_file, page_name, previous_anchor) :
 #    # BEGIN_DEF, # END_DEF
 #    # BEGIN_RETURN, # END_RETURN
 # }
+#
+# check_headings
+# **************
+# If *check* is true, an error in a headings or its corresponding label,
+# will result in an error message and program exit.
+# This should be True on the first call and false on the second.
+# Two passes are required because *data_out* does not change on the
+# first pass so that all the match objects can be used for error messaging.
 #
 # conf_dict
 # *********
@@ -245,8 +270,15 @@ def check_anchor( label, line, page_file, page_name, previous_anchor) :
 # {xrst_end process_headings}
 # BEGIN_DEF
 def process_headings(
-      conf_dict, local_toc, data_in, page_file, page_name, not_in_index_list
+      check_headings,
+      conf_dict,
+      local_toc,
+      data_in,
+      page_file,
+      page_name,
+      not_in_index_list
 ) :
+   assert type(check_headings) == bool
    assert type(conf_dict) == dict
    assert type(local_toc) == bool
    assert type(data_in) == str
@@ -255,10 +287,15 @@ def process_headings(
    assert type(not_in_index_list) == list
    # END_DEF
    #
+   # data_out
+   data_out = data_in
+   #
    # headinge_character, heading_overline
    heading_character = conf_dict['heading']['character']
    heading_overline  = conf_dict['heading']['overline']
-   def check_heading(line, level, character, overline) :
+   #
+   # check_heading_level
+   def check_heading_level(m_line, level, character, overline) :
       if not level < len( heading_character ) :
          return
       ok =        character == heading_character[level]
@@ -274,35 +311,38 @@ def process_headings(
             msg,
             file_name = page_file,
             page_name = page_name,
-            line      = int(line) + 1
+            m_obj     = m_line,
+            data      = data_out,
          )
    #
    # pattern_colon_in_label
    pattern_colon_space = re.compile( r':(\s)' )
    #
-   # previous_anchor
-   previous_anchor = dict()
-   #
-   # external_label, internal_label
-   m_external_label, m_internal_label = xrst.sphinx_label(
-      data_in, page_file, page_name
-   )
-   external_line = dict()
-   for label in m_external_label :
-      external_line[label] = m_external_label[label].group(3)
-   internal_line = dict()
-   for label in m_internal_label :
-      internal_line[label] = m_internal_label[label].group(3)
-   #
-   # previous_anchor
-   for label in internal_line :
-      line = internal_line[label]
-      check_anchor(
-         label, line, page_file, page_name, previous_anchor, exteranl_line
+   if check_headings :
+      #
+      # external_label, internal_label
+      m_external_label, m_internal_label = xrst.sphinx_label(
+         data_in, page_file, page_name
       )
-   #
-   # data_out
-   data_out = data_in
+      external_line = dict()
+      for label in m_external_label :
+         external_line[label] = m_external_label[label].group(3)
+      internal_line = dict()
+      for label in m_internal_label :
+         internal_line[label] = m_internal_label[label].group(3)
+      #
+      # previous_anchor
+      previous_anchor = dict()
+      for label in m_internal_label :
+         m_label = m_internal_label[label]
+         check_anchor(
+            label = label,
+            m_label         = m_label,
+            data_out        = data_out,
+            page_file       = page_file,
+            page_name       = page_name,
+            previous_anchor = previous_anchor,
+         )
    #
    # punctuation
    punctuation      = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
@@ -334,7 +374,7 @@ def process_headings(
       #
       # character
       character = underline_text[0]
-
+      #
       # heading
       heading   = {
          'overline' : overline,
@@ -364,11 +404,12 @@ def process_headings(
             level_zero = character == heading_list[0]['character']
          if level_zero :
             msg = 'There are multiple titles for this page'
-            xrst.system_exit(
-               msg,
+            assert check_headings, False
+            xrst.system_exit(msg,
                file_name = page_file,
                page_name = page_name,
-               line      = m_line.group(1),
+               m_obj     = m_line,
+               data      = data_out,
             )
          #
          # found_level
@@ -391,9 +432,9 @@ def process_headings(
             # this heading at a higher level
             heading_list.append( heading )
       #
-      # check_heading
-      check_heading(
-         line      = m_line.group(1),
+      # check_heading_level
+      check_heading_level(
+         m_line    = m_line,
          level     = len( heading_list) - 1,
          character = character,
          overline  = overline,
@@ -424,15 +465,39 @@ def process_headings(
          label = '\\' + label
       #
       # check external labels
-      if label.lower() in external_line :
-         other_line = external_line[ label.lower() ]
-         msg  = 'This label has same lower case representation as anotheer\n'
-         msg += 'other line = {other_line}'
-         xrst.system_exit(msg, file_name = page_file, page_name = page_name)
-      #
-      # check_anchor
-      line = m_line.group(1)
-      check_anchor(label, line, page_file, page_name, previous_anchor)
+      if check_headings :
+         if label.lower() in m_external_label :
+            m_label = m_external_label[ label.lower() ]
+            page_line, template_file, template_line = xrst.file_line(
+               m_obj = m_label, data = data_out
+            )
+            lower_case = label_lower()
+            msg += '!!! Please report this as an xrst bug !!!!\n'
+            msg  = 'The label for this heading has same lower case as another '
+            msg += 'label in the same page:\n'
+            msg += 'lower case = {lower_case}\n'
+            msg += 'other file = {page_file}\n'
+            msg += 'other line = {page_line}'
+            if template_file != None :
+               msg += '\nother template file = {template_file}'
+               msg += '\nother template line = {template_line}'
+            assert check_headings, False
+            xrst.system_exit(msg,
+               file_name = page_file,
+               page_name = page_name,
+               m_obj     = m_line,
+               data      = data_out,
+            )
+         #
+         # check_anchor
+         check_anchor(
+            label           = label,
+            m_label         = m_line,
+            data_out        = data_out,
+            page_file       = page_file,
+            page_name       = page_name,
+            previous_anchor = previous_anchor
+         )
       #
       # index_entries
       if len(heading_list) == 1 :
@@ -498,6 +563,7 @@ def process_headings(
    #
    if len(heading_list) == 0 :
       msg = 'There are no headings in this page'
+      assert check_headings, False
       xrst.system_exit(msg, file_name = page_file, page_name=page_name)
    #
    # pseudo_heading
@@ -507,6 +573,7 @@ def process_headings(
       if i == len(punctuation) :
          msg  = 'more than ' + len(punctuation) - 1
          msg += ' overlined heading levels'
+         assert check_headings, False
          xrst.system_exit(
             msg, file_name = page_file, page_name=page_name
          )
@@ -521,6 +588,8 @@ def process_headings(
    #
    # BEGIN_RETURN
    #
+   if check_headings :
+      return
    assert type(data_out) == str
    assert type(page_title) == str
    assert type(pseudo_heading) == str

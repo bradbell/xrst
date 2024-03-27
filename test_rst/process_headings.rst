@@ -28,8 +28,23 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 247-255,523-528
+   :lines: 272-287,590-597
    :language: py
+
+.. meta::
+   :keywords: check_headings
+
+.. index:: check_headings
+
+.. _process_headings@check_headings:
+
+check_headings
+**************
+If *check* is true, an error in a headings or its corresponding label,
+will result in an error message and program exit.
+This should be True on the first call and false on the second.
+Two passes are required because *data_out* does not change on the
+first pass so that all the match objects can be used for error messaging.
 
 .. meta::
    :keywords: conf_dict

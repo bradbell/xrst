@@ -1074,10 +1074,22 @@ def run_xrst() :
             )
             # ------------------------------------------------------------
             # process headings
-            #
             # pseudo_heading, page_title, keywords
+            #
+            check_headings = True
+            xrst.process_headings(
+               check_headings,
+               conf_dict,
+               local_toc,
+               page_data,
+               file_in,
+               page_name,
+               not_in_index_list,
+            )
+            check_headings = False
             page_data, page_title, pseudo_heading, keywords = \
             xrst.process_headings(
+               check_headings,
                conf_dict,
                local_toc,
                page_data,
