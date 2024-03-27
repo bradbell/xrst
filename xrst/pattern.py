@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 # {xrst_begin xrst.pattern dev}
@@ -30,25 +30,6 @@ pattern = dict()
 # {xrst_code py}
 pattern['begin'] = re.compile(
    r'(^|[^\\])\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
-)
-# {xrst_code}
-#
-# toc
-# ***
-# Patterns for the toc_hidden, toc_list, and toc_table commands.
-#
-# 0. preceding character + the command.
-# 1. command name; i.e., hidden, list, or table
-# 2. the rest of the command that comes after the command name.
-#    This is an option order (on same line) followed by
-#    a list of file names with one name per line.
-#    The } at the end of the command is not included.
-#    This pattern may be empty.
-#
-# If you change this pattern, check pattern_toc in process_children.py
-# {xrst_code py}
-pattern['toc']   = re.compile(
-   r'[^\\]\{xrst_toc_(hidden|list|table)([^}]*)}'
 )
 # {xrst_code}
 #
@@ -134,6 +115,45 @@ pattern['line'] = re.compile( r'@xrst_line ([0-9]+)@' )
 # {xrst_code py}
 pattern['literal'] = re.compile(
 r'[^\\]\{xrst_literal([^\n}]*)@xrst_line [0-9]+@\n([^}]*)}|[^\\]\{xrst_literal}'
+)
+# {xrst_code}
+#
+# template_begin
+# **************
+# 0. @\{xrst_template_begin@ *template_file* @ *page_line* @}
+# 1. *template_file*
+# 2. *page_line*
+# {xrst_code py}
+# Use \{xrst instead of {xrst so pattern does not look like template begin
+pattern['template_begin']  = re.compile(
+   r'@\{xrst_template_begin@([^@]*)@([^@]*)@}@'
+)
+# {xrst_code}
+#
+# template_end
+# ************
+# 0. @\{xrst_template_end@
+# {xrst_code py}
+# Use \{xrst instead of {xrst so pattern does not look like template end
+pattern['template_end']    = re.compile( r'@\{xrst_template_end}@' )
+# {xrst_code}
+#
+# toc
+# ***
+# Patterns for the toc_hidden, toc_list, and toc_table commands.
+#
+# 0. preceding character + the command.
+# 1. command name; i.e., hidden, list, or table
+# 2. the rest of the command that comes after the command name.
+#    This is an option order (on same line) followed by
+#    a list of file names with one name per line.
+#    The } at the end of the command is not included.
+#    This pattern may be empty.
+#
+# If you change this pattern, check pattern_toc in process_children.py
+# {xrst_code py}
+pattern['toc']   = re.compile(
+   r'[^\\]\{xrst_toc_(hidden|list|table)([^}]*)}'
 )
 # {xrst_code}
 #

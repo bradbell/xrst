@@ -7,11 +7,6 @@ import os
 import re
 import xrst
 #
-pattern_template_begin  = re.compile(
-   r'@{xrst_template_begin@([^@]*)@([^@]*)@}@'
-)
-pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
-#
 # {xrst_begin system_exit dev}
 # {xrst_spell
 #     msg

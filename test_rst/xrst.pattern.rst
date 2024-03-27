@@ -55,6 +55,154 @@ Pattern for the begin command.
    :language: py
 
 .. meta::
+   :keywords: code
+
+.. index:: code
+
+.. _xrst.pattern@code:
+
+code
+****
+Pattern for code command.
+
+0. the entire line for the command with newline at front.
+1. the indent for the command (spaces and tabs)
+2. is the command with or without characters in front
+3. This is the non space characters after the indent and before
+   command (or None)
+4. the language argument which is empty (just white space)
+   for the second code command in each pair.
+5. the line number for this line; see pattern['line'] above.
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 50-53
+   :language: py
+
+.. meta::
+   :keywords: comment_ch
+
+.. index:: comment_ch
+
+.. _xrst.pattern@comment_ch:
+
+comment_ch
+**********
+Pattern for comment_ch command
+
+1. empty or character before command + the command
+2. is the character (matched as any number of not space, tab or }
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 64-66
+   :language: py
+
+.. meta::
+   :keywords: dir
+
+.. index:: dir
+
+.. _xrst.pattern@dir:
+
+dir
+***
+Pattern for dir command
+
+1. Is either empty of character before command
+2. Is the file_name in the command
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 77-80
+   :language: py
+
+.. meta::
+   :keywords: end
+
+.. index:: end
+
+.. _xrst.pattern@end:
+
+end
+***
+Pattern for end command
+
+0. preceding character + white space + the command.
+1. the page name.
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 91-91
+   :language: py
+
+.. meta::
+   :keywords: line
+
+.. index:: line
+
+.. _xrst.pattern@line:
+
+line
+****
+Pattern for line numbers are added to the input by add_line_number
+
+0. the line command.
+1. the line_number.
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 103-103
+   :language: py
+
+.. meta::
+   :keywords: literal
+
+.. index:: literal
+
+.. _xrst.pattern@literal:
+
+literal
+*******
+Pattern for the literal command. Groups 1 and 2 will be None for this
+pattern if {xrst_literal} is matched.
+
+0. preceding character + the command.
+1. characters, not including line number or command name, on first line.
+2. rest of command, not including first \\n or final }.
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 116-118
+   :language: py
+
+.. meta::
+   :keywords: template_begin
+
+.. index:: template_begin
+
+.. _xrst.pattern@template_begin:
+
+template_begin
+**************
+0. @{xrst_template_begin@ *template_file* @ *page_line* @}
+1. *template_file*
+2. *page_line*
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 127-130
+   :language: py
+
+.. meta::
+   :keywords: template_end
+
+.. index:: template_end
+
+.. _xrst.pattern@template_end:
+
+template_end
+************
+0. @{xrst_template_end@
+
+.. literalinclude:: ../../xrst/pattern.py
+   :lines: 137-138
+   :language: py
+
+.. meta::
    :keywords: toc
 
 .. index:: toc
@@ -76,121 +224,5 @@ Patterns for the toc_hidden, toc_list, and toc_table commands.
 If you change this pattern, check pattern_toc in process_children.py
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 50-52
-   :language: py
-
-.. meta::
-   :keywords: code
-
-.. index:: code
-
-.. _xrst.pattern@code:
-
-code
-****
-Pattern for code command.
-
-0. the entire line for the command with newline at front.
-1. the indent for the command (spaces and tabs)
-2. is the command with or without characters in front
-3. This is the non space characters after the indent and before
-   command (or None)
-4. the language argument which is empty (just white space)
-   for the second code command in each pair.
-5. the line number for this line; see pattern['line'] above.
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 69-72
-   :language: py
-
-.. meta::
-   :keywords: comment_ch
-
-.. index:: comment_ch
-
-.. _xrst.pattern@comment_ch:
-
-comment_ch
-**********
-Pattern for comment_ch command
-
-1. empty or character before command + the command
-2. is the character (matched as any number of not space, tab or }
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 83-85
-   :language: py
-
-.. meta::
-   :keywords: dir
-
-.. index:: dir
-
-.. _xrst.pattern@dir:
-
-dir
-***
-Pattern for dir command
-
-1. Is either empty of character before command
-2. Is the file_name in the command
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 96-99
-   :language: py
-
-.. meta::
-   :keywords: end
-
-.. index:: end
-
-.. _xrst.pattern@end:
-
-end
-***
-Pattern for end command
-
-0. preceding character + white space + the command.
-1. the page name.
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 110-110
-   :language: py
-
-.. meta::
-   :keywords: line
-
-.. index:: line
-
-.. _xrst.pattern@line:
-
-line
-****
-Pattern for line numbers are added to the input by add_line_number
-
-0. the line command.
-1. the line_number.
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 122-122
-   :language: py
-
-.. meta::
-   :keywords: literal
-
-.. index:: literal
-
-.. _xrst.pattern@literal:
-
-literal
-*******
-Pattern for the literal command. Groups 1 and 2 will be None for this
-pattern if {xrst_literal} is matched.
-
-0. preceding character + the command.
-1. characters, not including line number or command name, on first line.
-2. rest of command, not including first \\n or final }.
-
-.. literalinclude:: ../../xrst/pattern.py
-   :lines: 135-137
+   :lines: 155-157
    :language: py

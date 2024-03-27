@@ -13,11 +13,6 @@ pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
 )
-pattern_template_begin  = re.compile(
-   r'@{xrst_template_begin@[^@]*@[^@]*@}@'
-)
-pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
-#
 pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
@@ -201,8 +196,8 @@ def temporary_file(
    #
    # data_out
    # begin and end of template markers
-   data_out = pattern_template_begin.sub('', data_out)
-   data_out = pattern_template_end.sub('', data_out)
+   data_out = xrst.pattern['template_begin'].sub('', data_out)
+   data_out = xrst.pattern['template_end'].sub('', data_out)
    #
    # data_out
    # Convert three or more sequential emtpty lines to two empty lines.

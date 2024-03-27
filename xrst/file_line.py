@@ -6,12 +6,6 @@ import sys
 import os
 import re
 import xrst
-#
-pattern_template_begin  = re.compile(
-   r'@{xrst_template_begin@([^@]*)@([^@]*)@}@'
-)
-pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
-#
 # {xrst_begin file_line dev}
 # {xrst_comment_ch #}
 #
@@ -45,7 +39,7 @@ pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 #
 # template_file
 # *************
-# is the name of the file for the template expansion where the start of 
+# is the name of the file for the template expansion where the start of
 # *m_obj* is located.  If *m_obj* does not start in a template expansion,
 # *template_file* is None.
 # In this case, *m_obj* starts in the file where the begin command for this
@@ -54,7 +48,7 @@ pattern_template_end    = re.compile( r'@{xrst_template_end}@' )
 # template_line
 # *************
 # if *template_file* is None, *template_line* is None.
-# Otherwise it is the line number in the *template_file* for this 
+# Otherwise it is the line number in the *template_file* for this
 # corresponding to this expansion.
 #
 # {xrst_end file_line}
@@ -83,7 +77,7 @@ def file_line(m_obj, data) :
    else :
       #
       # template_file, expansion_line
-      m_temp = pattern_template_begin.search( data[begin_index :] )
+      m_temp = xrst.pattern['template_begin'].search( data[begin_index :] )
       assert m_temp != None
       template_file  = m_temp.group(1).strip()
       page_line      = int( m_temp.group(2) )
@@ -94,8 +88,7 @@ def file_line(m_obj, data) :
    if template_file == None :
       assert template_line == None
    else :
-      assert type(template_file) == str 
+      assert type(template_file) == str
       assert type(template_line) == int
    return page_line, template_file, template_line
    # END_RETURN
-   

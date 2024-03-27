@@ -89,5 +89,5 @@ is the line number in the current input file where the error
 was detected.
 
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 54-63
+   :lines: 49-58
    :language: py

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 116-131,236-242
+   :lines: 111-126,231-237
    :language: py
 
 .. meta::

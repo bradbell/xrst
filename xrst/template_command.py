@@ -271,6 +271,8 @@ def template_command(data_in, page_file, page_name) :
       before += line + '@'
       before += '}@'
       after   = '@{xrst_template_end}@'
+      assert xrst.pattern['template_begin'].match(before) != None
+      assert xrst.pattern['template_end'].match(after) != None
       template_expansion = before + template_expansion + after
       #
       # template_expansion

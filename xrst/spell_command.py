@@ -117,11 +117,11 @@ pattern['spell']     = re.compile(
    r'[^\\]{xrst_spell([^_a-z][^}]*)}' +
    r'([ \t]*@xrst_line ([0-9]+)@)?'
 )
-pattern['template']   = re.compile( r'{xrst_template_begin [^}]*}' )
 pattern['word_error'] = re.compile( r'[^A-Za-z \t\n]' )
 #
 # pattern
 # global pattern values used by spell command
+pattern['template']  = xrst.pattern['template_begin']
 pattern['dir']       = xrst.pattern['dir']
 pattern['toc']       = xrst.pattern['toc']
 pattern['code']      = xrst.pattern['code']

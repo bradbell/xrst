@@ -15,7 +15,7 @@ Determine Input File and Line
 #############################
 
 .. literalinclude:: ../../xrst/file_line.py
-   :lines: 62-64,92-99
+   :lines: 56-58,86-93
    :language: py
 
 .. contents::
@@ -77,7 +77,7 @@ Otherwise the template expansion for *template_file* starts at this line.
 
 template_file
 *************
-is the name of the file for the template expansion where the start of 
+is the name of the file for the template expansion where the start of
 *m_obj* is located.  If *m_obj* does not start in a template expansion,
 *template_file* is None.
 In this case, *m_obj* starts in the file where the begin command for this
@@ -93,5 +93,5 @@ page is located.
 template_line
 *************
 if *template_file* is None, *template_line* is None.
-Otherwise it is the line number in the *template_file* for this 
+Otherwise it is the line number in the *template_file* for this
 corresponding to this expansion.
