@@ -69,6 +69,11 @@ The xrst features below can be considered a wish list for sphinx:
 #. One can build subsets of the documentation; e.g., examples, user, developer.
    Pages for different subsets can be in the
    same input file; see :ref:`run_xrst@group_list`.
+#. The template command can use one file
+   as the input in multiple places,
+   with specialized text replacement for each use.
+   See the discussion of how this differs from an
+   :ref:`template_cmd@Rst Include` .
 #. For each page, the rst file name ,
    :ref:`heading_links@Labels@Level Zero@page_name` ,
    is used as an abbreviated title in the navigation bar.

@@ -23,15 +23,23 @@ The template command enables use one xrst input file in multiple pages.
 
 Rst Include
 ***********
-The template command is different from the sphinx include directive
+A similar sphinx include directive, in the context of xrst, is:
 
 | |tab| .. include \{xrst_dir *file_name* }
 
 see :ref:`dir_cmd-name` .
-To be specific, xrst commands in *template_file* ( *file_name* )
-will get interpreted (will not get interpreted).
-In addition, the xrst template command allows for text replacement
-during the include.
+The template command differs form the include directive in the following ways:
+
+#. The template command allows for text replacement
+   during the include so that *template_file* is like function or macro.
+
+#. Errors and warnings in a template expansion will include both
+   the line in the template file and the line where it is used.
+   Errors and warnings in a sphinx include only report the
+   line number in the include file.
+
+#. xrst commands in *template_file* ( *file_name* )
+   will get interpreted (will not get interpreted).
 
 White Space
 ***********
@@ -46,17 +54,18 @@ Leading and trailing white space around *separator* is ignored.
 
 template_file
 *************
-Is the name of the template file.
+is the name of the template file.
+Leading and trailing white space around *template_file* is ignored
+and *template_file* cannot contain the ``@`` character.
 It is different for a normal xrst input file because it cannot have
-any of the following xrst commands (after the template expansion):
+any of the following xrst commands in a template expansion:
+
 :ref:`begin or end <begin_cmd-name>` ,
 :ref:`comment character <comment_ch_cmd-name>` ,
 :ref:`indent<indent_cmd-name>` ,
 :ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
-:ref:`template command <template_cmd-name>` .
-Leading and trailing white space around *template_file* is ignored
-and *template_file* cannot contain the ``@`` character.
+:ref:`template <template_cmd-name>` .
 
 match
 *****

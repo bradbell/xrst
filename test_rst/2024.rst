@@ -40,6 +40,13 @@ template Branch
 mm-dd
 *****
 
+.. _2024@mm-dd@03-28:
+
+03-28
+=====
+Add the :ref:`template command<template_cmd-name>` and
+:ref:`template_example-name` .
+
 .. _2024@mm-dd@03-19:
 
 03-19

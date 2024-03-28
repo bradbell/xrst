@@ -24,6 +24,11 @@ template Branch
 mm-dd
 *****
 
+03-28
+=====
+Add the :ref:`template command<template_cmd-name>` and
+:ref:`template_example-name` .
+
 03-19
 =====
 Add the :ref:`run_xrst@external_links` option to the ``xrst`` command line.

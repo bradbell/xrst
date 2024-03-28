@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 152-155,311-312
+   :lines: 161-164,320-321
    :language: py
 
 .. meta::
