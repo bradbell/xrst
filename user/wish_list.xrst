@@ -11,7 +11,6 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    samp
    stackoverflow
    tox
-   del
 }
 
 Wish List
@@ -19,24 +18,6 @@ Wish List
 The following is a wish list for future improvements to ``run_xrst``.
 If you want to help with one of these, or some other aspect of xrst,
 open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
-
-Template Command
-****************
-It would be nice to have a command that included an xrst file with replacement.
-Perhaps
-
-| ``\{xrst_template``
-| |tab| *file_name* *del*
-| |tab| *pattern* *del* *replace*
-| |tab| *pattern* *del* *replace*
-| ...
-| ``}``
-
-We should report the following when an error that occurs in the
-template expansion:
-
-#. The line number of the template command.
-#. The line number in the template file and its *file_name*.
 
 Spell Checking
 **************

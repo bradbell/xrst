@@ -35,7 +35,8 @@ Add the :ref:`run_xrst@external_links` option to the ``xrst`` command line.
 
 03-16
 =====
-Add the :ref:`wish_list@Template Command` wish list item.
+Add the template command to the wish list.
+This was completed; see 03-28 above.
 
 03-04
 =====

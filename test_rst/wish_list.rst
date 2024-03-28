@@ -21,31 +21,6 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
    :local:
 
 .. meta::
-   :keywords: template
-
-.. index:: template
-
-.. _wish_list@Template Command:
-
-Template Command
-****************
-It would be nice to have a command that included an xrst file with replacement.
-Perhaps
-
-| ``{xrst_template``
-| |tab| *file_name* *del*
-| |tab| *pattern* *del* *replace*
-| |tab| *pattern* *del* *replace*
-| ...
-| ``}``
-
-We should report the following when an error that occurs in the
-template expansion:
-
-#. The line number of the template command.
-#. The line number in the template file and its *file_name*.
-
-.. meta::
    :keywords: spell, checking
 
 .. index:: spell, checking
