@@ -381,19 +381,19 @@ def system_exit(msg) :
 # warning:
 # If a warning is printed, this flag is set True
 #
-# page_name2line_pair
+# page_name2line_tuple
 # a mapping from page name to to a list of line number pairs.
 # The first number is the pair is a line number in the rst file for this page.
 # The second number is a corresponding xrst input line number.
 #
-# page_name2file_in
-# a mapping from page name to the correspoind xrst input file.
+# page_name2page_file
+# map page name to the xrst input file that contains its begin command.
 #
 def system_command(
       command                    ,
       warning                    ,
-      page_name2line_pair = None ,
-      page_name2file_in   = None ,
+      page_name2line_tuple = None ,
+      page_name2page_file  = None ,
 ) :
    assert type(command) == str
    #
@@ -401,9 +401,9 @@ def system_command(
    assert len(warning) == 1
    assert type(warning[0]) == bool
    #
-   if page_name2line_pair != None :
-      assert type(page_name2line_pair) == dict
-      assert type(page_name2file_in) == dict
+   if page_name2line_tuple != None :
+      assert type(page_name2line_tuple) == dict
+      assert type(page_name2page_file) == dict
    #
    # build_link
    build_html = command.startswith('sphinx-build -b html')
@@ -446,7 +446,7 @@ def system_command(
    if ok :
       return
    #
-   if page_name2line_pair == None :
+   if page_name2line_tuple == None :
       message  = error_data
       if result.returncode == 0 :
          message  += '\nWarning: see message above.\n'
@@ -459,6 +459,9 @@ def system_command(
    #
    # message
    message = ''
+   #
+   # warn_not_xrst_label
+   warn_not_xrst_label = True
    #
    # error
    error_list = error_data.split('\n')
@@ -475,7 +478,7 @@ def system_command(
          #
          # page_name
          page_name = m_rst_error.group(1)
-         if not page_name in page_name2line_pair :
+         if not page_name in page_name2line_tuple :
             msg  = f'Cannot map error line numbers for page {page_name}\n'
             msg += 'to its xrst input file and line number:\n'
             msg += error
@@ -486,41 +489,42 @@ def system_command(
             # rst_line
             rst_line  = int( m_rst_error.group(2) )
             #
-            # file_in, line_pair
-            file_in   = page_name2file_in[page_name]
-            line_pair = page_name2line_pair[page_name]
+            # page_file, line_tuple
+            page_file  = page_name2page_file[page_name]
+            line_tuple = page_name2line_tuple[page_name]
             #
-            # n_pair
-            n_pair = len(line_pair)
+            # n_tuple
+            n_tuple = len(line_tuple)
             #
             # index
             index  = 0
-            while index < n_pair and line_pair[index][0] < rst_line :
+            while index < n_tuple and line_tuple[index][0] < rst_line :
                   index += 1
+            assert len(line_tuple[index]) == 2 or len(line_tuple[index]) == 4
             #
             # line_before, line_after
-            if index == n_pair :
-               line_before = str( line_pair[n_pair-1][1] )
+            if index == n_tuple :
+               line_before = str( line_tuple[n_tuple-1][1] )
                line_after  = '?'
-            elif line_pair[index][0] == rst_line :
-               line_before = line_pair[index][1]
-               line_after  = line_pair[index][1]
+            elif line_tuple[index][0] == rst_line :
+               line_before = line_tuple[index][1]
+               line_after  = line_tuple[index][1]
             elif 0 == index :
                line_before = '?'
-               line_after  = line_pair[index][1]
+               line_after  = line_tuple[index][1]
             else :
-               line_before = line_pair[index-1][1]
-               line_after  = line_pair[index][1]
+               line_before = line_tuple[index-1][1]
+               line_after  = line_tuple[index][1]
             #
             # error
             msg   = error[ m_rst_error.end()  : ]
             if line_before == line_after :
-               error = f'{file_in}:{line_before}:'
+               error = f'{page_file}:{line_before}:'
             else :
-               error = f'{file_in}:{line_before}-{line_after}:'
-            if len( line_pair[index] ) == 4 :
-               template_file = line_pair[index][2]
-               template_line = line_pair[index][3]
+               error = f'{page_file}:{line_before}-{line_after}:'
+            if len( line_tuple[index] ) == 4 :
+               template_file = line_tuple[index][2]
+               template_line = line_tuple[index][3]
                error += f'{template_file}:{template_line}:'
             error += msg
       #
@@ -532,7 +536,8 @@ def system_command(
          xrst_label = 0 < label.find('@')
          if label.endswith('-name') or label.endswith('-title') :
             xrst_label = True
-         if not xrst_label :
+         if not xrst_label and warn_not_xrst_label :
+            warn_not_xrst_label = False
             error += '\n   The label above does not contain an @'
             error += ' or end with -name or -title.'
             error += '\n   Hence it is not automatically generates by xrst.'
@@ -874,11 +879,11 @@ def run_xrst() :
    # Each group has a root secion (in root_file) at the top if its tree.
    root_page_list = list()
    #
-   # page_name2line_pair, page_name2file_in
+   # page_name2line_tuple, page_name2page_file
    # Each rst page name has a corresponding input file and mapping from
    # rst file line nubmers to input file line numbers.
-   page_name2line_pair = dict()
-   page_name2file_in   = dict()
+   page_name2line_tuple = dict()
+   page_name2page_file  = dict()
    #
    # any_warning
    any_warning = [ False ]
@@ -1135,8 +1140,8 @@ def run_xrst() :
             )
             # -------------------------------------------------------------
             #
-            # line_pair and file tmp_dir/page_name.rst
-            line_pair = xrst.temporary_file(
+            # line_tuple and file tmp_dir/page_name.rst
+            line_tuple = xrst.temporary_file(
                page_source,
                target,
                pseudo_heading,
@@ -1146,9 +1151,9 @@ def run_xrst() :
                page_data,
             )
             #
-            # page_name2line_pair, page_name2file_in
-            page_name2line_pair[page_name] = line_pair
-            page_name2file_in[page_name]   = file_in
+            # page_name2line_tuple, page_name2page_file
+            page_name2line_tuple[page_name] = line_tuple
+            page_name2page_file[page_name]  = file_in
       #
       # check_input_files
       if rename_group == None :
@@ -1296,7 +1301,7 @@ def run_xrst() :
          system_command(command, any_warning)
       else :
          system_command(
-            command, any_warning, page_name2line_pair, page_name2file_in
+            command, any_warning, page_name2line_tuple, page_name2page_file
       )
    if target == 'html' :
       command  = f'sphinx-build -b html -j {number_jobs} '
@@ -1305,7 +1310,7 @@ def run_xrst() :
          system_command(command, any_warning)
       else :
          system_command(
-            command, any_warning, page_name2line_pair, page_name2file_in
+            command, any_warning, page_name2line_tuple, page_name2page_file
          )
          #
          # target_directory/_sources
@@ -1338,7 +1343,7 @@ def run_xrst() :
          system_command(command, any_warning)
       else :
          system_command(
-            command, any_warning, page_name2line_pair, page_name2file_in
+            command, any_warning, page_name2line_tuple, page_name2page_file
          )
       #
       # latex_dir/project_name.tex
