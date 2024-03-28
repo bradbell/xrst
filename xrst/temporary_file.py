@@ -85,30 +85,22 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 #        :ref:`table_of_contents-name` .
 #
 #  #. Check for an xrst command that was not recognized.
-#  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. Any sequence of more than 2 lines
 #     with only tabs or space are converted to 2 empty lines.
 #  #. Empty lines at the end are removed
 #  #. The xrst_line_number entries are removed.
+#  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. The text ``\\{xrst_`` is replaced by ``\{xrst_`` .
 #
-# line_pair
-# *********
+# rst2xrst_list
+# *************
 # This is the value returned by ``temporary_file`` .
-# For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
-#
-# -   The first number in a pair is a line number in *file_out*
-#     These line numbers to not count `{xrst@before_title}` lines
-#     because they are removed before the final rst output is created.
-#
-# -   The second number in a pair is the corresponding line number in *file_in*
-#
-# -   The first (second) line number is increasing (no-decreasing)
-#     with respect to *index* .
+# For each *index*, *rst2xrst_list* [ *index* ] is the a tuple; see
+# :ref:`remove_line_numbers@rst2xrst_list` .
 #
 # {xrst_end temporary_file}
 # BEGIN_DEF
-# line_pair =
+# rst2xrst_list =
 def temporary_file(
    page_source,
    target,
@@ -195,11 +187,6 @@ def temporary_file(
       m_obj = pattern_any_command.search( data_out , m_obj.end() )
    #
    # data_out
-   # begin and end of template markers
-   data_out = xrst.pattern['template_begin'].sub('', data_out)
-   data_out = xrst.pattern['template_end'].sub('', data_out)
-   #
-   # data_out
    # Convert three or more sequential emtpty lines to two empty lines.
    data_out = pattern_line_number.sub('\n', data_out)
    data_out = pattern_newline_3.sub('\n\n', data_out)
@@ -213,7 +200,12 @@ def temporary_file(
    # The last step removing line numbers. This is done last for two reasons:
    # 1. So mapping from output to input line number is correct.
    # 2. We are no longer able to give line numbers for errors after this.
-   data_out, line_pair = xrst.remove_line_numbers(data_out)
+   data_out, rst2xrst_list = xrst.remove_line_numbers(data_out)
+   #
+   # data_out
+   # begin and end of template markers
+   data_out = xrst.pattern['template_begin'].sub('', data_out)
+   data_out = xrst.pattern['template_end'].sub('', data_out)
    #
    # data_out
    data_out = data_out.replace( r'\{xrst_', '{xrst_' )
@@ -229,10 +221,10 @@ def temporary_file(
    #
    # BEGIN_RETURN
    #
-   assert type(line_pair) == list
-   assert type( line_pair[0] ) == tuple
-   assert len( line_pair[0] ) == 2
-   assert type( line_pair[0][0] ) == int
-   assert type( line_pair[0][1] ) == int
-   return line_pair
+   assert type(rst2xrst_list) == list
+   assert type( rst2xrst_list[0] ) == tuple
+   assert len( rst2xrst_list[0] ) == 2 or len( rst2xrst_list[0] ) == 4
+   assert type( rst2xrst_list[0][0] ) == int
+   assert type( rst2xrst_list[0][1] ) == int
+   return rst2xrst_list
    # END_RETURN

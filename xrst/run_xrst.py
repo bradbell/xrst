@@ -515,11 +515,16 @@ def system_command(
             # error
             msg   = error[ m_rst_error.end()  : ]
             if line_before == line_after :
-               error = f'{file_in}:{line_before}:{msg}'
+               error = f'{file_in}:{line_before}:'
             else :
-               error = f'{file_in}:{line_before}-{line_after}:{msg}'
+               error = f'{file_in}:{line_before}-{line_after}:'
+            if len( line_pair[index] ) == 4 :
+               template_file = line_pair[index][2]
+               template_line = line_pair[index][3]
+               error += f'{template_file}:{template_line}:'
+            error += msg
       #
-      # pattern_undefined
+      # error
       pattern_undefined = re.compile(r"undefined *label: *'([^']*)'")
       m_undefined       = pattern_undefined.search(error)
       if m_undefined != None :
@@ -534,6 +539,7 @@ def system_command(
          if label == 'xrst_table_of_contents-title' :
             error += '\n   2024-03-04: The label above was changed to'
             error += " 'xrst_contents-title'"
+      #
       # message
       if error != '' :
          message += '\n' + error

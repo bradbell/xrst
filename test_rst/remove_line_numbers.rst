@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 52-53,105-112
+   :lines: 74-75,179-186
    :language: py
 
 .. meta::
@@ -58,23 +58,79 @@ The return data_out is a copy of data_in with the
 line number markers removed.
 
 .. meta::
-   :keywords: line_pair
+   :keywords: rst2xrst_list
 
-.. index:: line_pair
+.. index:: rst2xrst_list
 
-.. _remove_line_numbers@line_pair:
+.. _remove_line_numbers@rst2xrst_list:
 
-line_pair
-*********
-The second return line_pair is a list of two element tuples.
+rst2xrst_list
+*************
+The second return rst2xrst_list is a list of tuples.
+Each tuple in the list has two or four elements.
 
--   The first element is the line number in data_out corresponding to
-    the line number marker that was removed.
-    These line numbers, in data_out, do not count
-    lines that only contain ``{xrst@before_title}`` .
+.. meta::
+   :keywords: first, tuple, element
 
--   The second element is the *line_number*, in the line number marker,
-    that was removed.
+.. index:: first, tuple, element
 
--   The data_out line numbers are in increasing order and
-    the maker line numbers are non-decreasing.
+.. _remove_line_numbers@rst2xrst_list@First Tuple Element:
+
+First Tuple Element
+===================
+is the line number in *data_out* corresponding to a line number marker
+that was removed from *data_in* .
+The lines in *data_out*  still contain the ``{xrst@before_title}`` commands
+that were in *data_in*.
+These are not included in the line number could (because they are
+removed before writing its rst file).
+
+.. meta::
+   :keywords: second, tuple, element
+
+.. index:: second, tuple, element
+
+.. _remove_line_numbers@rst2xrst_list@Second Tuple Element:
+
+Second Tuple Element
+====================
+The second tuple element is the line number in the file that contains
+the begin command for this page.
+
+.. meta::
+   :keywords: third, tuple, element
+
+.. index:: third, tuple, element
+
+.. _remove_line_numbers@rst2xrst_list@Third Tuple Element:
+
+Third Tuple Element
+===================
+This element is present If the current line in *data_out* is
+part of a template expansion.
+In this case, the third element is the template file name.
+
+.. meta::
+   :keywords: fourth, tuple, element
+
+.. index:: fourth, tuple, element
+
+.. _remove_line_numbers@rst2xrst_list@Fourth Tuple Element:
+
+Fourth Tuple Element
+====================
+This element is present If the current line in *data_out* is
+part of a template expansion.
+In this case, the fourth element is the line in the template file.
+
+.. meta::
+   :keywords: fourthtuple, element
+
+.. index:: fourthtuple, element
+
+.. _remove_line_numbers@rst2xrst_list@FourthTuple Element:
+
+FourthTuple Element
+===================
+If the current line in data_out corresponds to a template file,
+this is the line number in the template file. Otherwise, it is None.

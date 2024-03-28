@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 111-126,231-237
+   :lines: 103-118,223-229
    :language: py
 
 .. meta::
@@ -144,30 +144,22 @@ The following is added to this data before writing it to the output file:
        :ref:`table_of_contents-name` .
 
  #. Check for an xrst command that was not recognized.
- #. The xrst_template_begin and xrst_template_end markers are removed.
  #. Any sequence of more than 2 lines
     with only tabs or space are converted to 2 empty lines.
  #. Empty lines at the end are removed
  #. The xrst_line_number entries are removed.
+ #. The xrst_template_begin and xrst_template_end markers are removed.
  #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
 
 .. meta::
-   :keywords: line_pair
+   :keywords: rst2xrst_list
 
-.. index:: line_pair
+.. index:: rst2xrst_list
 
-.. _temporary_file@line_pair:
+.. _temporary_file@rst2xrst_list:
 
-line_pair
-*********
+rst2xrst_list
+*************
 This is the value returned by ``temporary_file`` .
-For each *index*, *line_pair* [ *index* ] is the a pair of line numbers.
-
--   The first number in a pair is a line number in *file_out*
-    These line numbers to not count `{xrst@before_title}` lines
-    because they are removed before the final rst output is created.
-
--   The second number in a pair is the corresponding line number in *file_in*
-
--   The first (second) line number is increasing (no-decreasing)
-    with respect to *index* .
+For each *index*, *rst2xrst_list* [ *index* ] is the a tuple; see
+:ref:`remove_line_numbers@rst2xrst_list` .
