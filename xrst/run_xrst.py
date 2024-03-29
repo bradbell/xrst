@@ -425,7 +425,9 @@ def system_command(
       #
       # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
       # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
-      pattern_alert = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+      pattern_alert = re.compile(
+         r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):([^:]*):'
+      )
    else :
       assert build_link
       #
@@ -463,21 +465,27 @@ def system_command(
    # warn_not_xrst_label
    warn_not_xrst_label = True
    #
+   # sphinx_error
+   sphinx_error = result.returncode != 0
+   #
    # alert
    alert_list = alert_data.split('\n')
    for alert in alert_list :
       #
-      # m_rst_alert
-      m_rst_alert = pattern_alert.search(alert)
-      if m_rst_alert == None :
+      # m_alert
+      m_alert = pattern_alert.search(alert)
+      if m_alert == None :
             if alert != '' :
-               # This should not happen
-               # breakpoint()
+               print('run_xrst.py: system_command: cannot fine pattern_alert')
                pass
       else :
          #
+         # sphinx_error
+         if build_html or build_tex:
+            sphinx_error |= m_alert.group(3).strip() == 'ERROR'
+         #
          # page_name
-         page_name = m_rst_alert.group(1)
+         page_name = m_alert.group(1)
          if not page_name in page_name2line_tuple :
             msg  = f'Cannot map line numbers for page {page_name}\n'
             msg += 'to its xrst input file and line number:\n'
@@ -487,7 +495,7 @@ def system_command(
          else :
             #
             # rst_line
-            rst_line  = int( m_rst_alert.group(2) )
+            rst_line  = int( m_alert.group(2) )
             #
             # page_file, line_tuple
             page_file  = page_name2page_file[page_name]
@@ -517,7 +525,9 @@ def system_command(
                line_after  = line_tuple[index][1]
             #
             # alert
-            msg   = alert[ m_rst_alert.end()  : ]
+            msg   = alert[ m_alert.end()  : ]
+            if build_html or build_tex :
+               msg = m_alert.group(3) + ':' + msg
             if line_before == line_after :
                alert = f'{page_file}:{line_before}:'
             else :
@@ -549,13 +559,14 @@ def system_command(
       if alert != '' :
          message += '\n' + alert
    #
-   if result.returncode == 0 :
-      message  += '\nWarning: see messages above.\n'
-      sys.stderr.write(message)
-      warning[0] = True
-      return
-   message  += '\nError: see messages above.'
-   system_exit(message)
+   if sphinx_error :
+      message  += '\nError: see messages above.'
+      system_exit(message)
+   #
+   message  += '\nWarning: see messages above.\n'
+   sys.stderr.write(message)
+   warning[0] = True
+   return
 # ---------------------------------------------------------------------------
 def fix_latex(latex_dir, project_name) :
    assert type(latex_dir) == str
