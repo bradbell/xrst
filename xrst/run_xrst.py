@@ -417,37 +417,37 @@ def system_command(
    result = subprocess.run(command, capture_output = True)
    stderr = result.stderr.decode('utf-8')
    #
-   # error_data, pattern_error
+   # alert_data, pattern_alert
    if build_html or build_tex :
       #
-      # error_data
-      error_data = stderr
+      # alert_data
+      alert_data = stderr
       #
       # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
       # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
-      pattern_error = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+      pattern_alert = re.compile( r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):' )
    else :
       assert build_link
       #
-      # error_data
+      # alert_data
       target_directory = command[-1]
       file_obj         = open( f'{target_directory}/output.txt' , 'r')
-      error_data       = file_obj.read()
+      alert_data       = file_obj.read()
       file_obj.close()
-      if error_data == '' :
-         error_data = stderr
+      if alert_data == '' :
+         alert_data = stderr
       else :
-         error_data = stderr + '\n' + error_data
+         alert_data = stderr + '\n' + alert_data
       #
-      # pattern_error
-      pattern_error = re.compile( r'^([A-Za-z0-9_.-]+).rst:([0-9]+):' )
+      # pattern_alert
+      pattern_alert = re.compile( r'^([A-Za-z0-9_.-]+).rst:([0-9]+):' )
    #
-   ok  =  result.returncode == 0 and error_data == ''
+   ok  =  result.returncode == 0 and alert_data == ''
    if ok :
       return
    #
    if page_name2line_tuple == None :
-      message  = error_data
+      message  = alert_data
       if result.returncode == 0 :
          message  += '\nWarning: see message above.\n'
          sys.stderr.write(message)
@@ -463,31 +463,31 @@ def system_command(
    # warn_not_xrst_label
    warn_not_xrst_label = True
    #
-   # error
-   error_list = error_data.split('\n')
-   for error in error_list :
+   # alert
+   alert_list = alert_data.split('\n')
+   for alert in alert_list :
       #
-      # m_rst_error
-      m_rst_error = pattern_error.search(error)
-      if m_rst_error == None :
-            if error != '' :
+      # m_rst_alert
+      m_rst_alert = pattern_alert.search(alert)
+      if m_rst_alert == None :
+            if alert != '' :
                # This should not happen
                # breakpoint()
                pass
       else :
          #
          # page_name
-         page_name = m_rst_error.group(1)
+         page_name = m_rst_alert.group(1)
          if not page_name in page_name2line_tuple :
-            msg  = f'Cannot map error line numbers for page {page_name}\n'
+            msg  = f'Cannot map line numbers for page {page_name}\n'
             msg += 'to its xrst input file and line number:\n'
-            msg += error
+            msg += alert
             msg += '\nTry removing the html output directory and re-run.'
             system_exit(msg)
          else :
             #
             # rst_line
-            rst_line  = int( m_rst_error.group(2) )
+            rst_line  = int( m_rst_alert.group(2) )
             #
             # page_file, line_tuple
             page_file  = page_name2page_file[page_name]
@@ -516,21 +516,21 @@ def system_command(
                line_before = line_tuple[index-1][1]
                line_after  = line_tuple[index][1]
             #
-            # error
-            msg   = error[ m_rst_error.end()  : ]
+            # alert
+            msg   = alert[ m_rst_alert.end()  : ]
             if line_before == line_after :
-               error = f'{page_file}:{line_before}:'
+               alert = f'{page_file}:{line_before}:'
             else :
-               error = f'{page_file}:{line_before}-{line_after}:'
+               alert = f'{page_file}:{line_before}-{line_after}:'
             if len( line_tuple[index] ) == 4 :
                template_file = line_tuple[index][2]
                template_line = line_tuple[index][3]
-               error += f'{template_file}:{template_line}:'
-            error += msg
+               alert += f'{template_file}:{template_line}:'
+            alert += msg
       #
-      # error
+      # alert
       pattern_undefined = re.compile(r"undefined *label: *'([^']*)'")
-      m_undefined       = pattern_undefined.search(error)
+      m_undefined       = pattern_undefined.search(alert)
       if m_undefined != None :
          label      = m_undefined.group(1)
          xrst_label = 0 < label.find('@')
@@ -538,16 +538,16 @@ def system_command(
             xrst_label = True
          if not xrst_label and warn_not_xrst_label :
             warn_not_xrst_label = False
-            error += '\n   The label above does not contain an @'
-            error += ' or end with -name or -title.'
-            error += '\n   Hence it is not automatically generates by xrst.'
+            alert += '\n   The label above does not contain an @'
+            alert += ' or end with -name or -title.'
+            alert += '\n   Hence it is not automatically generates by xrst.'
          if label == 'xrst_table_of_contents-title' :
-            error += '\n   2024-03-04: The label above was changed to'
-            error += " 'xrst_contents-title'"
+            alert += '\n   2024-03-04: The label above was changed to'
+            alert += " 'xrst_contents-title'"
       #
       # message
-      if error != '' :
-         message += '\n' + error
+      if alert != '' :
+         message += '\n' + alert
    #
    if result.returncode == 0 :
       message  += '\nWarning: see messages above.\n'
