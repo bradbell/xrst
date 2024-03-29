@@ -23,8 +23,8 @@ Examples
    example/configure.xrst
    example/class.cpp
    .readthedocs.yaml
-   example/test.py
    example/template.xrst
+   example/test.xrst
 }
 
 {xrst_end example}

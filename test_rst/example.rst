@@ -34,8 +34,8 @@ Examples
    "configure_example", :ref:`configure_example-title`
    "class_example", :ref:`class_example-title`
    ".readthedocs.yaml", :ref:`.readthedocs.yaml-title`
-   "testExample", :ref:`testExample-title`
    "template_example", :ref:`template_example-title`
+   "testExample", :ref:`testExample-title`
 
 .. toctree::
    :maxdepth: 1
@@ -57,5 +57,5 @@ Examples
    configure_example
    class_example
    .readthedocs.yaml
-   testExample
    template_example
+   testExample

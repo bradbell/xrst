@@ -30,10 +30,10 @@ Table of Contents
 |       :ref:`1.15.1<example_ad_double-title>` An Example Using the ad_double Class
 |       :ref:`1.15.2<test_ad_double-title>` Run ad_double Example and Check its Result
 |    :ref:`1.16<.readthedocs.yaml-title>` Example Read the Docs Configuration
-|    :ref:`1.17<testExample-title>` Test Special Conditions
-|    :ref:`1.18<template_example-title>` Template Command Example
-|       :ref:`1.18.1<example_expansion_one-title>` First Expansion
-|       :ref:`1.18.2<example_expansion_two-title>` Second Expansion
+|    :ref:`1.17<template_example-title>` Template Command Example
+|       :ref:`1.17.1<example_expansion_one-title>` First Expansion
+|       :ref:`1.17.2<example_expansion_two-title>` Second Expansion
+|    :ref:`1.18<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user-guide-title>` Extract Sphinx RST Files
 |    :ref:`3.1<config_file-title>` Configuration File for xrst
