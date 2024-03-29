@@ -7,7 +7,7 @@ r"""
 {xrst_spell
    abcd
    cpp
-   house house
+   index index
 }
 
 Spell Command
@@ -83,22 +83,18 @@ special word list; e.g., the word list entry ``CppAD`` is the same as ``Cpp``.
 Double Words
 ************
 It is considered an error to have only white space between two occurrences
-of the same word in an xrst input file.
-You can make an exception for this by entering
-the same word twice (next to each other) in the special word list;
-for example `house house` occurs here and in the special word list
-for this file.
+of the same word. You can make an exception for this by entering
+the same word twice (next to each other) in the special word list.
 
-Double words errors can occur in the output the user sees, but not be
-in the corresponding xrst input. For example the xrst input:
+Double words errors occur in the output the user sees.
+for example, the input:
 ::
 
    `python package index <https://pypi.org/>`_ index.
 
-results in the output:
+results in the double word 'index index' in the output the user sees; i.e.,
+the following output:
 `python package index <https://pypi.org/>`_ index.
-There is no double word entry for index in the special words list
-for this page and there is no corresponding double word spelling error.
 
 Example
 *******
@@ -392,12 +388,12 @@ def spell_command(
    #
    # command with page names and headings as arguments
    data_tmp = pattern['ref_1'].sub('@', data_tmp)
-   data_tmp = pattern['ref_2'].sub(r'\1@', data_tmp)
+   data_tmp = pattern['ref_2'].sub(r'\1', data_tmp)
    data_tmp = pattern['code'].sub('@', data_tmp)
    #
    # commands with external urls as arguments
    data_tmp = pattern['url_1'].sub('@', data_tmp)
-   data_tmp = pattern['url_2'].sub(r'\1@', data_tmp)
+   data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
    #
    # any left over xrst commands
    data_tmp = re.sub( r'{xrst_comment_ch' , '@', data_tmp)
