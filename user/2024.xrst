@@ -18,6 +18,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+03-29
+=====
+Add a :ref:`example_expansion_one@Spelling` example in
+the example template expansions.
+
 03-28
 =====
 #. Add the :ref:`template command<template_cmd-name>` and

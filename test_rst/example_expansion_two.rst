@@ -32,6 +32,25 @@ This is expansion number two of the template file
 ``example/template_file.xrst`` .
 
 .. meta::
+   :keywords: spelling
+
+.. index:: spelling
+
+.. _example_expansion_two@Spelling:
+
+Spelling
+********
+Template files can not have the following command:
+
+   ``{xrst_spell *word_1* ... *word_n* ``}``
+
+We therefore suggest that you surround the intended use of special words,
+or double words, by
+``{xrst_spell_off}`` and ``{xrst_spell_on}`` .
+This is what is done in the following sentence:
+Using 'myspecialword' and using 'double double' are OK here.
+
+.. meta::
    :keywords: template
 
 .. index:: template

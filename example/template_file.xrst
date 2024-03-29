@@ -12,6 +12,20 @@ Expansion Number
 This is expansion number @number@ of the template file
 ``example/template_file.xrst`` .
 
+Spelling
+********
+Template files can not have the following command:
+
+   ``\{xrst_spell *word_1* ... *word_n* ``}``
+
+We therefore suggest that you surround the intended use of special words,
+or double words, by
+``\{xrst_spell_off}`` and ``\{xrst_spell_on}`` .
+This is what is done in the following sentence:
+{xrst_spell_off}
+Using 'myspecialword' and using 'double double' are OK here.
+{xrst_spell_on}
+
 This Template File
 ******************
 {xrst_literal}
