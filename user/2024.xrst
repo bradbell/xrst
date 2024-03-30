@@ -18,6 +18,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+03-30
+=====
+The automatic special spelling words for a page were extended to include
+page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+
 03-29
 =====
 #. Add a :ref:`example_expansion_one@Spelling` example in

@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 228-243,568-572
+   :lines: 235-250,581-585
    :language: py
 
 .. meta::

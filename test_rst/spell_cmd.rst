@@ -123,8 +123,15 @@ be included in the project_dictionary.
 
 page_name
 *********
-The words in the :ref:`begin_cmd@page_name`
-are considered correct spellings for that page.
+For each of the following commands in a page, the words in *page_name*
+are considered correct spelling for that page:
+
+| |tab| ``{xrst_begin``        *page_name* *group_name* ``}``
+| |tab| ``{xrst_begin_parent`` *page_name* *group_name* ``}``
+| |tab| ``:ref:`` \` *page_name* ``-name`` \`
+
+Note that *group_name* can be empty which corresponds to the default group;
+see :ref:`begin_cmd-name` .
 
 .. meta::
    :keywords: capital, letters

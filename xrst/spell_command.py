@@ -68,8 +68,15 @@ be included in the project_dictionary.
 
 page_name
 *********
-The words in the :ref:`begin_cmd@page_name`
-are considered correct spellings for that page.
+For each of the following commands in a page, the words in *page_name*
+are considered correct spelling for that page:
+
+| |tab| ``\{xrst_begin``        *page_name* *group_name* ``}``
+| |tab| ``\{xrst_begin_parent`` *page_name* *group_name* ``}``
+| |tab| ``:ref:`` \` *page_name* ``-name`` \`
+
+Note that *group_name* can be empty which corresponds to the default group;
+see :ref:`begin_cmd-name` .
 
 Capital Letters
 ***************
@@ -326,6 +333,12 @@ def spell_command(
    for m_word in pattern['page_name_word'].finditer(page_name) :
       word_lower = m_word.group(0).lower()
       page_name_word.append( word_lower )
+   pattern_tmp  = re.compile( r':ref:`([^\n<`]+)-name`' )
+   for m_tmp in pattern_tmp.finditer(data_out) :
+      page_name_tmp = m_tmp.group(1)
+      for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
+         word_lower = m_word.group(0).lower()
+         page_name_word.append( word_lower )
    #
    # data_tmp
    # version of data_in with certain commands removed
