@@ -5,7 +5,7 @@ auto_file
 !!!!!!!!!
 
 .. meta::
-   :keywords: auto_file, automatically, generated, files
+   :keywords: auto_file,automatically,generated,files,conf.py,xrst_root_doc.rst,xrst_contents.rst,xrst_index.rst,xrst_search.rst,xrst_search.js
 
 .. index:: auto_file, automatically, generated, files
 
@@ -24,9 +24,6 @@ Automatically Generated Files
 .. contents::
    :local:
 
-.. meta::
-   :keywords: conf.py
-
 .. index:: conf.py
 
 .. _auto_file@conf.py:
@@ -39,9 +36,6 @@ not an rst file.
 
 .. _configuration:  http://www.sphinx-doc.org/en/master/config
 
-.. meta::
-   :keywords: xrst_root_doc.rst
-
 .. index:: xrst_root_doc.rst
 
 .. _auto_file@xrst_root_doc.rst:
@@ -51,9 +45,6 @@ xrst_root_doc.rst
 This file is the top of the documentation tree
 built by sphinx. It is one level above the first page in
 :ref:`config_file@root_file`.
-
-.. meta::
-   :keywords: xrst_contents.rst
 
 .. index:: xrst_contents.rst
 
@@ -70,9 +61,6 @@ with the following commands::
    :ref:`xrst_contents-name`
    :ref:`xrst_contents-title`
 
-.. meta::
-   :keywords: xrst_index.rst
-
 .. index:: xrst_index.rst
 
 .. _auto_file@xrst_index.rst:
@@ -88,9 +76,6 @@ with the following commands::
    :ref:`xrst_index-title`
 
 The xrst_index.rst file is not created when target is tex.
-
-.. meta::
-   :keywords: xrst_search.rst
 
 .. index:: xrst_search.rst
 
@@ -110,9 +95,6 @@ or page title :ref:`xrst_search-title` using the following commands::
 This page tile will start with the :ref:`config_file@project_name`
 (which for this documentation is ``xrst`` ).
 The xrst_search.rst file is not created when target is tex.
-
-.. meta::
-   :keywords: xrst_search.js
 
 .. index:: xrst_search.js
 

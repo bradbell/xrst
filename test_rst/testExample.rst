@@ -5,7 +5,7 @@ testExample
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: testExample, test, special, conditions
+   :keywords: testExample,test,special,conditions,camel,case,code,command,in,list,no,newline,at,end,of,file,this,example
 
 .. index:: testExample, test, special, conditions
 
@@ -17,9 +17,6 @@ Test Special Conditions
 .. contents::
    :local:
 
-.. meta::
-   :keywords: camel, case
-
 .. index:: camel, case
 
 .. _testExample@Camel Case:
@@ -28,9 +25,6 @@ Camel Case
 **********
 This page name uses a capital letter, instead of an underbar,
 to separate the words test and example.
-
-.. meta::
-   :keywords: code, in, list
 
 .. index:: code, in, list
 
@@ -45,9 +39,6 @@ Code Command in List
       :language: py
 
 #. This is the second item for this list
-
-.. meta::
-   :keywords: no, newline, at, end
 
 .. index:: no, newline, at, end
 

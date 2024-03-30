@@ -5,7 +5,7 @@ test_ad_double
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: test_ad_double, run, ad_double, check, its, result
+   :keywords: test_ad_double,run,ad_double,example,and,check,its,result,file
 
 .. index:: test_ad_double, run, ad_double, check, its, result
 

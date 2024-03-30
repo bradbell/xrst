@@ -5,7 +5,7 @@ toc_cmd
 !!!!!!!
 
 .. meta::
-   :keywords: toc_cmd, table, children, commands
+   :keywords: toc_cmd,table,of,children,commands,syntax,toc_hidden,toc_list,toc_table,contents,order,file,list,empty,child,links,toctree,example
 
 .. index:: toc_cmd, table, children, commands
 
@@ -22,9 +22,6 @@ Table of Children Commands
 Syntax
 ******
 
-.. meta::
-   :keywords: toc_hidden
-
 .. index:: toc_hidden
 
 .. _toc_cmd@Syntax@toc_hidden:
@@ -36,9 +33,6 @@ toc_hidden
 |   ...
 |   *file_n*
 | ``}``
-
-.. meta::
-   :keywords: toc_list
 
 .. index:: toc_list
 
@@ -52,9 +46,6 @@ toc_list
 |   *file_n*
 | ``}``
 
-.. meta::
-   :keywords: toc_table
-
 .. index:: toc_table
 
 .. _toc_cmd@Syntax@toc_table:
@@ -67,9 +58,6 @@ toc_table
 |   *file_n*
 | ``}``
 
-.. meta::
-   :keywords: table, contents
-
 .. index:: table, contents
 
 .. _toc_cmd@Table of Contents:
@@ -81,9 +69,6 @@ of the current page; i.e., pages that are at the
 next level in the table of contents.
 They also specify the form for the table of contents
 and where it appears.
-
-.. meta::
-   :keywords: order
 
 .. index:: order
 
@@ -100,9 +85,6 @@ before or after the child pages in the current input file.
 If *order* is not present and this is a parent page,
 the default value ``before`` is used for *order* .
 
-.. meta::
-   :keywords: list
-
 .. index:: list
 
 .. _toc_cmd@File List:
@@ -117,9 +99,6 @@ The file names are  relative to the
 This may seem verbose, but it makes it easier to write scripts
 that move files and automatically change references to them.
 
-.. meta::
-   :keywords: empty
-
 .. index:: empty
 
 .. _toc_cmd@File List@Empty:
@@ -131,9 +110,6 @@ this page must start with a
 :ref:`parent begin<begin_cmd@Parent Page>` command.
 (Otherwise, this page would have no children and there would be no
 purpose to the command.)
-
-.. meta::
-   :keywords: children
 
 .. index:: children
 
@@ -163,9 +139,6 @@ The first of these pages may use a
    links to the toc command children come before (after) links to
    the children that are other pages in the same file.
 
-.. meta::
-   :keywords: child, links
-
 .. index:: child, links
 
 .. _toc_cmd@Child Links:
@@ -189,9 +162,6 @@ Child Links
 #. If a page does not have a toc command,
    and it has a begin parent command,
    links to the children of the page are placed at the end of the page.
-
-.. meta::
-   :keywords: toctree
 
 .. index:: toctree
 

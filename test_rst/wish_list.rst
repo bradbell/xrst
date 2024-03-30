@@ -5,7 +5,7 @@ wish_list
 !!!!!!!!!
 
 .. meta::
-   :keywords: wish_list, wish, list
+   :keywords: wish_list,wish,list,spell,checking,testing,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
 
 .. index:: wish_list, wish, list
 
@@ -20,9 +20,6 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 .. contents::
    :local:
 
-.. meta::
-   :keywords: spell, checking
-
 .. index:: spell, checking
 
 .. _wish_list@Spell Checking:
@@ -34,9 +31,6 @@ the following text should not require a special spelling entry for ``samp``
 ::
 
    :samp:`print 1+{variable}`
-
-.. meta::
-   :keywords: testing
 
 .. index:: testing
 
@@ -51,9 +45,6 @@ of python. The following is the tox.ini file for xrst:
 .. literalinclude:: ../../tox.ini
    :language: ini
 
-.. meta::
-   :keywords: theme
-
 .. index:: theme
 
 .. _wish_list@Theme:
@@ -64,9 +55,6 @@ It would be nice to have better
 :ref:`config_file@html_theme_options@Default` options for more themes
 so that they work will with xrst.
 
-.. meta::
-   :keywords: sphinx_rtd_theme
-
 .. index:: sphinx_rtd_theme
 
 .. _wish_list@Theme@sphinx_rtd_theme:
@@ -75,9 +63,6 @@ sphinx_rtd_theme
 ================
 It would be nice if there were a way to make this theme use more
 horizontal space (currently xrst tires to modify its output to do this).
-
-.. meta::
-   :keywords: sphinx_book_theme
 
 .. index:: sphinx_book_theme
 
@@ -90,9 +75,6 @@ width of the display for tables; see issue-807_  .
 
 .. _issue-807: https://github.com/executablebooks/sphinx-book-theme/issues/807
 
-.. meta::
-   :keywords: search
-
 .. index:: search
 
 .. _wish_list@Search:
@@ -101,9 +83,6 @@ Search
 ******
 It would be nice if we could make the sphinx search act like the xrst
 :ref:`xrst_search-name` (so we would not need two searches) .
-
-.. meta::
-   :keywords: rst, names
 
 .. index:: rst, names
 
@@ -118,9 +97,6 @@ If this were the case, one would not need the
 :ref:`dir command<dir_cmd-title>` .
 In addition, the file names should not be checked for spelling
 (this is already true for the ``ref`` role).
-
-.. meta::
-   :keywords: tabs
 
 .. index:: tabs
 

@@ -5,7 +5,7 @@ comment_ch_example
 !!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_ch_example, comment, character
+   :keywords: comment_ch_example,comment,character,command,example,discussion,xrst_code,indent,xrst_comment_ch,this,file
 
 .. index:: comment_ch_example, comment, character
 
@@ -17,9 +17,6 @@ Comment Character Command Example
 .. contents::
    :local:
 
-.. meta::
-   :keywords: discussion
-
 .. index:: discussion
 
 .. _comment_ch_example@Discussion:
@@ -30,9 +27,6 @@ The comment character at the beginning of a line,
 and one space, if a space exists directly after it the comment character,
 are removed before processing xrst commands.
 For this example, the comment character is ``%`` .
-
-.. meta::
-   :keywords: xrst_code
 
 .. index:: xrst_code
 
@@ -47,9 +41,6 @@ the comment character or the indentation.
    :lines: 27-34
    :language: matlab
 
-.. meta::
-   :keywords: indent
-
 .. index:: indent
 
 .. _comment_ch_example@Indent:
@@ -58,9 +49,6 @@ Indent
 ******
 Note that the special character ``%`` has the same indentation as
 the source code in this page.
-
-.. meta::
-   :keywords: xrst_comment_ch
 
 .. index:: xrst_comment_ch
 

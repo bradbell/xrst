@@ -5,7 +5,7 @@ example_ad_double
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_ad_double, using, ad_double, class
+   :keywords: example_ad_double,an,example,using,the,ad_double,class,xrst_indent,begin,function,initialize,ok,independent,variable,addition,subtraction,multiplication,division,return,file
 
 .. index:: example_ad_double, using, ad_double, class
 
@@ -20,9 +20,6 @@ an then just have comments in the code.
 .. contents::
    :local:
 
-.. meta::
-   :keywords: xrst_indent
-
 .. index:: xrst_indent
 
 .. _example_ad_double@xrst_indent:
@@ -31,9 +28,6 @@ xrst_indent
 ***********
 This example make uses of ``xrst_indent`` so that
 the xrst input can be indented at the same level as the code it is next to.
-
-.. meta::
-   :keywords: begin, function
 
 .. index:: begin, function
 
@@ -48,9 +42,6 @@ if all it's tests pass, and false otherwise.
    :lines: 149-150
    :language: cpp
 
-.. meta::
-   :keywords: initialize, ok
-
 .. index:: initialize, ok
 
 .. _example_ad_double@Initialize ok:
@@ -61,9 +52,6 @@ Initialize ok
 .. literalinclude:: ../../example/class.cpp
    :lines: 157-157
    :language: cpp
-
-.. meta::
-   :keywords: independent, variable
 
 .. index:: independent, variable
 
@@ -76,9 +64,6 @@ Independent Variable
    :lines: 163-165
    :language: cpp
 
-.. meta::
-   :keywords: addition
-
 .. index:: addition
 
 .. _example_ad_double@Addition:
@@ -89,9 +74,6 @@ Addition
 .. literalinclude:: ../../example/class.cpp
    :lines: 171-174
    :language: cpp
-
-.. meta::
-   :keywords: subtraction
 
 .. index:: subtraction
 
@@ -104,9 +86,6 @@ Subtraction
    :lines: 180-183
    :language: cpp
 
-.. meta::
-   :keywords: multiplication
-
 .. index:: multiplication
 
 .. _example_ad_double@Multiplication:
@@ -118,9 +97,6 @@ Multiplication
    :lines: 189-192
    :language: cpp
 
-.. meta::
-   :keywords: division
-
 .. index:: division
 
 .. _example_ad_double@Division:
@@ -131,9 +107,6 @@ Division
 .. literalinclude:: ../../example/class.cpp
    :lines: 198-201
    :language: cpp
-
-.. meta::
-   :keywords: return, ok
 
 .. index:: return, ok
 

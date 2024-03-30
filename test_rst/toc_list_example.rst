@@ -5,7 +5,7 @@ toc_list_example
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: toc_list_example, toc_list, parent, page
+   :keywords: toc_list_example,toc_list,example,parent,page,links,to,child,pages,xrst_toc_list,this,file
 
 .. index:: toc_list_example, toc_list, parent, page
 
@@ -17,9 +17,6 @@ toc_list Example Parent Page
 .. contents::
    :local:
 
-.. meta::
-   :keywords: links, child, pages
-
 .. index:: links, child, pages
 
 .. _toc_list_example@Links to Child Pages:
@@ -30,9 +27,6 @@ Links to Child Pages
 -  :ref:`child_example_one-title`
 -  :ref:`child_example_two-title`
 -  :ref:`child_example_three-title`
-
-.. meta::
-   :keywords: xrst_toc_list
 
 .. index:: xrst_toc_list
 

@@ -5,7 +5,7 @@ get_file_info
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: get_file_info, get, information, all, pages, in
+   :keywords: get_file_info,get,information,for,all,pages,in,a,file,prototype,all_page_info,group_name,parent_file,file_in,file_page_info,info['page_name'],info['page_data'],info['is_parent'],info['is_child'],info['begin_line'],info['end_line']
 
 .. index:: get_file_info, get, information, all, pages, in
 
@@ -17,9 +17,6 @@ Get information for all pages in a file
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _get_file_info@Prototype:
@@ -30,9 +27,6 @@ Prototype
 .. literalinclude:: ../../xrst/get_file_info.py
    :lines: 178-190,404-407
    :language: py
-
-.. meta::
-   :keywords: all_page_info
 
 .. index:: all_page_info
 
@@ -46,9 +40,6 @@ all_page_info[index]['page_name'] is an str
 containing the name of a page that came before this file.
 This includes pages for all the groups that came before this group.
 
-.. meta::
-   :keywords: group_name
-
 .. index:: group_name
 
 .. _get_file_info@group_name:
@@ -58,9 +49,6 @@ group_name
 We are only retrieving information for pages in this group.
 (This is non-empty because default is used for the empty group name.)
 
-.. meta::
-   :keywords: parent_file
-
 .. index:: parent_file
 
 .. _get_file_info@parent_file:
@@ -69,9 +57,6 @@ parent_file
 ***********
 name of the file that included file_in.
 
-.. meta::
-   :keywords: file_in
-
 .. index:: file_in
 
 .. _get_file_info@file_in:
@@ -79,9 +64,6 @@ name of the file that included file_in.
 file_in
 *******
 is the name of the file we are getting all the information for.
-
-.. meta::
-   :keywords: file_page_info
 
 .. index:: file_page_info
 
@@ -93,9 +75,6 @@ The value file_page_info is a list of dict.
 Each dict contains the information
 for one page in this file. We use info below for one element of the list:
 
-.. meta::
-   :keywords: info['page_name']
-
 .. index:: info['page_name']
 
 .. _get_file_info@file_page_info@info['page_name']:
@@ -103,9 +82,6 @@ for one page in this file. We use info below for one element of the list:
 info['page_name']
 =================
 is an str containing the name of a page in this file.
-
-.. meta::
-   :keywords: info['page_data']
 
 .. index:: info['page_data']
 
@@ -130,9 +106,6 @@ This data has been processed in the following way and order.
     the command is remove and for each line, the possible
     comment character and possible space after have been removed.
 
-.. meta::
-   :keywords: info['is_parent']
-
 .. index:: info['is_parent']
 
 .. _get_file_info@file_page_info@info['is_parent']:
@@ -145,9 +118,6 @@ and hence have index zero in file_info. In addition,
 if there is a parent page, there must be at least one other page;
 i.e., len(file_info) >= 2.
 
-.. meta::
-   :keywords: info['is_child']
-
 .. index:: info['is_child']
 
 .. _get_file_info@file_page_info@info['is_child']:
@@ -157,9 +127,6 @@ info['is_child']
 is true (false) if this is (is not) a child of the first page in
 this file.
 
-.. meta::
-   :keywords: info['begin_line']
-
 .. index:: info['begin_line']
 
 .. _get_file_info@file_page_info@info['begin_line']:
@@ -168,9 +135,6 @@ info['begin_line']
 ==================
 is the line number in *file_in* where this page begins; i.e.,
 the line number where the begin command is located.
-
-.. meta::
-   :keywords: info['end_line']
 
 .. index:: info['end_line']
 

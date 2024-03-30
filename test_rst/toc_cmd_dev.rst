@@ -5,7 +5,7 @@ toc_cmd_dev
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: toc_cmd_dev, get, page, names, children, page
+   :keywords: toc_cmd_dev,get,file,and,page,names,for,children,of,this,prototype,is_parent,data_in,page_file,page_name,group_name,data_out,file_list,child_page_list,order
 
 .. index:: toc_cmd_dev, get, page, names, children, page
 
@@ -16,9 +16,6 @@ Get file and page names for children of this page
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 201-206,416-425
    :language: py
 
-.. meta::
-   :keywords: is_parent
-
 .. index:: is_parent
 
 .. _toc_cmd_dev@is_parent:
@@ -42,9 +36,6 @@ is_parent
 *********
 is this the parent page for other pages in the file specified by page_file.
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _toc_cmd_dev@data_in:
@@ -52,9 +43,6 @@ is this the parent page for other pages in the file specified by page_file.
 data_in
 *******
 is the data for the page before the toc commands have been processed.
-
-.. meta::
-   :keywords: page_file
 
 .. index:: page_file
 
@@ -65,9 +53,6 @@ page_file
 is the name of the file that contains the begin command for this page.
 This is used for error reporting.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _toc_cmd_dev@page_name:
@@ -77,9 +62,6 @@ page_name
 is the name of the page that this data is in. This is only used
 for error reporting.
 
-.. meta::
-   :keywords: group_name
-
 .. index:: group_name
 
 .. _toc_cmd_dev@group_name:
@@ -87,9 +69,6 @@ for error reporting.
 group_name
 **********
 We are only including information for pages in this group.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 
@@ -102,9 +81,6 @@ where command is TOC_hidden, TOC_list, or TOC_table depending on
 which command was in data_in.
 There is a newline directly before and after the {xrst_command}.
 
-.. meta::
-   :keywords: file_list
-
 .. index:: file_list
 
 .. _toc_cmd_dev@file_list:
@@ -113,9 +89,6 @@ file_list
 *********
 is the list of files in the toc command
 (and in same order as in the toc command).
-
-.. meta::
-   :keywords: child_page_list
 
 .. index:: child_page_list
 
@@ -128,9 +101,6 @@ this page that are in the files specified by file_list.
 If a file in file_list has a begin_parent command, there is only
 one page in child_page_list for that file. Otherwise all of the
 pages in the file are in child_page_list.
-
-.. meta::
-   :keywords: order
 
 .. index:: order
 

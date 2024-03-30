@@ -5,7 +5,7 @@ start_end_file
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: start_end_file, convert, literal, start,, end, from, text, line, numbers
+   :keywords: start_end_file,convert,literal,command,start,,end,from,text,to,line,numbers,prototype,page_file,page_name,input_file,display_file,cmd_line,start_after,end_before,start_line,end_line,m_start,m_end,m_data
 
 .. index:: start_end_file, convert, literal, start,, end, from, text, line, numbers
 
@@ -16,9 +16,6 @@ Convert literal command start, end from text to line numbers
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 89-112,189-192
    :language: py
 
-.. meta::
-   :keywords: page_file
-
 .. index:: page_file
 
 .. _start_end_file@page_file:
@@ -44,9 +38,6 @@ is the name of the file that contains the begin command for this page.
 This is different from the current input file if we are processing
 a template expansion.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _start_end_file@page_name:
@@ -54,9 +45,6 @@ a template expansion.
 page_name
 *********
 is the name of the page where the xrst_literal command appears.
-
-.. meta::
-   :keywords: input_file
 
 .. index:: input_file
 
@@ -68,9 +56,6 @@ is the name of the file where the xrst_literal command appears.
 This is different for *page_file* when the command appears in a
 template expansion.
 
-.. meta::
-   :keywords: display_file
-
 .. index:: display_file
 
 .. _start_end_file@display_file:
@@ -79,9 +64,6 @@ display_file
 ************
 is the name of the file that we are displaying. If it is not the same as
 input_file, then it must have appeared in the xrst_literal command.
-
-.. meta::
-   :keywords: cmd_line
 
 .. index:: cmd_line
 
@@ -93,9 +75,6 @@ If input_file is equal to display_file, the lines of the file
 between line numbers cmd_line[0] and cmd_line[1] inclusive
 are in the xrst_literal command and are excluded from the search.
 
-.. meta::
-   :keywords: start_after
-
 .. index:: start_after
 
 .. _start_end_file@start_after:
@@ -105,9 +84,6 @@ start_after
 is the starting text. There must be one and only one copy of this text in the
 file (not counting the excluded text). This text has no newlines and cannot
 be empty.  If not, an the error is reported and the program stops.
-
-.. meta::
-   :keywords: end_before
 
 .. index:: end_before
 
@@ -120,9 +96,6 @@ file (not counting the excluded text). This text has no newlines and cannot
 be empty.  Furthermore, the stopping text must come after the end of the
 starting text. If not, an the error is reported and the program stops.
 
-.. meta::
-   :keywords: start_line
-
 .. index:: start_line
 
 .. _start_end_file@start_line:
@@ -131,9 +104,6 @@ start_line
 **********
 is the line number where start_after appears.
 
-.. meta::
-   :keywords: end_line
-
 .. index:: end_line
 
 .. _start_end_file@end_line:
@@ -141,9 +111,6 @@ is the line number where start_after appears.
 end_line
 ********
 is the line number where end_before appears.
-
-.. meta::
-   :keywords: m_start
 
 .. index:: m_start
 
@@ -154,9 +121,6 @@ m_start
 is a match object corresponding to the location of start_after.
 It is only used for reporting errors.
 
-.. meta::
-   :keywords: m_end
-
 .. index:: m_end
 
 .. _start_end_file@m_end:
@@ -165,9 +129,6 @@ m_end
 *****
 is a match object corresponding to the location of end_before.
 It is only used for reporting errors.
-
-.. meta::
-   :keywords: m_data
 
 .. index:: m_data
 

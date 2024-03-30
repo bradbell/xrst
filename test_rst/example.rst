@@ -5,7 +5,7 @@ example
 !!!!!!!
 
 .. meta::
-   :keywords: example, examples
+   :keywords: example,examples
 
 .. index:: example, examples
 

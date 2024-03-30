@@ -5,7 +5,7 @@ process_children
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: process_children, add, child, information, page
+   :keywords: process_children,add,child,information,to,a,page,prototype,data_in,list_children,data_out
 
 .. index:: process_children, add, child, information, page
 
@@ -16,9 +16,6 @@ Add child information to a page
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 58-67,144-146
    :language: py
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _process_children@data_in:
@@ -43,9 +37,6 @@ data_in
 is the data for this page after the toc_command function has processed
 the toc commands.
 
-.. meta::
-   :keywords: list_children
-
 .. index:: list_children
 
 .. _process_children@list_children:
@@ -54,9 +45,6 @@ list_children
 *************
 is a list of the page names for the children of this page.
 If this list is empty, data_out is equal to data_in.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 

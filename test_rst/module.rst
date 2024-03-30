@@ -5,7 +5,7 @@ module
 !!!!!!
 
 .. meta::
-   :keywords: module, xrst, module
+   :keywords: module,the,xrst
 
 .. index:: module, xrst, module
 

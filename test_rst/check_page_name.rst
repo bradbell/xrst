@@ -5,7 +5,7 @@ check_page_name
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_page_name, check, rules, page, name
+   :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data
 
 .. index:: check_page_name, check, rules, page, name
 
@@ -16,9 +16,6 @@ Check the rules for a page name
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: page_name
 
 .. index:: page_name
 
@@ -42,9 +39,6 @@ A valid page name must satisfy the following conditions:
 If *page_name* does not follow
 these rules, a message is printed and the program exits.
 
-.. meta::
-   :keywords: file_name
-
 .. index:: file_name
 
 .. _check_page_name@file_name:
@@ -54,9 +48,6 @@ file_name
 is the name of the original input file that data appears in
 (used for error reporting).
 
-.. meta::
-   :keywords: m_obj
-
 .. index:: m_obj
 
 .. _check_page_name@m_obj:
@@ -64,9 +55,6 @@ is the name of the original input file that data appears in
 m_obj
 *****
 is the match object corresponding to *page_name*
-
-.. meta::
-   :keywords: data
 
 .. index:: data
 

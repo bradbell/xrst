@@ -5,7 +5,7 @@ suspend_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd, suspend, resume, commands
+   :keywords: suspend_cmd,suspend,and,resume,commands,syntax,purpose,example
 
 .. index:: suspend_cmd, suspend, resume, commands
 

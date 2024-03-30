@@ -5,7 +5,7 @@ check_input_files
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_input_files, check, expected, xrst, input, files, are, included
+   :keywords: check_input_files,check,that,expected,xrst,input,files,are,included,prototype,config_file,conf_dict,group_name,toc_file_set,file_list_in,file_list_out,file_list_warning
 
 .. index:: check_input_files, check, expected, xrst, input, files, are, included
 
@@ -16,9 +16,6 @@ Check That Expected xrst Input Files Are Included
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 62-76,186-191
    :language: py
 
-.. meta::
-   :keywords: config_file
-
 .. index:: config_file
 
 .. _check_input_files@config_file:
@@ -41,9 +35,6 @@ Prototype
 config_file
 ***********
 is the name of the configuration file.
-
-.. meta::
-   :keywords: conf_dict
 
 .. index:: conf_dict
 
@@ -53,9 +44,6 @@ conf_dict
 *********
 is a python dictionary representation of the configuration file.
 
-.. meta::
-   :keywords: group_name
-
 .. index:: group_name
 
 .. _check_input_files@group_name:
@@ -63,9 +51,6 @@ is a python dictionary representation of the configuration file.
 group_name
 **********
 is the name of the group that we are checking
-
-.. meta::
-   :keywords: toc_file_set
 
 .. index:: toc_file_set
 
@@ -78,9 +63,6 @@ at the root file for this group.
 A warning is printed if a file has a begin command for this group
 and it is not in *toc_file_set*.
 
-.. meta::
-   :keywords: file_list_in
-
 .. index:: file_list_in
 
 .. _check_input_files@file_list_in:
@@ -92,9 +74,6 @@ will be executed to determine the file list.
 Otherwise, *file_list_in* will be used as the output of the first
 successful command.
 
-.. meta::
-   :keywords: file_list_out
-
 .. index:: file_list_out
 
 .. _check_input_files@file_list_out:
@@ -103,9 +82,6 @@ file_list_out
 *************
 This is a value that can be used for *file_list_in* to avoid
 having to re-execute the input_files commands.
-
-.. meta::
-   :keywords: file_list_warning
 
 .. index:: file_list_warning
 

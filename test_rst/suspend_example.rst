@@ -5,7 +5,7 @@ suspend_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_example, suspend
+   :keywords: suspend_example,suspend,command,example,discussion,project_name,xrst_code,xrst_suspend,this,file
 
 .. index:: suspend_example, suspend
 
@@ -16,9 +16,6 @@ Suspend Command Example
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: discussion
 
 .. index:: discussion
 
@@ -33,9 +30,6 @@ was taken from the xrst configure file documentation.
 #. The python code that implements this default comes directly after
    and is not displayed in the documentation.
 
-.. meta::
-   :keywords: project_name
-
 .. index:: project_name
 
 .. _suspend_example@project_name:
@@ -49,9 +43,6 @@ The default for this table is
    :lines: 27-28
    :language: toml
 
-.. meta::
-   :keywords: xrst_code
-
 .. index:: xrst_code
 
 .. _suspend_example@xrst_code:
@@ -60,9 +51,6 @@ xrst_code
 *********
 The file below uses ``xrst_code`` to display the toml version
 of this default setting.
-
-.. meta::
-   :keywords: xrst_suspend
 
 .. index:: xrst_suspend
 

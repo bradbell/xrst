@@ -5,7 +5,7 @@ class_example
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: class_example, documenting, class
+   :keywords: class_example,example,documenting,a,class,syntax,prototype,discussion,test,this,file
 
 .. index:: class_example, documenting, class
 
@@ -30,9 +30,6 @@ Syntax
 | |tab| *var* * *other*
 | |tab| *var* / *other*
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _class_example@Prototype:
@@ -43,9 +40,6 @@ Prototype
 .. literalinclude:: ../../example/class.cpp
    :lines: 74-74,79-79,84-84,89-89,97-97,105-105,114-114
    :language: cpp
-
-.. meta::
-   :keywords: discussion
 
 .. index:: discussion
 
@@ -61,9 +55,6 @@ for the add, subtract, multiply and divide operations.
 Example
 *******
 The function :ref:`example_ad_double-name` is an example for using this class.
-
-.. meta::
-   :keywords: test
 
 .. index:: test
 

@@ -5,7 +5,7 @@ user-guide
 !!!!!!!!!!
 
 .. meta::
-   :keywords: user-guide, extract, sphinx, rst, files
+   :keywords: user-guide,extract,sphinx,rst,files,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
 
 .. index:: user-guide, extract, sphinx, rst, files
 
@@ -20,9 +20,6 @@ It includes automatic processing and commands that make sphinx easier to use.
 .. contents::
    :local:
 
-.. meta::
-   :keywords: git, repository
-
 .. index:: git, repository
 
 .. _user-guide@Git Repository:
@@ -30,9 +27,6 @@ It includes automatic processing and commands that make sphinx easier to use.
 Git Repository
 **************
 `<https://github.com/bradbell/xrst>`_
-
-.. meta::
-   :keywords: versions
 
 .. index:: versions
 
@@ -51,9 +45,6 @@ Versions
    *  - Most recent release of this stable version
       - `release-2024 <https://github.com/bradbell/xrst/archive/2024.0.0.tar.gz>`_
 
-.. meta::
-   :keywords: install, stable, version
-
 .. index:: install, stable, version
 
 .. _user-guide@Install Stable Version:
@@ -65,9 +56,6 @@ the year and only includes bug fixed after that.
 ::
 
    pip install xrst
-
-.. meta::
-   :keywords: install, testing, version
 
 .. index:: install, testing, version
 
@@ -83,9 +71,6 @@ by its most recent test version::
    pip install xrst
    pip uninstall -y xrst
    pip install --index-url https://test.pypi.org/simple/ xrst
-
-.. meta::
-   :keywords: install, from, source
 
 .. index:: install, from, source
 
@@ -108,9 +93,6 @@ using the following command:
 
    grep '^version *=' pyproject.toml
 
-.. meta::
-   :keywords: dependencies
-
 .. index:: dependencies
 
 .. _user-guide@Dependencies:
@@ -124,9 +106,6 @@ The following is a list of the projects that xrst depends on
    :lines: 30-35
    :language: toml
 
-.. meta::
-   :keywords: run, program
-
 .. index:: run, program
 
 .. _user-guide@Run Program:
@@ -134,9 +113,6 @@ The following is a list of the projects that xrst depends on
 Run Program
 ***********
 :ref:`run_xrst-title`
-
-.. meta::
-   :keywords: contents
 
 .. index:: contents
 

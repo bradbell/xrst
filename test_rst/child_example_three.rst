@@ -5,7 +5,7 @@ child_example_three
 !!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: child_example_three, third, child, page
+   :keywords: child_example_three,third,child,example,page,links,this,file
 
 .. index:: child_example_three, third, child, page
 
@@ -16,9 +16,6 @@ Third Child Example Page
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: links
 
 .. index:: links
 

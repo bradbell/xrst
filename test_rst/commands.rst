@@ -5,7 +5,7 @@ commands
 !!!!!!!!
 
 .. meta::
-   :keywords: commands, commands
+   :keywords: commands
 
 .. index:: commands, commands
 

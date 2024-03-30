@@ -5,7 +5,7 @@ auto_indent
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: auto_indent, automatic, indentation
+   :keywords: auto_indent,automatic,indentation,prototype,data,file_name,page_name
 
 .. index:: auto_indent, automatic, indentation
 
@@ -20,9 +20,6 @@ Lines that only have spaces and tabs are not included in this calculation.
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _auto_indent@Prototype:
@@ -34,9 +31,6 @@ Prototype
    :lines: 52-55,100-101
    :language: py
 
-.. meta::
-   :keywords: data
-
 .. index:: data
 
 .. _auto_indent@data:
@@ -47,9 +41,6 @@ is the data we are computing the indentation for.
 The text before the first new_line does not matter.
 If you want to include this text, add a newline at the beginning of *data*.
 
-.. meta::
-   :keywords: file_name
-
 .. index:: file_name
 
 .. _auto_indent@file_name:
@@ -59,9 +50,6 @@ file_name
 used for error reporting when *data* mixes spaces and tabs in
 the indentation.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _auto_indent@page_name:
@@ -70,9 +58,6 @@ page_name
 *********
 used for error reporting when *data* mixes spaces and tabs in
 the indentation.
-
-.. meta::
-   :keywords: indentation
 
 .. index:: indentation
 

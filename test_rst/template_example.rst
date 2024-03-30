@@ -5,7 +5,7 @@ template_example
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_example, template
+   :keywords: template_example,template,command,example,xrst_template,this,file
 
 .. index:: template_example, template
 
@@ -16,9 +16,6 @@ Template Command Example
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: xrst_template
 
 .. index:: xrst_template
 

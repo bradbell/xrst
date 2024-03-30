@@ -5,7 +5,7 @@ code_cmd
 !!!!!!!!
 
 .. meta::
-   :keywords: code_cmd, code
+   :keywords: code_cmd,code,command,syntax,purpose,code-block,requirements,language,rest,of,line,spell,checking,example
 
 .. index:: code_cmd, code
 
@@ -31,9 +31,6 @@ Purpose
 A code block, directly below in the current input file, begins (ends) with
 a code command that contains *language* (not containing *language*).
 
-.. meta::
-   :keywords: code-block
-
 .. index:: code-block
 
 .. _code_cmd@code-block:
@@ -57,9 +54,6 @@ The xrst code command has the following difference:
    begin and end sections of code.
 #. The source code does not need to be surrounded by empty lines.
 
-.. meta::
-   :keywords: requirements
-
 .. index:: requirements
 
 .. _code_cmd@Requirements:
@@ -70,9 +64,6 @@ Each code section ends with
 a line containing the second version of the command; i.e., ``{xrst_code}``.
 Hence there must be an even number of code commands.
 
-.. meta::
-   :keywords: language
-
 .. index:: language
 
 .. _code_cmd@language:
@@ -81,9 +72,6 @@ language
 ********
 A *language* is a non-empty sequence of lower case letters.
 It determines the language for highlighting the code block.
-
-.. meta::
-   :keywords: rest, line
 
 .. index:: rest, line
 
@@ -95,9 +83,6 @@ Other characters on the same line as a code commands
 are not included in the xrst output.
 This enables one to begin or end a comment block
 without having the comment characters in the xrst output.
-
-.. meta::
-   :keywords: spell, checking
 
 .. index:: spell, checking
 

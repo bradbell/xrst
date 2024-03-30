@@ -5,7 +5,7 @@ begin_cmd
 !!!!!!!!!
 
 .. meta::
-   :keywords: begin_cmd, begin, end, commands
+   :keywords: begin_cmd,begin,and,end,commands,syntax,page,page_name,group_name,default,group,output,file,parent
 
 .. index:: begin_cmd, begin, end, commands
 
@@ -25,9 +25,6 @@ Syntax
 - ``{xrst_begin``        *page_name* *group_name* ``}``
 - ``{xrst_end``          *page_name* ``}``
 
-.. meta::
-   :keywords: page
-
 .. index:: page
 
 .. _begin_cmd@Page:
@@ -36,9 +33,6 @@ Page
 ****
 The start (end) of a page of the input file is indicated by a
 begin (end) command.
-
-.. meta::
-   :keywords: page_name
 
 .. index:: page_name
 
@@ -58,9 +52,6 @@ A *page_name* must satisfy the following conditions:
 A link is included in the index under the page name to the page.
 The page name is also added to the html keyword meta data.
 
-.. meta::
-   :keywords: group_name
-
 .. index:: group_name
 
 .. _begin_cmd@group_name:
@@ -71,9 +62,6 @@ The *group_name* can be empty or a sequence of the letters a-z.
 This is the group that this page belongs to; see
 :ref:`run_xrst@group_list`.
 
-.. meta::
-   :keywords: default, group
-
 .. index:: default, group
 
 .. _begin_cmd@group_name@Default Group:
@@ -82,9 +70,6 @@ Default Group
 =============
 The default value for *group_name* is ``default``; i.e.,
 if *group_name* is the empty string, this page is part of the default group.
-
-.. meta::
-   :keywords: output
 
 .. index:: output
 
@@ -97,9 +82,6 @@ The output file corresponding to *page_name* is
    *rst_directory*\ /\ *page_name*\ /``.rst``
 
 see :ref:`config_file@directory@rst_directory` .
-
-.. meta::
-   :keywords: parent, page
 
 .. index:: parent, page
 

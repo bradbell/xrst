@@ -5,7 +5,7 @@ get_conf_dict
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: get_conf_dict, get, configuration, dictionary
+   :keywords: get_conf_dict,get,configuration,dictionary,prototype,config_file,conf_dict
 
 .. index:: get_conf_dict, get, configuration, dictionary
 
@@ -20,9 +20,6 @@ so it cannot use the xrst :ref:`system_exit-name` .
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _get_conf_dict@Prototype:
@@ -34,9 +31,6 @@ Prototype
    :lines: 504-506,697-699
    :language: py
 
-.. meta::
-   :keywords: config_file
-
 .. index:: config_file
 
 .. _get_conf_dict@config_file:
@@ -45,9 +39,6 @@ config_file
 ***********
 is the location of the :ref:`run_xrst@config_file` specified on
 the xrst command line.
-
-.. meta::
-   :keywords: conf_dict
 
 .. index:: conf_dict
 

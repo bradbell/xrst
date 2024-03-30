@@ -5,7 +5,7 @@ process_headings
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: process_headings, add, labels, index, entries, headings
+   :keywords: process_headings,add,labels,and,index,entries,for,headings,prototype,check_headings,conf_dict,local_toc,data_in,page_file,page_name,not_in_index_list,data_out,page_title,pseudo_heading,keywords
 
 .. index:: process_headings, add, labels, index, entries, headings
 
@@ -17,9 +17,6 @@ Add labels and index entries for headings
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _process_headings@Prototype:
@@ -28,11 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 272-287,590-597
+   :lines: 274-289,600-607
    :language: py
-
-.. meta::
-   :keywords: check_headings
 
 .. index:: check_headings
 
@@ -46,9 +40,6 @@ This should be True on the first call and false on the second.
 Two passes are required because *data_out* does not change on the
 first pass so that all the match objects can be used for error messaging.
 
-.. meta::
-   :keywords: conf_dict
-
 .. index:: conf_dict
 
 .. _process_headings@conf_dict:
@@ -56,9 +47,6 @@ first pass so that all the match objects can be used for error messaging.
 conf_dict
 *********
 is a python dictionary representation of the configuration file.
-
-.. meta::
-   :keywords: local_toc
 
 .. index:: local_toc
 
@@ -68,9 +56,6 @@ local_toc
 *********
 is the xrst command line local_toc setting.
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _process_headings@data_in:
@@ -78,9 +63,6 @@ is the xrst command line local_toc setting.
 data_in
 *******
 contains the data for a page before the headings are processed.
-
-.. meta::
-   :keywords: page_file
 
 .. index:: page_file
 
@@ -91,9 +73,6 @@ page_file
 name of the file that contains the begin command for this page.
 This is only used for error reporting.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _process_headings@page_name:
@@ -101,9 +80,6 @@ This is only used for error reporting.
 page_name
 *********
 is the name of this page.
-
-.. meta::
-   :keywords: not_in_index_list
 
 .. index:: not_in_index_list
 
@@ -115,9 +91,6 @@ is a list of compiled regular expressions. If pattern is in this list,
 *word* is a lower case version of a word in the heading text, and
 pattern.fullmatch( *word* ) returns a match, an index entry is not
 generated for word.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 
@@ -133,9 +106,6 @@ is a copy of data_in with the following extra command added:
     first heading for this page; i.e. its title.
     This is makes it easy to add the page number to the heading text.
 
-.. meta::
-   :keywords: page_title
-
 .. index:: page_title
 
 .. _process_headings@page_title:
@@ -144,9 +114,6 @@ page_title
 **********
 This is the heading text in the first heading for this page.
 There can only be one heading at this level.
-
-.. meta::
-   :keywords: pseudo_heading
 
 .. index:: pseudo_heading
 
@@ -162,14 +129,13 @@ It has three lines each terminated by a newline:
  2. heading text line for this page title
  3. an underline line
 
-.. meta::
-   :keywords: keywords
-
 .. index:: keywords
 
 .. _process_headings@keywords:
 
 keywords
 ********
-This is a space separated list of all the keywords that are in the index
-for this page.
+This is a space separated  list, of the lower case words,
+for all the words that are in the # title and the headings for this page.
+This is the same as the index words for this page minus the words that
+match *not_in_index_list* .

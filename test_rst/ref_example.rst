@@ -5,7 +5,7 @@ ref_example
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: ref_example, sphinx, ref, role
+   :keywords: ref_example,sphinx,ref,role,example,a,level,one,long,heading,two,three,four,links,newlines,in,:ref:,targets,this,file
 
 .. index:: ref_example, sphinx, ref, role
 
@@ -20,9 +20,6 @@ targets under :ref:`ref_example@Links` below.
 .. contents::
    :local:
 
-.. meta::
-   :keywords: level, one, long, heading
-
 .. index:: level, one, long, heading
 
 .. _ref_example@A Level One Long Heading:
@@ -30,9 +27,6 @@ targets under :ref:`ref_example@Links` below.
 A Level One Long Heading
 ************************
 Text at level one.
-
-.. meta::
-   :keywords: level, two, long, heading
 
 .. index:: level, two, long, heading
 
@@ -42,9 +36,6 @@ A Level Two Long Heading
 ========================
 Text at level two.
 
-.. meta::
-   :keywords: level, three, long, heading
-
 .. index:: level, three, long, heading
 
 .. _ref_example@A Level One Long Heading@A Level Two Long Heading@A Level Three Long Heading:
@@ -53,9 +44,6 @@ A Level Three Long Heading
 --------------------------
 Text at level three.
 
-.. meta::
-   :keywords: level, four, long, heading
-
 .. index:: level, four, long, heading
 
 .. _ref_example@A Level One Long Heading@A Level Two Long Heading@A Level Three Long Heading@A Level Four Long Heading:
@@ -63,9 +51,6 @@ Text at level three.
 A Level Four Long Heading
 .........................
 Text at level four.
-
-.. meta::
-   :keywords: links
 
 .. index:: links
 
@@ -79,9 +64,6 @@ The links below have newlines in their targets:
 #. :ref:`level two<ref_example@A Level One Long Heading@A Level Two Long Heading>`
 #. :ref:`level three<ref_example@A Level One Long Heading@A Level Two Long Heading@A Level Three Long Heading>`
 #. :ref:`ref_example@A Level One Long Heading@A Level Two Long Heading@A Level Three Long Heading@A Level Four Long Heading`
-
-.. meta::
-   :keywords: newlines, in, sphinx, :ref:, targets
 
 .. index:: newlines, in, sphinx, :ref:, targets
 

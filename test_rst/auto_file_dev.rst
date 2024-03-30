@@ -5,7 +5,7 @@ auto_file_dev
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: auto_file_dev, create, automatically, generated, files
+   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py
 
 .. index:: auto_file_dev, create, automatically, generated, files
 
@@ -17,9 +17,6 @@ Create the automatically generated files
 .. contents::
    :local:
 
-.. meta::
-   :keywords: conf_dict
-
 .. index:: conf_dict
 
 .. _auto_file_dev@conf_dict:
@@ -28,9 +25,6 @@ conf_dict
 *********
 is a python dictionary representation of the configuration file.
 
-.. meta::
-   :keywords: rst_dir
-
 .. index:: rst_dir
 
 .. _auto_file_dev@conf_dict@rst_dir:
@@ -38,9 +32,6 @@ is a python dictionary representation of the configuration file.
 rst_dir
 =======
 we use *rst_dir* to denote *conf_dict* ['directory']['rst_directory'] .
-
-.. meta::
-   :keywords: tmp_dir
 
 .. index:: tmp_dir
 
@@ -52,9 +43,6 @@ we use *tmp_dir* to denote *rst_dir*\ /tmp .
 This is the directory where xrst creates a temporary copy of *rst_dir* .
 These files are also automatically generated.
 
-.. meta::
-   :keywords: html_theme
-
 .. index:: html_theme
 
 .. _auto_file_dev@html_theme:
@@ -63,9 +51,6 @@ html_theme
 **********
 The html_theme as on the xrst command line.
 
-.. meta::
-   :keywords: target
-
 .. index:: target
 
 .. _auto_file_dev@target:
@@ -73,9 +58,6 @@ The html_theme as on the xrst command line.
 target
 ******
 is html or tex
-
-.. meta::
-   :keywords: all_page_info
 
 .. index:: all_page_info
 
@@ -95,9 +77,6 @@ with the following key, value pairs (all the keys are strings):
     in_parent_file, (bool) is this page in same input file as its parent.
     keywords, (str) space separated list of index entries for this page.
 
-.. meta::
-   :keywords: root_page_list
-
 .. index:: root_page_list
 
 .. _auto_file_dev@root_page_list:
@@ -106,9 +85,6 @@ root_page_list
 **************
 is a list of the root page names (one for each group) in the order
 they will appear in the table of contents.
-
-.. meta::
-   :keywords: tmp_dir/xrst_contents.rst
 
 .. index:: tmp_dir/xrst_contents.rst
 
@@ -120,9 +96,6 @@ This file creates is the table of contents for the documentation.
 It has the label xrst_contents which can be used to link
 to this page.
 
-.. meta::
-   :keywords: tmp_dir/xrst_index.rst
-
 .. index:: tmp_dir/xrst_index.rst
 
 .. _auto_file_dev@tmp_dir/xrst_index.rst:
@@ -131,9 +104,6 @@ tmp_dir/xrst_index.rst
 **********************
 This file just contains a link to the genindex.rst file.
 It is (is not) included if target is html (tex).
-
-.. meta::
-   :keywords: tmp_dir/xrst_search.rst
 
 .. index:: tmp_dir/xrst_search.rst
 
@@ -144,9 +114,6 @@ tmp_dir/xrst_search.rst
 This file contains the xrst search utility.
 It is (is not) included if target is html (tex).
 
-.. meta::
-   :keywords: tmp_dir/xrst_search.js
-
 .. index:: tmp_dir/xrst_search.js
 
 .. _auto_file_dev@tmp_dir/xrst_search.js:
@@ -156,9 +123,6 @@ tmp_dir/xrst_search.js
 This file contains the java script used by xrst_search.rst.
 It is (is not) included if target is html (tex).
 
-.. meta::
-   :keywords: tmp_dir/xrst_root_doc.rst
-
 .. index:: tmp_dir/xrst_root_doc.rst
 
 .. _auto_file_dev@tmp_dir/xrst_root_doc.rst:
@@ -166,9 +130,6 @@ It is (is not) included if target is html (tex).
 tmp_dir/xrst_root_doc.rst
 *************************
 This is the root level in the sphinx documentation tree.
-
-.. meta::
-   :keywords: rst_dir/_sources
 
 .. index:: rst_dir/_sources
 
@@ -182,9 +143,6 @@ to create the rst files that sphinx used as sources.
 This is (is not) included if target is html (tex).
 If target is html, this sub-directory must exist and should be empty,
 before calling auto_file.
-
-.. meta::
-   :keywords: rst_dir/conf.py
 
 .. index:: rst_dir/conf.py
 

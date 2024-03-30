@@ -5,7 +5,7 @@ release_notes
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: release_notes, xrst, release, notes, year
+   :keywords: release_notes,xrst,release,notes,by,year
 
 .. index:: release_notes, xrst, release, notes, year
 

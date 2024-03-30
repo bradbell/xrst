@@ -5,7 +5,7 @@ indent_cmd
 !!!!!!!!!!
 
 .. meta::
-   :keywords: indent_cmd, indent
+   :keywords: indent_cmd,indent,command,syntax,discussion,indentation,automatic,comment,character,example
 
 .. index:: indent_cmd, indent
 
@@ -22,9 +22,6 @@ Indent Command
 Syntax
 ******
 *indentation* ``{xrst_indent}``
-
-.. meta::
-   :keywords: discussion
 
 .. index:: discussion
 
@@ -43,9 +40,6 @@ Discussion
 #. If there is no indent command in a page,
    the indentation for the page is computed automatically.
 
-.. meta::
-   :keywords: indentation
-
 .. index:: indentation
 
 .. _indent_cmd@indentation:
@@ -55,9 +49,6 @@ indentation
 This is the sequence of spaces or a sequence of tabs that
 come before ``{xrst_indent}`` .
 It cannot mix both spaces and tabs.
-
-.. meta::
-   :keywords: automatic, indentation
 
 .. index:: automatic, indentation
 
@@ -71,9 +62,6 @@ The number of spaces (or tabs) before
 all of the xrst documentation for a page
 (not counting lines with just spaces or tabs)
 is used for the indentation for that page.
-
-.. meta::
-   :keywords: comment, character
 
 .. index:: comment, character
 

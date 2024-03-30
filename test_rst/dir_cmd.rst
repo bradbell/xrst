@@ -5,7 +5,7 @@ dir_cmd
 !!!!!!!
 
 .. meta::
-   :keywords: dir_cmd, converting, sphinx, names
+   :keywords: dir_cmd,converting,sphinx,command,file,names,syntax,purpose,file_name,example
 
 .. index:: dir_cmd, converting, sphinx, names
 
@@ -32,9 +32,6 @@ relative to the :ref:`config_file@directory@rst_directory` .
 The xrst dir command converts a file name relative to the
 :ref:`config_file@directory@project_directory` to be relative to the
 :ref:`config_file@directory@rst_directory` .
-
-.. meta::
-   :keywords: file_name
 
 .. index:: file_name
 

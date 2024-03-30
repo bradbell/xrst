@@ -5,7 +5,7 @@ spell_cmd
 !!!!!!!!!
 
 .. meta::
-   :keywords: spell_cmd, spell
+   :keywords: spell_cmd,spell,command,syntax,spell_off,spell_on,words,special,project_dictionary,page_name,capital,letters,double,example
 
 .. index:: spell_cmd, spell
 
@@ -28,9 +28,6 @@ Syntax
 The lines containing the ``{`` ( ``}`` ) character
 must have nothing but white space before ( after )  it.
 
-.. meta::
-   :keywords: spell_off
-
 .. index:: spell_off
 
 .. _spell_cmd@spell_off:
@@ -39,9 +36,6 @@ spell_off
 *********
 By default xrst does spell checking.
 You can turn spell checking off using this command.
-
-.. meta::
-   :keywords: spell_on
 
 .. index:: spell_on
 
@@ -52,9 +46,6 @@ spell_on
 If spell checking has been turned off,
 you can turn it back on using this command.
 
-.. meta::
-   :keywords: spell
-
 .. index:: spell
 
 .. _spell_cmd@spell:
@@ -64,9 +55,6 @@ spell
 You can specify special words to include as correct spelling for
 this page using this command.
 
-.. meta::
-   :keywords: words
-
 .. index:: words
 
 .. _spell_cmd@Words:
@@ -75,9 +63,6 @@ Words
 *****
 Each word, that is checked for spelling, is a sequence of letters.
 Upper case letters start a new word (even when preceded by a letter).
-
-.. meta::
-   :keywords: special, words
 
 .. index:: special, words
 
@@ -98,9 +83,6 @@ Latex commands should not be in the special word list because
 words that have a backslash directly before them
 are not include in spell checking.
 
-.. meta::
-   :keywords: project_dictionary
-
 .. index:: project_dictionary
 
 .. _spell_cmd@project_dictionary:
@@ -113,9 +95,6 @@ are considered correct spellings for all pages.
 If multiple people are working on a project using different spell checkers,
 the words that are correct in one spell checker and not another should
 be included in the project_dictionary.
-
-.. meta::
-   :keywords: page_name
 
 .. index:: page_name
 
@@ -133,9 +112,6 @@ are considered correct spelling for that page:
 Note that *group_name* can be empty which corresponds to the default group;
 see :ref:`begin_cmd-name` .
 
-.. meta::
-   :keywords: capital, letters
-
 .. index:: capital, letters
 
 .. _spell_cmd@Capital Letters:
@@ -148,9 +124,6 @@ Each capital letter starts a new word; e.g., `CamelCase` is considered to
 be the two words 'camel' and 'case'.
 Single letter words are always correct and not included in the
 special word list; e.g., the word list entry ``CppAD`` is the same as ``Cpp``.
-
-.. meta::
-   :keywords: double, words
 
 .. index:: double, words
 

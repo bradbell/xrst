@@ -5,7 +5,7 @@ ref_cmd
 !!!!!!!
 
 .. meta::
-   :keywords: ref_cmd, allow, multiple, lines, in, sphinx, ref, role
+   :keywords: ref_cmd,allow,multiple,lines,in,sphinx,ref,role,syntax,purpose,new,example
 
 .. index:: ref_cmd, allow, multiple, lines, in, sphinx, ref, role
 
@@ -34,9 +34,6 @@ on multiple lines.
 This makes the xrst input more readable
 when the headings corresponding to the target are long; see
 :ref:`heading_links-name` .
-
-.. meta::
-   :keywords: new, lines
 
 .. index:: new, lines
 

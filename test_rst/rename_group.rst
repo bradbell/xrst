@@ -5,7 +5,7 @@ rename_group
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: rename_group, rename, subset, group
+   :keywords: rename_group,rename,a,subset,of,group,tmp_dir,old_group_name,new_group_name,spell.toml
 
 .. index:: rename_group, rename, subset, group
 
@@ -17,9 +17,6 @@ Rename a Subset of a Group
 .. contents::
    :local:
 
-.. meta::
-   :keywords: tmp_dir
-
 .. index:: tmp_dir
 
 .. _rename_group@tmp_dir:
@@ -27,9 +24,6 @@ Rename a Subset of a Group
 tmp_dir
 *******
 is the directory where spell.toml is located
-
-.. meta::
-   :keywords: old_group_name
 
 .. index:: old_group_name
 
@@ -39,9 +33,6 @@ old_group_name
 **************
 is the old name that we are replacing in the xrst begin commands.
 
-.. meta::
-   :keywords: new_group_name
-
 .. index:: new_group_name
 
 .. _rename_group@new_group_name:
@@ -49,9 +40,6 @@ is the old name that we are replacing in the xrst begin commands.
 new_group_name
 **************
 is the new name that we are using in the xrst begin commands.
-
-.. meta::
-   :keywords: spell.toml
 
 .. index:: spell.toml
 

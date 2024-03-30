@@ -5,7 +5,7 @@ table_of_contents
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: table_of_contents, create, table, contents, modify, titles
+   :keywords: table_of_contents,create,the,table,of,contents,and,modify,titles,prototype,tmp_dir,target,tex,html,all_page_info,root_page_list,content
 
 .. index:: table_of_contents, create, table, contents, modify, titles
 
@@ -16,9 +16,6 @@ Create the table of contents and Modify Titles
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 213-222,253-255
    :language: py
 
-.. meta::
-   :keywords: tmp_dir
-
 .. index:: tmp_dir
 
 .. _table_of_contents@tmp_dir:
@@ -42,9 +36,6 @@ tmp_dir
 *******
 is the temporary directory where the temporary rst files are written.
 
-.. meta::
-   :keywords: target
-
 .. index:: target
 
 .. _table_of_contents@target:
@@ -52,9 +43,6 @@ is the temporary directory where the temporary rst files are written.
 target
 ******
 is either 'html' or 'tex'.
-
-.. meta::
-   :keywords: tex
 
 .. index:: tex
 
@@ -68,9 +56,6 @@ is removed and the page number followed by the page name is added
 at the front of the title for the page.
 The page number includes the counter for each level.
 
-.. meta::
-   :keywords: html
-
 .. index:: html
 
 .. _table_of_contents@target@html:
@@ -79,9 +64,6 @@ html
 ====
 If target is 'html',
 \\n\{xrst\@before_title} is removed without other changes.
-
-.. meta::
-   :keywords: all_page_info
 
 .. index:: all_page_info
 
@@ -101,9 +83,6 @@ with the following key, value pairs (all the keys are strings):
     parent_page, index in all_page_info for the parent of this page, int
     in_parent_file, is this page in same input file as its parent, bool
 
-.. meta::
-   :keywords: root_page_list
-
 .. index:: root_page_list
 
 .. _table_of_contents@root_page_list:
@@ -113,9 +92,6 @@ root_page_list
 is a list of strings containing the root page name for each group.
 The order of the root page names determine the order of the groups
 int the table of contents.
-
-.. meta::
-   :keywords: content
 
 .. index:: content
 

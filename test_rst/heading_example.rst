@@ -5,7 +5,7 @@ heading_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: heading_example, heading, link
+   :keywords: heading_example,heading,and,link,example,level,one,two,another,two\_,x,links,linking,headings,using,:ref:,this,file
 
 .. index:: heading_example, heading, link
 
@@ -29,9 +29,6 @@ and linking text is::
 .. contents::
    :local:
 
-.. meta::
-   :keywords: level, one
-
 .. index:: level, one
 
 .. _heading_example@Level One:
@@ -39,9 +36,6 @@ and linking text is::
 Level One
 *********
 The label for this heading is ``heading_example@Level One``.
-
-.. meta::
-   :keywords: level, two
 
 .. index:: level, two
 
@@ -51,9 +45,6 @@ Level Two
 =========
 The label for this heading is ``heading_example@Level One@Level Two``.
 
-.. meta::
-   :keywords: another, level, one
-
 .. index:: another, level, one
 
 .. _heading_example@Another Level One:
@@ -61,9 +52,6 @@ The label for this heading is ``heading_example@Level One@Level Two``.
 Another Level One
 *****************
 The label for this heading is ``heading_example@Another Level One``.
-
-.. meta::
-   :keywords: level, two\_
 
 .. index:: level, two\_
 
@@ -78,9 +66,6 @@ from being interpreted as a link.
 Also note that the backslash does not appear in the
 display of the heading or in the corresponding label.
 
-.. meta::
-   :keywords: x
-
 .. index:: x
 
 .. _heading_example@Another Level One@x:
@@ -90,9 +75,6 @@ x
 A heading can have just one character.
 The label for this heading is
 ``heading_example@Another Level One@x``.
-
-.. meta::
-   :keywords: links
 
 .. index:: links
 
@@ -111,9 +93,6 @@ is included at the beginning of the target for the link:
 #. :ref:`heading_example@Another Level One`
 #. :ref:`heading_example@Another Level One@Level Two_`
 #. :ref:`heading_example@Another Level One@x`
-
-.. meta::
-   :keywords: linking, headings, using, :ref:
 
 .. index:: linking, headings, using, :ref:
 

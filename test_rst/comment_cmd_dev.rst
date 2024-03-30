@@ -5,7 +5,7 @@ comment_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_cmd_dev, remove, all, comment, commands
+   :keywords: comment_cmd_dev,remove,all,comment,commands,prototype,data_in,data_out
 
 .. index:: comment_cmd_dev, remove, all, comment, commands
 
@@ -16,9 +16,6 @@ Remove all comment commands
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 58-59,100-102
    :language: py
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _comment_cmd_dev@data_in:
@@ -41,9 +35,6 @@ Prototype
 data_in
 *******
 is the data for this page.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 

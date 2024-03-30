@@ -5,7 +5,7 @@ automatic
 !!!!!!!!!
 
 .. meta::
-   :keywords: automatic, automatic, processing
+   :keywords: automatic,processing
 
 .. index:: automatic, automatic, processing
 

@@ -5,7 +5,7 @@ dir_example
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: dir_example, dir
+   :keywords: dir_example,dir,command,example,factorial,square,tangent,xrst_literal,this,file
 
 .. index:: dir_example, dir
 
@@ -18,9 +18,6 @@ This example is similar to the :ref:`literal_example-name` .
 .. contents::
    :local:
 
-.. meta::
-   :keywords: factorial
-
 .. index:: factorial
 
 .. _dir_example@factorial:
@@ -30,9 +27,6 @@ factorial
 .. literalinclude:: ../../example/dir.cpp
    :start-after: // BEGIN_FACTORIAL
    :end-before:  // END_FACTORIAL
-
-.. meta::
-   :keywords: square
 
 .. index:: square
 
@@ -44,9 +38,6 @@ square
    :start-after: // BEGIN_SQUARE
    :end-before:  // END_SQUARE
 
-.. meta::
-   :keywords: tangent
-
 .. index:: tangent
 
 .. _dir_example@tangent:
@@ -57,9 +48,6 @@ tangent
    :start-after: // BEGIN_TANGENT
    :end-before:  // END_TANGENT
    :literal:
-
-.. meta::
-   :keywords: xrst_literal
 
 .. index:: xrst_literal
 

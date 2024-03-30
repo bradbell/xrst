@@ -5,7 +5,7 @@ check_syntax_error
 !!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_syntax_error, check, xrst, removed
+   :keywords: check_syntax_error,check,that,an,xrst,command,has,been,removed,command_name,data,file_name,page_name
 
 .. index:: check_syntax_error, check, xrst, removed
 
@@ -16,9 +16,6 @@ Check that an xrst command has been removed
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: command_name
 
 .. index:: command_name
 
@@ -31,9 +28,6 @@ constitute a match for this command
 
 - ``[^\\]{xrst_`` *command_name* ``[^z-a]``
 
-.. meta::
-   :keywords: data
-
 .. index:: data
 
 .. _check_syntax_error@data:
@@ -42,9 +36,6 @@ data
 ****
 is the data for this page.
 
-.. meta::
-   :keywords: file_name
-
 .. index:: file_name
 
 .. _check_syntax_error@file_name:
@@ -52,9 +43,6 @@ is the data for this page.
 file_name
 *********
 is the input that this page appears in (used for error reporting).
-
-.. meta::
-   :keywords: page_name
 
 .. index:: page_name
 

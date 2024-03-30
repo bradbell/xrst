@@ -5,7 +5,7 @@ child_example_two
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: child_example_two, second, child, page
+   :keywords: child_example_two,second,child,example,page,links,this,file
 
 .. index:: child_example_two, second, child, page
 
@@ -16,9 +16,6 @@ Second Child Example Page
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: links
 
 .. index:: links
 

@@ -5,7 +5,7 @@ template_cmd
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_cmd, template
+   :keywords: template_cmd,template,command,syntax,purpose,rst,include,white,space,separator,template_file,match,replace,end,example
 
 .. index:: template_cmd, template
 
@@ -34,9 +34,6 @@ Purpose
 *******
 The template command enables use one xrst input file in multiple pages.
 
-.. meta::
-   :keywords: rst, include
-
 .. index:: rst, include
 
 .. _template_cmd@Rst Include:
@@ -61,9 +58,6 @@ The template command differs form the include directive in the following ways:
 #. xrst commands in *template_file* ( *file_name* )
    will get interpreted (will not get interpreted).
 
-.. meta::
-   :keywords: white, space
-
 .. index:: white, space
 
 .. _template_cmd@White Space:
@@ -72,9 +66,6 @@ White Space
 ***********
 The newline character separates the lines of input above
 and excluded from white space in the discussion below..
-
-.. meta::
-   :keywords: separator
 
 .. index:: separator
 
@@ -85,9 +76,6 @@ separator
 The *separator* argument is a single character that separates
 matches from their replacements.
 Leading and trailing white space around *separator* is ignored.
-
-.. meta::
-   :keywords: template_file
 
 .. index:: template_file
 
@@ -108,9 +96,6 @@ any of the following xrst commands in a template expansion:
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template <template_cmd-name>` .
 
-.. meta::
-   :keywords: match
-
 .. index:: match
 
 .. _template_cmd@match:
@@ -120,9 +105,6 @@ match
 Each occurrence of a match in the template file gets replaced.
 Leading and trailing white space around *match* is ignored.
 
-.. meta::
-   :keywords: replace
-
 .. index:: replace
 
 .. _template_cmd@replace:
@@ -131,9 +113,6 @@ replace
 *******
 For each match, the corresponding replacement is used in its place.
 Leading and trailing white space around *replace* is ignored.
-
-.. meta::
-   :keywords: end
 
 .. index:: end
 

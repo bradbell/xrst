@@ -5,7 +5,7 @@ example_expansion_one
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_one, first, expansion
+   :keywords: example_expansion_one,first,expansion,number,spelling,this,template,file,usage
 
 .. index:: example_expansion_one, first, expansion
 
@@ -17,9 +17,6 @@ First Expansion
 .. contents::
    :local:
 
-.. meta::
-   :keywords: expansion, number
-
 .. index:: expansion, number
 
 .. _example_expansion_one@Expansion Number:
@@ -28,9 +25,6 @@ Expansion Number
 ****************
 This is expansion number one of the template file
 ``example/template_file.xrst`` .
-
-.. meta::
-   :keywords: spelling
 
 .. index:: spelling
 
@@ -48,9 +42,6 @@ or double words, by
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
 
-.. meta::
-   :keywords: template
-
 .. index:: template
 
 .. _example_expansion_one@This Template File:
@@ -60,9 +51,6 @@ This Template File
 
 .. literalinclude:: ../../example/template_file.xrst
    :language: rst
-
-.. meta::
-   :keywords: template, usage
 
 .. index:: template, usage
 

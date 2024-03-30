@@ -5,7 +5,7 @@ add_line_numbers
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: add_line_numbers, add, line, numbers, data
+   :keywords: add_line_numbers,add,line,numbers,to,file,data,prototype,data_in,file_in,data_out
 
 .. index:: add_line_numbers, add, line, numbers, data
 
@@ -19,9 +19,6 @@ Add line numbers to a string in a way that is useful for reporting errors
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _add_line_numbers@Prototype:
@@ -33,9 +30,6 @@ Prototype
    :lines: 52-54,121-123
    :language: py
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _add_line_numbers@data_in:
@@ -46,9 +40,6 @@ The original string.  An empty line is a line with just spaces or tabs.
 line_number is the number of newlines before a line plus one; i.e.,
 the first line is number one.
 
-.. meta::
-   :keywords: file_in
-
 .. index:: file_in
 
 .. _add_line_numbers@file_in:
@@ -56,9 +47,6 @@ the first line is number one.
 file_in
 *******
 is the file corresponding to data_in (used for error reporting).
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 

@@ -5,7 +5,7 @@ comment_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_example, comment
+   :keywords: comment_example,comment,command,example,xrst,comments,rst,factorial,xrst_comment,this,file
 
 .. index:: comment_example, comment
 
@@ -17,9 +17,6 @@ Comment Command Example
 .. contents::
    :local:
 
-.. meta::
-   :keywords: xrst, comments
-
 .. index:: xrst, comments
 
 .. _comment_example@xrst Comments:
@@ -29,9 +26,6 @@ xrst Comments
 This sentence has an inline xrst comment .
 This sentence has a multiple line xrst comment directly after it.
 The multiple line xrst comment is directly before this sentence.
-
-.. meta::
-   :keywords: rst, comments
 
 .. index:: rst, comments
 
@@ -46,9 +40,6 @@ This sentence has a multiple line rst comment directly after it.
 
 The multiple line rst comment is directly before this sentence.
 
-.. meta::
-   :keywords: factorial
-
 .. index:: factorial
 
 .. _comment_example@Factorial:
@@ -59,9 +50,6 @@ Factorial
 .. literalinclude:: ../../example/comment.r
    :lines: 33-38
    :language: r
-
-.. meta::
-   :keywords: xrst_comment
 
 .. index:: xrst_comment
 

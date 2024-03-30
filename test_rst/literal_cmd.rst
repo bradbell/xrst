@@ -5,7 +5,7 @@ literal_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: literal_cmd, literal
+   :keywords: literal_cmd,literal,command,syntax,purpose,literalinclude,tokens,separator,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
 
 .. index:: literal_cmd, literal
 
@@ -46,9 +46,6 @@ Purpose
 Literal text, from any where in any file,
 can be included using this command.
 
-.. meta::
-   :keywords: literalinclude
-
 .. index:: literalinclude
 
 .. _literal_cmd@literalinclude:
@@ -76,9 +73,6 @@ The xrst literal command has the following difference:
    the start after and end before patterns. (These automatically get converted
    to line numbers in a sphinx literalinclude directive.)
 
-.. meta::
-   :keywords: tokens
-
 .. index:: tokens
 
 .. _literal_cmd@Tokens:
@@ -94,9 +88,6 @@ Tokens
 #. If there are multiple lines in the command, the last line contains
    the ``}`` and must have nothing else but white space.
 
-.. meta::
-   :keywords: separator
-
 .. index:: separator
 
 .. _literal_cmd@separator:
@@ -105,9 +96,6 @@ separator
 *********
 If *separator* is present, it must be a single character.
 At most one *separator* can be in each line and it also separates tokens.
-
-.. meta::
-   :keywords: display_file
 
 .. index:: display_file
 
@@ -128,9 +116,6 @@ The file name *display_file* is relative to the
    :ref:`config_file@directory@rst_directory` , which is a path relative
    to the project_directory; see :ref:`dir_cmd-name` .
 
-.. meta::
-   :keywords: extension
-
 .. index:: extension
 
 .. _literal_cmd@display_file@extension:
@@ -145,9 +130,6 @@ when determining the extension.
 This is done because configure files use the ``.in`` extension,
 and usually create a file with the ``.in`` dropped.
 
-.. meta::
-   :keywords: no, start, or, end
-
 .. index:: no, start, or, end
 
 .. _literal_cmd@No start or end:
@@ -158,9 +140,6 @@ In the case where there is no *start_after* or *end_before*,
 the entire display file is displayed.
 In the case of the ``{xrst_literal}`` syntax,
 the entire current input file is displayed.
-
-.. meta::
-   :keywords: start_after
 
 .. index:: start_after
 
@@ -175,9 +154,6 @@ the text *start_after* will not match any text in the command.
 There must be one and only one occurrence of *start_after* in *display_file*,
 not counting the command itself when the files are the same.
 
-.. meta::
-   :keywords: end_before
-
 .. index:: end_before
 
 .. _literal_cmd@end_before:
@@ -190,9 +166,6 @@ If this is the same as the file containing the command,
 the text *end_before* will not match any text in the command.
 There must be one and only one occurrence of *end_before* in *display_file*,
 not counting the command itself when the files are the same.
-
-.. meta::
-   :keywords: spell, checking
 
 .. index:: spell, checking
 

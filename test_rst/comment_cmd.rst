@@ -5,7 +5,7 @@ comment_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_cmd, comment
+   :keywords: comment_cmd,comment,command,syntax,purpose,example
 
 .. index:: comment_cmd, comment
 

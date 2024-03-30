@@ -5,7 +5,7 @@ purpose
 !!!!!!!
 
 .. meta::
-   :keywords: purpose, sphinx, wrapper
+   :keywords: purpose,of,this,sphinx,wrapper,motivation,goal,features
 
 .. index:: purpose, sphinx, wrapper
 
@@ -17,9 +17,6 @@ Purpose of this Sphinx Wrapper
 .. contents::
    :local:
 
-.. meta::
-   :keywords: motivation
-
 .. index:: motivation
 
 .. _purpose@Motivation:
@@ -30,9 +27,6 @@ This wrapper was motivated by cases like the GNU Scientific library,
 which is written in C, uses sphinx for its documentation,
 and has its documentation
 in separate files from the corresponding source code; see `gsl doc`_ .
-
-.. meta::
-   :keywords: goal
 
 .. index:: goal
 
@@ -48,9 +42,6 @@ that are part of the documentation and API; e.g., see
 :ref:`class_example-name`.
 
 .. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
-
-.. meta::
-   :keywords: features
 
 .. index:: features
 

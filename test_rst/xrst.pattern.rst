@@ -5,7 +5,7 @@ xrst.pattern
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: xrst.pattern, xrst.pattern, dictionary
+   :keywords: xrst.pattern,the,dictionary,pattern,begin,code,comment_ch,dir,end,line,literal,template_begin,template_end,toc
 
 .. index:: xrst.pattern, xrst.pattern, dictionary
 
@@ -16,9 +16,6 @@ The xrst.pattern Dictionary
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: pattern
 
 .. index:: pattern
 
@@ -32,9 +29,6 @@ It does not change after its initial setting when this file is imported.
 .. literalinclude:: ../../xrst/pattern.py
    :lines: 17-17
    :language: py
-
-.. meta::
-   :keywords: begin
 
 .. index:: begin
 
@@ -53,9 +47,6 @@ Pattern for the begin command.
 .. literalinclude:: ../../xrst/pattern.py
    :lines: 31-33
    :language: py
-
-.. meta::
-   :keywords: code
 
 .. index:: code
 
@@ -78,9 +69,6 @@ Pattern for code command.
    :lines: 50-53
    :language: py
 
-.. meta::
-   :keywords: comment_ch
-
 .. index:: comment_ch
 
 .. _xrst.pattern@comment_ch:
@@ -95,9 +83,6 @@ Pattern for comment_ch command
 .. literalinclude:: ../../xrst/pattern.py
    :lines: 64-66
    :language: py
-
-.. meta::
-   :keywords: dir
 
 .. index:: dir
 
@@ -114,9 +99,6 @@ Pattern for dir command
    :lines: 77-80
    :language: py
 
-.. meta::
-   :keywords: end
-
 .. index:: end
 
 .. _xrst.pattern@end:
@@ -132,9 +114,6 @@ Pattern for end command
    :lines: 91-91
    :language: py
 
-.. meta::
-   :keywords: line
-
 .. index:: line
 
 .. _xrst.pattern@line:
@@ -149,9 +128,6 @@ Pattern for line numbers are added to the input by add_line_number
 .. literalinclude:: ../../xrst/pattern.py
    :lines: 103-103
    :language: py
-
-.. meta::
-   :keywords: literal
 
 .. index:: literal
 
@@ -170,9 +146,6 @@ pattern if {xrst_literal} is matched.
    :lines: 116-118
    :language: py
 
-.. meta::
-   :keywords: template_begin
-
 .. index:: template_begin
 
 .. _xrst.pattern@template_begin:
@@ -187,9 +160,6 @@ template_begin
    :lines: 127-130
    :language: py
 
-.. meta::
-   :keywords: template_end
-
 .. index:: template_end
 
 .. _xrst.pattern@template_end:
@@ -201,9 +171,6 @@ template_end
 .. literalinclude:: ../../xrst/pattern.py
    :lines: 137-138
    :language: py
-
-.. meta::
-   :keywords: toc
 
 .. index:: toc
 

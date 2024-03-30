@@ -5,7 +5,7 @@ replace_spell
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: replace_spell, replace, spelling, commands
+   :keywords: replace_spell,replace,spelling,commands,tmp_dir,spell.toml
 
 .. index:: replace_spell, replace, spelling, commands
 
@@ -17,9 +17,6 @@ Replace spelling commands
 .. contents::
    :local:
 
-.. meta::
-   :keywords: tmp_dir
-
 .. index:: tmp_dir
 
 .. _replace_spell@tmp_dir:
@@ -27,9 +24,6 @@ Replace spelling commands
 tmp_dir
 *******
 is the directory where spell.toml is located
-
-.. meta::
-   :keywords: spell.toml
 
 .. index:: spell.toml
 

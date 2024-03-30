@@ -5,7 +5,7 @@ temporary_file
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: temporary_file, write, temporary, rst, page
+   :keywords: temporary_file,write,the,temporary,rst,file,for,a,page,prototype,page_source,target,pseudo_heading,file_in,tmp_dir,page_name,file_out,data_in,rst2xrst_list
 
 .. index:: temporary_file, write, temporary, rst, page
 
@@ -17,9 +17,6 @@ Write the temporary RST file for a page
 .. contents::
    :local:
 
-.. meta::
-   :keywords: prototype
-
 .. index:: prototype
 
 .. _temporary_file@Prototype:
@@ -28,11 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 103-118,223-229
+   :lines: 104-119,228-234
    :language: py
-
-.. meta::
-   :keywords: page_source
 
 .. index:: page_source
 
@@ -47,9 +41,6 @@ If *page_source* is true and *target* is tex,
 the location of the xrst source code is reported at the
 top of each page.
 
-.. meta::
-   :keywords: target
-
 .. index:: target
 
 .. _temporary_file@target:
@@ -57,9 +48,6 @@ top of each page.
 target
 ******
 If the :ref:`run_xrst@target` command line argument.
-
-.. meta::
-   :keywords: pseudo_heading
 
 .. index:: pseudo_heading
 
@@ -69,9 +57,6 @@ pseudo_heading
 **************
 is the :ref:`process_headings@pseudo_heading` for this page.
 
-.. meta::
-   :keywords: file_in
-
 .. index:: file_in
 
 .. _temporary_file@file_in:
@@ -79,9 +64,6 @@ is the :ref:`process_headings@pseudo_heading` for this page.
 file_in
 *******
 is the name of the xrst input file for this page.
-
-.. meta::
-   :keywords: tmp_dir
 
 .. index:: tmp_dir
 
@@ -91,9 +73,6 @@ tmp_dir
 *******
 is the directory where the output file will be saved.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _temporary_file@page_name:
@@ -101,9 +80,6 @@ is the directory where the output file will be saved.
 page_name
 *********
 is the name of this page.
-
-.. meta::
-   :keywords: file_out
 
 .. index:: file_out
 
@@ -113,9 +89,6 @@ file_out
 ********
 The temporary file written by the routine, *file_out* , is
 tmp_dir/page_name.rst.
-
-.. meta::
-   :keywords: data_in
 
 .. index:: data_in
 
@@ -150,9 +123,6 @@ The following is added to this data before writing it to the output file:
  #. Empty lines at the end are removed
  #. The xrst_line_number entries are removed.
  #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
-
-.. meta::
-   :keywords: rst2xrst_list
 
 .. index:: rst2xrst_list
 

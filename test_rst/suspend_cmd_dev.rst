@@ -5,7 +5,7 @@ suspend_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
+   :keywords: suspend_cmd_dev,remove,text,specified,by,suspend,/,resume,pairs,prototype,data_in,file_name,page_name,data_out
 
 .. index:: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
 
@@ -16,9 +16,6 @@ Remove text specified by suspend / resume pairs
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 73-76,135-137
    :language: py
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _suspend_cmd_dev@data_in:
@@ -41,9 +35,6 @@ Prototype
 data_in
 *******
 is the data for this page.
-
-.. meta::
-   :keywords: file_name
 
 .. index:: file_name
 
@@ -53,9 +44,6 @@ file_name
 *********
 is the input file corresponding to this page.
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _suspend_cmd_dev@page_name:
@@ -63,9 +51,6 @@ is the input file corresponding to this page.
 page_name
 *********
 is the name of this page.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 

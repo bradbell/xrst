@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2024, xrst, release, notes, 2024
+   :keywords: 2024,xrst,release,notes,for,mm-dd,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
 
 .. index:: 2024, xrst, release, notes, 2024
 
@@ -16,9 +16,6 @@ xrst Release Notes for 2024
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: mm-dd
 
 .. index:: mm-dd
 
@@ -31,8 +28,15 @@ mm-dd
 
 03-30
 =====
-The automatic special spelling words for a page were extended to include
-page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+#. The automatic special spelling words for a page were extended to include
+   page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+#. The keywords in the xrst search utility excluded the words that matched
+   :ref:`config_file@not_in_index` .
+   This has changed so that the keywords include all the words in a page
+   title or heading.
+#. Duplicates were removed form the html keyword meta data. In addition,
+   commas (instead of spaces) where used to separate these keywords
+   (because that seems to be the standard).
 
 .. _2024@mm-dd@03-29:
 

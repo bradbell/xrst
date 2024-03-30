@@ -5,7 +5,7 @@ comment_ch_cmd
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_ch_cmd, comment, character
+   :keywords: comment_ch_cmd,comment,character,command,syntax,purpose,ch,input,stream,indentation,example
 
 .. index:: comment_ch_cmd, comment, character
 
@@ -33,9 +33,6 @@ If you embed sphinx documentation in this type of comment,
 you need to inform xrst of the special character so it does
 not end up in your ``.rst`` output file.
 
-.. meta::
-   :keywords: ch
-
 .. index:: ch
 
 .. _comment_ch_cmd@ch:
@@ -46,9 +43,6 @@ The value of *ch* must be one non white space character.
 There must be at least one white space character
 between ``xrst_comment_ch`` and *ch*.
 Leading and trailing white space around *ch* is ignored.
-
-.. meta::
-   :keywords: input, stream
 
 .. index:: input, stream
 
@@ -72,9 +66,6 @@ and the ``def`` token indented the same amount:
       if n == 1 :
          return 1
       return n * factorial(n-1)
-
-.. meta::
-   :keywords: indentation
 
 .. index:: indentation
 

@@ -5,7 +5,7 @@ indent_example
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: indent_example, indent
+   :keywords: indent_example,indent,example,discussion,python,docstring,this,file
 
 .. index:: indent_example, indent
 
@@ -17,9 +17,6 @@ Indent Example
 .. contents::
    :local:
 
-.. meta::
-   :keywords: discussion
-
 .. index:: discussion
 
 .. _indent_example@Discussion:
@@ -30,9 +27,6 @@ The file below demonstrates a single indentation for an entire xrst page.
 (See :ref:`example_ad_double@xrst_indent` for an example
 that has different indentation for different parts of a page.)
 Note that underling headings works even though it is indented.
-
-.. meta::
-   :keywords: python, docstring
 
 .. index:: python, docstring
 

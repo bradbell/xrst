@@ -5,7 +5,7 @@ heading_links
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: heading_links, heading, cross, reference, links
+   :keywords: heading_links,heading,cross,reference,links,index,labels,level,zero,page_name,page_title,linking,text,other,levels,heading@to@label,label,to,anchor,discussion,example
 
 .. index:: heading_links, heading, cross, reference, links
 
@@ -16,9 +16,6 @@ Heading Cross Reference Links
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: index
 
 .. index:: index
 
@@ -31,9 +28,6 @@ a link is included in the index from the word to the heading.
 In addition, each word is added to the html keyword meta data
 next to the page heading.
 
-.. meta::
-   :keywords: labels
-
 .. index:: labels
 
 .. _heading_links@Labels:
@@ -44,9 +38,6 @@ A cross reference label is defined for linking
 from anywhere to a heading. The details of how to use
 these labels are described below.
 
-.. meta::
-   :keywords: level, zero
-
 .. index:: level, zero
 
 .. _heading_links@Labels@Level Zero:
@@ -55,9 +46,6 @@ Level Zero
 ==========
 Each :ref:`page<begin_cmd@page>` can have only one header at
 the first level which is a title for the page.
-
-.. meta::
-   :keywords: page_name
 
 .. index:: page_name
 
@@ -76,9 +64,6 @@ the initial ``xrst_`` in the linking text; see
 :ref:`auto_file@xrst_contents.rst` , and
 :ref:`auto_file@xrst_index.rst` .
 
-.. meta::
-   :keywords: page_title
-
 .. index:: page_title
 
 .. _heading_links@Labels@Level Zero@page_title:
@@ -89,9 +74,6 @@ The input below will display the page title as the linking text:
 
     ``:ref:`` \` *page_name* ``-title`` \`
 
-.. meta::
-   :keywords: linking, text
-
 .. index:: linking, text
 
 .. _heading_links@Labels@Level Zero@Linking Text:
@@ -101,9 +83,6 @@ Linking Text
 You can also explicitly choose the linking text using:
 
    ``:ref:`` \` *linking_text* ``<`` *page_name* ``-name>`` \`
-
-.. meta::
-   :keywords: other, levels
 
 .. index:: other, levels
 
@@ -116,9 +95,6 @@ for the heading directly above it plus an at sign character :code:`@`,
 plus the conversion for this heading.
 These labels use the *page_name* for level zero,
 without the ``-name`` or ``--title`` at the end.
-
-.. meta::
-   :keywords: heading@to@label
 
 .. index:: heading@to@label
 
@@ -138,9 +114,6 @@ For example, the label for the heading above is
 The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.
 
-.. meta::
-   :keywords: label, anchor
-
 .. index:: label, anchor
 
 .. _heading_links@Labels@Label To Anchor:
@@ -157,9 +130,6 @@ HTML anchor corresponding to a label.  To be specific:
 6. The end of the anchor is trimmed until a letter or digit is reached.
 
 If for one page, these anchors are not unique, xrst reports an error.
-
-.. meta::
-   :keywords: discussion
 
 .. index:: discussion
 

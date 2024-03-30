@@ -5,7 +5,7 @@ spell_example
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: spell_example, spell
+   :keywords: spell_example,spell,command,example,text,spelling,file,math,double,words,off,and,on,xrst_spell,this
 
 .. index:: spell_example, spell
 
@@ -17,9 +17,6 @@ Spell Command Example
 .. contents::
    :local:
 
-.. meta::
-   :keywords: text
-
 .. index:: text
 
 .. _spell_example@Text:
@@ -28,9 +25,6 @@ Text
 ****
 The word ``iterable`` is not in the dictionary,
 so we have included it in the special words for this page.
-
-.. meta::
-   :keywords: spelling
 
 .. index:: spelling
 
@@ -41,9 +35,6 @@ Spelling File
 The word ``xrst`` is not in the special words for this page because
 it is in the configuration file's project dictionary
 that was used to build this documentation.
-
-.. meta::
-   :keywords: math
 
 .. index:: math
 
@@ -58,9 +49,6 @@ are automatically considered correct spelling.
 
    z = \cos( \theta ) + {\rm i} \sin( \theta )
 
-.. meta::
-   :keywords: double, words
-
 .. index:: double, words
 
 .. _spell_example@Double Words:
@@ -73,9 +61,6 @@ no no would be an error if there
 were not two occurrences of ``no`` next to each other in the
 spelling command for this page.
 
-.. meta::
-   :keywords: off, on
-
 .. index:: off, on
 
 .. _spell_example@Off and On:
@@ -85,9 +70,6 @@ Off and On
 In some cases it is better to turn spell checking.
 For example when displaying the git hash code:
 7c35a3ce607a14953f070f0f83b5d74c2296ef93
-
-.. meta::
-   :keywords: xrst_spell
 
 .. index:: xrst_spell
 

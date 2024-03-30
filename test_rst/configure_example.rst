@@ -5,7 +5,7 @@ configure_example
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: configure_example, using, toml, configure
+   :keywords: configure_example,example,using,toml,configure,file,include_all,rst_prolog,latex_macro,this
 
 .. index:: configure_example, using, toml, configure
 
@@ -17,18 +17,12 @@ Example Using TOML Configure File
 .. contents::
    :local:
 
-.. meta::
-   :keywords: include_all
-
 .. index:: include_all
 
 .. _configure_example@include_all:
 
 include_all
 ***********
-
-.. meta::
-   :keywords: rst_prolog
 
 .. index:: rst_prolog
 
@@ -39,9 +33,6 @@ rst_prolog
 |tab| This line is indented using ``|tab|``
 which is defined in the rst_prolog for this documentation.
 
-.. meta::
-   :keywords: latex_macro
-
 .. index:: latex_macro
 
 .. _configure_example@include_all@latex_macro:
@@ -50,9 +41,6 @@ latex_macro
 ===========
 :math:`f : \B{R}^n \rightarrow \B{R}^m`
 This line uses ``\B`` which is defined as a latex_macro.
-
-.. meta::
-   :keywords: toml
 
 .. index:: toml
 

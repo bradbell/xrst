@@ -5,7 +5,7 @@ get_started
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: get_started, title:, getting, started
+   :keywords: get_started,title:,getting,started,heading:,steps,links,to,this,page,example,file
 
 .. index:: get_started, title:, getting, started
 
@@ -19,9 +19,6 @@ All of the headings below begin with ``Heading:`` .
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: heading:, steps
 
 .. index:: heading:, steps
 
@@ -75,9 +72,6 @@ Heading: Steps
    If you then re-execute the xrst command, the input files
    warning should not appear.
 
-.. meta::
-   :keywords: heading:, links, page
-
 .. index:: heading:, links, page
 
 .. _get_started@Heading\: Links to this Page:
@@ -94,9 +88,6 @@ Heading: Links to this Page
 - :ref:`get_started@Heading: Links to this Page`
 
 - :ref:`get_started@Heading: This Example File`
-
-.. meta::
-   :keywords: heading:
 
 .. index:: heading:
 

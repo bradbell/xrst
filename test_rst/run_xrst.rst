@@ -5,7 +5,7 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-   :keywords: run_xrst, extract, rst, files, run, sphinx
+   :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,group_list,example,rename_group,old_group_name,new_group_name
 
 .. index:: run_xrst, extract, rst, files, run, sphinx
 
@@ -52,9 +52,6 @@ Syntax
    This will check for error messages that are not repeated due
    to caching the results of previous builds.
 
-.. meta::
-   :keywords: version
-
 .. index:: version
 
 .. _run_xrst@version:
@@ -63,9 +60,6 @@ version
 *******
 If ``--version`` is present on the command line,
 the version of xrst is printed and none of the other arguments matter.
-
-.. meta::
-   :keywords: local_toc
 
 .. index:: local_toc
 
@@ -81,9 +75,6 @@ The page name and page title are not in this table of contents.
 Some :ref:`html themes<run_xrst@html_theme>` include this information
 on a side bar; e.g., ``furo`` and ``sphinx_book_theme`` .
 
-.. meta::
-   :keywords: page_source
-
 .. index:: page_source
 
 .. _run_xrst@page_source:
@@ -98,9 +89,6 @@ Some :ref:`html themes<run_xrst@html_theme>` include this link; e.g.,
 If this option is present and *target* is ``tex`` ,
 the xrst source code file is reported at the beginning of each page.
 
-.. meta::
-   :keywords: external_links
-
 .. index:: external_links
 
 .. _run_xrst@external_links:
@@ -110,9 +98,6 @@ external_links
 If this option is present, the external links are checked.
 The ones that are broken or redirects are reported.
 Broken links are considered errors and redirects are warnings.
-
-.. meta::
-   :keywords: replace_spell_commands
 
 .. index:: replace_spell_commands
 
@@ -134,9 +119,6 @@ none of the output files are created; e.g., the \*.rst and \*.html files.
 
 See also :ref:`config_file@project_dictionary` .
 
-.. meta::
-   :keywords: ignore_spell_commands
-
 .. index:: ignore_spell_commands
 
 .. _run_xrst@ignore_spell_commands:
@@ -156,9 +138,6 @@ none of the output files are created; e.g., the \*.rst and \*.html files.
 If you change the project dictionary consider using
 :ref:`run_xrst@replace_spell_commands` .
 
-.. meta::
-   :keywords: suppress_spell_warnings
-
 .. index:: suppress_spell_warnings
 
 .. _run_xrst@suppress_spell_warnings:
@@ -171,9 +150,6 @@ This is useful when there are no spelling warnings with one spelling package
 and you are temporarily using a different version of the package
 or a different package altogether.
 
-.. meta::
-   :keywords: continue_with_warnings
-
 .. index:: continue_with_warnings
 
 .. _run_xrst@continue_with_warnings:
@@ -183,9 +159,6 @@ continue_with_warnings
 If this option is (is not) present on the command line,
 the program will not exit (will exit) with an error when warnings are
 generated.
-
-.. meta::
-   :keywords: rst_line_numbers
 
 .. index:: rst_line_numbers
 
@@ -203,9 +176,6 @@ This may be helpful if you have an error or warning for a sphinx command
 and it does not make sense using xrst source code line numbers.
 It is also helpful for determining if an incorrect line number is due to
 sphinx or xrst.
-
-.. meta::
-   :keywords: rst_only
 
 .. index:: rst_only
 
@@ -229,9 +199,6 @@ The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.
 
-.. meta::
-   :keywords: index_page_name
-
 .. index:: index_page_name
 
 .. _run_xrst@index_page_name:
@@ -246,9 +213,6 @@ to the page specified by *index_page_name* .
 If this option is not present, ``index.html`` wil be a redirect
 to the root of the documentation tree.
 
-.. meta::
-   :keywords: config_file
-
 .. index:: config_file
 
 .. _run_xrst@config_file:
@@ -260,9 +224,6 @@ The command line argument *config_file* specifies the location of the
 This can be an absolute path or
 relative to the directory where :ref:`xrst<run_xrst-name>` is run.
 
-.. meta::
-   :keywords: xrst.toml
-
 .. index:: xrst.toml
 
 .. _run_xrst@config_file@xrst.toml:
@@ -271,9 +232,6 @@ xrst.toml
 =========
 If *config_file* is not present on the command line,
 the default value ``xrst.toml`` is used for *config_file* .
-
-.. meta::
-   :keywords: html_theme
 
 .. index:: html_theme
 
@@ -285,9 +243,6 @@ This the html_theme_ that is used.
 The default value for *html_theme* is ``furo`` .
 
 .. _html_theme: https://sphinx-themes.org/
-
-.. meta::
-   :keywords: theme, choices
 
 .. index:: theme, choices
 
@@ -310,9 +265,6 @@ please post an issue on github so that it can be added to the list below.
    pydata_sphinx_theme,  no
    piccolo_theme,        no
 
-.. meta::
-   :keywords: sphinx_rtd_theme
-
 .. index:: sphinx_rtd_theme
 
 .. _run_xrst@html_theme@sphinx_rtd_theme:
@@ -324,9 +276,6 @@ so it is suggested to use it for testing (with the ``--local_toc`` option).
 A special modification is made to this theme when *target* is html,
 so that it displays wider than its normal limit.
 This modification may be removed in the future.
-
-.. meta::
-   :keywords: target
 
 .. index:: target
 
@@ -340,9 +289,6 @@ Note thet :ref:`config_file@directory@html_directory` and
 :ref:`config_file@directory@tex_directory` will determine the location
 of the corresponding output files.
 The default value for *target* is ``html`` .
-
-.. meta::
-   :keywords: tex
 
 .. index:: tex
 
@@ -383,9 +329,6 @@ will accomplish both purposes:
    #. Given a page name, the corresponding xrst input file can
       be found at the top of the html version of the page.
 
-.. meta::
-   :keywords: number_jobs
-
 .. index:: number_jobs
 
 .. _run_xrst@number_jobs:
@@ -395,9 +338,6 @@ number_jobs
 This is a positive integer specifying the number of parallel jobs
 that xrst is allowed to use.
 The default value for *number_jobs* is ``1`` .
-
-.. meta::
-   :keywords: group_list
 
 .. index:: group_list
 
@@ -449,9 +389,6 @@ and it is your current working directory.
 
       ``xrst --group_list default user dev``
 
-.. meta::
-   :keywords: rename_group
-
 .. index:: rename_group
 
 .. _run_xrst@rename_group:
@@ -465,9 +402,6 @@ by the list whose only entry is *new_group_name* .
 None of the output files are created when rename_group is present;
 e.g., the \*.rst and \*.html files.
 
-.. meta::
-   :keywords: old_group_name
-
 .. index:: old_group_name
 
 .. _run_xrst@rename_group@old_group_name:
@@ -477,9 +411,6 @@ old_group_name
 is the old group name for the pages that will have their group name replaced.
 Use ``default``, instead of the empty group name, for the
 :ref:`begin_cmd@group_name@Default Group` .
-
-.. meta::
-   :keywords: new_group_name
 
 .. index:: new_group_name
 

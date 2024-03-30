@@ -5,7 +5,7 @@
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: .readthedocs.yaml, read, docs, configuration
+   :keywords: .readthedocs.yaml,example,read,the,docs,configuration,specification,this,file
 
 .. index:: .readthedocs.yaml, read, docs, configuration
 
@@ -16,9 +16,6 @@ Example Read the Docs Configuration
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: read, docs, specification
 
 .. index:: read, docs, specification
 

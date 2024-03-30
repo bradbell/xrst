@@ -5,7 +5,7 @@ template_cmd_dev
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_cmd_dev, expand, template, commands, in, page
+   :keywords: template_cmd_dev,expand,the,template,commands,in,a,page,prototype,restrictions,data_in,page_file,page_name,data_out
 
 .. index:: template_cmd_dev, expand, template, commands, in, page
 
@@ -16,9 +16,6 @@ Expand the template commands in a page
 
 .. contents::
    :local:
-
-.. meta::
-   :keywords: prototype
 
 .. index:: prototype
 
@@ -31,9 +28,6 @@ Prototype
    :lines: 161-164,320-321
    :language: py
 
-.. meta::
-   :keywords: restrictions
-
 .. index:: restrictions
 
 .. _template_cmd_dev@Restrictions:
@@ -44,9 +38,6 @@ The template expansion must come before processing any other commands
 except for the following:
 begin, end, comment_ch, indent, suspend, resume, spell, template.
 
-.. meta::
-   :keywords: data_in
-
 .. index:: data_in
 
 .. _template_cmd_dev@data_in:
@@ -55,9 +46,6 @@ data_in
 *******
 is the data for a page before the
 :ref:`template commands <template_cmd-name>` have been expanded.
-
-.. meta::
-   :keywords: page_file
 
 .. index:: page_file
 
@@ -68,9 +56,6 @@ page_file
 is the name of the file, for this page, where the begin command appears.
 This is used for error reporting .
 
-.. meta::
-   :keywords: page_name
-
 .. index:: page_name
 
 .. _template_cmd_dev@page_name:
@@ -79,9 +64,6 @@ page_name
 *********
 is the name of the page that this data is in. This is only used
 for error reporting.
-
-.. meta::
-   :keywords: data_out
 
 .. index:: data_out
 
