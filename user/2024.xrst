@@ -20,8 +20,15 @@ mm-dd
 
 03-30
 =====
-The automatic special spelling words for a page were extended to include
-page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+#. The automatic special spelling words for a page were extended to include
+   page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+#. The keywords in the xrst search utility excluded the words that matched
+   :ref:`config_file@not_in_index` .
+   This has changed so that the keywords include all the words in a page
+   title or heading.
+#. Duplicates were removed form the html keyword meta data. In addition,
+   commas (instead of spaces) where used to separate these keywords
+   (because that seems to be the standard).
 
 03-29
 =====

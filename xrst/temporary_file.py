@@ -6,6 +6,7 @@ import re
 import xrst
 pattern_line_number     = re.compile(r'\n[ \t]*@xrst_line [0-9]+@')
 pattern_newline_3       = re.compile(r'(\n[ \t]*){2,}\n')
+pattern_white_at_eol    = re.compile(r'[ \t]*\n')
 #
 # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
 # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
@@ -209,6 +210,10 @@ def temporary_file(
    #
    # data_out
    data_out = data_out.replace( r'\{xrst_', '{xrst_' )
+   #
+   # data_out
+   # remove white space at end of each line
+   data_out = pattern_white_at_eol.sub(r'\n', data_out)
    #
    # file_out
    if page_name.endswith('.rst') :

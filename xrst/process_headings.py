@@ -264,8 +264,10 @@ def check_anchor(
 #
 # keywords
 # ********
-# This is a space separated list of all the keywords that are in the index
-# for this page.
+# This is a space separated  list, of the lower case words,
+# for all the words that are in the # title and the headings for this page.
+# This is the same as the index words for this page minus the words that
+# match *not_in_index_list* .
 #
 # {xrst_end process_headings}
 # BEGIN_DEF
@@ -355,7 +357,7 @@ def process_headings(
    found_level_one_heading = False
    #
    # keywords, heading_list, heading_index, heading_text, underline_text
-   keywords         = ''
+   keywords         = ' '
    heading_list     = list()
    data_index       = 0
    heading_index, heading_text, underline_text = \
@@ -499,12 +501,21 @@ def process_headings(
             previous_anchor = previous_anchor
          )
       #
-      # index_entries
+      # keywords, index_entries
       if len(heading_list) == 1 :
          index_entries = page_name
+         #
+         assert keywords == ' '
+         keywords     += page_name + ' '
       else :
          index_entries = ''
       for word in heading_list[-1]['text'].lower().split() :
+         #
+         # keywords are for the entire page
+         if keywords.find( f' {word} ' ) < 0 :
+            keywords += word + ' '
+         #
+         # same index word can occur multiple places in a page.
          skip = False
          for pattern in not_in_index_list :
             m_obj = pattern.fullmatch(word)
@@ -515,9 +526,6 @@ def process_headings(
                index_entries = word
             else :
                index_entries += ', ' + word
-      #
-      # keywords
-      keywords += ' ' + index_entries.replace(',', ' ')
       #
       # data_tmp
       # data that comes before this heading
@@ -533,11 +541,9 @@ def process_headings(
             data_tmp += 3 * ' ' + ':local:\n\n'
       #
       # data_tmp
-      # add sphnix keyword, index, and label commnds
+      # add sphnix index, and label commands
       cmd  = ''
       if index_entries != '' :
-            cmd += '.. meta::\n'
-            cmd += 3 * ' ' + ':keywords: ' + index_entries + '\n\n'
             cmd += '.. index:: '           + index_entries + '\n\n'
       cmd += '.. _' + label + ':\n\n'
       data_tmp  += cmd
@@ -561,6 +567,13 @@ def process_headings(
       heading_index, heading_text, underline_text = \
          xrst.next_heading(data_out, data_index, page_file, page_name)
    #
+   # keywords, data_out
+   keywords = keywords.strip()
+   if keywords != '' :
+      cmd  = '.. meta::\n'
+      cmd += 3 * ' ' + ':keywords: ' + keywords.replace(' ', ',') + '\n\n'
+      data_out = cmd + data_out
+   #
    if len(heading_list) == 0 :
       msg = 'There are no headings in this page'
       assert check_headings, False
@@ -582,9 +595,6 @@ def process_headings(
    #
    # page_title
    page_title = heading_list[0]['text']
-   #
-   # keywords
-   keywords = ' '.join( keywords.split() )
    #
    # BEGIN_RETURN
    #
