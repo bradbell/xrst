@@ -135,6 +135,7 @@ pattern['literal']   = xrst.pattern['literal']
 # local pattern values only used by spell command
 pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
 pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.#-]*' )
+pattern['ref_name']   = re.compile( r':ref:`([^\n<`]+)-name`' )
 pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
@@ -333,8 +334,7 @@ def spell_command(
    for m_word in pattern['page_name_word'].finditer(page_name) :
       word_lower = m_word.group(0).lower()
       page_name_word.append( word_lower )
-   pattern_tmp  = re.compile( r':ref:`([^\n<`]+)-name`' )
-   for m_tmp in pattern_tmp.finditer(data_out) :
+   for m_tmp in pattern['ref_name'].finditer(data_out) :
       page_name_tmp = m_tmp.group(1)
       for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
          word_lower = m_word.group(0).lower()
@@ -388,6 +388,21 @@ def spell_command(
          m_obj=m_on,
          data=data_tmp
       )
+   #
+   # data_tmp
+   # This is for detection of double word errors because these words are
+   # automatically in the special word list.
+   m_ref = pattern['ref_name'].search(data_tmp)
+   while m_ref != None :
+      page_name_tmp  = m_tmp.group(1)
+      page_name_words = ' '
+      for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
+         word_lower       = m_word.group(0).lower()
+         page_name_words += word_lower + ' '
+      before   = data_tmp[: m_ref.start() ]
+      after    = data_tmp[m_ref.end() :]
+      data_tmp = before + ' ' + page_name_words + ' ' + after
+      m_ref = pattern['ref_name'].search(data_tmp)
    #
    # data_tmp
    # commands with file names as arugments

@@ -22,6 +22,9 @@ mm-dd
 =====
 #. The automatic special spelling words for a page were extended to include
    page names in ``:ref:`` commands; see :ref:`spell_cmd@page_name` .
+   In addition, the words in  *page_name* ,
+   that are displayed by this ``:ref:`` command ,
+   are checked for double word errors.
 #. The keywords in the xrst search utility excluded the words that matched
    :ref:`config_file@not_in_index` .
    This has changed so that the keywords include all the words in a page
