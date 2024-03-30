@@ -4,8 +4,6 @@
 example_expansion_two
 !!!!!!!!!!!!!!!!!!!!!
 
- 
-
 .. meta::
    :keywords: example_expansion_two, second, expansion
 
@@ -76,5 +74,3 @@ This Template Usage
 .. literalinclude:: ../../example/template.xrst
    :lines: 36-41
    :language: rst
-
-

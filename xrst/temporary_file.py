@@ -87,9 +87,9 @@ pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
 #  #. Check for an xrst command that was not recognized.
 #  #. Any sequence of more than 2 lines
 #     with only tabs or space are converted to 2 empty lines.
+#  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. Empty lines at the end are removed
 #  #. The xrst_line_number entries are removed.
-#  #. The xrst_template_begin and xrst_template_end markers are removed.
 #  #. The text ``\\{xrst_`` is replaced by ``\{xrst_`` .
 #
 # rst2xrst_list
@@ -187,6 +187,11 @@ def temporary_file(
       m_obj = pattern_any_command.search( data_out , m_obj.end() )
    #
    # data_out
+   # After this we can not longer errors that occur inside templates.
+   data_out = xrst.pattern['template_begin'].sub('', data_out)
+   data_out = xrst.pattern['template_end'].sub('', data_out)
+   #
+   # data_out
    # Convert three or more sequential emtpty lines to two empty lines.
    data_out = pattern_line_number.sub('\n', data_out)
    data_out = pattern_newline_3.sub('\n\n', data_out)
@@ -201,11 +206,6 @@ def temporary_file(
    # 1. So mapping from output to input line number is correct.
    # 2. We are no longer able to give line numbers for errors after this.
    data_out, rst2xrst_list = xrst.remove_line_numbers(data_out)
-   #
-   # data_out
-   # begin and end of template markers
-   data_out = xrst.pattern['template_begin'].sub('', data_out)
-   data_out = xrst.pattern['template_end'].sub('', data_out)
    #
    # data_out
    data_out = data_out.replace( r'\{xrst_', '{xrst_' )

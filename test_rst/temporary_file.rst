@@ -146,9 +146,9 @@ The following is added to this data before writing it to the output file:
  #. Check for an xrst command that was not recognized.
  #. Any sequence of more than 2 lines
     with only tabs or space are converted to 2 empty lines.
+ #. The xrst_template_begin and xrst_template_end markers are removed.
  #. Empty lines at the end are removed
  #. The xrst_line_number entries are removed.
- #. The xrst_template_begin and xrst_template_end markers are removed.
  #. The text ``\{xrst_`` is replaced by ``{xrst_`` .
 
 .. meta::
