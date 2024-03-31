@@ -14,7 +14,7 @@ pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'
 )
-pattern_any_command     = re.compile(r'[^\\]({xrst_[^ }\n]*}*)')
+pattern_any_command     = re.compile(r'[^\\]{xrst_([a-zA-Z_]*)')
 # ----------------------------------------------------------------------------
 # {xrst_begin temporary_file dev}
 # {xrst_comment_ch #}
@@ -173,12 +173,13 @@ def temporary_file(
    # m_obj
    m_obj = pattern_any_command.search( data_out )
    while m_obj != None :
-      ok = m_obj.group(0).startswith('@{xrst_template_begin@')
-      ok = ok or m_obj.group(0).startswith('@{xrst_template_end}')
+      ok = m_obj.group(0) == '@{xrst_template_begin'
+      ok = ok or m_obj.group(0) == '@{xrst_template_end'
       if not ok :
          cmd  = m_obj.group(1)
-         msg  = f'The xrst command {cmd} was not recognized.\n'
-         msg += f'Use \\{cmd} if its not intented to be an xrst command.'
+         msg  = f'This xrst {cmd} command was not recognized.\n'
+         msg += 'Use \\{xrst_' + cmd + ' '
+         msg += 'if this is not intented to be an xrst command.'
          xrst.system_exit(msg,
             file_name=file_in,
             page_name=page_name,

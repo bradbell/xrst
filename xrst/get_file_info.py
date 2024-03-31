@@ -392,14 +392,6 @@ def get_file_info(
    file_data = xrst.pattern['begin'].sub('', file_data)
    file_data = xrst.pattern['end'].sub('', file_data)
    #
-   for command_name in [ 'begin' , 'end' ] :
-      xrst.check_syntax_error(
-         command_name   = command_name,
-         data           = file_data,
-         file_name      = file_in,
-         page_name   = None,
-      )
-   #
    # BEGIN_RETURN
    #
    assert type(file_page_info) == list

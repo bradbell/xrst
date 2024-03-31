@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin comment_cmd user}
@@ -91,10 +91,6 @@ def comment_command(data_in) :
       #
       # m_obj
       m_obj = pattern.search(data_out, m_obj.start())
-   #
-   # check_syntax_error
-   # Cannot check for a syntax error in this command unless
-   # the comment_ch commands have already been processed.
    #
    # BEGIN_RETURN
    #

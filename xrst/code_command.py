@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin code_cmd user}
@@ -212,13 +212,6 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
       # m_begin
       m_begin = xrst.pattern['code'].search(data_out, len(data_left) )
    #
-   # check_syntax_error
-   xrst.check_syntax_error(
-      command_name  = 'code',
-      data          = data_out,
-      file_name     = file_name,
-      page_name     = page_name,
-   )
    # BEGIN_RETURN
    #
    assert type(data_out) == str

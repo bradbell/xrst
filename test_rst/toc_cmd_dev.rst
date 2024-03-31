@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 201-206,416-425
+   :lines: 201-206,404-413
    :language: py
 
 .. index:: is_parent

@@ -24,7 +24,6 @@ The xrst Module
    "auto_indent", :ref:`auto_indent-title`
    "check_input_files", :ref:`check_input_files-title`
    "check_page_name", :ref:`check_page_name-title`
-   "check_syntax_error", :ref:`check_syntax_error-title`
    "code_cmd_dev", :ref:`code_cmd_dev-title`
    "comment_cmd_dev", :ref:`comment_cmd_dev-title`
    "dir_cmd_dev", :ref:`dir_cmd_dev-title`
@@ -63,7 +62,6 @@ The xrst Module
    auto_indent
    check_input_files
    check_page_name
-   check_syntax_error
    code_cmd_dev
    comment_cmd_dev
    dir_cmd_dev

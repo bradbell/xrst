@@ -100,7 +100,7 @@ def comment_ch_command(data_in, file_name, page_name) :
    if not m_obj :
       m_error = pattern['error'].search(data_in)
       if m_error :
-         msg  = f'syntax_error in xrst comment_ch command'
+         msg  = f'syntax error in xrst comment_ch command'
          line = data_in[: m_error.start() + 1].count('\n') + 1
          xrst.system_exit(
             msg,
@@ -157,12 +157,5 @@ def comment_ch_command(data_in, file_name, page_name) :
       data_out= data_in[: m_obj.start()] + data_in[ m_obj.end() :]
       #
    #
-   # check_syntax_error
-   xrst.check_syntax_error(
-      command_name  = 'comment_ch',
-      data          = data_out,
-      file_name     = file_name,
-      page_name     = page_name,
-   )
    #
    return data_out, comment_ch

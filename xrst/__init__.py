@@ -17,7 +17,6 @@
 #  xrst/auto_indent.py
 #  xrst/check_input_files.py
 #  xrst/check_page_name.py
-#  xrst/check_syntax_error.py
 #  xrst/code_command.py
 #  xrst/comment_command.py
 #  xrst/dir_command.py
@@ -60,7 +59,6 @@ from .auto_file              import auto_file
 from .auto_indent            import auto_indent
 from .check_input_files      import check_input_files
 from .check_page_name        import check_page_name
-from .check_syntax_error     import check_syntax_error
 from .code_command           import code_command
 from .comment_ch_command     import comment_ch_command
 from .comment_command        import comment_command

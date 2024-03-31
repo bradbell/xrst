@@ -67,31 +67,30 @@ Table of Contents
 |    :ref:`5.4<auto_indent-title>` Automatic Indentation
 |    :ref:`5.5<check_input_files-title>` Check That Expected xrst Input Files Are Included
 |    :ref:`5.6<check_page_name-title>` Check the rules for a page name
-|    :ref:`5.7<check_syntax_error-title>` Check that an xrst command has been removed
-|    :ref:`5.8<code_cmd_dev-title>` Process the xrst code commands for a page
-|    :ref:`5.9<comment_cmd_dev-title>` Remove all comment commands
-|    :ref:`5.10<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
-|    :ref:`5.11<file_line-title>` Determine Input File and Line
-|    :ref:`5.12<get_conf_dict-title>` Get Configuration Dictionary
-|    :ref:`5.13<get_file_info-title>` Get information for all pages in a file
-|    :ref:`5.14<get_spell_checker-title>` Get A Spell Checker Object
-|    :ref:`5.15<indent_cmd_dev-title>` Process indent commands in a page
-|    :ref:`5.16<literal_cmd_dev-title>` Process the literal commands in a page
-|    :ref:`5.17<newline_indices-title>` Find index of all the newlines in a string
-|    :ref:`5.18<next_heading-title>` Return location of the next heading in a page
-|    :ref:`5.19<xrst.pattern-title>` The xrst.pattern Dictionary
-|    :ref:`5.20<process_children-title>` Add child information to a page
-|    :ref:`5.21<process_headings-title>` Add labels and index entries for headings
-|    :ref:`5.22<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
-|    :ref:`5.23<remove_line_numbers-title>` Remove the number numbers
-|    :ref:`5.24<rename_group-title>` Rename a Subset of a Group
-|    :ref:`5.25<replace_spell-title>` Replace spelling commands
-|    :ref:`5.26<spell_cmd_dev-title>` Process the spell command for a page
-|    :ref:`5.27<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
-|    :ref:`5.28<start_end_file-title>` Convert literal command start, end from text to line numbers
-|    :ref:`5.29<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
-|    :ref:`5.30<system_exit-title>` Form error message and exit
-|    :ref:`5.31<table_of_contents-title>` Create the table of contents and Modify Titles
-|    :ref:`5.32<template_cmd_dev-title>` Expand the template commands in a page
-|    :ref:`5.33<temporary_file-title>` Write the temporary RST file for a page
-|    :ref:`5.34<toc_cmd_dev-title>` Get file and page names for children of this page
+|    :ref:`5.7<code_cmd_dev-title>` Process the xrst code commands for a page
+|    :ref:`5.8<comment_cmd_dev-title>` Remove all comment commands
+|    :ref:`5.9<dir_cmd_dev-title>` Convert File Names to be Relative to the RST Directory
+|    :ref:`5.10<file_line-title>` Determine Input File and Line
+|    :ref:`5.11<get_conf_dict-title>` Get Configuration Dictionary
+|    :ref:`5.12<get_file_info-title>` Get information for all pages in a file
+|    :ref:`5.13<get_spell_checker-title>` Get A Spell Checker Object
+|    :ref:`5.14<indent_cmd_dev-title>` Process indent commands in a page
+|    :ref:`5.15<literal_cmd_dev-title>` Process the literal commands in a page
+|    :ref:`5.16<newline_indices-title>` Find index of all the newlines in a string
+|    :ref:`5.17<next_heading-title>` Return location of the next heading in a page
+|    :ref:`5.18<xrst.pattern-title>` The xrst.pattern Dictionary
+|    :ref:`5.19<process_children-title>` Add child information to a page
+|    :ref:`5.20<process_headings-title>` Add labels and index entries for headings
+|    :ref:`5.21<ref_cmd_dev-title>` Remove Leading and Trailing White Space From ref Role Targets
+|    :ref:`5.22<remove_line_numbers-title>` Remove the number numbers
+|    :ref:`5.23<rename_group-title>` Rename a Subset of a Group
+|    :ref:`5.24<replace_spell-title>` Replace spelling commands
+|    :ref:`5.25<spell_cmd_dev-title>` Process the spell command for a page
+|    :ref:`5.26<sphinx_label-title>` Get Labels Declared Using Sphinx Commands
+|    :ref:`5.27<start_end_file-title>` Convert literal command start, end from text to line numbers
+|    :ref:`5.28<suspend_cmd_dev-title>` Remove text specified by suspend / resume pairs
+|    :ref:`5.29<system_exit-title>` Form error message and exit
+|    :ref:`5.30<table_of_contents-title>` Create the table of contents and Modify Titles
+|    :ref:`5.31<template_cmd_dev-title>` Expand the template commands in a page
+|    :ref:`5.32<temporary_file-title>` Write the temporary RST file for a page
+|    :ref:`5.33<toc_cmd_dev-title>` Get file and page names for children of this page

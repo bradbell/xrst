@@ -218,12 +218,6 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
    # m_toc
    m_toc        = xrst.pattern['toc'].search(data_out)
    if m_toc is None :
-      xrst.check_syntax_error(
-         command_name    = 'toc',
-         data            = data_out,
-         file_name       = page_file,
-         page_name       = page_name,
-      )
       return data_out, file_list, child_page_list, order
    #
    # m_tmp
@@ -404,14 +398,8 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
    replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
    data_out = xrst.pattern['toc'].sub(replace, data_out)
    #
-   xrst.check_syntax_error(
-      command_name    = 'toc',
-      data            = data_out,
-      file_name       = page_file,
-      page_name       = page_name,
-   )
    # We know that the lists are no-empty for this return,
-   # but use asserts that work for both retures becase in documentation.
+   # but use asserts that work for both returns because in documentation.
    # BEGIN_RETURN
    #
    assert type(data_out) == str

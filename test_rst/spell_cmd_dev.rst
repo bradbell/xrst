@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/spell_command.py
-   :lines: 236-251,596-600
+   :lines: 236-251,589-593
    :language: py
 
 .. index:: tmp_dir

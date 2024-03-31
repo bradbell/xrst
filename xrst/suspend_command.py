@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin suspend_cmd user}
@@ -122,15 +122,6 @@ def suspend_command(data_in, file_name, page_name) :
       #
       # m_suspend
       m_suspend = pattern_suspend.search(data_out)
-   #
-   # check_syntax_error
-   for command_name in [ 'suspend', 'resume' ] :
-      xrst.check_syntax_error(
-         command_name  = command_name,
-         data          = data_out,
-         file_name     = file_name,
-         page_name     = page_name,
-      )
    # BEGIN_RETURN
    #
    assert type(data_out) == str

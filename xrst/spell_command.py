@@ -583,13 +583,6 @@ def spell_command(
    data_out = pattern['spell_off'].sub( '', data_out)
    data_out = pattern['spell_on'].sub( '', data_out)
    #
-   # check_syntax_error
-   xrst.check_syntax_error(
-      command_name  = 'spell',
-      data          = data_out,
-      file_name     = file_name,
-      page_name     = page_name,
-   )
    #
    spell_warning = not first_spell_warning
    # BEGIN_RETURN

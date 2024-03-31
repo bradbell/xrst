@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/comment_command.py
-   :lines: 58-59,100-102
+   :lines: 58-59,96-98
    :language: py
 
 .. index:: data_in
