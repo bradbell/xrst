@@ -394,7 +394,7 @@ def spell_command(
    # automatically in the special word list.
    m_ref = pattern['ref_name'].search(data_tmp)
    while m_ref != None :
-      page_name_tmp  = m_tmp.group(1)
+      page_name_tmp  = m_ref.group(1)
       page_name_words = ' '
       for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
          word_lower       = m_word.group(0).lower()
