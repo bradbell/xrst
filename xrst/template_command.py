@@ -17,9 +17,11 @@ Syntax
 | |tab| ...
 | ``}``
 
-Purpose
-*******
-The template command enables use one xrst input file in multiple pages.
+Input File
+**********
+During the expansion of a template command,
+the current input file is its *template_file* .
+Otherwise, the current input file is the current :ref:`begin_cmd@Page File` .
 
 Rst Include
 ***********

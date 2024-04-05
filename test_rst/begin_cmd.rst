@@ -5,7 +5,7 @@ begin_cmd
 !!!!!!!!!
 
 .. meta::
-   :keywords: begin_cmd,begin,and,end,commands,syntax,page,page_name,group_name,default,group,output,file,parent
+   :keywords: begin_cmd,begin,and,end,commands,syntax,page,file,page_name,group_name,default,group,output,parent
 
 .. index:: begin_cmd, begin, end, commands
 
@@ -33,6 +33,17 @@ Page
 ****
 The start (end) of a page of the input file is indicated by a
 begin (end) command.
+
+.. index:: page
+
+.. _begin_cmd@Page File:
+
+Page File
+*********
+The file where the begin and end commands for a page
+is called it's *page_file*.
+During the processing of :ref:`template commands<template_cmd-name>`
+the page file is different from the current input file.
 
 .. index:: page_name
 

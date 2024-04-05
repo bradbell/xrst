@@ -398,7 +398,8 @@ def spell_command(
       page_name_words = ' '
       for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
          word_lower       = m_word.group(0).lower()
-         page_name_words += word_lower + ' '
+         if page_name_words.find( f' {word_lower} ' ) < 0 :
+            page_name_words += word_lower + ' '
       before   = data_tmp[: m_ref.start() ]
       after    = data_tmp[m_ref.end() :]
       data_tmp = before + ' ' + page_name_words + ' ' + after

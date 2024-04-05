@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2024,xrst,release,notes,for,mm-dd,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
+   :keywords: 2024,xrst,release,notes,for,mm-dd,04-05,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
 
 .. index:: 2024, xrst, release, notes, 2024
 
@@ -23,6 +23,16 @@ xrst Release Notes for 2024
 
 mm-dd
 *****
+
+.. _2024@mm-dd@04-05:
+
+04-05
+=====
+Change the default :ref:`literal_cmd@display_file` in the literal command
+from the current :ref:`template_cmd@Input File`
+to the current :ref:`begin_cmd@Page File` .
+This only changes the literal command when it is used in a template file
+(template commands became available on 03-28).
 
 .. _2024@mm-dd@03-30:
 

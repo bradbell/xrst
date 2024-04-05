@@ -61,6 +61,7 @@ do
       echo 'bin/git_commit.sh: aborting'
       exit 1
    fi
+   git add "$file"
 done
 # -----------------------------------------------------------------------------
 # temp.log

@@ -5,7 +5,7 @@ template_cmd
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_cmd,template,command,syntax,purpose,rst,include,white,space,separator,template_file,match,replace,end,example
+   :keywords: template_cmd,template,command,syntax,input,file,rst,include,white,space,separator,template_file,match,replace,end,example
 
 .. index:: template_cmd, template
 
@@ -28,11 +28,15 @@ Syntax
 | |tab| ...
 | ``}``
 
-.. _template_cmd@Purpose:
+.. index:: input
 
-Purpose
-*******
-The template command enables use one xrst input file in multiple pages.
+.. _template_cmd@Input File:
+
+Input File
+**********
+During the expansion of a template command,
+the current input file is its *template_file* .
+Otherwise, the current input file is the current :ref:`begin_cmd@Page File` .
 
 .. index:: rst, include
 

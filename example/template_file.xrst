@@ -1,7 +1,12 @@
-{xrst_comment: This template file has the following parameters:
+{xrst_comment:
+
+This template file has the following parameters:
    @Title@    : is the title for this page
    @#####@    : is the rst underlining for the title
    @number@   : is the number for this page; e.g., one, two, ...
+
+This template uses BEGIN_EXPANSION_@number@ and END_EXPANSION_@number@
+for the limits of the template command that uses this file.
 }
 
 @Title@
@@ -28,12 +33,13 @@ Using 'myspecialword' and using 'double double' are OK here.
 
 This Template File
 ******************
-{xrst_literal}
+{xrst_literal
+   example/template_file.xrst
+}
 
 This Template Usage
 *******************
 {xrst_literal
-   example/template.xrst
    BEGIN_EXPANSION_@number@
    END_EXPANSION_@number@
 }

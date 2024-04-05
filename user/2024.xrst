@@ -18,6 +18,14 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+04-05
+=====
+Change the default :ref:`literal_cmd@display_file` in the literal command
+from the current :ref:`template_cmd@Input File`
+to the current :ref:`begin_cmd@Page File` .
+This only changes the literal command when it is used in a template file
+(template commands became available on 03-28).
+
 03-30
 =====
 #. The automatic special spelling words for a page were extended to include

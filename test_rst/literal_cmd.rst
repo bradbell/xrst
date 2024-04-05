@@ -61,17 +61,18 @@ This command is similar to the following sphinx directive
 
 The xrst literal command has the following difference:
 
-#. If the *display_file* is not specified, the current input file is used.
-#. The *start_after* and *end_before* in the command are not considered
-   a match for the corresponding text. This makes it possible to put the
-   command above the text when *display_file* is the current input file.
+#. If the *display_file* is not specified, the current
+   :ref:`begin_cmd@Page File` is used.
+#. If the *display_file* is the current :ref:`template_cmd@Input File` ,
+   the *start_after* and *end_before* in the command are not considered
+   a match for the corresponding text. This makes it possible to put a literal
+   command in the same file as the text it will display.
 #. It is an error for there to be more than one copy of each *start_after*
    or *end_before* in the *display_file* (not counting the copy in the
    command when the display file is the current input file).
    This makes sure that the intended section of *display_file* is displayed.
 #. It is possible to specify multiple sections of a file using
-   the start after and end before patterns. (These automatically get converted
-   to line numbers in a sphinx literalinclude directive.)
+   the start after and end before patterns.
 
 .. index:: tokens
 
@@ -83,7 +84,7 @@ Tokens
    *separator*, *display_file*, each *start_after*, and each *end_before*.
 #. Each *start_after* must have a corresponding *end_before*.
 #. If there are an even number of tokens (not counting *separator*),
-   the *display_file* is not present and the current input file is used.
+   the *display_file* is not present and the current page file is used.
 #. The new line character separates the tokens.
 #. If there are multiple lines in the command, the last line contains
    the ``}`` and must have nothing else but white space.
@@ -104,7 +105,7 @@ At most one *separator* can be in each line and it also separates tokens.
 display_file
 ************
 If *display_file* is not present,
-the literal input block is in the current input file.
+the literal input block is in the current page file.
 Otherwise, the literal input block is in *display_file*.
 The file name *display_file* is relative to the
 :ref:`config_file@directory@project_directory` .
@@ -139,7 +140,7 @@ No start or end
 In the case where there is no *start_after* or *end_before*,
 the entire display file is displayed.
 In the case of the ``{xrst_literal}`` syntax,
-the entire current input file is displayed.
+the entire current page file is displayed.
 
 .. index:: start_after
 

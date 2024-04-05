@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/literal_command.py
-   :lines: 215-219,387-389
+   :lines: 216-220,388-390
    :language: py
 
 .. index:: data_in

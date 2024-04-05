@@ -23,6 +23,13 @@ Page
 The start (end) of a page of the input file is indicated by a
 begin (end) command.
 
+Page File
+*********
+The file where the begin and end commands for a page
+is called it's *page_file*.
+During the processing of :ref:`template commands<template_cmd-name>`
+the page file is different from the current input file.
+
 page_name
 *********
 A *page_name* must satisfy the following conditions:
