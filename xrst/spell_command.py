@@ -73,7 +73,8 @@ are considered correct spelling for that page:
 
 | |tab| ``\{xrst_begin``        *page_name* *group_name* ``}``
 | |tab| ``\{xrst_begin_parent`` *page_name* *group_name* ``}``
-| |tab| ``:ref:`` \` *page_name* ``-name`` \`
+| |tab| ``:ref:`` \` ...  *page_name*\ ``-name`` ... `
+| |tab| ``:ref:`` \` ...  *page_name*\ ``-title`` ... `
 
 Note that *group_name* can be empty which corresponds to the default group;
 see :ref:`begin_cmd-name` .
@@ -135,7 +136,8 @@ pattern['literal']   = xrst.pattern['literal']
 # local pattern values only used by spell command
 pattern['directive']  = re.compile( r'\n[ ]*[.][.][ ]+[a-z-]+::' )
 pattern['http']       = re.compile( r'(https|http)://[A-Za-z0-9_/.#-]*' )
-pattern['ref_name']   = re.compile( r':ref:`([^\n<`]+)-name`' )
+pattern['ref_name_1'] = re.compile( r':ref:`([^\n<`]+)-name`' )
+pattern['ref_name_2'] = re.compile( r':ref:`[^\n<`]*<([^\n>`]+)-name *>`' )
 pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
@@ -329,20 +331,30 @@ def spell_command(
       #
       previous_word = word_lower
    #
+   # data_tmp
+   # version of data_in with certain commands removed
+   data_tmp = data_out
+   #
+   # data_tmp
+   # remove \< and \>, pattern matching below does not have to worry about it
+   data_tmp = data_tmp.replace( r'\<', ' ')
+   data_tmp = data_tmp.replace( r'\>', ' ')
+   #
    # page_name_word
    page_name_word = list()
    for m_word in pattern['page_name_word'].finditer(page_name) :
       word_lower = m_word.group(0).lower()
       page_name_word.append( word_lower )
-   for m_tmp in pattern['ref_name'].finditer(data_out) :
+   for m_tmp in pattern['ref_name_1'].finditer(data_tmp) :
       page_name_tmp = m_tmp.group(1)
       for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
          word_lower = m_word.group(0).lower()
          page_name_word.append( word_lower )
-   #
-   # data_tmp
-   # version of data_in with certain commands removed
-   data_tmp = data_out
+   for m_tmp in pattern['ref_name_2'].finditer(data_tmp) :
+      page_name_tmp = m_tmp.group(1)
+      for m_word in pattern['page_name_word'].finditer(page_name_tmp) :
+         word_lower = m_word.group(0).lower()
+         page_name_word.append( word_lower )
    #
    # m_off
    m_off = pattern['spell_off'].search(data_tmp)
@@ -392,7 +404,7 @@ def spell_command(
    # data_tmp
    # This is for detection of double word errors because these words are
    # automatically in the special word list.
-   m_ref = pattern['ref_name'].search(data_tmp)
+   m_ref = pattern['ref_name_1'].search(data_tmp)
    while m_ref != None :
       page_name_tmp  = m_ref.group(1)
       page_name_words = ' '
@@ -403,7 +415,7 @@ def spell_command(
       before   = data_tmp[: m_ref.start() ]
       after    = data_tmp[m_ref.end() :]
       data_tmp = before + ' ' + page_name_words + ' ' + after
-      m_ref = pattern['ref_name'].search(data_tmp)
+      m_ref = pattern['ref_name_1'].search(data_tmp)
    #
    # data_tmp
    # commands with file names as arugments

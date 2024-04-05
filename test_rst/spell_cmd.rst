@@ -107,7 +107,8 @@ are considered correct spelling for that page:
 
 | |tab| ``{xrst_begin``        *page_name* *group_name* ``}``
 | |tab| ``{xrst_begin_parent`` *page_name* *group_name* ``}``
-| |tab| ``:ref:`` \` *page_name* ``-name`` \`
+| |tab| ``:ref:`` \` ...  *page_name*\ ``-name`` ... `
+| |tab| ``:ref:`` \` ...  *page_name*\ ``-title`` ... `
 
 Note that *group_name* can be empty which corresponds to the default group;
 see :ref:`begin_cmd-name` .
