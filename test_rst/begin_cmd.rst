@@ -40,8 +40,8 @@ begin (end) command.
 
 Page File
 *********
-The file where the begin and end commands for a page
-is called it's *page_file*.
+The file containing the begin and end commands for a page
+is called its page file.
 During the processing of :ref:`template commands<template_cmd-name>`
 the page file is different from the current input file.
 
