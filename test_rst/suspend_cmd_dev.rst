@@ -5,7 +5,7 @@ suspend_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd_dev,remove,text,specified,by,suspend,/,resume,pairs,prototype,data_in,file_name,page_name,data_out
+   :keywords: suspend_cmd_dev,remove,text,specified,by,suspend,/,resume,pairs,prototype,data_in,page_file,page_name,data_out
 
 .. index:: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
 
@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 73-76,126-128
+   :lines: 82-85,133-135
    :language: py
 
 .. index:: data_in
@@ -36,13 +36,13 @@ data_in
 *******
 is the data for this page.
 
-.. index:: file_name
+.. index:: page_file
 
-.. _suspend_cmd_dev@file_name:
+.. _suspend_cmd_dev@page_file:
 
-file_name
+page_file
 *********
-is the input file corresponding to this page.
+is the :ref:`begin_cmd@Page File` for this page.
 
 .. index:: page_name
 

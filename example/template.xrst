@@ -25,6 +25,7 @@ This Example File
    @Title@        , First Expansion
    @#####@        , ###############
    @number@       , one
+   @boolean@      , true
 }
 {xrst_comment END_EXPANSION_one}
 
@@ -38,6 +39,7 @@ This Example File
    @Title@        , Second Expansion
    @#####@        , ################
    @number@       , two
+   @boolean@      , false
 }
 {xrst_comment END_EXPANSION_two}
 

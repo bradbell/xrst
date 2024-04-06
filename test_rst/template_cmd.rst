@@ -96,7 +96,6 @@ any of the following xrst commands in a template expansion:
 :ref:`begin or end <begin_cmd-name>` ,
 :ref:`comment character <comment_ch_cmd-name>` ,
 :ref:`indent<indent_cmd-name>` ,
-:ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template <template_cmd-name>` .
 

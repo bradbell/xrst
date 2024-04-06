@@ -1,12 +1,12 @@
 {xrst_comment:
-
 This template file has the following parameters:
-   @Title@    : is the title for this page
-   @#####@    : is the rst underlining for the title
-   @number@   : is the number for this page; e.g., one, two, ...
+   @Title@   : is the title for this page
+   @#####@   : is the rst underlining for the title
+   @number@  : is the number for this page; e.g., one, two, ...
+   @boolean@ : if false the conditional paragraph is displayed
 
 This template uses BEGIN_EXPANSION_@number@ and END_EXPANSION_@number@
-for the limits of the template command that uses this file.
+for the limits of the template command in corresponding the page file.
 }
 
 @Title@
@@ -19,17 +19,22 @@ This is expansion number @number@ of the template file
 
 Spelling
 ********
-Template files can not have the following command:
-
-   ``\{xrst_spell *word_1* ... *word_n* ``}``
-
-We therefore suggest that you surround the intended use of special words,
-or double words, by
+Template files can not have :ref:`spell commands<spell_example-name>` .
+Every page that uses a template file will have to include
+the template file special words it the page's spell command.
+You can avoid this by surrounding the intended use of special words,
+and double words, by
 ``\{xrst_spell_off}`` and ``\{xrst_spell_on}`` .
 This is what is done in the following sentence:
 {xrst_spell_off}
 Using 'myspecialword' and using 'double double' are OK here.
 {xrst_spell_on}
+
+{xrst_suspend @boolean@}
+Conditional Paragraph
+*********************
+This paragraph is displayed if the boolean in the suspend command is false.
+{xrst_resume}
 
 This Template File
 ******************

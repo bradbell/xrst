@@ -5,7 +5,7 @@ example_expansion_two
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_two,second,expansion,number,spelling,this,template,file,usage
+   :keywords: example_expansion_two,second,expansion,number,spelling,conditional,paragraph,this,template,file,usage
 
 .. index:: example_expansion_two, second, expansion
 
@@ -32,15 +32,22 @@ This is expansion number two of the template file
 
 Spelling
 ********
-Template files can not have the following command:
-
-   ``{xrst_spell *word_1* ... *word_n* ``}``
-
-We therefore suggest that you surround the intended use of special words,
-or double words, by
+Template files can not have :ref:`spell commands<spell_example-name>` .
+Every page that uses a template file will have to include
+the template file special words it the page's spell command.
+You can avoid this by surrounding the intended use of special words,
+and double words, by
 ``{xrst_spell_off}`` and ``{xrst_spell_on}`` .
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
+
+.. index:: conditional, paragraph
+
+.. _example_expansion_two@Conditional Paragraph:
+
+Conditional Paragraph
+*********************
+This paragraph is displayed if the boolean in the suspend command is false.
 
 .. index:: template
 
@@ -60,5 +67,5 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 36-41
+   :lines: 37-43
    :language: rst

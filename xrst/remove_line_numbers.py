@@ -6,7 +6,7 @@ import re
 import xrst
 #
 #
-pattern_error = re.compile( r'@xrst_line [0-9]+@[^\n]' )
+pattern_error = re.compile( r'@xrst_line *[0-9]+@[^\n]' )
 # {xrst_begin remove_line_numbers dev}
 # {xrst_comment_ch #}
 #
@@ -81,12 +81,15 @@ def remove_line_numbers(data_in) :
       start = max(m_error.start() - 50, 0)
       end   = min(m_error.end() + 50, len(data_in))
       msg   = 'Program error: Line number tracking is confused:\n'
-      msg  += '\nText before the bad line number ='
-      msg  += '\n---------------------------------\n'
+      msg  += 'Text before the bad line number =\n'
       msg  +=  data_in[start : m_error.start()]
-      msg  += '\nText after the bad line number ='
-      msg  += '\n--------------------------------\n'
+      msg  += '\n---------------------------------\n'
+      msg  += 'Line number with no newline at end =\n'
+      msg  += m_error.group(0)
+      msg  += '\n---------------------------------\n'
+      msg  += 'Text after the bad line number =\n'
       msg  +=  data_in[m_error.end() :  end]
+      msg  += '\n--------------------------------\n'
       xrst.system_exit(msg)
    #
    # template_list

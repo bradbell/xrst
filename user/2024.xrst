@@ -18,6 +18,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+04-06
+=====
+Add the :ref:`suspend_cmd@boolean` argument to the suspend command
+and allow for suspend and resume commands in a
+:ref:`template_cmd@template_file` .
+
 04-05
 =====
 Change the default :ref:`literal_cmd@display_file` in the literal command

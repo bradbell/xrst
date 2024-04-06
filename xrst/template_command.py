@@ -65,7 +65,6 @@ any of the following xrst commands in a template expansion:
 :ref:`begin or end <begin_cmd-name>` ,
 :ref:`comment character <comment_ch_cmd-name>` ,
 :ref:`indent<indent_cmd-name>` ,
-:ref:`suspend, resume <suspend_cmd-name>` ,
 :ref:`spell<spell_cmd-name>` ,
 :ref:`template <template_cmd-name>` .
 
@@ -294,9 +293,7 @@ def template_command(data_in, page_file, page_name) :
          'begin',
          'end',
          'comment_ch',
-         'suspend',
          'indent',
-         'resume',
          'spell',
          'template'
       ] :
@@ -317,6 +314,10 @@ def template_command(data_in, page_file, page_name) :
       #
       # m_template
       m_template  = pattern_template.search(data_out , len(data_done))
+   #
+   # suspend_command
+   # need to run this for suspends in the template expansions
+   data_out = xrst.suspend_command(data_out, page_file, page_name)
    #
    # BEGIN_RETURN
    assert type(data_out) == str

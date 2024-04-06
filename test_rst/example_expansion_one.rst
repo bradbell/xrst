@@ -32,12 +32,11 @@ This is expansion number one of the template file
 
 Spelling
 ********
-Template files can not have the following command:
-
-   ``{xrst_spell *word_1* ... *word_n* ``}``
-
-We therefore suggest that you surround the intended use of special words,
-or double words, by
+Template files can not have :ref:`spell commands<spell_example-name>` .
+Every page that uses a template file will have to include
+the template file special words it the page's spell command.
+You can avoid this by surrounding the intended use of special words,
+and double words, by
 ``{xrst_spell_off}`` and ``{xrst_spell_on}`` .
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
@@ -60,5 +59,5 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 23-28
+   :lines: 23-29
    :language: rst
