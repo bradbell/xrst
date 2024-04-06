@@ -7,6 +7,8 @@ example_expansion_one
 .. meta::
    :keywords: example_expansion_one,first,expansion,number,spelling,this,template,file,usage
 
+
+
 .. index:: example_expansion_one, first, expansion
 
 .. _example_expansion_one-title:
@@ -61,3 +63,5 @@ This Template Usage
 .. literalinclude:: ../../example/template.xrst
    :lines: 23-29
    :language: rst
+
+

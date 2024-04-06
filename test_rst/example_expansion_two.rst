@@ -7,6 +7,8 @@ example_expansion_two
 .. meta::
    :keywords: example_expansion_two,second,expansion,number,spelling,conditional,paragraph,this,template,file,usage
 
+
+
 .. index:: example_expansion_two, second, expansion
 
 .. _example_expansion_two-title:
@@ -69,3 +71,5 @@ This Template Usage
 .. literalinclude:: ../../example/template.xrst
    :lines: 37-43
    :language: rst
+
+
