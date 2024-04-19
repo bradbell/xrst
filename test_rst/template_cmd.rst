@@ -54,6 +54,10 @@ The template command differs form the include directive in the following ways:
 #. The template command allows for text replacement
    during the include so that *template_file* is like function or macro.
 
+#. It also allows for conditional including of sections of the template file
+   (when combined with the :ref:`suspend_cmd@boolean` argument in the
+   suspend command).
+
 #. Errors and warnings in a template expansion will include both
    the line in the template file and the line where it is used.
    Errors and warnings in a sphinx include only report the

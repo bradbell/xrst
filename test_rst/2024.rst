@@ -28,9 +28,13 @@ mm-dd
 
 04-06
 =====
-Add the :ref:`suspend_cmd@boolean` argument to the suspend command
-and allow for suspend and resume commands in a
-:ref:`template_cmd@template_file` .
+#. Add the :ref:`suspend_cmd@boolean` argument to the suspend command
+   and allow for suspend and resume commands in a
+   :ref:`template_cmd@template_file` .
+#. Sphinx errors messages that occurred inside a template expansion
+   were reported using the page file and template line.
+   This has been fixed and they are now reported with the
+   page file, page line, template file, and template line.
 
 .. _2024@mm-dd@04-05:
 
