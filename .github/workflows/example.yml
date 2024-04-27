@@ -17,12 +17,12 @@ env:
 #
 jobs:
    example_matrix:
-     #
-     strategy:
-        matrix:
-           os: [windows-latest, ubuntu-latest]
-     #
-     runs-on: $${ matrix.os }}
-     steps:
-        - run: echo 'variable_one = ${{ env.variable_one }}'
-        - run: echo 'variable_two = ${{ env.variable_two }}'
+      #
+      strategy:
+         matrix:
+         os: [windows-latest, ubuntu-latest]
+         #
+         runs-on: $${ matrix.os }}
+         steps:
+            - run: echo 'variable_one = ${{ env.variable_one }}'
+            - run: echo 'variable_two = ${{ env.variable_two }}'
