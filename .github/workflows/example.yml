@@ -1,5 +1,5 @@
 # 2024-04-26: see https://docs.github.com
-#             /en/actions/learn-github-actions/understanding-github-actions
+#            /en/actions/learn-github-actions/understanding-github-actions
 #
 # The name for this workflow
 name: example-workflow
@@ -21,8 +21,8 @@ jobs:
       strategy:
          matrix:
          os: [windows-latest, ubuntu-latest]
-         #
-         runs-on: $${ matrix.os }}
-         steps:
-            - run: echo 'variable_one = ${{ env.variable_one }}'
-            - run: echo 'variable_two = ${{ env.variable_two }}'
+      #
+      runs-on: $${ matrix.os }}
+      steps:
+         - run: echo 'variable_one = ${{ env.variable_one }}'
+         - run: echo 'variable_two = ${{ env.variable_two }}'
