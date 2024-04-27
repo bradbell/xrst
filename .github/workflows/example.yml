@@ -17,16 +17,11 @@ env:
 #
 jobs:
    #
-   # first runner
-   windows_job:
-      runs-on: windows-latest
-      steps:
-        - run: echo 'variable_one = ${{ env.variable_one }}'
-        - run: echo 'variable_two = ${{ env.variable_two }}'
+   strategy:
+      matrix:
+         os: [windows-latest, ubuntu-latest]
    #
-   # second runner
-   ubuntu_job:
-      runs-on: ubuntu-latest
-      steps:
-         - run: echo 'variable_one = ${{ env.variable_one }}'
-         - run: echo 'variable_two = ${{ env.variable_two }}'
+   steps:
+      - run: echo 'os = ${{ matrix.os }}'
+      - run: echo 'variable_one = ${{ env.variable_one }}'
+      - run: echo 'variable_two = ${{ env.variable_two }}'
