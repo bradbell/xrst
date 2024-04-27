@@ -1,16 +1,32 @@
 # 2024-04-26: see https://docs.github.com
 #             /en/actions/learn-github-actions/understanding-github-actions
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+#
+# The name for this workflow
+name: example-workflow
+#
+# A short description of this workflow
+run-name: This workflow was triggered by ${{ github.actor }}
+#
+# This worflow will be run on any push to the repository
 on: [push]
+#
+# env.varible_one. env.variable_two
+env:
+   variable_one: 1
+   variable_two: 2
+#
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
-
+   #
+   # first runner
+   windows_job:
+      runs-on: windows-latest
+      steps:
+         -run: echo 'variable_one = ${{ env.variable.one }}
+         -run: echo 'variable_two = ${{ env.variable.two }}
+   #
+   # second runner
+   ubuntu_job:
+      runs-on: ubuntu-latest
+      steps:
+         -run: echo 'variable_one = ${{ env.variable.one }}
+         -run: echo 'variable_two = ${{ env.variable.two }}
