@@ -21,12 +21,12 @@ jobs:
    windows_job:
       runs-on: windows-latest
       steps:
-         -run: echo 'variable_one = ${{ env.variable.one }}
-         -run: echo 'variable_two = ${{ env.variable.two }}
+         run: echo 'variable_one = ${{ env.variable.one }}'
+         run: echo 'variable_two = ${{ env.variable.two }}'
    #
    # second runner
    ubuntu_job:
       runs-on: ubuntu-latest
       steps:
-         -run: echo 'variable_one = ${{ env.variable.one }}
-         -run: echo 'variable_two = ${{ env.variable.two }}
+         run: echo 'variable_one = ${{ env.variable.one }}'
+         run: echo 'variable_two = ${{ env.variable.two }}'
