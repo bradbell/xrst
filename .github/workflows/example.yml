@@ -8,7 +8,10 @@ name: example-workflow
 run-name: This workflow was triggered by ${{ github.actor }}
 #
 # This worflow will be run on any push to the repository
-on: [push]
+on:
+  push:
+    branches:
+      workflow
 #
 # env.varible_one. env.variable_two
 env:
