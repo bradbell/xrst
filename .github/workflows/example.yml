@@ -43,11 +43,11 @@ jobs:
           python-version: '3.12'
       #
       - name: Using bash
-        shell: bash -eul {0}
+        shell: bash -el {0}
         run: |
           echo "variable_one = $variable_one"
           echo "variable_two = $variable_two"
           echo "which python3 = $(which python3)"
           echo "which pip     = $(which pip)"
-          echo "ls = $(ls)"
+          echo "ls = \n$(ls)"
         
