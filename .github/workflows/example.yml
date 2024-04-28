@@ -30,17 +30,20 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       #
-      - run: echo 'matrix.os    = ${{ matrix.os }}'
-      - run: echo 'variable_one = ${{ env.variable_one }}'
-      - run: echo 'variable_two = ${{ env.variable_two }}'
+      - name: Using yml template variables
+        run: |
+          echo 'matrix.os    = ${{ matrix.os }}'
+          echo 'variable_one = ${{ env.variable_one }}'
+          echo 'variable_two = ${{ env.variable_two }}'
       #
+      # actions
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: 
           python-version: '3.12'
       #
-      - name: Bash
-        shell: bash -el {0}
+      - name: Using bash
+        shell: bash -eul {0}
         run: |
           echo "variable_one = $variable_one"
           echo "variable_two = $variable_two"
