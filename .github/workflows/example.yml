@@ -25,5 +25,6 @@ jobs:
       #
       runs-on: ${{ matrix.os }}
       steps:
+         - run: echo 'matrix.os    = ${{ matrix.os }}'
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
