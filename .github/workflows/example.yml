@@ -30,7 +30,7 @@ jobs:
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
          - if: ${{ matrix.os }} == "windows-latest"
-            run: dir
+            - run: echo 'yes'
          - if: ${{ matrix.os }} != "windows-latest"
-            run: ls
+            - run: echo 'no'
             
