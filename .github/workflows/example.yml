@@ -12,30 +12,30 @@ on: [push]
 #
 # env.varible_one. env.variable_two
 env:
-   variable_one: 1
-   variable_two: 2
+  variable_one: 1
+  variable_two: 2
 #
 jobs:
-   #
-   # example running on windows, ubuntu and mac
-   example_matrix:
+  #
+  # example running on windows, ubuntu and mac
+  example_matrix:
+    #
+    strategy:
+      matrix:
+        os: [ windows-latest, ubuntu-latest , macos-latest ]
+    #
+    runs-on: ${{ matrix.os }}
+    steps:
       #
-      strategy:
-         matrix:
-            os: [ windows-latest, ubuntu-latest , macos-latest ]
+      - run: echo 'matrix.os    = ${{ matrix.os }}'
+      - run: echo 'variable_one = ${{ env.variable_one }}'
+      - run: echo 'variable_two = ${{ env.variable_two }}'
+      - uses: actions/checkout@v4
       #
-      runs-on: ${{ matrix.os }}
-      steps:
-         #
-         - run: echo 'matrix.os    = ${{ matrix.os }}'
-         - run: echo 'variable_one = ${{ env.variable_one }}'
-         - run: echo 'variable_two = ${{ env.variable_two }}'
-         - uses: actions/checkout@v4
-         #
-         -  name: Bash
-            shell: bash -el {0}
-            run: |
-               echo "variable_one = $variable_one"
-               echo "variable_two = $variable_two"
-               ls
-            
+      - name: Bash
+        shell: bash -el {0}
+        run: |
+          echo "variable_one = $variable_one"
+          echo "variable_two = $variable_two"
+          ls
+        
