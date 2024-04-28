@@ -49,5 +49,5 @@ jobs:
           echo "variable_two = $variable_two"
           echo "which python3 = $(which python3)"
           echo "which pip     = $(which pip)"
-          echo "ls = \n$(ls)"
+          printf "ls = \n$(ls)"
         
