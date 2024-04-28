@@ -30,11 +30,12 @@ jobs:
          - run: echo 'matrix.os    = ${{ matrix.os }}'
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
-         #
-         - name: Bash
-           shell: bash -el {0}
-           run: echo "variable_one = $env:variable_one"
-         #
          - uses: actions/checkout@v4
-         - run: ls
+         #
+         -  name: Bash
+            shell: bash -el {0}
+            run: |
+               echo "variable_one = $variable_one"
+               echo "variable_two = $variable_two"
+               ls
             
