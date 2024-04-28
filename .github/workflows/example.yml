@@ -1,5 +1,5 @@
-# 2024-04-26: see https://docs.github.com
-#             /en/actions/learn-github-actions/understanding-github-actions
+# Use the following to verify yml syntax before commiting:
+# https://yamlchecker.com/
 #
 # The name for this workflow
 name: example-workflow
@@ -30,7 +30,7 @@ jobs:
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
          - if: matrix.os == 'windows-latest'
-           run: echo 'windows'
+           run: echo 'variable_one = %variable_one%'
          - if: matrix.os != 'windows-latest'
-           run: echo 'unix'
+           run: echo 'variable_two = $variable_two'
             
