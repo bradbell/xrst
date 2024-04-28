@@ -31,10 +31,9 @@ jobs:
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
          #
-         - if: matrix.os == 'windows-latest'
+         - name: Bash
+           shell: bash -el {0}
            run: echo "variable_one = $env:variable_one"
-         - if: matrix.os != 'windows-latest'
-           run: echo "variable_two = $variable_two"
          #
          - uses: actions/checkout@v4
          - run: ls
