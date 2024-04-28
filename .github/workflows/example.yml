@@ -29,8 +29,8 @@ jobs:
          - run: echo 'matrix.os    = ${{ matrix.os }}'
          - run: echo 'variable_one = ${{ env.variable_one }}'
          - run: echo 'variable_two = ${{ env.variable_two }}'
-         - if: ${{ matrix.os }} == "windows-latest"
-            - run: echo 'yes'
-         - if: ${{ matrix.os }} != "windows-latest"
-            - run: echo 'no'
+         - if: matrix.os == 'windows-latest'
+            run: echo 'yes'
+         - if: matrix.os != "windows-latest"
+            run: echo 'no'
             
