@@ -46,9 +46,9 @@ jobs:
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
             bin_dir='Scripts'
+            sed -i -e 's|/bin/xrst|/Scripts/xrst|' bin/check_install.sh
           else
             bin_dir='bin'
           fi
           export PATH="build/prefix/$bin_dir:$PATH"
-          build/prefix/$bin_dir/xrst --suppress_spell_warnings
-          # bin/check_all.sh
+          bin/check_install.sh
