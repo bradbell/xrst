@@ -41,4 +41,4 @@ jobs:
           pip install .
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
           python -m xrst --suppress_spell_warnings
-          # bin/check_all.sh
+          bin/check_all.sh
