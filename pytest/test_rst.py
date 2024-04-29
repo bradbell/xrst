@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import sys
 import os
@@ -32,8 +32,9 @@ def run_xrst() :
    # python_executable
    python_executable = sys.executable
    #
-   # This command should be the same as the one in bin/check_xrst.sh
-   # that's used to keep the test_rst directory up to date.
+   # This command should have the same arguments as the same as the one in
+   # bin/check_xrst.sh that's used to keep the test_rst directory up to date.
+   # The first like is replaced (and restored) during bin/check_install.sh.
    command = [
       python_executable, '-m', 'xrst',
       '--local_toc',
