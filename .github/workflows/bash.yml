@@ -37,6 +37,7 @@ jobs:
       - name: Using bash
         shell: bash -el {0}
         run: |
+          echo 'matrix.os = ${{ matrix.os }}'
           pip install pytest
           pip install --prefix=build/prefix .
           export PYTHONPATH=$(find build/prefix -name 'site-packages')
