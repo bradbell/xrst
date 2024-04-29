@@ -19,7 +19,7 @@ on:
 #
 jobs:
   #
-  check_all.sh:
+  check_all:
     #
     strategy:
       matrix:
