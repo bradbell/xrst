@@ -19,13 +19,14 @@ on:
 #
 jobs:
   #
-  #
-  strategy:
-    matrix:
-      os: [ windows-latest, ubuntu-latest , macos-latest ]
-  #
-  runs-on: ${{ matrix.os }}
-  steps:
+  check_all.sh:
+    #
+    strategy:
+      matrix:
+        os: [ windows-latest, ubuntu-latest , macos-latest ]
+    #
+    runs-on: ${{ matrix.os }}
+    steps:
       #
       # actions
       - uses: actions/checkout@v4
@@ -33,6 +34,6 @@ jobs:
         with:
           python-version: '3.12'
       #
-      - name: bin/check_install.sh
+      - name: Using bash
         shell: bash -el {0}
-        run: bin/check_install.sh
+        run: bin/check_all.sh
