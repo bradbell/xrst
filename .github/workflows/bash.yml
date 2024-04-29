@@ -39,8 +39,15 @@ jobs:
         run: |
           pip install pytest
           pip install --prefix=build/prefix .
-          export PATH="build/prefix/bin:$PATH"
           export PYTHONPATH=$(find build/prefix -name 'site-packages')
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
-          build/prefix/bin/xrst --suppress_spell_warnings
+          #
+          if [ '${{ matrix.os }}' == 'windows-latext' ]
+          then
+            export PATH="build/prefix/bin/local:$PATH"
+            build/prefix/bin/local/xrst --suppress_spell_warnings
+          else
+            export PATH="build/prefix/bin:$PATH"
+            build/prefix/bin/xrst --suppress_spell_warnings
+          fi
           # bin/check_all.sh
