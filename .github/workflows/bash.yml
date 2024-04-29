@@ -39,6 +39,7 @@ jobs:
         run: |
           pip install pytest
           pip install --prefix=build/prefix .
+          export PATH="build/prefix/bin:$PATH"
           export PYTHONPATH=$(find build/prefix -name 'site-packages')
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
           build/prefix/bin/xrst --suppress_spell_warnings
