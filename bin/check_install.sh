@@ -36,7 +36,7 @@ pip install --prefix=$prefix .
 count=$(find $prefix -name 'site-packages' | wc -l)
 if [ "$count" != 1 ]
 then
-   echo "check_install.sh: zero or more than one site-packages below $prefix"
+   echo "check_install.sh: $count site-packages below $prefix"
    find $prefix -name 'site-packages'
    exit 1
 fi
