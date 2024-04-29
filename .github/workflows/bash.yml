@@ -43,11 +43,9 @@ jobs:
           export PYTHONPATH=$(find build/prefix -name 'site-packages')
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
           #
-          if [ '${{ matrix.os }}' == 'windows-latext' ]
+          if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
-            echo 'windows-latest'
             export PATH="build/prefix/local/bin:$PATH"
-            which xrst
             build/prefix/local/bin/xrst --suppress_spell_warnings
           else
             export PATH="build/prefix/bin:$PATH"
