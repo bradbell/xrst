@@ -36,4 +36,6 @@ jobs:
       #
       - name: Using bash
         shell: bash -el {0}
-        run: bin/check_all.sh
+        run: |
+          pip install pytest
+          bin/check_all.sh
