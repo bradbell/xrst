@@ -34,9 +34,13 @@ jobs:
         with:
           python-version: '3.12'
       #
+      # pip
+      - run: pip install pytest
+      - run: pip install .
+      #
+      # xrst
+      - run: python3 -m xrst
+      #
       - name: Using bash
         shell: bash -el {0}
-        run: |
-          pip install pytest
-          # bin/check_all.sh
-          python -m xrst
+        # run: bin/check_all.sh
