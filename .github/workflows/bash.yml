@@ -44,8 +44,8 @@ jobs:
           #
           if [ '${{ matrix.os }}' == 'windows-latext' ]
           then
-            export PATH="build/prefix/bin/local:$PATH"
-            build/prefix/bin/local/xrst --suppress_spell_warnings
+            export PATH="build/prefix/local/bin:$PATH"
+            build/prefix/local/bin/xrst --suppress_spell_warnings
           else
             export PATH="build/prefix/bin:$PATH"
             build/prefix/bin/xrst --suppress_spell_warnings
