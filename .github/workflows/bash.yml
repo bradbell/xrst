@@ -45,7 +45,7 @@ jobs:
           #
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
-            ls -l build/prefix
+            ls build/prefix/*/*
             export PATH="build/prefix/local/bin:$PATH"
             build/prefix/local/bin/xrst --suppress_spell_warnings
           else
