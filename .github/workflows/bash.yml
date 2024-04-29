@@ -36,8 +36,8 @@ jobs:
       #
       - name: Using bash
         shell: bash -el {0}
-        run: |
-          pip install pytest
-          pip install .
+        steps:
+          - run: pip install pytest
+          - run: pip install .
+          - run: python -m xrst   --suppress_spell_warnings
           # bin/check_all.sh
-          python -m xrst
