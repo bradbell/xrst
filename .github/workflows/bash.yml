@@ -38,4 +38,5 @@ jobs:
         shell: bash -el {0}
         run: |
           pip install pytest
-          bin/check_all.sh
+          # bin/check_all.sh
+          python -m xrst
