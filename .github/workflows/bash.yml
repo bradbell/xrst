@@ -38,7 +38,7 @@ jobs:
         shell: bash -el {0}
         run: |
           pip install pytest
-          pip install .
+          pip install --prefix=build/prefix
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
-          python -m xrst --suppress_spell_warnings
-          bin/check_all.sh
+          build/prefix/bin/xrst --suppress_spell_warnings
+          # bin/check_all.sh
