@@ -44,7 +44,9 @@ jobs:
           #
           if [ '${{ matrix.os }}' == 'windows-latext' ]
           then
+            echo 'windows-latest'
             export PATH="build/prefix/local/bin:$PATH"
+            which xrst
             build/prefix/local/bin/xrst --suppress_spell_warnings
           else
             export PATH="build/prefix/bin:$PATH"
