@@ -51,5 +51,6 @@ jobs:
             bin_dir='bin'
           fi
           export PATH="$prefix/$bin_dir:$PATH"
-          $prefix/$bin_dir/xrst --suppress_spell_warnings
+          sed -i -e "s|^ *python_executable,.*|'xrst', '--suppress_spell_warnings',|" pytest/test_rst.py
+          pytest -s pytest
           # bin/check_all.sh
