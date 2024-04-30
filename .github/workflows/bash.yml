@@ -38,19 +38,10 @@ jobs:
         shell: bash -el {0}
         run: |
           echo 'matrix.os = ${{ matrix.os }}'
-          prefix='build/prefix'
           pip install pytest
-          pip install --prefix=$prefix .
-          export PYTHONPATH=$(find $prefix -name 'site-packages')
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
-          #
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
-            bin_dir='Scripts'
-          else
-            bin_dir='bin'
+            PATH="$prefix/Scripts:$PATH"
           fi
-          export PATH="$prefix/$bin_dir:$PATH"
-          sed -i -e "s|^ *python_executable,.*|'xrst', '--suppress_spell_warnings',|" pytest/test_rst.py
-          pytest -s pytest
-          # bin/check_all.sh
+          bin/check_install.sh
