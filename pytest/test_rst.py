@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
+test_installed_version = False
+# ----------------------------------------------------------------------------
 import sys
 import os
 import re
@@ -32,20 +34,32 @@ def run_xrst() :
    # python_executable
    python_executable = sys.executable
    #
-   # This command should have the same arguments as the same as the one in
-   # bin/check_xrst.sh that's used to keep the test_rst directory up to date.
-   # The first like is replaced (and restored) during bin/check_install.sh.
-   command = [
-      python_executable, '-m', 'xrst',
+   # command
+   if test_installed_version :
+      if not os.path.exists('build') :
+         os.mkdir('build')
+      os.chdir('build')
+      command  = [ 'xrst', '--config_file', '../xrst.toml' ]
+      command += [ '--suppress_spell_warnings' ]
+   else :
+      command  = [ python_executable, '-m', 'xrst' ]
+      command += [ '--config_file', 'xrst.toml' ]
+   #
+   # command
+   # This command should have the same arguments as the last group_list in
+   # bin/check_xrst.sh which is used to keep the test_rst up to date.
+   command += [
       '--local_toc',
       '--rst_only',
-      '--config_file',     'xrst.toml',
       '--index_page_name', index_page_name,
       '--group_list',      'default', 'user', 'dev',
       '--html_theme',      'sphinx_rtd_theme',
    ]
    result = subprocess.run(command)
    assert result.returncode == 0
+   #
+   if test_installed_version :
+      os.chdir('..')
 # ----------------------------------------------------------------------------
 def run_test() :
    run_xrst()

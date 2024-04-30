@@ -82,6 +82,7 @@ do
    args="$args --number_jobs $number_jobs"
    #
    # build/html, build/rst
+   # last group_list should have same arguments as in pytest/test_rst.py
    echo "python -m xrst $args"
    if ! python -m xrst $args 2> check_xrst.$$
    then

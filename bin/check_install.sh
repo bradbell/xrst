@@ -14,18 +14,12 @@ fi
 # prefix
 prefix="$(pwd)/build/prefix"
 #
-# run_xrst
-run_xrst="^ *python_executable, '-m', 'xrst',\$"
-#
-# run_xrst
-run_xrst="      python_executable, '-m', 'xrst',"
-#
 # test_driver
 test_driver='pytest/test_rst.py'
-if ! grep "$run_xrst" $test_driver > /dev/null
+if ! grep '^test_installed_version = False$' $test_driver > /dev/null
 then
    echo "bin/check_install.sh: cannot fine following in $test_driver"
-   echo $run_xrst
+   echo 'test_installed_verison = False'
    exit 1
 fi
 #
@@ -50,19 +44,20 @@ then
 else
    PYTHONPATH="$site_packages:$PYTHONPATH"
 fi
+export PYTHONPATH
+#
+# PATH
+PATH="$prefix/bin:$PATH"
 #
 # test_driver
-# Using prefix runs the installed and not the source version of xrst
-sed -i \
-   -e  "s|$run_xrst|'$prefix/bin/xrst', '--suppress_spell_warnings', |" \
+sed -i -e 's|test_installed_version = False|test_installed_version = True|' \
    $test_driver
 #
 # pytest
 pytest -s pytest
 #
 # test_driver
-sed -i \
-   -e  "s|'$prefix/bin/xrst', '--suppress_spell_warnings', |$run_xrst|" \
+sed -i -e 's|test_installed_version = True|test_installed_version = False|' \
    $test_driver
 #
 # -----------------------------------------------------------------------------
