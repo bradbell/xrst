@@ -36,7 +36,7 @@ def run_xrst() :
    # bin/check_xrst.sh that's used to keep the test_rst directory up to date.
    # The first like is replaced (and restored) during bin/check_install.sh.
    command = [
-'xrst', '--suppress_spell_warnings',
+      python_executable, '-m', 'xrst',
       '--local_toc',
       '--rst_only',
       '--config_file',     'xrst.toml',
