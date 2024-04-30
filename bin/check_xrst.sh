@@ -44,20 +44,22 @@ index_page_name=$(\
    sed -e 's|^ *--index_page_name *||' \
 )
 # -----------------------------------------------------------------------------
-# html
-# run from html directory so that project_directory is not working directory
+# build
+# run from build directory so that project_directory is not working directory
 if [ ! -e build ]
 then
    mkdir build
 fi
 cd    build
 #
-# ./xrst.toml
+# build/xrst.toml
 sed -e "s|^project_directory *=.*|project_directory = '..'|"  \
    ../xrst.toml > xrst.toml
 #
+# group_list
 for group_list in 'default' 'default user dev'
 do
+   # build/html, build/rst
    for subdir in html rst
    do
       if [ -e $subdir ]
@@ -65,6 +67,8 @@ do
          echo_eval rm -r $subdir
       fi
    done
+   #
+   # args
    args='--local_toc'
    if [ "$group_list" == 'default' ]
    then
@@ -76,6 +80,8 @@ do
    args="$args --group_list $group_list"
    args="$args --html_theme sphinx_rtd_theme"
    args="$args --number_jobs $number_jobs"
+   #
+   # build/html, build/rst
    echo "python -m xrst $args"
    if ! python -m xrst $args 2> check_xrst.$$
    then
@@ -92,12 +98,18 @@ do
    fi
    rm check_xrst.$$
 done
-echo "python -m xrst $args --external_links --continue_with_warnings" 
+#
+# external_links
+echo "python -m xrst $args --external_links --continue_with_warnings"
 python -m xrst $args --external_links --continue_with_warnings
+#
+# project_directory
 cd ..
 # -----------------------------------------------------------------------------
+#
+# rst_dir, file
 rst_dir='build/rst'
-file_list=$(ls -a $rst_dir | sed -n -e "s|^$rst_dir/||" -e '/[.]rst$/p' )
+file_list=$(ls -a $rst_dir/*.rst | sed -e "s|^$rst_dir/||" )
 for file in $file_list
 do
    if [ ! -e test_rst/$file ]
@@ -120,19 +132,21 @@ do
    fi
 done
 # -----------------------------------------------------------------------------
-file_list=$(ls test_rst/*.rst | sed -e 's|^test_rst/||' )
-file_list=$(ls -a test_rst | sed -n -e "s|^test_rst/||" )
+#
+# file
+file_list=$(ls -a test_rst/*.rst | sed -e "s|^test_rst/||" )
 for file in $file_list
 do
    if [ ! -e build/rst/$file ]
    then
       echo "The output file build/rst/$file does not exist."
-      echo 'Should we use the following command to fix this'
+      echo 'Should we use the following command to remove it form test_rst'
       echo "    git rm -f test_rst/$file"
       continue_yes_no
       git rm -f test_rst/$file
    fi
 done
 # -----------------------------------------------------------------------------
+echo
 echo "$0: OK"
 exit 0
