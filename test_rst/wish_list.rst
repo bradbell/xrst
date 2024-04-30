@@ -5,7 +5,7 @@ wish_list
 !!!!!!!!!
 
 .. meta::
-   :keywords: wish_list,wish,list,spell,checking,testing,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
+   :keywords: wish_list,wish,list,spell,checking,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
 
 .. index:: wish_list, wish, list
 
@@ -31,19 +31,6 @@ the following text should not require a special spelling entry for ``samp``
 ::
 
    :samp:`print 1+{variable}`
-
-.. index:: testing
-
-.. _wish_list@Testing:
-
-Testing
-*******
-Use github actions to test xrst on multiple systems.
-Note that tox and pytest are used to test xrst in different versions
-of python. The following is the tox.ini file for xrst:
-
-.. literalinclude:: ../../tox.ini
-   :language: ini
 
 .. index:: theme
 

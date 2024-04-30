@@ -4,13 +4,9 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell
-   github
-   ini
-   pytest
    rtd
    samp
    stackoverflow
-   tox
 }
 
 Wish List
@@ -26,17 +22,6 @@ the following text should not require a special spelling entry for ``samp``
 ::
 
    :samp:`print 1+{variable}`
-
-
-Testing
-*******
-Use github actions to test xrst on multiple systems.
-Note that tox and pytest are used to test xrst in different versions
-of python. The following is the tox.ini file for xrst:
-{xrst_literal
-   tox.ini
-}
-
 
 Theme
 *****

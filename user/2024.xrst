@@ -10,6 +10,9 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    tox
    ini
    stderr
+   ubuntu
+   macos
+   github
 }
 
 xrst Release Notes for 2024
@@ -17,6 +20,11 @@ xrst Release Notes for 2024
 
 mm-dd
 *****
+
+04-30
+=====
+Remove the testing wish list item because xrst is now tested on window,
+ubuntu, and macos using a github workflow.
 
 04-06
 =====
@@ -26,7 +34,7 @@ mm-dd
 #. Sphinx errors messages that occurred inside a template expansion
    were reported using the page file and template line.
    This has been fixed and they are now reported with the
-   page file, page line, template file, and template line. 
+   page file, page line, template file, and template line.
 
 04-05
 =====

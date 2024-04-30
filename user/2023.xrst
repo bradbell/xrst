@@ -300,7 +300,7 @@ underline and overline conventions.
 
 01-10
 =====
-#. Modify the wish list :ref:`wish_list@Testing` item
+#. Modify the wish list Testing item (completed on 2024-04-30)
    now that tox and pytest are used to test versions of python.
 #. Switch from using hatchling to setuptools as the backend
    for building this project.
