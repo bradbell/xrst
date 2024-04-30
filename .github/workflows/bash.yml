@@ -19,7 +19,7 @@ on:
 #
 jobs:
   #
-  check_all:
+  check_install:
     #
     strategy:
       matrix:
@@ -28,17 +28,22 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       #
-      # actions
+      # checkout
       - uses: actions/checkout@v4
+      #
+      # python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       #
-      - name: Using bash
+      # install pytest
+      - name: install pytest
+        run: pip install pytest
+      #
+      - name: bin/check_install.sh
         shell: bash -el {0}
         run: |
           echo 'matrix.os = ${{ matrix.os }}'
-          pip install pytest
           sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
