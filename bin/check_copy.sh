@@ -20,6 +20,9 @@ then
    exit 1
 fi
 # ---------------------------------------------------------------------------
+username='bradbell'
+fullname='Bradley M. Bell'
+# ---------------------------------------------------------------------------
 license='SPDX-License-Identifier: GPL-3.0-or-later'
 missing='no'
 changed='no'
@@ -45,7 +48,18 @@ do
       missing='yes'
    fi
 done
-for file_name in $(git status --porcelain | sed -e 's|^...||' )
+# ---------------------------------------------------------------------------
+cat << EOF > temp.sed
+s|\\(SPDX-FileContributor: *[0-9]\\{4\\}\\)[-0-9]* $fullname|\\1-24 $fullname|
+s|\\(SPDX-FileContributor\\): 2024-24 |\\1: 2024 |
+EOF
+if [ "$USER" == 'bradbell' ]
+then
+   list=$(git status --porcelain | sed -e 's|^...||' )
+else
+   list=''
+fi
+for file_name in $list
 do
    if [ -e $file_name ]
    then
