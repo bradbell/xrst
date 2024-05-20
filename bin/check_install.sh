@@ -18,7 +18,7 @@ prefix="$(pwd)/build/prefix"
 test_driver='pytest/test_rst.py'
 if ! grep '^test_installed_version = False$' $test_driver > /dev/null
 then
-   echo "bin/check_install.sh: cannot fine following in $test_driver"
+   echo "bin/check_install.sh: cannot find following in $test_driver"
    echo 'test_installed_verison = False'
    exit 1
 fi

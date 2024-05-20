@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
 import toml
@@ -472,6 +472,9 @@ def iterable2string(iterable) :
    return string
 #
 # {xrst_begin get_conf_dict dev}
+# {xrst_spell
+#     config
+# }
 # {xrst_comment_ch #}
 #
 # Get Configuration Dictionary

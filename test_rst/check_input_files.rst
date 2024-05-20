@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-   :lines: 62-76,186-191
+   :lines: 63-77,187-192
    :language: py
 
 .. index:: config_file

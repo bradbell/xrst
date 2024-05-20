@@ -6,13 +6,13 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
 {xrst_spell
    breakpoint
    docstring
-   pytest
-   tox
-   ini
-   stderr
-   ubuntu
-   macos
    github
+   ini
+   macos
+   pytest
+   stderr
+   tox
+   ubuntu
 }
 
 xrst Release Notes for 2024

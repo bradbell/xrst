@@ -28,7 +28,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 504-506,697-699
+   :lines: 507-509,700-702
    :language: py
 
 .. index:: config_file

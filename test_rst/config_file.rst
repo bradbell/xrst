@@ -457,7 +457,7 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 71-89
+   :lines: 71-96
    :language: toml
 
 .. index:: not_in_index
@@ -497,5 +497,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 93-122
+   :lines: 100-129
    :language: toml
