@@ -36,7 +36,7 @@ do
 done
 # -----------------------------------------------------------------------------
 echo
-echo 'Look for: "section that depends on the git repository" in'
+echo 'Look for: "SECTION THAT DEPENDS ON GIT REPOSITORY" in'
 echo 'check_version.sh and check_copy.sh'
 echo 'dev_tools.sh: OK'
 exit 0

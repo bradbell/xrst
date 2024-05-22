@@ -4,13 +4,15 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
-# Begin: section that depends on the git repository that this file is in.
+# BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
 #
+# spdx_license_id
 # Each file, except those specified by no_copyright_list, should have a line
 # that ends with the following text:
 spdx_license_id='SPDX-License-Identifier: GPL-3.0-or-later'
 #
-# These files do not have the spdx license id in them:
+# no_copyright_list
+# These files do not have the spdx license id in them.
 # If an entry below is a directory it specifies all the files in the directory.
 no_copyright_list='
    .gitignore
@@ -21,7 +23,7 @@ no_copyright_list='
    example/template_file.xrst
    test_rst
 '
-# End: section that depends on the git repository that this file is in.
+# END: SECTION THAT DEPENDS ON GIT REPOSITORY
 # ----------------------------------------------------------------------------
 if [ $# != 0 ]
 then

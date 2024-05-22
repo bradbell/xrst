@@ -4,20 +4,16 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
-# Begin: section that depends on the git repository that this file is in.
+# BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
 #
-# version
-version=$(
-   sed -n -e '/^ *version *=/p' pyproject.toml | \
-      sed -e 's|.*= *||' -e "s|'||g"
-)
+# stable_version_file
+# This file contains the version number unless the branch is master or main.
+# The current date is used when the branch is master or main.
+stable_version_file='pyproject.toml'
 #
-# year
-year=$( echo $version | sed -e 's|\..*||' )
-#
-# version_file_list
-# The version number in the files below is updated using the temp.sed script
-version_file_list='
+# version_files
+# These are the files that are check to make sure version number is correct.
+version_files='
    pyproject.toml
    setup.py
    test_rst/user-guide.rst
@@ -25,21 +21,22 @@ version_file_list='
    xrst/run_xrst.py
 '
 #
-# temp.sed
-# This sed script is used to edit the files in version_file_list above.
-# $version will be the proper version number when this function is called.
-# $year will be the year corresponding to the version.
+# create_temp_sed
+# The sed script temp.sed is used to check the version number in files above.
+function create_temp_sed {
+year=$( echo $version | sed -e 's|\..*||' )
 cat << EOF > temp.sed
 #
 # xrst/user.xrst
 s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
 s|stable-[0-9]\\{4\\}|stable-$year|g
+s|release-[0-9]\\{4\\}|release-$year|g
 #
 # pyproject.toml setup.py and xrst/run_xrst.py
 s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
 EOF
-#
-# End: section that depends on the git repository that this file is in.
+}
+# END: SECTION THAT DEPENDS ON GIT REPOSITORY
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
@@ -57,11 +54,10 @@ then
    exit 1
 fi
 # -----------------------------------------------------------------------------
-#
 # check_version
 check_version() {
    sed "$1" -f temp.sed > temp.out
-   if ! diff "$1" temp.out
+   if ! diff "$1" temp.out > /dev/null
    then
       version_ok='no'
       #
@@ -72,13 +68,19 @@ check_version() {
       else
          mv temp.out "$1"
       fi
+      echo_eval git diff "$1"
    fi
 }
+#
 # branch
-branch=$(git branch | sed -n -e '/^[*]/p' | sed -e 's|^[*] *||')
+branch=$(git rev-parse --abbrev-ref HEAD)
 #
 # version
-if [ "$branch" == 'master' ]
+version=$(
+   sed -n -e '/^ *version *=/p' $stable_version_file | \
+      sed -e 's|.*= *||' -e "s|'||g"
+)
+if [ "$branch" == 'master' ] || [ "$branch" == 'main' ]
 then
    version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
 fi
@@ -95,7 +97,8 @@ fi
 version_ok='yes'
 #
 # check_version
-for file in $version_file_list
+create_temp_sed
+for file in $version_files
 do
    check_version $file
 done
