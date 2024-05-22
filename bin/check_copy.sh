@@ -105,6 +105,11 @@ do
             echo 'The following file contributor dates have been updated'
          fi
          echo $file_name
+         if diff $file_name temp.$$
+         then
+            echo 'check_version.sh: program error'
+            exit 1
+         fi
          changed='yes'
          if [ -x $file_name ]
          then
@@ -117,9 +122,10 @@ do
    fi
 done
 #
-if [ "$missing" = 'yes' ]
+if [ "$missing" = 'yes' ] || [ "$changed" == 'yes' ]
 then
    echo 'bin/check_copy.sh: See copyright errors above'
+   echo 'Re-execute bin/check_copy.sh ?'
    exit 1
 fi
 echo 'bin/check_copy.sh: OK'
