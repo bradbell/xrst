@@ -4,6 +4,25 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# Begin: section that depends on the git repository that this file is in.
+#
+# Each file, except those specified by no_copyright_list, should have a line
+# that ends with the following text:
+spdx_license_id='SPDX-License-Identifier: GPL-3.0-or-later'
+#
+# These files do not have the spdx license id in them:
+# If an entry below is a directory it specifies all the files in the directory.
+no_copyright_list='
+   .gitignore
+   .readthedocs.yaml
+   gpl-3.0.txt
+   readme.md
+   bin/input_files.sh
+   example/template_file.xrst
+   test_rst
+'
+# End: section that depends on the git repository that this file is in.
+# ----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
    echo 'bin/check_copy.sh does not expect any arguments'
@@ -23,25 +42,33 @@ fi
 username='bradbell'
 fullname='Bradley M. Bell'
 # ---------------------------------------------------------------------------
-license='SPDX-License-Identifier: GPL-3.0-or-later'
+if [ -e temp.sed ]
+then
+   rm temp.sed
+fi
+for name in $no_copyright_list
+do
+   if [ -f $name ]
+   then
+      echo "^$name\$" | sed -e 's|/|[/]|g' -e 's|.*|/&/d|' >> temp.sed
+   elif [ -d $name ]
+   then
+      echo "^$name/" | sed -e 's|/|[/]|g' -e 's|.*|/&/d|' >> temp.sed
+   else
+      echo "$name in no_copyright_list is not a file or directory"
+      exit 1
+   fi
+done
 missing='no'
 changed='no'
-for file_name in $(git ls-files | sed \
-   -e '/^.gitignore$/d' \
-   -e '/^.readthedocs.yaml$/d' \
-   -e '/^gpl-3.0.txt$/d' \
-   -e '/^readme.md$/d' \
-   -e '/^bin[/]input_files.sh$/d' \
-   -e '/^example[/]template_file.xrst$/d' \
-   -e '/^test_rst[/]/d' \
-)
+for file_name in $(git ls-files | sed -f temp.sed)
 do
-   if ! grep "$license\$" $file_name > /dev/null
+   if ! grep "$spdx_license_id\$" $file_name > /dev/null
    then
       if [ "$missing" == 'no' ]
       then
          echo "Cannot find line that ends with:"
-         echo "   $license"
+         echo "   $spdx_license_id"
          echo "In the following files:"
       fi
       echo "$file_name"

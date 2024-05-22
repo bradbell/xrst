@@ -4,6 +4,43 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# Begin: section that depends on the git repository that this file is in.
+#
+# version
+version=$(
+   sed -n -e '/^ *version *=/p' pyproject.toml | \
+      sed -e 's|.*= *||' -e "s|'||g"
+)
+#
+# year
+year=$( echo $version | sed -e 's|\..*||' )
+#
+# version_file_list
+# The version number in the files below is updated using the temp.sed script
+version_file_list='
+   pyproject.toml
+   setup.py
+   test_rst/user-guide.rst
+   user/user.xrst
+   xrst/run_xrst.py
+'
+#
+# temp.sed
+# This sed script is used to edit the files in version_file_list above.
+# $version will be the proper version number when this function is called.
+# $year will be the year corresponding to the version.
+cat << EOF > temp.sed
+#
+# xrst/user.xrst
+s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
+s|stable-[0-9]\\{4\\}|stable-$year|g
+#
+# pyproject.toml setup.py and xrst/run_xrst.py
+s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
+EOF
+#
+# End: section that depends on the git repository that this file is in.
+# -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
    echo 'bin/check_version.sh: does not expect any arguments'
@@ -24,7 +61,7 @@ fi
 # check_version
 check_version() {
    sed "$1" -f temp.sed > temp.out
-   if ! diff "$1" temp.out > /dev/null
+   if ! diff "$1" temp.out
    then
       version_ok='no'
       #
@@ -35,15 +72,8 @@ check_version() {
       else
          mv temp.out "$1"
       fi
-      echo_eval git diff "$1"
    fi
 }
-#
-# version
-version=$(
-   sed -n -e '/^ *version *=/p' pyproject.toml | \
-      sed -e 's|.*= *||' -e "s|'||g"
-)
 # branch
 branch=$(git branch | sed -n -e '/^[*]/p' | sed -e 's|^[*] *||')
 #
@@ -61,34 +91,11 @@ then
    fi
 fi
 #
-# year
-year=$( echo $version | sed -e 's|\..*||' )
-#
 # version_ok
 version_ok='yes'
 #
-# version_files
-version_files='
-   pyproject.toml
-   setup.py
-   test_rst/user-guide.rst
-   user/user.xrst
-   xrst/run_xrst.py
-'
-#
-# temp.sed
-cat << EOF > temp.sed
-#
-# xrst/user.xrst
-s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
-s|stable-[0-9]\\{4\\}|stable-$year|g
-#
-# pyproject.toml setup.py and xrst/run_xrst.py
-s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
-EOF
-#
 # check_version
-for file in $version_files
+for file in $version_file_list
 do
    check_version $file
 done
