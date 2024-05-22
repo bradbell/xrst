@@ -14,15 +14,17 @@ spdx_license_id='SPDX-License-Identifier: GPL-3.0-or-later'
 # no_copyright_list
 # These files do not have the spdx license id in them.
 # If an entry below is a directory it specifies all the files in the directory.
+# BEGIN_SORT_THIS_LINE_PLUS_2
 no_copyright_list='
    .gitignore
    .readthedocs.yaml
-   gpl-3.0.txt
-   readme.md
    bin/input_files.sh
    example/template_file.xrst
+   gpl-3.0.txt
+   readme.md
    test_rst
 '
+# END_SORT_THIS_LINE_MINUS_2
 # END: SECTION THAT DEPENDS ON GIT REPOSITORY
 # ----------------------------------------------------------------------------
 if [ $# != 0 ]
