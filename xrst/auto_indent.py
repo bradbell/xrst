@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin auto_indent dev}
@@ -62,10 +62,15 @@ def auto_indent(data, file_name, page_name) :
    newline_list = xrst.newline_indices(data)
    #
    # n_indent
-   n_indent = len(data)
-   m_itr    = pattern_newline.finditer(data)
+   # use match_empty to gaurd against case where there are no matches
+   n_indent    = len(data)
+   m_itr       = pattern_newline.finditer(data)
+   match_empty = True
    for m_obj in m_itr :
-      n_indent = min(n_indent, len( m_obj.group(1) ) )
+      match_empty = False
+      n_indent    = min(n_indent, len( m_obj.group(1) ) )
+   if match_empty :
+      n_indent = 0
    #
    # check if there is no indent to remove
    if n_indent == 0 :

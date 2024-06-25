@@ -21,6 +21,16 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+06-25
+=====
+It used to be the case that the following input would cause xrst to crash
+in the file auto_indent.py::
+
+   \{xrst_begin empty_page}
+   \{xrst_end   empty_page}
+
+This has been fixed.
+
 04-30
 =====
 Remove the testing wish list item because xrst is now tested on window,

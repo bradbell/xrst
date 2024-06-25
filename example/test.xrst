@@ -3,6 +3,11 @@
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# The case below, without the \ at the front of each line,
+# used to cause a crash in the auto_indenet function. This has been fixed.
+\{xrst_begin empty_page_test}
+\{xrst_end   empty_page_test}
+#
 {xrst_begin testExample}
 {xrst_spell
    underbar
