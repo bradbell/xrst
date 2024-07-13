@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
 if [ "$0" != "bin/check_invisible.sh" ]
 then
@@ -19,13 +19,21 @@ else
    echo 'usage: bin/check_invisible [all]'
    exit 1
 fi
+#
+# sed_path
+if which gsed >& /dev/null
+then
+   sed_path=$(which gsed)
+else
+   sed_path=$(which sed)
+fi
 # ----------------------------------------------------------------------------
 # file_list
 if [ "$all" == 'true' ]
 then
    file_list=$(git ls-files)
 else
-   file_list=$(git status --porcelain | sed -e 's|^...||')
+   file_list=$(git status --porcelain | $sed_path -e 's|^...||')
 fi
 #
 # sed.$$
@@ -41,7 +49,7 @@ for file in $file_list
 do
    if [ -f "$file" ]
    then
-      sed -f sed.$$ $file > copy.$$
+      $sed_path -f sed.$$ $file > copy.$$
       if ! diff $file copy.$$ > diff.$$
       then
          echo "original (<) invisible white space removed (>)"

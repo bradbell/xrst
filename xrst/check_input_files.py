@@ -9,7 +9,6 @@ import subprocess
 # {xrst_begin check_input_files dev}
 # {xrst_spell
 #     conf
-#     config
 # }
 # {xrst_comment_ch #}
 #

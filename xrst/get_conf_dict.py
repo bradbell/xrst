@@ -472,9 +472,6 @@ def iterable2string(iterable) :
    return string
 #
 # {xrst_begin get_conf_dict dev}
-# {xrst_spell
-#     config
-# }
 # {xrst_comment_ch #}
 #
 # Get Configuration Dictionary
