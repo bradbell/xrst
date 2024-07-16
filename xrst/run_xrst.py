@@ -608,7 +608,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.7.13'
+version = '2024.7.16'
 #
 def run_xrst() :
    #

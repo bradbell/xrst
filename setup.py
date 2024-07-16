@@ -8,7 +8,7 @@ from setuptools import setup
 
 setup(
    name             = 'xrst',
-   version          = '2024.7.13',
+   version          = '2024.7.16',
    description      = 'Extract RST files from source code and run Sphinx',
    license          = 'GPL-3.0-or-later',
    keywords         = 'sphinx rst documentation source',
