@@ -17,9 +17,15 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 
 Spell Checking
 **************
-Spell checking not require a special word for any valid role names; .e.g,
-the following text should not require a special spelling entry for ``samp``
-::
+
+#. ``:ref:`` references that use the xrst ``-title`` should detect
+   special words in the page name (similar to ``-name`` references).
+   The corresponding check for double word error should use the page title
+   instead of name because that is what the user sees.
+
+#. Spell checking should not require a special word for any valid role names;
+.e.g, the following text should not require a special spelling entry for
+``samp`` ::
 
    :samp:`print 1+{variable}`
 
