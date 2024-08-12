@@ -1,8 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 {xrst_begin get_started}
+{xrst_spell
+   url
+}
 
 Title: Getting Started
 ######################
@@ -17,19 +20,27 @@ Heading: Steps
 
       pip install xrst
 
+#. If you like, you can replace this by the most recent test version
+   of xrst using the following commands::
+
+      pip uninstall -y xrst
+      pip install --index-url https://test.pypi.org/simple/ xrst
+
 #. Create an empty directory and make it your current working directory.
 
-#. Create a file called ``xrst.toml`` (the xrst configure file)
-   in the working directory with the following contents::
+#. Create an empty file called ``xrst.toml`` (the xrst configure file)
+   in the working directory. The empty file tells xrst to use
+   all its default configuration settings.
+
+#. Create a file called ``project.xrst``, in the working directory,
+   with the contents of
+   :ref:`this example file<get_started@Heading: This Example File>` .
+   Note that ``project.xrst`` is the default location for the xrst root file.
+   You could change the location of the root file to  ``get_started.xrst`` 
+   by entering the following in your ``xrst.toml`` file::
 
       [root_file]
       default = 'get_started.xrst'
-
-   This is the xrst configure file.
-
-#. Create a file called ``get_started.xrst``, in the working directory,
-   with the contents of
-   :ref:`this example file<get_started@Heading: This Example File>` .
 
 #. Execute the following command::
 
@@ -40,8 +51,12 @@ Heading: Steps
 
       build/html/get_started.html
 
-#. You may have gotten spelling warnings because the spell checker
-   you are using is different from the one used to test xrst.
+#. You may have gotten spelling warnings for two reasons:
+
+   a. The file extension ``toml`` is not in the default project dictionary.
+   b. You are using is different version of the spell checker 
+      from the one used to test xrst.
+
    You can fix these warning by adding or removing words in the
    spell command at the beginning of the get_started.xrst file.
    If you do this correctly and re-execute the xrst command,

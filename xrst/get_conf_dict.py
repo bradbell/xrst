@@ -27,11 +27,12 @@ r'''
 
 .. _toml file: https://toml.io/en/
 
-Configuration File for xrst
-###########################
+The xrst.toml Configuration File
+################################
 A `toml file`_ is used to configure xrst.
 
-#. The location of this file is specified by the xrst
+#. The default location for this file is ``xrst.toml`` .
+   You can specify a different location using the
    :ref:`run_xrst@config_file` argument.
 #. This file is a sequence of toml tables,
    if a table can only have one entry, the entry is named data.

@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2024,xrst,release,notes,for,mm-dd,06-25,04-30,04-06,04-05,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
+   :keywords: 2024,xrst,release,notes,for,mm-dd,08-12,06-25,04-30,04-06,04-05,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
 
 .. index:: 2024, xrst, release, notes, 2024
 
@@ -23,6 +23,15 @@ xrst Release Notes for 2024
 
 mm-dd
 *****
+
+.. _2024@mm-dd@08-12:
+
+08-12
+=====
+Change the :ref:`get_started-name` example to use an empty ``xrst.toml``
+configuration file. In addition put xrst.toml in the page for the
+:ref:`configuration file<config_file-name>`
+(so that it comes up when you search for xrst.toml).
 
 .. _2024@mm-dd@06-25:
 

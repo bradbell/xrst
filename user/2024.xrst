@@ -21,6 +21,13 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+08-12
+=====
+Change the :ref:`get_started-name` example to use an empty ``xrst.toml``
+configuration file. In addition put xrst.toml in the page for the
+:ref:`configuration file<config_file-name>` 
+(so that it comes up when you search for xrst.toml).
+
 06-25
 =====
 It used to be the case that the following input would cause xrst to crash

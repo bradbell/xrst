@@ -36,7 +36,7 @@ Table of Contents
 |    :ref:`1.18<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user-guide-title>` Extract Sphinx RST Files
-|    :ref:`3.1<config_file-title>` Configuration File for xrst
+|    :ref:`3.1<config_file-title>` The xrst.toml Configuration File
 |    :ref:`3.2<run_xrst-title>` Extract RST Files And Run Sphinx
 |    :ref:`3.3<commands-title>` Commands
 |       :ref:`3.3.1<begin_cmd-title>` Begin and End Commands
