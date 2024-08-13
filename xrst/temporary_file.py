@@ -70,20 +70,18 @@ pattern_any_command     = re.compile(r'[^\\]{xrst_([a-zA-Z_]*)')
 # The following is added to this data before writing it to the output file:
 #
 #  #. The preamble is included at the beginning.
-#  #. If *target* is ``html``
+#  #. If *target* is ``html`` :
 #
 #     #. The *page_name* ``-name`` label is added next.
 #     #. The pseudo heading is added next.
 #     #. The name of the input file *file_in* is added next.
 #
-#  #. If *target* is ``tex```
-#
-#     #. All cross references of the form
-#        :ref:\` *page_name* -name \` ,
-#        are changed to :ref:\` *page_name* < *page_name* -title >\` .
-#        Note that the page name will be added to the title when
-#        :ref:`add_before_title-name` is called during
-#        :ref:`table_of_contents-name` .
+#  #. If *target* is ``tex`` :
+#     All cross references of the form :ref:\` *page_name* -name \` ,
+#     are changed to :ref:\` *page_name* < *page_name* -title >\` .
+#     Note that the page name will be added to the title when
+#     :ref:`add_before_title-name` is called during
+#     :ref:`table_of_contents-name` .
 #
 #  #. Check for an xrst command that was not recognized.
 #  #. Any sequence of more than 2 lines
