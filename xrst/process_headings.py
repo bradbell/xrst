@@ -102,11 +102,11 @@ Discussion
    (and hence are easy to distinguish).
 #. Including all the levels above a heading in its label may seem verbose.
 
-   A. This avoids ambiguity when the same heading appears twice in one page.
+   #. This avoids ambiguity when the same heading appears twice in one page.
       For example, this link to the project name
       :ref:`config_file@project_name@Default`
       which is one of many Default headings on that page.
-   B. It also helps keep the links up to date.
+   #. It also helps keep the links up to date.
       If a heading changes, all the links to that heading, and all the
       headings below it, will break. This identifies the links that should be
       checked to make sure they are still valid.
