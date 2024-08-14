@@ -53,8 +53,8 @@ Heading: Steps
 
 #. You may have gotten spelling warnings for two reasons:
 
-   a. The file extension ``toml`` is not in the default project dictionary.
-   b. You are using is different version of the spell checker 
+   #. The file extension ``toml`` is not in the default project dictionary.
+   #. You are using is different version of the spell checker 
       from the one used to test xrst.
 
    You can fix these warning by adding or removing words in the
