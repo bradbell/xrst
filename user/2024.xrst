@@ -213,13 +213,10 @@ A link to the current release was included; see
 #. Each *file_name* in the latest documentation was moved
    (this is important if you have links to previous web pages):
 
-   .. list-table::
+   .. csv-table::
 
-      *  - Old Location
-         - ``https://xrst.readthedocs.io/``\ *file_name*
-      *  - New Location
-         - ``https://xrst.readthedocs.io/latest/``\ *file_name*
-
+      Old Location,  ``https://xrst.readthedocs.io/``\ *file_name*
+      New Location,  ``https://xrst.readthedocs.io/latest/``\ *file_name*
 
 
 
