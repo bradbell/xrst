@@ -21,11 +21,19 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+08-13
+=====
+The syntax for the literal command was split into the
+:ref:`literal_cmd@Syntax@Entire FIle` ,
+:ref:`literal_cmd@Syntax@With Separator` , and
+:ref:`literal_cmd@Syntax@Without Separator` cases.
+
+
 08-12
 =====
 Change the :ref:`get_started-name` example to use an empty ``xrst.toml``
 configuration file. In addition put xrst.toml in the page for the
-:ref:`configuration file<config_file-name>` 
+:ref:`configuration file<config_file-name>`
 (so that it comes up when you search for xrst.toml).
 
 06-25

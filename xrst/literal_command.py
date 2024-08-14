@@ -14,22 +14,28 @@ Literal Command
 Syntax
 ******
 
--  ``\{xrst_literal}``
+Entire File
+===========
+``\{xrst_literal}``
 
--  | ``\{xrst_literal`` *separator*
-   |     *display_file*
-   |     *start_after_1* *separator* *end_before_1*
-   |     *start_after_2* *separator* *end_before_2*
-   |     ...
-   | ``}``
+With Separator
+==============
+| ``\{xrst_literal`` *separator*
+|     *display_file*
+|     *start_after_1* *separator* *end_before_1*
+|     *start_after_2* *separator* *end_before_2*
+|     ...
+| ``}``
 
--  | ``\{xrst_literal``
-   |     *display_file*
-   |     *start_after_1*
-   |     *end_before_1*
-   |     *start_after_2*
-   |     ...
-   | ``}``
+Without Separator
+=================
+| ``\{xrst_literal``
+|     *display_file*
+|     *start_after_1*
+|     *end_before_1*
+|     *start_after_2*
+|     ...
+| ``}``
 
 Purpose
 *******

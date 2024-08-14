@@ -5,7 +5,7 @@ literal_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: literal_cmd,literal,command,syntax,purpose,literalinclude,tokens,separator,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
+   :keywords: literal_cmd,literal,command,syntax,entire,file,with,separator,without,purpose,literalinclude,tokens,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
 
 .. index:: literal_cmd, literal
 
@@ -22,22 +22,40 @@ Literal Command
 Syntax
 ******
 
--  ``{xrst_literal}``
+.. index:: entire
 
--  | ``{xrst_literal`` *separator*
-   |     *display_file*
-   |     *start_after_1* *separator* *end_before_1*
-   |     *start_after_2* *separator* *end_before_2*
-   |     ...
-   | ``}``
+.. _literal_cmd@Syntax@Entire File:
 
--  | ``{xrst_literal``
-   |     *display_file*
-   |     *start_after_1*
-   |     *end_before_1*
-   |     *start_after_2*
-   |     ...
-   | ``}``
+Entire File
+===========
+``{xrst_literal}``
+
+.. index:: with, separator
+
+.. _literal_cmd@Syntax@With Separator:
+
+With Separator
+==============
+| ``{xrst_literal`` *separator*
+|     *display_file*
+|     *start_after_1* *separator* *end_before_1*
+|     *start_after_2* *separator* *end_before_2*
+|     ...
+| ``}``
+
+.. index:: without, separator
+
+.. _literal_cmd@Syntax@Without Separator:
+
+Without Separator
+=================
+| ``{xrst_literal``
+|     *display_file*
+|     *start_after_1*
+|     *end_before_1*
+|     *start_after_2*
+|     ...
+| ``}``
 
 .. _literal_cmd@Purpose:
 
