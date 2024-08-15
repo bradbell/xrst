@@ -475,9 +475,8 @@ def system_command(
       # m_alert
       m_alert = pattern_alert.search(alert)
       if m_alert == None :
-            if alert != '' :
-               print('run_xrst.py: system_command: cannot fine pattern_alert')
-               pass
+         # this line is more info about previous line
+         pass
       else :
          #
          # sphinx_error
