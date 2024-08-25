@@ -14,3 +14,6 @@ __pycache__/
 *.log
 *.swp
 *.tmp
+# MacOS special cases
+/.tox/
+/pytest/test_rst.py-e

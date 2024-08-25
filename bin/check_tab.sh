@@ -9,11 +9,19 @@ then
    echo "bin/check_tab.sh: must be executed from its parent directory"
    exit 1
 fi
+#
+# grep
+if which ggrep >& /dev/null
+then
+   grep=$(which ggrep)
+else
+   grep='grep'
+fi
 # -----------------------------------------------------------------------------
 ok='yes'
 for file in $(git ls-files)
 do
-   if grep -P '\t' $file > /dev/null
+   if $grep -P '\t' $file > /dev/null
    then
       echo "$file has a tab"
       ok='no'
