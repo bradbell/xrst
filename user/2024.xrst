@@ -9,6 +9,7 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    github
    ini
    macos
+   pyenchant
    pytest
    stderr
    tox
@@ -21,6 +22,12 @@ xrst Release Notes for 2024
 
 mm-dd
 *****
+
+08-25
+=====
+Comment out the choice of the pyenchant in the example configuration file;
+see the heading Example under :ref:`config_file@spell_package` .
+This was done because pyenchant is harder to set up on some systems.
 
 08-13
 =====
