@@ -8,6 +8,7 @@ r"""
    dev
    furo
    github
+   grep
    jax
    pdf
    rtd

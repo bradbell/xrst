@@ -124,7 +124,6 @@ public:
 ------------------------------------------------------------------------------
 {xrst_begin example_ad_double}
 {xrst_spell
-   ay
    dx
    dy
    ok

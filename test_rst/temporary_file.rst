@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-   :lines: 102-117,228-234
+   :lines: 105-120,231-237
    :language: py
 
 .. index:: page_source

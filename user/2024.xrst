@@ -13,6 +13,7 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    stderr
    tox
    ubuntu
+   workflow
 }
 
 xrst Release Notes for 2024

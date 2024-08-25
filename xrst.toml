@@ -33,8 +33,9 @@ overline  = [ false, false, false, false, false,  ]
 # END_HEADING
 # -----------------------------------------------------------------------------
 # BEGIN_SPELL_PACKAGE
-[spell_package]
-data = 'pyenchant'
+# [spell_package]
+# This is commented out because pyenchant is harder to set up on some systems:
+# data = 'pyenchant'
 # END_SPELL_PACKAGE
 # -----------------------------------------------------------------------------
 # BEGIN_INPUT_FILES
@@ -73,6 +74,9 @@ data = [
    # keywords in souce code languages
    '''
    bool
+   def
+   dict
+   int
    str
    ''',
    # file extensions
@@ -82,17 +86,28 @@ data = [
    toml
    ''',
    # abbreviations
+   # dir:   used for directory (as part of a variable name)
+   # obj:   used for object (as appossed to the corresponding class)
+   # tmp:   is used for temparary values
+   # toc:   used for table of contents or table of children
+   # dd-mm: used for day and month as two decimal characters
    '''
-   config
    dir
-   toc
+   obj
    tmp
+   toc
+   dd
+   mm
    ''',
    # special words
    '''
-   xrst
+   boolean
+   meta
+   newline
+   newlines
    overline
    pyspellchecker
+   xrst
    ''',
 ]
 # END_PROJECT_DICTIONARY

@@ -112,6 +112,9 @@ pattern_template    = re.compile(
 pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # ----------------------------------------------------------------------------
 # {xrst_begin template_cmd_dev dev}
+# {xrst_spell
+#     ch
+# }
 # {xrst_comment_ch #}
 #
 # Expand the template commands in a page

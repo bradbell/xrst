@@ -39,7 +39,7 @@ This function has no arguments and returns a boolean that is true,
 if all it's tests pass, and false otherwise.
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 149-150
+   :lines: 148-149
    :language: cpp
 
 .. index:: initialize, ok
@@ -50,7 +50,7 @@ Initialize ok
 *************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 157-157
+   :lines: 156-156
    :language: cpp
 
 .. index:: independent, variable
@@ -61,7 +61,7 @@ Independent Variable
 ********************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 163-165
+   :lines: 162-164
    :language: cpp
 
 .. index:: addition
@@ -72,7 +72,7 @@ Addition
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 171-174
+   :lines: 170-173
    :language: cpp
 
 .. index:: subtraction
@@ -83,7 +83,7 @@ Subtraction
 ***********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 180-183
+   :lines: 179-182
    :language: cpp
 
 .. index:: multiplication
@@ -94,7 +94,7 @@ Multiplication
 **************
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 189-192
+   :lines: 188-191
    :language: cpp
 
 .. index:: division
@@ -105,7 +105,7 @@ Division
 ********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 198-201
+   :lines: 197-200
    :language: cpp
 
 .. index:: return, ok
@@ -116,7 +116,7 @@ Return ok
 *********
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 208-209
+   :lines: 207-208
    :language: cpp
 
 .. _example_ad_double@Example File:

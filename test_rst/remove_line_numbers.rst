@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-   :lines: 74-75,182-189
+   :lines: 78-79,186-193
    :language: py
 
 .. index:: data_in

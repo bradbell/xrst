@@ -10,7 +10,6 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    doxygen
    firefox
    furo
-   hatchling
    pyproject
    pytest
    rtd

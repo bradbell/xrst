@@ -4,6 +4,9 @@
 # ----------------------------------------------------------------------------
 import re
 # {xrst_begin xrst.pattern dev}
+# {xrst_spell
+#     ch
+# }
 # {xrst_comment_ch #}
 #
 # The xrst.pattern Dictionary
