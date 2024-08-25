@@ -11,12 +11,7 @@ then
 fi
 #
 # grep
-if which ggrep >& /dev/null
-then
-   grep=$(which ggrep)
-else
-   grep='grep'
-fi
+source bin/grep_and_sed.sh
 # -----------------------------------------------------------------------------
 ok='yes'
 for file in $(git ls-files)

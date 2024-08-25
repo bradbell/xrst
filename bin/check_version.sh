@@ -12,12 +12,7 @@ echo_eval() {
 }
 #
 # sed
-if which gsed >& /dev/null
-then
-   sed=gsed
-else
-   sed=sed
-fi
+source bin/grep_and_sed.sh
 # -----------------------------------------------------------------------------
 # BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
 #
