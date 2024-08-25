@@ -36,12 +36,19 @@ else
 fi
 print_variable PYTHONPATH
 # -----------------------------------------------------------------------------
+#
 # number_jobs
-if [ $(nproc) == '1' ] || [ $(nproc) == '2' ]
+if which nproc >& /dev/null
+then
+   n_proc=$(nproc)
+else
+   n_proc=$(sysctl -n hw.ncpu)
+fi
+if [ $n_proc == '1' ] || [ n_proc == '2' ]
 then
    number_jobs='1'
 else
-   let number_jobs="$(nproc) - 1"
+   let number_jobs="$n_proc - 1"
 fi
 # -----------------------------------------------------------------------------
 # index_page_name

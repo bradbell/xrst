@@ -83,6 +83,7 @@ data = [
    ''',
    # abbreviations
    '''
+   config
    dir
    toc
    tmp

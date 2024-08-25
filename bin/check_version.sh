@@ -4,11 +4,20 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-24 Bradley M. Bell
 # -----------------------------------------------------------------------------
-# bash function that echos and executes a command
+#
+# echo_eval
 echo_eval() {
    echo $*
    eval $*
 }
+#
+# sed
+if which gsed >& /dev/null
+then
+   sed=gsed
+else
+   sed=sed
+fi
 # -----------------------------------------------------------------------------
 # BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
 #
@@ -30,7 +39,7 @@ version_files='
 # create_temp_sed
 # The sed script temp.sed is used to check the version number in files above.
 function create_temp_sed {
-year=$( echo $version | sed -e 's|\..*||' )
+year=$( echo $version | $sed -e 's|\..*||' )
 cat << EOF > temp.sed
 #
 # xrst/user.xrst
@@ -62,7 +71,7 @@ fi
 # -----------------------------------------------------------------------------
 # check_version
 check_version() {
-   sed "$1" -f temp.sed > temp.out
+   $sed "$1" -f temp.sed > temp.out
    if ! diff "$1" temp.out > /dev/null
    then
       version_ok='no'
@@ -83,12 +92,12 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 #
 # version
 version=$(
-   sed -n -e '/^ *version *=/p' $stable_version_file | \
-      sed -e 's|.*= *||' -e "s|'||g"
+   $sed -n -e '/^ *version *=/p' $stable_version_file | \
+      $sed -e 's|.*= *||' -e "s|'||g"
 )
 if [ "$branch" == 'master' ] || [ "$branch" == 'main' ]
 then
-   version=$(date +%Y.%m.%d | sed -e 's|\.0*|.|g')
+   version=$(date +%Y.%m.%d | $sed -e 's|\.0*|.|g')
 fi
 if echo $branch | grep '^stable/' > /dev/null
 then
