@@ -22,7 +22,7 @@ source bin/grep_and_sed.sh
 stable_version_file='pyproject.toml'
 #
 # version_files
-# These are the files that are check to make sure version number is correct.
+# These are the files that are checked to make sure version number is correct.
 version_files='
    pyproject.toml
    setup.py

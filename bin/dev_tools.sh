@@ -26,13 +26,28 @@ dev_tools='
    git_commit.sh
    check_version.sh
    check_copy.sh
+   grep_and_sed.sh
 '
 echo
 echo "copy following files into $directory/bin:"
 echo $dev_tools
 for file in $dev_tools
 do
-   cp bin/$file $directory/bin/$file
+   destination="$directory/bin/$file"
+   if [ -e "$destination" ]
+   then
+      res=''
+      while [ "$res" != yes ] and [ "$res" != no ]
+      do
+         read -p "$destination exists, overwrite it [yes/no] ?" res
+      done
+      if [ "$res" == 'yes' ]
+      then
+         cp bin/$file $destination
+      fi
+   else
+      cp bin/$file $destination
+   fi
 done
 # -----------------------------------------------------------------------------
 echo
