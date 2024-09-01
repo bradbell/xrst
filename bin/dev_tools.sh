@@ -23,9 +23,10 @@ then
 fi
 # -----------------------------------------------------------------------------
 dev_tools='
-   git_commit.sh
-   check_version.sh
    check_copy.sh
+   check_invisible.sh
+   check_version.sh
+   git_commit.sh
    grep_and_sed.sh
 '
 echo
@@ -52,6 +53,6 @@ done
 # -----------------------------------------------------------------------------
 echo
 echo 'Look for: "SECTION THAT DEPENDS ON GIT REPOSITORY" in'
-echo 'check_version.sh and check_copy.sh'
+echo 'check_invisible.sh check_copy.sh check_version.sh'
 echo 'dev_tools.sh: OK'
 exit 0

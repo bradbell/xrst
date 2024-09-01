@@ -23,13 +23,18 @@ fi
 # sed
 source bin/grep_and_sed.sh
 # ----------------------------------------------------------------------------
+# BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
+#
 # file_list
+# Some repositories may want to exclude certain files fom the file_list:
 if [ "$all" == 'true' ]
 then
    file_list=$(git ls-files)
 else
    file_list=$(git status --porcelain | $sed -e 's|^...||')
 fi
+# END: SECTION THAT DEPENDS ON GIT REPOSITORY
+# ----------------------------------------------------------------------------
 #
 # sed.$$
 cat << EOF > sed.$$
