@@ -25,12 +25,13 @@ fi
 dev_tools='
    check_copy.sh
    check_invisible.sh
+   check_tab.sh
    check_version.sh
    git_commit.sh
    grep_and_sed.sh
 '
 echo
-echo "copy following files into $directory/bin:"
+echo "copying the following files into $directory/bin:"
 echo $dev_tools
 for file in $dev_tools
 do
@@ -52,7 +53,12 @@ do
 done
 # -----------------------------------------------------------------------------
 echo
-echo 'Look for: "SECTION THAT DEPENDS ON GIT REPOSITORY" in'
-echo 'check_invisible.sh check_copy.sh check_version.sh'
-echo 'dev_tools.sh: OK'
+cat << EOF
+You need to Edit the settings in
+   $directory/bin/dev_settings.py
+Also look for SECTION THAT DEPENDS ON GIT REPOSITORY" in
+   $directory/bin/check_version.sh
+
+dev_tools.sh: OK
+EOF
 exit 0

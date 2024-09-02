@@ -22,18 +22,34 @@ fi
 #
 # sed
 source bin/grep_and_sed.sh
+#
+# invisible_and_tab_ok
+source bin/dev_settings.sh
 # ----------------------------------------------------------------------------
-# BEGIN: SECTION THAT DEPENDS ON GIT REPOSITORY
+#
+# sed.$$
+echo '#' > sed.$$
+for name in $no_copyright_list
+do
+   if [ -f $name ]
+   then
+      echo "^$name\$" | $sed -e 's|/|[/]|g' -e 's|.*|/&/d|' >> sed.$$
+   elif [ -d $name ]
+   then
+      echo "^$name/" | $sed -e 's|/|[/]|g' -e 's|.*|/&/d|' >> sed.$$
+   else
+      echo "$name in no_copyright_list is not a file or directory"
+      exit 1
+   fi
+done
 #
 # file_list
-# Some repositories may want to exclude certain files fom the file_list:
 if [ "$all" == 'true' ]
 then
-   file_list=$(git ls-files)
+   file_list=$(git ls-files | $sed -f sed.$$)
 else
-   file_list=$(git status --porcelain | $sed -e 's|^...||')
+   file_list=$(git status --porcelain | $sed -e 's|^...||' | $sed -f sed.$$)
 fi
-# END: SECTION THAT DEPENDS ON GIT REPOSITORY
 # ----------------------------------------------------------------------------
 #
 # sed.$$
