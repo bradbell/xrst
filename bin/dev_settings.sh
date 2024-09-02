@@ -31,8 +31,3 @@ no_copyright_list='
 # If an entry below is a directory it specifies all the files in the directory.
 invisible_and_tab_ok='
 '
-#
-# stable_version_file
-# If the current branch is not master or main, this file contains the
-# version number. Otherwise, year.month.day is used for the version numnber.
-stable_version_file='pyproject.toml'

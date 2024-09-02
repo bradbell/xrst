@@ -27,6 +27,7 @@ dev_tools='
    check_invisible.sh
    check_tab.sh
    check_version.sh
+   dev_settings.sh
    git_commit.sh
    grep_and_sed.sh
 '
@@ -39,7 +40,7 @@ do
    if [ -e "$destination" ]
    then
       res=''
-      while [ "$res" != yes ] and [ "$res" != no ]
+      while [ "$res" != yes ] && [ "$res" != no ]
       do
          read -p "$destination exists, overwrite it [yes/no] ?" res
       done
