@@ -25,6 +25,7 @@ no_copyright_list='
    readme.md
    test_rst
 '
+# END_SORT_THIS_LINE_MINUS_2
 #
 # invisible_and_tab_ok
 # These files are not checked for invisible white space or tabs.

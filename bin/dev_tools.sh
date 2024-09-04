@@ -25,11 +25,13 @@ fi
 dev_tools='
    check_copy.sh
    check_invisible.sh
+   check_sort.sh
    check_tab.sh
    check_version.sh
    dev_settings.sh
    git_commit.sh
    grep_and_sed.sh
+   sort.sh
 '
 echo
 echo "copying the following files into $directory/bin:"
