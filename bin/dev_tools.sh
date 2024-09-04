@@ -73,6 +73,10 @@ do
    echo "bin/$file"
    destination="$directory/bin/$file"
    $sed -f sed.$$ bin/$file > $destination
+   if [ -x "bin/$file" ]
+   then
+      chmod +x $destination
+   fi
 done
 rm sed.$$ 
 # -----------------------------------------------------------------------------
