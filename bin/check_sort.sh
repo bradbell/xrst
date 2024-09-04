@@ -24,7 +24,7 @@ fi
 # file_list
 if [ "$all" == 'true' ]
 then
-   file_list=$(git ls-files)
+   file_list=$(git grep -l 'BEGIN_SORT_THIS_LINE_PLUS_')
 else
    file_list=$(git status --porcelain | sed -e 's|^...||')
 fi
