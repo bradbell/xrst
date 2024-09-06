@@ -6,21 +6,21 @@ set -e -u
 # -----------------------------------------------------------------------------
 if [ $# != 2 ]
 then
-   echo 'usage: bin/devel_tools.sh directory spdx_license_id'
-   echo 'Copies the current development tools from xrst.git to directory/bin'
+   echo 'usage: bin/devel_tools.sh dest_repo spdx_license_id'
+   echo 'Copies the current development tools from xrst.git to dest_repo/bin'
    echo 'spdx_license_id is the SPDX-License-Identifier for files in direcory'
    exit 1
 fi
-directory="$1"
+dest_repo="$1"
 spdx_license_id="$2"
-if [ ! -d "$directory/.git" ]
+if [ ! -d "$dest_repo/.git" ]
 then
-   echo "dev_tools.sh: $directory is not a git repository"
+   echo "dev_tools.sh: $dest_repo is not a git repository"
    exit 1
 fi
-if [ ! -d "$directory/bin" ]
+if [ ! -d "$dest_repo/bin" ]
 then
-   echo "dev_tools.sh: $directory/bin is not a diretory"
+   echo "dev_tools.sh: $dest_repo/bin is not a diretory"
    exit 1
 fi
 #
@@ -40,52 +40,74 @@ dev_tools='
    sort.sh
 '
 #
-# xrst_directory
-xrst_directory=$(pwd)
+# xrst_repo
+xrst_repo=$(pwd)
 #
-# check for overwriting changes
-cd $directory/bin
-for file in $dev_tools
-do
-   destination="$directory/bin/$file"
-   temp=$(git ls-files $file)
-   if [ "$temp" != '' ]
-   then
-      if ! git diff --exit-code $file
-      then
-         echo "$destination"
-         echo 'has changes that are not checked in'
-         exit 1
-      fi
-   fi
-done
-cd $xrst_directory
+# dest_repo
+cd $dest_repo
 #
-#
+# sed.$$
 cat << EOF > sed.$$
 s|\\(SPDX-License-Identifier:\\) GPL-3.0-or-later|\\1 $spdx_license_id|
 s|^spdx_license_id=.*|spdx_license_id=$spdx_license_id|
 EOF
-echo "Copying the following files into $directory/bin"
+#
+# check for overwriting changes
+for file in $dev_tools
+do
+   dest_path="$dest_repo/bin/$file"
+   xrst_path="$xrst_repo/bin/$file"
+   $sed -f sed.$$ $xrst_path > temp.$$
+   if ! diff $dest_path temp.$$ > /dev/null
+   then
+      temp=$(git ls-files bin/$file)
+      if [ "$temp" == '' ]
+      then
+         echo "$dest_path"
+         echo 'not in repository and has changes that would be overwritten'
+         rm temp.$$
+         rm sed.$$
+         exit 1
+      else
+         if ! git diff --exit-code bin/$file > /dev/null
+         then
+            echo "$dest_path"
+            echo 'is in repository and has changes that are not checked in'
+            rm temp.$$
+            rm sed.$$
+            exit 1
+         fi
+      fi
+   fi
+done
+rm temp.$$
+#
+echo "Copying the following files into $dest_repo/bin"
 echo "and setting SPDX-License-Identifier to $spdx_license_id"
 for file in $dev_tools
 do
    echo "bin/$file"
-   destination="$directory/bin/$file"
-   $sed -f sed.$$ bin/$file > $destination
-   if [ -x "bin/$file" ]
+   dest_path="$dest_repo/bin/$file"
+   xrst_path="$xrst_repo/bin/$file"
+   $sed -f sed.$$ $xrst_path > $dest_path
+   if [ -x "$xrst_path" ]
    then
-      chmod +x $destination
+      chmod +x $dest_path
    fi
 done
 rm sed.$$ 
 # -----------------------------------------------------------------------------
 echo
 cat << EOF
-You need to edit the settings in
-   $directory/bin/dev_settings.py
+You probably need to edit the settings in
+   $dest_repo/bin/dev_settings.sh
+The following, in $dest_repo, will revert to its previous version:
+   git show HEAD:bin/dev_settings.sh > bin/dev_settings.sh
+
 Also look for SECTION THAT DEPENDS ON GIT REPOSITORY" in
-   $directory/bin/check_version.sh
+   $dest_repo/bin/check_version.sh
+The following, in $dest_repo, will revert to its previous version:
+   git show HEAD:bin/check_version.sh > bin/check_version.sh
 
 dev_tools.sh: OK
 EOF
