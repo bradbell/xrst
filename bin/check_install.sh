@@ -27,14 +27,12 @@ fi
 pip install --prefix=$prefix .
 #
 # PYTHONPATH
-count=$(find $prefix -name 'site-packages' | wc -l)
-if [ "$count" -ne 1 ]
+site_packages="$(find $prefix -name 'site-packages' | head -1)"
+if [ "$site_packages" == '' ]
 then
-   echo "check_install.sh: $count site-packages below $prefix"
-   find $prefix -name 'site-packages'
+   echo "bin/check_install.sh: cannot find site-packages below $prefix"
    exit 1
 fi
-site_packages="$(find $prefix -name 'site-packages')"
 if [ -z "${PYTHONPATH+x}" ]
 then
    PYTHONPATH="$site_packages"
