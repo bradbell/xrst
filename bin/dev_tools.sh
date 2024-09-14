@@ -39,6 +39,25 @@ dev_tools='
    grep_and_sed.sh
    sort.sh
 '
+for file in $dev_tools
+do
+   if [ $file == dev_settings.sh ] || [ $file == grep_and_sed.sh ]
+   then
+      if [ -x bin/$file ]
+      then
+         echo "bin/$file is executable"
+         exit 1
+      fi
+   else
+      line_two=$($sed -n -e '2,2p' bin/$file)
+      if [ "$line_two" != 'set -e -u' ]
+      then
+         echo "Line 2 of bin/$file is not equal to:"
+         echo 'set -e -u'
+         exit 1
+      fi
+   fi
+done
 #
 # xrst_repo
 xrst_repo=$(pwd)
@@ -49,7 +68,7 @@ cd $dest_repo
 # sed.$$
 cat << EOF > sed.$$
 s|\\(SPDX-License-Identifier:\\) GPL-3.0-or-later|\\1 $spdx_license_id|
-s|^spdx_license_id=.*|spdx_license_id=$spdx_license_id|
+s|^spdx_license_id=.*|spdx_license_id='$spdx_license_id'|
 EOF
 #
 # check for overwriting changes
@@ -58,24 +77,27 @@ do
    dest_path="$dest_repo/bin/$file"
    xrst_path="$xrst_repo/bin/$file"
    $sed -f sed.$$ $xrst_path > temp.$$
-   if ! diff $dest_path temp.$$ > /dev/null
+   if [ -e $dest_path ]
    then
-      temp=$(git ls-files bin/$file)
-      if [ "$temp" == '' ]
+      if ! diff $dest_path temp.$$ > /dev/null
       then
-         echo "$dest_path"
-         echo 'not in repository and has changes that would be overwritten'
-         rm temp.$$
-         rm sed.$$
-         exit 1
-      else
-         if ! git diff --exit-code bin/$file > /dev/null
+         temp=$(git ls-files bin/$file)
+         if [ "$temp" == '' ]
          then
             echo "$dest_path"
-            echo 'is in repository and has changes that are not checked in'
+            echo 'not in repository and has changes that would be overwritten'
             rm temp.$$
             rm sed.$$
             exit 1
+         else
+            if ! git diff --exit-code bin/$file > /dev/null
+            then
+               echo "$dest_path"
+               echo 'is in repository and has changes that are not checked in'
+               rm temp.$$
+               rm sed.$$
+               exit 1
+            fi
          fi
       fi
    fi
