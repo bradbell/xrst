@@ -44,7 +44,6 @@ jobs:
         shell: bash -el {0}
         run: |
           echo 'matrix.os = ${{ matrix.os }}'
-          sed -i -e "s|'pyenchant'|'pyspellchecker'|" xrst.toml
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
             sed -i -e 's|/bin:$PATH|/Scripts:$PATH|' bin/check_install.sh
