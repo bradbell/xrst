@@ -366,6 +366,7 @@ import shutil
 import filecmp
 import argparse
 import subprocess
+import platform
 # ---------------------------------------------------------------------------
 # system_exit
 # Error messages in this file do not use xrst.system_exit because
@@ -469,8 +470,25 @@ def system_command(
    # sphinx_error
    sphinx_error = result.returncode != 0
    #
-   # alert
+   # alert_list
    alert_list = alert_data.split('\n')
+   while '' in alert_list :
+      alert_list.remove('')
+   if len(alert_list) > 0 :
+      if alert_list[-1].strip() == 'warnings.warn(' :
+         alert_list.pop(-1)
+   #
+   # MacOS has a security warning
+   if len(alert_list) == 1 :
+      issue_320 = 'https://github.com/urllib3/urllib3/issues/3020'
+      if alert_list[0].find(issue_320) != -1 :
+         uname = platform.uname().system
+         if uname == 'Darwin' :
+            message  = 'MacOS python has an issue; see '
+            message += issue_320 + '\n'
+            sys.stderr.write(message)
+            return
+   #
    for alert in alert_list :
       #
       # m_alert
@@ -608,7 +626,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.9.14'
+version = '2024.10.1'
 #
 def run_xrst() :
    #
