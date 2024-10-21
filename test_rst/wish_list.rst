@@ -27,6 +27,13 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 Spell Checking
 **************
 
+#. If a spelling warning occurs inside a
+   :ref:`template_cmd@template_file`
+   the error message identifies the page file,
+   but not the template file,
+   where the error occurred.
+   This should be fixed so that both files are identified.
+
 #. ``:ref:`` references that use the xrst ``-title`` should detect
    special words in the page name (similar to ``-name`` references).
    The corresponding check for double word error should use the page title
