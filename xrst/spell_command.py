@@ -420,12 +420,14 @@ def spell_command(
    # data_tmp
    # commands with file names as arugments
    # Use @ character to avoid mistaken double word errors
-   data_tmp = pattern['template'].sub('@', data_tmp)
    data_tmp = pattern['dir'].sub('@', data_tmp)
    data_tmp = pattern['literal'].sub('@', data_tmp)
    data_tmp = pattern['toc'].sub('@', data_tmp)
    data_tmp = pattern['http'].sub('@', data_tmp)
    data_tmp = pattern['directive'].sub('@', data_tmp)
+   #
+   # Must keep template file name error reporting
+   # data_tmp = pattern['template'].sub('@', data_tmp)
    #
    # command with page names and headings as arguments
    data_tmp = pattern['ref_1'].sub('@', data_tmp)
@@ -459,6 +461,9 @@ def spell_command(
          known =  spell_checker.known( word ) or word_lower in page_name_word
          if not known :
             #
+            page_line, template_file, template_line = \
+               xrst.file_line(m_obj, data_tmp)
+            #
             # replace_word_list
             if not word_lower in replace_word_list :
                replace_word_list.append( word_lower )
@@ -471,22 +476,21 @@ def spell_command(
                #
                # first_spell_warning
                if first_spell_warning :
-                  msg  = '\nwarning: file = ' + page_file
-                  msg += ', page = ' + page_name + '\n'
+                  msg  = '\nwarning: page_file = ' + page_file
+                  msg += ', page_name = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_warning = False
-               #
-               # line_number
-               m_tmp  = pattern['line'].search(data_tmp, m_obj.end() )
-               assert m_tmp
-               line_number = m_tmp.group(1)
                #
                # msg
                msg  = 'spelling = ' + word
                suggest = spell_checker.suggest(word)
                if suggest != None :
-                  msg += ', suggest = ' + suggest
-               msg += ', line ' + line_number + '\n'
+                  msg += f', suggest = {suggest}'
+               msg += f', page_line = {page_line}'
+               if template_file != None :
+                  msg += f', template_file = {template_file}'
+                  msg += f', template_line = {template_line}'
+               msg += '\n'
                #
                sys.stderr.write(msg)
             #

@@ -27,6 +27,15 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+10-25
+=====
+Spelling errors that occurred inside a
+:ref:`template_cmd@template_file`
+were reported using the line number in the template file
+and the file name for the :ref:`begin_cmd@Page File` .
+This has been fixed so that the template_file, template_line,
+page_file, and page_line are all reported.
+
 10-01
 =====
 MacOS python has an issue that was causing xrst to abort; see
