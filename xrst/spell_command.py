@@ -184,10 +184,10 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 # *******
 # is the data for this page before the spell commands are removed.
 #
-# file_name
+# page_file
 # *********
-# is the name of the file that the data came from. This is used
-# for error reporting and spell.toml.
+# is the name of the file where the begin command for this page appears.
+# This is used for error reporting and for creating spell.toml.
 #
 # page_name
 # *********
@@ -196,7 +196,7 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 #
 # begin_line
 # **********
-# is the line number in *file_name* where the begin command for this page
+# is the line number in *page_file* where the begin command for this page
 # appears. This is only used for spell.toml.
 #
 # ignore_commands
@@ -238,7 +238,7 @@ pattern['page_name_word'] = re.compile( r'[A-Za-z][a-z]+' )
 def spell_command(
    tmp_dir,
    data_in,
-   file_name,
+   page_file,
    page_name,
    begin_line,
    ignore_commands,
@@ -247,7 +247,7 @@ def spell_command(
 ) :
    assert type(tmp_dir) == str
    assert type(data_in) == str
-   assert type(file_name) == str
+   assert type(page_file) == str
    assert type(page_name) == str
    assert type(begin_line) == int
    assert type(print_warning) == bool
@@ -275,7 +275,7 @@ def spell_command(
          msg  = 'There are two spell xrst commands in this page'
          xrst.system_exit(
             msg,
-            file_name=file_name,
+            file_name=page_file,
             page_name=page_name,
             m_obj=m_error,
             data=data_in
@@ -299,7 +299,7 @@ def spell_command(
          # line number to report the error.
          xrst.system_exit(
             msg,
-            file_name=file_name,
+            file_name=page_file,
             page_name=page_name,
             line = line,
          )
@@ -375,7 +375,7 @@ def spell_command(
             msg += 'without a spell_on command between them'
             xrst.system_exit(
                msg,
-               file_name=file_name,
+               file_name=page_file,
                page_name=page_name,
                m_obj=m_off,
                data=data_tmp
@@ -395,7 +395,7 @@ def spell_command(
       msg += 'without a spell_off command before it'
       xrst.system_exit(
          msg,
-         file_name=file_name,
+         file_name=page_file,
          page_name=page_name,
          m_obj=m_on,
          data=data_tmp
@@ -471,7 +471,7 @@ def spell_command(
                #
                # first_spell_warning
                if first_spell_warning :
-                  msg  = '\nwarning: file = ' + file_name
+                  msg  = '\nwarning: file = ' + page_file
                   msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_warning = False
@@ -516,7 +516,7 @@ def spell_command(
                #
                # first_spell_warning
                if first_spell_warning :
-                  msg  = 'warning: file = ' + file_name
+                  msg  = 'warning: file = ' + page_file
                   msg += ', page = ' + page_name + '\n'
                   sys.stderr.write(msg)
                   first_spell_warning = False
@@ -542,7 +542,7 @@ def spell_command(
       ok = special_used[word_lower] or word_lower in double_used
       if print_warning and not ok :
          if first_spell_warning :
-            msg  = '\nwarning: file = ' + file_name
+            msg  = '\nwarning: file = ' + page_file
             msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_warning = False
@@ -551,7 +551,7 @@ def spell_command(
    for word_lower in double_used :
       if not double_used[word_lower] and print_warning :
          if first_spell_warning :
-            msg  = '\nwarning: file = ' + file_name
+            msg  = '\nwarning: file = ' + page_file
             msg += ', page = ' + page_name + '\n'
             sys.stderr.write(msg)
             first_spell_warning = False
@@ -575,7 +575,7 @@ def spell_command(
    assert begin_line == check
    #
    # file_data
-   file_data  = f'[ "{file_name}"."{page_name}" ]\n'
+   file_data  = f'[ "{page_file}"."{page_name}" ]\n'
    file_data += f'begin_line = {begin_line}\n'
    file_data += f'start_spell = {start_spell}\n'
    file_data += f'end_spell = {end_spell}\n'

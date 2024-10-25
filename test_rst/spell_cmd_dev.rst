@@ -5,7 +5,7 @@ spell_cmd_dev
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: spell_cmd_dev,process,the,spell,command,for,a,page,prototype,tmp_dir,data_in,file_name,page_name,begin_line,ignore_commands,print_warning,spell_checker,data_out,spell_warning,unknown_word_set
+   :keywords: spell_cmd_dev,process,the,spell,command,for,a,page,prototype,tmp_dir,data_in,page_file,page_name,begin_line,ignore_commands,print_warning,spell_checker,data_out,spell_warning,unknown_word_set
 
 .. index:: spell_cmd_dev, process, spell, page
 
@@ -46,14 +46,14 @@ data_in
 *******
 is the data for this page before the spell commands are removed.
 
-.. index:: file_name
+.. index:: page_file
 
-.. _spell_cmd_dev@file_name:
+.. _spell_cmd_dev@page_file:
 
-file_name
+page_file
 *********
-is the name of the file that the data came from. This is used
-for error reporting and spell.toml.
+is the name of the file where the begin command for this page appears.
+This is used for error reporting and for creating spell.toml.
 
 .. index:: page_name
 
@@ -70,7 +70,7 @@ for error reporting and spell.toml.
 
 begin_line
 **********
-is the line number in *file_name* where the begin command for this page
+is the line number in *page_file* where the begin command for this page
 appears. This is only used for spell.toml.
 
 .. index:: ignore_commands

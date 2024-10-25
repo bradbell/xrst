@@ -626,7 +626,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.10.22'
+version = '2024.10.25'
 #
 def run_xrst() :
    #
@@ -1055,7 +1055,7 @@ def run_xrst() :
             page_data, spell_warning, unknown_word_set = xrst.spell_command(
                tmp_dir         = tmp_dir ,
                data_in         = page_data,
-               file_name       = file_in,
+               page_file       = file_in,
                page_name       = page_name,
                begin_line      = begin_line,
                ignore_commands = ignore_spell_commands,
