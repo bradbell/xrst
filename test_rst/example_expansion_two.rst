@@ -5,7 +5,7 @@ example_expansion_two
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_two,second,expansion,number,spelling,conditional,paragraph,this,template,file,usage
+   :keywords: example_expansion_two,second,expansion,number,spelling,paragraph,this,template,file,usage
 
 
 
@@ -43,13 +43,13 @@ and double words, by
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
 
-.. index:: conditional, paragraph
+.. index:: second, expansion, paragraph
 
-.. _example_expansion_two@Conditional Paragraph:
+.. _example_expansion_two@Second Expansion Paragraph:
 
-Conditional Paragraph
-*********************
-This paragraph is displayed if the boolean in the suspend command is false.
+Second Expansion Paragraph
+**************************
+This paragraph is displayed if the case argument is second.
 
 .. index:: template
 

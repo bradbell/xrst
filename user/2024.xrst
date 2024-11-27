@@ -27,6 +27,15 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+11-27
+=====
+The :ref:`suspend_cmd@left, right` syntax was added to the suspend command.
+This makes it easier to use the suspend command inside of a
+:ref:`template_cmd@template_file` .
+The example :ref:`template file <example_expansion_one@This Template File>`
+was changed to use the left, right syntax
+instead of the :ref:`suspend_cmd@boolean` syntax.
+
 10-25
 =====
 Spelling errors that occurred inside a

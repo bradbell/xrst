@@ -12,6 +12,7 @@ Syntax
 ******
 - ``\{xrst_suspend}``
 - ``\{xrst_suspend`` *boolean* ``}``
+- ``\{xrst_suspend`` *left* ``!=`` *right* ``}``
 - ``\{xrst_resume}``
 
 Discussion
@@ -30,6 +31,19 @@ This argument is intended to be used by the
 template command where it can be assigned the value true or false
 for a particular expansion of the :ref:`template_cmd@template_file` .
 
+left, right
+***********
+If arguments *left* and *right* are present and not equal,
+the section of input up to the next resume
+is not included in the xrst extraction and processing for this page.
+This syntax is often easier than the boolean syntax,
+to use in an xrst :ref:`template_cmd@template_file` .
+
+White Space
+***********
+Leading and trailing spaces in *boolean*, *left*, and *right*
+are ignored.
+
 Example
 *******
 :ref:`suspend_example-name`
@@ -42,7 +56,7 @@ import xrst
 #
 # pattern_suspend, pattern_resume
 pattern_suspend = re.compile(
-   r'[^\\]{xrst_suspend *(true|false|) *}'
+   r'[^\\]{xrst_suspend *([^}]*)}'
 )
 pattern_resume  = re.compile(
    r'[^\\]{xrst_resume}'
@@ -114,16 +128,37 @@ def suspend_command(data_in, page_file, page_name) :
                file_name=page_file,
                page_name=page_name,
                m_obj=m_obj,
-               data=data_rest
+               data=data_out
             )
       #
+      # exclude
+      argument = m_suspend.group(1).strip(' ')
+      index    = argument.find('!=')
+      if 0 <= index :
+         left      = argument[: index].strip(' ')
+         right     = argument[ index + 2 : ].strip(' ')
+         exclude   = left != right
+      elif argument in [ '', 'true' ] :
+         exclude   = True
+      else :
+         if argument != 'false' :
+            msg  = 'suspend command arugment is not empty, true, false '
+            msg += 'or contain != .'
+            xrst.system_exit(msg,
+               file_name=page_file,
+               page_name=page_name,
+               m_obj=m_obj,
+               data=data_out
+            )
+         exclude = False
+      #
       # data_out
-      if m_suspend.group(1) == 'false' :
+      if exclude :
          data_tmp  = data_out[: m_suspend.start() + 1]
-         data_tmp += data_out[m_suspend.end() : m_resume.start() + 1]
          data_tmp += data_out[m_resume.end() : ]
       else :
          data_tmp  = data_out[: m_suspend.start() + 1]
+         data_tmp += data_out[m_suspend.end() : m_resume.start() + 1]
          data_tmp += data_out[m_resume.end() : ]
       data_out  = data_tmp
       #

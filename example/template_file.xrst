@@ -8,7 +8,7 @@ This xrst template has the following parameters:
             This template uses BEGIN_EXPANSION_@number@ and 
             END_EXPANSION_@number@ for the limits of the xrst_template command 
             in the page file that is using this template.
-@boolean@ : if false the conditional paragraph is displayed
+@case@    : if first (second) the first (second) paragraph is displayed
 }
 
 @Title@
@@ -32,10 +32,16 @@ This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
 {xrst_spell_on}
 
-{xrst_suspend @boolean@}
-Conditional Paragraph
-*********************
-This paragraph is displayed if the boolean in the suspend command is false.
+{xrst_suspend @case@ != first}
+First Expansion Paragraph
+*************************
+This paragraph is displayed if the case argument is first.
+{xrst_resume}
+
+{xrst_suspend @case@ != second}
+Second Expansion Paragraph
+**************************
+This paragraph is displayed if the case argument is second.
 {xrst_resume}
 
 This Template File

@@ -5,7 +5,7 @@ suspend_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd,suspend,and,resume,commands,syntax,discussion,boolean,example
+   :keywords: suspend_cmd,suspend,and,resume,commands,syntax,discussion,boolean,left,,right,white,space,example
 
 .. index:: suspend_cmd, suspend, resume, commands
 
@@ -23,6 +23,7 @@ Syntax
 ******
 - ``{xrst_suspend}``
 - ``{xrst_suspend`` *boolean* ``}``
+- ``{xrst_suspend`` *left* ``!=`` *right* ``}``
 - ``{xrst_resume}``
 
 .. index:: discussion
@@ -48,6 +49,27 @@ is not included in the xrst extraction and processing for this page.
 This argument is intended to be used by the
 template command where it can be assigned the value true or false
 for a particular expansion of the :ref:`template_cmd@template_file` .
+
+.. index:: left,, right
+
+.. _suspend_cmd@left, right:
+
+left, right
+***********
+If arguments *left* and *right* are present and not equal,
+the section of input up to the next resume
+is not included in the xrst extraction and processing for this page.
+This syntax is often easier than the boolean syntax,
+to use in an xrst :ref:`template_cmd@template_file` .
+
+.. index:: white, space
+
+.. _suspend_cmd@White Space:
+
+White Space
+***********
+Leading and trailing spaces in *boolean*, *left*, and *right*
+are ignored.
 
 .. _suspend_cmd@Example:
 

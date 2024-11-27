@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 82-85,133-135
+   :lines: 96-99,168-170
    :language: py
 
 .. index:: data_in

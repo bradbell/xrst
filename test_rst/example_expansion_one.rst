@@ -5,7 +5,7 @@ example_expansion_one
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_one,first,expansion,number,spelling,this,template,file,usage
+   :keywords: example_expansion_one,first,expansion,number,spelling,paragraph,this,template,file,usage
 
 
 
@@ -42,6 +42,14 @@ and double words, by
 ``{xrst_spell_off}`` and ``{xrst_spell_on}`` .
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
+
+.. index:: first, expansion, paragraph
+
+.. _example_expansion_one@First Expansion Paragraph:
+
+First Expansion Paragraph
+*************************
+This paragraph is displayed if the case argument is first.
 
 .. index:: template
 
