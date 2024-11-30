@@ -27,6 +27,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+11-30
+=====
+Comment lines were added to the template command; see
+:ref:`template_cmd@comment` .
+
 11-27
 =====
 The :ref:`suspend_cmd@left, right` syntax was added to the suspend command.

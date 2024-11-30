@@ -34,12 +34,13 @@ This Example File
 {xrst_begin example_expansion_two}
 
 {xrst_comment BEGIN_EXPANSION_two}
-{xrst_template ,
+{xrst_template ;
    example/template_file.xrst
-   @Title@        , Second Expansion
-   @#####@        , ################
-   @number@       , two
-   @case@         , second
+   headers: Expansion Number, Spelling, First Paragraph, Second Paragraph
+   @Title@        ; Second Expansion
+   @#####@        ; ################
+   @number@       ; two
+   @case@         ; second
 }
 {xrst_comment END_EXPANSION_two}
 

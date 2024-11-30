@@ -5,7 +5,7 @@ template_cmd
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_cmd,template,command,syntax,input,file,rst,include,white,space,separator,template_file,match,replace,end,example
+   :keywords: template_cmd,template,command,syntax,input,file,rst,include,white,space,separator,template_file,match,replace,comment,end,example
 
 .. index:: template_cmd, template
 
@@ -25,6 +25,9 @@ Syntax
 | |tab| *template_file*
 | |tab| *match_1* *separator* *replace_1*
 | |tab| *match_2* *separator* *replace_2*
+| |tab| ...
+| |tab| *comment_1*
+| |tab| *comment_2*
 | |tab| ...
 | ``}``
 
@@ -93,15 +96,15 @@ template_file
 *************
 is the name of the template file.
 Leading and trailing white space around *template_file* is ignored
-and *template_file* cannot contain the ``@`` character.
-It is different for a normal xrst input file because it cannot have
-any of the following xrst commands in a template expansion:
-
-:ref:`begin or end <begin_cmd-name>` ,
-:ref:`comment character <comment_ch_cmd-name>` ,
-:ref:`indent<indent_cmd-name>` ,
-:ref:`spell<spell_cmd-name>` ,
-:ref:`template <template_cmd-name>` .
+and *template_file* cannot contain the ``@`` character
+(the template file may contain the ``@`` character).
+Template files are different from other xrst input file
+because none of the following xrst commands can be in a template expansion:
+:ref:`begin_cmd-name` ,
+:ref:`comment_ch_cmd-name` ,
+:ref:`indent_cmd-name` ,
+:ref:`spell_cmd-name` ,
+:ref:`template_cmd-name` .
 
 .. index:: match
 
@@ -109,8 +112,8 @@ any of the following xrst commands in a template expansion:
 
 match
 *****
-Each occurrence of a match in the template file gets replaced.
-Leading and trailing white space around *match* is ignored.
+Each *match* in the template file gets replaced.
+Leading and trailing white space around each *match* is ignored.
 
 .. index:: replace
 
@@ -118,8 +121,24 @@ Leading and trailing white space around *match* is ignored.
 
 replace
 *******
-For each match, the corresponding replacement is used in its place.
-Leading and trailing white space around *replace* is ignored.
+For each *match*, the corresponding *replace* is used in its place.
+Leading and trailing white space around each *replace* is ignored.
+
+.. index:: comment
+
+.. _template_cmd@comment:
+
+comment
+*******
+A *comment* is any line below the *template_file* that
+does not contain the *separator* character.
+Leading and trailing white space around each *comment* is ignored.
+It is an error if a *comment* does not appear in the template file
+(before template expansion).
+In other words, a template file can have a list of comments
+that can be in a template command that uses the template file.
+This enables the template command to check that certain features
+of the template file have not changed.
 
 .. index:: end
 

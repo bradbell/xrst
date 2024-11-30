@@ -43,12 +43,12 @@ and double words, by
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
 
-.. index:: first, expansion, paragraph
+.. index:: first, paragraph
 
-.. _example_expansion_one@First Expansion Paragraph:
+.. _example_expansion_one@First Paragraph:
 
-First Expansion Paragraph
-*************************
+First Paragraph
+***************
 This paragraph is displayed if the case argument is first.
 
 .. index:: template

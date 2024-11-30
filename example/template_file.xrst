@@ -1,7 +1,10 @@
 {xrst_comment:
 This is an example xrst template file.
 
-This xrst template has the following parameters:
+This file has the following xrst_template comments:
+headers: Expansion Number, Spelling, First Paragraph, Second Paragraph
+
+This file has the following xrst_template replacements:
 @Title@   : is the title for this page
 @#####@   : is the rst underlining for the title
 @number@  : is the number for this page; e.g., one, two, ...
@@ -33,14 +36,14 @@ Using 'myspecialword' and using 'double double' are OK here.
 {xrst_spell_on}
 
 {xrst_suspend @case@ != first}
-First Expansion Paragraph
-*************************
+First Paragraph
+***************
 This paragraph is displayed if the case argument is first.
 {xrst_resume}
 
 {xrst_suspend @case@ != second}
-Second Expansion Paragraph
-**************************
+Second Paragraph
+****************
 This paragraph is displayed if the case argument is second.
 {xrst_resume}
 

@@ -15,6 +15,9 @@ Syntax
 | |tab| *match_1* *separator* *replace_1*
 | |tab| *match_2* *separator* *replace_2*
 | |tab| ...
+| |tab| *comment_1*
+| |tab| *comment_2*
+| |tab| ...
 | ``}``
 
 Input File
@@ -62,25 +65,37 @@ template_file
 *************
 is the name of the template file.
 Leading and trailing white space around *template_file* is ignored
-and *template_file* cannot contain the ``@`` character.
-It is different for a normal xrst input file because it cannot have
-any of the following xrst commands in a template expansion:
-
-:ref:`begin or end <begin_cmd-name>` ,
-:ref:`comment character <comment_ch_cmd-name>` ,
-:ref:`indent<indent_cmd-name>` ,
-:ref:`spell<spell_cmd-name>` ,
-:ref:`template <template_cmd-name>` .
+and *template_file* cannot contain the ``@`` character
+(the template file may contain the ``@`` character).
+Template files are different from other xrst input file
+because none of the following xrst commands can be in a template expansion:
+:ref:`begin_cmd-name` ,
+:ref:`comment_ch_cmd-name` ,
+:ref:`indent_cmd-name` ,
+:ref:`spell_cmd-name` ,
+:ref:`template_cmd-name` .
 
 match
 *****
-Each occurrence of a match in the template file gets replaced.
-Leading and trailing white space around *match* is ignored.
+Each *match* in the template file gets replaced.
+Leading and trailing white space around each *match* is ignored.
 
 replace
 *******
-For each match, the corresponding replacement is used in its place.
-Leading and trailing white space around *replace* is ignored.
+For each *match*, the corresponding *replace* is used in its place.
+Leading and trailing white space around each *replace* is ignored.
+
+comment
+*******
+A *comment* is any line below the *template_file* that
+does not contain the *separator* character.
+Leading and trailing white space around each *comment* is ignored.
+It is an error if a *comment* does not appear in the template file
+(before template expansion).
+In other words, a template file can have a list of comments
+that can be in a template command that uses the template file.
+This enables the template command to check that certain features
+of the template file have not changed.
 
 Command End
 ***********
@@ -196,7 +211,7 @@ def template_command(data_in, page_file, page_name) :
       # rest of template command
       arg_text = m_template.group(4)
       #
-      # template_file, template_file_line
+      # template_file, template_file_line, template_file_end
       template_file = ''
       m_arg         = pattern_arg.search(arg_text)
       if m_arg != None :
@@ -220,39 +235,12 @@ def template_command(data_in, page_file, page_name) :
             data      = arg_text
          )
       template_file_line = m_arg.group(2)
-      #
-      # substitute_list
-      substitute_list = list()
-      #
-      # m_arg
-      m_arg = pattern_arg.search(arg_text, m_arg.end())
-      while m_arg != None :
-         arg = m_arg.group(1).split(separator)
-         if len( arg ) != 2 :
-            msg  =  f'xrst_template separator = {separator}\n'
-            msg += 'separator must appear once, and only once, in each line '
-            msg += 'below the template file line.'
-            xrst.system_exit(
-               msg,
-               file_name = page_file,
-               page_name = page_name,
-               m_obj     = m_arg,
-               data      = m_arg.group(0)
-            )
-         #
-         # substitute_list
-         match   = arg[0].strip()
-         replace = arg[1].strip()
-         line    = m_arg.group(2)
-         substitute_list.append( (match, replace, line) )
-         #
-         # m_arg
-         m_arg = pattern_arg.search(arg_text, m_arg.end())
+      template_file_end  = m_arg.end()
       #
       # template_data
       if not os.path.isfile(template_file) :
-         msg  = 'template command can not find the template file:\n'
-         msg += f'template file name = {template_file}'
+         msg  = f'template command: template_file = {template_file}\n'
+         msg += 'can not find the template file'
          #
          # template command cannot be inside a template file so we can use
          # line number to report the error.
@@ -265,14 +253,60 @@ def template_command(data_in, page_file, page_name) :
       template_data  = file_obj.read()
       file_obj.close()
       #
+      # Check comments
+      m_arg = pattern_arg.search(arg_text, template_file_end)
+      while m_arg != None :
+         arg = m_arg.group(1).split(separator)
+         if len( arg ) == 1 :
+            comment = arg[0].strip()
+            if comment not in template_data :
+               msg  = 'xrst_template comment =\n'
+               msg += comment + '\n'
+               msg += f'does not appear in {template_file}'
+               xrst.system_exit(
+                  msg,
+                  file_name = page_file,
+                  page_name = page_name,
+                  m_obj     = m_arg,
+                  data      = m_arg.group(0)
+               )
+         m_arg = pattern_arg.search(arg_text, m_arg.end() )
+      #
+      # replace_list
+      replace_list = list()
+      m_arg        = pattern_arg.search(arg_text, template_file_end)
+      while m_arg != None :
+         arg = m_arg.group(1).split(separator)
+         if len( arg ) > 2 :
+            msg  = f'xrst_template separator = {separator}\n'
+            msg += 'separator appears more that once in a line '
+            msg += 'below the template_file line.'
+            xrst.system_exit(
+               msg,
+               file_name = page_file,
+               page_name = page_name,
+               m_obj     = m_arg,
+               data      = m_arg.group(0)
+            )
+         if len( arg ) == 2 :
+            #
+            # replace_list
+            match    = arg[0].strip()
+            replace  = arg[1].strip()
+            line     = m_arg.group(2)
+            replace_list.append( (match, replace, line) )
+         #
+         # m_arg
+         m_arg = pattern_arg.search(arg_text, m_arg.end() )
+      #
       # template_expansion
       template_expansion = template_data
-      for match, replace, line in substitute_list :
+      for match, replace, line in replace_list :
          #
          index = template_expansion.find(match)
          if index == -1 :
-            msg  = 'template_command: This match did not appear in template'
-            msg += f'\nmatch = {match}'
+            msg  = f'template_command: match = {match}'
+            msg += 'This match did not appear in the template file'
             xrst.system_exit(msg,
                file_name = page_file,
                page_name = page_name,
@@ -320,7 +354,7 @@ def template_command(data_in, page_file, page_name) :
       data_out  = data_done + data_out[m_template.end() :]
       #
       # m_template
-      m_template  = pattern_template.search(data_out , len(data_done))
+      m_template  = pattern_template.search(data_out , len(data_done) )
    #
    # suspend_command
    # need to run this for suspends in the template expansions

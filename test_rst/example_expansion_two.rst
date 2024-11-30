@@ -43,12 +43,12 @@ and double words, by
 This is what is done in the following sentence:
 Using 'myspecialword' and using 'double double' are OK here.
 
-.. index:: second, expansion, paragraph
+.. index:: second, paragraph
 
-.. _example_expansion_two@Second Expansion Paragraph:
+.. _example_expansion_two@Second Paragraph:
 
-Second Expansion Paragraph
-**************************
+Second Paragraph
+****************
 This paragraph is displayed if the case argument is second.
 
 .. index:: template
@@ -69,7 +69,7 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 37-43
+   :lines: 37-44
    :language: rst
 
 
