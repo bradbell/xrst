@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 184-187,364-365
+   :lines: 185-188,368-369
    :language: py
 
 .. index:: restrictions

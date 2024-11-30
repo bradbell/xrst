@@ -133,7 +133,8 @@ comment
 A *comment* is any line below the *template_file* that
 does not contain the *separator* character.
 Leading and trailing white space around each *comment* is ignored.
-It is an error if a *comment* does not appear in the template file
+If *comment* is empty, it is ignored.
+Otherwise, it is an error if a *comment* does not appear in the template file
 (before template expansion).
 In other words, a template file can have a list of comments
 that can be in a template command that uses the template file.

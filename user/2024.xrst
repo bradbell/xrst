@@ -31,6 +31,7 @@ mm-dd
 =====
 Comment lines were added to the template command; see
 :ref:`template_cmd@comment` .
+Also fix some error messaging in the template command.
 
 11-27
 =====

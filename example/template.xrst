@@ -37,6 +37,7 @@ This Example File
 {xrst_template ;
    example/template_file.xrst
    headers: Expansion Number, Spelling, First Paragraph, Second Paragraph
+
    @Title@        ; Second Expansion
    @#####@        ; ################
    @number@       ; two

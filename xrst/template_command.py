@@ -90,7 +90,8 @@ comment
 A *comment* is any line below the *template_file* that
 does not contain the *separator* character.
 Leading and trailing white space around each *comment* is ignored.
-It is an error if a *comment* does not appear in the template file
+If *comment* is empty, it is ignored.
+Otherwise, it is an error if a *comment* does not appear in the template file
 (before template expansion).
 In other words, a template file can have a list of comments
 that can be in a template command that uses the template file.
@@ -124,7 +125,7 @@ pattern_template    = re.compile(
    r'([^\\]){xrst_template([^\n}]*)@xrst_line ([0-9]+)@\n([^}]*)}'
 )
 # pattern_arg
-pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
+pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n| *\n' )
 # ----------------------------------------------------------------------------
 # {xrst_begin template_cmd_dev dev}
 # {xrst_spell
@@ -215,7 +216,8 @@ def template_command(data_in, page_file, page_name) :
       template_file = ''
       m_arg         = pattern_arg.search(arg_text)
       if m_arg != None :
-         template_file =  m_arg.group(1).strip()
+         if m_arg.group(1) != None :
+            template_file =  m_arg.group(1).strip()
       if template_file == '' :
          msg = 'template command: the template_file is missing.'
          xrst.system_exit(
@@ -256,45 +258,47 @@ def template_command(data_in, page_file, page_name) :
       # Check comments
       m_arg = pattern_arg.search(arg_text, template_file_end)
       while m_arg != None :
-         arg = m_arg.group(1).split(separator)
-         if len( arg ) == 1 :
-            comment = arg[0].strip()
-            if comment not in template_data :
-               msg  = 'xrst_template comment =\n'
-               msg += comment + '\n'
-               msg += f'does not appear in {template_file}'
-               xrst.system_exit(
-                  msg,
-                  file_name = page_file,
-                  page_name = page_name,
-                  m_obj     = m_arg,
-                  data      = m_arg.group(0)
-               )
+         if m_arg.group(1) != None :
+            arg = m_arg.group(1).split(separator)
+            if len( arg ) == 1 :
+               comment = arg[0].strip()
+               if comment not in template_data :
+                  msg  = 'xrst_template comment =\n'
+                  msg += comment + '\n'
+                  msg += f'does not appear in {template_file}'
+                  xrst.system_exit(
+                     msg,
+                     file_name = page_file,
+                     page_name = page_name,
+                     m_obj     = m_arg,
+                     data      = arg_text,
+                  )
          m_arg = pattern_arg.search(arg_text, m_arg.end() )
       #
       # replace_list
       replace_list = list()
       m_arg        = pattern_arg.search(arg_text, template_file_end)
       while m_arg != None :
-         arg = m_arg.group(1).split(separator)
-         if len( arg ) > 2 :
-            msg  = f'xrst_template separator = {separator}\n'
-            msg += 'separator appears more that once in a line '
-            msg += 'below the template_file line.'
-            xrst.system_exit(
-               msg,
-               file_name = page_file,
-               page_name = page_name,
-               m_obj     = m_arg,
-               data      = m_arg.group(0)
-            )
-         if len( arg ) == 2 :
-            #
-            # replace_list
-            match    = arg[0].strip()
-            replace  = arg[1].strip()
-            line     = m_arg.group(2)
-            replace_list.append( (match, replace, line) )
+         if m_arg.group(1) != None :
+            arg = m_arg.group(1).split(separator)
+            if len( arg ) > 2 :
+               msg  = f'xrst_template separator = {separator}\n'
+               msg += 'separator appears more that once in a line '
+               msg += 'below the template_file line.'
+               xrst.system_exit(
+                  msg,
+                  file_name = page_file,
+                  page_name = page_name,
+                  m_obj     = m_arg,
+                  data      = arg_text,
+               )
+            if len( arg ) == 2 :
+               #
+               # replace_list
+               match    = arg[0].strip()
+               replace  = arg[1].strip()
+               line     = m_arg.group(2)
+               replace_list.append( (match, replace, line) )
          #
          # m_arg
          m_arg = pattern_arg.search(arg_text, m_arg.end() )
