@@ -76,6 +76,10 @@ with the following key, value pairs (all the keys are strings):
     parent_page, (int) index in all_page_info for the parent of this page.
     in_parent_file, (bool) is this page in same input file as its parent.
     keywords, (str) space separated list of index entries for this page.
+    file_in, (str) name of the input file for this page
+    begin_line, (int) line number where begin command is for this page
+    end_line, (int) line number where end command is for this page
+    template_list, (list of str) name of template files used by this page
 
 .. index:: root_page_list
 
@@ -153,5 +157,5 @@ rst_dir/conf.py
 This is the configuration file used by sphinx to build the documentation.
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 390-397
+   :lines: 394-401
    :language: py

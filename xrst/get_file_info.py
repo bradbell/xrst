@@ -88,8 +88,11 @@ of pages that have the same group name.
 # ---------------------------------------------------------------------------
 import xrst
 import re
-pattern_group_name  = re.compile( r'[^ \t]+' )
-pattern_group_valid = re.compile( r'[a-z]+' )
+pattern_group_name    = re.compile( r'[^ \t]+' )
+pattern_group_valid   = re.compile( r'[a-z]+' )
+pattern_template_file = re.compile(
+   r'([^\\]){xrst_template[^\n}]*\n([^\n}]*)@xrst_line [0-9]+@\n'
+)
 # ---------------------------------------------------------------------------
 # {xrst_begin get_file_info dev}
 # {xrst_spell
@@ -370,14 +373,22 @@ def get_file_info(
             pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
             page_data   = pattern_ch.sub(r'\n', page_data)
          #
+         # template_list
+         template_list = list()
+         m_obj         = pattern_template_file.search(page_data)
+         while m_obj != None :
+            template_list.append( m_obj.group(2).strip() )
+            m_obj = pattern_template_file.search( page_data, m_obj.end() )
+         #
          # file_page_info
          file_page_info.append( {
-            'page_name'    : page_name,
-            'page_data'    : page_data,
-            'is_parent'    : is_parent,
-            'is_child'     : is_child,
-            'begin_line'   : begin_line,
-            'end_line'     : end_line,
+            'page_name'      : page_name,
+            'page_data'      : page_data,
+            'is_parent'      : is_parent,
+            'is_child'       : is_child,
+            'begin_line'     : begin_line,
+            'end_line'       : end_line,
+            'template_list'  : template_list,
          } )
          #
          # data_index

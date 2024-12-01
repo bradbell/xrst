@@ -341,6 +341,10 @@ function page_or_title_entry(textarea)
 #     parent_page, (int) index in all_page_info for the parent of this page.
 #     in_parent_file, (bool) is this page in same input file as its parent.
 #     keywords, (str) space separated list of index entries for this page.
+#     file_in, (str) name of the input file for this page
+#     begin_line, (int) line number where begin command is for this page
+#     end_line, (int) line number where end command is for this page
+#     template_list, (list of str) name of template files used by this page
 #
 # root_page_list
 # **************
@@ -507,8 +511,10 @@ def auto_file(
             end_index = newline_list[end_line-1] + 1
          #
          # page_data
-         page_data  = f'lines {begin_line}-{end_line} of file: {file_in}\n\n'
-         page_data += file_data[begin_index : end_index]
+         title     = f'lines {begin_line}-{end_line} of file: {file_in}'
+         dash_line = len(title) * '-'
+         title     = f'{dash_line}\n{title}\n{dash_line}\n\n'
+         page_data = title + file_data[begin_index : end_index]
          #
          # file_out
          page_name = info['page_name']
@@ -518,6 +524,15 @@ def auto_file(
          file_out += '.txt'
          file_obj = open(file_out, 'w')
          file_obj.write(page_data)
+         for temp_file in info['template_list'] :
+            file_temp  = open(temp_file, 'r')
+            data_temp = file_temp.read()
+            file_temp.close()
+            title     = f'xrst template file: {temp_file}'
+            dash_line = len(title) * '-'
+            title     = f'\n{dash_line}\n{title}\n{dash_line}\n\n'
+            data_temp = title + data_temp
+            file_obj.write(data_temp)
          file_obj.close()
    # ------------------------------------------------------------------------
    # rst_dir/conf.py

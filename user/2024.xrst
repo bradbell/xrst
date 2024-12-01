@@ -27,6 +27,12 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+12-01
+=====
+Include the contents of the
+ref:`template files <template_cmd@template_file>` that are used
+below the source for each page.
+
 11-30
 =====
 Comment lines were added to the template command; see

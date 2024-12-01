@@ -626,7 +626,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2024.11.30'
+version = '2024.12.1'
 #
 def run_xrst() :
    #
@@ -1015,9 +1015,7 @@ def run_xrst() :
             page_name  = file_page_info[i_page]['page_name']
             page_data  = file_page_info[i_page]['page_data']
             is_parent  = file_page_info[i_page]['is_parent']
-            is_child   = file_page_info[i_page]['is_child']
             begin_line = file_page_info[i_page]['begin_line']
-            end_line   = file_page_info[i_page]['end_line']
             #
             # parent_page
             if is_parent or parent_page_file_in is None :
@@ -1030,9 +1028,10 @@ def run_xrst() :
                'page_name'      : page_name,
                'file_in'        : file_in,
                'parent_page'    : parent_page,
-               'in_parent_file' : is_child,
                'begin_line'     : begin_line,
-               'end_line'       : end_line,
+               'in_parent_file' : file_page_info[i_page]['is_child'],
+               'end_line'       : file_page_info[i_page]['end_line'],
+               'template_list'  : file_page_info[i_page]['template_list'],
             } )
             # ------------------------------------------------------------
             # template command
