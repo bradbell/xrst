@@ -5,7 +5,7 @@ example_expansion_two
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_two,second,expansion,number,spelling,paragraph,this,template,file,usage
+   :keywords: example_expansion_two,second,expansion,number,spelling,paragraph,third,this,template,file,usage
 
 
 
@@ -51,6 +51,14 @@ Second Paragraph
 ****************
 This paragraph is displayed if the case argument is second.
 
+.. index:: third, paragraph
+
+.. _example_expansion_two@Third Paragraph:
+
+Third Paragraph
+***************
+This paragraph is displayed if the case argument is not third.
+
 .. index:: template
 
 .. _example_expansion_two@This Template File:
@@ -69,7 +77,7 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 37-45
+   :lines: 37-49
    :language: rst
 
 

@@ -2,7 +2,7 @@
 This is an example xrst template file.
 
 This file has the following xrst_template comments:
-headers: Expansion Number, Spelling, First Paragraph, Second Paragraph
+headers   : Expansion Number, Spelling, First Paragraph, Second Paragraph
 
 This file has the following xrst_template replacements:
 @Title@   : is the title for this page
@@ -45,6 +45,12 @@ This paragraph is displayed if the case argument is first.
 Second Paragraph
 ****************
 This paragraph is displayed if the case argument is second.
+{xrst_resume}
+
+{xrst_suspend @case@ == third}
+Third Paragraph
+***************
+This paragraph is displayed if the case argument is not third.
 {xrst_resume}
 
 This Template File

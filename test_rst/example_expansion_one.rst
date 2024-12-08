@@ -5,7 +5,7 @@ example_expansion_one
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: example_expansion_one,first,expansion,number,spelling,paragraph,this,template,file,usage
+   :keywords: example_expansion_one,first,expansion,number,spelling,paragraph,third,this,template,file,usage
 
 
 
@@ -50,6 +50,14 @@ Using 'myspecialword' and using 'double double' are OK here.
 First Paragraph
 ***************
 This paragraph is displayed if the case argument is first.
+
+.. index:: third, paragraph
+
+.. _example_expansion_one@Third Paragraph:
+
+Third Paragraph
+***************
+This paragraph is displayed if the case argument is not third.
 
 .. index:: template
 

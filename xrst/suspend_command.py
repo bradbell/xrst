@@ -4,6 +4,9 @@
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin suspend_cmd user}
+{xrst_spell
+   op
+}
 
 Suspend and Resume Commands
 ###########################
@@ -12,7 +15,7 @@ Syntax
 ******
 - ``\{xrst_suspend}``
 - ``\{xrst_suspend`` *boolean* ``}``
-- ``\{xrst_suspend`` *left* ``!=`` *right* ``}``
+- ``\{xrst_suspend`` *left* *op* *right* ``}``
 - ``\{xrst_resume}``
 
 Discussion
@@ -21,6 +24,11 @@ It is possible to suspend (resume) the xrst extraction and processing.
 One begins (ends) the suspension with a line that only contains spaces,
 tabs and a suspend command (resume command).
 Each suspend command must have a corresponding resume command.
+
+White Space
+***********
+Leading and trailing spaces in *boolean* , *left* , *op* , and *right*
+are ignored.
 
 boolean
 *******
@@ -31,18 +39,21 @@ This argument is intended to be used by the
 template command where it can be assigned the value true or false
 for a particular expansion of the :ref:`template_cmd@template_file` .
 
+*op*
+****
+This argument must be ``==`` or ``!=``.
+It must be separated one or more spaces from *left* and *right* .
+
 left, right
 ***********
-If arguments *left* and *right* are present and not equal,
+If arguments *left* and *right* must not have any white space in them.
+If
+
+ *left* *op* *right*
+
+is true (false) ,
 the section of input up to the next resume
 is not included in the xrst extraction and processing for this page.
-This syntax is often easier than the boolean syntax,
-to use in an xrst :ref:`template_cmd@template_file` .
-
-White Space
-***********
-Leading and trailing spaces in *boolean*, *left*, and *right*
-are ignored.
 
 Example
 *******
@@ -133,24 +144,37 @@ def suspend_command(data_in, page_file, page_name) :
       #
       # exclude
       argument = m_suspend.group(1).strip(' ')
-      index    = argument.find('!=')
-      if 0 <= index :
-         left      = argument[: index].strip(' ')
-         right     = argument[ index + 2 : ].strip(' ')
-         exclude   = left != right
-      elif argument in [ '', 'true' ] :
-         exclude   = True
+      if argument in [ '', 'true' ] :
+         exclude = True
+      elif argument == 'false' :
+         exclude = False
       else :
-         if argument != 'false' :
-            msg  = 'suspend command arugment is not empty, true, false '
-            msg += 'or contain != .'
+         argument = argument.split()
+         if len(argument) != 3 :
+            msg  = 'suspend command arugment is not empty, true, false or'
+            msg += 'three string separated by white space.'
             xrst.system_exit(msg,
                file_name=page_file,
                page_name=page_name,
                m_obj=m_obj,
                data=data_out
             )
-         exclude = False
+         left  = argument[0]
+         op    = argument[1]
+         right = argument[2]
+         if op == '==' :
+            exclude = left == right
+         elif op == '!=' :
+            exclude = left != right
+         else :
+            msg  = '{' + 'xrst_suspend left op right}: '
+            msg += 'op is not == or !=.'
+            xrst.system_exit(msg,
+               file_name=page_file,
+               page_name=page_name,
+               m_obj=m_obj,
+               data=data_out
+            )
       #
       # data_out
       if exclude :

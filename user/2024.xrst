@@ -27,6 +27,14 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+12-08
+=====
+The suspend comment :ref:`suspend_cmd@left, right` syntax was extended
+from just the ``!=`` operator to include the ``==`` operator.
+In addition, white space is now forbidden in the
+*left* and *right* operands.
+
+
 12-01
 =====
 Include the contents of the
