@@ -27,6 +27,14 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+12-09
+=====
+Correct comment about the example
+:ref:`config_file@directory@project_directory` .
+To be specific, it is relative to where the
+:ref:`run_xrst@config_file` is located
+(which may not be the directory where the xrst is run).
+
 12-08
 =====
 The suspend comment :ref:`suspend_cmd@left, right` syntax was extended

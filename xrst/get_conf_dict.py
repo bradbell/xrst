@@ -118,8 +118,8 @@ and placed in the *rst_directory*.
 
 Default
 =======
-Note that '.' denotes the directory where
-:ref:`xrst <run_xrst-name>` is run.
+Note that ``'.'`` below denotes the directory where the
+:ref:`run_xrst@config_file` is located.
 
 {xrst_code toml}
 [directory]
