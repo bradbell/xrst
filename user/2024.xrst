@@ -33,7 +33,7 @@ Correct comment about the example
 :ref:`config_file@directory@project_directory` .
 To be specific, it is relative to where the
 :ref:`run_xrst@config_file` is located
-(which may not be the directory where the xrst is run).
+(which may not be the directory where xrst is run).
 
 12-08
 =====
