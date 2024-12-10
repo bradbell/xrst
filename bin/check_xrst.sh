@@ -85,14 +85,14 @@ do
    args='--local_toc'
    if [ "$group_list" == 'default' ]
    then
-      args="$args --config_file ../xrst.toml"
+      args+=" --config_file ../xrst.toml"
    else
-      args="$args --index_page_name $index_page_name"
-      args="$args --config_file xrst.toml"
+      args+=" --index_page_name $index_page_name"
+      args+=" --config_file xrst.toml"
    fi
-   args="$args --group_list $group_list"
-   args="$args --html_theme sphinx_rtd_theme"
-   args="$args --number_jobs $number_jobs"
+   args+=" --group_list $group_list"
+   args+=" --html_theme sphinx_rtd_theme"
+   args+=" --number_jobs $number_jobs"
    #
    # build/html, build/rst
    # last group_list should have same arguments as in pytest/test_rst.py
