@@ -27,6 +27,11 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+12-10
+=====
+Add space below template file name, to better separate arguments,
+in the second xrst template command in :ref:`template_example-name` .
+
 12-09
 =====
 Correct comment about the example

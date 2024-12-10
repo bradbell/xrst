@@ -36,6 +36,7 @@ This Example File
 {xrst_comment BEGIN_EXPANSION_two}
 {xrst_template ;
    example/template_file.xrst
+
    headers   : Expansion Number, Spelling, First Paragraph, Second Paragraph
    @Title@   : is the title for this page
    @#####@   : is the rst underlining for the title

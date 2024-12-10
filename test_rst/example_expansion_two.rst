@@ -77,7 +77,7 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-   :lines: 37-49
+   :lines: 37-50
    :language: rst
 
 
