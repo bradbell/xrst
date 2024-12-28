@@ -5,7 +5,7 @@ auto_file_dev
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py
+   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py,prototype
 
 .. index:: auto_file_dev, create, automatically, generated, files
 
@@ -156,6 +156,13 @@ rst_dir/conf.py
 ***************
 This is the configuration file used by sphinx to build the documentation.
 
+.. index:: prototype
+
+.. _auto_file_dev@Prototype:
+
+Prototype
+*********
+
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 394-401
+   :lines: 403-410
    :language: py

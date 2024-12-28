@@ -5,7 +5,7 @@ rename_group
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: rename_group,rename,a,subset,of,group,tmp_dir,old_group_name,new_group_name,spell.toml
+   :keywords: rename_group,rename,a,subset,of,group,tmp_dir,old_group_name,new_group_name,spell.toml,prototype
 
 .. index:: rename_group, rename, subset, group
 
@@ -49,6 +49,13 @@ spell.toml
 **********
 see :ref:`replace_spell@spell.toml` .
 
+.. index:: prototype
+
+.. _rename_group@Prototype:
+
+Prototype
+*********
+
 .. literalinclude:: ../../xrst/rename_group.py
-   :lines: 32-35
+   :lines: 41-44
    :language: py

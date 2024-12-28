@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-22 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import toml
@@ -28,13 +28,21 @@ import xrst
 # **********
 # see :ref:`replace_spell@spell.toml` .
 #
-# {xrst_code py}
+# Prototype
+# *********
+# {xrst_literal
+#  # BEGIN_DEF
+#  # END_DEF
+#  }
+#
+# {xrst_end rename_group}
+#
+# BEGIN_DEF
 def rename_group(tmp_dir, old_group_name, new_group_name) :
    assert type(tmp_dir) == str
    assert type(old_group_name) == str
    assert type(new_group_name) == str
-   # {xrst_code}
-   # {xrst_end rename_group}
+   # END_DEF
    #
    # spell_toml
    file_obj  = open( f'{tmp_dir}/spell.toml' )

@@ -5,7 +5,7 @@ system_exit
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: system_exit,form,error,message,and,exit,msg,file_name,page_name,m_obj,data,line
+   :keywords: system_exit,form,error,message,and,exit,msg,file_name,page_name,m_obj,data,line,prototype
 
 .. index:: system_exit, form, error, message, exit
 
@@ -70,6 +70,13 @@ line
 is the line number in the current input file where the error
 was detected.
 
+.. index:: prototype
+
+.. _system_exit@Prototype:
+
+Prototype
+*********
+
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 49-58
+   :lines: 58-67
    :language: py

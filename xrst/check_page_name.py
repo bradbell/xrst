@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -49,14 +49,22 @@ import xrst
 # ****
 # is that data that was searched to get the match object.
 #
-# {xrst_code py}
+# Prototype
+# *********
+# {xrst_literal
+#  # BEGIN_DEF
+#  # END_DEF
+#  }
+#
+# {xrst_end check_page_name}
+#
+# BEGIN_DEF
 def check_page_name(page_name, file_name, m_obj, data) :
    assert type(page_name) == str
    assert type(file_name) == str
    assert m_obj
    assert type(data) == str
-   # {xrst_code}
-   # {xrst_end check_page_name}
+   # END_DEF
    #
    m_page_name = re.search('[-._A-Za-z0-9]+', page_name)
    if m_page_name.group(0) != page_name :

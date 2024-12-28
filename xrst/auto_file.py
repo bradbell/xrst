@@ -390,7 +390,16 @@ function page_or_title_entry(textarea)
 # This is the configuration file used by sphinx to build the documentation.
 #
 #
-# {xrst_code py}
+# Prototype
+# *********
+# {xrst_literal
+#  # BEGIN_DEF
+#  # END_DEF
+#  }
+#
+# {xrst_end auto_file_dev}
+#
+# BEGIN_DEF
 def auto_file(
    conf_dict, html_theme, target, all_page_info, root_page_list
    ) :
@@ -399,8 +408,7 @@ def auto_file(
    assert type(target) == str
    assert type(all_page_info) == list
    assert type(root_page_list) == list
-   # {xrst_code}
-   # {xrst_end auto_file_dev}
+   # END_DEF
    #
    # rst_dir
    rst_dir = conf_dict['directory']['rst_directory']

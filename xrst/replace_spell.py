@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import toml
@@ -40,11 +40,19 @@ import xrst
 #     there is no spell command for this page.
 # #.  The spell start and end lines do not overlap the begin line.
 #
-# {xrst_code py}
+# Prototype
+# *********
+# {xrst_literal
+#  # BEGIN_DEF
+#  # END_DEF
+#  }
+#
+# {xrst_end replace_spell}
+#
+# BEGIN_DEF
 def replace_spell(tmp_dir) :
    assert type(tmp_dir) == str
-   # {xrst_code}
-   # {xrst_end replace_spell}
+   # END_DEF
    #
    # spell_toml
    file_obj  = open( f'{tmp_dir}/spell.toml' )

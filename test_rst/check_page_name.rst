@@ -5,7 +5,7 @@ check_page_name
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data
+   :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data,prototype
 
 .. index:: check_page_name, check, rules, page, name
 
@@ -64,6 +64,13 @@ data
 ****
 is that data that was searched to get the match object.
 
+.. index:: prototype
+
+.. _check_page_name@Prototype:
+
+Prototype
+*********
+
 .. literalinclude:: ../../xrst/check_page_name.py
-   :lines: 53-57
+   :lines: 62-66
    :language: py

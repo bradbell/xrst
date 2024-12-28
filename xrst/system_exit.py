@@ -45,7 +45,16 @@ import xrst
 # is the line number in the current input file where the error
 # was detected.
 #
-# {xrst_code py}
+# Prototype
+# *********
+# {xrst_literal
+#  # BEGIN_DEF
+#  # END_DEF
+#  }
+#
+# {xrst_end system_exit}
+#
+# BEGIN_DEF
 def system_exit(
    msg, file_name=None, page_name=None, m_obj=None, data=None, line=None
 ) :
@@ -56,8 +65,7 @@ def system_exit(
    if m_obj != None :
       assert file_name != None
       assert data      != None
-   # {xrst_code}
-   # {xrst_end system_exit}
+   # END_DEF
    #
    # extra
    project_directory = os.getcwd()

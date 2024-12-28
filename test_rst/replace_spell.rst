@@ -5,7 +5,7 @@ replace_spell
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: replace_spell,replace,spelling,commands,tmp_dir,spell.toml
+   :keywords: replace_spell,replace,spelling,commands,tmp_dir,spell.toml,prototype
 
 .. index:: replace_spell, replace, spelling, commands
 
@@ -54,6 +54,13 @@ It is called spell.tom because it is written by the
     there is no spell command for this page.
 #.  The spell start and end lines do not overlap the begin line.
 
+.. index:: prototype
+
+.. _replace_spell@Prototype:
+
+Prototype
+*********
+
 .. literalinclude:: ../../xrst/replace_spell.py
-   :lines: 44-45
+   :lines: 53-54
    :language: py
