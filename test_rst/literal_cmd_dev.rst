@@ -5,7 +5,7 @@ literal_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: literal_cmd_dev,process,the,literal,commands,in,a,page,prototype,data_in,page_file,page_name,rst2project_dir,data_out
+  :keywords: literal_cmd_dev,process,the,literal,commands,in,a,page,prototype,data_in,page_file,page_name,rst2project_dir,data_out
 
 .. index:: literal_cmd_dev, process, literal, commands, in, page
 
@@ -15,7 +15,7 @@ Process the literal commands in a page
 ######################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/literal_command.py
-   :lines: 222-226,394-396
-   :language: py
+  :lines: 222-226,394-396
+  :language: py
 
 .. index:: data_in
 

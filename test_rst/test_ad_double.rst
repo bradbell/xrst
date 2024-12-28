@@ -5,7 +5,7 @@ test_ad_double
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: test_ad_double,run,ad_double,example,and,check,its,result,file
+  :keywords: test_ad_double,run,ad_double,example,and,check,its,result,file
 
 .. index:: test_ad_double, run, ad_double, check, its, result
 
@@ -15,11 +15,11 @@ Run ad_double Example and Check its Result
 ##########################################
 
 .. literalinclude:: ../../example/class.cpp
-   :lines: 233-241
-   :language: cpp
+  :lines: 233-241
+  :language: cpp
 
 .. contents::
-   :local:
+  :local:
 
 .. _test_ad_double@Example File:
 

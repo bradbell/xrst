@@ -5,7 +5,7 @@ system_exit
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: system_exit,form,error,message,and,exit,msg,file_name,page_name,m_obj,data,line,prototype
+  :keywords: system_exit,form,error,message,and,exit,msg,file_name,page_name,m_obj,data,line,prototype
 
 .. index:: system_exit, form, error, message, exit
 
@@ -15,7 +15,7 @@ Form error message and exit
 ###########################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: msg
 
@@ -78,5 +78,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/system_exit.py
-   :lines: 58-67
-   :language: py
+  :lines: 58-67
+  :language: py

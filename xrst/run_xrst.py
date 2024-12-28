@@ -1288,7 +1288,7 @@ def run_xrst() :
    # -------------------------------------------------------------------------
    if rst_only :
       print('xrst rst_only: OK')
-      indent = '\n' + 3 * ' '
+      indent = '\n' + 2 * ' '
       txt = ''
       if external_links :
          txt  = f'The following command will check the external links'

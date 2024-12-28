@@ -5,7 +5,7 @@ code_cmd
 !!!!!!!!
 
 .. meta::
-   :keywords: code_cmd,code,command,syntax,purpose,code-block,requirements,language,rest,of,line,spell,checking,example
+  :keywords: code_cmd,code,command,syntax,purpose,code-block,requirements,language,rest,of,line,spell,checking,example
 
 .. index:: code_cmd, code
 
@@ -15,7 +15,7 @@ Code Command
 ############
 
 .. contents::
-   :local:
+  :local:
 
 .. _code_cmd@Syntax:
 

@@ -5,7 +5,7 @@ testExample
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: testExample,test,special,conditions,camel,case,code,command,in,list,no,newline,at,end,of,file,this,example
+  :keywords: testExample,test,special,conditions,camel,case,code,command,in,list,no,newline,at,end,of,file,this,example
 
 .. index:: testExample, test, special, conditions
 
@@ -15,7 +15,7 @@ Test Special Conditions
 #######################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: camel, case
 
@@ -35,8 +35,8 @@ Code Command in List
 #. The ``{xrst_code py}`` cannot be on the first line of a list item.
 
    .. literalinclude:: ../../example/test.xrst
-      :lines: 27-30
-      :language: py
+     :lines: 27-30
+     :language: py
 
 #. This is the second item for this list
 
@@ -54,4 +54,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/test.xrst
-   :language: rst
+  :language: rst

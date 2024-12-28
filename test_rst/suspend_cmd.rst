@@ -5,7 +5,7 @@ suspend_cmd
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd,suspend,and,resume,commands,syntax,discussion,white,space,boolean,*op*,left,,right,example
+  :keywords: suspend_cmd,suspend,and,resume,commands,syntax,discussion,white,space,boolean,*op*,left,,right,example
 
 .. index:: suspend_cmd, suspend, resume, commands
 
@@ -15,7 +15,7 @@ Suspend and Resume Commands
 ###########################
 
 .. contents::
-   :local:
+  :local:
 
 .. _suspend_cmd@Syntax:
 

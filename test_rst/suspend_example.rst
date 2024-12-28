@@ -5,7 +5,7 @@ suspend_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_example,suspend,command,example,discussion,project_name,xrst_code,xrst_suspend,this,file
+  :keywords: suspend_example,suspend,command,example,discussion,project_name,xrst_code,xrst_suspend,this,file
 
 .. index:: suspend_example, suspend
 
@@ -15,7 +15,7 @@ Suspend Command Example
 #######################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: discussion
 
@@ -40,8 +40,8 @@ The only value in this table is the name of this project.
 The default for this table is
 
 .. literalinclude:: ../../example/suspend.py
-   :lines: 27-28
-   :language: toml
+  :lines: 27-28
+  :language: toml
 
 .. index:: xrst_code
 
@@ -67,4 +67,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/suspend.py
-   :language: py
+  :language: py

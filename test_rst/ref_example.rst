@@ -5,7 +5,7 @@ ref_example
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: ref_example,sphinx,ref,role,example,a,level,one,long,heading,two,three,four,links,newlines,in,:ref:,targets,this,file
+  :keywords: ref_example,sphinx,ref,role,example,a,level,one,long,heading,two,three,four,links,newlines,in,:ref:,targets,this,file
 
 .. index:: ref_example, sphinx, ref, role
 
@@ -18,7 +18,7 @@ except that it uses multiple lines for the
 targets under :ref:`ref_example@Links` below.
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: level, one, long, heading
 
@@ -80,4 +80,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/ref.xrst
-   :language: rst
+  :language: rst

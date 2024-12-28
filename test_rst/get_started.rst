@@ -5,7 +5,7 @@ get_started
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: get_started,title:,getting,started,heading:,steps,links,to,this,page,example,file
+  :keywords: get_started,title:,getting,started,heading:,steps,links,to,this,page,example,file
 
 .. index:: get_started, title:, getting, started
 
@@ -18,7 +18,7 @@ The name of this page is ``get_started`` and its title is
 All of the headings below begin with ``Heading:`` .
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: heading:, steps
 
@@ -112,4 +112,4 @@ The file below demonstrates the use of
 and heading references :
 
 .. literalinclude:: ../../example/get_started.xrst
-   :language: rst
+  :language: rst

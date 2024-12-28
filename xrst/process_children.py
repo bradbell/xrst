@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -133,11 +133,11 @@ def process_children(
    # data_out
    # put hidden toctree at end of page
    toctree  = '\n.. toctree::\n'
-   toctree += '   :maxdepth: 1\n'
-   toctree += '   :hidden:\n\n'
+   toctree += 2 * ' ' + ':maxdepth: 1\n'
+   toctree += 2 * ' ' + ':hidden:\n\n'
    for child in list_children :
       entry    = pattern_rst_extension.sub('', child)
-      toctree += '   ' + entry + '\n'
+      toctree += 2 * ' ' + '' + entry + '\n'
    data_out = data_out + toctree
    #
    # BEGIN_RETURN

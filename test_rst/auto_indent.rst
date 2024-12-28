@@ -5,7 +5,7 @@ auto_indent
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: auto_indent,automatic,indentation,prototype,data,file_name,page_name
+  :keywords: auto_indent,automatic,indentation,prototype,data,file_name,page_name
 
 .. index:: auto_indent, automatic, indentation
 
@@ -18,7 +18,7 @@ The characters that can be used to indent are spaces or tabs.
 Lines that only have spaces and tabs are not included in this calculation.
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -28,8 +28,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/auto_indent.py
-   :lines: 52-55,105-106
-   :language: py
+  :lines: 52-55,105-106
+  :language: py
 
 .. index:: data
 

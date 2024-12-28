@@ -5,7 +5,7 @@ sphinx_label
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: sphinx_label,get,labels,declared,using,sphinx,commands,prototype,data,page_file,page_name,m_external_label,m_internal_label,errors
+  :keywords: sphinx_label,get,labels,declared,using,sphinx,commands,prototype,data,page_file,page_name,m_external_label,m_internal_label,errors
 
 .. index:: sphinx_label, get, labels, declared, using, sphinx, commands
 
@@ -15,7 +15,7 @@ Get Labels Declared Using Sphinx Commands
 #########################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/sphinx_label.py
-   :lines: 71-74,156-161
-   :language: py
+  :lines: 71-74,156-161
+  :language: py
 
 .. index:: data
 

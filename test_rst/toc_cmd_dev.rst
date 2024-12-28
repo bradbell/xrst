@@ -5,7 +5,7 @@ toc_cmd_dev
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: toc_cmd_dev,get,file,and,page,names,for,children,of,this,prototype,is_parent,data_in,page_file,page_name,group_name,data_out,file_list,child_page_list,order
+  :keywords: toc_cmd_dev,get,file,and,page,names,for,children,of,this,prototype,is_parent,data_in,page_file,page_name,group_name,data_out,file_list,child_page_list,order
 
 .. index:: toc_cmd_dev, get, page, names, children, page
 
@@ -15,7 +15,7 @@ Get file and page names for children of this page
 #################################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/toc_commands.py
-   :lines: 201-206,404-413
-   :language: py
+  :lines: 201-206,404-413
+  :language: py
 
 .. index:: is_parent
 

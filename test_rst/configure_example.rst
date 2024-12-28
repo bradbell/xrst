@@ -5,7 +5,7 @@ configure_example
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: configure_example,example,using,toml,configure,file,include_all,rst_prolog,latex_macro,this
+  :keywords: configure_example,example,using,toml,configure,file,include_all,rst_prolog,latex_macro,this
 
 .. index:: configure_example, using, toml, configure
 
@@ -15,7 +15,7 @@ Example Using TOML Configure File
 #################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: include_all
 
@@ -50,7 +50,7 @@ Example TOML File
 *****************
 
 .. literalinclude:: ../../xrst.toml
-   :language: toml
+  :language: toml
 
 .. _configure_example@This Example File:
 
@@ -58,4 +58,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/configure.xrst
-   :language: rst
+  :language: rst

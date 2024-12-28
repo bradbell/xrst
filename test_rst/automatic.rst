@@ -5,7 +5,7 @@ automatic
 !!!!!!!!!
 
 .. meta::
-   :keywords: automatic,processing
+  :keywords: automatic,processing
 
 .. index:: automatic, automatic, processing
 
@@ -19,8 +19,8 @@ The processing described below happens without any commands:
 -  :ref:`auto_file-title`
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+  :maxdepth: 1
+  :hidden:
 
-   heading_links
-   auto_file
+  heading_links
+  auto_file

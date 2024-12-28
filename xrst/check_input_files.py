@@ -159,7 +159,7 @@ def check_input_files(
                   msg += 'but they are not in any xrst_toc commands '
                   msg += 'starting at the root_file for this group\n'
                   sys.stderr.write(msg)
-               msg = 3 * ' ' +file_name + '\n'
+               msg = 2 * ' ' +file_name + '\n'
                sys.stderr.write(msg)
                warning_count += 1
          #
@@ -175,7 +175,7 @@ def check_input_files(
                      msg += 'but they are not in any xrst_toc commands '
                      msg += 'starting at the root_file for the default group\n'
                      sys.stderr.write(msg)
-                  msg = 3 * ' ' +file_name + '\n'
+                  msg = 2 * ' ' +file_name + '\n'
                   sys.stderr.write(msg)
                   warning_count += 1
             #

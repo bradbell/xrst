@@ -5,7 +5,7 @@ toc_cmd
 !!!!!!!
 
 .. meta::
-   :keywords: toc_cmd,table,of,children,commands,syntax,toc_hidden,toc_list,toc_table,contents,order,file,list,empty,child,links,toctree,example
+  :keywords: toc_cmd,table,of,children,commands,syntax,toc_hidden,toc_list,toc_table,contents,order,file,list,empty,child,links,toctree,example
 
 .. index:: toc_cmd, table, children, commands
 
@@ -15,7 +15,7 @@ Table of Children Commands
 ##########################
 
 .. contents::
-   :local:
+  :local:
 
 .. _toc_cmd@Syntax:
 

@@ -5,7 +5,7 @@ literal_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: literal_example,literal,command,example,prototype,t,factorial,square,tangent,xrst_literal,this,file
+  :keywords: literal_example,literal,command,example,prototype,t,factorial,square,tangent,xrst_literal,this,file
 
 .. index:: literal_example, literal
 
@@ -16,7 +16,7 @@ Literal Command Example
 This example is similar to the :ref:`dir_example-name` .
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -26,8 +26,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../example/literal.cpp
-   :lines: 6-6,14-14,19-19
-   :language: cpp
+  :lines: 6-6,14-14,19-19
+  :language: cpp
 
 .. index:: t
 
@@ -75,4 +75,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/literal.cpp
-   :language: cpp
+  :language: cpp

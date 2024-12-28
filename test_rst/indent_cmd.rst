@@ -5,7 +5,7 @@ indent_cmd
 !!!!!!!!!!
 
 .. meta::
-   :keywords: indent_cmd,indent,command,syntax,discussion,indentation,automatic,comment,character,example
+  :keywords: indent_cmd,indent,command,syntax,discussion,indentation,automatic,comment,character,example
 
 .. index:: indent_cmd, indent
 
@@ -15,7 +15,7 @@ Indent Command
 ##############
 
 .. contents::
-   :local:
+  :local:
 
 .. _indent_cmd@Syntax:
 

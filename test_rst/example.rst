@@ -5,7 +5,7 @@ example
 !!!!!!!
 
 .. meta::
-   :keywords: example,examples
+  :keywords: example,examples
 
 .. index:: example, examples
 
@@ -38,24 +38,24 @@ Examples
    "testExample", :ref:`testExample-title`
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+  :maxdepth: 1
+  :hidden:
 
-   get_started
-   literal_example
-   dir_example
-   toc_list_example
-   spell_example
-   suspend_example
-   code_example
-   comment_example
-   comment_ch_example
-   heading_example
-   ref_example
-   indent_example
-   docstring_example
-   configure_example
-   class_example
-   .readthedocs.yaml
-   template_example
-   testExample
+  get_started
+  literal_example
+  dir_example
+  toc_list_example
+  spell_example
+  suspend_example
+  code_example
+  comment_example
+  comment_ch_example
+  heading_example
+  ref_example
+  indent_example
+  docstring_example
+  configure_example
+  class_example
+  .readthedocs.yaml
+  template_example
+  testExample

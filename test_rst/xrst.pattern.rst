@@ -5,7 +5,7 @@ xrst.pattern
 !!!!!!!!!!!!
 
 .. meta::
-   :keywords: xrst.pattern,the,dictionary,pattern,begin,code,comment_ch,dir,end,line,literal,template_begin,template_end,toc
+  :keywords: xrst.pattern,the,dictionary,pattern,begin,code,comment_ch,dir,end,line,literal,template_begin,template_end,toc
 
 .. index:: xrst.pattern, xrst.pattern, dictionary
 
@@ -15,7 +15,7 @@ The xrst.pattern Dictionary
 ###########################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: pattern
 
@@ -27,8 +27,8 @@ This dictionary contains compiled regular expressions.
 It does not change after its initial setting when this file is imported.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 20-20
-   :language: py
+  :lines: 20-20
+  :language: py
 
 .. index:: begin
 
@@ -45,8 +45,8 @@ Pattern for the begin command.
 4. the group name (with leading and trailing spaces and tabs)
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 34-36
-   :language: py
+  :lines: 34-36
+  :language: py
 
 .. index:: code
 
@@ -66,8 +66,8 @@ Pattern for code command.
 5. the line number for this line; see pattern['line'] above.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 53-56
-   :language: py
+  :lines: 53-56
+  :language: py
 
 .. index:: comment_ch
 
@@ -81,8 +81,8 @@ Pattern for comment_ch command
 2. is the character (matched as any number of not space, tab or }
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 67-69
-   :language: py
+  :lines: 67-69
+  :language: py
 
 .. index:: dir
 
@@ -96,8 +96,8 @@ Pattern for dir command
 2. Is the file_name in the command
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 80-83
-   :language: py
+  :lines: 80-83
+  :language: py
 
 .. index:: end
 
@@ -111,8 +111,8 @@ Pattern for end command
 1. the page name.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 94-94
-   :language: py
+  :lines: 94-94
+  :language: py
 
 .. index:: line
 
@@ -126,8 +126,8 @@ Pattern for line numbers are added to the input by add_line_number
 1. the line_number.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 106-106
-   :language: py
+  :lines: 106-106
+  :language: py
 
 .. index:: literal
 
@@ -143,8 +143,8 @@ pattern if {xrst_literal} is matched.
 2. rest of command, not including first \\n or final }.
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 119-121
-   :language: py
+  :lines: 119-121
+  :language: py
 
 .. index:: template_begin
 
@@ -157,8 +157,8 @@ template_begin
 2. *page_line*
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 130-133
-   :language: py
+  :lines: 130-133
+  :language: py
 
 .. index:: template_end
 
@@ -169,8 +169,8 @@ template_end
 0. @{xrst_template_end@
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 140-141
-   :language: py
+  :lines: 140-141
+  :language: py
 
 .. index:: toc
 
@@ -191,5 +191,5 @@ Patterns for the toc_hidden, toc_list, and toc_table commands.
 If you change this pattern, check pattern_toc in process_children.py
 
 .. literalinclude:: ../../xrst/pattern.py
-   :lines: 158-160
-   :language: py
+  :lines: 158-160
+  :language: py

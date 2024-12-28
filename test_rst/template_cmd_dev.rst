@@ -5,7 +5,7 @@ template_cmd_dev
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: template_cmd_dev,expand,the,template,commands,in,a,page,prototype,restrictions,data_in,page_file,page_name,data_out
+  :keywords: template_cmd_dev,expand,the,template,commands,in,a,page,prototype,restrictions,data_in,page_file,page_name,data_out
 
 .. index:: template_cmd_dev, expand, template, commands, in, page
 
@@ -15,7 +15,7 @@ Expand the template commands in a page
 ######################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/template_command.py
-   :lines: 190-193,373-374
-   :language: py
+  :lines: 190-193,373-374
+  :language: py
 
 .. index:: restrictions
 

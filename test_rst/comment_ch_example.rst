@@ -5,7 +5,7 @@ comment_ch_example
 !!!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_ch_example,comment,character,command,example,discussion,xrst_code,indent,xrst_comment_ch,this,file
+  :keywords: comment_ch_example,comment,character,command,example,discussion,xrst_code,indent,xrst_comment_ch,this,file
 
 .. index:: comment_ch_example, comment, character
 
@@ -15,7 +15,7 @@ Comment Character Command Example
 #################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: discussion
 
@@ -38,8 +38,8 @@ The xrst_code command reports the original source code, before removing
 the comment character or the indentation.
 
 .. literalinclude:: ../../example/comment_ch.m
-   :lines: 27-34
-   :language: matlab
+  :lines: 27-34
+  :language: matlab
 
 .. index:: indent
 
@@ -64,4 +64,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/comment_ch.m
-   :language: matlab
+  :language: matlab

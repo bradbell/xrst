@@ -5,7 +5,7 @@ replace_spell
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: replace_spell,replace,spelling,commands,tmp_dir,spell.toml,prototype
+  :keywords: replace_spell,replace,spelling,commands,tmp_dir,spell.toml,prototype
 
 .. index:: replace_spell, replace, spelling, commands
 
@@ -15,7 +15,7 @@ Replace spelling commands
 #########################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: tmp_dir
 
@@ -62,5 +62,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/replace_spell.py
-   :lines: 53-54
-   :language: py
+  :lines: 53-54
+  :language: py

@@ -5,7 +5,7 @@ module
 !!!!!!
 
 .. meta::
-   :keywords: module,the,xrst
+  :keywords: module,the,xrst
 
 .. index:: module, xrst, module
 
@@ -53,39 +53,39 @@ The xrst Module
    "toc_cmd_dev", :ref:`toc_cmd_dev-title`
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+  :maxdepth: 1
+  :hidden:
 
-   add_before_title
-   add_line_numbers
-   auto_file_dev
-   auto_indent
-   check_input_files
-   check_page_name
-   code_cmd_dev
-   comment_cmd_dev
-   dir_cmd_dev
-   file_line
-   get_conf_dict
-   get_file_info
-   get_spell_checker
-   indent_cmd_dev
-   literal_cmd_dev
-   newline_indices
-   next_heading
-   xrst.pattern
-   process_children
-   process_headings
-   ref_cmd_dev
-   remove_line_numbers
-   rename_group
-   replace_spell
-   spell_cmd_dev
-   sphinx_label
-   start_end_file
-   suspend_cmd_dev
-   system_exit
-   table_of_contents
-   template_cmd_dev
-   temporary_file
-   toc_cmd_dev
+  add_before_title
+  add_line_numbers
+  auto_file_dev
+  auto_indent
+  check_input_files
+  check_page_name
+  code_cmd_dev
+  comment_cmd_dev
+  dir_cmd_dev
+  file_line
+  get_conf_dict
+  get_file_info
+  get_spell_checker
+  indent_cmd_dev
+  literal_cmd_dev
+  newline_indices
+  next_heading
+  xrst.pattern
+  process_children
+  process_headings
+  ref_cmd_dev
+  remove_line_numbers
+  rename_group
+  replace_spell
+  spell_cmd_dev
+  sphinx_label
+  start_end_file
+  suspend_cmd_dev
+  system_exit
+  table_of_contents
+  template_cmd_dev
+  temporary_file
+  toc_cmd_dev

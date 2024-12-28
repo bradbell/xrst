@@ -5,7 +5,7 @@ suspend_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: suspend_cmd_dev,remove,text,specified,by,suspend,/,resume,pairs,prototype,data_in,page_file,page_name,data_out
+  :keywords: suspend_cmd_dev,remove,text,specified,by,suspend,/,resume,pairs,prototype,data_in,page_file,page_name,data_out
 
 .. index:: suspend_cmd_dev, remove, text, specified, suspend, /, resume, pairs
 
@@ -15,7 +15,7 @@ Remove text specified by suspend / resume pairs
 ###############################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/suspend_command.py
-   :lines: 107-110,192-194
-   :language: py
+  :lines: 107-110,192-194
+  :language: py
 
 .. index:: data_in
 

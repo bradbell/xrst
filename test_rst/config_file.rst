@@ -5,7 +5,7 @@ config_file
 !!!!!!!!!!!
 
 .. meta::
-   :keywords: config_file,the,xrst.toml,configuration,file,project_name,default,example,directory,project_directory,html_directory,tex_directory,rst_directory,other,generated,files,root_file,spell_package,heading,input_files,input_files.sh,html_theme_options,include_all,rst_epilog,rst_prolog,latex_macro,project_dictionary,not_in_index
+  :keywords: config_file,the,xrst.toml,configuration,file,project_name,default,example,directory,project_directory,html_directory,tex_directory,rst_directory,other,generated,files,root_file,spell_package,heading,input_files,input_files.sh,html_theme_options,include_all,rst_epilog,rst_prolog,latex_macro,project_dictionary,not_in_index
 
 .. _toml file: https://toml.io/en/
 
@@ -35,7 +35,7 @@ A `toml file`_ is used to configure xrst.
    :ref:`config_file@html_theme_options` .
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: project_name
 
@@ -53,8 +53,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 57-58
-   :language: toml
+  :lines: 57-58
+  :language: toml
 
 .. _config_file@project_name@Example:
 
@@ -62,8 +62,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 6-7
-   :language: toml
+  :lines: 6-7
+  :language: toml
 
 .. index:: directory
 
@@ -145,8 +145,8 @@ Note that ``'.'`` below denotes the directory where the
 :ref:`run_xrst@config_file` is located.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 125-129
-   :language: toml
+  :lines: 125-129
+  :language: toml
 
 .. _config_file@directory@Example:
 
@@ -154,8 +154,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 11-16
-   :language: toml
+  :lines: 11-16
+  :language: toml
 
 .. index:: root_file
 
@@ -177,8 +177,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 160-161
-   :language: toml
+  :lines: 160-161
+  :language: toml
 
 Note that ``default`` corresponds to the
 :ref:`begin_cmd@group_name@Default Group` and ``project.xrst``
@@ -190,8 +190,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 20-23
-   :language: toml
+  :lines: 20-23
+  :language: toml
 
 .. index:: spell_package
 
@@ -210,8 +210,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 188-189
-   :language: toml
+  :lines: 188-189
+  :language: toml
 
 .. _config_file@spell_package@Example:
 
@@ -219,8 +219,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 36-38
-   :language: toml
+  :lines: 36-38
+  :language: toml
 
 .. index:: heading
 
@@ -249,8 +249,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 222-224
-   :language: toml
+  :lines: 222-224
+  :language: toml
 
 .. _config_file@heading@Example:
 
@@ -258,8 +258,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 27-32
-   :language: toml
+  :lines: 27-32
+  :language: toml
 
 .. index:: input_files
 
@@ -302,8 +302,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 272-275
-   :language: toml
+  :lines: 272-275
+  :language: toml
 
 .. _config_file@input_files@Example:
 
@@ -311,8 +311,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 42-45
-   :language: toml
+  :lines: 42-45
+  :language: toml
 
 .. index:: input_files.sh
 
@@ -322,7 +322,7 @@ input_files.sh
 ==============
 
 .. literalinclude:: ../../bin/input_files.sh
-   :language: sh
+  :language: sh
 
 .. index:: html_theme_options
 
@@ -350,8 +350,8 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 315-320
-   :language: toml
+  :lines: 315-320
+  :language: toml
 
 .. _config_file@html_theme_options@Example:
 
@@ -359,8 +359,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 49-55
-   :language: toml
+  :lines: 49-55
+  :language: toml
 
 .. index:: include_all
 
@@ -416,8 +416,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 376-379
-   :language: toml
+  :lines: 376-379
+  :language: toml
 
 .. _config_file@include_all@Example:
 
@@ -425,8 +425,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 59-68
-   :language: toml
+  :lines: 59-68
+  :language: toml
 
 .. index:: project_dictionary
 
@@ -449,8 +449,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 411-412
-   :language: toml
+  :lines: 411-412
+  :language: toml
 
 .. _config_file@project_dictionary@Example:
 
@@ -458,8 +458,8 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 72-112
-   :language: toml
+  :lines: 72-112
+  :language: toml
 
 .. index:: not_in_index
 
@@ -489,8 +489,8 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-   :lines: 446-447
-   :language: toml
+  :lines: 446-447
+  :language: toml
 
 .. _config_file@not_in_index@Example:
 
@@ -498,5 +498,5 @@ Example
 =======
 
 .. literalinclude:: ../../xrst.toml
-   :lines: 116-145
-   :language: toml
+  :lines: 116-145
+  :language: toml

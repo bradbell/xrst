@@ -5,7 +5,7 @@ heading_links
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: heading_links,heading,cross,reference,links,index,labels,level,zero,page_name,page_title,linking,text,other,levels,heading@to@label,label,to,anchor,discussion,example
+  :keywords: heading_links,heading,cross,reference,links,index,labels,level,zero,page_name,page_title,linking,text,other,levels,heading@to@label,label,to,anchor,discussion,example
 
 .. index:: heading_links, heading, cross, reference, links
 
@@ -15,7 +15,7 @@ Heading Cross Reference Links
 #############################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: index
 

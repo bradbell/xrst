@@ -5,7 +5,7 @@ child_example_two
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: child_example_two,second,child,example,page,links,this,file
+  :keywords: child_example_two,second,child,example,page,links,this,file
 
 .. index:: child_example_two, second, child, page
 
@@ -15,7 +15,7 @@ Second Child Example Page
 #########################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: links
 
@@ -33,4 +33,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/children.xrst
-   :language: rst
+  :language: rst

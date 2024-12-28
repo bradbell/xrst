@@ -126,7 +126,7 @@ def replace_spell(tmp_dir) :
             indent_line = begin_line + 4 * ' '
          else :
             begin_line  = '\n' + indent
-            indent_line = begin_line + 3 * ' '
+            indent_line = begin_line + 2 * ' '
          #
          # data_out, data_in_index
          begin_index   = page_info['begin_index']

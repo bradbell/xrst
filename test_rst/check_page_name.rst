@@ -5,7 +5,7 @@ check_page_name
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data,prototype
+  :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data,prototype
 
 .. index:: check_page_name, check, rules, page, name
 
@@ -15,7 +15,7 @@ Check the rules for a page name
 ###############################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: page_name
 
@@ -72,5 +72,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_page_name.py
-   :lines: 62-66
-   :language: py
+  :lines: 62-66
+  :language: py

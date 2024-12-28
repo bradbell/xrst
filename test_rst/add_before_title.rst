@@ -5,7 +5,7 @@ add_before_title
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: add_before_title,if,pdf,,add,page,number,and,name,to,title,prototype,data_in,target,page_number,page_name,data_out
+  :keywords: add_before_title,if,pdf,,add,page,number,and,name,to,title,prototype,data_in,target,page_number,page_name,data_out
 
 .. index:: add_before_title, if, pdf,, add, page, number, name, title
 
@@ -15,7 +15,7 @@ If PDF, Add Page Number and Name to Title
 #########################################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/add_before_title.py
-   :lines: 55-59,140-142
-   :language: py
+  :lines: 55-59,140-142
+  :language: py
 
 .. index:: data_in
 

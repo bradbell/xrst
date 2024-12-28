@@ -5,7 +5,7 @@ comment_cmd_dev
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_cmd_dev,remove,all,comment,commands,prototype,data_in,data_out
+  :keywords: comment_cmd_dev,remove,all,comment,commands,prototype,data_in,data_out
 
 .. index:: comment_cmd_dev, remove, all, comment, commands
 
@@ -15,7 +15,7 @@ Remove all comment commands
 ###########################
 
 .. contents::
-   :local:
+  :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/comment_command.py
-   :lines: 58-59,96-98
-   :language: py
+  :lines: 58-59,96-98
+  :language: py
 
 .. index:: data_in
 

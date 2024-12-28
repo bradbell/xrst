@@ -137,7 +137,7 @@ def temporary_file(
             destination = f'_sources/{page_name}.txt'
          else :
             destination = f'_sources/{page_name}.rst.txt'
-         raw_html  = '.. raw:: html\n\n' + 3 * ' '
+         raw_html  = '.. raw:: html\n\n' + 2 * ' '
          raw_html += f'<a href="{destination}">View page source</a>\n\n'
          before   += raw_html
       data_out  = before + data_in
