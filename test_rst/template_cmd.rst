@@ -58,8 +58,9 @@ The template command differs form the include directive in the following ways:
    during the include so that *template_file* is like function or macro.
 
 #. It also allows for conditional including of sections of the template file
-   (when combined with the :ref:`suspend_cmd@boolean` argument in the
-   suspend command).
+   when combined with the
+   :ref:`suspend_cmd@boolean` or :ref:`suspend_cmd@left, right`
+   arguments in the suspend command.
 
 #. Errors and warnings in a template expansion will include both
    the line in the template file and the line where it is used.
@@ -68,6 +69,10 @@ The template command differs form the include directive in the following ways:
 
 #. xrst commands in *template_file* ( *file_name* )
    will get interpreted (will not get interpreted).
+
+#. Template command :ref:`comments <template_cmd@comment>` can be used
+   to check that the included file still satisfies the requirements
+   of the file doing the include.
 
 .. index:: white, space
 

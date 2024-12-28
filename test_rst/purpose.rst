@@ -28,6 +28,8 @@ which is written in C, uses sphinx for its documentation,
 and has its documentation
 in separate files from the corresponding source code; see `gsl doc`_ .
 
+.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+
 .. index:: goal
 
 .. _purpose@Goal:
@@ -35,13 +37,14 @@ in separate files from the corresponding source code; see `gsl doc`_ .
 Goal
 ****
 The goal is to extend RST and sphinx so that they can be
-used in the comments of any source code language.
+used in the comments of any source code language; i.e.,
+once you learn xrst, you can use it for any source code language.
 This wrapper differs from doxygen and autodoc in how
-the user chooses the sections of source code
+the user controls the sections of source code
 that are part of the documentation and API; e.g., see
 :ref:`class_example-name`.
-
-.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+The wrapper is easy to understand because it only
+uses sphinx features available through the rst files.
 
 .. index:: features
 
@@ -69,7 +72,7 @@ The xrst features below can be considered a wish list for sphinx:
    :ref:`heading_links@Labels@Level Zero@page_name` ,
    is used as an abbreviated title in the navigation bar.
    This makes the navigation bar more useful.
-   The first heading is used as a longer and more descriptive
+   The first heading of a page is used as a longer and more descriptive
    :ref:`heading_links@Labels@Level Zero@page_title` .
 #. Sphinx error messages are translated from rst file and line number
    to the file and line number in corresponding xrst input file.
@@ -87,10 +90,10 @@ The xrst features below can be considered a wish list for sphinx:
    index in a way that can be configured;
    see :ref:`config_file@not_in_index` .
    These words are also automatically included as html keyword meta data.
-#. An addition xrst_search utility,
+#. An additional xrst_search utility,
    that uses the keywords mentioned, above is included;
    see the link directly below the search utility that comes with sphinx.
-#. Include a spell checker with special words at two levels;
+#. A spell checker is included with special words at two levels;
    :ref:`spell_cmd-name` for the page level
    and :ref:`config_file@project_dictionary` for the project level.
    The spell checker catches double word errors.

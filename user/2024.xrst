@@ -27,6 +27,14 @@ xrst Release Notes for 2024
 mm-dd
 *****
 
+12-28
+=====
+#. Make some minor edits to the :ref:`purpose-name` page.
+   In particular, the following text was added:
+   once you learn xrst, you can use it for any source code language.
+#. Improve the discussion of how the template command differs from an
+   :ref:`template_cmd@Rst Include` .
+
 12-10
 =====
 Add space below template file name, to better separate arguments,
