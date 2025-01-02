@@ -133,13 +133,20 @@ fi
 #
 # Suppress spell warnings during tests because stable version does not
 # keep up with changes in the spell checker.
-for file in pytest/test_rst.py bin/check_xrst.sh
-do
-   if ! grep '[-][-]suppress_spell_warnings' $file > /dev/null
-   then
-      echo "Error: can't find --suppress_spell_warnings in $file"
-   fi
-done
+file=pytest/test_rst.py 
+if ! grep '[-][-]suppress_spell_warnings' $file > /dev/null
+then
+   echo "Error: expected --suppress_spell_warning in $file"
+   echo "both for master and $stable_branch branch"
+   exit 1
+fi
+file=bin/check_xrst.sh
+if ! grep '[-][-]suppress_spell_warnings' $file > /dev/null
+then
+   echo "Error: need --suppress_spell_warning in $file"
+   echo "Edit $stable_branch branch verison of this file to make it so."
+   exit 1
+fi
 #
 # version
 version=$(
