@@ -4,8 +4,8 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # -----------------------------------------------------------------------------
-year='2024' # Year for this stable version
-release='0' # first release for each year starts with 0
+year='2025' # Year for this stable version
+release='0' # First release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ $# != 0 ]
 then
@@ -51,6 +51,15 @@ sed -i user/user.xrst \
    -e "s|release-[0-9]\{4\}|release-$year|" \
    -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
 #
+# git_status
+git_status=$(git status --porcelain)
+if [ "$git_status" != '' ]
+then
+   echo 'bin/new_release: git staus --porcelean is not empty for master branch'
+   echo 'use bin/git_commit.sh to commit its changes ?'
+   exit 1
+fi
+#
 # stable_branch
 stable_branch=stable/$year
 #
@@ -84,15 +93,6 @@ then
    echo 'Use the following to create it ?'
    echo "   git checkout -b $stable_branch origin/$stable_branch"
    echo '   git checkout master'
-   exit 1
-fi
-#
-# git_status
-git_status=$(git status --porcelain)
-if [ "$git_status" != '' ]
-then
-   echo 'bin/new_release: git staus --porcelean is not empty for master branch'
-   echo 'use bin/git_commit.sh to commit its changes'
    exit 1
 fi
 # ----------------------------------------------------------------------------
