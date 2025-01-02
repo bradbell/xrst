@@ -135,7 +135,7 @@ fi
 # keep up with changes in the spell checker.
 for file in pytest/test_rst.py bin/check_xrst.sh
 do
-   if ! grep '--suppress_spell_warnings' $file > /dev/null
+   if ! grep '[-][-]suppress_spell_warnings' $file > /dev/null
    then
       echo "Error: can't find --suppress_spell_warnings in $file"
    fi
