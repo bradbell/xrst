@@ -221,8 +221,8 @@ fi
 if [ "$master_local_hash" != "$master_remote_hash" ]
 then
    echo 'bin/new_release.sh: local and remote master differ'
-   echo "local  $mster_local_hash"
-   echo "remote $master_remode_hash"
+   echo "local  $master_local_hash"
+   echo "remote $master_remote_hash"
    echo 'Use git push to fix this ?'
    exit 1
 fi
