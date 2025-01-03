@@ -24,12 +24,7 @@ build:
    commands:
       #
       # xrst
-      - pip install xrst
-      #
-      # This is only necessary if you need the most recent testing verison
-      - pip uninstall -y xrst
-      - pip install sphinx-copybutton
-      - pip install --index-url https://test.pypi.org/simple/ xrst
+      - pip install xrst==2024.0.2
       #
       # This command prints the version of xrst that is being used
       - xrst --version
