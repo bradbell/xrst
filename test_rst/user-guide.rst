@@ -51,7 +51,7 @@ Versions
 
 Install Stable Version
 **********************
-Features in stable-2024 were frozen at the beginning of
+Features in stable-2025 were frozen at the beginning of
 the year and only includes bug fixed after that.
 ::
 

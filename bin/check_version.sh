@@ -39,8 +39,6 @@ cat << EOF > temp.sed
 #
 # xrst/user.xrst
 s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
-s|stable-[0-9]\\{4\\}|stable-$year|g
-s|release-[0-9]\\{4\\}|release-$year|g
 #
 # pyproject.toml setup.py and xrst/run_xrst.py
 s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
