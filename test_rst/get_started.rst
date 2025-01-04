@@ -64,7 +64,8 @@ Heading: Steps
 
 #. You may have gotten spelling warnings for two reasons:
 
-   #. The file extension ``toml`` is not in the default project dictionary.
+   #. The project dictionary for this example is empty while the one used
+      to test xrst is not.
    #. You are using is different version of the spell checker
       from the one used to test xrst.
 

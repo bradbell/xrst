@@ -1,0 +1,26 @@
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
+SPDX-FileContributor: 2020-25 Bradley M. Bell
+----------------------------------------------------------------------------
+{xrst_begin 2025 user}
+{xrst_spell
+   pyenchant
+}
+
+xrst Release Notes for 2025
+###########################
+
+mm-dd
+*****
+
+01-04
+=====
+Remove the pyenchant install requirement on windows; see
+:ref:`user-guide@Dependencies` .
+
+01-03
+=====
+Improve the discussion of spelling errors in the
+:ref:`get_started-name` example.
+
+{xrst_end 2025}

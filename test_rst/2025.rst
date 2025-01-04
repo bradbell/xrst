@@ -1,0 +1,39 @@
+.. _2025-name:
+
+!!!!
+2025
+!!!!
+
+.. meta::
+  :keywords: 2025,xrst,release,notes,for,mm-dd,01-04,01-03
+
+.. index:: 2025, xrst, release, notes, 2025
+
+.. _2025-title:
+
+xrst Release Notes for 2025
+###########################
+
+.. contents::
+  :local:
+
+.. index:: mm-dd
+
+.. _2025@mm-dd:
+
+mm-dd
+*****
+
+.. _2025@mm-dd@01-04:
+
+01-04
+=====
+Remove the pyenchant install requirement on windows; see
+:ref:`user-guide@Dependencies` .
+
+.. _2025@mm-dd@01-03:
+
+01-03
+=====
+Improve the discussion of spelling errors in the
+:ref:`get_started-name` example.
