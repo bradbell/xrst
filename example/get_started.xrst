@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 {xrst_begin get_started}
 {xrst_spell
@@ -36,7 +36,7 @@ Heading: Steps
    with the contents of
    :ref:`this example file<get_started@Heading: This Example File>` .
    Note that ``project.xrst`` is the default location for the xrst root file.
-   You could change the location of the root file to  ``get_started.xrst`` 
+   You could change the location of the root file to  ``get_started.xrst``
    by entering the following in your ``xrst.toml`` file::
 
       [root_file]
@@ -53,8 +53,9 @@ Heading: Steps
 
 #. You may have gotten spelling warnings for two reasons:
 
-   #. The file extension ``toml`` is not in the default project dictionary.
-   #. You are using is different version of the spell checker 
+   #. The project dictionary for this example is empty while the one used
+      to test xrst is not.
+   #. You are using is different version of the spell checker
       from the one used to test xrst.
 
    You can fix these warning by adding or removing words in the
