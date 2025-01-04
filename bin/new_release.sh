@@ -85,7 +85,7 @@ master_remote_hash=$(
 # user.xrst
 if git tag --list | grep "$tag" > /dev/null
 then
-   # Delay doing this update until the remove tag exists.
+   # Delay doing this update until the new tag exists.
    sed -i user/user.xrst \
       -e "s|stable-[0-9]\{4\}|stable-$year|g" \
       -e "s|release-[0-9]\{4\}|release-$year|g" \
@@ -126,12 +126,16 @@ fi
 # user.xrst
 if git tag --list | grep "$tag" > /dev/null
 then
-   # Delay doing this update until the remove tag exists.
+   # Delay doing this update until the new tag exists.
    sed -i user/user.xrst \
       -e "s|stable-[0-9]\{4\}|stable-$year|g" \
       -e "s|release-[0-9]\{4\}|release-$year|g" \
       -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
 fi
+#
+# upload.sh
+sed -i bin/upload.sh \
+   -e 's|--repository testpypi|--repository pypi|'
 #
 # pyproject.toml
 sed -i pyproject.toml \
@@ -167,7 +171,7 @@ then
 fi
 # -----------------------------------------------------------------------------
 #
-# stable_remove
+# stable_remote
 if [ "$stable_remote_hash" == '' ]
 then
    empty_hash='yes'
