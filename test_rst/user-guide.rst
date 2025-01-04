@@ -43,7 +43,7 @@ Versions
    * - Documentation for most recent stable version
      - `stable-2025 <https://xrst.readthedocs.io/stable-2025>`_
    * - Most recent release of this stable version
-     - `release-2025 <https://github.com/bradbell/xrst/archive/2025.0.0.tar.gz>`_
+     - `release-2025 <https://github.com/bradbell/xrst/archive/2025.0.1.tar.gz>`_
 
 .. index:: install, stable, version
 
