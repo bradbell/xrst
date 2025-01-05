@@ -791,7 +791,7 @@ def run_xrst() :
    spec  =  importlib.util.find_spec(html_theme)
    if spec == None :
       msg  = f'The html_theme is {html_theme} but cannot import {html_theme}'
-      msg += f'Perhaps need to execute: pip install {html_theme}'
+      msg += f'\nPerhaps need to execute: pip install {html_theme}'
       sys.exit(msg)
    #
    # number_jobs

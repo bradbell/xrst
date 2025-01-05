@@ -55,7 +55,6 @@ def run_xrst(test_installed_version) :
       '--rst_only',
       '--index_page_name', index_page_name,
       '--group_list',      'default', 'user', 'dev',
-      '--html_theme',      'sphinx_rtd_theme',
    ]
    result = subprocess.run(command)
    assert result.returncode == 0
