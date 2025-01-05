@@ -189,7 +189,7 @@ Dependencies
 The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 {xrst_literal
-   setup.py
+   pyproject.toml
    # BEGIN_DEPENDENCIES
    # END_DEPENDENCIES
 }
@@ -216,11 +216,13 @@ Contents
 xrst Release Notes By Year
 ##########################
 {xrst_toc_hidden
+   user/2025.xrst
    user/2024.xrst
    user/2023.xrst
    user/2022.xrst
    user/2021.xrst
 }
+:ref:`2025-name`,
 :ref:`2024-name`,
 :ref:`2023-name`,
 :ref:`2022-name`,

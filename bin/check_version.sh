@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 #
 # echo_eval
@@ -25,7 +25,6 @@ stable_version_file='pyproject.toml'
 # These are the files that are checked to make sure version number is correct.
 version_files='
    pyproject.toml
-   setup.py
    test_rst/user-guide.rst
    user/user.xrst
    xrst/run_xrst.py
@@ -40,7 +39,7 @@ cat << EOF > temp.sed
 # xrst/user.xrst
 s|xrst-[0-9]\\{4\\}[.][0-9]*[.][0-9]*|xrst-$version|g
 #
-# pyproject.toml setup.py and xrst/run_xrst.py
+# pyproject.toml and xrst/run_xrst.py
 s|version\\( *\\)= *'[0-9]\\{4\\}[.][0-9]*[.][0-9]*'|version\\1= '$version'|
 EOF
 }

@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
 import toml
 import sys
+import importlib.util
 #
 def system_exit(msg) :
    # assert False, msg
@@ -181,6 +182,8 @@ spell_package
 *************
 This str is either 'pyspellchecker' or 'pyenchant' .
 These are the only spell checkers support so far.
+If it is not the default,
+you may need to use pip to install the spell checker that you use.
 
 Default
 =======
@@ -563,6 +566,13 @@ def get_conf_dict(config_file) :
    if value not in [ 'pyspellchecker', 'pyenchant' ] :
       msg += 'spell_package has is not pyspellchecker or pyenchant'
       system_exit(msg)
+   else :
+      name  = value[2:] # drop py at front of name
+      spec  =  importlib.util.find_spec(name)
+      if spec == None :
+         msg += f'The spell_package is {value} but cannot import {name}'
+         msg += f'Perhaps need to execute: pip install {value}'
+         sys.exit(msg)
    #
    # heading
    table_dict = conf_dict['heading']

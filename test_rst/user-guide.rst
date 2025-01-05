@@ -102,9 +102,9 @@ Dependencies
 The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 
-.. literalinclude:: ../../setup.py
-  :lines: 9-21
-  :language: py
+.. literalinclude:: ../../pyproject.toml
+  :lines: 31-38
+  :language: toml
 
 .. index:: run, program
 
