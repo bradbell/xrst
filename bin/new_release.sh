@@ -93,11 +93,15 @@ then
 fi
 #
 # check_version
-# use current date for version on master branch
+# changes to version ?
 if ! bin/check_version.sh
 then
    echo 'Continuing even thought bin/check_version made changes.'
 fi
+#
+# check_xrst
+# changes to test_rst ?
+bin/check_xrst.sh
 #
 # git_status
 git_status=$(git status --porcelain)
