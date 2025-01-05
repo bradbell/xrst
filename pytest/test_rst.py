@@ -40,9 +40,12 @@ def run_xrst(test_installed_version) :
       os.chdir('build')
       command  = [ 'xrst', '--config_file', '../xrst.toml' ]
       command += [ '--suppress_spell_warnings' ]
+      # use he default html_theme; i.e., furo
    else :
       command  = [ python_executable, '-m', 'xrst' ]
       command += [ '--config_file', 'xrst.toml' ]
+      # sphinx_rtd_theme is in the tox.ini file as a dependency
+      command += [ '--html_theme',      'sphinx_rtd_theme' ]
    #
    # command
    # This command should have the same arguments as the last group_list in
