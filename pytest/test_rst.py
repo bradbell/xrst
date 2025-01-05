@@ -1,8 +1,7 @@
+#! /usr/bin/env python
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
-# ----------------------------------------------------------------------------
-test_installed_version = False
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import sys
 import os
@@ -28,7 +27,7 @@ def get_rst_directory() :
    file_obj.close()
    return m_obj.group(1)
 # ----------------------------------------------------------------------------
-def run_xrst() :
+def run_xrst(test_installed_version) :
    index_page_name = get_index_page_name()
    #
    # python_executable
@@ -61,8 +60,10 @@ def run_xrst() :
    if test_installed_version :
       os.chdir('..')
 # ----------------------------------------------------------------------------
-def run_test() :
-   run_xrst()
+def run_test(test_installed_version) :
+   #
+   # run_xrst
+   run_xrst(test_installed_version)
    #
    # rst_list
    rst_directory = get_rst_directory()
@@ -130,11 +131,25 @@ def run_test() :
             msg = f'{rst_file} is different from {check_file}'
             assert False, msg
 # ----------------------------------------------------------------------------
-def test_rst() :
+def test_rst(test_installed_version = False) :
+   print( f'test_installed_version = {test_installed_version}' )
    if not os.path.exists('xrst.toml') :
-      assert False, 'test_rst.py: must start in the xrst top source directory'
+      assert False, 'test_rst.py: can not find xrst.toml in working directory'
    else :
-      run_test()
+      run_test(test_installed_version)
 # ----------------------------------------------------------------------------
 if __name__ == '__main__' :
-   test_rst()
+   #
+   # usage
+   usage   = 'usage: pytest/test_rst.py test_installed_version\n'
+   usage  += 'where test_installed_verison is True or False'
+   #
+   # test_installed_version
+   program = sys.argv[0]
+   if program != 'pytest/test_rst.py' or len(sys.argv) != 2 :
+      sys.exit(usage)
+   if sys.argv[1] not in [ 'True', 'False' ] :
+      sys.exit(usage)
+   test_installed_version = sys.argv[1] == 'True'
+   #
+   test_rst(test_installed_version)
