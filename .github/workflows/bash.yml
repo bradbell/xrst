@@ -38,7 +38,7 @@ jobs:
       #
       # install pytest
       - name: install pytest
-        run: pip install pytest
+        run: pip install .
       #
       - name: bin/check_install.sh
         shell: bash -el {0}
