@@ -196,6 +196,7 @@ html_theme
 **********
 This the html_theme_ that is used.
 The default value for *html_theme* is ``furo`` .
+You may need to use pip to install other themes that you use.
 
 .. _html_theme: https://sphinx-themes.org/
 
@@ -367,6 +368,7 @@ import filecmp
 import argparse
 import subprocess
 import platform
+import importlib.util
 # ---------------------------------------------------------------------------
 # system_exit
 # Error messages in this file do not use xrst.system_exit because
@@ -786,6 +788,12 @@ def run_xrst() :
    #
    # html_theme
    html_theme = arguments.html_theme
+   spec  =  importlib.util.find_spec(html_theme)
+   if spec == None :
+      breakpoint()
+      msg  = f'The html_theme is {html_theme} but cannot import {html_theme}'
+      msg += f'Perhaps need to execute: pip install {html_theme}'
+      sys.exit(msg)
    #
    # number_jobs
    number_jobs = int( arguments.number_jobs )

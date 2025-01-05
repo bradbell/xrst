@@ -241,6 +241,7 @@ html_theme
 **********
 This the html_theme_ that is used.
 The default value for *html_theme* is ``furo`` .
+You may need to use pip to install other themes that you use.
 
 .. _html_theme: https://sphinx-themes.org/
 

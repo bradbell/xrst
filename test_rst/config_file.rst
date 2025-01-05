@@ -53,7 +53,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 57-58
+  :lines: 58-59
   :language: toml
 
 .. _config_file@project_name@Example:
@@ -145,7 +145,7 @@ Note that ``'.'`` below denotes the directory where the
 :ref:`run_xrst@config_file` is located.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 125-129
+  :lines: 126-130
   :language: toml
 
 .. _config_file@directory@Example:
@@ -177,7 +177,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 160-161
+  :lines: 161-162
   :language: toml
 
 Note that ``default`` corresponds to the
@@ -201,6 +201,8 @@ spell_package
 *************
 This str is either 'pyspellchecker' or 'pyenchant' .
 These are the only spell checkers support so far.
+If it is not the default,
+you may need to use pip to install the spell checker that you use.
 
 .. index:: default
 
@@ -210,7 +212,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 188-189
+  :lines: 191-192
   :language: toml
 
 .. _config_file@spell_package@Example:
@@ -249,7 +251,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 222-224
+  :lines: 225-227
   :language: toml
 
 .. _config_file@heading@Example:
@@ -302,7 +304,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 272-275
+  :lines: 275-278
   :language: toml
 
 .. _config_file@input_files@Example:
@@ -350,7 +352,7 @@ Default
 The html_theme_options default value below my change in the future.
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 315-320
+  :lines: 318-323
   :language: toml
 
 .. _config_file@html_theme_options@Example:
@@ -416,7 +418,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 376-379
+  :lines: 379-382
   :language: toml
 
 .. _config_file@include_all@Example:
@@ -449,7 +451,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 411-412
+  :lines: 414-415
   :language: toml
 
 .. _config_file@project_dictionary@Example:
@@ -489,7 +491,7 @@ Default
 =======
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 446-447
+  :lines: 449-450
   :language: toml
 
 .. _config_file@not_in_index@Example:

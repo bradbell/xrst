@@ -27,7 +27,16 @@ classifiers       = [
    'Intended Audience :: Developers',
    'Natural Language :: English',
 ]
-dynamic = [ "dependencies" ]
+# BEGIN_DEPENDENCIES
+dependencies      = [
+   # Always requires to run xrst
+   'sphinx', 'toml', 'sphinx-copybutton',
+   # The default spell checker
+   'pyspellchecker',
+   # The default theme
+   'furo',
+]
+# END_DEPENDENCIES
 # -----------------------------------------------------------------------------
 [tool.setuptools]
 packages = ['xrst']
