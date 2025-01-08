@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 # echo_eval
 echo_eval() {
@@ -16,51 +16,42 @@ then
    exit 1
 fi
 #
+# check_exteranl_links
+check_external_links='yes'
+if [ "$#" != 0 ]
+then
+   if [ "$1" == '--skip_external_links' ]
+   then
+      check_external_links='no'
+   else
+      echo 'usage: bin/check_all.sh [--skip_external_links]'
+      exit 1
+   fi
+fi
+#
 # sed
 source bin/grep_and_sed.sh
 #
-# internet
-internet='yes'
-if [ "$#" != 0 ]
-then
-   if [ "$1" != 'no_internet' ] || [ "$#" != 1 ]
-   then
-      echo 'usage: bin/check_all.sh [no_internet]'
-      exit 1
-   fi
-   internet='no'
-fi
-#
-# check_list, bin/check_xrst.sh
-if [ "$internet" == 'yes' ]
-then
-   check_list=$(ls bin/check_*)
-else
-   check_list=$(ls bin/check_* | $sed -e '/^bin[/]check_install.sh/d' )
-   $sed -e 's|# TEMPORARY COMMENT:||g' -i bin/check_xrst.sh
-   $sed -e '/--external_links/s|^|# TEMPORARY COMMENT:|' -i bin/check_xrst.sh
-fi
+# check_list
+check_list=$(ls bin/check_* | $sed \
+   -e '/^bin[/]check_xrst.sh/d' \
+   -e '/^bin[/]check_all.sh/d' \
+)
 for check in $check_list
 do
-   if [ "$check" != 'bin/check_all.sh' ]
-   then
-      echo_eval $check
-   fi
+   echo_eval $check
 done
 #
 # bin/check_xrst.sh
-if [ "$internet" == 'no' ]
-then
-   $sed -e 's|^# TEMPORARY COMMENT:||' -i bin/check_xrst.sh
-fi
+bin/check_xrst.sh $check_external_links
 #
 # tox
 tox
 #
-if [ "$internet" == 'no' ]
+if [ "$check_external_links" == 'yes' ]
 then
-   echo 'check_all.sh no_internet: OK'
-else
    echo 'check_all.sh: OK'
+else
+   echo 'check_all.sh --skip_external_links: OK'
 fi
 exit 0

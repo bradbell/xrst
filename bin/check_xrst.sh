@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 function echo_eval {
@@ -28,14 +28,29 @@ then
    echo "bin/check_xrst.sh: must be executed from its parent directory"
    exit 1
 fi
+if [ "$#" != 1 ]
+then
+   echo 'bin/check_xrst.sh check_external_links'
+   exit 1
+fi
+if [ "$1" != 'yes' ] && [ "$1" != 'no' ]
+then
+   echo "bin/check_xrst.sh: check_external_links = '$1' is not yes or no"
+   exit
+fi
+# -----------------------------------------------------------------------------
+#
+# external_links
+check_external_links="$1"
+#
+# PYTHON_PATH
 if [ -z ${PYTHONPATH+x} ]
 then
    export PYTHONPATH="$(pwd)"
 else
    export PYTHONPATH="$(pwd):$PYTHONPATH"
 fi
-print_variable PYTHONPATH
-# -----------------------------------------------------------------------------
+echo "PYTHONPATH=$PYTHONPATH"
 #
 # number_jobs
 if which nproc >& /dev/null
@@ -50,15 +65,16 @@ then
 else
    let number_jobs="$n_proc - 1"
 fi
-# -----------------------------------------------------------------------------
+#
 # index_page_name
 index_page_name=$(\
    sed -n -e '/^ *--index_page_name*/p' .readthedocs.yaml | \
    sed -e 's|^ *--index_page_name *||' \
 )
-# -----------------------------------------------------------------------------
-# build
-# run from build directory so that project_directory is not working directory
+# -------------------------------------------------------------------------
+# build directory
+# -------------------------------------------------------------------------
+# run from build directory to test when project_directory not working directory
 if [ ! -e build ]
 then
    mkdir build
@@ -112,12 +128,8 @@ do
    fi
    rm check_xrst.$$
 done
-#
-# external_links
-echo "python -m xrst $args --external_links --continue_with_warnings"
-python -m xrst $args --external_links --continue_with_warnings
-#
-# project_directory
+# -----------------------------------------------------------------------------
+# project directory
 cd ..
 # -----------------------------------------------------------------------------
 #
@@ -145,7 +157,6 @@ do
       echo "$file: OK"
    fi
 done
-# -----------------------------------------------------------------------------
 #
 # file
 file_list=$(ls -a test_rst/*.rst | sed -e "s|^test_rst/||" )
@@ -160,6 +171,14 @@ do
       git rm -f test_rst/$file
    fi
 done
+#
+# check_external_links
+if [ "$check_external_links" == 'yes' ]
+then
+   cd build
+   echo "python -m xrst $args --external_links --continue_with_warnings"
+   python -m xrst $args --external_links --continue_with_warnings
+fi
 # -----------------------------------------------------------------------------
 echo
 echo "$0: OK"
