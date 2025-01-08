@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-// SPDX-FileContributor: 2020-24 Bradley M. Bell
+// SPDX-FileContributor: 2020-25 Bradley M. Bell
 /*
 -----------------------------------------------------------------------------
 {xrst_begin_parent class_example}
@@ -125,8 +125,6 @@ public:
 {xrst_begin example_ad_double}
 {xrst_spell
    dx
-   dy
-   ok
 }
 
 An Example Using the ad_double Class

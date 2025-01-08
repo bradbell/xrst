@@ -15,7 +15,7 @@ Run ad_double Example and Check its Result
 ##########################################
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 233-241
+  :lines: 231-239
   :language: cpp
 
 .. contents::
