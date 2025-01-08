@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 if [ $# != 2 ]
 then
@@ -104,6 +104,15 @@ do
 done
 rm temp.$$
 #
+# package_name, version_file_list
+package_name=''
+version_file_list=''
+if [ -e $dest_repo/bin/dev_settings.sh ]
+then
+   source $dest_repo/bin/dev_settings.sh
+fi
+#
+# $des_repo/bin/*.sh
 echo "Copying the following files into $dest_repo/bin"
 echo "and setting SPDX-License-Identifier to $spdx_license_id"
 for file in $dev_tools
@@ -117,7 +126,62 @@ do
       chmod +x $dest_path
    fi
 done
-rm sed.$$ 
+#
+#
+# $dest_repo/bin/dev_settings.sh
+cat << EOF > sed.$$
+/^version_file_list=' *$/! b one
+: loop_1
+N
+/\\n' *$/! b loop_1
+s|.*|@version_file_list@|
+#
+: one
+/^no_copyright_list=' *$/! b two
+: loop_2
+N
+/\\n' *$/! b loop_2
+s|.*|@no_copyright_list@|
+#
+: two
+/^invisible_and_tab_ok=' *$/! b three
+: loop_3
+N
+/\\n' *$/! b loop_3
+s|.*|@invisible_and_tab_ok@|
+#
+: three
+/^check_commit=' *$/! b four
+: loop_4
+N
+/\\n' *$/! b loop_4
+s|.*|@check_commit@|
+#
+: four
+EOF
+sed -i $dest_repo/bin/dev_settings.sh -f sed.$$
+rm sed.$$
+#
+# $dest_repo/bin/dev_settings.sh
+$sed -i $dest_repo/bin/dev_settings.sh \
+   -e "s|^package_name=.*|package_name='$package_name'|"
+for variable in \
+   version_file_list \
+   no_copyright_list \
+   invisible_and_tab_ok \
+   check_commit
+do
+   print_variable variable
+   replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n|g')
+   if [[ "$replace" =~ ^\s*$ ]]
+   then
+      $sed -i $dest_repo/bin/dev_settings.sh \
+         -e "s|@$variable@|$variable='\n'|"
+   else
+      $sed -i $dest_repo/bin/dev_settings.sh \
+         -e "s|@$variable@|$variable='\n$replace\n'|"
+   fi
+done
 # -----------------------------------------------------------------------------
 echo
 cat << EOF
@@ -125,11 +189,6 @@ You probably need to edit the settings in
    $dest_repo/bin/dev_settings.sh
 The following, in $dest_repo, will revert to its previous version:
    git show HEAD:bin/dev_settings.sh > bin/dev_settings.sh
-
-Also look for SECTION THAT DEPENDS ON GIT REPOSITORY" in
-   $dest_repo/bin/check_version.sh
-The following, in $dest_repo, will revert to its previous version:
-   git show HEAD:bin/check_version.sh > bin/check_version.sh
 
 dev_tools.sh: OK
 EOF
