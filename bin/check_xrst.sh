@@ -28,21 +28,32 @@ then
    echo "bin/check_xrst.sh: must be executed from its parent directory"
    exit 1
 fi
-if [ "$#" != 1 ]
-then
-   echo 'bin/check_xrst.sh check_external_links'
-   echo 'where check_external_links is yes or no'
-   exit 1
-fi
-if [ "$1" != 'yes' ] && [ "$1" != 'no' ]
-then
-   echo "bin/check_xrst.sh: check_external_links = '$1' is not yes or no"
-   exit
-fi
-# -----------------------------------------------------------------------------
 #
-# external_links
-check_external_links="$1"
+# external_links, suppress_spell_warnings
+external_links='yes'
+suppress_spell_warnings='no'
+while [ "$#" != 0 ]
+do
+   case "$1" in
+
+      --skip_external_links)
+      external_links='no'
+      ;;
+
+      --suppress_spell_warnings)
+      suppress_spell_warnings='yes'
+      ;;
+
+      *)
+      echo "bin/check_xrst.sh: command line argument "$1" is not"
+      echo '--skip_external_links or --suppress_spell_warnings'
+      exit 1
+      ;;
+   esac
+   #
+   shift
+done
+# -----------------------------------------------------------------------------
 #
 # PYTHON_PATH
 if [ -z ${PYTHONPATH+x} ]
@@ -110,6 +121,10 @@ do
    args+=" --group_list $group_list"
    args+=" --html_theme sphinx_rtd_theme"
    args+=" --number_jobs $number_jobs"
+   if [ "$suppress_spell_warnings" == 'yes' ]
+   then
+      args+=' --suppress_spell_warnings'
+   fi
    #
    # build/html, build/rst
    # last group_list should have same arguments as in pytest/test_rst.py
@@ -173,8 +188,8 @@ do
    fi
 done
 #
-# check_external_links
-if [ "$check_external_links" == 'yes' ]
+# external_links
+if [ "$external_links" == 'yes' ]
 then
    cd build
    echo "python -m xrst $args --external_links --continue_with_warnings"

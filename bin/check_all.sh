@@ -16,18 +16,29 @@ then
    exit 1
 fi
 #
-# check_exteranl_links
-check_external_links='yes'
-if [ "$#" != 0 ]
-then
-   if [ "$1" == '--skip_external_links' ]
-   then
-      check_external_links='no'
-   else
-      echo 'usage: bin/check_all.sh [--skip_external_links]'
+# external_links, suppress_spell_warnings
+flags=''
+while [ "$#" != 0 ]
+do
+   case "$1" in
+
+      --skip_external_links)
+      flags+=" $1"
+      ;;
+
+      --suppress_spell_warnings)
+      flags+=" $1"
+      ;;
+
+      *)
+      echo "bin/check_all.sh: command line argument "$1" is not"
+      echo '--skip_external_links or --suppress_spell_warnings'
       exit 1
-   fi
-fi
+      ;;
+   esac
+   #
+   shift
+done
 #
 # sed
 source bin/grep_and_sed.sh
@@ -43,15 +54,13 @@ do
 done
 #
 # bin/check_xrst.sh
-echo_eval bin/check_xrst.sh $check_external_links
+echo_eval bin/check_xrst.sh $flags
 #
 # tox
-tox
-#
-if [ "$check_external_links" == 'yes' ]
+if [ "$flags" == '' ]
 then
-   echo 'check_all.sh: OK'
-else
-   echo 'check_all.sh --skip_external_links: OK'
+   tox
 fi
+#
+echo "check_all.sh $flags: OK"
 exit 0

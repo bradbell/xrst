@@ -27,7 +27,11 @@ def get_rst_directory() :
    file_obj.close()
    return m_obj.group(1)
 # ----------------------------------------------------------------------------
-def run_xrst(test_installed_version) :
+def run_xrst(
+   test_installed_version,
+   test_external_links,
+   suppress_spell_warnings,
+) :
    index_page_name = get_index_page_name()
    #
    # python_executable
@@ -39,16 +43,18 @@ def run_xrst(test_installed_version) :
          os.mkdir('build')
       os.chdir('build')
       command  = [ 'xrst', '--config_file', '../xrst.toml' ]
-      command += [ '--suppress_spell_warnings' ]
-      # use he default html_theme; i.e., furo
    else :
       command  = [ python_executable, '-m', 'xrst' ]
       command += [ '--config_file', 'xrst.toml' ]
       # sphinx_rtd_theme is in the tox.ini file as a dependency
       command += [ '--html_theme',      'sphinx_rtd_theme' ]
+   if test_external_links :
+      command += [ '--external_links' ]
+   if suppress_spell_warnings :
+      command += [ '--suppress_spell_warnings' ]
    #
    # command
-   # This command should have the same arguments as the last group_list in
+   # This command should have the same group_list as the last group_list in
    # bin/check_xrst.sh which is used to keep the test_rst up to date.
    command += [
       '--local_toc',
@@ -62,10 +68,18 @@ def run_xrst(test_installed_version) :
    if test_installed_version :
       os.chdir('..')
 # ----------------------------------------------------------------------------
-def run_test(test_installed_version) :
+def run_test(
+   test_installed_version,
+   test_external_links,
+   suppress_spell_errors,
+) :
    #
    # run_xrst
-   run_xrst(test_installed_version)
+   run_xrst(
+      test_installed_version,
+      test_external_links,
+      suppress_spell_errors
+   )
    #
    # rst_list
    rst_directory = get_rst_directory()
@@ -133,25 +147,43 @@ def run_test(test_installed_version) :
             msg = f'{rst_file} is different from {check_file}'
             assert False, msg
 # ----------------------------------------------------------------------------
-def test_rst(test_installed_version = False) :
-   print( f'test_installed_version = {test_installed_version}' )
+def test_rst(
+   test_installed_version  = False,
+   test_external_links     = True,
+   suppress_spell_warnings = False,
+) :
+   print( f'test_installed_version   = {test_installed_version}' )
+   print( f'test_external_links      = {test_external_links}' )
+   print( f'tsuppress_spell_warnings = {suppress_spell_warnings}' )
    if not os.path.exists('xrst.toml') :
       assert False, 'test_rst.py: can not find xrst.toml in working directory'
    else :
-      run_test(test_installed_version)
+      run_test(
+         test_installed_version  ,
+         test_external_links     ,
+         suppress_spell_warnings ,
+      )
 # ----------------------------------------------------------------------------
 if __name__ == '__main__' :
    #
    # usage
-   usage   = 'usage: pytest/test_rst.py test_installed_version\n'
-   usage  += 'where test_installed_verison is True or False'
+   usage   = 'usage: pytest/test_rst.py test_installed_version '
+   usage  += 'test_external_links suppress_spell_warnings\n'
+   usage  += 'where all the arguments are True or False'
    #
    # test_installed_version
    program = sys.argv[0]
-   if program != 'pytest/test_rst.py' or len(sys.argv) != 2 :
+   if program != 'pytest/test_rst.py' or len(sys.argv) != 4 :
       sys.exit(usage)
-   if sys.argv[1] not in [ 'True', 'False' ] :
-      sys.exit(usage)
-   test_installed_version = sys.argv[1] == 'True'
+   for i in range(1, 4) :
+      if sys.argv[i] not in [ 'True', 'False' ] :
+         sys.exit(usage)
+   test_installed_version  = sys.argv[1] == 'True'
+   test_external_links     = sys.argv[2] == 'True'
+   suppress_spell_warnings = sys.argv[3] == 'True'
    #
-   test_rst(test_installed_version)
+   test_rst(
+         test_installed_version,
+         test_external_links,
+         suppress_spell_warnings
+   )

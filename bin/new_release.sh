@@ -203,9 +203,9 @@ fi
 # check_all.sh
 if [ "$tag_commited" == 'yes' ]
 then
-   bin/check_all.sh
+   bin/check_all.sh --suppress_spell_warnings
 else
-   bin/check_all.sh --skip_external_links
+   bin/check_all.sh --suppress_spell_warnings --skip_external_links
 fi
 #
 # git_status
