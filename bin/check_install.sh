@@ -43,7 +43,12 @@ PATH="$prefix/bin:$PATH"
 #
 # pytest/test_rst.py
 test_installed_version='True'
-pytest/test_rst.py $test_installed_version
+skip_external_links='True'
+suppress_spell_warnings='True'
+pytest/test_rst.py \
+   $test_installed_version \
+   $skip_external_links \
+   $suppress_spell_warnings
 #
 # -----------------------------------------------------------------------------
 echo 'check_install.sh: OK'
