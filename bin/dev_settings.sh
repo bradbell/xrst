@@ -32,11 +32,19 @@ package_name='xrst'
 # The patterns above without release are used for the master and main branches
 # and corresponds to the current year, month and day.
 # The patterns above with release are used for stable/* branches.
-# The first version file of the list below must have its version number
-# surrounded by single or double quotes. This determines the verison
-# when the branch is not master or main. All occurances of the version
-# have the form:
+#
+# The first version file of the list below must have one copy of its
+# version surrounded by single or double quotes. This determines the verison
+# when the branch is not master or main. All occurances of the version, in the
+# files listed below, with the following forms are updated by check_verison.sh:
 #     $package_name-$version  or '$version' or "$version"
+#
+# We use tag for the version corresponding to the current stable release.
+# This is (is not) the same as the current version on a stable branch
+# (on the master or main branch). All occurances of the tag, in the files
+# listed below, with the following forms are updated by new_release.sh:
+#     archive/$tag.tar.gz
+# In addition, all occurances of stable-yyyy and release-yyyy are updated.
 version_file_list='
    pyproject.toml
    test_rst/user-guide.rst

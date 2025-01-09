@@ -35,8 +35,10 @@ fi
 # sed
 source bin/grep_and_sed.sh
 #
-# first_version_file
+# version_file_list
 source bin/dev_settings.sh
+#
+# first_version_file
 first_version_file=$(echo $version_file_list | $sed -e 's|^ *||' -e 's| .*||')
 #
 # version_type
@@ -132,11 +134,14 @@ master_remote_hash=$(
 # Changes to master branch
 # ----------------------------------------------------------------------------
 #
-# user.xrst
-$sed -i user/user.xrst \
-   -e "s|stable-[0-9]\{4\}|stable-$year|g" \
-   -e "s|release-[0-9]\{4\}|release-$year|g" \
-   -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+# version_file_list
+for file in $version_file_list
+do
+   $sed -i $file \
+      -e "s|stable-[0-9]\{4\}|stable-$year|g" \
+      -e "s|release-[0-9]\{4\}|release-$year|g" \
+      -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+done
 #
 # check_version
 # changes to version ?
@@ -177,11 +182,14 @@ then
    exit 1
 fi
 #
-# user.xrst
-$sed -i user/user.xrst \
-   -e "s|stable-[0-9]\{4\}|stable-$year|g" \
-   -e "s|release-[0-9]\{4\}|release-$year|g" \
-   -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+# version_file_list
+for file in $version_file_list
+do
+   $sed -i $file \
+      -e "s|stable-[0-9]\{4\}|stable-$year|g" \
+      -e "s|release-[0-9]\{4\}|release-$year|g" \
+      -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+done
 #
 # upload.sh
 $sed -i bin/upload.sh \
