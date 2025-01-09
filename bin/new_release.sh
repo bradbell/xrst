@@ -191,10 +191,6 @@ do
       -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
 done
 #
-# upload.sh
-$sed -i bin/upload.sh \
-   -e 's|--repository testpypi|--repository pypi|'
-#
 # first_version_file
 cat << EOF > temp.sed
 s|(["'])[0-9]{8}(["'])|\\1$tag\\2|
