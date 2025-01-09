@@ -24,9 +24,9 @@ then
 fi
 # -----------------------------------------------------------------------------
 #
-# branch
-branch=$(git branch --show-current)
-if [ "$branch" != 'master' ] || [ "$branch" == 'main' ]
+# main_branch
+main_branch=$(git branch --show-current)
+if [ "$main_branch" != 'master' ] || [ "$main_branch" == 'main' ]
 then
    echo 'bin/new_release.sh: execute using master or main branch'
    exit 1
@@ -64,7 +64,7 @@ elif [[ "$version" =~ ^[0-9]{8}[.][0-9]{1,2}$ ]]
 then
    version_type=2
    echo "new_release.sh: version in $first_version_file"
-   echo "is for a release but this is the $branch branch"
+   echo "is for a release but this is the $main_branch branch"
    exit 1
 elif [[ "$version" =~ ^[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}$ ]]
 then
@@ -72,7 +72,7 @@ then
    if [[ "$version" =~  ^[0-9]{4}[.][0].*$ ]]
    then
       echo "new_release.sh: version in $first_version_file"
-      echo "is for a release but this is the $branch branch"
+      echo "is for a release but this is the $main_branch branch"
       exit 1
    fi
 else
@@ -114,18 +114,18 @@ stable_remote_hash=$(
          $sed -e "s|$pattern||"
 )
 #
-# master_local_hash
+# main_local_hash
 pattern=$(echo " *refs/heads/master" | $sed -e 's|/|[/]|g')
-master_local_hash=$(
-   git show-ref master | \
+main_local_hash=$(
+   git show-ref $main_branch | \
       $sed -n -e "/$pattern/p" | \
          $sed -e "s|$pattern||"
 )
 #
-# master_remote_hash
+# main_remote_hash
 pattern=$(echo " *refs/remotes/origin/master" | $sed -e 's|/|[/]|g')
-master_remote_hash=$(
-   git show-ref master | \
+main_remote_hash=$(
+   git show-ref $main_branch | \
       $sed -n -e "/$pattern/p" | \
          $sed -e "s|$pattern||"
 )
@@ -162,7 +162,7 @@ fi
 git_status=$(git status --porcelain)
 if [ "$git_status" != '' ]
 then
-   echo "bin/new_release: git staus is not empty for $branch branch"
+   echo "bin/new_release: git staus is not empty for $main_branch branch"
    echo 'use bin/git_commit.sh to commit its changes ?'
    exit 1
 fi
@@ -260,6 +260,18 @@ then
    git push origin $tag
    #
    echo 'bin/new_release.sh: must be re-run to check external links'
+   exit 1
+fi
+#
+# main_remote
+git checkout $main_branch
+if [ "$main_local_hash" != "$main_remote_hash" ]
+then
+   empty_hash='yes'
+   echo "bin/new_release: local and remote $main_branch differ."
+   echo "local  $main_local_hash"
+   echo "remote $main_remote_hash"
+   echo 'Use git push to fix this ?'
    exit 1
 fi
 # ----------------------------------------------------------------------------
