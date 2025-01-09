@@ -43,7 +43,7 @@ do
 done
 #
 # bin/check_xrst.sh
-bin/check_xrst.sh $check_external_links
+echo_eval bin/check_xrst.sh $check_external_links
 #
 # tox
 tox

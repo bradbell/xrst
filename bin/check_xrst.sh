@@ -31,6 +31,7 @@ fi
 if [ "$#" != 1 ]
 then
    echo 'bin/check_xrst.sh check_external_links'
+   echo 'where check_external_links is yes or no'
    exit 1
 fi
 if [ "$1" != 'yes' ] && [ "$1" != 'no' ]
