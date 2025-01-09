@@ -7,10 +7,24 @@ set -e -u
 year='2025' # Year for this stable version
 release='2' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
-if [ $# != 0 ]
+if [ $# != 0 ] && [ $# != 1 ]
 then
-   echo 'bin/new_release.sh does not expect any arguments'
+   echo 'bin/new_release.sh [--skip_main_check_all]'
    exit 1
+fi
+#
+# skip_main_check_all
+skip_main_check_all='no'
+if [ $# == 1 ]
+then
+   if [ "$1" == --skip_main_check_all ]
+   then
+      skip_main_check_all='yes'
+   else
+      echo "new_release.sh $1: not a valid argument"
+      echo '--skip_main_check_all is the only possible argument'
+      exit 1
+   fi
 fi
 if [ "$0" != 'bin/new_release.sh' ]
 then
@@ -22,6 +36,26 @@ then
    echo 'bin/new_release.sh: cannot find ./.git'
    exit 1
 fi
+if [[ "$year" =~ ^[0-9]{4}$ ]]
+then
+   echo "year = $year"
+else
+   echo "new_release.sh: year = $year is not valid"
+   exit 1
+fi
+if [[ "$release" =~ ^[0-9]{1,2}$ ]]
+then
+   echo "release = $release"
+else
+   echo "new_release.sh: release = $release is not valid"
+   exit 1
+fi
+# -----------------------------------------------------------------------------
+# bash function that echos and executes a command
+echo_eval() {
+   echo $*
+   eval $*
+}
 # -----------------------------------------------------------------------------
 #
 # main_branch
@@ -50,7 +84,7 @@ b end
 #
 : one
 s|.*["']([0-9]{8})["'].*|\\1|
-s|.*["']([0-9]{8})[.][0-9]{1,2}["'].*|\\1|
+s|.*["']([0-9]{8}[.][0-9]{1,2})["'].*|\\1|
 s|.*["']([0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2})["'].*|\\1|
 p
 #
@@ -63,27 +97,15 @@ then
 elif [[ "$version" =~ ^[0-9]{8}[.][0-9]{1,2}$ ]]
 then
    version_type=2
-   echo "new_release.sh: version in $first_version_file"
-   echo "is for a release but this is the $main_branch branch"
-   exit 1
 elif [[ "$version" =~ ^[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}$ ]]
 then
    version_type=3
-   if [[ "$version" =~  ^[0-9]{4}[.][0].*$ ]]
-   then
-      echo "new_release.sh: version in $first_version_file"
-      echo "is for a release but this is the $main_branch branch"
-      exit 1
-   fi
-else
-   echo "check_version.sh: can't find version number in $first_version_file"
-   exit 1
 fi
 #
 # tag
-if [ "$version_type" == 1 ]
+if [ "$version_type" == 1 ] || [ "$version_type" == 2 ]
 then
-   tag="$year0000.$release"
+   tag="${year}0000.$release"
 else
    tag=$year.0.$release
 fi
@@ -151,11 +173,14 @@ then
 fi
 #
 # check_all.sh
-if [ "$tag_commited" == 'yes' ]
+if [ "$skip_main_check_all" == 'no' ]
 then
-   bin/check_all.sh
-else
-   bin/check_all.sh --skip_external_links
+   if [ "$tag_commited" == 'yes' ]
+   then
+      echo_eval bin/check_all.sh
+   else
+      echo_eval bin/check_all.sh --skip_external_links
+   fi
 fi
 #
 # git_status
@@ -204,12 +229,19 @@ then
    exit 1
 fi
 #
+# check_version
+# changes to version ?
+if ! bin/check_version.sh
+then
+   echo 'Continuing even thought bin/check_version made changes.'
+fi
+#
 # check_all.sh
 if [ "$tag_commited" == 'yes' ]
 then
-   bin/check_all.sh --suppress_spell_warnings
+   echo_eval bin/check_all.sh --suppress_spell_warnings
 else
-   bin/check_all.sh --suppress_spell_warnings --skip_external_links
+   echo_eval bin/check_all.sh --suppress_spell_warnings --skip_external_links
 fi
 #
 # git_status
