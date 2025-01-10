@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
 import sys
 import os
-import toml
+import tomli
 import tempfile
 import subprocess
 #
@@ -37,7 +37,7 @@ def main() :
       sys.exit(msg)
    file_obj    = open('xrst.toml', 'r')
    file_data   = file_obj.read()
-   conf_dict   = toml.loads(file_data)
+   conf_dict   = tomli.loads(file_data)
    rst_prolog  = conf_dict['include_all']['rst_prolog']
    file_obj.close()
    #

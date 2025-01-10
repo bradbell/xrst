@@ -28,7 +28,9 @@ mm-dd
 
 01-10
 =====
-Include the :ref:`version <user-guide@Versions>` in this documentation.
+#. Include the :ref:`version <user-guide@Versions>` in this documentation.
+#. Use the tomli package instead of the toml package; see
+   `tomli <https://github.com/hukkin/tomli>`_ .
 
 .. _2025@mm-dd@01-05:
 

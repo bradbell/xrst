@@ -7,6 +7,7 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
    conda
    furo
    pyenchant
+   tomli
 }
 
 xrst Release Notes for 2025
@@ -17,7 +18,9 @@ mm-dd
 
 01-10
 =====
-Include the :ref:`version <user-guide@Versions>` in this documentation.
+#. Include the :ref:`version <user-guide@Versions>` in this documentation.
+#. Use the tomli package instead of the toml package; see
+   `tomli <https://github.com/hukkin/tomli>`_ .
 
 01-05
 =====

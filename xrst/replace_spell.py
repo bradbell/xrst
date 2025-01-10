@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
-import toml
+import tomli
 import xrst
 # {xrst_begin replace_spell dev}
 # {xrst_comment_ch #}
@@ -57,7 +57,7 @@ def replace_spell(tmp_dir) :
    # spell_toml
    file_obj  = open( f'{tmp_dir}/spell.toml' )
    file_data = file_obj.read()
-   spell_toml = toml.loads(file_data)
+   spell_toml = tomli.loads(file_data)
    #
    # file_name
    for file_name in spell_toml :

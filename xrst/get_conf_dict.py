@@ -3,7 +3,7 @@
 # SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
-import toml
+import tomli
 import sys
 import importlib.util
 #
@@ -517,7 +517,7 @@ def get_conf_dict(config_file) :
    # conf_dict
    file_obj  = open(config_file, 'r')
    file_data = file_obj.read()
-   conf_dict = toml.loads(file_data)
+   conf_dict = tomli.loads(file_data)
    #
    # check top level keys in config_file
    for table in conf_dict :

@@ -30,7 +30,7 @@ classifiers       = [
 # BEGIN_DEPENDENCIES
 dependencies      = [
    # Always requires to run xrst
-   'sphinx', 'toml', 'sphinx-copybutton',
+   'sphinx', 'tomli', 'sphinx-copybutton',
    # The default spell checker
    'pyspellchecker',
    # The default theme
