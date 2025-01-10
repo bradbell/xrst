@@ -139,6 +139,8 @@ Versions
 .. list-table::
    :widths: auto
 
+   * - This version
+     - xrst-2025.0.2
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
