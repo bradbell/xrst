@@ -164,5 +164,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/auto_file.py
-  :lines: 403-410
+  :lines: 402-409
   :language: py

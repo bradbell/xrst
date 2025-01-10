@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin auto_file user}
@@ -83,7 +83,6 @@ This file is used by xrst_search.rst.
 # ----------------------------------------------------------------------------
 import re
 import os
-import toml
 import xrst
 #
 # conf_py_constant

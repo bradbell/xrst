@@ -361,7 +361,6 @@ Use ``default``, instead of the empty group name, for the
 import sys
 import re
 import os
-import toml
 import string
 import shutil
 import filecmp
