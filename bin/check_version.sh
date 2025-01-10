@@ -118,7 +118,7 @@ s|(["'])[0-9]{8}[.][0-9]{1,2}(["'])|\\1$version\\2|
 s|(["'])[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}(["'])|\\1$version\\2|
 s|$package_name-[0-9]{8}|$package_name-$version|
 s|$package_name-[0-9]{8}[.][0-9]{1,2}|$package_name-$version|
-s|$package_name-[0-9]{8}[.][0-9]{1,2}[.][0-9]{1,2}|$package_name-$version|
+s|$package_name-[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}|$package_name-$version|
 EOF
 #
 # check_version
