@@ -114,7 +114,7 @@ then
 fi
 #
 # $des_repo/bin/*.sh
-echo "Copying the following files into $dest_repo/bin"
+echo "Copying the following development tools into $dest_repo/bin"
 echo "and setting SPDX-License-Identifier to $spdx_license_id"
 for file in $dev_tools
 do
@@ -172,7 +172,6 @@ for variable in \
    invisible_and_tab_ok \
    check_commit
 do
-   print_variable variable
    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
    if [[ "$replace" =~ ^\s*$ ]]
    then
@@ -186,10 +185,11 @@ done
 # -----------------------------------------------------------------------------
 echo
 cat << EOF
-You probably need to edit the settings in
+Check the folloiwing file for empty variables that need to be defined:
    $dest_repo/bin/dev_settings.sh
-The following, in $dest_repo, will revert to its previous version:
-   git show HEAD:bin/dev_settings.sh > bin/dev_settings.sh
+
+See the comments at the top of each development tool from a description
+of how to use it.
 
 dev_tools.sh: OK
 EOF

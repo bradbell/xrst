@@ -3,7 +3,14 @@ set -e -u
 # ---------------------------------------------------------------------------
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2003-24 Bradley M. Bell
+# SPDX-FileContributor: 2003-25 Bradley M. Bell
+# ---------------------------------------------------------------------------
+# bin/git_commit.sh
+# Opens file, for a git commit, with comments about the commit.
+# The git commit log message will not include comment lines.
+# The branch of the commit is automatically placed a the beginning
+# of the first line for the log file.
+# See the variable check_commit in bin/dev_settings.sh.
 # ---------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
