@@ -130,7 +130,7 @@ Git Repository
 **************
 `<https://github.com/bradbell/xrst>`_
 
-{xrst_comment BEGIN: Before changing see bin/ new_release and check_version.sh}
+{xrst_comment BEGIN: Before changing see bin/new_release and check_version.sh}
 
 Versions
 ********
@@ -147,6 +147,7 @@ Versions
    * - Most recent release of this stable version
      - `release-2025 <https://github.com/bradbell/xrst/archive/2025.0.2.tar.gz>`_
 
+{xrst_comment END: Before changing see bin/new_release and check_version.sh}
 
 Install Stable Version
 **********************

@@ -15,6 +15,10 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+01-10
+=====
+Include the :ref:`version <user-guide@Versions>` in this documentation.
+
 01-05
 =====
 Conda Forge does not yet handle dependencies that are different for
