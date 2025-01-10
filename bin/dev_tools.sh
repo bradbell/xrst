@@ -37,6 +37,7 @@ dev_tools='
    dev_settings.sh
    git_commit.sh
    grep_and_sed.sh
+   new_release.sh
    sort.sh
 '
 for file in $dev_tools
@@ -172,7 +173,7 @@ for variable in \
    check_commit
 do
    print_variable variable
-   replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n|g')
+   replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
    if [[ "$replace" =~ ^\s*$ ]]
    then
       $sed -i $dest_repo/bin/dev_settings.sh \

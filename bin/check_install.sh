@@ -18,6 +18,7 @@ prefix="$(pwd)/build/prefix"
 test_driver='pytest/test_rst.py'
 #
 # install
+# this installs below the build directory
 pip install --prefix=$prefix .
 #
 # PYTHONPATH
@@ -49,6 +50,10 @@ pytest/test_rst.py \
    $test_installed_version \
    $skip_external_links \
    $suppress_spell_warnings
+#
+# install
+# this restores a normal install of xrst
+pip install .
 #
 # -----------------------------------------------------------------------------
 echo 'check_install.sh: OK'
