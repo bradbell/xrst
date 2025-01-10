@@ -32,8 +32,10 @@ and it is not installed, you will get a message suggesting that you install it.
 
 01-04
 =====
-Remove the pyenchant install requirement on windows; see
-:ref:`user-guide@Dependencies` .
+1. Remove the pyenchant install requirement on windows; see
+   :ref:`user-guide@Dependencies` .
+2. Create the stable-2025 branch and its first release; see
+   :ref:`user-guide@Versions` .
 
 01-03
 =====
