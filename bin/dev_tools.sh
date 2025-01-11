@@ -146,6 +146,9 @@ do
    fi
 done
 #
+# $dest_repo/bin/new_release.sh
+sed -i $dest_repo/bin/new_release.sh \
+   -e "s|^release=[^#]*#|release='' #|"
 #
 # $dest_repo/bin/dev_settings.sh
 cat << EOF > sed.$$
@@ -196,7 +199,7 @@ do
    else
       replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
    fi
-   if [[ "$replace" =~ ^\s*$ ]]
+   if [[ "$replace" =~ ^( *)$ ]]
    then
       $sed -i $dest_repo/bin/dev_settings.sh \
          -e "s|@$variable@|$variable='\n'|"
