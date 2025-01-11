@@ -5,7 +5,7 @@ user-guide
 !!!!!!!!!!
 
 .. meta::
-  :keywords: user-guide,extract,sphinx,rst,files,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
+  :keywords: user-guide,extract,sphinx,rst,files,license,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
 
 .. index:: user-guide, extract, sphinx, rst, files
 
@@ -19,6 +19,14 @@ It includes automatic processing and commands that make sphinx easier to use.
 
 .. contents::
   :local:
+
+.. index:: license
+
+.. _user-guide@License:
+
+License
+*******
+`GPL-3.0-or-later <https://spdx.org/licenses/GPL-3.0-or-later.html>`_
 
 .. index:: git, repository
 

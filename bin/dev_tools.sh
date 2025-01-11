@@ -4,14 +4,32 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
-if [ $# != 2 ]
+if [ $# != 1 ] && [ $# != 2 ]
 then
-   echo 'usage: bin/devel_tools.sh dest_repo spdx_license_id'
-   echo 'Copies the current development tools from xrst.git to dest_repo/bin'
-   echo 'spdx_license_id is the SPDX-License-Identifier for files in direcory'
+cat << EOF
+usage: bin/devel_tools.sh dest_repo [spdx_license_id]
+Copies the current development tools from xrst.git/bin to dest_repo/bin
+
+spdx_license_id is the SPDX-License-Identifier for files in this package.
+If spdx_license_id is not present, and dest_repo/bin/dev_settings.sh exists,
+the value of spdx_license_id for this package is printed. 
+EOF
    exit 1
 fi
 dest_repo="$1"
+if [ $# == 1 ]
+then
+   file="$dest_repo/bin/dev_settings.sh"
+   if [ ! -e $file ]
+   then
+      echo "dev_tools.sh: can not find $file"
+      exit 1
+   fi
+
+   source $dest_repo/bin/dev_settings.sh
+   echo "spdx_license_id = '$spdx_license_id'"
+   exit 0
+fi
 spdx_license_id="$2"
 if [ ! -d "$dest_repo/.git" ]
 then
@@ -172,7 +190,12 @@ for variable in \
    invisible_and_tab_ok \
    check_commit
 do
-   replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
+   if [ -z ${variable+x} ]
+   then
+      replace=''
+   else
+      replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
+   fi
    if [[ "$replace" =~ ^\s*$ ]]
    then
       $sed -i $dest_repo/bin/dev_settings.sh \
