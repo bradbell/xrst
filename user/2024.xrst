@@ -218,7 +218,7 @@ This was completed; see 03-28 above.
 
 03-02
 =====
-There was a bug in the :ref:`xrst_search-name` page (introduced on 2024-02-29).
+There was a bug in the xrst search page (introduced on 2024-02-29).
 To be more specific, the search was
 loading the page before the one selected. This has been fixed.
 
@@ -229,7 +229,7 @@ The :ref:`user-guide@Install From Source` instructions were improved.
 02-29
 =====
 The name of the xrst search page was changed from ``Search``
-to :ref:`xrst_search-name` and its link was moved to directly below
+to ``xrst_search`` and its link was moved to directly below
 the sphinx Search link.
 This distinguishes it from the search that comes with sphinx.
 The xrst search page was displaying the number of matches displayed,

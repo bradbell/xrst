@@ -47,7 +47,7 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2025.1.10
+     - xrst-2025.1.11
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version

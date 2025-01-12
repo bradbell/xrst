@@ -16,6 +16,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+01-11
+=====
+Fix some problems when running xrst with
+:ref:`run_xrst@target` equal to ``tex`` .
+
 01-10
 =====
 #. Include the :ref:`version <user-guide@Versions>` in this documentation.

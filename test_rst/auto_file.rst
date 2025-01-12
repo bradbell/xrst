@@ -86,8 +86,8 @@ xrst_search.rst
 If :ref:`run_xrst@target` is html,
 this file contains the xrst search utility for the last run of ``xrst``.
 A link to this search utility appears at top left side of each web page.
-You can place a link to this page name :ref:`xrst_search-name`
-or page title :ref:`xrst_search-title` using the following commands::
+You can place a link to this page name or page title
+using the following commands::
 
    :ref:`xrst_search-title`
    :ref:`xrst_search-name`

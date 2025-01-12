@@ -410,7 +410,7 @@ def system_command(
    #
    # build_link
    build_html = command.startswith('sphinx-build -b html')
-   build_tex  = command.startswith('sphinx-build -b tex')
+   build_tex  = command.startswith('sphinx-build -b latex')
    build_link = command.startswith('sphinx-build -b linkcheck')
    assert build_html or build_tex or build_link
    #
@@ -627,7 +627,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2025.1.10'
+version = '2025.1.11'
 #
 def run_xrst() :
    #

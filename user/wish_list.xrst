@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-24 Bradley M. Bell
+SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell
@@ -58,7 +58,7 @@ width of the display for tables; see issue-807_  .
 Search
 ******
 It would be nice if we could make the sphinx search act like the
-:ref:`xrst_search-name` (so we would not need two searches) .
+xrst search page (so we would not need two searches) .
 
 RST Command File Names
 **********************
