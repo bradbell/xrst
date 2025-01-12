@@ -12,7 +12,7 @@ Copies the current development tools from xrst.git/bin to dest_repo/bin
 
 spdx_license_id is the SPDX-License-Identifier for files in this package.
 If spdx_license_id is not present, and dest_repo/bin/dev_settings.sh exists,
-the value of spdx_license_id for this package is printed. 
+the value of spdx_license_id for this package is printed.
 EOF
    exit 1
 fi
@@ -56,6 +56,7 @@ dev_tools='
    git_commit.sh
    grep_and_sed.sh
    new_release.sh
+   run_xrst.sh
    sort.sh
 '
 for file in $dev_tools
@@ -131,6 +132,15 @@ then
    source $dest_repo/bin/dev_settings.sh
 fi
 #
+# release
+if [ -e $dest_repo/bin/new_release.sh ]
+then
+   cmd=$( $sed -n -e '/^release=.*/p' $dest_repo/bin/new_release.sh )
+   eval $cmd
+else
+   release=''
+fi
+#
 # $des_repo/bin/*.sh
 echo "Copying the following development tools into $dest_repo/bin"
 echo "and setting SPDX-License-Identifier to $spdx_license_id"
@@ -148,7 +158,7 @@ done
 #
 # $dest_repo/bin/new_release.sh
 sed -i $dest_repo/bin/new_release.sh \
-   -e "s|^release=[^#]*#|release='' #|"
+   -e "s|^release=[^#]*#|release='$release' #|"
 #
 # $dest_repo/bin/dev_settings.sh
 cat << EOF > sed.$$
