@@ -112,7 +112,6 @@ The xrst features below can be considered a wish list for sphinx:
 ----------------------------------------------------------------------------
 {xrst_begin user-guide user}
 {xrst_spell
-   cd
    grep
    pdf
    pypi
@@ -127,11 +126,15 @@ This is a sphinx wrapper that extracts RST file from source code
 and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.
 
+License
+*******
+`GPL-3.0-or-later <https://spdx.org/licenses/GPL-3.0-or-later.html>`_
+
 Git Repository
 **************
 `<https://github.com/bradbell/xrst>`_
 
-{xrst_comment BEGIN: Before changing see bin/ new_release and check_version.sh}
+{xrst_comment BEGIN: Before changing see bin/new_release and check_version.sh}
 
 Versions
 ********
@@ -148,6 +151,7 @@ Versions
    * - Most recent release of this stable version
      - `release-2025 <https://github.com/bradbell/xrst/archive/2025.0.2.tar.gz>`_
 
+{xrst_comment END: Before changing see bin/new_release and check_version.sh}
 
 Install Stable Version
 **********************

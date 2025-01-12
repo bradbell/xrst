@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin auto_file user}
@@ -63,8 +63,8 @@ xrst_search.rst
 If :ref:`run_xrst@target` is html,
 this file contains the xrst search utility for the last run of ``xrst``.
 A link to this search utility appears at top left side of each web page.
-You can place a link to this page name :ref:`xrst_search-name`
-or page title :ref:`xrst_search-title` using the following commands::
+You can place a link to this page name or page title
+using the following commands::
 
    :ref:`xrst_search-title`
    :ref:`xrst_search-name`
@@ -83,7 +83,6 @@ This file is used by xrst_search.rst.
 # ----------------------------------------------------------------------------
 import re
 import os
-import toml
 import xrst
 #
 # conf_py_constant

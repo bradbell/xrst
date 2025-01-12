@@ -82,7 +82,7 @@ width of the display for tables; see issue-807_  .
 Search
 ******
 It would be nice if we could make the sphinx search act like the
-:ref:`xrst_search-name` (so we would not need two searches) .
+xrst search page (so we would not need two searches) .
 
 .. index:: rst, names
 

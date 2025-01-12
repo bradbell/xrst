@@ -361,7 +361,6 @@ Use ``default``, instead of the empty group name, for the
 import sys
 import re
 import os
-import toml
 import string
 import shutil
 import filecmp
@@ -411,7 +410,7 @@ def system_command(
    #
    # build_link
    build_html = command.startswith('sphinx-build -b html')
-   build_tex  = command.startswith('sphinx-build -b tex')
+   build_tex  = command.startswith('sphinx-build -b latex')
    build_link = command.startswith('sphinx-build -b linkcheck')
    assert build_html or build_tex or build_link
    #
