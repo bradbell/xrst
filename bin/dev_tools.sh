@@ -105,7 +105,7 @@ do
          if [ "$temp" == '' ]
          then
             echo "$dest_path"
-            echo 'not in repository and has changes that would be overwritten'
+            echo 'not in repository and would be overwritten by dev_tools.sh'
             rm temp.$$
             rm sed.$$
             exit 1
@@ -127,6 +127,9 @@ rm temp.$$
 # package_name, version_file_list
 package_name=''
 version_file_list=''
+no_copyright_list=''
+invisible_and_tab_ok=''
+check_commit=''
 if [ -e $dest_repo/bin/dev_settings.sh ]
 then
    source $dest_repo/bin/dev_settings.sh
@@ -161,7 +164,7 @@ done
 #
 # $dest_repo/bin/new_release.sh
 sed -i $dest_repo/bin/new_release.sh \
-   -e "s|^year=[^#]*#|year='$year' #|"
+   -e "s|^year=[^#]*#|year='$year' #|" \
    -e "s|^release=[^#]*#|release='$release' #|"
 #
 # $dest_repo/bin/dev_settings.sh
@@ -207,12 +210,7 @@ for variable in \
    invisible_and_tab_ok \
    check_commit
 do
-   if [ -z ${variable+x} ]
-   then
-      replace=''
-   else
-      replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
-   fi
+   replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
    if [[ "$replace" =~ ^( *)$ ]]
    then
       $sed -i $dest_repo/bin/dev_settings.sh \

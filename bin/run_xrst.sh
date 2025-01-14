@@ -105,13 +105,11 @@ cat << EOF > temp.sed
 /^\\[root_file\\]/ ! b end
 : loop
 N
-N
-N
-N
-#
+/\\n\\[/! b loop
 s|^\\[root_file\\]| |
-s|\\n[^\\n]*\$||
+s|\\n *#[^\\n]*||g
 s|\\n\\([A-Za-z0-9_.]*\\) *=[^\\n]*|\\1 |g
+s|\\n[^\\n]*\$||
 #
 p
 #
