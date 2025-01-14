@@ -132,12 +132,15 @@ then
    source $dest_repo/bin/dev_settings.sh
 fi
 #
-# release
+# year, release
 if [ -e $dest_repo/bin/new_release.sh ]
 then
+   cmd=$( $sed -n -e '/^year=.*/p' $dest_repo/bin/new_release.sh )
+   eval $cmd
    cmd=$( $sed -n -e '/^release=.*/p' $dest_repo/bin/new_release.sh )
    eval $cmd
 else
+   year=''
    release=''
 fi
 #
@@ -158,6 +161,7 @@ done
 #
 # $dest_repo/bin/new_release.sh
 sed -i $dest_repo/bin/new_release.sh \
+   -e "s|^year=[^#]*#|year='$year' #|"
    -e "s|^release=[^#]*#|release='$release' #|"
 #
 # $dest_repo/bin/dev_settings.sh

@@ -7,12 +7,13 @@ set -e -u
 # bin/new_release.sh  [--skip_main_check_all [--skip_stable_check_all]
 # Creates and check a release for the year and release number specified below.
 #
-# bin/check_all.sh [-skip_external_links]
+# bin/check_all.sh [--skip_external_links]
 # is used by new_release.sh to check the master and stable branch
 # correpsonding to this release (unless skipped by new_release.sh flags).
-# If --skip_external_links is specified, check_all.sh will not check
-# external links. new_release.sh needs to skip this when testng
-# before the remote branch exists.
+#
+# bin/check_all.sh [--skip_external_links]
+# is used by new_release to skip checking external links.
+# new_release.sh skips this when testng before the remote branch exists.
 # -----------------------------------------------------------------------------
 year='2025' # Year for this stable version
 release='2' # first release for each year starts with 0

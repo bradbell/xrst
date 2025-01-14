@@ -13,7 +13,6 @@ set -e -u
 # --rst_line_numbers         sphinx errors and warnings use rst line numbers
 # --replace_spell_commands   replace xrst_spell commands assuming no errors
 # --external_links           check documentation external links
-#                            using this option will suppress all warnings.
 # xrst.toml
 # The group_list argument will be automatically extracted from xrst.toml
 #
@@ -48,7 +47,6 @@ possible flags
 --rst_line_numbers         sphinx errors and warnings use rst line numbers
 --replace_spell_commands   replace xrst_spell commands assuming no errors
 --external_links           check documentation external links
-                           using this option will suppress all warnings.
 EOF
       exit 0
    fi
@@ -75,7 +73,7 @@ do
       ;;
 
       --external_links)
-      extra_flags+=" $1 --continue_with_warnings"
+      extra_flags+=" $1"
       ;;
 
       *)
