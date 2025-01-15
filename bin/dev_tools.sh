@@ -58,6 +58,7 @@ dev_tools='
    new_release.sh
    run_xrst.sh
    sort.sh
+   twine.sh
 '
 for file in $dev_tools
 do
