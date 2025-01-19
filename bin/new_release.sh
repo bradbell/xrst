@@ -168,12 +168,22 @@ main_remote_hash=$(
 # ----------------------------------------------------------------------------
 #
 # version_file_list
+cat << EOF > temp.sed
+s|stable-[0-9]{4}|stable-$year|g
+s|release-[0-9]{4}|release-$year|g
+#
+s|archive/[0-9]{4}[.][0-9]*[.][0-9]*[.]tar[.]gz|archive/$tag.tar.gz|
+s|archive/[0-9]{8}[.]tar[.]gz|archive/$tag.tar.gz|
+s|archive/[0-9]{8}[.][0-9]*[.]tar[.]gz|archive/$tag.tar.gz|
+#
+s|tags/[0-9]{4}[.][0-9]*[.][0-9]*>|tags/$tag>|
+s|tags/[0-9]{8}>|tags/$tag>|
+s|tags/[0-9]{8}[.][0-9]*>|tags/$tag>|
+#
+EOF
 for file in $version_file_list
 do
-   $sed -i $file \
-      -e "s|stable-[0-9]\{4\}|stable-$year|g" \
-      -e "s|release-[0-9]\{4\}|release-$year|g" \
-      -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+   $sed -r -i $file -f temp.sed
 done
 #
 # check_all.sh
@@ -212,17 +222,28 @@ then
 fi
 #
 # version_file_list
+cat << EOF > temp.sed
+s|stable-[0-9]{4}|stable-$year|g
+s|release-[0-9]{4}|release-$year|g
+#
+s|archive/[0-9]{4}[.][0-9]*[.][0-9]*[.]tar[.]gz|archive/$tag.tar.gz|
+s|archive/[0-9]{8}[.]tar[.]gz|archive/$tag.tar.gz|
+s|archive/[0-9]{8}[.][0-9]*[.]tar[.]gz|archive/$tag.tar.gz|
+#
+s|tags/[0-9]{4}[.][0-9]*[.][0-9]*>|tags/$tag>|
+s|tags/[0-9]{8}>|tags/$tag>|
+s|tags/[0-9]{8}[.][0-9]*>|tags/$tag>|
+#
+EOF
 for file in $version_file_list
 do
-   $sed -i $file \
-      -e "s|stable-[0-9]\{4\}|stable-$year|g" \
-      -e "s|release-[0-9]\{4\}|release-$year|g" \
-      -e "s|archive/[0-9]\{4\}[.]0[.][0-9]*.tar.gz|archive/$tag.tar.gz|"
+   $sed -r -i $file -f temp.sed
 done
 #
 # first_version_file
 cat << EOF > temp.sed
 s|(["'])[0-9]{8}(["'])|\\1$tag\\2|
+s|(["'])[0-9]{8}[.][0-9]{1,2}(["'])|\\1$tag\\2|
 s|(["'])[0-9]{4}[.][0-9]{1,2}[.][0-9]{1,2}(["'])|\\1$tag\\2|
 EOF
 $sed -r -f temp.sed -i $first_version_file

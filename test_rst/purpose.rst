@@ -26,9 +26,9 @@ Motivation
 This wrapper was motivated by cases like the GNU Scientific library,
 which is written in C, uses sphinx for its documentation,
 and has its documentation
-in separate files from the corresponding source code; see `gsl doc`_ .
+in separate files from the corresponding source code; see::
 
-.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+   https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
 .. index:: goal
 

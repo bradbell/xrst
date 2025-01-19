@@ -6,7 +6,6 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 {xrst_spell
    autodoc
    doxygen
-   gsl
 }
 
 Purpose of this Sphinx Wrapper
@@ -17,9 +16,9 @@ Motivation
 This wrapper was motivated by cases like the GNU Scientific library,
 which is written in C, uses sphinx for its documentation,
 and has its documentation
-in separate files from the corresponding source code; see `gsl doc`_ .
+in separate files from the corresponding source code; see::
 
-.. _gsl doc: https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+   https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
 Goal
 ****
@@ -143,7 +142,7 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2025.1.15
+     - xrst-2025.1.19
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
