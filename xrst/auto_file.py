@@ -26,7 +26,7 @@ This is the sphinx configuration_ file.
 It is the only file in the *rst_directory* directory that is
 not an rst file.
 
-.. _configuration:  http://www.sphinx-doc.org/en/master/config
+.. _configuration:  https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 
 xrst_root_doc.rst

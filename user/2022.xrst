@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-24 Bradley M. Bell
+SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2022 user}
 {xrst_spell
@@ -14,12 +14,10 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    len
    literalinclude
    matlab
-   ok
    pdf
    pyproject
    rtd
    spdx
-   te
    toctree
    txt
    underbar
@@ -592,7 +590,7 @@ output_dir instead of its ``rst`` subdirectory.
 =====
 Change copyright and license notice to use spdx_ .
 
-.. _spdx: https://spdx.dev/resources/use/
+.. _spdx: https://spdx.org/licenses/
 
 08-30
 =====

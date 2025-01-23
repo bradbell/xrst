@@ -708,7 +708,7 @@ output_dir instead of its ``rst`` subdirectory.
 =====
 Change copyright and license notice to use spdx_ .
 
-.. _spdx: https://spdx.dev/resources/use/
+.. _spdx: https://spdx.org/licenses/
 
 .. _2022@mm-dd@08-30:
 

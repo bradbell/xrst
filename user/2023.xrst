@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-24 Bradley M. Bell
+SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2023 user}
 {xrst_spell
@@ -8,7 +8,6 @@ SPDX-FileContributor: 2020-24 Bradley M. Bell
    backend
    copybutton
    doxygen
-   firefox
    furo
    pyproject
    pytest
@@ -119,7 +118,7 @@ This has been fixed.
 Change html theme from ``sphinx_book_theme`` to ``furo``
 because sphinx book theme does not support as many levels; see
 `sphinx_book_theme issue 603
-<https://github.com/executablebooks/sphinx-book-theme/issues/603#issuecomment-1751873569>`_ .
+<https://github.com/executablebooks/sphinx-book-theme/issues/603>`_ .
 
 10-01
 =====
