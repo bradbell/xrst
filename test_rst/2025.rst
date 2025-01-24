@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-  :keywords: 2025,xrst,release,notes,for,mm-dd,01-11,01-10,01-05,01-04,01-03
+  :keywords: 2025,xrst,release,notes,for,mm-dd,01-24,01-11,01-10,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -23,6 +23,16 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+.. _2025@mm-dd@01-24:
+
+01-24
+=====
+#. The template file item in the
+   :ref:`wish_list@Spell Checking` wish list was removed
+   because it was completed on
+   :ref:`2024-10-25 <2024@mm-dd@10-25>` .
+#. An external link item was added to the Spell Checking wish list.
 
 .. _2025@mm-dd@01-11:
 
