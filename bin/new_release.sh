@@ -194,7 +194,7 @@ fi
 git_status=$(git status --porcelain)
 if [ "$git_status" != '' ]
 then
-   echo "bin/new_release: git staus is not empty for $main_branch branch"
+   echo "bin/new_release: git status is not empty for $main_branch branch"
    echo 'use bin/git_commit.sh to commit its changes ?'
    exit 1
 fi
@@ -270,7 +270,7 @@ fi
 git_status=$(git status --porcelain)
 if [ "$git_status" != '' ]
 then
-   echo "bin/new_release: git staus --porcelean not empty for $stable_branch"
+   echo "bin/new_release: git status --porcelean not empty for $stable_branch"
    echo 'use bin/git_commit.sh to commit its changes ?'
    exit 1
 fi
