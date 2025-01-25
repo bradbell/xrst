@@ -176,6 +176,10 @@ s|tags/[0-9]{4}[.][0-9]*[.][0-9]*>|tags/$tag>|
 s|tags/[0-9]{8}>|tags/$tag>|
 s|tags/[0-9]{8}[.][0-9]*>|tags/$tag>|
 #
+s|tags/[0-9]{4}[.][0-9]*[.][0-9]* *\$|tags/$tag|
+s|tags/[0-9]{8} *\$|tags/$tag|
+s|tags/[0-9]{8}[.][0-9]* *\$|tags/$tag|
+#
 EOF
 for file in $version_file_list
 do
@@ -226,6 +230,10 @@ s|archive/[0-9]{8}[.][0-9]*[.]tar[.]gz|archive/$tag.tar.gz|
 s|tags/[0-9]{4}[.][0-9]*[.][0-9]*>|tags/$tag>|
 s|tags/[0-9]{8}>|tags/$tag>|
 s|tags/[0-9]{8}[.][0-9]*>|tags/$tag>|
+#
+s|tags/[0-9]{4}[.][0-9]*[.][0-9]* *\$|tags/$tag|
+s|tags/[0-9]{8} *\$|tags/$tag|
+s|tags/[0-9]{8}[.][0-9]* *\$|tags/$tag|
 #
 EOF
 for file in $version_file_list
