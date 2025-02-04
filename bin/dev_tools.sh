@@ -12,7 +12,7 @@ usage: bin/devel_tools.sh dest_repo [spdx_license_id]
 Copies the current development tools from xrst.git to dest_repo
 
 If spdx_license_id is not present, dest_repo/bin/dev_settings.sh must already
-exist and contain value of spdx_license_id for the packare in dest_repo. 
+exist and contain value of spdx_license_id for the packare in dest_repo.
 EOF
    exit 1
 fi
@@ -40,7 +40,7 @@ then
       echo $file
       exit 1
    fi
-   # 
+   #
    # spdx_license_id
    source $dest_repo/bin/dev_settings.sh
    if [ -z ${spdx_license_id+word} ]
@@ -170,6 +170,8 @@ fi
 echo "Copying the following tools to $dest_repo"
 echo "while setting SPDX-License-Identifier to $spdx_license_id"
 echo 'see the comments at the top of each file for its usage:'
+line='# !! EDITS TO THIS FILE ARE LOST DURING UPDATES BY'
+line+=' xrst.git/bin/dev_tools.sh !!'
 for file in $dev_tools
 do
    echo "  $file"
@@ -179,6 +181,13 @@ do
    if [ -x "$xrst_path" ]
    then
       chmod +x $dest_path
+   fi
+   if [ "$file" == '.readthedocs.yaml' ]
+   then
+      $sed -i $file -e "1,1s|^|$line\n|"
+   elif [ "$file" != 'bin/dev_settings.sh' ]
+   then
+      $sed -i $file -e "s|^set -e -u|&\\n$line|"
    fi
 done
 #
@@ -233,7 +242,7 @@ rm sed.$$
 # $dest_repo/bin/dev_settings.sh
 $sed -i $dest_repo/bin/dev_settings.sh \
    -e "s|^package_name=.*|package_name='$package_name'|" \
-   -e "s|^index_page_name=.*|index_page_name='$index_page_name'|" 
+   -e "s|^index_page_name=.*|index_page_name='$index_page_name'|"
 for variable in \
    version_file_list \
    no_copyright_list \
@@ -252,7 +261,7 @@ do
 done
 # -----------------------------------------------------------------------------
 echo 'The following variables are empty and may need to be corrected ?'
-echo 'The variable check_git_commit is usually empty. The settings are in' 
+echo 'The variable check_git_commit is usually empty. The settings are in'
 echo "$dest_repo/bin/dev_settings.sh"
 for variable in  \
    package_name \
