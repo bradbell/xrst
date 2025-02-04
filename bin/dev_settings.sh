@@ -19,6 +19,10 @@ spdx_license_id='SPDX-License-Identifier: GPL-3.0-or-later'
 # package_name
 package_name='xrst'
 #
+# index_page_name
+# is the xrst index page_name for this projects documentaiton.
+index_page_name='user-guide'
+#
 # version_file_list
 # The possible patterns for a latest version number are:
 #     yyyymmdd or yyyy.month.day

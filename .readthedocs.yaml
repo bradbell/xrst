@@ -36,6 +36,8 @@ build:
       # build/html
       # This comamnd builds the xrst user documentaiton.
       # Suppress spell warnings because readthdocs uses a different dictionry.
+      # bin/dev_tools.sh assumes that group_list and index_page_name, 
+      # are on their own lines.
       - xrst
          --page_source
          --html_theme furo

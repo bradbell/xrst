@@ -48,6 +48,7 @@ source bin/grep_and_sed.sh
 # dev_tools
 # BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
+   .readthedocs.yaml
    bin/check_copy.sh
    bin/check_invisible.sh
    bin/check_sort.sh
@@ -65,7 +66,9 @@ dev_tools='
 # END_SORT_THIS_LINE_MINUS_2
 for file in $dev_tools
 do
-   if [ $file == bin/dev_settings.sh ] || [ $file == bin/grep_and_sed.sh ]
+   if [ $file == bin/dev_settings.sh ] \
+   || [ $file == bin/grep_and_sed.sh ] \
+   || [ $file == .readthedocs.yaml ]
    then
       if [ -x $file ]
       then
@@ -129,8 +132,9 @@ do
 done
 rm temp.$$
 #
-# package_name, version_file_list
+# package_name, ... , invisible_and_tab_ok
 package_name=''
+index_page_name=''
 version_file_list=''
 no_copyright_list=''
 invisible_and_tab_ok=''
@@ -168,9 +172,17 @@ do
 done
 #
 # $dest_repo/bin/new_release.sh
-sed -i $dest_repo/bin/new_release.sh \
+$sed -i $dest_repo/bin/new_release.sh \
    -e "s|^year=[^#]*#|year='$year' #|" \
    -e "s|^release=[^#]*#|release='$release' #|"
+#
+# $dest_repo/.readthedocs.yaml
+group_list=$( bin/group_list.sh | \
+   $sed -e 's|^| |' -e 's|$| |' -e 's| dev ||' -e 's|^ *||' -e 's| *$||' )
+$sed -r -i $dest_repo/.readthedocs.yaml \
+   -e "s|^( *--index_page_name).*|\\1 $index_page_name|" \
+   -e "s|^( *--group_list).*|\\1 $group_list|" \
+   -e "/xrst_begin/,/xrst_end/d"
 #
 # $dest_repo/bin/dev_settings.sh
 cat << EOF > sed.$$
@@ -203,12 +215,13 @@ s|.*|@check_commit@|
 #
 : four
 EOF
-sed -i $dest_repo/bin/dev_settings.sh -f sed.$$
+$sed -i $dest_repo/bin/dev_settings.sh -f sed.$$
 rm sed.$$
 #
 # $dest_repo/bin/dev_settings.sh
 $sed -i $dest_repo/bin/dev_settings.sh \
-   -e "s|^package_name=.*|package_name='$package_name'|"
+   -e "s|^package_name=.*|package_name='$package_name'|" \
+   -e "s|^index_page_name=.*|index_page_name='$index_page_name'|" 
 for variable in \
    version_file_list \
    no_copyright_list \

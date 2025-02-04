@@ -19,7 +19,8 @@ mm-dd
 
 02-03
 =====
-Add ``bin/group_list.sh`` to the ``bin/dev_tools.sh`` development tools.
+Add ``bin/group_list.sh`` 
+and ``.readthedocs.yaml`` to the ``bin/dev_tools.sh`` development tools.
 
 01-24
 =====
