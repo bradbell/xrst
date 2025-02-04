@@ -154,7 +154,7 @@ def test_rst(
 ) :
    print( f'test_installed_version   = {test_installed_version}' )
    print( f'test_external_links      = {test_external_links}' )
-   print( f'tsuppress_spell_warnings = {suppress_spell_warnings}' )
+   print( f'suppress_spell_warnings  = {suppress_spell_warnings}' )
    if not os.path.exists('xrst.toml') :
       assert False, 'test_rst.py: can not find xrst.toml in working directory'
    else :

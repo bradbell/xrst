@@ -152,7 +152,7 @@ cd ..
 # rst_dir, file
 rst_dir='build/rst'
 file_list=$(ls -a $rst_dir/*.rst | sed -e "s|^$rst_dir/||" )
-for file in $file_list
+for file in .readthedocs.yaml.rst $file_list
 do
    if [ ! -e test_rst/$file ]
    then

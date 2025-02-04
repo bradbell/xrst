@@ -56,6 +56,7 @@ dev_tools='
    bin/dev_settings.sh
    bin/git_commit.sh
    bin/grep_and_sed.sh
+   bin/group_list.sh
    bin/new_release.sh
    bin/run_xrst.sh
    bin/sort.sh
