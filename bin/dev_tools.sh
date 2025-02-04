@@ -8,7 +8,7 @@ if [ $# != 1 ] && [ $# != 2 ]
 then
 cat << EOF
 usage: bin/devel_tools.sh dest_repo [spdx_license_id]
-Copies the current development tools from xrst.git/bin to dest_repo/bin
+Copies the current development tools from xrst.git to dest_repo
 
 spdx_license_id is the SPDX-License-Identifier for files in this package.
 If spdx_license_id is not present, and dest_repo/bin/dev_settings.sh exists,
@@ -46,34 +46,36 @@ fi
 source bin/grep_and_sed.sh
 # -----------------------------------------------------------------------------
 # dev_tools
+# BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
-   check_copy.sh
-   check_invisible.sh
-   check_sort.sh
-   check_tab.sh
-   check_version.sh
-   dev_settings.sh
-   git_commit.sh
-   grep_and_sed.sh
-   new_release.sh
-   run_xrst.sh
-   sort.sh
-   twine.sh
+   bin/check_copy.sh
+   bin/check_invisible.sh
+   bin/check_sort.sh
+   bin/check_tab.sh
+   bin/check_version.sh
+   bin/dev_settings.sh
+   bin/git_commit.sh
+   bin/grep_and_sed.sh
+   bin/new_release.sh
+   bin/run_xrst.sh
+   bin/sort.sh
+   bin/twine.sh
 '
+# END_SORT_THIS_LINE_MINUS_2
 for file in $dev_tools
 do
-   if [ $file == dev_settings.sh ] || [ $file == grep_and_sed.sh ]
+   if [ $file == bin/dev_settings.sh ] || [ $file == bin/grep_and_sed.sh ]
    then
-      if [ -x bin/$file ]
+      if [ -x $file ]
       then
-         echo "bin/$file is executable"
+         echo "$file is executable"
          exit 1
       fi
    else
-      line_two=$($sed -n -e '2,2p' bin/$file)
+      line_two=$($sed -n -e '2,2p' $file)
       if [ "$line_two" != 'set -e -u' ]
       then
-         echo "Line 2 of bin/$file is not equal to:"
+         echo "Line 2 of $file is not equal to:"
          echo 'set -e -u'
          exit 1
       fi
@@ -85,6 +87,7 @@ xrst_repo=$(pwd)
 #
 # dest_repo
 cd $dest_repo
+dest_repo=$(pwd)
 #
 # sed.$$
 cat << EOF > sed.$$
@@ -95,14 +98,14 @@ EOF
 # check for overwriting changes
 for file in $dev_tools
 do
-   dest_path="$dest_repo/bin/$file"
-   xrst_path="$xrst_repo/bin/$file"
+   dest_path="$dest_repo/$file"
+   xrst_path="$xrst_repo/$file"
    $sed -f sed.$$ $xrst_path > temp.$$
    if [ -e $dest_path ]
    then
       if ! diff $dest_path temp.$$ > /dev/null
       then
-         temp=$(git ls-files bin/$file)
+         temp=$(git ls-files $file)
          if [ "$temp" == '' ]
          then
             echo "$dest_path"
@@ -111,7 +114,7 @@ do
             rm sed.$$
             exit 1
          else
-            if ! git diff --exit-code bin/$file > /dev/null
+            if ! git diff --exit-code $file > /dev/null
             then
                echo "$dest_path"
                echo 'is in repository and has changes that are not checked in'
@@ -149,13 +152,13 @@ else
 fi
 #
 # $des_repo/bin/*.sh
-echo "Copying the following development tools into $dest_repo/bin"
+echo "Copying the following development tools into $dest_repo"
 echo "and setting SPDX-License-Identifier to $spdx_license_id"
 for file in $dev_tools
 do
-   echo "bin/$file"
-   dest_path="$dest_repo/bin/$file"
-   xrst_path="$xrst_repo/bin/$file"
+   echo "$file"
+   dest_path="$dest_repo/$file"
+   xrst_path="$xrst_repo/$file"
    $sed -f sed.$$ $xrst_path > $dest_path
    if [ -x "$xrst_path" ]
    then

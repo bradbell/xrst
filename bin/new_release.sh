@@ -191,7 +191,7 @@ if [ "$tag_commited" == 'yes' ]
 then
    echo_eval bin/run_xrst.sh --external_links
 else
-   echo_eval bin/run_xrst.sh 
+   echo_eval bin/run_xrst.sh
 fi
 #
 # git_status

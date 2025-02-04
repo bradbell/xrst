@@ -123,22 +123,22 @@ def start_end_file(
    #
    if start_after == '' :
       msg += ' start_after is empty'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_start, data = m_data
       )
    if end_before == '' :
       msg += ' end_before is empty'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_end, data = m_data
       )
    if 0 <= start_after.find('\n') :
       msg += ' a newline appears in start_after'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_start, data = m_data
       )
    if 0 <= end_before.find('\n') :
       msg += ' a newline appears in end_before'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_end, data = m_data
       )
    #
@@ -162,7 +162,7 @@ def start_end_file(
       msg += f'\nfound {count} matches expected 1'
       if input_file == display_file :
          msg += ' not counting the literal command'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_start, data = m_data
       )
    #
@@ -181,7 +181,7 @@ def start_end_file(
       msg += f'\nfound {count} matches expected 1'
       if input_file == display_file :
          msg += ' not counting the literal command'
-      xrst.system_exit(msg, file_name=page_file, page_name=page_name, 
+      xrst.system_exit(msg, file_name=page_file, page_name=page_name,
          m_obj = m_end, data = m_data
       )
    # ------------------------------------------------------------------------
