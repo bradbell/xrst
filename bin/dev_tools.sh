@@ -8,29 +8,17 @@ if [ $# != 1 ] && [ $# != 2 ]
 then
 cat << EOF
 usage: bin/devel_tools.sh dest_repo [spdx_license_id]
+
 Copies the current development tools from xrst.git to dest_repo
 
-spdx_license_id is the SPDX-License-Identifier for files in this package.
-If spdx_license_id is not present, and dest_repo/bin/dev_settings.sh exists,
-the value of spdx_license_id for this package is printed.
+If spdx_license_id is not present, dest_repo/bin/dev_settings.sh must already
+exist and contain value of spdx_license_id for the packare in dest_repo. 
 EOF
    exit 1
 fi
+#
+# dest_repo
 dest_repo="$1"
-if [ $# == 1 ]
-then
-   file="$dest_repo/bin/dev_settings.sh"
-   if [ ! -e $file ]
-   then
-      echo "dev_tools.sh: can not find $file"
-      exit 1
-   fi
-
-   source $dest_repo/bin/dev_settings.sh
-   echo "spdx_license_id = '$spdx_license_id'"
-   exit 0
-fi
-spdx_license_id="$2"
 if [ ! -d "$dest_repo/.git" ]
 then
    echo "dev_tools.sh: $dest_repo is not a git repository"
@@ -40,6 +28,28 @@ if [ ! -d "$dest_repo/bin" ]
 then
    echo "dev_tools.sh: $dest_repo/bin is not a diretory"
    exit 1
+fi
+#
+# spdx_license_id
+if [ $# == 1 ]
+then
+   file="$dest_repo/bin/dev_settings.sh"
+   if [ ! -e $file ]
+   then
+      echo 'dev_tools.sh: spdx_license not specified and can not find'
+      echo $file
+      exit 1
+   fi
+   # 
+   # spdx_license_id
+   source $dest_repo/bin/dev_settings.sh
+   if [ -z ${spdx_license_id+word} ]
+   then
+      echo "dev_tools.sh: spd_license_id is not set in $file"
+      exit 1
+   fi
+else
+   spdx_license_id="$2"
 fi
 #
 # sed
@@ -138,7 +148,7 @@ index_page_name=''
 version_file_list=''
 no_copyright_list=''
 invisible_and_tab_ok=''
-check_commit=''
+check_git_commit=''
 if [ -e $dest_repo/bin/dev_settings.sh ]
 then
    source $dest_repo/bin/dev_settings.sh
@@ -157,11 +167,12 @@ else
 fi
 #
 # $des_repo/bin/*.sh
-echo "Copying the following development tools into $dest_repo"
-echo "and setting SPDX-License-Identifier to $spdx_license_id"
+echo "Copying the following tools to $dest_repo"
+echo "while setting SPDX-License-Identifier to $spdx_license_id"
+echo 'see the comments at the top of each file for its usage:'
 for file in $dev_tools
 do
-   echo "$file"
+   echo "  $file"
    dest_path="$dest_repo/$file"
    xrst_path="$xrst_repo/$file"
    $sed -f sed.$$ $xrst_path > $dest_path
@@ -182,7 +193,8 @@ group_list=$( bin/group_list.sh | \
 $sed -r -i $dest_repo/.readthedocs.yaml \
    -e "s|^( *--index_page_name).*|\\1 $index_page_name|" \
    -e "s|^( *--group_list).*|\\1 $group_list|" \
-   -e "/xrst_begin/,/xrst_end/d"
+   -e '/\{xrst_begin /d' \
+   -e '/\{xrst_end /d'
 #
 # $dest_repo/bin/dev_settings.sh
 cat << EOF > sed.$$
@@ -207,11 +219,11 @@ N
 s|.*|@invisible_and_tab_ok@|
 #
 : three
-/^check_commit=' *$/! b four
+/^check_git_commit=' *$/! b four
 : loop_4
 N
 /\\n' *$/! b loop_4
-s|.*|@check_commit@|
+s|.*|@check_git_commit@|
 #
 : four
 EOF
@@ -226,7 +238,7 @@ for variable in \
    version_file_list \
    no_copyright_list \
    invisible_and_tab_ok \
-   check_commit
+   check_git_commit
 do
    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
    if [[ "$replace" =~ ^( *)$ ]]
@@ -239,14 +251,25 @@ do
    fi
 done
 # -----------------------------------------------------------------------------
+echo 'The following variables are empty and may need to be corrected ?'
+echo 'The variable check_git_commit is usually empty. The settings are in' 
+echo "$dest_repo/bin/dev_settings.sh"
+for variable in  \
+   package_name \
+   index_page_name \
+   version_file_list \
+   no_copyright_list \
+   invisible_and_tab_ok \
+   check_git_commit
+do
+   non_space=$(echo ${!variable} | sed -e 's| ||g')
+   if [ "$non_space" == '' ]
+   then
+      echo "  $variable"
+   fi
+done
+echo 'If a setting is incorrect, abort the changes except for dev_setting.sh,'
+echo 'fix the settings in dev_setting.sh, commit fix, and re-run dev_tools.sh.'
 echo
-cat << EOF
-Check the folloiwing file for empty variables that need to be defined:
-   $dest_repo/bin/dev_settings.sh
-
-See the comments at the top of each development tool from a description
-of how to use it.
-
-dev_tools.sh: OK
-EOF
+echo 'dev_tools.sh: OK'
 exit 0
