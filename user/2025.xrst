@@ -9,6 +9,8 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
    pyenchant
    tomli
    dev
+   readthedocs
+   yaml
 }
 
 xrst Release Notes for 2025
@@ -19,7 +21,7 @@ mm-dd
 
 02-03
 =====
-Add ``bin/group_list.sh`` 
+Add ``bin/group_list.sh``
 and ``.readthedocs.yaml`` to the ``bin/dev_tools.sh`` development tools.
 
 01-24
