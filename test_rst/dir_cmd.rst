@@ -5,7 +5,7 @@ dir_cmd
 !!!!!!!
 
 .. meta::
-  :keywords: dir_cmd,converting,sphinx,command,file,names,syntax,purpose,file_name,example
+   :keywords: dir_cmd,converting,sphinx,command,file,names,syntax,purpose,file_name,example
 
 .. index:: dir_cmd, converting, sphinx, names
 
@@ -15,7 +15,7 @@ Converting Sphinx Command File Names
 ####################################
 
 .. contents::
-  :local:
+   :local:
 
 .. _dir_cmd@Syntax:
 

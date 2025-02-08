@@ -5,7 +5,7 @@ literal_cmd
 !!!!!!!!!!!
 
 .. meta::
-  :keywords: literal_cmd,literal,command,syntax,entire,file,with,separator,without,purpose,literalinclude,tokens,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
+   :keywords: literal_cmd,literal,command,syntax,entire,file,with,separator,without,purpose,literalinclude,tokens,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
 
 .. index:: literal_cmd, literal
 
@@ -15,7 +15,7 @@ Literal Command
 ###############
 
 .. contents::
-  :local:
+   :local:
 
 .. _literal_cmd@Syntax:
 

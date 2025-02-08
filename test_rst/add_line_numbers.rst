@@ -5,7 +5,7 @@ add_line_numbers
 !!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: add_line_numbers,add,line,numbers,to,file,data,prototype,data_in,file_in,data_out
+   :keywords: add_line_numbers,add,line,numbers,to,file,data,prototype,data_in,file_in,data_out
 
 .. index:: add_line_numbers, add, line, numbers, data
 
@@ -17,7 +17,7 @@ Add line numbers to a string in a way that is useful for reporting errors
 (for modified versions of string) using line number in the original string.
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -27,8 +27,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/add_line_numbers.py
-  :lines: 52-54,121-123
-  :language: py
+   :lines: 52-54,121-123
+   :language: py
 
 .. index:: data_in
 

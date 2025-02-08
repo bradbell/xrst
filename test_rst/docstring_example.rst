@@ -5,7 +5,7 @@ docstring_example
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: docstring_example,docstring,example,discussion,this,file
+   :keywords: docstring_example,docstring,example,discussion,this,file
 
 .. index:: docstring_example, docstring
 
@@ -15,7 +15,7 @@ Docstring Example
 #################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: discussion
 
@@ -33,4 +33,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/docstring.py
-  :language: py
+   :language: py

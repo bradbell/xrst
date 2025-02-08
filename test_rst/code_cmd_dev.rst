@@ -5,7 +5,7 @@ code_cmd_dev
 !!!!!!!!!!!!
 
 .. meta::
-  :keywords: code_cmd_dev,process,the,xrst,code,commands,for,a,page,prototype,data_in,file_name,page_name,rst2project_dir,data_out
+   :keywords: code_cmd_dev,process,the,xrst,code,commands,for,a,page,prototype,data_in,file_name,page_name,rst2project_dir,data_out
 
 .. index:: code_cmd_dev, process, xrst, code, commands, page
 
@@ -15,7 +15,7 @@ Process the xrst code commands for a page
 #########################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/code_command.py
-  :lines: 118-122,216-218
-  :language: py
+   :lines: 118-122,216-218
+   :language: py
 
 .. index:: data_in
 

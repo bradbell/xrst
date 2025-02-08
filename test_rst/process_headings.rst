@@ -5,7 +5,7 @@ process_headings
 !!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: process_headings,add,labels,and,index,entries,for,headings,prototype,check_headings,conf_dict,local_toc,data_in,page_file,page_name,not_in_index_list,data_out,page_title,pseudo_heading,keywords
+   :keywords: process_headings,add,labels,and,index,entries,for,headings,prototype,check_headings,conf_dict,local_toc,data_in,page_file,page_name,not_in_index_list,data_out,page_title,pseudo_heading,keywords
 
 .. index:: process_headings, add, labels, index, entries, headings
 
@@ -15,7 +15,7 @@ Add labels and index entries for headings
 #########################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_headings.py
-  :lines: 274-289,600-607
-  :language: py
+   :lines: 274-289,600-607
+   :language: py
 
 .. index:: check_headings
 

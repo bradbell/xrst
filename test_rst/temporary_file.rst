@@ -5,7 +5,7 @@ temporary_file
 !!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: temporary_file,write,the,temporary,rst,file,for,a,page,prototype,page_source,target,pseudo_heading,file_in,tmp_dir,page_name,file_out,data_in,rst2xrst_list
+   :keywords: temporary_file,write,the,temporary,rst,file,for,a,page,prototype,page_source,target,pseudo_heading,file_in,tmp_dir,page_name,file_out,data_in,rst2xrst_list
 
 .. index:: temporary_file, write, temporary, rst, page
 
@@ -15,7 +15,7 @@ Write the temporary RST file for a page
 #######################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/temporary_file.py
-  :lines: 105-120,231-237
-  :language: py
+   :lines: 105-120,231-237
+   :language: py
 
 .. index:: page_source
 

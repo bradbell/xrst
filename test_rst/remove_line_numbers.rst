@@ -5,7 +5,7 @@ remove_line_numbers
 !!!!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: remove_line_numbers,remove,the,number,numbers,prototype,data_in,data_out,rst2xrst_list,first,tuple,element,second,third,fourth,fourthtuple
+   :keywords: remove_line_numbers,remove,the,number,numbers,prototype,data_in,data_out,rst2xrst_list,first,tuple,element,second,third,fourth,fourthtuple
 
 .. index:: remove_line_numbers, remove, number, numbers
 
@@ -15,7 +15,7 @@ Remove the number numbers
 #########################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/remove_line_numbers.py
-  :lines: 78-79,186-193
-  :language: py
+   :lines: 78-79,186-193
+   :language: py
 
 .. index:: data_in
 

@@ -365,7 +365,7 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
       for i in range( len(start_end_line_list) ) :
          start_line, end_line = start_end_line_list[i]
          if i == 0 :
-            cmd += 2 * ' ' + f':lines: {start_line}-{end_line}'
+            cmd += 3 * ' ' + f':lines: {start_line}-{end_line}'
          else :
             cmd += f',{start_line}-{end_line}'
       if( len(start_end_line_list) > 0 ) :
@@ -376,7 +376,7 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
       # dead and does not do this automatically.
       extension = file_extension( display_file )
       if extension != '' :
-         cmd += 2 * ' ' + f':language: {extension}\n'
+         cmd += 3 * ' ' + f':language: {extension}\n'
       cmd = '\n' + cmd + '\n\n'
       if m_literal.start() > 0 :
          if data_out[m_literal.start() - 1] != '\n' :

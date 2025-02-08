@@ -5,7 +5,7 @@ start_end_file
 !!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: start_end_file,convert,literal,command,start,,end,from,text,to,line,numbers,prototype,page_file,page_name,input_file,display_file,cmd_line,start_after,end_before,start_line,end_line,m_start,m_end,m_data
+   :keywords: start_end_file,convert,literal,command,start,,end,from,text,to,line,numbers,prototype,page_file,page_name,input_file,display_file,cmd_line,start_after,end_before,start_line,end_line,m_start,m_end,m_data
 
 .. index:: start_end_file, convert, literal, start,, end, from, text, line, numbers
 
@@ -15,7 +15,7 @@ Convert literal command start, end from text to line numbers
 ############################################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/start_end_file.py
-  :lines: 89-112,189-192
-  :language: py
+   :lines: 89-112,189-192
+   :language: py
 
 .. index:: page_file
 

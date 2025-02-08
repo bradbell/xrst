@@ -5,7 +5,7 @@ newline_indices
 !!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: newline_indices,find,index,of,all,the,newlines,in,a,string,prototype,data,results,newline_list
+   :keywords: newline_indices,find,index,of,all,the,newlines,in,a,string,prototype,data,results,newline_list
 
 .. index:: newline_indices, find, index, all, newlines, in, string
 
@@ -15,7 +15,7 @@ Find index of all the newlines in a string
 ##########################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/newline_indices.py
-  :lines: 33-34,43-47
-  :language: py
+   :lines: 33-34,43-47
+   :language: py
 
 .. index:: data
 

@@ -5,7 +5,7 @@ heading_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: heading_example,heading,and,link,example,level,one,two,another,two\_,x,links,linking,headings,using,:ref:,this,file
+   :keywords: heading_example,heading,and,link,example,level,one,two,another,two\_,x,links,linking,headings,using,:ref:,this,file
 
 .. index:: heading_example, heading, link
 
@@ -27,7 +27,7 @@ and linking text is::
    Heading and Link Example
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: level, one
 
@@ -108,4 +108,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/heading.py
-  :language: py
+   :language: py

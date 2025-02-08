@@ -5,7 +5,7 @@ dir_cmd_dev
 !!!!!!!!!!!
 
 .. meta::
-  :keywords: dir_cmd_dev,convert,file,names,to,be,relative,the,rst,directory,prototype,data_in,rst2project_dir,data_out
+   :keywords: dir_cmd_dev,convert,file,names,to,be,relative,the,rst,directory,prototype,data_in,rst2project_dir,data_out
 
 .. index:: dir_cmd_dev, convert, names, be, relative, rst, directory
 
@@ -15,7 +15,7 @@ Convert File Names to be Relative to the RST Directory
 ######################################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/dir_command.py
-  :lines: 71-73,97-99
-  :language: py
+   :lines: 71-73,97-99
+   :language: py
 
 .. index:: data_in
 

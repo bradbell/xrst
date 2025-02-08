@@ -5,7 +5,7 @@ file_line
 !!!!!!!!!
 
 .. meta::
-  :keywords: file_line,determine,input,file,and,line,m_obj,data,page_file,page_line,template_file,template_line
+   :keywords: file_line,determine,input,file,and,line,m_obj,data,page_file,page_line,template_file,template_line
 
 .. index:: file_line, determine, input, line
 
@@ -15,11 +15,11 @@ Determine Input File and Line
 #############################
 
 .. literalinclude:: ../../xrst/file_line.py
-  :lines: 56-58,86-93
-  :language: py
+   :lines: 56-58,86-93
+   :language: py
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: m_obj
 

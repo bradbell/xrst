@@ -5,7 +5,7 @@ process_children
 !!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: process_children,add,child,information,to,a,page,prototype,data_in,list_children,data_out
+   :keywords: process_children,add,child,information,to,a,page,prototype,data_in,list_children,data_out
 
 .. index:: process_children, add, child, information, page
 
@@ -15,7 +15,7 @@ Add child information to a page
 ###############################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_children.py
-  :lines: 58-67,144-146
-  :language: py
+   :lines: 58-67,144-146
+   :language: py
 
 .. index:: data_in
 

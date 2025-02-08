@@ -5,7 +5,7 @@ ref_cmd_dev
 !!!!!!!!!!!
 
 .. meta::
-  :keywords: ref_cmd_dev,remove,leading,and,trailing,white,space,from,ref,role,targets,prototype,data_in,data_out
+   :keywords: ref_cmd_dev,remove,leading,and,trailing,white,space,from,ref,role,targets,prototype,data_in,data_out
 
 .. index:: ref_cmd_dev, remove, leading, trailing, white, space, from, ref, role, targets
 
@@ -15,7 +15,7 @@ Remove Leading and Trailing White Space From ref Role Targets
 #############################################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/ref_command.py
-  :lines: 70-71,137-139
-  :language: py
+   :lines: 70-71,137-139
+   :language: py
 
 .. index:: data_in
 

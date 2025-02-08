@@ -5,7 +5,7 @@ begin_cmd
 !!!!!!!!!
 
 .. meta::
-  :keywords: begin_cmd,begin,and,end,commands,syntax,page,file,page_name,group_name,default,group,output,parent
+   :keywords: begin_cmd,begin,and,end,commands,syntax,page,file,page_name,group_name,default,group,output,parent
 
 .. index:: begin_cmd, begin, end, commands
 
@@ -15,7 +15,7 @@ Begin and End Commands
 ######################
 
 .. contents::
-  :local:
+   :local:
 
 .. _begin_cmd@Syntax:
 

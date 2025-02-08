@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-  :keywords: 2021,xrst,release,notes,for,mm-dd,11-13,10-25,09-27,09-26
+   :keywords: 2021,xrst,release,notes,for,mm-dd,11-13,10-25,09-27,09-26
 
 .. index:: 2021, xrst, release, notes, 2021
 
@@ -15,7 +15,7 @@ xrst Release Notes for 2021
 ###########################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: mm-dd
 

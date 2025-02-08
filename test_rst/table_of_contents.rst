@@ -5,7 +5,7 @@ table_of_contents
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: table_of_contents,create,the,table,of,contents,and,modify,titles,prototype,tmp_dir,target,tex,html,all_page_info,root_page_list,content
+   :keywords: table_of_contents,create,the,table,of,contents,and,modify,titles,prototype,tmp_dir,target,tex,html,all_page_info,root_page_list,content
 
 .. index:: table_of_contents, create, table, contents, modify, titles
 
@@ -15,7 +15,7 @@ Create the table of contents and Modify Titles
 ##############################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-  :lines: 213-222,253-255
-  :language: py
+   :lines: 213-222,253-255
+   :language: py
 
 .. index:: tmp_dir
 

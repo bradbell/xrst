@@ -5,7 +5,7 @@ auto_file_dev
 !!!!!!!!!!!!!
 
 .. meta::
-  :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py,prototype
+   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py,prototype
 
 .. index:: auto_file_dev, create, automatically, generated, files
 
@@ -15,7 +15,7 @@ Create the automatically generated files
 ########################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: conf_dict
 
@@ -164,5 +164,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/auto_file.py
-  :lines: 402-409
-  :language: py
+   :lines: 402-409
+   :language: py

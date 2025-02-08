@@ -5,7 +5,7 @@ indent_cmd_dev
 !!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: indent_cmd_dev,process,indent,commands,in,a,page,prototype,data_in,file_name,page_name,data_out
+   :keywords: indent_cmd_dev,process,indent,commands,in,a,page,prototype,data_in,file_name,page_name,data_out
 
 .. index:: indent_cmd_dev, process, indent, commands, in, page
 
@@ -15,7 +15,7 @@ Process indent commands in a page
 #################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/indent_command.py
-  :lines: 105-108,196-198
-  :language: py
+   :lines: 105-108,196-198
+   :language: py
 
 .. index:: data_in
 

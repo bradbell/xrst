@@ -5,7 +5,7 @@ example_expansion_two
 !!!!!!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: example_expansion_two,second,expansion,number,spelling,paragraph,third,this,template,file,usage
+   :keywords: example_expansion_two,second,expansion,number,spelling,paragraph,third,this,template,file,usage
 
 
 
@@ -17,7 +17,7 @@ Second Expansion
 ################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: expansion, number
 
@@ -67,7 +67,7 @@ This Template File
 ******************
 
 .. literalinclude:: ../../example/template_file.xrst
-  :language: rst
+   :language: rst
 
 .. index:: template, usage
 
@@ -77,7 +77,7 @@ This Template Usage
 *******************
 
 .. literalinclude:: ../../example/template.xrst
-  :lines: 37-50
-  :language: rst
+   :lines: 37-50
+   :language: rst
 
 

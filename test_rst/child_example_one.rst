@@ -5,7 +5,7 @@ child_example_one
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: child_example_one,first,child,example,page,links,this,file
+   :keywords: child_example_one,first,child,example,page,links,this,file
 
 .. index:: child_example_one, first, child, page
 
@@ -15,7 +15,7 @@ First Child Example Page
 ########################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: links
 

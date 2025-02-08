@@ -5,7 +5,7 @@ ref_cmd
 !!!!!!!
 
 .. meta::
-  :keywords: ref_cmd,allow,multiple,lines,in,sphinx,ref,role,syntax,purpose,new,example
+   :keywords: ref_cmd,allow,multiple,lines,in,sphinx,ref,role,syntax,purpose,new,example
 
 .. index:: ref_cmd, allow, multiple, lines, in, sphinx, ref, role
 
@@ -15,7 +15,7 @@ Allow Multiple Lines in Sphinx ref Role
 #######################################
 
 .. contents::
-  :local:
+   :local:
 
 .. _ref_cmd@Syntax:
 

@@ -198,8 +198,8 @@ def code_command(data_in, file_name, page_name, rst2project_dir) :
       # cmd
       file_path = os.path.join(rst2project_dir, file_name)
       command   = indent + f'.. literalinclude:: {file_path}\n'
-      command  += indent + 2 * ' ' + f':lines: {start_line}-{stop_line}\n'
-      command  += indent + 2 * ' ' + f':language: {language}\n'
+      command  += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+      command  += indent + 3 * ' ' + f':language: {language}\n'
       command  = '\n' + command + '\n'
       assert data_after.startswith('\n')
       if not data_before.strip(' ').endswith('\n') :

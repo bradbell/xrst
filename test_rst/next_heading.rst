@@ -5,7 +5,7 @@ next_heading
 !!!!!!!!!!!!
 
 .. meta::
-  :keywords: next_heading,return,location,of,the,next,heading,in,a,page,prototype,data,data_index,page_file,page_name,heading_index,heading_text,underline_text
+   :keywords: next_heading,return,location,of,the,next,heading,in,a,page,prototype,data,data_index,page_file,page_name,heading_index,heading_text,underline_text
 
 .. index:: next_heading, return, location, next, heading, in, page
 
@@ -15,7 +15,7 @@ Return location of the next heading in a page
 #############################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/next_heading.py
-  :lines: 59-65,154-158
-  :language: py
+   :lines: 59-65,154-158
+   :language: py
 
 .. index:: data
 

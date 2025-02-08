@@ -5,7 +5,7 @@ example_ad_double
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: example_ad_double,an,example,using,the,ad_double,class,xrst_indent,begin,function,initialize,ok,independent,variable,addition,subtraction,multiplication,division,return,file
+   :keywords: example_ad_double,an,example,using,the,ad_double,class,xrst_indent,begin,function,initialize,ok,independent,variable,addition,subtraction,multiplication,division,return,file
 
 .. index:: example_ad_double, using, ad_double, class
 
@@ -18,7 +18,7 @@ Another choice is to put the documentation and the beginning
 an then just have comments in the code.
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: xrst_indent
 
@@ -39,8 +39,8 @@ This function has no arguments and returns a boolean that is true,
 if all it's tests pass, and false otherwise.
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 146-147
-  :language: cpp
+   :lines: 146-147
+   :language: cpp
 
 .. index:: initialize, ok
 
@@ -50,8 +50,8 @@ Initialize ok
 *************
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 154-154
-  :language: cpp
+   :lines: 154-154
+   :language: cpp
 
 .. index:: independent, variable
 
@@ -61,8 +61,8 @@ Independent Variable
 ********************
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 160-162
-  :language: cpp
+   :lines: 160-162
+   :language: cpp
 
 .. index:: addition
 
@@ -72,8 +72,8 @@ Addition
 ********
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 168-171
-  :language: cpp
+   :lines: 168-171
+   :language: cpp
 
 .. index:: subtraction
 
@@ -83,8 +83,8 @@ Subtraction
 ***********
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 177-180
-  :language: cpp
+   :lines: 177-180
+   :language: cpp
 
 .. index:: multiplication
 
@@ -94,8 +94,8 @@ Multiplication
 **************
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 186-189
-  :language: cpp
+   :lines: 186-189
+   :language: cpp
 
 .. index:: division
 
@@ -105,8 +105,8 @@ Division
 ********
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 195-198
-  :language: cpp
+   :lines: 195-198
+   :language: cpp
 
 .. index:: return, ok
 
@@ -116,8 +116,8 @@ Return ok
 *********
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 205-206
-  :language: cpp
+   :lines: 205-206
+   :language: cpp
 
 .. _example_ad_double@Example File:
 

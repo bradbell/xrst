@@ -5,7 +5,7 @@ auto_file
 !!!!!!!!!
 
 .. meta::
-  :keywords: auto_file,automatically,generated,files,conf.py,xrst_root_doc.rst,xrst_contents.rst,xrst_index.rst,xrst_search.rst,xrst_search.js
+   :keywords: auto_file,automatically,generated,files,conf.py,xrst_root_doc.rst,xrst_contents.rst,xrst_index.rst,xrst_search.rst,xrst_search.js
 
 .. index:: auto_file, automatically, generated, files
 
@@ -22,7 +22,7 @@ Automatically Generated Files
    conf.py and xrst_search.js .
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: conf.py
 

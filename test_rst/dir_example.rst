@@ -5,7 +5,7 @@ dir_example
 !!!!!!!!!!!
 
 .. meta::
-  :keywords: dir_example,dir,command,example,factorial,square,tangent,xrst_literal,this,file
+   :keywords: dir_example,dir,command,example,factorial,square,tangent,xrst_literal,this,file
 
 .. index:: dir_example, dir
 
@@ -16,7 +16,7 @@ Dir Command Example
 This example is similar to the :ref:`literal_example-name` .
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: factorial
 
@@ -63,4 +63,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/dir.cpp
-  :language: cpp
+   :language: cpp

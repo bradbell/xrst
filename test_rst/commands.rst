@@ -5,7 +5,7 @@ commands
 !!!!!!!!
 
 .. meta::
-  :keywords: commands
+   :keywords: commands
 
 .. index:: commands, commands
 
@@ -33,18 +33,18 @@ These commands are described in the pages below:
 -  :ref:`template_cmd-title`
 
 .. toctree::
-  :maxdepth: 1
-  :hidden:
+   :maxdepth: 1
+   :hidden:
 
-  begin_cmd
-  toc_cmd
-  spell_cmd
-  suspend_cmd
-  indent_cmd
-  code_cmd
-  literal_cmd
-  dir_cmd
-  comment_cmd
-  comment_ch_cmd
-  ref_cmd
-  template_cmd
+   begin_cmd
+   toc_cmd
+   spell_cmd
+   suspend_cmd
+   indent_cmd
+   code_cmd
+   literal_cmd
+   dir_cmd
+   comment_cmd
+   comment_ch_cmd
+   ref_cmd
+   template_cmd

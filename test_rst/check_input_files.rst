@@ -5,7 +5,7 @@ check_input_files
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: check_input_files,check,that,expected,xrst,input,files,are,included,prototype,config_file,conf_dict,group_name,toc_file_set,file_list_in,file_list_out,file_list_warning
+   :keywords: check_input_files,check,that,expected,xrst,input,files,are,included,prototype,config_file,conf_dict,group_name,toc_file_set,file_list_in,file_list_out,file_list_warning
 
 .. index:: check_input_files, check, expected, xrst, input, files, are, included
 
@@ -15,7 +15,7 @@ Check That Expected xrst Input Files Are Included
 #################################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_input_files.py
-  :lines: 63-77,187-192
-  :language: py
+   :lines: 63-77,187-192
+   :language: py
 
 .. index:: config_file
 

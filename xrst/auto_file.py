@@ -574,7 +574,7 @@ def auto_file(
          rst_prolog += '\n\n'
       rst_prolog += '.. rst-class:: hidden\n\n'
       for macro in latex_macro :
-         rst_prolog += 2 * ' ' + f':math:`{macro}`\n'
+         rst_prolog += 3 * ' ' + f':math:`{macro}`\n'
    #
    # conf_py
    if rst_epilog != '' :
@@ -591,10 +591,10 @@ def auto_file(
       conf_py += '#\n'
       conf_py += '# Latex used when sphinx builds tex\n'
       conf_py += 'latex_elements = {\n'
-      conf_py += 2 * ' ' + "'preamble' : r'''\n"
+      conf_py += 3 * ' ' + "'preamble' : r'''\n"
       for macro in latex_macro :
-         conf_py += 2 * ' ' + macro + '\n'
-      conf_py +=  2 * ' ' +"'''\n"
+         conf_py += 3 * ' ' + macro + '\n'
+      conf_py +=  3 * ' ' +"'''\n"
       conf_py += '}\n'
    #
    # rst_dir/conf.py
@@ -611,14 +611,14 @@ def auto_file(
    file_data += len(project_name) * '#'
    file_data += '\n\n'
    file_data += '.. toctree::\n'
-   file_data += 2 * ' ' + ':maxdepth: 1\n'
+   file_data += 3 * ' ' + ':maxdepth: 1\n'
    file_data += '\n'
    if target == 'html' :
-      file_data += 2 * ' ' + 'xrst_search\n'
-      file_data += 2 * ' ' + 'xrst_index\n'
-   file_data += 2 * ' ' + 'xrst_contents\n'
+      file_data += 3 * ' ' + 'xrst_search\n'
+      file_data += 3 * ' ' + 'xrst_index\n'
+   file_data += 3 * ' ' + 'xrst_contents\n'
    for page_name in root_page_list :
-      file_data += 2 * ' ' + '' + page_name + '\n'
+      file_data += 3 * ' ' + '' + page_name + '\n'
    #
    # xrst_root_doc.rst
    file_name    = tmp_dir + '/xrst_root_doc.rst'

@@ -5,7 +5,7 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-  :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,group_list,example,rename_group,old_group_name,new_group_name
+   :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,group_list,example,rename_group,old_group_name,new_group_name
 
 .. index:: run_xrst, extract, rst, files, run, sphinx
 
@@ -15,7 +15,7 @@ Extract RST Files And Run Sphinx
 ################################
 
 .. contents::
-  :local:
+   :local:
 
 .. _run_xrst@Syntax:
 

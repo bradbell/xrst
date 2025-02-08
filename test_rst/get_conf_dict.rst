@@ -5,7 +5,7 @@ get_conf_dict
 !!!!!!!!!!!!!
 
 .. meta::
-  :keywords: get_conf_dict,get,configuration,dictionary,prototype,config_file,conf_dict
+   :keywords: get_conf_dict,get,configuration,dictionary,prototype,config_file,conf_dict
 
 .. index:: get_conf_dict, get, configuration, dictionary
 
@@ -18,7 +18,7 @@ the *project_directory* (because it determines the project directory)
 so it cannot use the xrst :ref:`system_exit-name` .
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -28,8 +28,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/get_conf_dict.py
-  :lines: 509-511,709-711
-  :language: py
+   :lines: 509-511,709-711
+   :language: py
 
 .. index:: config_file
 

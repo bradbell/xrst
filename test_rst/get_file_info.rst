@@ -5,7 +5,7 @@ get_file_info
 !!!!!!!!!!!!!
 
 .. meta::
-  :keywords: get_file_info,get,information,for,all,pages,in,a,file,prototype,all_page_info,group_name,parent_file,file_in,file_page_info,info['page_name'],info['page_data'],info['is_parent'],info['is_child'],info['begin_line'],info['end_line']
+   :keywords: get_file_info,get,information,for,all,pages,in,a,file,prototype,all_page_info,group_name,parent_file,file_in,file_page_info,info['page_name'],info['page_data'],info['is_parent'],info['is_child'],info['begin_line'],info['end_line']
 
 .. index:: get_file_info, get, information, all, pages, in
 
@@ -15,7 +15,7 @@ Get information for all pages in a file
 #######################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/get_file_info.py
-  :lines: 188-200,414-417
-  :language: py
+   :lines: 188-200,414-417
+   :language: py
 
 .. index:: all_page_info
 

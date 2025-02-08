@@ -538,7 +538,7 @@ def process_headings(
          found_level_one_heading = True
          if local_toc :
             data_tmp += '\n.. contents::\n'
-            data_tmp += 2 * ' ' + ':local:\n\n'
+            data_tmp += 3 * ' ' + ':local:\n\n'
       #
       # data_tmp
       # add sphnix index, and label commands
@@ -571,7 +571,7 @@ def process_headings(
    keywords = keywords.strip()
    if keywords != '' :
       cmd  = '.. meta::\n'
-      cmd += 2 * ' ' + ':keywords: ' + keywords.replace(' ', ',') + '\n\n'
+      cmd += 3 * ' ' + ':keywords: ' + keywords.replace(' ', ',') + '\n\n'
       data_out = cmd + data_out
    #
    if len(heading_list) == 0 :

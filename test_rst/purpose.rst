@@ -5,7 +5,7 @@ purpose
 !!!!!!!
 
 .. meta::
-  :keywords: purpose,of,this,sphinx,wrapper,motivation,goal,features
+   :keywords: purpose,of,this,sphinx,wrapper,motivation,goal,features
 
 .. index:: purpose, sphinx, wrapper
 
@@ -15,7 +15,7 @@ Purpose of this Sphinx Wrapper
 ##############################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: motivation
 

@@ -81,7 +81,7 @@ def page_table_of_contents(
    if 0 < len(count) :
       assert type( count[-1] ) == int
       for i in range( len(count) - 1 ) :
-         content += 2 * ' '
+         content += 3 * ' '
       for (i, c) in enumerate(count) :
          page_number += str(c)
          if i + 1 < len(count) :

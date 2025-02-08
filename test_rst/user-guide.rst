@@ -5,7 +5,7 @@ user-guide
 !!!!!!!!!!
 
 .. meta::
-  :keywords: user-guide,extract,sphinx,rst,files,license,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
+   :keywords: user-guide,extract,sphinx,rst,files,license,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
 
 .. index:: user-guide, extract, sphinx, rst, files
 
@@ -18,7 +18,7 @@ and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: license
 
@@ -113,8 +113,8 @@ The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 
 .. literalinclude:: ../../pyproject.toml
-  :lines: 31-38
-  :language: toml
+   :lines: 31-38
+   :language: toml
 
 .. index:: run, program
 
@@ -138,11 +138,11 @@ Contents
 -  :ref:`wish_list-title`
 
 .. toctree::
-  :maxdepth: 1
-  :hidden:
+   :maxdepth: 1
+   :hidden:
 
-  config_file
-  run_xrst
-  commands
-  automatic
-  wish_list
+   config_file
+   run_xrst
+   commands
+   automatic
+   wish_list

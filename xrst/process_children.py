@@ -133,11 +133,11 @@ def process_children(
    # data_out
    # put hidden toctree at end of page
    toctree  = '\n.. toctree::\n'
-   toctree += 2 * ' ' + ':maxdepth: 1\n'
-   toctree += 2 * ' ' + ':hidden:\n\n'
+   toctree += 3 * ' ' + ':maxdepth: 1\n'
+   toctree += 3 * ' ' + ':hidden:\n\n'
    for child in list_children :
       entry    = pattern_rst_extension.sub('', child)
-      toctree += 2 * ' ' + '' + entry + '\n'
+      toctree += 3 * ' ' + '' + entry + '\n'
    data_out = data_out + toctree
    #
    # BEGIN_RETURN

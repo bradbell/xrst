@@ -5,7 +5,7 @@ indent_example
 !!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: indent_example,indent,example,discussion,python,docstring,this,file
+   :keywords: indent_example,indent,example,discussion,python,docstring,this,file
 
 .. index:: indent_example, indent
 
@@ -15,7 +15,7 @@ Indent Example
 ##############
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: discussion
 
@@ -45,4 +45,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/indent.py
-  :language: py
+   :language: py

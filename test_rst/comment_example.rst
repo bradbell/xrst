@@ -5,7 +5,7 @@ comment_example
 !!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: comment_example,comment,command,example,xrst,comments,rst,factorial,xrst_comment,this,file
+   :keywords: comment_example,comment,command,example,xrst,comments,rst,factorial,xrst_comment,this,file
 
 .. index:: comment_example, comment
 
@@ -15,7 +15,7 @@ Comment Command Example
 #######################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: xrst, comments
 
@@ -48,8 +48,8 @@ Factorial
 *********
 
 .. literalinclude:: ../../example/comment.r
-  :lines: 33-38
-  :language: r
+   :lines: 33-38
+   :language: r
 
 .. index:: xrst_comment
 
@@ -65,4 +65,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/comment.r
-  :language: r
+   :language: r

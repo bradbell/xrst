@@ -5,7 +5,7 @@ template_cmd
 !!!!!!!!!!!!
 
 .. meta::
-  :keywords: template_cmd,template,command,syntax,input,file,rst,include,white,space,separator,template_file,match,replace,comment,end,example
+   :keywords: template_cmd,template,command,syntax,input,file,rst,include,white,space,separator,template_file,match,replace,comment,end,example
 
 .. index:: template_cmd, template
 
@@ -15,7 +15,7 @@ Template Command
 ################
 
 .. contents::
-  :local:
+   :local:
 
 .. _template_cmd@Syntax:
 

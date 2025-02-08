@@ -5,7 +5,7 @@ comment_cmd
 !!!!!!!!!!!
 
 .. meta::
-  :keywords: comment_cmd,comment,command,syntax,purpose,example
+   :keywords: comment_cmd,comment,command,syntax,purpose,example
 
 .. index:: comment_cmd, comment
 
@@ -15,7 +15,7 @@ Comment Command
 ###############
 
 .. contents::
-  :local:
+   :local:
 
 .. _comment_cmd@Syntax:
 

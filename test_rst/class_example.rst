@@ -5,7 +5,7 @@ class_example
 !!!!!!!!!!!!!
 
 .. meta::
-  :keywords: class_example,example,documenting,a,class,syntax,prototype,discussion,test,this,file
+   :keywords: class_example,example,documenting,a,class,syntax,prototype,discussion,test,this,file
 
 .. index:: class_example, documenting, class
 
@@ -15,7 +15,7 @@ Example Documenting a Class
 ###########################
 
 .. contents::
-  :local:
+   :local:
 
 .. _class_example@Syntax:
 
@@ -38,8 +38,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../example/class.cpp
-  :lines: 74-74,79-79,84-84,89-89,97-97,105-105,114-114
-  :language: cpp
+   :lines: 74-74,79-79,84-84,89-89,97-97,105-105,114-114
+   :language: cpp
 
 .. index:: discussion
 
@@ -70,11 +70,11 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/class.cpp
-  :language: cpp
+   :language: cpp
 
 .. toctree::
-  :maxdepth: 1
-  :hidden:
+   :maxdepth: 1
+   :hidden:
 
-  example_ad_double
-  test_ad_double
+   example_ad_double
+   test_ad_double

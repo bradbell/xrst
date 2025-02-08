@@ -5,7 +5,7 @@ comment_ch_cmd
 !!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: comment_ch_cmd,comment,character,command,syntax,purpose,ch,input,stream,indentation,example
+   :keywords: comment_ch_cmd,comment,character,command,syntax,purpose,ch,input,stream,indentation,example
 
 .. index:: comment_ch_cmd, comment, character
 
@@ -15,7 +15,7 @@ Comment Character Command
 #########################
 
 .. contents::
-  :local:
+   :local:
 
 .. _comment_ch_cmd@Syntax:
 

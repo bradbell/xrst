@@ -5,7 +5,7 @@ get_spell_checker
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: get_spell_checker,get,a,spell,checker,object,syntax,local_words,package,word,spell_checker,known,suggest
+   :keywords: get_spell_checker,get,a,spell,checker,object,syntax,local_words,package,word,spell_checker,known,suggest
 
 .. index:: get_spell_checker, get, spell, checker, object
 
@@ -15,7 +15,7 @@ Get A Spell Checker Object
 ##########################
 
 .. contents::
-  :local:
+   :local:
 
 .. _get_spell_checker@Syntax:
 

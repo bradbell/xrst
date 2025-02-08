@@ -5,7 +5,7 @@ template_example
 !!!!!!!!!!!!!!!!
 
 .. meta::
-  :keywords: template_example,template,command,example,xrst_template,this,file
+   :keywords: template_example,template,command,example,xrst_template,this,file
 
 .. index:: template_example, template
 
@@ -15,7 +15,7 @@ Template Command Example
 ########################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: xrst_template
 
@@ -31,7 +31,7 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/template.xrst
-  :language: rst
+   :language: rst
 
 .. csv-table::
    :header: "Child", "Title"
@@ -41,8 +41,8 @@ This Example File
    "example_expansion_two", :ref:`example_expansion_two-title`
 
 .. toctree::
-  :maxdepth: 1
-  :hidden:
+   :maxdepth: 1
+   :hidden:
 
-  example_expansion_one
-  example_expansion_two
+   example_expansion_one
+   example_expansion_two

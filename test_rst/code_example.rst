@@ -5,7 +5,7 @@ code_example
 !!!!!!!!!!!!
 
 .. meta::
-  :keywords: code_example,code,command,example,factorial,git,hash,xrst_code,xrst_spell_off,,xrst_spell_on,this,file
+   :keywords: code_example,code,command,example,factorial,git,hash,xrst_code,xrst_spell_off,,xrst_spell_on,this,file
 
 .. index:: code_example, code
 
@@ -15,7 +15,7 @@ Code Command Example
 ####################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: factorial
 
@@ -25,8 +25,8 @@ Factorial
 *********
 
 .. literalinclude:: ../../example/code.py
-  :lines: 14-17
-  :language: py
+   :lines: 14-17
+   :language: py
 
 .. index:: git, hash
 
@@ -36,8 +36,8 @@ Git Hash
 ********
 
 .. literalinclude:: ../../example/code.py
-  :lines: 24-24
-  :language: py
+   :lines: 24-24
+   :language: py
 
 .. index:: xrst_code
 
@@ -62,4 +62,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/code.py
-  :language: py
+   :language: py

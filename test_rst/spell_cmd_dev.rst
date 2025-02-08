@@ -5,7 +5,7 @@ spell_cmd_dev
 !!!!!!!!!!!!!
 
 .. meta::
-  :keywords: spell_cmd_dev,process,the,spell,command,for,a,page,prototype,tmp_dir,data_in,page_file,page_name,begin_line,ignore_commands,print_warning,spell_checker,data_out,spell_warning,unknown_word_set
+   :keywords: spell_cmd_dev,process,the,spell,command,for,a,page,prototype,tmp_dir,data_in,page_file,page_name,begin_line,ignore_commands,print_warning,spell_checker,data_out,spell_warning,unknown_word_set
 
 .. index:: spell_cmd_dev, process, spell, page
 
@@ -15,7 +15,7 @@ Process the spell command for a page
 ####################################
 
 .. contents::
-  :local:
+   :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/spell_command.py
-  :lines: 238-253,606-610
-  :language: py
+   :lines: 238-253,606-610
+   :language: py
 
 .. index:: tmp_dir
 
