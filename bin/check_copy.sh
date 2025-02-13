@@ -6,8 +6,9 @@ set -e -u
 # ----------------------------------------------------------------------------
 # bin/check_copy.sh
 # Checks that the copyright message, in all the source files,
-# is correct and up to date. If here were any invisible white space in
-# the original source, and error is returned.
+# is correct and up to date. If here were any erorrs, a message is printed,
+# it is automatically corrected, and this script exits with an error.
+# Files that are not checked can be sepcified in bin/dev_setting.sh
 # ----------------------------------------------------------------------------
 if [ "$0" != "bin/check_copy.sh" ]
 then
@@ -130,7 +131,7 @@ done
 #
 if [ "$missing" = 'yes' ] || [ "$changed" == 'yes' ]
 then
-   echo 'bin/check_copy.sh: See copyright errors above'
+   echo 'check_copy.sh: The error above were fixed.'
    echo 'Re-execute bin/check_copy.sh ?'
    exit 1
 fi
