@@ -5,7 +5,7 @@ auto_file_dev
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py,prototype
+   :keywords: auto_file_dev,create,the,automatically,generated,files,conf_dict,rst_dir,tmp_dir,link_timeout,html_theme,target,all_page_info,root_page_list,tmp_dir/xrst_contents.rst,tmp_dir/xrst_index.rst,tmp_dir/xrst_search.rst,tmp_dir/xrst_search.js,tmp_dir/xrst_root_doc.rst,rst_dir/_sources,rst_dir/conf.py,prototype
 
 .. index:: auto_file_dev, create, automatically, generated, files
 
@@ -43,13 +43,21 @@ we use *tmp_dir* to denote *rst_dir*\ /tmp .
 This is the directory where xrst creates a temporary copy of *rst_dir* .
 These files are also automatically generated.
 
+.. index:: link_timeout
+
+.. _auto_file_dev@link_timeout:
+
+link_timeout
+************
+The link_timeout determine by the xrst command line.
+
 .. index:: html_theme
 
 .. _auto_file_dev@html_theme:
 
 html_theme
 **********
-The html_theme as on the xrst command line.
+The html_theme determined by the xrst command line.
 
 .. index:: target
 
@@ -164,5 +172,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/auto_file.py
-   :lines: 402-409
+   :lines: 406-413
    :language: py

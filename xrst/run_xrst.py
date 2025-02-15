@@ -39,6 +39,7 @@ Syntax
 | |tab| [ ``--html_theme``      *html_theme* ] \\
 | |tab| [ ``--target``          *target* ]  \\
 | |tab| [ ``--number_jobs``     *number_jobs* ] \\
+| |tab| [ ``--link_timeout``    *link_timeout* ] \\
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 
@@ -278,6 +279,13 @@ number_jobs
 This is a positive integer specifying the number of parallel jobs
 that xrst is allowed to use.
 The default value for *number_jobs* is ``1`` .
+
+link_timeout
+************
+This is a positive integer specifying the number of seconds that the sphinx 
+link check builder will wait for a response after each hyperlink request.
+This only has an affect if :ref:`run_xrst@external_links` is present.  
+The default value for *link_timeout* is 30 .
 
 {xrst_comment --------------------------------------------------------------- }
 
@@ -706,6 +714,11 @@ def run_xrst() :
       '--number_jobs', metavar='number_jobs', default='1',
       help='number of parallel jobs xrst is allowed to use (default is 1)'
    )
+   # --link_timeout
+   parser.add_argument(
+      '--link_timeout', metavar='link_timeout', default='30',
+      help='seconds to wait for each external link check (default 30)'
+   )
    # --group_list
    parser.add_argument(
       '--group_list', nargs='+', default='default',
@@ -797,6 +810,12 @@ def run_xrst() :
    number_jobs = int( arguments.number_jobs )
    if number_jobs <= 0 :
       msg = 'xrst number_jobs is less than or equal zero.'
+      system_exit(msg)
+   #
+   # link_timeout
+   link_timeout = int( arguments.link_timeout )
+   if link_timeout <= 0 :
+      msg = 'xrst link_timeout is less than or equal zero.'
       system_exit(msg)
    #
    # group_list
@@ -1263,7 +1282,12 @@ def run_xrst() :
    #
    # auto_file
    xrst.auto_file(
-      conf_dict, html_theme, target, all_page_info, root_page_list
+      conf_dict      = conf_dict, 
+      link_timeout   = link_timeout, 
+      html_theme     = html_theme, 
+      target         = target, 
+      all_page_info  = all_page_info, 
+      root_page_list = root_page_list
    )
    #
    # not_rst_list

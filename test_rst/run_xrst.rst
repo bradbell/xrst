@@ -5,7 +5,7 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-   :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,group_list,example,rename_group,old_group_name,new_group_name
+   :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,link_timeout,group_list,example,rename_group,old_group_name,new_group_name
 
 .. index:: run_xrst, extract, rst, files, run, sphinx
 
@@ -38,6 +38,7 @@ Syntax
 | |tab| [ ``--html_theme``      *html_theme* ] \\
 | |tab| [ ``--target``          *target* ]  \\
 | |tab| [ ``--number_jobs``     *number_jobs* ] \\
+| |tab| [ ``--link_timeout``    *link_timeout* ] \\
 | |tab| [ ``--group_list``      *group_name_1* *group_name_2* ... ] \\
 | |tab| [ ``--rename_group``    *old_group_name* *new_group_name* ] \\
 
@@ -339,6 +340,17 @@ number_jobs
 This is a positive integer specifying the number of parallel jobs
 that xrst is allowed to use.
 The default value for *number_jobs* is ``1`` .
+
+.. index:: link_timeout
+
+.. _run_xrst@link_timeout:
+
+link_timeout
+************
+This is a positive integer specifying the number of seconds that the sphinx
+link check builder will wait for a response after each hyperlink request.
+This only has an affect if :ref:`run_xrst@external_links` is present.
+The default value for *link_timeout* is 30 .
 
 .. index:: group_list
 

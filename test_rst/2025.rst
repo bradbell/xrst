@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2025,xrst,release,notes,for,mm-dd,02-03,01-24,01-11,01-10,01-05,01-04,01-03
+   :keywords: 2025,xrst,release,notes,for,mm-dd,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -23,6 +23,12 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+.. _2025@mm-dd@02-15:
+
+02-15
+=====
+Add the :ref:`run_xrst@link_timeout` command line option.
 
 .. _2025@mm-dd@02-03:
 

@@ -96,8 +96,8 @@ root_doc = 'xrst_root_doc'
 #
 # This does not seem to work so run_xrst.py copies xrst_search.js after
 # target directory directory is created.
-# html_js_files = [
-# 'xrst_search.js',
+# html_js_files = [ 'xrst_search.js', ]
+#
 '''
 #
 # xrst_index_rst
@@ -319,9 +319,13 @@ function page_or_title_entry(textarea)
 # This is the directory where xrst creates a temporary copy of *rst_dir* .
 # These files are also automatically generated.
 #
+# link_timeout
+# ************
+# The link_timeout determine by the xrst command line.
+#
 # html_theme
 # **********
-# The html_theme as on the xrst command line.
+# The html_theme determined by the xrst command line.
 #
 # target
 # ******
@@ -400,7 +404,7 @@ function page_or_title_entry(textarea)
 #
 # BEGIN_DEF
 def auto_file(
-   conf_dict, html_theme, target, all_page_info, root_page_list
+   conf_dict, link_timeout, html_theme, target, all_page_info, root_page_list
    ) :
    assert type(conf_dict) == dict
    assert type(html_theme) == str
@@ -559,6 +563,7 @@ def auto_file(
    conf_py += f"project = '{project_name}'\n"
    conf_py +=  "author = ''\n"
    conf_py += conf_py_constant
+   conf_py += f'linkcheck_timeout = {link_timeout}\n'
    conf_py += f'html_theme = "{html_theme}"\n'
    if html_theme_options != None :
       conf_py += f'html_theme_options = {html_theme_options}\n'
