@@ -143,13 +143,13 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2025.0.2
+     - xrst-2025.0.3
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
      - `stable-2025 <https://xrst.readthedocs.io/stable-2025>`_
    * - Most recent release of this stable version
-     - `release-2025 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2025.0.2>`_
+     - `release-2025 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2025.0.3>`_
 
 {xrst_comment END: Before changing see bin/new_release and check_version.sh}
 
@@ -200,7 +200,7 @@ The following is a list of the projects that xrst depends on
    # END_DEPENDENCIES
 }
 The 2025 fedora version of xrst uses the ``tomli`` package
-instead of the ``toml`` package; see `toml deprecated 
+instead of the ``toml`` package; see `toml deprecated
 <https://fedoraproject.org/wiki/Changes/DeprecatePythonToml>`_ .
 
 
