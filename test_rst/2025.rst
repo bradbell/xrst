@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-  :keywords: 2025,xrst,release,notes,for,mm-dd,01-05,01-04,01-03
+  :keywords: 2025,xrst,release,notes,for,mm-dd,02-18,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -25,6 +25,14 @@ because they improve its distribution.
 
 mm-dd
 *****
+
+.. _2025@mm-dd@02-18:
+
+02-18
+=====
+A :ref:`spell_cmd@spell_off` command would not be recognized
+if it was in the first line of a :ref:`template_cmd@template_file`  .
+This is fixed starting with version 2025.0.3 .
 
 .. _2025@mm-dd@01-05:
 

@@ -17,6 +17,12 @@ because they improve its distribution.
 mm-dd
 *****
 
+02-18
+=====
+A :ref:`spell_cmd@spell_off` command would not be recognized
+if it was in the first line of a :ref:`template_cmd@template_file`  .
+This is fixed starting with version 2025.0.3 .
+
 01-05
 =====
 Conda Forge does not yet handle dependencies that are different for

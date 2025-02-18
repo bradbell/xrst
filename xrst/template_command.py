@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin template_cmd user}
@@ -134,7 +134,6 @@ pattern_arg       = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n| *\n' )
 # ----------------------------------------------------------------------------
 # {xrst_begin template_cmd_dev dev}
 # {xrst_spell
-#     ch
 # }
 # {xrst_comment_ch #}
 #
@@ -328,8 +327,7 @@ def template_command(data_in, page_file, page_name) :
       line    = m_template.group(3).strip()
       before  = '@{xrst_template_begin@'
       before += template_file + '@'
-      before += line + '@'
-      before += '}@'
+      before += line + '@}@'
       after   = '@{xrst_template_end}@'
       assert xrst.pattern['template_begin'].match(before) != None
       assert xrst.pattern['template_end'].match(after) != None
@@ -337,6 +335,15 @@ def template_command(data_in, page_file, page_name) :
       #
       # template_expansion
       template_expansion = xrst.add_line_numbers(template_expansion, page_file)
+      #
+      # template_expansion
+      # Now that line numbers in template expansion are correct,
+      # add a newline at the beginning so comamnds that must start with newline
+      # can appear in the first line of the template file.
+      index  = template_expansion.find('@}@')
+      before = template_expansion[ : index + 3 ]
+      after  = template_expansion[ index + 3 : ]
+      template_expansion = before + '\n' + after
       #
       # template_expansion
       for cmd in [
