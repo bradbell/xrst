@@ -71,7 +71,6 @@ no_copyright_list='
    .gitignore
    .readthedocs.yaml
    bin/input_files.sh
-   example/template_file.xrst
    gpl-3.0.txt
    readme.md
    test_rst

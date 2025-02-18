@@ -282,9 +282,9 @@ The default value for *number_jobs* is ``1`` .
 
 link_timeout
 ************
-This is a positive integer specifying the number of seconds that the sphinx 
+This is a positive integer specifying the number of seconds that the sphinx
 link check builder will wait for a response after each hyperlink request.
-This only has an affect if :ref:`run_xrst@external_links` is present.  
+This only has an affect if :ref:`run_xrst@external_links` is present.
 The default value for *link_timeout* is 30 .
 
 {xrst_comment --------------------------------------------------------------- }
@@ -635,7 +635,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2025.2.13'
+version = '2025.2.18'
 #
 def run_xrst() :
    #
@@ -1282,11 +1282,11 @@ def run_xrst() :
    #
    # auto_file
    xrst.auto_file(
-      conf_dict      = conf_dict, 
-      link_timeout   = link_timeout, 
-      html_theme     = html_theme, 
-      target         = target, 
-      all_page_info  = all_page_info, 
+      conf_dict      = conf_dict,
+      link_timeout   = link_timeout,
+      html_theme     = html_theme,
+      target         = target,
+      all_page_info  = all_page_info,
       root_page_list = root_page_list
    )
    #

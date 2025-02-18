@@ -54,6 +54,8 @@ Features
 ********
 The xrst features below can be considered a wish list for sphinx:
 
+#. Enable many sphinx build options to change without changing the source code;
+   see list of command line options at :ref:`run_xrst-name` .
 #. Make it easy to put documentation in source code comments,
    even when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd-name` .
@@ -118,9 +120,3 @@ The xrst features below can be considered a wish list for sphinx:
 #. The :ref:`config_file@heading` configuration option
    can be used to check that all the pages in a project use the same
    underline and overline convention.
-#. Enable more build options to change without changing the source code.
-   For example, the configure file :ref:`config_file@html_theme_options`
-   enable different :ref:`run_xrst@html_theme` values at the command line.
-   Another example is that the automatic changes to how
-   :ref:`latex macros <config_file@include_all@latex_macro>`
-   are handled depending on if we are generating html or tex.

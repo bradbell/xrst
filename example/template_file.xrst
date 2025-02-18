@@ -1,15 +1,23 @@
-{xrst_comment:
-This is an example xrst template file.
+{xrst_spell_off}
+{xrst_comment
+   SPDX-License-Identifier: GPL-3.0-or-later
+   SPDX-FileCopyrightText: Bradley M. Bell bradbell at seanet dot com
+   SPDX-FileContributor: 2020-25 Bradley M. Bell
+}
+{xrst_spell_on}
 
-This file has the following xrst_template comments:
+{xrst_comment
+This is an example xrst-template file.
+
+An expansion of this file will create the followng headings:
 headers   : Expansion Number, Spelling, First Paragraph, Second Paragraph
 
-This file has the following xrst_template replacements:
+This file has the following template replacements:
 @Title@   : is the title for this page
 @#####@   : is the rst underlining for the title
 @number@  : is the number for this page; e.g., one, two, ...
-            This template uses BEGIN_EXPANSION_@number@ and 
-            END_EXPANSION_@number@ for the limits of the xrst_template command 
+            This template uses BEGIN_EXPANSION_@number@ and
+            END_EXPANSION_@number@ for the limits of the xrst_template command
             in the page file that is using this template.
 @case@    : if first (second) the first (second) paragraph is displayed
 }

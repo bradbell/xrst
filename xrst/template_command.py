@@ -327,8 +327,7 @@ def template_command(data_in, page_file, page_name) :
       line    = m_template.group(3).strip()
       before  = '@{xrst_template_begin@'
       before += template_file + '@'
-      before += line + '@'
-      before += '}@'
+      before += line + '@}@'
       after   = '@{xrst_template_end}@'
       assert xrst.pattern['template_begin'].match(before) != None
       assert xrst.pattern['template_end'].match(after) != None
@@ -336,6 +335,15 @@ def template_command(data_in, page_file, page_name) :
       #
       # template_expansion
       template_expansion = xrst.add_line_numbers(template_expansion, page_file)
+      #
+      # template_expansion
+      # Now that line numbers in template expansion are correct,
+      # add a newline at the beginning so comamnds that must start with newline
+      # can appear in the first line of the template file.
+      index  = template_expansion.find('@}@')
+      before = template_expansion[ : index + 3 ]
+      after  = template_expansion[ index + 3 : ]
+      template_expansion = before + '\n' + after
       #
       # template_expansion
       for cmd in [
