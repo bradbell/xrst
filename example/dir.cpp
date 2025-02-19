@@ -5,20 +5,20 @@
 // BEGIN_FACTORIAL
 template<class T> factorial(const T& n)
 // END_FACTORIAL
-{   if n == static_cast<T>(1)
-      return n;
-   return n * factorial(n - 1);
+{ if n == static_cast<T>(1)
+    return n;
+  return n * factorial(n - 1);
 }
 //
 // BEGIN_SQUARE
 template<class T> square(const T& x)
 // END_SQUARE
-{   return x * x;
+{ return x * x;
 }
 // BEGIN_TANGENT
 template<class T> tangent(const T& x)
 // END_TANGENT
-{  return sin(x) / cos(x);
+{ return sin(x) / cos(x);
 }
 /*
 ------------------------------------------------------------------------------

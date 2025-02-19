@@ -64,12 +64,12 @@ This paragraph is displayed if the case argument is not third.
 This Template File
 ******************
 {xrst_literal
-   example/template_file.xrst
+  example/template_file.xrst
 }
 
 This Template Usage
 *******************
 {xrst_literal
-   BEGIN_EXPANSION_@number@
-   END_EXPANSION_@number@
+  BEGIN_EXPANSION_@number@
+  END_EXPANSION_@number@
 }

@@ -77,17 +77,17 @@ is a list with length equal to the number of pages.
 with the following key, value pairs (all the keys are strings):
 
 .. csv-table::
-    :header: key, value
+   :header: key, value
 
-    page_name, (str) containing the name of this page.
-    page_title,  (str) containing the title for this page.
-    parent_page, (int) index in all_page_info for the parent of this page.
-    in_parent_file, (bool) is this page in same input file as its parent.
-    keywords, (str) space separated list of index entries for this page.
-    file_in, (str) name of the input file for this page
-    begin_line, (int) line number where begin command is for this page
-    end_line, (int) line number where end command is for this page
-    template_list, (list of str) name of template files used by this page
+   page_name, (str) containing the name of this page.
+   page_title,  (str) containing the title for this page.
+   parent_page, (int) index in all_page_info for the parent of this page.
+   in_parent_file, (bool) is this page in same input file as its parent.
+   keywords, (str) space separated list of index entries for this page.
+   file_in, (str) name of the input file for this page
+   begin_line, (int) line number where begin command is for this page
+   end_line, (int) line number where end command is for this page
+   template_list, (list of str) name of template files used by this page
 
 .. index:: root_page_list
 

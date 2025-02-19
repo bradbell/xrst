@@ -280,16 +280,16 @@ If a table only has one entry, the entry is named data.
 2. The wish list configuration item was completed using
    :ref:`config_file-name` .
 
-   #. The output_dir command line argument was replaced by
-      output_directory in the ``config_file`` file.
-   #. The sphinx_dir command line argument was replaced by
-      :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
-   #. The preamble.rst file was replaced by the
-      preamble section of the ``config_file`` file.
-   #. The spelling file was replaced by the
-      :ref:`config_file@project_dictionary` section of the ``config_file`` file.
-   #. The keyword file was replaced by the
-      :ref:`config_file@not_in_index` section of the ``config_file`` file.
+  #. The output_dir command line argument was replaced by
+     output_directory in the ``config_file`` file.
+  #. The sphinx_dir command line argument was replaced by
+     :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
+  #. The preamble.rst file was replaced by the
+     preamble section of the ``config_file`` file.
+  #. The spelling file was replaced by the
+     :ref:`config_file@project_dictionary` section of the ``config_file`` file.
+  #. The keyword file was replaced by the
+     :ref:`config_file@not_in_index` section of the ``config_file`` file.
 
 11-18
 =====

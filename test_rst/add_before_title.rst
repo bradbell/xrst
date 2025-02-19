@@ -36,13 +36,13 @@ data_in
 *******
 data for this page before replacement.
 
- #. data_in must contain '\\n{xrst@before_title}'
-    which is referred to as the command below.
- #. The page title must come directly after the command
-    and start with a newline.
- #. The page title may have an rst overline directly before the
-    heading text and must have an underline directly after it.
- #. If both an overline and underline follow, they must be equal.
+#. data_in must contain '\\n{xrst@before_title}'
+   which is referred to as the command below.
+#. The page title must come directly after the command
+   and start with a newline.
+#. The page title may have an rst overline directly before the
+   heading text and must have an underline directly after it.
+#. If both an overline and underline follow, they must be equal.
 
 .. index:: target
 

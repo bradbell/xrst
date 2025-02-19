@@ -23,7 +23,7 @@ Syntax
 ******
 
 | *spell_checker* = xrst.get_spell_checker(*local_words*, *package*)
-| *known*   = *spell_checker*.known ( *word* )
+| *known* = *spell_checker*.known ( *word* )
 | *suggest* = *spell_checker*.suggest ( *word* )
 
 .. index:: local_words

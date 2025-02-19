@@ -72,7 +72,7 @@ page_title
 ----------
 The input below will display the page title as the linking text:
 
-    ``:ref:`` \` *page_name* ``-title`` \`
+  ``:ref:`` \` *page_name* ``-title`` \`
 
 .. index:: linking, text
 
@@ -82,7 +82,7 @@ Linking Text
 ------------
 You can also explicitly choose the linking text using:
 
-   ``:ref:`` \` *linking_text* ``<`` *page_name* ``-name>`` \`
+  ``:ref:`` \` *linking_text* ``<`` *page_name* ``-name>`` \`
 
 .. index:: other, levels
 
@@ -108,8 +108,8 @@ to dashes ``-``.
 
 For example, the label for the heading above is
 
-   :ref:`heading_links@Labels@Heading-To-Label
-   <heading_links@Labels@Heading-To-Label>`
+  :ref:`heading_links@Labels@Heading-To-Label
+  <heading_links@Labels@Heading-To-Label>`
 
 The label corresponding to a header is used to reference the heading
 using the ``:ref:`` role.
@@ -124,10 +124,10 @@ There is a further conversion to create the
 HTML anchor corresponding to a label.  To be specific:
 
 1. The anchor is converted to lower case.
-3. Characters that are not letters or decimal digits are converted to dashes.
-4. Multiple dashes are converted to one dash.
-5. The beginning of the anchor is trimmed until a letter is reached.
-6. The end of the anchor is trimmed until a letter or digit is reached.
+2. Characters that are not letters or decimal digits are converted to dashes.
+3. Multiple dashes are converted to one dash.
+4. The beginning of the anchor is trimmed until a letter is reached.
+5. The end of the anchor is trimmed until a letter or digit is reached.
 
 If for one page, these anchors are not unique, xrst reports an error.
 

@@ -18,13 +18,13 @@ Heading: Steps
 
 #. Use pip as follows to install the most recent stable version of xrst::
 
-      pip install xrst
+     pip install xrst
 
 #. If you like, you can replace this by the most recent test version
    of xrst using the following commands::
 
-      pip uninstall -y xrst
-      pip install --index-url https://test.pypi.org/simple/ xrst
+     pip uninstall -y xrst
+     pip install --index-url https://test.pypi.org/simple/ xrst
 
 #. Create an empty directory and make it your current working directory.
 
@@ -39,17 +39,17 @@ Heading: Steps
    You could change the location of the root file to  ``get_started.xrst``
    by entering the following in your ``xrst.toml`` file::
 
-      [root_file]
-      default = 'get_started.xrst'
+     [root_file]
+     default = 'get_started.xrst'
 
 #. Execute the following command::
 
-      xrst
+     xrst
 
 #. Use your web browser to open the file below
    (this file name is relative to your working directory)::
 
-      build/html/get_started.html
+     build/html/get_started.html
 
 #. You may have gotten spelling warnings for two reasons:
 
@@ -68,8 +68,8 @@ Heading: Steps
    You can remove this check by adding the text below at the end of your
    xrst.toml file::
 
-      [input_files]
-      data = [ ]
+     [input_files]
+     data = [ ]
 
    If you then re-execute the xrst command, the input files
    warning should not appear.
