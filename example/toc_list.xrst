@@ -15,7 +15,7 @@ the child pages corresponding to the file below would come before
 the child page in this file (instead of after).
 }
 {xrst_toc_list after
-      example/children.xrst
+	example/children.xrst
 }
 
 xrst_toc_list

@@ -31,23 +31,23 @@ Links
 The links below have newlines in their targets:
 
 #. :ref:`level one<
-      ref_example@A Level One Long Heading
+     ref_example@A Level One Long Heading
    >`
 #. :ref:`level two<
-      ref_example@A Level One Long Heading@A Level Two Long Heading
+     ref_example@A Level One Long Heading@A Level Two Long Heading
    >`
 #. :ref:`level three<
-      ref_example
-      @A Level One Long Heading
-      @A Level Two Long Heading
-      @A Level Three Long Heading
+     ref_example
+     @A Level One Long Heading
+     @A Level Two Long Heading
+     @A Level Three Long Heading
    >`
 #. :ref:`
-      ref_example
-      @A Level One Long Heading
-      @A Level Two Long Heading
-      @A Level Three Long Heading
-      @A Level Four Long Heading
+     ref_example
+     @A Level One Long Heading
+     @A Level Two Long Heading
+     @A Level Three Long Heading
+     @A Level Four Long Heading
    `
 
 Newlines In Sphinx :ref: Targets
