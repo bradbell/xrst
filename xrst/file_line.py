@@ -13,8 +13,8 @@ import xrst
 # #############################
 #
 # {xrst_literal ,
-#     # BEGIN_DEF ,    # END_DEF
-#     # BEGIN_RETURN , # END_RETURN
+#    # BEGIN_DEF ,   # END_DEF
+#    # BEGIN_RETURN , # END_RETURN
 # }
 #
 #
@@ -66,29 +66,29 @@ def file_line(m_obj, data) :
   #
   # template_expansion, begin_index
   begin_index = data[: m_obj.start()].rfind( '@{xrst_template_begin@' )
-  end_index   = data[: m_obj.start()].rfind( '@{xrst_template_end}@' )
+  end_index  = data[: m_obj.start()].rfind( '@{xrst_template_end}@' )
   template_expansion = end_index < begin_index
   #
   # page_line, template_file, template_line
   if not template_expansion :
-     page_line      = match_line
-     template_file  = None
-     template_line  = None
+    page_line    = match_line
+    template_file  = None
+    template_line  = None
   else :
-     #
-     # template_file, expansion_line
-     m_temp = xrst.pattern['template_begin'].search( data[begin_index :] )
-     assert m_temp != None
-     template_file  = m_temp.group(1).strip()
-     page_line      = int( m_temp.group(2) )
-     template_line  = match_line
+    #
+    # template_file, expansion_line
+    m_temp = xrst.pattern['template_begin'].search( data[begin_index :] )
+    assert m_temp != None
+    template_file  = m_temp.group(1).strip()
+    page_line    = int( m_temp.group(2) )
+    template_line  = match_line
   # BEGIN_RETURN
   #
   assert type(page_line) == int
   if template_file == None :
-     assert template_line == None
+    assert template_line == None
   else :
-     assert type(template_file) == str
-     assert type(template_line) == int
+    assert type(template_file) == str
+    assert type(template_line) == int
   return page_line, template_file, template_line
   # END_RETURN

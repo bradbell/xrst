@@ -12,7 +12,7 @@ Syntax
 ******
 
 | *spell_checker* = xrst.get_spell_checker(*local_words*, *package*)
-| *known*   = *spell_checker*.known ( *word* )
+| *known* = *spell_checker*.known ( *word* )
 | *suggest* = *spell_checker*.suggest ( *word* )
 
 local_words
@@ -144,82 +144,82 @@ class py_spell_checker :
   #
   # self
   def __init__(self, local_words) :
-     assert type(local_words) == list
-     for word in local_words :
-        assert type(word) == str
-     #
-     # spellchecker
-     import spellchecker
-     #
-     # checker
-     checker = spellchecker.SpellChecker(distance=1)
-     #
-     # checker
-     remove_list = checker.known( remove_from_dictionary )
-     checker.word_frequency.remove_words(remove_list)
-     #
-     # checker
-     # these words do not seem to be case sensitive
-     checker.word_frequency.load_words(add_to_dictionary)
-     checker.word_frequency.load_words(local_words)
-     #
-     self.checker = checker
+    assert type(local_words) == list
+    for word in local_words :
+      assert type(word) == str
+    #
+    # spellchecker
+    import spellchecker
+    #
+    # checker
+    checker = spellchecker.SpellChecker(distance=1)
+    #
+    # checker
+    remove_list = checker.known( remove_from_dictionary )
+    checker.word_frequency.remove_words(remove_list)
+    #
+    # checker
+    # these words do not seem to be case sensitive
+    checker.word_frequency.load_words(add_to_dictionary)
+    checker.word_frequency.load_words(local_words)
+    #
+    self.checker = checker
   #
   # ok
   def known(self, word) :
-     assert type(word) == str
-     #
-     return len( self.checker.unknown( [word] ) ) == 0
+    assert type(word) == str
+    #
+    return len( self.checker.unknown( [word] ) ) == 0
   #
   # suggest
   def suggest(self, word) :
-     assert type(word) == str
-     #
-     return self.checker.correction(word)
+    assert type(word) == str
+    #
+    return self.checker.correction(word)
 # -----------------------------------------------------------------------------
 class enchant_spell_checker :
   #
   # self
   def __init__(self, local_words) :
-     assert type(local_words) == list
-     for word in local_words :
-        assert type(word) == str
-     #
-     # enchant
-     import enchant
-     #
-     # checker
-     checker =  enchant.Dict("en_US")
-     #
-     # checker
-     for word in remove_from_dictionary :
-        checker.remove(word)
-     #
-     # checker
-     # these words do not seem to be case sensitive
-     for word in add_to_dictionary + local_words :
-        checker.add(word)
-     #
-     self.checker = checker
+    assert type(local_words) == list
+    for word in local_words :
+      assert type(word) == str
+    #
+    # enchant
+    import enchant
+    #
+    # checker
+    checker =  enchant.Dict("en_US")
+    #
+    # checker
+    for word in remove_from_dictionary :
+      checker.remove(word)
+    #
+    # checker
+    # these words do not seem to be case sensitive
+    for word in add_to_dictionary + local_words :
+      checker.add(word)
+    #
+    self.checker = checker
   #
   # ok
   def known(self, word) :
-     assert type(word) == str
-     #
-     return self.checker.check(word)
+    assert type(word) == str
+    #
+    return self.checker.check(word)
   #
   # suggest
   def suggest(self, word) :
-     assert type(word) == str
-     #
-     suggest_list =  self.checker.suggest(word)
-     if len(suggest_list) == 0 :
-        return None
-     return suggest_list[0]
+    assert type(word) == str
+    #
+    suggest_list =  self.checker.suggest(word)
+    if len(suggest_list) == 0 :
+      return None
+    return suggest_list[0]
 # -----------------------------------------------------------------------------
 def get_spell_checker(local_words, package) :
   assert package in [ 'pyspellchecker', 'pyenchant' ]
   if package == 'pyspellchecker' :
-     return py_spell_checker(local_words)
+    return py_spell_checker(local_words)
   else :
-     return enchant_spell_checker(local_words)
+    return enchant_spell_checker(local_words)

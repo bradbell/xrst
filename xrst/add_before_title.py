@@ -14,21 +14,21 @@ import xrst
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # data_in
 # *******
 # data for this page before replacement.
 #
-#  #. data_in must contain '\\n{xrst@before_title}'
-#     which is referred to as the command below.
-#  #. The page title must come directly after the command
-#     and start with a newline.
-#  #. The page title may have an rst overline directly before the
-#     heading text and must have an underline directly after it.
-#  #. If both an overline and underline follow, they must be equal.
+# #. data_in must contain '\\n{xrst@before_title}'
+#    which is referred to as the command below.
+# #. The page title must come directly after the command
+#    and start with a newline.
+# #. The page title may have an rst overline directly before the
+#    heading text and must have an underline directly after it.
+# #. If both an overline and underline follow, they must be equal.
 #
 # target
 # ******
@@ -60,7 +60,7 @@ def add_before_title(data_in, target, page_number, page_name) :
   # END_DEF
   #
   # pattern
-  pattern   = '\n{xrst@before_title}'
+  pattern  = '\n{xrst@before_title}'
   #
   # punctuation
   # Headings uses repeated copies of one of these characters
@@ -71,18 +71,18 @@ def add_before_title(data_in, target, page_number, page_name) :
   assert 0 <= start_cmd
   index = data_in.find(pattern, start_cmd + len(pattern))
   if 0 <= index :
-     msg = '{xrst@before_title} cannot appear at beginning of a line'
-     xrst.system_exit(msg, page_name = page_name)
+    msg = '{xrst@before_title} cannot appear at beginning of a line'
+    xrst.system_exit(msg, page_name = page_name)
   #
   # data_out
   if target == 'html' :
-     return data_in.replace(pattern,'')
+    return data_in.replace(pattern,'')
   #
   # add_text
   if page_number == '' :
-     add_text = f'{page_name}:'
+    add_text = f'{page_name}:'
   else :
-     add_text = f'{page_number} {page_name}:'
+    add_text = f'{page_number} {page_name}:'
   #
   # first_newline
   first_newline = start_cmd + len(pattern)
@@ -95,47 +95,47 @@ def add_before_title(data_in, target, page_number, page_name) :
   third_newline  = data_in.index('\n', second_newline + 1)
   #
   # first_line, second_line
-  first_line   = data_in[first_newline + 1 : second_newline ]
+  first_line  = data_in[first_newline + 1 : second_newline ]
   second_line  = data_in[second_newline + 1 : third_newline ]
   #
   # overline
   # check for an overline directly after the command
   overline = False
   if first_line[0] * len(first_line) == first_line :
-     if first_line[0] in punctuation :
-        overline = True
+    if first_line[0] in punctuation :
+      overline = True
   #
   if not overline :
-     # If no overline the page title follows the command and then
-     # an underline after the title.
-     assert second_line[0] in punctuation
-     #
-     # new version of first and second lines
-     first_line   = add_text + ' ' + first_line
-     second_line += second_line[0] * ( len(add_text) + 1 )
-     #
+    # If no overline the page title follows the command and then
+    # an underline after the title.
+    assert second_line[0] in punctuation
+    #
+    # new version of first and second lines
+    first_line  = add_text + ' ' + first_line
+    second_line += second_line[0] * ( len(add_text) + 1 )
+    #
   else :
-     # fourth_newline
-     fourth_newline = data_in.index('\n', third_newline + 1)
-     #
-     # third_line
-     third_line   = data_in[third_newline + 1 : fourth_newline]
-     assert first_line == third_line
-     #
-     # new version of first, second, and third lines
-     first_line += first_line[0] * ( len(add_text) + 1 )
-     second_line = add_text + ' ' + second_line
-     third_line  = first_line
+    # fourth_newline
+    fourth_newline = data_in.index('\n', third_newline + 1)
+    #
+    # third_line
+    third_line  = data_in[third_newline + 1 : fourth_newline]
+    assert first_line == third_line
+    #
+    # new version of first, second, and third lines
+    first_line += first_line[0] * ( len(add_text) + 1 )
+    second_line = add_text + ' ' + second_line
+    third_line  = first_line
   #
   # data_out
   data_out  = data_in[: start_cmd] + '\n'
   data_out += first_line + '\n'
   data_out += second_line + '\n'
   if overline :
-     data_out += third_line + '\n'
-     data_out += data_in[fourth_newline :]
+    data_out += third_line + '\n'
+    data_out += data_in[fourth_newline :]
   else :
-     data_out += data_in[third_newline :]
+    data_out += data_in[third_newline :]
   # BEGIN_RETURN
   #
   assert type(data_out) == str

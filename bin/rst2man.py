@@ -22,22 +22,22 @@ def main() :
   #
   # rst_file, man_file
   if len(sys.argv) != 3 :
-     msg = 'usage: bin/rst2man.py rst_file man_file'
-     sys.exit(msg)
+    msg = 'usage: bin/rst2man.py rst_file man_file'
+    sys.exit(msg)
   rst_file = sys.argv[1]
   man_file = sys.argv[2]
   #
   if not os.path.isfile(rst_file) :
-     msg = f'rst_file = {rst_file} is not a file'
-     sys.exit(msg)
+    msg = f'rst_file = {rst_file} is not a file'
+    sys.exit(msg)
   #
   # rst_prolog
   if not os.path.isfile('xrst.toml') :
-     msg = f'Cannot find xrst.toml in current directory'
-     sys.exit(msg)
-  file_obj    = open('xrst.toml', 'r')
-  file_data   = file_obj.read()
-  conf_dict   = tomli.loads(file_data)
+    msg = f'Cannot find xrst.toml in current directory'
+    sys.exit(msg)
+  file_obj   = open('xrst.toml', 'r')
+  file_data  = file_obj.read()
+  conf_dict  = tomli.loads(file_data)
   rst_prolog  = conf_dict['include_all']['rst_prolog']
   file_obj.close()
   #
@@ -55,7 +55,7 @@ def main() :
   #
   # temp_file
   (fd, temp_file) = tempfile.mkstemp(
-     suffix='.rst', prefix='rst2man_', dir='build', text=True
+    suffix='.rst', prefix='rst2man_', dir='build', text=True
   )
   os.close(fd)
   file_obj  = open(temp_file, 'w')

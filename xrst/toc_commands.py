@@ -144,8 +144,8 @@ import re
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # is_parent
@@ -210,26 +210,26 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
   data_out = data_in
   #
   # file_list, file_line, child_page_list, order
-  file_list       = list()
-  file_line       = list()
+  file_list     = list()
+  file_line     = list()
   child_page_list = list()
-  order           = 'before'
+  order        = 'before'
   #
   # m_toc
-  m_toc        = xrst.pattern['toc'].search(data_out)
+  m_toc      = xrst.pattern['toc'].search(data_out)
   if m_toc is None :
-     return data_out, file_list, child_page_list, order
+    return data_out, file_list, child_page_list, order
   #
   # m_tmp
   m_tmp = xrst.pattern['toc'].search(data_out[m_toc.end() :] )
   if m_tmp is not None :
-     msg = 'More than one {xrst_toc_ ...} command in a page.'
-     xrst.system_exit(msg,
-        file_name=page_file,
-        page_name=page_name,
-        m_obj=m_tmp,
-        data=data_out[m_toc.end():]
-     )
+    msg = 'More than one {xrst_toc_ ...} command in a page.'
+    xrst.system_exit(msg,
+      file_name=page_file,
+      page_name=page_name,
+      m_obj=m_tmp,
+      data=data_out[m_toc.end():]
+    )
   #
   # command
   command = m_toc.group(1)
@@ -241,158 +241,158 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
   #
   # first_list, child_line_list
   child_line_list =  m_toc.group(2).split('\n')
-  first_line      = child_line_list[0]
+  first_line    = child_line_list[0]
   child_line_list = child_line_list[1 : -1]
   #
   # m_file_list
   m_file_list = list()
   if len(child_line_list) > 0 :
-     m_file = xrst.pattern['line'].search(data_out, m_toc.start() )
-     m_file = xrst.pattern['line'].search(data_out, m_file.end() )
-     while m_file.start() < m_toc.end() :
-        m_file_list.append(m_file)
-        m_file = xrst.pattern['line'].search(data_out, m_file.end() )
-     assert len(m_file_list) == len(child_line_list)
+    m_file = xrst.pattern['line'].search(data_out, m_toc.start() )
+    m_file = xrst.pattern['line'].search(data_out, m_file.end() )
+    while m_file.start() < m_toc.end() :
+      m_file_list.append(m_file)
+      m_file = xrst.pattern['line'].search(data_out, m_file.end() )
+    assert len(m_file_list) == len(child_line_list)
   #
   # order
   order = xrst.pattern['line'].sub('', first_line).strip()
   if order == '' :
-     order = 'before'
+    order = 'before'
   else :
-     if order not in [ 'before' , 'after' ] :
-        msg = f'order is not before or after in the toc {command} command'
-        xrst.system_exit(msg,
-           file_name=page_file,
-           page_name=page_name,
-           m_obj=m_toc,
-           data=data_out
-        )
-     if not is_parent :
-        msg  = 'This is not a parent page and order is specified in its '
-        msg += f'toc {command} command'
-        xrst.system_exit(msg,
-           file_name=page_file,
-           page_name=page_name,
-           m_obj=m_toc,
-           data=data_out
-        )
+    if order not in [ 'before' , 'after' ] :
+      msg = f'order is not before or after in the toc {command} command'
+      xrst.system_exit(msg,
+        file_name=page_file,
+        page_name=page_name,
+        m_obj=m_toc,
+        data=data_out
+      )
+    if not is_parent :
+      msg  = 'This is not a parent page and order is specified in its '
+      msg += f'toc {command} command'
+      xrst.system_exit(msg,
+        file_name=page_file,
+        page_name=page_name,
+        m_obj=m_toc,
+        data=data_out
+      )
   #
   # file_list, m_file_list, file_line
   m_tmp_list = list()
   for (index, child_line) in enumerate(child_line_list) :
-     if child_line != '' :
-        m_child = xrst.pattern['line'].search(child_line)
-        assert m_child != None
-        line_number = m_child.group(1)
-        child_file  = xrst.pattern['line'].sub('', child_line).strip()
-        if child_file != '' :
-           file_list.append(child_file)
-           file_line.append(line_number)
-           m_tmp_list.append( m_file_list[index] )
+    if child_line != '' :
+      m_child = xrst.pattern['line'].search(child_line)
+      assert m_child != None
+      line_number = m_child.group(1)
+      child_file  = xrst.pattern['line'].sub('', child_line).strip()
+      if child_file != '' :
+        file_list.append(child_file)
+        file_line.append(line_number)
+        m_tmp_list.append( m_file_list[index] )
   m_file_list = m_tmp_list
   assert len(m_file_list) == len(file_list)
   #
   # child_page_list
   assert len(child_page_list) == 0
   for i in range( len(file_list) ) :
-     #
-     # child_file, m_file
-     child_file = file_list[i]
-     m_file     = m_file_list[i]
-     if not os.path.isfile(child_file) :
-        msg  = 'The file ' + child_file + ' does not exist\n'
-        msg += 'It was used by a toc_' + command + ' command'
-        xrst.system_exit(msg,
-           file_name = page_file,
-           page_name = page_name,
-           m_obj     = m_file,
-           data      = data_out,
-        )
-     #
-     # child_data
-     # errors in the begin and end commands will be detected later
-     # when this file is processed.
-     file_obj    = open(child_file, 'r')
-     child_data  = file_obj.read()
-     file_obj.close()
-     file_index  = 0
-     #
-     # m_begin
-     m_begin  = xrst.pattern['begin'].search(child_data)
-     if m_begin is None :
-        msg  = 'The file ' + child_file + '\n'
-        msg += 'used in a toc_' + command + ' command does not contain any '
-        msg += 'begin commands.'
-        xrst.system_exit(msg,
-           file_name = page_file,
-           page_name = page_name,
-           m_obj     = m_file,
-           data      = data_out,
-        )
-     this_group_name = m_begin.group(4).strip(' \t')
-     if this_group_name == '' :
-        this_group_name = 'default'
-     while this_group_name != group_name :
-        m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
-        if m_begin == None :
-           msg  = 'The file ' + child_file + '\n'
-           msg += 'used in a toc_' + command
-           msg += ' command does not contain any '
-           msg += f'begin commands with group name {group_name}.'
-           xrst.system_exit(msg,
-              file_name = page_file,
-              page_name = page_name,
-              m_obj     = m_file,
-              data      = data_out,
-           )
-        this_group_name = m_begin.group(4).strip(' \t')
-        if this_group_name == '' :
-           this_group_name = 'default'
-     #
-     # list_children
-     found_parent  = m_begin.group(2) == 'begin_parent'
-     child_name    = m_begin.group(3)
-     list_children = [ child_name ]
-     #
-     # m_begin
-     m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
-     #
-     while not found_parent and m_begin != None :
-        this_group_name = m_begin.group(4).strip(' \t')
-        if this_group_name == '' :
-           this_group_name = 'default'
-        if this_group_name == group_name :
-           child_is_parent  = m_begin.group(2) == 'begin_parent'
-           if child_is_parent :
-              msg  = 'Found a begin_parent command that is'
-              msg += ' not the first begin command in this file'
-              msg += f' for group name {group_name}'
-              xrst.system_exit(msg,
-                 file_name = page_file,
-                 page_name = page_name,
-                 m_obj     = m_file,
-                 data      = data_out,
-              )
-           child_name = m_begin.group(3)
-           #
-           # list_children
-           list_children.append( child_name )
-        #
-        # m_begin
-        m_begin   = xrst.pattern['begin'].search(child_data, m_begin.end() )
-     #
-     # child_page_list
-     child_page_list += list_children
-  #
-  if len(file_list) == 0 and not is_parent :
-     msg  = f'No files were specified in the toc {command} command\n'
-     msg += 'and this section did not start with xrst_begin_parent.'
-     xrst.system_exit(msg,
+    #
+    # child_file, m_file
+    child_file = file_list[i]
+    m_file    = m_file_list[i]
+    if not os.path.isfile(child_file) :
+      msg  = 'The file ' + child_file + ' does not exist\n'
+      msg += 'It was used by a toc_' + command + ' command'
+      xrst.system_exit(msg,
         file_name = page_file,
         page_name = page_name,
-        m_obj     = m_toc,
-        data      = data_out,
-     )
+        m_obj    = m_file,
+        data    = data_out,
+      )
+    #
+    # child_data
+    # errors in the begin and end commands will be detected later
+    # when this file is processed.
+    file_obj   = open(child_file, 'r')
+    child_data  = file_obj.read()
+    file_obj.close()
+    file_index  = 0
+    #
+    # m_begin
+    m_begin  = xrst.pattern['begin'].search(child_data)
+    if m_begin is None :
+      msg  = 'The file ' + child_file + '\n'
+      msg += 'used in a toc_' + command + ' command does not contain any '
+      msg += 'begin commands.'
+      xrst.system_exit(msg,
+        file_name = page_file,
+        page_name = page_name,
+        m_obj    = m_file,
+        data    = data_out,
+      )
+    this_group_name = m_begin.group(4).strip(' \t')
+    if this_group_name == '' :
+      this_group_name = 'default'
+    while this_group_name != group_name :
+      m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
+      if m_begin == None :
+        msg  = 'The file ' + child_file + '\n'
+        msg += 'used in a toc_' + command
+        msg += ' command does not contain any '
+        msg += f'begin commands with group name {group_name}.'
+        xrst.system_exit(msg,
+          file_name = page_file,
+          page_name = page_name,
+          m_obj    = m_file,
+          data    = data_out,
+        )
+      this_group_name = m_begin.group(4).strip(' \t')
+      if this_group_name == '' :
+        this_group_name = 'default'
+    #
+    # list_children
+    found_parent  = m_begin.group(2) == 'begin_parent'
+    child_name   = m_begin.group(3)
+    list_children = [ child_name ]
+    #
+    # m_begin
+    m_begin = xrst.pattern['begin'].search(child_data, m_begin.end() )
+    #
+    while not found_parent and m_begin != None :
+      this_group_name = m_begin.group(4).strip(' \t')
+      if this_group_name == '' :
+        this_group_name = 'default'
+      if this_group_name == group_name :
+        child_is_parent  = m_begin.group(2) == 'begin_parent'
+        if child_is_parent :
+          msg  = 'Found a begin_parent command that is'
+          msg += ' not the first begin command in this file'
+          msg += f' for group name {group_name}'
+          xrst.system_exit(msg,
+            file_name = page_file,
+            page_name = page_name,
+            m_obj    = m_file,
+            data    = data_out,
+          )
+        child_name = m_begin.group(3)
+        #
+        # list_children
+        list_children.append( child_name )
+      #
+      # m_begin
+      m_begin  = xrst.pattern['begin'].search(child_data, m_begin.end() )
+    #
+    # child_page_list
+    child_page_list += list_children
+  #
+  if len(file_list) == 0 and not is_parent :
+    msg  = f'No files were specified in the toc {command} command\n'
+    msg += 'and this section did not start with xrst_begin_parent.'
+    xrst.system_exit(msg,
+      file_name = page_file,
+      page_name = page_name,
+      m_obj    = m_toc,
+      data    = data_out,
+    )
   #
   # data_out
   replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
@@ -405,10 +405,10 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
   assert type(data_out) == str
   assert type(file_list) == list
   if 0 < len(file_list) :
-     assert type(file_list[0]) == str
+    assert type(file_list[0]) == str
   assert type(child_page_list) == list
   if 0 < len(child_page_list) :
-     assert type(child_page_list[0]) == str
+    assert type(child_page_list[0]) == str
   assert order in [ 'before' , 'after' ]
   return data_out, file_list, child_page_list, order
   # END_RETURN

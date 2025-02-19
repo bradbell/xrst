@@ -12,8 +12,8 @@ import re
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # data
@@ -34,15 +34,15 @@ def newline_indices(data) :
   assert type(data) == str
   # END_DEF
   pattern_newline  = re.compile( r'\n')
-  newline_itr      = pattern_newline.finditer(data)
-  newline_list     = list()
+  newline_itr    = pattern_newline.finditer(data)
+  newline_list    = list()
   for m_obj in newline_itr :
-     next_index = m_obj.start()
-     newline_list.append( next_index )
+    next_index = m_obj.start()
+    newline_list.append( next_index )
   # BEGIN_RETURN
   #
   assert type(newline_list) == list
   if 0 < len( newline_list) :
-     assert type(newline_list[0]) == int
+    assert type(newline_list[0]) == int
   return newline_list
   # END_RETURN

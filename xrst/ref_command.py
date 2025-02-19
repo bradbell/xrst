@@ -40,7 +40,7 @@ import xrst
 # ref_pattern
 ref_pattern_one = re.compile( r':ref:`([^<`]+)`' )
 ref_pattern_two = re.compile( r':ref:`([^<`]*)<([^>]*)> *`' )
-line_pattern    = re.compile(  r'@xrst_line ([0-9]+)@\n *' )
+line_pattern   = re.compile(  r'@xrst_line ([0-9]+)@\n *' )
 #
 #
 # {xrst_begin ref_cmd_dev dev}
@@ -52,8 +52,8 @@ line_pattern    = re.compile(  r'@xrst_line ([0-9]+)@\n *' )
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # data_in
@@ -80,28 +80,28 @@ def ref_command(data_in) :
   # m_ref
   m_ref  = ref_pattern_one.search(data_out, offset)
   while m_ref != None :
-     #
-     # data_before, data_after
-     data_before  = data_out[: m_ref.start()]
-     data_after   = data_out[m_ref.end() :]
-     #
-     # target
-     target = m_ref.group(1)
-     #
-     # target
-     target = line_pattern.sub('', target)
-     #
-     # data_middle
-     data_middle = f':ref:`{target}`'
-     #
-     # data_out
-     data_out = data_before + data_middle + data_after
-     #
-     # offset
-     offset = len( data_before + data_middle )
-     #
-     # m_ref
-     m_ref = ref_pattern_one.search(data_out, offset)
+    #
+    # data_before, data_after
+    data_before  = data_out[: m_ref.start()]
+    data_after  = data_out[m_ref.end() :]
+    #
+    # target
+    target = m_ref.group(1)
+    #
+    # target
+    target = line_pattern.sub('', target)
+    #
+    # data_middle
+    data_middle = f':ref:`{target}`'
+    #
+    # data_out
+    data_out = data_before + data_middle + data_after
+    #
+    # offset
+    offset = len( data_before + data_middle )
+    #
+    # m_ref
+    m_ref = ref_pattern_one.search(data_out, offset)
   #
   # offset
   offset = 0
@@ -109,29 +109,29 @@ def ref_command(data_in) :
   # m_ref
   m_ref  = ref_pattern_two.search(data_out, offset)
   while m_ref != None :
-     #
-     # data_before, data_after
-     data_before  = data_out[: m_ref.start()]
-     data_after   = data_out[m_ref.end() :]
-     #
-     # linking_text, target
-     linking_text = m_ref.group(1)
-     target       = m_ref.group(2)
-     #
-     # target
-     target = line_pattern.sub('', target)
-     #
-     # data_middle
-     data_middle = f':ref:`{linking_text}<{target}>`'
-     #
-     # data_out
-     data_out = data_before + data_middle + data_after
-     #
-     # offset
-     offset = len( data_before + data_middle )
-     #
-     # m_ref
-     m_ref = ref_pattern_two.search(data_out, offset)
+    #
+    # data_before, data_after
+    data_before  = data_out[: m_ref.start()]
+    data_after  = data_out[m_ref.end() :]
+    #
+    # linking_text, target
+    linking_text = m_ref.group(1)
+    target     = m_ref.group(2)
+    #
+    # target
+    target = line_pattern.sub('', target)
+    #
+    # data_middle
+    data_middle = f':ref:`{linking_text}<{target}>`'
+    #
+    # data_out
+    data_out = data_before + data_middle + data_after
+    #
+    # offset
+    offset = len( data_before + data_middle )
+    #
+    # m_ref
+    m_ref = ref_pattern_two.search(data_out, offset)
   #
   # BEGIN_RETURN
   #

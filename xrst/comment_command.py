@@ -40,8 +40,8 @@ pattern = re.compile(
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # data_in
@@ -65,32 +65,32 @@ def comment_command(data_in) :
   # m_obj
   m_obj = pattern.search(data_out)
   while m_obj :
-     # data_before, data_after
-     data_before = data_out[: m_obj.start()]
-     data_after  = data_out[m_obj.end() :]
-     #
-     # text_before, text_after
-     text_before = m_obj.group(1).rstrip(' \t')
-     text_after  = m_obj.group(2).lstrip(' \t')
-     #
-     # data_before, text_before
-     if text_before.endswith('\n') :
-        data_before += text_before
-        text_before  = ''
-     #
-     # data_after, text_after
-     if text_before == '' and text_after.startswith('@xrst_line ') :
-        text_after = ''
-     #
-     # data_out
-     if text_before != '' and text_after != '' :
-        other_text = text_before + ' ' + text_after
-     else :
-        other_text = text_before + text_after
-     data_out   = data_before + other_text +  data_after
-     #
-     # m_obj
-     m_obj = pattern.search(data_out, m_obj.start())
+    # data_before, data_after
+    data_before = data_out[: m_obj.start()]
+    data_after  = data_out[m_obj.end() :]
+    #
+    # text_before, text_after
+    text_before = m_obj.group(1).rstrip(' \t')
+    text_after  = m_obj.group(2).lstrip(' \t')
+    #
+    # data_before, text_before
+    if text_before.endswith('\n') :
+      data_before += text_before
+      text_before  = ''
+    #
+    # data_after, text_after
+    if text_before == '' and text_after.startswith('@xrst_line ') :
+      text_after = ''
+    #
+    # data_out
+    if text_before != '' and text_after != '' :
+      other_text = text_before + ' ' + text_after
+    else :
+      other_text = text_before + text_after
+    data_out  = data_before + other_text +  data_after
+    #
+    # m_obj
+    m_obj = pattern.search(data_out, m_obj.start())
   #
   # BEGIN_RETURN
   #

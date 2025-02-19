@@ -10,8 +10,8 @@ import xrst
 #
 # {xrst_begin check_page_name dev}
 # {xrst_spell
-#     genindex
-#     underbar
+#    genindex
+#    underbar
 # }
 # {xrst_comment_ch #}
 #
@@ -22,16 +22,16 @@ import xrst
 # *********
 # The page_name appears in *m_obj* in one of the following ways
 #
-# #.  \{xrst_begin_parent page_name user}
-# #.  \{xrst_begin page_name user}
-# #.  \{xrst_end page_name}
+# #. \{xrst_begin_parent page_name user}
+# #. \{xrst_begin page_name user}
+# #. \{xrst_end page_name}
 #
 # A valid page name must satisfy the following conditions:
 #
-# #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
-#     dash, period and underbar.
-# #.  A page name cannot begin with ``xrst_`` .
-# #.  A page name cannot be ``index`` or ``genindex`` .
+# #. The valid characters in a page name are [A-Z], [a-z], [0-9],
+#    dash, period and underbar.
+# #. A page name cannot begin with ``xrst_`` .
+# #. A page name cannot be ``index`` or ``genindex`` .
 #
 # If *page_name* does not follow
 # these rules, a message is printed and the program exits.
@@ -68,19 +68,19 @@ def check_page_name(page_name, file_name, m_obj, data) :
   #
   m_page_name = re.search('[-._A-Za-z0-9]+', page_name)
   if m_page_name.group(0) != page_name :
-     msg  = f'begin command: page_name = "{page_name}"'
-     msg += '\nIt must be non-empty and only contain the following'
-     msg += ' characters: -, ., _, A-Z, a-z, 0-9'
-     xrst.system_exit(msg,
-        file_name=file_name, m_obj=m_obj, data=data
-     )
+    msg  = f'begin command: page_name = "{page_name}"'
+    msg += '\nIt must be non-empty and only contain the following'
+    msg += ' characters: -, ., _, A-Z, a-z, 0-9'
+    xrst.system_exit(msg,
+      file_name=file_name, m_obj=m_obj, data=data
+    )
   if page_name.startswith('xrst_') :
-     msg = 'page_name cannot start with xrst_'
-     xrst.system_exit(msg,
-        file_name=file_name, m_obj=m_obj, data=data
-     )
+    msg = 'page_name cannot start with xrst_'
+    xrst.system_exit(msg,
+      file_name=file_name, m_obj=m_obj, data=data
+    )
   if page_name == 'index' or page_name == 'genindex' :
-     msg = 'page_name cannot be index or genindex'
-     xrst.system_exit(msg,
-        file_name=file_name, m_obj=m_obj, data=data
-     )
+    msg = 'page_name cannot be index or genindex'
+    xrst.system_exit(msg,
+      file_name=file_name, m_obj=m_obj, data=data
+    )

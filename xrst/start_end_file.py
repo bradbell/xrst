@@ -7,7 +7,7 @@ import re
 #
 # {xrst_begin start_end_file dev}
 # {xrst_spell
-#     cmd
+#    cmd
 # }
 # {xrst_comment_ch #}
 #
@@ -17,8 +17,8 @@ import re
 # Prototype
 # *********
 # {xrst_literal ,
-#    # BEGIN_DEF, # END_DEF
-#    # BEGIN_RETURN, # END_RETURN
+#  # BEGIN_DEF, # END_DEF
+#  # BEGIN_RETURN, # END_RETURN
 # }
 #
 # page_file
@@ -114,76 +114,76 @@ def start_end_file(
   # ------------------------------------------------------------------------
   # exclude_line
   if input_file == display_file :
-     exclude_line = cmd_line
+    exclude_line = cmd_line
   else :
-     exclude_line = (0, 0)
+    exclude_line = (0, 0)
   #
   # msg
   msg  = f'in literal command:'
   #
   if start_after == '' :
-     msg += ' start_after is empty'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_start, data = m_data
-     )
+    msg += ' start_after is empty'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_start, data = m_data
+    )
   if end_before == '' :
-     msg += ' end_before is empty'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_end, data = m_data
-     )
+    msg += ' end_before is empty'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_end, data = m_data
+    )
   if 0 <= start_after.find('\n') :
-     msg += ' a newline appears in start_after'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_start, data = m_data
-     )
+    msg += ' a newline appears in start_after'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_start, data = m_data
+    )
   if 0 <= end_before.find('\n') :
-     msg += ' a newline appears in end_before'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_end, data = m_data
-     )
+    msg += ' a newline appears in end_before'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_end, data = m_data
+    )
   #
   # data
   file_obj  = open(display_file, 'r')
-  data      = file_obj.read()
+  data    = file_obj.read()
   file_obj.close()
   #
   # start_line
   start_index = data.find(start_after)
   count = 0
   while 0 <= start_index :
-     line = data[: start_index].count('\n') + 1
-     if  line < exclude_line[0] or exclude_line[1] < line :
-        start_line = line
-        count      = count + 1
-     start_index = data.find(start_after, start_index + len(start_after) )
+    line = data[: start_index].count('\n') + 1
+    if  line < exclude_line[0] or exclude_line[1] < line :
+      start_line = line
+      count    = count + 1
+    start_index = data.find(start_after, start_index + len(start_after) )
   if count != 1 :
-     msg += f'\nstart_after   =  {start_after}'
-     msg += f'\ndisplay_file  =  {display_file}'
-     msg += f'\nfound {count} matches expected 1'
-     if input_file == display_file :
-        msg += ' not counting the literal command'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_start, data = m_data
-     )
+    msg += f'\nstart_after  =  {start_after}'
+    msg += f'\ndisplay_file  =  {display_file}'
+    msg += f'\nfound {count} matches expected 1'
+    if input_file == display_file :
+      msg += ' not counting the literal command'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_start, data = m_data
+    )
   #
   # end_line
   stop_index = data.find(end_before)
   count = 0
   while 0 <= stop_index :
-     line = data[: stop_index].count('\n') + 1
-     if  line < exclude_line[0] or exclude_line[1] < line :
-        end_line = line
-        count     = count + 1
-     stop_index = data.find(end_before, stop_index + len(end_before) )
+    line = data[: stop_index].count('\n') + 1
+    if  line < exclude_line[0] or exclude_line[1] < line :
+      end_line = line
+      count    = count + 1
+    stop_index = data.find(end_before, stop_index + len(end_before) )
   if count != 1 :
-     msg += f'\nend_before   =  {end_before}'
-     msg += f'\ndisplay_file =  {display_file}'
-     msg += f'\nfound {count} matches expected 1'
-     if input_file == display_file :
-        msg += ' not counting the literal command'
-     xrst.system_exit(msg, file_name=page_file, page_name=page_name,
-        m_obj = m_end, data = m_data
-     )
+    msg += f'\nend_before  =  {end_before}'
+    msg += f'\ndisplay_file =  {display_file}'
+    msg += f'\nfound {count} matches expected 1'
+    if input_file == display_file :
+      msg += ' not counting the literal command'
+    xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+      m_obj = m_end, data = m_data
+    )
   # ------------------------------------------------------------------------
   # BEGIN_RETURN
   #

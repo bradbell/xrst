@@ -92,19 +92,19 @@ info['page_data']
 is an str containing the data for this page.
 This data has been processed in the following way and order.
 
- #. Line numbers have been added using :ref:`add_line_numbers-name` .
-    This is the first operation done on a page and other operations
-    assume that line numbers are present. They are removed near the end
-    when the temporary file corresponding to a page is created.
- #. The page data has been restricted to the text between
-    the end of the begin command and the start of the end command.
- #. The suspend / resume commands and data between such pairs
-    have been removed; see :ref:`suspend_cmd-name` .
- #. The indentations for this page have been removed; see
-    :ref:`indent_cmd-name` .
- #. If a comment character command is present for this page,
-    the command is remove and for each line, the possible
-    comment character and possible space after have been removed.
+#. Line numbers have been added using :ref:`add_line_numbers-name` .
+   This is the first operation done on a page and other operations
+   assume that line numbers are present. They are removed near the end
+   when the temporary file corresponding to a page is created.
+#. The page data has been restricted to the text between
+   the end of the begin command and the start of the end command.
+#. The suspend / resume commands and data between such pairs
+   have been removed; see :ref:`suspend_cmd-name` .
+#. The indentations for this page have been removed; see
+   :ref:`indent_cmd-name` .
+#. If a comment character command is present for this page,
+   the command is remove and for each line, the possible
+   comment character and possible space after have been removed.
 
 .. index:: info['is_parent']
 

@@ -137,7 +137,7 @@ pattern['template_begin']  = re.compile(
 # 0. @\{xrst_template_end@
 # {xrst_code py}
 # Use \{xrst instead of {xrst so pattern does not look like template end
-pattern['template_end']    = re.compile( r'@\{xrst_template_end}@' )
+pattern['template_end']   = re.compile( r'@\{xrst_template_end}@' )
 # {xrst_code}
 #
 # toc
@@ -154,7 +154,7 @@ pattern['template_end']    = re.compile( r'@\{xrst_template_end}@' )
 #
 # If you change this pattern, check pattern_toc in process_children.py
 # {xrst_code py}
-pattern['toc']   = re.compile(
+pattern['toc']  = re.compile(
   r'[^\\]\{xrst_toc_(hidden|list|table)([^}]*)}'
 )
 # {xrst_code}

@@ -125,16 +125,16 @@ Note that ``'.'`` below denotes the directory where the
 {xrst_code toml}
 [directory]
 project_directory  = '.'
-rst_directory      = 'build/rst'
-html_directory     = 'build/html'
-tex_directory      = 'build/tex'
+rst_directory    = 'build/rst'
+html_directory    = 'build/html'
+tex_directory    = 'build/tex'
 {xrst_code}
 {xrst_suspend}'''
 default_dict['directory'] = {
-  'project_directory' : '.'    ,
-  'rst_directory'     : 'build/rst'  ,
-  'html_directory'    : 'build/html' ,
-  'tex_directory'     : 'build/tex'  ,
+  'project_directory' : '.'   ,
+  'rst_directory'    : 'build/rst'  ,
+  'html_directory'   : 'build/html' ,
+  'tex_directory'    : 'build/tex'  ,
 }
 r'''{xrst_resume}
 
@@ -320,16 +320,16 @@ show_toc_level = 4
 
 [html_theme_options.sphinx_rtd_theme]
 navigation_depth = -1
-titles_only        = true
+titles_only      = true
 {xrst_code}
 {xrst_suspend}'''
 default_dict['html_theme_options'] = {
   'sphinx_book_theme' : {
-     'show_toc_level' : 4
+    'show_toc_level' : 4
   },
   'sphinx_rtd_theme'  : {
-     'navigation_depth' : -1   ,
-     'titles_only'      : True ,
+    'navigation_depth' : -1  ,
+    'titles_only'    : True ,
   },
 }
 r'''{xrst_resume}
@@ -383,9 +383,9 @@ latex_macro  = []
 {xrst_code}
 {xrst_suspend}'''
 default_dict['include_all'] = {
-     'rst_epilog'   : ''     ,
-     'rst_prolog'   : ''     ,
-     'latex_macro'  : list() ,
+    'rst_epilog'  : ''    ,
+    'rst_prolog'  : ''    ,
+    'latex_macro'  : list() ,
 }
 r'''{xrst_resume}
 
@@ -468,14 +468,14 @@ def iterable2string(iterable) :
   iterable = sorted( iterable )
   string = ''
   for item in iterable :
-     if string != '' :
-        string += ', '
-     string += str(item)
+    if string != '' :
+      string += ', '
+    string += str(item)
   return string
 #
 # {xrst_begin get_conf_dict dev}
 # {xrst_spell
-#     config
+#    config
 # }
 # {xrst_comment_ch #}
 #
@@ -488,8 +488,8 @@ def iterable2string(iterable) :
 # Prototype
 # *********
 # {xrst_literal ,
-#     # BEGIN_DEF, # END_DEF
-#     # BEGIN_RETURN, # END_RETURN
+#    # BEGIN_DEF, # END_DEF
+#    # BEGIN_RETURN, # END_RETURN
 # }
 #
 # config_file
@@ -521,189 +521,189 @@ def get_conf_dict(config_file) :
   #
   # check top level keys in config_file
   for table in conf_dict :
-     if table not in default_dict :
-        msg += 'This file has the unexpected table:\n'
-        msg += f'   {table}\n'
-        msg += 'The value table names are:\n'
-        msg += iterable2string( default_dict.keys() )
-        system_exit(msg)
+    if table not in default_dict :
+      msg += 'This file has the unexpected table:\n'
+      msg += f'  {table}\n'
+      msg += 'The value table names are:\n'
+      msg += iterable2string( default_dict.keys() )
+      system_exit(msg)
   #
   # conf_dict
   # also check that all the top keys the correct type
   for table in default_dict :
-     default = default_dict[table]
-     if table not in conf_dict :
-        conf_dict[table] = default
-     else :
-        table_dict = conf_dict[table]
-        if type(table_dict) != dict :
-           msg += f'Table {table} is not a python dictionary\n'
-           msg += 'it has python type '+ str( type(table_dict) )
-           system_exit(msg)
+    default = default_dict[table]
+    if table not in conf_dict :
+      conf_dict[table] = default
+    else :
+      table_dict = conf_dict[table]
+      if type(table_dict) != dict :
+        msg += f'Table {table} is not a python dictionary\n'
+        msg += 'it has python type '+ str( type(table_dict) )
+        system_exit(msg)
   #
   # directory
   table_dict = conf_dict['directory']
   valid_set = {
-     'project_directory',
-     'rst_directory',
-     'html_directory',
-     'tex_directory',
+    'project_directory',
+    'rst_directory',
+    'html_directory',
+    'tex_directory',
   }
   if set( table_dict.keys() ) != valid_set :
-     msg += 'The directory has the following keys:\n'
-     msg += iterable2string( table_dict.keys() ) + '\n'
-     msg += 'Expected the following keys:\n'
-     msg += iterable2string( valid_set ) + '\n'
-     system_exit(msg)
+    msg += 'The directory has the following keys:\n'
+    msg += iterable2string( table_dict.keys() ) + '\n'
+    msg += 'Expected the following keys:\n'
+    msg += iterable2string( valid_set ) + '\n'
+    system_exit(msg)
   for key in table_dict :
-     value = table_dict[key]
-     if type(value) != str :
-        msg += f'directory.{key} has python type ' + str(type(value))
-        system_exit(msg)
+    value = table_dict[key]
+    if type(value) != str :
+      msg += f'directory.{key} has python type ' + str(type(value))
+      system_exit(msg)
   #
   # spell_package
   value = conf_dict['spell_package']['data']
   if value not in [ 'pyspellchecker', 'pyenchant' ] :
-     msg += 'spell_package has is not pyspellchecker or pyenchant'
-     system_exit(msg)
+    msg += 'spell_package has is not pyspellchecker or pyenchant'
+    system_exit(msg)
   else :
-     name  = value[2:] # drop py at front of name
-     spec  =  importlib.util.find_spec(name)
-     if spec == None :
-        msg += f'The spell_package is {value} but cannot import {name}'
-        msg += f'Perhaps need to execute: pip install {value}'
-        sys.exit(msg)
+    name  = value[2:] # drop py at front of name
+    spec  =  importlib.util.find_spec(name)
+    if spec == None :
+      msg += f'The spell_package is {value} but cannot import {name}'
+      msg += f'Perhaps need to execute: pip install {value}'
+      sys.exit(msg)
   #
   # heading
   table_dict = conf_dict['heading']
   valid_set = { 'character', 'overline' }
   if set( table_dict.keys() ) != valid_set :
-     msg += 'The heading has the following keys:\n'
-     msg += iterable2string( table_dict.keys() ) + '\n'
-     msg += 'Expected the following keys:\n'
-     msg += iterable2string( valid_set ) + '\n'
-     system_exit(msg)
+    msg += 'The heading has the following keys:\n'
+    msg += iterable2string( table_dict.keys() ) + '\n'
+    msg += 'Expected the following keys:\n'
+    msg += iterable2string( valid_set ) + '\n'
+    system_exit(msg)
   for key in table_dict :
-     value = table_dict[key]
-     if type(value) != list :
-        msg += f'directory.{key} has python type ' + str(type(value))
-        msg += ' explected a list'
-        system_exit(msg)
+    value = table_dict[key]
+    if type(value) != list :
+      msg += f'directory.{key} has python type ' + str(type(value))
+      msg += ' explected a list'
+      system_exit(msg)
   if len( table_dict['character'] ) != len( table_dict['overline'] ) :
-     msg  = 'The heading character list and overline lists '
-     msg += 'have different length:\n'
-     system_exit(msg)
+    msg  = 'The heading character list and overline lists '
+    msg += 'have different length:\n'
+    system_exit(msg)
   punctuation  = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
   for i in range( len( table_dict['character'] ) ) :
-     ch = table_dict['character'][i]
-     if ch not in punctuation :
-        msg  = f'The character {ch} in heading.character is not a valid '
-        msg += 'underline character\n'
-        msg += 'The valid characters are ' + punctuation
-        system_exit(msg)
-     if type( table_dict['overline'][i] ) != bool :
-        msg  = f'A value in heading.overline is not true or false'
-        system_exit(msg)
+    ch = table_dict['character'][i]
+    if ch not in punctuation :
+      msg  = f'The character {ch} in heading.character is not a valid '
+      msg += 'underline character\n'
+      msg += 'The valid characters are ' + punctuation
+      system_exit(msg)
+    if type( table_dict['overline'][i] ) != bool :
+      msg  = f'A value in heading.overline is not true or false'
+      system_exit(msg)
   #
   # root_file
   p_group_name = re.compile( r'[a-z]+' )
   table_dict = conf_dict['root_file']
   for key in table_dict :
-     if key == '' :
-        msg += 'root_file uses the empty group name\n'
-        msg += 'Use default for the empty group name'
-        system_exit(msg)
-     m_group_name = p_group_name.fullmatch(key)
-     if m_group_name == None :
-        msg += f'root_file: "{key}" is not a valid group name\n'
-        msg += 'A valid group name is a sequence of the letters a-z.'
-        system_exit(msg)
-     value = table_dict[key]
-     if type(value) != str :
-        msg += f'root_file.{key} value has python type '
-        msg += str(type(value)) + '\n'
-        msg += 'Expected it to have type ' + str( str )
-        system_exit(msg)
+    if key == '' :
+      msg += 'root_file uses the empty group name\n'
+      msg += 'Use default for the empty group name'
+      system_exit(msg)
+    m_group_name = p_group_name.fullmatch(key)
+    if m_group_name == None :
+      msg += f'root_file: "{key}" is not a valid group name\n'
+      msg += 'A valid group name is a sequence of the letters a-z.'
+      system_exit(msg)
+    value = table_dict[key]
+    if type(value) != str :
+      msg += f'root_file.{key} value has python type '
+      msg += str(type(value)) + '\n'
+      msg += 'Expected it to have type ' + str( str )
+      system_exit(msg)
   #
   # input_files
   table_dict = conf_dict['input_files']
-  value      = table_dict['data']
+  value    = table_dict['data']
   if type(value) != list :
-        msg += f'input_files.data has python type '
-        msg += str(type(value)) + '\n'
-        msg += 'Expected it to have type ' + str( list )
-        system_exit(msg)
+      msg += f'input_files.data has python type '
+      msg += str(type(value)) + '\n'
+      msg += 'Expected it to have type ' + str( list )
+      system_exit(msg)
   for (index1, entry1) in enumerate(value) :
-     if type(entry1) != list :
-        msg += f'input_files.data[{index1}] has python type '
+    if type(entry1) != list :
+      msg += f'input_files.data[{index1}] has python type '
+      msg += str(type(entry1)) + '\n'
+      msg += 'Expected it to have type ' + str( list )
+      system_exit(msg)
+    for (index2, entry2) in enumerate(entry1) :
+      if type(entry2) != str :
+        msg += f'input_files.data[{index1}][{index2}] has python type '
         msg += str(type(entry1)) + '\n'
-        msg += 'Expected it to have type ' + str( list )
+        msg += 'Expected it to have type ' + str( str )
         system_exit(msg)
-     for (index2, entry2) in enumerate(entry1) :
-        if type(entry2) != str :
-           msg += f'input_files.data[{index1}][{index2}] has python type '
-           msg += str(type(entry1)) + '\n'
-           msg += 'Expected it to have type ' + str( str )
-           system_exit(msg)
   #
   # html_theme_options
   table_dict = conf_dict['html_theme_options']
   for key in table_dict :
-     value = table_dict[key]
-     try :
-        dict( value )
-     except :
-        msg += f'html_theme_options.{key} has python type ' + str(type(value))
-        msg += '\nExpected it to have type ' + str( dict )
-        system_exit(msg)
+    value = table_dict[key]
+    try :
+      dict( value )
+    except :
+      msg += f'html_theme_options.{key} has python type ' + str(type(value))
+      msg += '\nExpected it to have type ' + str( dict )
+      system_exit(msg)
   #
   # include_all
   table_dict = conf_dict['include_all']
   valid_set  = {
-     'rst_epilog',
-     'rst_prolog',
-     'latex_macro'
+    'rst_epilog',
+    'rst_prolog',
+    'latex_macro'
   }
   if set(table_dict.keys()) != valid_set :
-     msg += 'The include_all has the following keys:\n'
-     msg += iterable2string( table_dict.keys() ) + '\n'
-     msg += 'Expected the following keys:\n'
-     msg += iterable2string( valid_set ) + '\n'
-     system_exit(msg)
+    msg += 'The include_all has the following keys:\n'
+    msg += iterable2string( table_dict.keys() ) + '\n'
+    msg += 'Expected the following keys:\n'
+    msg += iterable2string( valid_set ) + '\n'
+    system_exit(msg)
   for key in [ 'rst_epilog', 'rst_prolog' ] :
-     value = table_dict[key]
-     if type( value ) != str :
-        msg += f'include_all.{key} has python type '
-        msg += str(type(value)) + '\n'
-        msg += 'Expected it to have type ' + str( str )
-        system_exit(msg)
+    value = table_dict[key]
+    if type( value ) != str :
+      msg += f'include_all.{key} has python type '
+      msg += str(type(value)) + '\n'
+      msg += 'Expected it to have type ' + str( str )
+      system_exit(msg)
   value = table_dict['latex_macro']
   if type( value ) != list :
-     msg += f'include_all.latex_macro has python type '
-     msg += str(type(value)) + '\n'
-     msg += 'Expected it to have type ' + str( list )
-     system_exit(msg)
+    msg += f'include_all.latex_macro has python type '
+    msg += str(type(value)) + '\n'
+    msg += 'Expected it to have type ' + str( list )
+    system_exit(msg)
   for (index, entry) in enumerate(value) :
-     if type(entry) != str :
-        msg += f'include_all.latex_macro[{index}] has python type '
-        msg += str(type(entry)) + '\n'
-        msg += 'Expected it to have type ' + str( str )
-        system_exit(msg)
+    if type(entry) != str :
+      msg += f'include_all.latex_macro[{index}] has python type '
+      msg += str(type(entry)) + '\n'
+      msg += 'Expected it to have type ' + str( str )
+      system_exit(msg)
   #
   # project_dictionary, not_in_index
   for table in [ 'project_dictionary', 'not_in_index' ] :
-     value = conf_dict[table]['data']
-     if type(value) != list :
-           msg += f'project_dictionary.data has python type '
-           msg += str(type(value)) + '\n'
-           msg += 'Expected it to have type ' + str( list )
-           system_exit(msg)
-     for (index, entry) in enumerate(value) :
-        if type(entry) != str :
-           msg += f'output_direcory.data[{index}] has python type '
-           msg += str(type(entry)) + '\n'
-           msg += 'Expected it to have type ' + str( str )
-           system_exit(msg)
+    value = conf_dict[table]['data']
+    if type(value) != list :
+        msg += f'project_dictionary.data has python type '
+        msg += str(type(value)) + '\n'
+        msg += 'Expected it to have type ' + str( list )
+        system_exit(msg)
+    for (index, entry) in enumerate(value) :
+      if type(entry) != str :
+        msg += f'output_direcory.data[{index}] has python type '
+        msg += str(type(entry)) + '\n'
+        msg += 'Expected it to have type ' + str( str )
+        system_exit(msg)
   #
   # BEGIN_RETURN
   #
