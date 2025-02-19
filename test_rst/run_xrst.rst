@@ -310,7 +310,7 @@ Once you have built *project_name*\ ``.tex``, the following command
 executed in :ref:`config_file@directory@project_directory`
 will accomplish both purposes:
 
-   make -C *tex_directory* *project_name*\ ``.pdf``
+  make -C *tex_directory* *project_name*\ ``.pdf``
 
 #. The :ref:`config_file@project_name` is specified in the configuration file.
 #. The resulting output file will be *project*\ ``.pdf`` in the
@@ -390,17 +390,17 @@ and it is your current working directory.
 #. The xrst examples use the default group
    and their documentation can be built using
 
-      ``xrst --group_list default``
+     ``xrst --group_list default``
 
 #. The xrst user documentation uses the default and user groups
    and its documentation can be built using
 
-      ``xrst --group_list default user``
+     ``xrst --group_list default user``
 
 #. The xrst developer documentation uses the default, user, and dev
    groups and its documentation can be built using
 
-      ``xrst --group_list default user dev``
+     ``xrst --group_list default user dev``
 
 .. index:: rename_group
 

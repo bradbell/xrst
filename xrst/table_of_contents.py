@@ -6,10 +6,10 @@ import xrst
 # ----------------------------------------------------------------------------
 # page_index =
 def page_name2index(all_page_info, page_name) :
-   for (page_index, info) in enumerate(all_page_info) :
-      if info['page_name'] == page_name :
-         return page_index
-   return None
+  for (page_index, info) in enumerate(all_page_info) :
+     if info['page_name'] == page_name :
+        return page_index
+  return None
 
 # ----------------------------------------------------------------------------
 # Create the table of contents and replace the '{xrst@before_title}'
@@ -57,93 +57,93 @@ def page_name2index(all_page_info, page_name) :
 #
 # content =
 def page_table_of_contents(
-   tmp_dir, target, count, all_page_info, page_index
+  tmp_dir, target, count, all_page_info, page_index
 ) :
-   assert type(tmp_dir) == str
-   assert type(target) == str
-   assert type(count) == list
-   assert type(all_page_info) == list
-   assert type(page_index) == int
-   #
-   assert target in [ 'html', 'tex' ]
-   #
-   # page_name, page_title, child_order
-   page_name   = all_page_info[page_index]['page_name']
-   page_title  = all_page_info[page_index]['page_title']
-   child_order = all_page_info[page_index]['child_order']
-   #
-   # page_number, content
-   page_number = ''
-   if 0 == len(count) :
-      content = ''
-   else :
-      content = '| '
-   if 0 < len(count) :
-      assert type( count[-1] ) == int
-      for i in range( len(count) - 1 ) :
-         content += 3 * ' '
-      for (i, c) in enumerate(count) :
-         page_number += str(c)
-         if i + 1 < len(count) :
-            page_number += '.'
-   #
-   # content
-   if len(count) == 0 :
-      content  += f':ref:`{page_name}-title`' '\n\n'
-   else :
-      content  += f':ref:`{page_number}<{page_name}-title>` '
-      content  += page_title + '\n'
-   #
-   # file_name
-   # temporary file corresponding to this page name
-   if page_name.endswith('.rst') :
-      file_name = tmp_dir + '/' + page_name
-   else :
-      file_name = tmp_dir + '/' + page_name + '.rst'
-   #
-   # page_data
-   file_obj  = open(file_name, 'r')
-   page_data = file_obj.read()
-   file_obj.close()
-   page_data = xrst.add_before_title(
-      page_data, target, page_number, page_name
-   )
-   #
-   # file_name
-   file_obj  = open(file_name, 'w')
-   file_obj.write(page_data)
-   file_obj.close()
-   #
-   # in_parent_file_list, in_toc_cmd_list
-   in_parent_file_list = list()
-   in_toc_cmd_list   = list()
-   for child_index in range( len( all_page_info ) ) :
-      if all_page_info[child_index]['parent_page'] == page_index :
-         if all_page_info[child_index]['in_parent_file'] :
-            in_parent_file_list.append(child_index)
-         else :
-            in_toc_cmd_list.append(child_index)
-   #
-   # child_content
-   child_content = ''
-   child_count   = count + [0]
-   if child_order == 'before' :
-      child_index_list = in_toc_cmd_list + in_parent_file_list
-   else :
-      assert child_order == 'after'
-      child_index_list = in_parent_file_list + in_toc_cmd_list
-   for child_index in child_index_list :
-      #
-      # child_count
-      child_count[-1] += 1
-      child_content += page_table_of_contents(
-         tmp_dir, target, child_count, all_page_info, child_index
-      )
-   #
-   # content
-   content += child_content
-   #
-   return content
+  assert type(tmp_dir) == str
+  assert type(target) == str
+  assert type(count) == list
+  assert type(all_page_info) == list
+  assert type(page_index) == int
+  #
+  assert target in [ 'html', 'tex' ]
+  #
+  # page_name, page_title, child_order
+  page_name   = all_page_info[page_index]['page_name']
+  page_title  = all_page_info[page_index]['page_title']
+  child_order = all_page_info[page_index]['child_order']
+  #
+  # page_number, content
+  page_number = ''
+  if 0 == len(count) :
+     content = ''
+  else :
+     content = '| '
+  if 0 < len(count) :
+     assert type( count[-1] ) == int
+     for i in range( len(count) - 1 ) :
+        content += 3 * ' '
+     for (i, c) in enumerate(count) :
+        page_number += str(c)
+        if i + 1 < len(count) :
+           page_number += '.'
+  #
+  # content
+  if len(count) == 0 :
+     content  += f':ref:`{page_name}-title`' '\n\n'
+  else :
+     content  += f':ref:`{page_number}<{page_name}-title>` '
+     content  += page_title + '\n'
+  #
+  # file_name
+  # temporary file corresponding to this page name
+  if page_name.endswith('.rst') :
+     file_name = tmp_dir + '/' + page_name
+  else :
+     file_name = tmp_dir + '/' + page_name + '.rst'
+  #
+  # page_data
+  file_obj  = open(file_name, 'r')
+  page_data = file_obj.read()
+  file_obj.close()
+  page_data = xrst.add_before_title(
+     page_data, target, page_number, page_name
+  )
+  #
+  # file_name
+  file_obj  = open(file_name, 'w')
+  file_obj.write(page_data)
+  file_obj.close()
+  #
+  # in_parent_file_list, in_toc_cmd_list
+  in_parent_file_list = list()
+  in_toc_cmd_list   = list()
+  for child_index in range( len( all_page_info ) ) :
+     if all_page_info[child_index]['parent_page'] == page_index :
+        if all_page_info[child_index]['in_parent_file'] :
+           in_parent_file_list.append(child_index)
+        else :
+           in_toc_cmd_list.append(child_index)
+  #
+  # child_content
+  child_content = ''
+  child_count   = count + [0]
+  if child_order == 'before' :
+     child_index_list = in_toc_cmd_list + in_parent_file_list
+  else :
+     assert child_order == 'after'
+     child_index_list = in_parent_file_list + in_toc_cmd_list
+  for child_index in child_index_list :
+     #
+     # child_count
+     child_count[-1] += 1
+     child_content += page_table_of_contents(
+        tmp_dir, target, child_count, all_page_info, child_index
+     )
+  #
+  # content
+  content += child_content
+  #
+  return content
 # ----------------------------------------------------------------------------
 # {xrst_begin table_of_contents dev}
 # {xrst_comment_ch #}
@@ -211,46 +211,46 @@ def page_table_of_contents(
 # {xrst_end table_of_contents}
 # BEGIN_DEF
 def table_of_contents(
-   tmp_dir, target, all_page_info, root_page_list
+  tmp_dir, target, all_page_info, root_page_list
 ) :
-   assert type(tmp_dir) == str
-   assert type(target) == str
-   assert target in [ 'html', 'tex']
-   assert type(all_page_info) == list
-   assert type(all_page_info[0]) == dict
-   assert type(root_page_list) == list
-   assert type(root_page_list[0]) == str
-   # END_DEF
-   #
-   # content
-   content  = '.. _xrst_contents-name:\n\n'
-   content += '!!!!!!!!\n'
-   content += 'contents\n'
-   content += '!!!!!!!!\n\n'
-   #
-   content += '.. _xrst_contents-title:\n\n'
-   content += 'Table of Contents\n'
-   content += '*****************\n'
-   #
-   # content
-   if len(root_page_list) == 1 :
-      count = []
-      page_name  = root_page_list[0]
-      page_index = page_name2index(all_page_info, page_name)
-      content += page_table_of_contents(
-         tmp_dir, target, count, all_page_info, page_index
-      )
-   else :
-      count = [0]
-      for page_name in  root_page_list :
-         page_index = page_name2index(all_page_info, page_name)
-         count[0]     += 1
-         content      += page_table_of_contents(
-            tmp_dir, target, count, all_page_info, page_index
-         )
-   #
-   # BEGIN_RETURN
-   #
-   assert type(content) == str
-   return content
-   # END_RETURN
+  assert type(tmp_dir) == str
+  assert type(target) == str
+  assert target in [ 'html', 'tex']
+  assert type(all_page_info) == list
+  assert type(all_page_info[0]) == dict
+  assert type(root_page_list) == list
+  assert type(root_page_list[0]) == str
+  # END_DEF
+  #
+  # content
+  content  = '.. _xrst_contents-name:\n\n'
+  content += '!!!!!!!!\n'
+  content += 'contents\n'
+  content += '!!!!!!!!\n\n'
+  #
+  content += '.. _xrst_contents-title:\n\n'
+  content += 'Table of Contents\n'
+  content += '*****************\n'
+  #
+  # content
+  if len(root_page_list) == 1 :
+     count = []
+     page_name  = root_page_list[0]
+     page_index = page_name2index(all_page_info, page_name)
+     content += page_table_of_contents(
+        tmp_dir, target, count, all_page_info, page_index
+     )
+  else :
+     count = [0]
+     for page_name in  root_page_list :
+        page_index = page_name2index(all_page_info, page_name)
+        count[0]     += 1
+        content      += page_table_of_contents(
+           tmp_dir, target, count, all_page_info, page_index
+        )
+  #
+  # BEGIN_RETURN
+  #
+  assert type(content) == str
+  return content
+  # END_RETURN

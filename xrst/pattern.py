@@ -31,7 +31,7 @@ pattern = dict()
 #
 # {xrst_code py}
 pattern['begin'] = re.compile(
-   r'(^|[^\\])\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
+  r'(^|[^\\])\{xrst_(begin|begin_parent)[ \t]+([^ \t}]*)([^}]*)}'
 )
 # {xrst_code}
 #
@@ -50,8 +50,8 @@ pattern['begin'] = re.compile(
 #
 # {xrst_code py}
 pattern['code'] = re.compile(
-   r'\n([ \t]*)(\{xrst_code *|([^\n]*[^\n\\])\{xrst_code *)' +
-   r'([^@]*)}[^\n]*@xrst_line ([0-9]+)@'
+  r'\n([ \t]*)(\{xrst_code *|([^\n]*[^\n\\])\{xrst_code *)' +
+  r'([^@]*)}[^\n]*@xrst_line ([0-9]+)@'
 )
 # {xrst_code}
 #
@@ -64,7 +64,7 @@ pattern['code'] = re.compile(
 #
 # {xrst_code py}
 pattern['comment_ch'] = re.compile(
-   r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
+  r'(^|[^\\])\{xrst_comment_ch\s+([^} \t]*)\s*}'
 )
 # {xrst_code}
 #
@@ -78,7 +78,7 @@ pattern['comment_ch'] = re.compile(
 # {xrst_code py}
 # pattern_dir
 pattern['dir'] = re.compile(
-   r'(^|[^\\]){xrst_dir[ \t]+([^}]*)}'
+  r'(^|[^\\]){xrst_dir[ \t]+([^}]*)}'
 )
 # {xrst_code}
 #
@@ -128,7 +128,7 @@ r'[^\\]\{xrst_literal([^\n}]*)@xrst_line [0-9]+@\n([^}]*)}|[^\\]\{xrst_literal}'
 # {xrst_code py}
 # Use \{xrst instead of {xrst so pattern does not look like template begin
 pattern['template_begin']  = re.compile(
-   r'@\{xrst_template_begin@([^@]*)@([^@]*)@}@'
+  r'@\{xrst_template_begin@([^@]*)@([^@]*)@}@'
 )
 # {xrst_code}
 #
@@ -155,7 +155,7 @@ pattern['template_end']    = re.compile( r'@\{xrst_template_end}@' )
 # If you change this pattern, check pattern_toc in process_children.py
 # {xrst_code py}
 pattern['toc']   = re.compile(
-   r'[^\\]\{xrst_toc_(hidden|list|table)([^}]*)}'
+  r'[^\\]\{xrst_toc_(hidden|list|table)([^}]*)}'
 )
 # {xrst_code}
 #

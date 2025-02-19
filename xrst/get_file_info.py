@@ -5,8 +5,8 @@
 r"""
 {xrst_begin begin_cmd user}
 {xrst_spell
-   genindex
-   underbar
+  genindex
+  underbar
 }
 
 Begin and End Commands
@@ -59,7 +59,7 @@ Output File
 ***********
 The output file corresponding to *page_name* is
 
-   *rst_directory*\ /\ *page_name*\ /``.rst``
+  *rst_directory*\ /\ *page_name*\ /``.rst``
 
 see :ref:`config_file@directory@rst_directory` .
 
@@ -91,7 +91,7 @@ import re
 pattern_group_name    = re.compile( r'[^ \t]+' )
 pattern_group_valid   = re.compile( r'[a-z]+' )
 pattern_template_file = re.compile(
-   r'([^\\]){xrst_template[^\n}]*\n([^\n}]*)@xrst_line [0-9]+@\n'
+  r'([^\\]){xrst_template[^\n}]*\n([^\n}]*)@xrst_line [0-9]+@\n'
 )
 # ---------------------------------------------------------------------------
 # {xrst_begin get_file_info dev}
@@ -186,233 +186,233 @@ pattern_template_file = re.compile(
 # {xrst_end get_file_info}
 # BEGIN_DEF
 def get_file_info(
-      all_page_info,
-      group_name,
-      parent_file,
-      file_in,
+     all_page_info,
+     group_name,
+     parent_file,
+     file_in,
 ) :
-   assert type(all_page_info) == list
-   if 0 < len(all_page_info) :
-      type( all_page_info[0] ) == dict
-   assert type(group_name) == str
-   assert group_name != ''
-   assert type(parent_file) == str or parent_file == None
-   assert type(file_in) == str
-   # END_DEF
-   #
-   # file_data
-   file_obj   = open(file_in, 'r')
-   file_data  = file_obj.read()
-   file_obj.close()
-   #
-   # file_data
-   file_data = xrst.add_line_numbers(file_data, file_in)
-   #
-   # file_page_info
-   file_page_info = list()
-   #
-   # parent_page_name
-   parent_page_name = None
-   #
-   # data_index
-   # index to start search for next pattern in file_data
-   data_index  = 0
-   #
-   # found_group_name
-   found_group_name = False
-   #
-   # for each page in this file
-   while data_index < len(file_data) :
-      #
-      # m_begin
-      m_begin = xrst.pattern['begin'].search(file_data, data_index)
-      #
-      # this_group_name
-      # This match can't occurr in a template expansion.
-      if m_begin != None :
-         #
-         this_group_name = m_begin.group(4)
-         m_group         = pattern_group_name.search(this_group_name)
-         if m_group == None :
-            this_group_name = 'default'
-         else :
-            this_group_name = m_group.group(0)
-            m_group    = pattern_group_valid.search(this_group_name)
-            if this_group_name != m_group.group(0) :
-               msg = f'"{this_group_name}" is not a valid group name'
-               xrst.system_exit(msg,
-                  file_name = file_in,
-                  m_obj     = m_begin,
-                  data      = file_data,
-               )
-      if m_begin == None :
-         if not found_group_name :
-            msg  = 'can not find a begin command with \n'
-            if group_name == '' :
-               msg += 'the empty group name and '
-            else :
-               msg += f'group_name = {group_name} and '
-            msg += f'parent file = {parent_file}'
-            xrst.system_exit(msg, file_name=file_in)
-         #
-         # data_index
-         # set so that the page loop for this file terminates
-         data_index = len(file_data)
-      elif this_group_name != group_name :
-         #
-         # data_index
-         # place to start search for next page
-         data_index = m_begin.end()
-      else :
-         #
-         # found_group_name
-         found_group_name = True
-         #
-         # page_name, is_parent
-         page_name = m_begin.group(3)
-         is_parent = m_begin.group(2) == 'begin_parent'
-         #
-         # check_page_name
-         xrst.check_page_name(
-            page_name,
-            file_name     = file_in,
-            m_obj         = m_begin,
-            data          = file_data
-         )
-         #
-         # check if page_name appears multiple times in this file
-         for info in file_page_info :
-            previous_page_name = info['page_name']
-            if page_name.lower() == previous_page_name.lower() :
-               msg  = 'Lower case version of two page names are equal.\n'
-               msg += f'previous page_name = {previous_page_name}\n'
-               msg += f'previous_file      = {file_in}\n'
-               xrst.system_exit(msg,
-                  file_name      = file_in,
-                  page_name      = page_name,
-                  m_obj          = m_begin,
-                  data           = file_data
-               )
-         #
-         # check if page_name appears in another file
-         for info in all_page_info :
-            previous_page_name = info['page_name']
-            if page_name.lower() == previous_page_name.lower() :
-               msg  = 'Lower case version of two page names are equal.\n'
-               msg += f'previous_page_name  = "{previous_page_name}"\n'
-               msg += 'previous_file        = ' +  info['file_in'] + '\n'
-               xrst.system_exit(msg,
-                  file_name = file_in  ,
-                  page_name = page_name
-               );
-         #
-         # check if parent pages is the first page in this file
-         if is_parent :
-            if len(file_page_info) != 0 :
-               msg  = 'xrst_begin_parent'
-               msg += ' is not the first begin command in this file'
-               xrst.system_exit(msg,
-                  file_name     = file_in,
-                  page_name     = page_name,
-                  m_obj         = m_begin,
-                  data          = file_data
-               )
-            #
-            # parent_page_name
-            parent_page_name = page_name
-         #
-         # is_child
-         is_child = (not is_parent) and (parent_page_name != None)
-         #
-         # data_index
-         data_index = m_begin.end()
-         #
-         # begin_line
-         m_line     = xrst.pattern['line'].search(file_data, data_index)
-         begin_line = int( m_line.group(1) )
-         #
-         # m_end
-         m_end     = xrst.pattern['end'].search(file_data, data_index)
-         #
-         if m_end == None :
-            msg  = 'Could not find the followig text:\n'
-            msg += '    {xrst_end ' + page_name + '}'
-            xrst.system_exit(
-               msg, file_name=file_in, page_name=page_name
-            )
-         if m_end.group(1) != page_name :
-            msg  = 'begin and end page names do not match\n'
-            msg += 'begin name = ' + page_name + '\n'
-            msg += 'end name   = ' + m_end.group(1)
-            xrst.system_exit(msg,
-               file_name = file_in,
-               m_obj     = m_end,
-               data      = file_data
-            )
-         #
-         # end_line
-         m_line     = xrst.pattern['line'].search(file_data, m_end.start())
-         end_line = int( m_line.group(1) )
-         #
-         #
-         # page_data
-         page_start = data_index
-         page_end   = m_end.start() + 1
-         page_data  = file_data[ page_start : page_end ]
-         #
-         # page_data
-         # order of these operations is important
-         page_data = xrst.suspend_command( page_data, file_in, page_name)
-         page_data = xrst.indent_command( page_data, file_in, page_name)
-         #
-         # page_data
-         page_data, comment_ch = xrst.comment_ch_command(
-            page_data, file_in, page_name
-         )
-         if comment_ch :
-            pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
-            page_data   = pattern_ch.sub(r'\n', page_data)
-         #
-         # template_list
-         template_list = list()
-         m_obj         = pattern_template_file.search(page_data)
-         while m_obj != None :
-            template_list.append( m_obj.group(2).strip() )
-            m_obj = pattern_template_file.search( page_data, m_obj.end() )
-         #
-         # file_page_info
-         file_page_info.append( {
-            'page_name'      : page_name,
-            'page_data'      : page_data,
-            'is_parent'      : is_parent,
-            'is_child'       : is_child,
-            'begin_line'     : begin_line,
-            'end_line'       : end_line,
-            'template_list'  : template_list,
-         } )
-         #
-         # data_index
-         # place to start search for next page
-         data_index = m_end.end()
-   #
-   if parent_page_name != None and len(file_page_info) < 2 :
-      msg  = 'begin_parent command appears with '
-      if group_name == '' :
-         msg += 'the empty group name\n'
-      else :
-         msg += f'group_name = {group_name}\n'
-      msg += 'and this file only has one page with that group name.'
-      xrst.system_exit(
-         msg, file_name=file_in, page_name=parent_page_name
-      )
-   #
-   # file_data
-   file_data = xrst.pattern['begin'].sub('', file_data)
-   file_data = xrst.pattern['end'].sub('', file_data)
-   #
-   # BEGIN_RETURN
-   #
-   assert type(file_page_info) == list
-   assert type(file_page_info[0]) == dict
-   return file_page_info
-   # END_RETURN
+  assert type(all_page_info) == list
+  if 0 < len(all_page_info) :
+     type( all_page_info[0] ) == dict
+  assert type(group_name) == str
+  assert group_name != ''
+  assert type(parent_file) == str or parent_file == None
+  assert type(file_in) == str
+  # END_DEF
+  #
+  # file_data
+  file_obj   = open(file_in, 'r')
+  file_data  = file_obj.read()
+  file_obj.close()
+  #
+  # file_data
+  file_data = xrst.add_line_numbers(file_data, file_in)
+  #
+  # file_page_info
+  file_page_info = list()
+  #
+  # parent_page_name
+  parent_page_name = None
+  #
+  # data_index
+  # index to start search for next pattern in file_data
+  data_index  = 0
+  #
+  # found_group_name
+  found_group_name = False
+  #
+  # for each page in this file
+  while data_index < len(file_data) :
+     #
+     # m_begin
+     m_begin = xrst.pattern['begin'].search(file_data, data_index)
+     #
+     # this_group_name
+     # This match can't occurr in a template expansion.
+     if m_begin != None :
+        #
+        this_group_name = m_begin.group(4)
+        m_group         = pattern_group_name.search(this_group_name)
+        if m_group == None :
+           this_group_name = 'default'
+        else :
+           this_group_name = m_group.group(0)
+           m_group    = pattern_group_valid.search(this_group_name)
+           if this_group_name != m_group.group(0) :
+              msg = f'"{this_group_name}" is not a valid group name'
+              xrst.system_exit(msg,
+                 file_name = file_in,
+                 m_obj     = m_begin,
+                 data      = file_data,
+              )
+     if m_begin == None :
+        if not found_group_name :
+           msg  = 'can not find a begin command with \n'
+           if group_name == '' :
+              msg += 'the empty group name and '
+           else :
+              msg += f'group_name = {group_name} and '
+           msg += f'parent file = {parent_file}'
+           xrst.system_exit(msg, file_name=file_in)
+        #
+        # data_index
+        # set so that the page loop for this file terminates
+        data_index = len(file_data)
+     elif this_group_name != group_name :
+        #
+        # data_index
+        # place to start search for next page
+        data_index = m_begin.end()
+     else :
+        #
+        # found_group_name
+        found_group_name = True
+        #
+        # page_name, is_parent
+        page_name = m_begin.group(3)
+        is_parent = m_begin.group(2) == 'begin_parent'
+        #
+        # check_page_name
+        xrst.check_page_name(
+           page_name,
+           file_name     = file_in,
+           m_obj         = m_begin,
+           data          = file_data
+        )
+        #
+        # check if page_name appears multiple times in this file
+        for info in file_page_info :
+           previous_page_name = info['page_name']
+           if page_name.lower() == previous_page_name.lower() :
+              msg  = 'Lower case version of two page names are equal.\n'
+              msg += f'previous page_name = {previous_page_name}\n'
+              msg += f'previous_file      = {file_in}\n'
+              xrst.system_exit(msg,
+                 file_name      = file_in,
+                 page_name      = page_name,
+                 m_obj          = m_begin,
+                 data           = file_data
+              )
+        #
+        # check if page_name appears in another file
+        for info in all_page_info :
+           previous_page_name = info['page_name']
+           if page_name.lower() == previous_page_name.lower() :
+              msg  = 'Lower case version of two page names are equal.\n'
+              msg += f'previous_page_name  = "{previous_page_name}"\n'
+              msg += 'previous_file        = ' +  info['file_in'] + '\n'
+              xrst.system_exit(msg,
+                 file_name = file_in  ,
+                 page_name = page_name
+              );
+        #
+        # check if parent pages is the first page in this file
+        if is_parent :
+           if len(file_page_info) != 0 :
+              msg  = 'xrst_begin_parent'
+              msg += ' is not the first begin command in this file'
+              xrst.system_exit(msg,
+                 file_name     = file_in,
+                 page_name     = page_name,
+                 m_obj         = m_begin,
+                 data          = file_data
+              )
+           #
+           # parent_page_name
+           parent_page_name = page_name
+        #
+        # is_child
+        is_child = (not is_parent) and (parent_page_name != None)
+        #
+        # data_index
+        data_index = m_begin.end()
+        #
+        # begin_line
+        m_line     = xrst.pattern['line'].search(file_data, data_index)
+        begin_line = int( m_line.group(1) )
+        #
+        # m_end
+        m_end     = xrst.pattern['end'].search(file_data, data_index)
+        #
+        if m_end == None :
+           msg  = 'Could not find the followig text:\n'
+           msg += '    {xrst_end ' + page_name + '}'
+           xrst.system_exit(
+              msg, file_name=file_in, page_name=page_name
+           )
+        if m_end.group(1) != page_name :
+           msg  = 'begin and end page names do not match\n'
+           msg += 'begin name = ' + page_name + '\n'
+           msg += 'end name   = ' + m_end.group(1)
+           xrst.system_exit(msg,
+              file_name = file_in,
+              m_obj     = m_end,
+              data      = file_data
+           )
+        #
+        # end_line
+        m_line     = xrst.pattern['line'].search(file_data, m_end.start())
+        end_line = int( m_line.group(1) )
+        #
+        #
+        # page_data
+        page_start = data_index
+        page_end   = m_end.start() + 1
+        page_data  = file_data[ page_start : page_end ]
+        #
+        # page_data
+        # order of these operations is important
+        page_data = xrst.suspend_command( page_data, file_in, page_name)
+        page_data = xrst.indent_command( page_data, file_in, page_name)
+        #
+        # page_data
+        page_data, comment_ch = xrst.comment_ch_command(
+           page_data, file_in, page_name
+        )
+        if comment_ch :
+           pattern_ch  = re.compile( r'\n[ \t]*[' + comment_ch + r'] ?' )
+           page_data   = pattern_ch.sub(r'\n', page_data)
+        #
+        # template_list
+        template_list = list()
+        m_obj         = pattern_template_file.search(page_data)
+        while m_obj != None :
+           template_list.append( m_obj.group(2).strip() )
+           m_obj = pattern_template_file.search( page_data, m_obj.end() )
+        #
+        # file_page_info
+        file_page_info.append( {
+           'page_name'      : page_name,
+           'page_data'      : page_data,
+           'is_parent'      : is_parent,
+           'is_child'       : is_child,
+           'begin_line'     : begin_line,
+           'end_line'       : end_line,
+           'template_list'  : template_list,
+        } )
+        #
+        # data_index
+        # place to start search for next page
+        data_index = m_end.end()
+  #
+  if parent_page_name != None and len(file_page_info) < 2 :
+     msg  = 'begin_parent command appears with '
+     if group_name == '' :
+        msg += 'the empty group name\n'
+     else :
+        msg += f'group_name = {group_name}\n'
+     msg += 'and this file only has one page with that group name.'
+     xrst.system_exit(
+        msg, file_name=file_in, page_name=parent_page_name
+     )
+  #
+  # file_data
+  file_data = xrst.pattern['begin'].sub('', file_data)
+  file_data = xrst.pattern['end'].sub('', file_data)
+  #
+  # BEGIN_RETURN
+  #
+  assert type(file_page_info) == list
+  assert type(file_page_info[0]) == dict
+  return file_page_info
+  # END_RETURN

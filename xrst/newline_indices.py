@@ -31,18 +31,18 @@ import re
 # {xrst_end newline_indices}
 # BEGIN_DEF
 def newline_indices(data) :
-   assert type(data) == str
-   # END_DEF
-   pattern_newline  = re.compile( r'\n')
-   newline_itr      = pattern_newline.finditer(data)
-   newline_list     = list()
-   for m_obj in newline_itr :
-      next_index = m_obj.start()
-      newline_list.append( next_index )
-   # BEGIN_RETURN
-   #
-   assert type(newline_list) == list
-   if 0 < len( newline_list) :
-      assert type(newline_list[0]) == int
-   return newline_list
-   # END_RETURN
+  assert type(data) == str
+  # END_DEF
+  pattern_newline  = re.compile( r'\n')
+  newline_itr      = pattern_newline.finditer(data)
+  newline_list     = list()
+  for m_obj in newline_itr :
+     next_index = m_obj.start()
+     newline_list.append( next_index )
+  # BEGIN_RETURN
+  #
+  assert type(newline_list) == list
+  if 0 < len( newline_list) :
+     assert type(newline_list[0]) == int
+  return newline_list
+  # END_RETURN

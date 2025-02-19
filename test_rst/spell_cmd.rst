@@ -140,7 +140,7 @@ Double words errors occur in the output the user sees.
 for example, the input:
 ::
 
-   `python package index <https://pypi.org/>`_ index.
+  `python package index <https://pypi.org/>`_ index.
 
 results in the double word 'index index' in the output the user sees; i.e.,
 the following output:

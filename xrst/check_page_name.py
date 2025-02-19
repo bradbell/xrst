@@ -60,27 +60,27 @@ import xrst
 #
 # BEGIN_DEF
 def check_page_name(page_name, file_name, m_obj, data) :
-   assert type(page_name) == str
-   assert type(file_name) == str
-   assert m_obj
-   assert type(data) == str
-   # END_DEF
-   #
-   m_page_name = re.search('[-._A-Za-z0-9]+', page_name)
-   if m_page_name.group(0) != page_name :
-      msg  = f'begin command: page_name = "{page_name}"'
-      msg += '\nIt must be non-empty and only contain the following'
-      msg += ' characters: -, ., _, A-Z, a-z, 0-9'
-      xrst.system_exit(msg,
-         file_name=file_name, m_obj=m_obj, data=data
-      )
-   if page_name.startswith('xrst_') :
-      msg = 'page_name cannot start with xrst_'
-      xrst.system_exit(msg,
-         file_name=file_name, m_obj=m_obj, data=data
-      )
-   if page_name == 'index' or page_name == 'genindex' :
-      msg = 'page_name cannot be index or genindex'
-      xrst.system_exit(msg,
-         file_name=file_name, m_obj=m_obj, data=data
-      )
+  assert type(page_name) == str
+  assert type(file_name) == str
+  assert m_obj
+  assert type(data) == str
+  # END_DEF
+  #
+  m_page_name = re.search('[-._A-Za-z0-9]+', page_name)
+  if m_page_name.group(0) != page_name :
+     msg  = f'begin command: page_name = "{page_name}"'
+     msg += '\nIt must be non-empty and only contain the following'
+     msg += ' characters: -, ., _, A-Z, a-z, 0-9'
+     xrst.system_exit(msg,
+        file_name=file_name, m_obj=m_obj, data=data
+     )
+  if page_name.startswith('xrst_') :
+     msg = 'page_name cannot start with xrst_'
+     xrst.system_exit(msg,
+        file_name=file_name, m_obj=m_obj, data=data
+     )
+  if page_name == 'index' or page_name == 'genindex' :
+     msg = 'page_name cannot be index or genindex'
+     xrst.system_exit(msg,
+        file_name=file_name, m_obj=m_obj, data=data
+     )

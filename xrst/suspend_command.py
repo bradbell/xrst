@@ -5,7 +5,7 @@
 r"""
 {xrst_begin suspend_cmd user}
 {xrst_spell
-   op
+  op
 }
 
 Suspend and Resume Commands
@@ -67,10 +67,10 @@ import xrst
 #
 # pattern_suspend, pattern_resume
 pattern_suspend = re.compile(
-   r'[^\\]{xrst_suspend *([^}]*)}'
+  r'[^\\]{xrst_suspend *([^}]*)}'
 )
 pattern_resume  = re.compile(
-   r'[^\\]{xrst_resume}'
+  r'[^\\]{xrst_resume}'
 )
 # {xrst_begin suspend_cmd_dev dev}
 # {xrst_comment_ch #}
@@ -105,91 +105,91 @@ pattern_resume  = re.compile(
 # {xrst_end suspend_cmd_dev}
 # BEGIN_DEF
 def suspend_command(data_in, page_file, page_name) :
-   assert type(data_in) == str
-   assert type(page_file) == str
-   assert type(page_name) == str
-   # END_DEF
-   #
-   # data_out
-   data_out = data_in
-   #
-   # m_suspend
-   m_suspend  = pattern_suspend.search(data_out)
-   while m_suspend != None :
-      #
-      # m_resume
-      m_resume      = pattern_resume.search(data_out, m_suspend.end())
-      if m_resume == None :
-         msg  = 'There is a suspend command without a '
-         msg += 'corresponding resume commannd.'
-         xrst.system_exit(msg,
-            file_name=page_file,
-            page_name=page_name,
-            m_obj=m_suspend,
-            data=data_out
-         )
-      #
-      # m_obj
-      m_obj = pattern_suspend.search(data_out, m_suspend.end())
-      if m_obj != None :
-         if m_obj.start() < m_resume.end() :
-            msg  = 'There are two suspend commands without a '
-            msg += 'resume command between them.'
-            xrst.system_exit(msg,
-               file_name=page_file,
-               page_name=page_name,
-               m_obj=m_obj,
-               data=data_out
-            )
-      #
-      # exclude
-      argument = m_suspend.group(1).strip(' ')
-      if argument in [ '', 'true' ] :
-         exclude = True
-      elif argument == 'false' :
-         exclude = False
-      else :
-         argument = argument.split()
-         if len(argument) != 3 :
-            msg  = 'suspend command arugment is not empty, true, false or'
-            msg += 'three string separated by white space.'
-            xrst.system_exit(msg,
-               file_name=page_file,
-               page_name=page_name,
-               m_obj=m_obj,
-               data=data_out
-            )
-         left  = argument[0]
-         op    = argument[1]
-         right = argument[2]
-         if op == '==' :
-            exclude = left == right
-         elif op == '!=' :
-            exclude = left != right
-         else :
-            msg  = '{' + 'xrst_suspend left op right}: '
-            msg += 'op is not == or !=.'
-            xrst.system_exit(msg,
-               file_name=page_file,
-               page_name=page_name,
-               m_obj=m_obj,
-               data=data_out
-            )
-      #
-      # data_out
-      if exclude :
-         data_tmp  = data_out[: m_suspend.start() + 1]
-         data_tmp += data_out[m_resume.end() : ]
-      else :
-         data_tmp  = data_out[: m_suspend.start() + 1]
-         data_tmp += data_out[m_suspend.end() : m_resume.start() + 1]
-         data_tmp += data_out[m_resume.end() : ]
-      data_out  = data_tmp
-      #
-      # m_suspend
-      m_suspend = pattern_suspend.search(data_out)
-   # BEGIN_RETURN
-   #
-   assert type(data_out) == str
-   return data_out
-   # END_RETURN
+  assert type(data_in) == str
+  assert type(page_file) == str
+  assert type(page_name) == str
+  # END_DEF
+  #
+  # data_out
+  data_out = data_in
+  #
+  # m_suspend
+  m_suspend  = pattern_suspend.search(data_out)
+  while m_suspend != None :
+     #
+     # m_resume
+     m_resume      = pattern_resume.search(data_out, m_suspend.end())
+     if m_resume == None :
+        msg  = 'There is a suspend command without a '
+        msg += 'corresponding resume commannd.'
+        xrst.system_exit(msg,
+           file_name=page_file,
+           page_name=page_name,
+           m_obj=m_suspend,
+           data=data_out
+        )
+     #
+     # m_obj
+     m_obj = pattern_suspend.search(data_out, m_suspend.end())
+     if m_obj != None :
+        if m_obj.start() < m_resume.end() :
+           msg  = 'There are two suspend commands without a '
+           msg += 'resume command between them.'
+           xrst.system_exit(msg,
+              file_name=page_file,
+              page_name=page_name,
+              m_obj=m_obj,
+              data=data_out
+           )
+     #
+     # exclude
+     argument = m_suspend.group(1).strip(' ')
+     if argument in [ '', 'true' ] :
+        exclude = True
+     elif argument == 'false' :
+        exclude = False
+     else :
+        argument = argument.split()
+        if len(argument) != 3 :
+           msg  = 'suspend command arugment is not empty, true, false or'
+           msg += 'three string separated by white space.'
+           xrst.system_exit(msg,
+              file_name=page_file,
+              page_name=page_name,
+              m_obj=m_obj,
+              data=data_out
+           )
+        left  = argument[0]
+        op    = argument[1]
+        right = argument[2]
+        if op == '==' :
+           exclude = left == right
+        elif op == '!=' :
+           exclude = left != right
+        else :
+           msg  = '{' + 'xrst_suspend left op right}: '
+           msg += 'op is not == or !=.'
+           xrst.system_exit(msg,
+              file_name=page_file,
+              page_name=page_name,
+              m_obj=m_obj,
+              data=data_out
+           )
+     #
+     # data_out
+     if exclude :
+        data_tmp  = data_out[: m_suspend.start() + 1]
+        data_tmp += data_out[m_resume.end() : ]
+     else :
+        data_tmp  = data_out[: m_suspend.start() + 1]
+        data_tmp += data_out[m_suspend.end() : m_resume.start() + 1]
+        data_tmp += data_out[m_resume.end() : ]
+     data_out  = data_tmp
+     #
+     # m_suspend
+     m_suspend = pattern_suspend.search(data_out)
+  # BEGIN_RETURN
+  #
+  assert type(data_out) == str
+  return data_out
+  # END_RETURN

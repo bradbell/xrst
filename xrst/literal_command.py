@@ -5,7 +5,7 @@
 r"""
 {xrst_begin literal_cmd user}
 {xrst_spell
-   literalinclude
+  literalinclude
 }
 
 Literal Command
@@ -154,23 +154,23 @@ import xrst
 # extension_map
 # map cases that pygments has trouble with
 extension_map = {
-   'xrst' : 'rst'    ,
-   'hpp'  : 'cpp'    ,
-   'm'    : 'matlab' ,
-   'txt'  : ''       ,
+  'xrst' : 'rst'    ,
+  'hpp'  : 'cpp'    ,
+  'm'    : 'matlab' ,
+  'txt'  : ''       ,
 }
 def file_extension(display_file) :
-   if display_file.endswith('.in') :
-      display_file = display_file[: -3]
-      index        = display_file.rfind('.')
-   else :
-      index = display_file.rfind('.')
-   extension = ''
-   if 0 <= index and index + 1 < len(display_file) :
-      extension = display_file[index + 1 :]
-      if extension in extension_map :
-         extension = extension_map[extension]
-   return extension
+  if display_file.endswith('.in') :
+     display_file = display_file[: -3]
+     index        = display_file.rfind('.')
+  else :
+     index = display_file.rfind('.')
+  extension = ''
+  if 0 <= index and index + 1 < len(display_file) :
+     extension = display_file[index + 1 :]
+     if extension in extension_map :
+        extension = extension_map[extension]
+  return extension
 #
 # pattern_literal
 pattern_literal    = xrst.pattern['literal']
@@ -220,178 +220,178 @@ pattern_arg        = re.compile( r'([^\n]*)@xrst_line ([0-9]+)@\n|\n' )
 # {xrst_end literal_cmd_dev}
 # BEGIN_DEF
 def literal_command(data_in, page_file, page_name, rst2project_dir) :
-   assert type(data_in) == str
-   assert type(page_file) == str
-   assert type(page_name) == str
-   assert type(rst2project_dir) == str
-   # END_DEF
-   #
-   # data_out
-   data_out = data_in
-   #
-   # m_literal
-   m_literal  = pattern_literal.search(data_out)
-   while m_literal != None :
-      #
-      # separator
-      if m_literal.group(1) == None :
-         separator = ''
-      else :
-         separator = m_literal.group(1).strip()
-      if len(separator) > 1 :
-         msg  =  '{xrst_literal separator\n'
-         msg += f'separator = "{separator}" is more than one character'
-         xrst.system_exit(
-            msg,
-            file_name = page_file,
-            page_name = page_name,
-            m_obj     = m_literal,
-            data      = data_out
-         )
-      #
-      # arg_list, m_list
-      arg_list  = list()
-      m_list    = list()
-      if m_literal.group(2) != None :
-         #
-         # m_arg
-         index = data_out.find('\n', m_literal.start() + 1)
-         m_arg = pattern_arg.search(data_out, index + 1)
-         while m_arg != None and m_arg.end() < m_literal.end() :
-            if m_arg.group(1) == None :
-               msg = 'There is an empty line inside a literal command.'
-               xrst.system_exit(
-                  msg,
-                  file_name = page_file,
-                  page_name = page_name,
-                  m_obj     = m_arg,
-                  data      = data_out
-               )
-            #
-            # arg, line
-            arg    = m_arg.group(1)
-            if len(separator) > 0 and arg.count(separator) > 1 :
-               msg  =  f'xrst_literal separator = {separator}\n'
-               msg += 'separator appears more than once in a line'
-               xrst.system_exit(
-                  msg,
-                  file_name = page_file,
-                  page_name = page_name,
-                  m_obj     = m_arg,
-                  data      = data_out,
-               )
-            #
-            # arg_list, m_list
-            if separator == '' or arg.count(separator) == 0 :
-               arg_list.append( arg.strip() )
-               m_list.append(m_arg)
-            else :
-               assert arg.count(separator) == 1
-               arg = arg.split(separator)
-               #
-               arg_list.append( arg[0].strip() )
-               m_list.append(m_arg)
-               #
-               arg_list.append( arg[1].strip() )
-               m_list.append(m_arg)
-            #
-            # m_arg
-            m_arg  = pattern_arg.search(data_out , m_arg.end() )
-      #
-      # cmd_line
-      if len(arg_list) >= 2 :
-         start_line = int( m_list[0].group(2) )
-         end_line  = int( m_list[-1].group(2) )
-         cmd_line = ( start_line, end_line )
-      #
-      # input_file
-      page_line, template_file, template_line = \
-         xrst.file_line(m_literal, data_out)
-      if template_file == None :
-         input_file = page_file
-      else :
-         input_file = template_file
-      #
-      # even
-      even = len(arg_list) % 2 == 0
-      #
-      # display_file, arg_list
-      if even :
-         display_file = page_file
-      else :
-         display_file = arg_list.pop(0)
-         m_arg        = m_list.pop(0)
-         if not os.path.isfile(display_file) :
-            msg  = 'literal command: can not find the display_file.\n'
-            msg += f'display_file = {display_file}'
-            xrst.system_exit(msg,
-               file_name = page_file,
-               page_name = page_name,
-               m_obj     = m_arg,
-               data      = data_out
-            )
-         if os.path.samefile(display_file, page_file) :
-            display_file = page_file
-      #
-      # start_end_line_list
-      assert len(arg_list) % 2 == 0
-      start_end_line_list = list()
-      for i in range(0, len(arg_list), 2) :
-         start_after = arg_list[i]
-         end_before  = arg_list[i+1]
-         #
-         # start_line, end_line
-         start_line, end_line = xrst.start_end_file(
-            page_file    = page_file,
-            page_name    = page_name,
-            input_file   = input_file,
-            display_file = display_file,
-            cmd_line     = cmd_line,
-            start_after  = start_after,
-            end_before   = end_before,
-            m_start      = m_list[i],
-            m_end        = m_list[i+1],
-            m_data       = data_out,
-         )
-         #
-         # start_end_line_list
-         start_end_line_list.append( (start_line + 1, end_line - 1) )
-      #
-      # cmd
-      display_path = os.path.join(rst2project_dir, display_file)
-      cmd          = f'.. literalinclude:: {display_path}\n'
-      #
-      # cmd
-      for i in range( len(start_end_line_list) ) :
-         start_line, end_line = start_end_line_list[i]
-         if i == 0 :
-            cmd += 3 * ' ' + f':lines: {start_line}-{end_line}'
-         else :
-            cmd += f',{start_line}-{end_line}'
-      if( len(start_end_line_list) > 0 ) :
-         cmd += '\n'
-      #
-      # cmd
-      # Add language to literalinclude, sphinx seems to be brain
-      # dead and does not do this automatically.
-      extension = file_extension( display_file )
-      if extension != '' :
-         cmd += 3 * ' ' + f':language: {extension}\n'
-      cmd = '\n' + cmd + '\n\n'
-      if m_literal.start() > 0 :
-         if data_out[m_literal.start() - 1] != '\n' :
-            cmd = '\n' + cmd
-      #
-      # data_tmp, data_out
-      data_tmp  = data_out[: m_literal.start() ]
-      data_tmp += cmd
-      data_out  = data_tmp + data_out[ m_literal.end() : ]
-      #
-      # m_literal
-      m_literal  = pattern_literal.search(data_out, len(data_tmp))
-   #
-   # BEGIN_RETURN
-   #
-   assert type(data_out) == str
-   return data_out
-   # END_RETURN
+  assert type(data_in) == str
+  assert type(page_file) == str
+  assert type(page_name) == str
+  assert type(rst2project_dir) == str
+  # END_DEF
+  #
+  # data_out
+  data_out = data_in
+  #
+  # m_literal
+  m_literal  = pattern_literal.search(data_out)
+  while m_literal != None :
+     #
+     # separator
+     if m_literal.group(1) == None :
+        separator = ''
+     else :
+        separator = m_literal.group(1).strip()
+     if len(separator) > 1 :
+        msg  =  '{xrst_literal separator\n'
+        msg += f'separator = "{separator}" is more than one character'
+        xrst.system_exit(
+           msg,
+           file_name = page_file,
+           page_name = page_name,
+           m_obj     = m_literal,
+           data      = data_out
+        )
+     #
+     # arg_list, m_list
+     arg_list  = list()
+     m_list    = list()
+     if m_literal.group(2) != None :
+        #
+        # m_arg
+        index = data_out.find('\n', m_literal.start() + 1)
+        m_arg = pattern_arg.search(data_out, index + 1)
+        while m_arg != None and m_arg.end() < m_literal.end() :
+           if m_arg.group(1) == None :
+              msg = 'There is an empty line inside a literal command.'
+              xrst.system_exit(
+                 msg,
+                 file_name = page_file,
+                 page_name = page_name,
+                 m_obj     = m_arg,
+                 data      = data_out
+              )
+           #
+           # arg, line
+           arg    = m_arg.group(1)
+           if len(separator) > 0 and arg.count(separator) > 1 :
+              msg  =  f'xrst_literal separator = {separator}\n'
+              msg += 'separator appears more than once in a line'
+              xrst.system_exit(
+                 msg,
+                 file_name = page_file,
+                 page_name = page_name,
+                 m_obj     = m_arg,
+                 data      = data_out,
+              )
+           #
+           # arg_list, m_list
+           if separator == '' or arg.count(separator) == 0 :
+              arg_list.append( arg.strip() )
+              m_list.append(m_arg)
+           else :
+              assert arg.count(separator) == 1
+              arg = arg.split(separator)
+              #
+              arg_list.append( arg[0].strip() )
+              m_list.append(m_arg)
+              #
+              arg_list.append( arg[1].strip() )
+              m_list.append(m_arg)
+           #
+           # m_arg
+           m_arg  = pattern_arg.search(data_out , m_arg.end() )
+     #
+     # cmd_line
+     if len(arg_list) >= 2 :
+        start_line = int( m_list[0].group(2) )
+        end_line  = int( m_list[-1].group(2) )
+        cmd_line = ( start_line, end_line )
+     #
+     # input_file
+     page_line, template_file, template_line = \
+        xrst.file_line(m_literal, data_out)
+     if template_file == None :
+        input_file = page_file
+     else :
+        input_file = template_file
+     #
+     # even
+     even = len(arg_list) % 2 == 0
+     #
+     # display_file, arg_list
+     if even :
+        display_file = page_file
+     else :
+        display_file = arg_list.pop(0)
+        m_arg        = m_list.pop(0)
+        if not os.path.isfile(display_file) :
+           msg  = 'literal command: can not find the display_file.\n'
+           msg += f'display_file = {display_file}'
+           xrst.system_exit(msg,
+              file_name = page_file,
+              page_name = page_name,
+              m_obj     = m_arg,
+              data      = data_out
+           )
+        if os.path.samefile(display_file, page_file) :
+           display_file = page_file
+     #
+     # start_end_line_list
+     assert len(arg_list) % 2 == 0
+     start_end_line_list = list()
+     for i in range(0, len(arg_list), 2) :
+        start_after = arg_list[i]
+        end_before  = arg_list[i+1]
+        #
+        # start_line, end_line
+        start_line, end_line = xrst.start_end_file(
+           page_file    = page_file,
+           page_name    = page_name,
+           input_file   = input_file,
+           display_file = display_file,
+           cmd_line     = cmd_line,
+           start_after  = start_after,
+           end_before   = end_before,
+           m_start      = m_list[i],
+           m_end        = m_list[i+1],
+           m_data       = data_out,
+        )
+        #
+        # start_end_line_list
+        start_end_line_list.append( (start_line + 1, end_line - 1) )
+     #
+     # cmd
+     display_path = os.path.join(rst2project_dir, display_file)
+     cmd          = f'.. literalinclude:: {display_path}\n'
+     #
+     # cmd
+     for i in range( len(start_end_line_list) ) :
+        start_line, end_line = start_end_line_list[i]
+        if i == 0 :
+           cmd += 3 * ' ' + f':lines: {start_line}-{end_line}'
+        else :
+           cmd += f',{start_line}-{end_line}'
+     if( len(start_end_line_list) > 0 ) :
+        cmd += '\n'
+     #
+     # cmd
+     # Add language to literalinclude, sphinx seems to be brain
+     # dead and does not do this automatically.
+     extension = file_extension( display_file )
+     if extension != '' :
+        cmd += 3 * ' ' + f':language: {extension}\n'
+     cmd = '\n' + cmd + '\n\n'
+     if m_literal.start() > 0 :
+        if data_out[m_literal.start() - 1] != '\n' :
+           cmd = '\n' + cmd
+     #
+     # data_tmp, data_out
+     data_tmp  = data_out[: m_literal.start() ]
+     data_tmp += cmd
+     data_out  = data_tmp + data_out[ m_literal.end() : ]
+     #
+     # m_literal
+     m_literal  = pattern_literal.search(data_out, len(data_tmp))
+  #
+  # BEGIN_RETURN
+  #
+  assert type(data_out) == str
+  return data_out
+  # END_RETURN

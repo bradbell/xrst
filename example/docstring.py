@@ -3,7 +3,7 @@
 # SPDX-FileContributor: 2020-23 Bradley M. Bell
 # ----------------------------------------------------------------------------
 def factorial(n) :
-   r"""
+  r"""
 {xrst_begin docstring_example}
 
 Docstring Example
@@ -20,7 +20,7 @@ This Example File
 {xrst_literal}
 
 {xrst_end docstring_example}
-   """
-   if n == 1 :
-      return 1
-   return n * factorial(n-1)
+  """
+  if n == 1 :
+     return 1
+  return n * factorial(n-1)

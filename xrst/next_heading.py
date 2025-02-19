@@ -57,103 +57,103 @@ import xrst
 # {xrst_end next_heading}
 # BEGIN_DEF
 def next_heading(data, data_index, page_file, page_name) :
-   assert type(data) == str
-   assert type(data_index) == int
-   if data_index != 0 :
-      assert data[data_index-1] == '\n'
-   assert type(page_file) == str
-   assert type(page_name) == str
-   # END_DEF
-   #
-   # punctuation
-   punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-   assert len(punctuation) == 34 - 2 # two escape sequences
-   #
-   # next_start, next_newline
-   next_start       = data_index
-   next_newline     = data.find('\n', next_start)
-   #
-   # state
-   state  = 'before_overline'
-   #
-   while 0 <= next_newline :
-      #
-      # next_line
-      next_line = data[next_start : next_newline]
-      next_line = xrst.pattern['line'].sub('', next_line)
-      next_line = next_line.rstrip(' \t')
-      #
-      # next_len
-      next_len  = len(next_line)
-      #
-      if next_len < 1 :
-         # next_line cannot be an overline, heading, or underline
-         state = 'before_overline'
-      #
-      elif state == 'before_overline' :
-         #
-         # heading_index
-         heading_index = next_start
-         #
-         ch = next_line[0]
-         if ch in punctuation and next_line == ch * next_len :
-            # next_line can be an overline but not an underline
-            state         = 'before_heading'
-            overline_text = next_line
-         else :
-            # next_line can be a heading, but not overline or underline
-            state         = 'before_underline'
-            overline_text = None
-            heading_text  = next_line
-      #
-      elif state == 'before_heading' :
-         # next_line can be a heading
-         state = 'before_underline'
-         heading_text    = next_line
-      #
-      elif state == 'before_underline' :
-         underline_ch = next_line[0]
-         if underline_ch not in punctuation :
-            state = 'before_overline'
-         elif next_line != underline_ch * next_len :
-            state = 'before_overline'
-         elif len(next_line) < len(heading_text) :
-            state = 'before_overline'
-         else :
-            m_line = xrst.pattern['line'].search(data, next_start)
-            line   = m_line.group(1)
-            msg = ''
-            if len(heading_text) < len(next_line) :
-               msg = 'underline text is longer than line above it'
-            elif overline_text is not None and overline_text != next_line:
-               msg = 'overline text is non-empty and not equal underline text'
-            if msg != '' :
-               xrst.system_exit(
-                     msg,
-                     file_name = page_file,
-                     page_name = page_name,
-                     m_obj     = m_line,
-                     data      = data,
-               )
-            #
-            # underline_text
-            underline_text = next_line
-            #
-            return heading_index, heading_text, underline_text
-      #
-      # next_start, next_newline
-      next_start   = next_newline + 1
-      next_newline = data.find('\n', next_start)
-   #
-   # heading_index, heading_text, underline_text
-   heading_index = -1
-   heading_text  = ''
-   underline_text  = ''
-   #
-   # BEGIN_RETURN
-   #
-   assert type(heading_index) == int
-   assert type(heading_text) == str
-   assert type(underline_text) == str
-   return heading_index, heading_text, underline_text
-   # END_RETURN
+  assert type(data) == str
+  assert type(data_index) == int
+  if data_index != 0 :
+     assert data[data_index-1] == '\n'
+  assert type(page_file) == str
+  assert type(page_name) == str
+  # END_DEF
+  #
+  # punctuation
+  punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+  assert len(punctuation) == 34 - 2 # two escape sequences
+  #
+  # next_start, next_newline
+  next_start       = data_index
+  next_newline     = data.find('\n', next_start)
+  #
+  # state
+  state  = 'before_overline'
+  #
+  while 0 <= next_newline :
+     #
+     # next_line
+     next_line = data[next_start : next_newline]
+     next_line = xrst.pattern['line'].sub('', next_line)
+     next_line = next_line.rstrip(' \t')
+     #
+     # next_len
+     next_len  = len(next_line)
+     #
+     if next_len < 1 :
+        # next_line cannot be an overline, heading, or underline
+        state = 'before_overline'
+     #
+     elif state == 'before_overline' :
+        #
+        # heading_index
+        heading_index = next_start
+        #
+        ch = next_line[0]
+        if ch in punctuation and next_line == ch * next_len :
+           # next_line can be an overline but not an underline
+           state         = 'before_heading'
+           overline_text = next_line
+        else :
+           # next_line can be a heading, but not overline or underline
+           state         = 'before_underline'
+           overline_text = None
+           heading_text  = next_line
+     #
+     elif state == 'before_heading' :
+        # next_line can be a heading
+        state = 'before_underline'
+        heading_text    = next_line
+     #
+     elif state == 'before_underline' :
+        underline_ch = next_line[0]
+        if underline_ch not in punctuation :
+           state = 'before_overline'
+        elif next_line != underline_ch * next_len :
+           state = 'before_overline'
+        elif len(next_line) < len(heading_text) :
+           state = 'before_overline'
+        else :
+           m_line = xrst.pattern['line'].search(data, next_start)
+           line   = m_line.group(1)
+           msg = ''
+           if len(heading_text) < len(next_line) :
+              msg = 'underline text is longer than line above it'
+           elif overline_text is not None and overline_text != next_line:
+              msg = 'overline text is non-empty and not equal underline text'
+           if msg != '' :
+              xrst.system_exit(
+                    msg,
+                    file_name = page_file,
+                    page_name = page_name,
+                    m_obj     = m_line,
+                    data      = data,
+              )
+           #
+           # underline_text
+           underline_text = next_line
+           #
+           return heading_index, heading_text, underline_text
+     #
+     # next_start, next_newline
+     next_start   = next_newline + 1
+     next_newline = data.find('\n', next_start)
+  #
+  # heading_index, heading_text, underline_text
+  heading_index = -1
+  heading_text  = ''
+  underline_text  = ''
+  #
+  # BEGIN_RETURN
+  #
+  assert type(heading_index) == int
+  assert type(heading_text) == str
+  assert type(underline_text) == str
+  return heading_index, heading_text, underline_text
+  # END_RETURN

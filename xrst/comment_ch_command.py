@@ -42,9 +42,9 @@ and the ``def`` token indented the same amount:
    # Factorial
    # ---------
    def factorial(n) :
-      if n == 1 :
-         return 1
-      return n * factorial(n-1)
+     if n == 1 :
+       return 1
+     return n * factorial(n-1)
 
 Indentation
 ***********
@@ -91,71 +91,71 @@ pattern['comment_ch'] = xrst.pattern['comment_ch']
 #
 # data_out, comment_ch =
 def comment_ch_command(data_in, file_name, page_name) :
-   assert type(data_in) == str
-   assert type(file_name) == str
-   assert type(page_name) == str
-   #
-   # m_obj
-   m_obj   = pattern['comment_ch'].search(data_in)
-   if not m_obj :
-      m_error = pattern['error'].search(data_in)
-      if m_error :
-         msg  = f'syntax error in xrst comment_ch command'
-         line = data_in[: m_error.start() + 1].count('\n') + 1
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_error,
-            data      = data_in,
-         )
-      #
-      # data_out
-      data_out = data_in
-      #
-      # comment_ch
-      comment_ch = None
-   else :
-      #
-      # comment_ch
-      comment_ch = m_obj.group(2)
-      line       = data_in[: m_obj.start() ].count('\n') + 1
-      if len( comment_ch ) != 1 :
-         msg = 'Expected a single character argument to comment_ch command'
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_obj,
-            data      = data_in,
-         )
-      if comment_ch in '.:]' :
-         msg  = f'Cannot use "{comment_ch}" as character in comment_ch command'
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_obj,
-            data      = data_in,
-         )
-      #
-      # m_rest
-      data_rest  = data_in[ m_obj.end() : ]
-      m_rest     = pattern['error'].search(data_rest)
-      if m_rest :
-         line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
-         msg = 'There are multiple comment_ch commands in this file'
-         xrst.system_exit(
-            msg,
-            file_name = file_name,
-            page_name = page_name,
-            m_obj     = m_rest,
-            data      = data_in,
-         )
-      #
-      # data_out
-      data_out= data_in[: m_obj.start()] + data_in[ m_obj.end() :]
-      #
-   #
-   #
-   return data_out, comment_ch
+  assert type(data_in) == str
+  assert type(file_name) == str
+  assert type(page_name) == str
+  #
+  # m_obj
+  m_obj   = pattern['comment_ch'].search(data_in)
+  if not m_obj :
+     m_error = pattern['error'].search(data_in)
+     if m_error :
+        msg  = f'syntax error in xrst comment_ch command'
+        line = data_in[: m_error.start() + 1].count('\n') + 1
+        xrst.system_exit(
+           msg,
+           file_name = file_name,
+           page_name = page_name,
+           m_obj     = m_error,
+           data      = data_in,
+        )
+     #
+     # data_out
+     data_out = data_in
+     #
+     # comment_ch
+     comment_ch = None
+  else :
+     #
+     # comment_ch
+     comment_ch = m_obj.group(2)
+     line       = data_in[: m_obj.start() ].count('\n') + 1
+     if len( comment_ch ) != 1 :
+        msg = 'Expected a single character argument to comment_ch command'
+        xrst.system_exit(
+           msg,
+           file_name = file_name,
+           page_name = page_name,
+           m_obj     = m_obj,
+           data      = data_in,
+        )
+     if comment_ch in '.:]' :
+        msg  = f'Cannot use "{comment_ch}" as character in comment_ch command'
+        xrst.system_exit(
+           msg,
+           file_name = file_name,
+           page_name = page_name,
+           m_obj     = m_obj,
+           data      = data_in,
+        )
+     #
+     # m_rest
+     data_rest  = data_in[ m_obj.end() : ]
+     m_rest     = pattern['error'].search(data_rest)
+     if m_rest :
+        line = data_in[: m_obj.end() + m_rest.start() ].count('\n') + 1
+        msg = 'There are multiple comment_ch commands in this file'
+        xrst.system_exit(
+           msg,
+           file_name = file_name,
+           page_name = page_name,
+           m_obj     = m_rest,
+           data      = data_in,
+        )
+     #
+     # data_out
+     data_out= data_in[: m_obj.start()] + data_in[ m_obj.end() :]
+     #
+  #
+  #
+  return data_out, comment_ch

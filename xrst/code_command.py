@@ -116,104 +116,104 @@ import os
 # {xrst_end code_cmd_dev}
 # BEGIN_DEF
 def code_command(data_in, file_name, page_name, rst2project_dir) :
-   assert type(data_in) == str
-   assert type(file_name) == str
-   assert type(page_name) == str
-   assert type(rst2project_dir) == str
-   # END_DEF
-   #
-   # data_out
-   data_out = data_in
-   #
-   # m_begin
-   m_begin = xrst.pattern['code'].search(data_out)
-   #
-   if m_begin == None :
-      return data_out
-   #
-   while m_begin != None :
-      #
-      # m_end
-      start = m_begin.end()
-      m_end = xrst.pattern['code'].search(data_out, start)
-      #
-      # language
-      language  = m_begin.group(4).strip()
-      if language == '' :
-         msg = 'missing language in first command of a code block pair'
-         xrst.system_exit(msg,
-            file_name=file_name,
-            page_name=page_name,
-            m_obj=m_begin,
-            data=data_out
-         )
-      for ch in language :
-         if ch < 'a' or 'z' < ch :
-            msg = 'code block language character not in a-z.'
-            xrst.system_exit(msg,
-               file_name=file_name,
-               page_name=page_name,
-               m_obj=m_begin,
-               data=data_out
-            )
-      #
-      if m_end == None :
-         msg = 'Start code command does not have a corresponding stop'
-         xrst.system_exit(msg,
-            file_name=file_name,
-            page_name=page_name,
-            m_obj=m_begin,
-            data=data_out
-         )
-      if m_end.group(4).strip() != '' :
-         msg ='Stop code command has a non-empty language argument'
-         xrst.system_exit(msg,
-            file_name=file_name,
-            page_name=page_name,
-            m_obj=m_end,
-            data=data_out
-         )
-      #
-      # language
-      # fix cases that pygments has trouble with ?
-      if language == 'hpp' :
-         language = 'cpp'
-      if language == 'm' :
-         language = 'matlab'
-      #
-      # data_before, data_between,  data_after
-      data_before  = data_out[: m_begin.start()]
-      data_between = data_out[ m_begin.start() : m_end.end() ]
-      data_after   = data_out[m_end.end() : ]
-      #
-      # indent
-      indent = xrst.auto_indent(data_between, file_name, page_name)
-      #
-      # start_line, stop_line
-      assert data_out[m_begin.end()] == '\n'
-      assert data_out[m_end.end()] == '\n'
-      start_line = int(m_begin.group(5)) + 1
-      stop_line  = int(m_end.group(5)) - 1
-      #
-      # cmd
-      file_path = os.path.join(rst2project_dir, file_name)
-      command   = indent + f'.. literalinclude:: {file_path}\n'
-      command  += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
-      command  += indent + 3 * ' ' + f':language: {language}\n'
-      command  = '\n' + command + '\n'
-      assert data_after.startswith('\n')
-      if not data_before.strip(' ').endswith('\n') :
-         command = '\n' + command
-      #
-      # data_left, data_after
-      data_left  = data_before + command
-      data_out   = data_left + data_after
-      #
-      # m_begin
-      m_begin = xrst.pattern['code'].search(data_out, len(data_left) )
-   #
-   # BEGIN_RETURN
-   #
-   assert type(data_out) == str
-   return data_out
-   # END_RETURN
+  assert type(data_in) == str
+  assert type(file_name) == str
+  assert type(page_name) == str
+  assert type(rst2project_dir) == str
+  # END_DEF
+  #
+  # data_out
+  data_out = data_in
+  #
+  # m_begin
+  m_begin = xrst.pattern['code'].search(data_out)
+  #
+  if m_begin == None :
+     return data_out
+  #
+  while m_begin != None :
+     #
+     # m_end
+     start = m_begin.end()
+     m_end = xrst.pattern['code'].search(data_out, start)
+     #
+     # language
+     language  = m_begin.group(4).strip()
+     if language == '' :
+        msg = 'missing language in first command of a code block pair'
+        xrst.system_exit(msg,
+           file_name=file_name,
+           page_name=page_name,
+           m_obj=m_begin,
+           data=data_out
+        )
+     for ch in language :
+        if ch < 'a' or 'z' < ch :
+           msg = 'code block language character not in a-z.'
+           xrst.system_exit(msg,
+              file_name=file_name,
+              page_name=page_name,
+              m_obj=m_begin,
+              data=data_out
+           )
+     #
+     if m_end == None :
+        msg = 'Start code command does not have a corresponding stop'
+        xrst.system_exit(msg,
+           file_name=file_name,
+           page_name=page_name,
+           m_obj=m_begin,
+           data=data_out
+        )
+     if m_end.group(4).strip() != '' :
+        msg ='Stop code command has a non-empty language argument'
+        xrst.system_exit(msg,
+           file_name=file_name,
+           page_name=page_name,
+           m_obj=m_end,
+           data=data_out
+        )
+     #
+     # language
+     # fix cases that pygments has trouble with ?
+     if language == 'hpp' :
+        language = 'cpp'
+     if language == 'm' :
+        language = 'matlab'
+     #
+     # data_before, data_between,  data_after
+     data_before  = data_out[: m_begin.start()]
+     data_between = data_out[ m_begin.start() : m_end.end() ]
+     data_after   = data_out[m_end.end() : ]
+     #
+     # indent
+     indent = xrst.auto_indent(data_between, file_name, page_name)
+     #
+     # start_line, stop_line
+     assert data_out[m_begin.end()] == '\n'
+     assert data_out[m_end.end()] == '\n'
+     start_line = int(m_begin.group(5)) + 1
+     stop_line  = int(m_end.group(5)) - 1
+     #
+     # cmd
+     file_path = os.path.join(rst2project_dir, file_name)
+     command   = indent + f'.. literalinclude:: {file_path}\n'
+     command  += indent + 3 * ' ' + f':lines: {start_line}-{stop_line}\n'
+     command  += indent + 3 * ' ' + f':language: {language}\n'
+     command  = '\n' + command + '\n'
+     assert data_after.startswith('\n')
+     if not data_before.strip(' ').endswith('\n') :
+        command = '\n' + command
+     #
+     # data_left, data_after
+     data_left  = data_before + command
+     data_out   = data_left + data_after
+     #
+     # m_begin
+     m_begin = xrst.pattern['code'].search(data_out, len(data_left) )
+  #
+  # BEGIN_RETURN
+  #
+  assert type(data_out) == str
+  return data_out
+  # END_RETURN

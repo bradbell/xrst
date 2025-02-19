@@ -69,32 +69,32 @@ import xrst
 # {xrst_end dir_cmd_dev}
 # BEGIN_DEF
 def dir_command(data_in, rst2project_dir) :
-   assert type(data_in) == str
-   assert type(rst2project_dir) == str
-   # END_DEF
-   #
-   # data_out
-   data_out = data_in
-   #
-   # m_dir
-   m_dir  = xrst.pattern['dir'].search(data_out)
-   while m_dir != None :
-      #
-      # data_before, data_after
-      data_before  = data_out[: m_dir.start()] + m_dir.group(1)
-      data_after   = data_out[m_dir.end() :]
-      #
-      # data_left, data_out
-      file_name    = m_dir.group(2).strip()
-      file_name     = os.path.join(rst2project_dir, file_name)
-      data_left    = data_before + file_name
-      data_out     = data_left + data_after
-      #
-      # m_dir
-      m_dir = xrst.pattern['dir'].search(data_out, len(data_left))
-   #
-   # BEGIN_RETURN
-   #
-   assert type(data_out) == str
-   return data_out
-   # END_RETURN
+  assert type(data_in) == str
+  assert type(rst2project_dir) == str
+  # END_DEF
+  #
+  # data_out
+  data_out = data_in
+  #
+  # m_dir
+  m_dir  = xrst.pattern['dir'].search(data_out)
+  while m_dir != None :
+     #
+     # data_before, data_after
+     data_before  = data_out[: m_dir.start()] + m_dir.group(1)
+     data_after   = data_out[m_dir.end() :]
+     #
+     # data_left, data_out
+     file_name    = m_dir.group(2).strip()
+     file_name     = os.path.join(rst2project_dir, file_name)
+     data_left    = data_before + file_name
+     data_out     = data_left + data_after
+     #
+     # m_dir
+     m_dir = xrst.pattern['dir'].search(data_out, len(data_left))
+  #
+  # BEGIN_RETURN
+  #
+  assert type(data_out) == str
+  return data_out
+  # END_RETURN

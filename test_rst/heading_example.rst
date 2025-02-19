@@ -17,14 +17,14 @@ Both the page name and page title are level zero headings for a page.
 Using the *page_name* label displays the page name as its linking text;
 e.g. for this page both the label and linking text are::
 
-   heading_example
+  heading_example
 
 The *page_name*  name followed by ``-title`` displays the page title
 as its linking text;
 e.g. for this page the label is ``heading_example-title``
 and linking text is::
 
-   Heading and Link Example
+  Heading and Link Example
 
 .. contents::
    :local:

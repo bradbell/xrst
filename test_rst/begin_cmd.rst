@@ -90,7 +90,7 @@ Output File
 ***********
 The output file corresponding to *page_name* is
 
-   *rst_directory*\ /\ *page_name*\ /``.rst``
+  *rst_directory*\ /\ *page_name*\ /``.rst``
 
 see :ref:`config_file@directory@rst_directory` .
 
