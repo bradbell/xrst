@@ -36,8 +36,10 @@ Features
 ********
 The xrst features below can be considered a wish list for sphinx:
 
-#. Enable many sphinx build options to change without changing the source code;
-   see list of command line options at :ref:`run_xrst-name` .
+#. Use a :ref:`toml file<config_file-name>`
+   in place of the python file ``config.py`` .
+   Also enable some sphinx options to change without changing the source code;
+   see :ref:`run_xrst-name` .
 #. Make it easy to put documentation in source code comments,
    even when multiple computer languages are used by one package;
    e.g., see :ref:`comment_ch_cmd-name` .
@@ -138,7 +140,7 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2025.2.18
+     - xrst-2025.2.20
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
