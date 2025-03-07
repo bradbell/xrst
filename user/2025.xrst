@@ -19,6 +19,12 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+03-07
+=====
+There was a bug in the error message when a single or double quote in the
+output of the :ref:`config_file@input_files` command.
+This has been fixed.
+
 02-18
 =====
 #. A :ref:`spell_cmd@spell_off` command would not be recognized

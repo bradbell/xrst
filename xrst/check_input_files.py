@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 import re
 import sys
@@ -107,7 +107,7 @@ def check_input_files(
                msg  = 'warning: single or double quote in output of '
                msg += f'the input_files command: {command}\n'
                msg += 'This feature is not yet supported\n'
-               sys.write(msg)
+               sys.stderr.write(msg)
                file_list_out == list()
             else :
                file_list_out = file_list_out.split()

@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2025,xrst,release,notes,for,mm-dd,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
+   :keywords: 2025,xrst,release,notes,for,mm-dd,03-07,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -23,6 +23,14 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+.. _2025@mm-dd@03-07:
+
+03-07
+=====
+There was a bug in the error message when a single or double quote in the
+output of the :ref:`config_file@input_files` command.
+This has been fixed.
 
 .. _2025@mm-dd@02-18:
 
