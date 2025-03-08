@@ -131,7 +131,7 @@ done
 #
 if [ "$missing" = 'yes' ] || [ "$changed" == 'yes' ]
 then
-   echo 'check_copy.sh: The error above were fixed.'
+   echo 'check_copy.sh: The copyright messages above were updated.'
    echo 'Re-execute bin/check_copy.sh ?'
    exit 1
 fi
