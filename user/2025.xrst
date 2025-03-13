@@ -19,6 +19,12 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+03-13
+=====
+Detect and print an error message when the
+start after line number plus one is greater than or equal
+the end before line number.
+
 03-07
 =====
 There was a bug in the error message when a single or double quote in the

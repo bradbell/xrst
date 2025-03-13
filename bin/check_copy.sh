@@ -6,7 +6,7 @@ set -e -u
 # ----------------------------------------------------------------------------
 # bin/check_copy.sh
 # Checks that the copyright message, in all the source files,
-# is correct and up to date. If here were any erorrs, a message is printed,
+# is correct and up to date. If there were any erorrs, a message is printed,
 # it is automatically corrected, and this script exits with an error.
 # Files that are not checked can be sepcified in bin/dev_setting.sh
 # ----------------------------------------------------------------------------

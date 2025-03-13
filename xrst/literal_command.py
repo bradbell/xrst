@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin literal_cmd user}
@@ -353,6 +353,17 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
             m_end        = m_list[i+1],
             m_data       = data_out,
          )
+         if start_line + 1 >= end_line :
+            msg  = 'xrst_literal start after line + 1 >= end before line\n'
+            msg += f'start after line = {start_line}\n'
+            msg += f'end before line  = {end_line}'
+            xrst.system_exit(
+               msg,
+               file_name = page_file,
+               page_name = page_name,
+               m_obj     = m_arg,
+               data      = data_out,
+            )
          #
          # start_end_line_list
          start_end_line_list.append( (start_line + 1, end_line - 1) )
