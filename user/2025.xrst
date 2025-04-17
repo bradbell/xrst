@@ -19,6 +19,13 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+04-17
+=====
+#. Add python 3.13 to testing,
+   drop python 3.8 from testing,
+   and require python greater than or equal 3.9.
+   (Python 3.13 release date, and 3.8 end of life date, is 2024-10-07.)
+
 03-13
 =====
 Detect and print an error message when the

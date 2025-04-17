@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2025,xrst,release,notes,for,mm-dd,03-13,03-07,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
+   :keywords: 2025,xrst,release,notes,for,mm-dd,04-17,03-13,03-07,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -23,6 +23,15 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+.. _2025@mm-dd@04-17:
+
+04-17
+=====
+#. Add python 3.13 to testing,
+   drop python 3.8 from testing,
+   and require python greater than or equal 3.9.
+   (Python 3.13 release date, and 3.8 end of life date, is 2024-10-07.)
 
 .. _2025@mm-dd@03-13:
 

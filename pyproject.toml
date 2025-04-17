@@ -12,10 +12,10 @@ build-backend = 'setuptools.build_meta'
 # -----------------------------------------------------------------------------
 [project]
 name              = 'xrst'
-version           = '2025.3.13'
+version           = '2025.4.17'
 description       = 'Extract RST files from source code and run Sphinx'
 readme            = 'readme.md'
-requires-python   = '>=3.8'
+requires-python   = '>=3.9'
 keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 license           = { text = 'GPL-3.0-or-later' }
 classifiers       = [
