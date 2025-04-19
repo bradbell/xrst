@@ -144,7 +144,7 @@ stable_remote_hash=$(
 )
 #
 # main_local_hash
-pattern=$(echo " *refs/heads/master" | $sed -e 's|/|[/]|g')
+pattern=$(echo " *refs/heads/$main_branch" | $sed -e 's|/|[/]|g')
 main_local_hash=$(
    git show-ref $main_branch | \
       $sed -n -e "/$pattern/p" | \
@@ -152,7 +152,7 @@ main_local_hash=$(
 )
 #
 # main_remote_hash
-pattern=$(echo " *refs/remotes/origin/master" | $sed -e 's|/|[/]|g')
+pattern=$(echo " *refs/remotes/origin/$main_branch" | $sed -e 's|/|[/]|g')
 main_remote_hash=$(
    git show-ref $main_branch | \
       $sed -n -e "/$pattern/p" | \
@@ -160,7 +160,7 @@ main_remote_hash=$(
 )
 #
 # ----------------------------------------------------------------------------
-# Changes to master branch
+# Changes to main_branch
 # ----------------------------------------------------------------------------
 #
 # version_file_list

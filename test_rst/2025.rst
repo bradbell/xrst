@@ -47,7 +47,7 @@ the end before line number.
 
 03-07
 =====
-There was a bug in the error message when a single or double quote in the
+There was a bug in the error message when a single or double quote was in the
 output of the :ref:`config_file@input_files` command.
 This has been fixed.
 
