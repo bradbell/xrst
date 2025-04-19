@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-  :keywords: 2025,xrst,release,notes,for,mm-dd,03-07,02-18,01-05,01-04,01-03
+  :keywords: 2025,xrst,release,notes,for,mm-dd,04-19,03-07,02-18,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -26,11 +26,20 @@ because they improve its distribution.
 mm-dd
 *****
 
+.. _2025@mm-dd@04-19:
+
+04-19
+=====
+Fix some redirected external links so that
+the following command runs without errors::
+
+   bin/check_all.sh --suppress_spell_warnings
+
 .. _2025@mm-dd@03-07:
 
 03-07
 =====
-There was a bug in the error message when a single or double quote in the
+There was a bug in the error message when a single or double quote was in the
 output of the :ref:`config_file@input_files` command.
 This has been fixed.
 

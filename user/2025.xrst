@@ -17,9 +17,17 @@ because they improve its distribution.
 mm-dd
 *****
 
+04-19
+=====
+Fix some redirected external links so that
+the following command runs without errors::
+
+   bin/check_all.sh --suppress_spell_warnings
+
+
 03-07
 =====
-There was a bug in the error message when a single or double quote in the
+There was a bug in the error message when a single or double quote was in the
 output of the :ref:`config_file@input_files` command.
 This has been fixed.
 

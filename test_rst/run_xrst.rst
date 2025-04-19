@@ -193,8 +193,8 @@ are generated; i.e.,
 | |tab| *rst_directory*\ /_sources/\*.txt
 
 This may be useful when creating rst files for uses else where; e.g.,
-for use with `Read the Docs <https://docs.readthedocs.io/en/stable/>`_
-(see :ref:`.readthedocs.yaml-name` for a better way to use Read the Docs.)
+for use with `Read the Docs <https://docs.readthedocs.com/platform/stable/>`_
+(see :ref:`.readthedocs.yaml-name` for a better way to use Read the Docs).
 The sphinx commands are printed after xrst finishes and can be executed
 by hand.
 This may be useful if there is a problem during these commands.

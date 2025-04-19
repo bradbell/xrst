@@ -23,7 +23,7 @@ Example Read the Docs Configuration
 
 Read the Docs Specification
 ***************************
-`<https://docs.readthedocs.io/en/stable/config-file>`_
+`<https://docs.readthedocs.com/platform/stable/config-file>`_
 
 .. _.readthedocs.yaml@This Example File:
 
