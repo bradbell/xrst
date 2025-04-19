@@ -128,36 +128,16 @@ fi
 stable_branch=stable/$year
 #
 # stable_local_hash
-pattern=$(echo " *refs/heads/$stable_branch" | $sed -e 's|/|[/]|g')
-stable_local_hash=$(
-   git show-ref $stable_branch | \
-      $sed -n -e "/$pattern/p" | \
-         $sed -e "s|$pattern||"
-)
+stable_local_hash=$(git show-ref --hash "heads/$stable_branch" )
 #
 # stable_remote_hash
-pattern=$(echo " *refs/remotes/origin/$stable_branch" | $sed -e 's|/|[/]|g')
-stable_remote_hash=$(
-   git show-ref $stable_branch | \
-      $sed -n -e "/$pattern/p" | \
-         $sed -e "s|$pattern||"
-)
+stable_remote_hash=$(git show-ref --hash "origin/$stable_branch" )
 #
 # main_local_hash
-pattern=$(echo " *refs/heads/$main_branch" | $sed -e 's|/|[/]|g')
-main_local_hash=$(
-   git show-ref $main_branch | \
-      $sed -n -e "/$pattern/p" | \
-         $sed -e "s|$pattern||"
-)
+main_local_hash=$(git show-ref --hash "heads/$main_branch" )
 #
 # main_remote_hash
-pattern=$(echo " *refs/remotes/origin/$main_branch" | $sed -e 's|/|[/]|g')
-main_remote_hash=$(
-   git show-ref $main_branch | \
-      $sed -n -e "/$pattern/p" | \
-         $sed -e "s|$pattern||"
-)
+main_remote_hash=$(git show-ref --hash "origin/$main_branch" )
 #
 # ----------------------------------------------------------------------------
 # Changes to main_branch
