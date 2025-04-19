@@ -47,13 +47,13 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2025.0.4
+     - xrst-2025.0.5
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
      - `stable-2025 <https://xrst.readthedocs.io/stable-2025>`_
    * - Most recent release of this stable version
-     - `release-2025 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2025.0.4>`_
+     - `release-2025 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2025.0.5>`_
 
 .. index:: install, stable, version
 
