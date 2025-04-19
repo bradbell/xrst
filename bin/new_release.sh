@@ -16,7 +16,7 @@ set -e -u
 # new_release.sh skips this when testng before the new release (tag)  exists.
 # -----------------------------------------------------------------------------
 year='2025' # Year for this stable version
-release='4' # first release for each year starts with 0
+release='5' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ "$0" != 'bin/new_release.sh' ]
 then
@@ -67,7 +67,7 @@ echo_eval() {
 #
 # main_branch
 main_branch=$(git branch --show-current)
-if [ "$main_branch" != 'master' ] || [ "$main_branch" == 'main' ]
+if [ "$main_branch" != 'master' ] && [ "$main_branch" != 'main' ]
 then
    echo 'bin/new_release.sh: execute using master or main branch'
    exit 1
