@@ -21,13 +21,20 @@ test_driver='pytest/test_rst.py'
 # this installs below the build directory
 pip install --prefix=$prefix .
 #
-# PYTHONPATH
-site_packages="$(find $prefix -name 'site-packages' | head -1)"
+# site_packages
+site_packages="$(find $prefix -name 'site-packages')"
 if [ "$site_packages" == '' ]
 then
    echo "bin/check_install.sh: cannot find site-packages below $prefix"
    exit 1
 fi
+if [ "$(find $prefix -name 'site-packages' | wc -l)" != 1 ]
+then
+   echo "check_install.sh: more than one site-packages below $prefix"
+   exit 1
+fi
+#
+# PYTHONPATH
 if [ -z "${PYTHONPATH+x}" ]
 then
    PYTHONPATH="$site_packages"

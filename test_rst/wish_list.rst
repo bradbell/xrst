@@ -102,11 +102,4 @@ In addition, the file names should not be checked for spelling
 
 Tabs
 ****
-Tabs in xrst input is not tested because
-tabs in a code blocks get expanded to 8 spaces; see stackoverflow_.
-Perhaps we should add a command line option that sets the tab stops,
-convert the tabs to spaces when a file is read,
-and not include tabs in any of the processing after that.
-
-.. _stackoverflow: https://stackoverflow.com/questions/1686837/
-   sphinx-documentation-tool-set-tab-width-in-output
+Tabs in xrst input is not tested.

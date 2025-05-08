@@ -442,6 +442,4 @@ Add the :ref:`wish_list@Spell Checking` wish list item.
 Tried to change the html_theme in :ref:`.readthedocs.yaml-name` from furo
 to sphinx_book_theme to get better coloring of code font; see git hash
 ``2bea5b4fc`` .
-This generated a  `sphinx_crash`_  on readthedocs .
-
-.. _sphinx_crash: https://readthedocs.org/projects/xrst/builds/19048700/
+This generated a sphinx crash on readthedocs .
