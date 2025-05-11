@@ -19,6 +19,19 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+05-11
+=====
+Do not include *text* in spell checking where *text*
+is only letters and appears as either::
+
+   \begin{text}
+   \end{text}
+
+This avoid spelling errors certain latex commands; for example::
+
+   \begin{bmatrix}
+
+
 04-17
 =====
 #. Add python 3.13 to testing,

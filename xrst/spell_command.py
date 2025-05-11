@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin spell_cmd user}
@@ -142,6 +142,7 @@ pattern['ref_1']      = re.compile( r':ref:`[^\n<`]+`' )
 pattern['ref_2']      = re.compile( r':ref:`([^\n<`]+)<[^\n>`]+>`' )
 pattern['url_1']      = re.compile( r'`<[^\n>`]+>`_' )
 pattern['url_2']      = re.compile( r'`([^\n<`]+)<[^\n>`]+>`_' )
+pattern['tex_begin']  = re.compile( r'(\\begin|\\end){[a-z]*}' )
 #
 # pattern['spell_on'], pattern['spell_off']
 lin = r'[ \t]*@xrst_line ([0-9]+)@'
@@ -437,6 +438,9 @@ def spell_command(
    # commands with external urls as arguments
    data_tmp = pattern['url_1'].sub('@', data_tmp)
    data_tmp = pattern['url_2'].sub(r'\1', data_tmp)
+   #
+   # latex \begin{command}
+   data_tmp = pattern['tex_begin'].sub('@', data_tmp)
    #
    # any left over xrst commands
    data_tmp = re.sub( r'{xrst_comment_ch' , '@', data_tmp)
