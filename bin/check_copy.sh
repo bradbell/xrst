@@ -49,10 +49,7 @@ fi
 username='bradbell'
 fullname='Bradley M. Bell'
 # ---------------------------------------------------------------------------
-if [ -e temp.sed ]
-then
-   rm temp.sed
-fi
+echo "#" > temp.sed
 for name in $no_copyright_list
 do
    if [ -f $name ]

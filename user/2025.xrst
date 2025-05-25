@@ -19,6 +19,13 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+05-25
+=====
+Make some minor improvements to the tools distributed by
+``bin/dev_tools.sh`` .
+To be more specific, handle some edge cases like there only
+being one line to sort in a section of a file.
+
 05-11
 =====
 Do not include *text* in spell checking where *text*
