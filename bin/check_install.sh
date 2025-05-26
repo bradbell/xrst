@@ -28,9 +28,10 @@ then
    echo "bin/check_install.sh: cannot find site-packages below $prefix"
    exit 1
 fi
-if [ "$(find $prefix -name 'site-packages' | wc -l)" != 1 ]
+if [ "$(find $prefix -name 'site-packages' | wc -l | sed -e 's| ||g')" != 1 ]
 then
    echo "check_install.sh: more than one site-packages below $prefix"
+   find $prefix -name 'site-packages'
    exit 1
 fi
 #

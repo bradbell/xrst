@@ -58,7 +58,6 @@ source bin/grep_and_sed.sh
 # dev_tools
 # BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
-   .readthedocs.yaml
    bin/check_copy.sh
    bin/check_invisible.sh
    bin/check_sort.sh
@@ -67,13 +66,24 @@ dev_tools='
    bin/dev_settings.sh
    bin/git_commit.sh
    bin/grep_and_sed.sh
-   bin/group_list.sh
    bin/new_release.sh
-   bin/run_xrst.sh
    bin/sort.sh
-   bin/twine.sh
 '
 # END_SORT_THIS_LINE_MINUS_2
+if [ -e "$dest_repo/xrst.toml" ]
+then
+   dev_tools+='
+      .readthedocs.yaml
+      bin/group_list.sh
+      bin/run_xrst.sh
+   '
+fi
+if [ -e "$dest_repo/pyproject.toml" ]
+then
+   dev_tools+='
+      bin/twine.sh
+   '
+fi
 for file in $dev_tools
 do
    if [ $file == bin/dev_settings.sh ] \
@@ -86,6 +96,11 @@ do
          exit 1
       fi
    else
+      if [ ! -x $file ]
+      then
+         echo "$file is not executable"
+         exit 1
+      fi
       line_two=$($sed -n -e '2,2p' $file)
       if [ "$line_two" != 'set -e -u' ]
       then
@@ -197,13 +212,16 @@ $sed -i $dest_repo/bin/new_release.sh \
    -e "s|^release=[^#]*#|release='$release' #|"
 #
 # $dest_repo/.readthedocs.yaml
-group_list=$( bin/group_list.sh | \
-   $sed -e 's|^| |' -e 's|$| |' -e 's| dev ||' -e 's|^ *||' -e 's| *$||' )
-$sed -r -i $dest_repo/.readthedocs.yaml \
-   -e "s|^( *--index_page_name).*|\\1 $index_page_name|" \
-   -e "s|^( *--group_list).*|\\1 $group_list|" \
-   -e '/\{xrst_begin /d' \
-   -e '/\{xrst_end /d'
+if [ -e "$dest_repo/xrst.toml" ]
+then
+   group_list=$( bin/group_list.sh | \
+      $sed -e 's|^| |' -e 's|$| |' -e 's| dev ||' -e 's|^ *||' -e 's| *$||' )
+   $sed -r -i $dest_repo/.readthedocs.yaml \
+      -e "s|^( *--index_page_name).*|\\1 $index_page_name|" \
+      -e "s|^( *--group_list).*|\\1 $group_list|" \
+      -e '/\{xrst_begin /d' \
+      -e '/\{xrst_end /d'
+fi
 #
 # $dest_repo/bin/dev_settings.sh
 cat << EOF > sed.$$
