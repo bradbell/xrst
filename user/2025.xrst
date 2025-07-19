@@ -19,6 +19,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+07-19
+=====
+The ``bin/git_commit.sh`` development tools was modified to check
+for spelling error in the commit log message (if typos is installed).
+
 06-12
 =====
 The ``bin/check_tab.sh`` development tool
