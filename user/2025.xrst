@@ -19,6 +19,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+08-04
+=====
+In the ``bin/check_copy.sh`` development tool,
+handle the case where a file has been deleted.
+
 07-19
 =====
 The ``bin/git_commit.sh`` development tools was modified to check
