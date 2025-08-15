@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2025,xrst,release,notes,for,mm-dd,08-04,07-19,06-12,05-26,05-25,05-11,04-17,03-13,03-07,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
+   :keywords: 2025,xrst,release,notes,for,mm-dd,08-15,08-04,07-19,06-12,05-26,05-25,05-11,04-17,03-13,03-07,02-18,02-15,02-03,01-24,01-11,01-10,01-05,01-04,01-03
 
 .. index:: 2025, xrst, release, notes, 2025
 
@@ -23,6 +23,13 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+.. _2025@mm-dd@08-15:
+
+08-15
+=====
+In the ``bin/run_xrst.sh`` development tool,
+when checking external links, change the timeout from 30 to 5 seconds.
 
 .. _2025@mm-dd@08-04:
 

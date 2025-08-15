@@ -19,6 +19,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+08-15
+=====
+In the ``bin/run_xrst.sh`` development tool,
+when checking external links, change the timeout from 30 to 5 seconds.
+
 08-04
 =====
 In the ``bin/check_copy.sh`` development tool,
