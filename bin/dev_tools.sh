@@ -164,6 +164,7 @@ version_file_list=''
 no_copyright_list=''
 invisible_and_tab_ok=''
 check_git_commit=''
+contributor_list=''
 if [ -e $dest_repo/bin/dev_settings.sh ]
 then
    source $dest_repo/bin/dev_settings.sh
@@ -253,6 +254,13 @@ N
 s|.*|@check_git_commit@|
 #
 : four
+/^contributor_list=' *$/! b five
+: loop_5
+N
+/\\n' *$/! b loop_5
+s|.*|@contributor_list@|
+#
+: five
 EOF
 $sed -i $dest_repo/bin/dev_settings.sh -f sed.$$
 rm sed.$$
@@ -264,6 +272,7 @@ $sed -i $dest_repo/bin/dev_settings.sh \
 for variable in \
    version_file_list \
    no_copyright_list \
+   contributor_list \
    invisible_and_tab_ok \
    check_git_commit
 do
@@ -285,6 +294,7 @@ for variable in  \
    package_name \
    index_page_name \
    version_file_list \
+   contributor_list \
    no_copyright_list \
    invisible_and_tab_ok \
    check_git_commit

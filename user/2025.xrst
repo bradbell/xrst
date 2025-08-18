@@ -4,6 +4,7 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2025 user}
 {xrst_spell
+   bradbell
    conda
    furo
    pyenchant
@@ -18,6 +19,12 @@ xrst Release Notes for 2025
 
 mm-dd
 *****
+
+08-18
+=====
+In the `bin/dev_settings.sh` add the contributor_list setting
+and use it in `bin/check_copy.sh` .
+This handles the case where other user's (besides bradbell) are contributors.
 
 08-15
 =====

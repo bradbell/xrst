@@ -62,6 +62,15 @@ version_file_list='
 # All the occurrences of the version in the files above are checked to see
 # that they agree.
 #
+# contributor_list
+# This maps the system user name $USER to the contributor's full name.
+# A full name can have multiple user names, but each user name can have
+# only one full name. The colon seperates the user name from the full name.
+# The entries are separate by white space, so the under bar character is used
+# for spaces in the full name.
+contributor_list='
+   bradbell:Bradley_M._Bell
+'
 #
 # no_copyright_list
 # These files and directories do not have the spdx license id in them.
@@ -84,7 +93,7 @@ invisible_and_tab_ok='
 '
 #
 # check_git_commit
-# These files may have automatic changes that should not be committed every time.
+# Files that have automatic changes that should not be committed every time.
 # Including them in this list gives the user the option to abort their changes.
 check_git_commit='
 '
