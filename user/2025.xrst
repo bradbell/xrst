@@ -20,6 +20,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+09-19
+=====
+In the ``bin/run_xrst.sh`` development tool,
+change `python` to `python3` because this works on more systems.
+
 08-18
 =====
 In the `bin/dev_settings.sh` add the contributor_list setting
