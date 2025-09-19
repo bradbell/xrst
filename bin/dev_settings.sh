@@ -30,7 +30,7 @@ index_page_name='user-guide'
 # version_file_list
 # The possible patterns for a latest version number are:
 #     yyyymmdd or yyyy.month.day
-# whee yyyymmdd is an eight decimal digit representation of the date.
+# where yyyymmdd is an eight decimal digit representation of the date.
 # yyyy is the year (as four decimal digits yyy), month is a number
 # between 1 and 12, and the day is a number between 1 and 31
 # The possible patterns for a release version number are:
