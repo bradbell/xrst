@@ -20,6 +20,11 @@ xrst Release Notes for 2025
 mm-dd
 *****
 
+12-28
+=====
+Use the ``typos`` package to detect and correct spelling errors
+in the source code comments and error messages.
+
 09-19
 =====
 In the ``bin/dev_settings.sh`` development tool, change `whee` to `where` .

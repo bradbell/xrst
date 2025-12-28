@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
 # ----------------------------------------------------------------------------
@@ -46,7 +46,7 @@ def page_name2index(all_page_info, page_name) :
 # The value all_page_info[page_index] is a dictionary for this page
 # with the following key, value pairs (all the keys are strings:
 # key            value
-# page_name   a str continaing the name of this page.
+# page_name   a str containing the name of this page.
 # page_title  a str containing the title for this page.
 # parent_page an int index in page_info for the parent of this page.
 # in_parent_file True if this page in same input file as its parent.

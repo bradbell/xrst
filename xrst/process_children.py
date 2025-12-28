@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -10,7 +10,7 @@ pattern_toc = re.compile(
    r'\n{xrst_TOC_(hidden|list|table)}\n'
 )
 #
-# patttern_rst_extension
+# pattern_rst_extension
 pattern_rst_extension = re.compile( r'\.rst$' )
 # ----------------------------------------------------------------------------
 # {xrst_begin process_children dev}

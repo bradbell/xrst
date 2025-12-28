@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin suspend_cmd user}
@@ -121,7 +121,7 @@ def suspend_command(data_in, page_file, page_name) :
       m_resume      = pattern_resume.search(data_out, m_suspend.end())
       if m_resume == None :
          msg  = 'There is a suspend command without a '
-         msg += 'corresponding resume commannd.'
+         msg += 'corresponding resume command.'
          xrst.system_exit(msg,
             file_name=page_file,
             page_name=page_name,
@@ -151,7 +151,7 @@ def suspend_command(data_in, page_file, page_name) :
       else :
          argument = argument.split()
          if len(argument) != 3 :
-            msg  = 'suspend command arugment is not empty, true, false or'
+            msg  = 'suspend command argument is not empty, true, false or'
             msg += 'three string separated by white space.'
             xrst.system_exit(msg,
                file_name=page_file,

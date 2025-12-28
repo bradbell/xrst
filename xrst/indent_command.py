@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-23 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin indent_cmd user}
@@ -89,7 +89,7 @@ import xrst
 #
 
 # pattern_indent
-# 0. newline, characters before comamnd, command
+# 0. newline, characters before command, command
 # 1. indent; i.e. , characters on same line and before the command.
 pattern_indent = re.compile(
    r'\n{xrst_indent}|\n([^\n{]*[^\n\\]){xrst_indent}'

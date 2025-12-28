@@ -9,7 +9,7 @@
 {xrst_comment
 This is an example xrst-template file.
 
-An expansion of this file will create the followng headings:
+An expansion of this file will create the following headings:
 headers   : Expansion Number, Spelling, First Paragraph, Second Paragraph
 
 This file has the following template replacements:

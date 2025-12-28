@@ -419,7 +419,7 @@ def spell_command(
       m_ref = pattern['ref_name_1'].search(data_tmp)
    #
    # data_tmp
-   # commands with file names as arugments
+   # commands with file names as arguments
    # Use @ character to avoid mistaken double word errors
    data_tmp = pattern['dir'].sub('@', data_tmp)
    data_tmp = pattern['literal'].sub('@', data_tmp)

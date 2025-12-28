@@ -435,7 +435,7 @@ def system_command(
       alert_data = stderr
       #
       # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
-      # use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
+      # use git grep PAGE_NAME_PATTERN to get all occurrences of this pattern
       pattern_alert = re.compile(
          r'.*/rst/([A-Za-z0-9_.-]+).rst:([0-9]+):([^:]*):'
       )
@@ -635,7 +635,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2025.12.17'
+version = '2025.12.28'
 #
 def run_xrst() :
    #
@@ -930,12 +930,12 @@ def run_xrst() :
    all_page_info  = list()
    #
    # root_page_list
-   # Each group has a root secion (in root_file) at the top if its tree.
+   # Each group has a root section (in root_file) at the top if its tree.
    root_page_list = list()
    #
    # page_name2line_tuple, page_name2page_file
    # Each rst page name has a corresponding input file and mapping from
-   # rst file line nubmers to input file line numbers.
+   # rst file line numbers to input file line numbers.
    page_name2line_tuple = dict()
    page_name2page_file  = dict()
    #
@@ -1008,7 +1008,7 @@ def run_xrst() :
          parent_file_page  = finfo['parent_page']
          assert os.path.isfile(file_in)
          #
-         # get xrst docuemntation in this file
+         # get xrst documentation in this file
          file_page_info = xrst.get_file_info(
             all_page_info,
             old_group_name,
@@ -1073,7 +1073,7 @@ def run_xrst() :
             # -------------------------------------------------------------
             # spell_command
             # do after suspend and before other commands to help ignore
-            # sectons of text that do not need spell checking
+            # sections of text that do not need spell checking
             #
             # page_data, any_warning, unknown_word_dict
             page_data, spell_warning, unknown_word_set = xrst.spell_command(

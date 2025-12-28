@@ -700,7 +700,7 @@ def get_conf_dict(config_file) :
             system_exit(msg)
       for (index, entry) in enumerate(value) :
          if type(entry) != str :
-            msg += f'output_direcory.data[{index}] has python type '
+            msg += f'output_directory.data[{index}] has python type '
             msg += str(type(entry)) + '\n'
             msg += 'Expected it to have type ' + str( str )
             system_exit(msg)

@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
 # BEGIN_PROJECT_NAME
 [project_name]
@@ -24,7 +24,7 @@ dev     = 'xrst/__init__.py'
 # END_ROOT_FILE
 # -----------------------------------------------------------------------------
 # BEGIN_HEADING
-# If running an old verison of xrst that does not support heading,
+# If running an old version of xrst that does not support heading,
 # comment out the lines from [heading] to overline =.
 [heading]
 #   level         0,     1,     2,     3,     4,
@@ -71,7 +71,7 @@ latex_macro = [
 # BEGIN_PROJECT_DICTIONARY
 [project_dictionary]
 data = [
-   # keywords in souce code languages
+   # keywords in source code languages
    '''
    bool
    def
@@ -88,7 +88,7 @@ data = [
    # abbreviations
    # dir:   used for directory (as part of a variable name)
    # obj:   used for object (as appossed to the corresponding class)
-   # tmp:   is used for temparary values
+   # tmp:   is used for temporary values
    # toc:   used for table of contents or table of children
    # dd-mm: used for day and month as two decimal characters
    '''

@@ -338,7 +338,7 @@ def template_command(data_in, page_file, page_name) :
       #
       # template_expansion
       # Now that line numbers in template expansion are correct,
-      # add a newline at the beginning so comamnds that must start with newline
+      # add a newline at the beginning so commands that must start with newline
       # can appear in the first line of the template file.
       index  = template_expansion.find('@}@')
       before = template_expansion[ : index + 3 ]

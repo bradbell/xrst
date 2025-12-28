@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -9,7 +9,7 @@ pattern_newline_3       = re.compile(r'(\n[ \t]*){2,}\n')
 pattern_white_at_eol    = re.compile(r'[ \t]*\n')
 #
 # PAGE_NAME_PATTERN = [A-Za-z0-9._-]+
-# use git grep PAGE_NAME_PATTERN to get all occurances of this pattern
+# use git grep PAGE_NAME_PATTERN to get all occurrences of this pattern
 pattern_ref_page_name_1 = re.compile(r':ref:`([A-Za-z0-9._-]+)-name`')
 pattern_ref_page_name_2 = re.compile(
                            r':ref:`([^`<]*)<([A-Za-z0-9._-]+)-name>`'

@@ -5,7 +5,7 @@ This installs the current stable version of xrst:
 
     pip install xrst
 
-This installs the most recent verion of xrst:
+This installs the most recent version of xrst:
 
     pip install xrst
     pip uninstall -y xrst

@@ -117,7 +117,7 @@ Link To Index Page
 #
 #
 # xrst_search_rst_template
-# Do not start with a newine because it will get removed from
+# Do not start with a newline because it will get removed from
 # test_rst/xrst_search.rst during the check for invisible white space.
 xrst_search_rst_template = r'''.. _xrst_search-name:
 
@@ -209,7 +209,7 @@ function update_match()
    var keywords_value = document.search.keywords.value;
    if( keywords_value.length == keywords_length_global )
       return;
-   keywords_lenght_global = keywords_value.length;
+   keywords_length_global = keywords_value.length;
    //
    // keyword_list, n_keyword
    var keyword_list = keywords_value.match(/\S+/g);
@@ -489,7 +489,7 @@ def auto_file(
    # rst_dir/_sources
    if target == 'html' :
       #
-      # file_in, file_daa
+      # file_in, file_data
       file_in   = None
       file_data = None
       for info in all_page_info :

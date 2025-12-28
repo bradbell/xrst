@@ -65,7 +65,7 @@ version_file_list='
 # contributor_list
 # This maps the system user name $USER to the contributor's full name.
 # A full name can have multiple user names, but each user name can have
-# only one full name. The colon seperates the user name from the full name.
+# only one full name. The colon separates the user name from the full name.
 # The entries are separate by white space, so the under bar character is used
 # for spaces in the full name.
 contributor_list='
@@ -83,6 +83,7 @@ no_copyright_list='
    gpl-3.0.txt
    readme.md
    test_rst
+   typos.toml
 '
 # END_SORT_THIS_LINE_MINUS_2
 #

@@ -26,7 +26,7 @@ then
 fi
 if [ ! -d "$dest_repo/bin" ]
 then
-   echo "dev_tools.sh: $dest_repo/bin is not a diretory"
+   echo "dev_tools.sh: $dest_repo/bin is not a directory"
    exit 1
 fi
 #

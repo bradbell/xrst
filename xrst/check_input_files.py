@@ -180,7 +180,7 @@ def check_input_files(
                   warning_count += 1
             #
             if warning_count == 10 :
-               msg+= f'Surpressing this warning after {warning_count} files.\n'
+               msg+= f'Suppressing this warning after {warning_count} files.\n'
                sys.stderr.write(msg)
    file_list_warning = 0 < warning_count
    # BEGIN_RETURN

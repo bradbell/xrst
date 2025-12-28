@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin begin_cmd user}
@@ -228,7 +228,7 @@ def get_file_info(
       m_begin = xrst.pattern['begin'].search(file_data, data_index)
       #
       # this_group_name
-      # This match can't occurr in a template expansion.
+      # This match can't occur in a template expansion.
       if m_begin != None :
          #
          this_group_name = m_begin.group(4)
@@ -335,7 +335,7 @@ def get_file_info(
          m_end     = xrst.pattern['end'].search(file_data, data_index)
          #
          if m_end == None :
-            msg  = 'Could not find the followig text:\n'
+            msg  = 'Could not find the following text:\n'
             msg += '    {xrst_end ' + page_name + '}'
             xrst.system_exit(
                msg, file_name=file_in, page_name=page_name

@@ -10,7 +10,7 @@ function echo_eval {
    eval $*
 }
 # -----------------------------------------------------------------------------
-# bash funciton that prompts [yes/no] and returns (exits 1) on yes (no)
+# bash function that prompts [yes/no] and returns (exits 1) on yes (no)
 function continue_yes_no {
    read -p '[yes/no] ? ' response
    while [ "$response" != 'yes' ] && [ "$response" != 'no' ]

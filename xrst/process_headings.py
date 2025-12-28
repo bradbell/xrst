@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin heading_links user}
@@ -147,7 +147,7 @@ def check_anchor(
    anchor = re.sub( r'-$',        '',  anchor)
    anchor = re.sub( r'^[^a-z]*',  '',  anchor)
    if anchor == '' :
-      msg  = 'The anchor correspnding to a header is empty.\n'
+      msg  = 'The anchor corresponding to a header is empty.\n'
       msg += f'label = {label}'
       xrst.system_exit(msg,
          file_name = page_file,
