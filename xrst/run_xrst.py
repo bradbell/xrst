@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin run_xrst user}
@@ -635,7 +635,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2025.12.28'
+version = '2026.1.4'
 #
 def run_xrst() :
    #
