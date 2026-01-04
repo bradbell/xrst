@@ -51,9 +51,9 @@ Versions
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
-     - `stable-2025 <https://xrst.readthedocs.io/stable-2025>`_
+     - `stable-2026 <https://xrst.readthedocs.io/stable-2026>`_
    * - Most recent release of this stable version
-     - `release-2025 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2025.0.5>`_
+     - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
 
 .. index:: install, stable, version
 
@@ -61,7 +61,7 @@ Versions
 
 Install Stable Version
 **********************
-Features in stable-2025 were frozen at the beginning of
+Features in stable-2026 were frozen at the beginning of
 the year and only includes bug fixed after that.
 ::
 
