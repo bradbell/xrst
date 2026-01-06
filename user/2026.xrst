@@ -13,6 +13,11 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+01-06
+=====
+The typos package was used to fix spelling errors in the source code comments
+and print statements.
+
 01-04
 =====
 In the ``bin/version.sh`` development tool,

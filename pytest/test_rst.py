@@ -126,12 +126,12 @@ def run_test(
          check_file_obj.close()
          #
          # rst_data
-         # dos2unix: relpace \r\n by \n
+         # dos2unix: replace \r\n by \n
          replace  = r'\n'
          rst_data = pattern_return_newline.sub(replace, rst_data)
          #
          # rst_data
-         # relpace \ in file names by /
+         # replace \ in file names by /
          m_obj = pattern_include_backslash.search(rst_data)
          while m_obj != None :
             start      = m_obj.start()

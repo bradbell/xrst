@@ -85,7 +85,7 @@ def process_children(
       # type of toc command
       toc_type = m_child.group(1)
       #
-      # There chould be at most one toc command per page created by
+      # There should be at most one toc command per page created by
       # the xrst.child_command routine
       m_tmp = pattern_toc.search(data_in, m_child.end())
       assert m_tmp == None

@@ -211,7 +211,7 @@ If *target* is ``html``,
 the file ``index.html`` in the
 :ref:`config_file@directory@html_directory` will be a redirect
 to the page specified by *index_page_name* .
-If this option is not present, ``index.html`` wil be a redirect
+If this option is not present, ``index.html`` will be a redirect
 to the root of the documentation tree.
 
 .. index:: config_file
@@ -287,7 +287,7 @@ target
 ******
 The command line argument *target* must be ``html`` or ``tex``.
 It specifies the type of type output you plan to generate using sphinx.
-Note thet :ref:`config_file@directory@html_directory` and
+Note that :ref:`config_file@directory@html_directory` and
 :ref:`config_file@directory@tex_directory` will determine the location
 of the corresponding output files.
 The default value for *target* is ``html`` .

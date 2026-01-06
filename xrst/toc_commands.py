@@ -235,9 +235,9 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
    command = m_toc.group(1)
    assert command in [ 'hidden', 'list', 'table']
    #
-   # preceeding_character
-   preceeding_character = data_out[ m_toc.start() ]
-   assert preceeding_character != '\\'
+   # preceding_character
+   preceding_character = data_out[ m_toc.start() ]
+   assert preceding_character != '\\'
    #
    # first_list, child_line_list
    child_line_list =  m_toc.group(2).split('\n')
@@ -395,7 +395,7 @@ def toc_commands(is_parent, data_in, page_file, page_name, group_name) :
       )
    #
    # data_out
-   replace = preceeding_character + '{xrst_TOC_' + command + '}\n'
+   replace = preceding_character + '{xrst_TOC_' + command + '}\n'
    data_out = xrst.pattern['toc'].sub(replace, data_out)
    #
    # We know that the lists are no-empty for this return,

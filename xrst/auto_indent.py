@@ -62,7 +62,7 @@ def auto_indent(data, file_name, page_name) :
    newline_list = xrst.newline_indices(data)
    #
    # n_indent
-   # use match_empty to gaurd against case where there are no matches
+   # use match_empty to guard against case where there are no matches
    n_indent    = len(data)
    m_itr       = pattern_newline.finditer(data)
    match_empty = True

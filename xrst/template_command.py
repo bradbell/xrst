@@ -122,7 +122,7 @@ import xrst
 #
 #
 # pattern_template:
-# 1: character preceeding the template command
+# 1: character preceding the template command
 # 2. the separator (including surrounding white space)
 # 3. line number where the template command appeared
 # 4. rest of template command

@@ -18,12 +18,17 @@ fi
 #
 # external_links, suppress_spell_warnings
 flags=''
+skip_check_copy='no'
 while [ "$#" != 0 ]
 do
    case "$1" in
 
       --skip_external_links)
       flags+=" $1"
+      ;;
+
+      --skip_check_copy)
+      skip_check_copy='yes'
       ;;
 
       --suppress_spell_warnings)
@@ -43,11 +48,26 @@ done
 # sed
 source bin/grep_and_sed.sh
 #
+# typos
+if which typos >& /dev/null
+then
+   if ! typos
+   then
+      echo 'check_all: see typos errors above'
+      exit 1
+   fi
+fi
+#
 # check_list
 check_list=$(ls bin/check_* | $sed \
+   -e '/^bin[/]check_copy.sh/d' \
    -e '/^bin[/]check_xrst.sh/d' \
    -e '/^bin[/]check_all.sh/d' \
 )
+if [ "$skip_check_copy" == 'no' ]
+then
+   bin/check_copy.sh
+fi
 for check in $check_list
 do
    echo_eval $check

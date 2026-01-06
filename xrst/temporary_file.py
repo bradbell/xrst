@@ -180,7 +180,7 @@ def temporary_file(
          cmd  = m_obj.group(1)
          msg  = f'This xrst {cmd} command was not recognized.\n'
          msg += 'Use \\{xrst_' + cmd + ' '
-         msg += 'if this is not intented to be an xrst command.'
+         msg += 'if this is not intended to be an xrst command.'
          xrst.system_exit(msg,
             file_name=file_in,
             page_name=page_name,
