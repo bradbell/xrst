@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2024 Bradley M. Bell
+# SPDX-FileContributor: 2024-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
-# Use the following to verify yml syntax before commiting:
+# Use the following to verify yml syntax before committing:
 # https://yamlchecker.com/
 #
 # The name for this workflow
@@ -11,13 +11,13 @@ name: example-workflow
 # A short description of this workflow
 run-name: This workflow was triggered by ${{ github.actor }}
 #
-# This worflow will be run on any push to the repository
+# This workflow will be run on any push to the repository
 on:
   push:
     branches:
       workflow
 #
-# env.varible_one. env.variable_two
+# env.variable_one. env.variable_two
 env:
   variable_one: 1
   variable_two: 2
