@@ -47,7 +47,7 @@ Versions
    :widths: auto
 
    * - This version
-     - xrst-2026.1.4
+     - xrst-2026.1.6
    * - Documentation for latest version
      - `latest <https://xrst.readthedocs.io/latest>`_
    * - Documentation for most recent stable version
@@ -113,7 +113,7 @@ The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 
 .. literalinclude:: ../../pyproject.toml
-   :lines: 31-38
+   :lines: 34-41
    :language: toml
 
 .. index:: run, program

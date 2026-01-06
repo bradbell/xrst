@@ -12,10 +12,9 @@ build-backend = 'setuptools.build_meta'
 # -----------------------------------------------------------------------------
 [project]
 name              = 'xrst'
-version           = '2026.1.4'
+version           = '2026.1.6'
 description       = 'Extract RST files from source code and run Sphinx'
 readme            = 'readme.md'
-requires-python   = '>=3.9'
 keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 license           = { text = 'GPL-3.0-or-later' }
 classifiers       = [
@@ -27,6 +26,10 @@ classifiers       = [
    'Intended Audience :: Developers',
    'Natural Language :: English',
 ]
+# Oldest version of python that has not reached end of life.
+requires-python   = '>=3.10'
+#
+# Switch to tomlib and remove tomli dependency when requires-python >= 3.11.
 # BEGIN_DEPENDENCIES
 dependencies      = [
    # Always requires to run xrst
