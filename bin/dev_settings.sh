@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2003-25 Bradley M. Bell
+# SPDX-FileContributor: 2003-26 Bradley M. Bell
 # ---------------------------------------------------------------------------
 # source bin/dev_settings.sh
 # Sets the value of the the development tool variables for this package.
@@ -55,6 +55,7 @@ index_page_name='user-guide'
 # In addition, all occurrences of stable-yyyy and release-yyyy are updated.
 version_file_list='
    pyproject.toml
+   CITATION.cff
    test_rst/user-guide.rst
    user/user.xrst
    xrst/run_xrst.py
@@ -79,6 +80,7 @@ contributor_list='
 no_copyright_list='
    .gitignore
    .readthedocs.yaml
+   CITATION.cff
    bin/input_files.sh
    gpl-3.0.txt
    readme.md
