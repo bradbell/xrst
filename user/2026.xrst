@@ -15,8 +15,10 @@ mm-dd
 
 04-03
 =====
-#. Add the :ref:`wish_list@check_all.sh` wish list item.
-
+#. Fix the usage message in the bin/check_all.sh development tool.
+#. Add the check_all wish list item. 
+#. Change the spacing for one level of indent from 3 to 4 spaces.
+   This was done in the xrst output rst files and in the xrst source code.
 
 01-06
 =====
