@@ -5,7 +5,7 @@ wish_list
 !!!!!!!!!
 
 .. meta::
-   :keywords: wish_list,wish,list,spell,checking,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
+   :keywords: wish_list,wish,list,check_all.sh,spell,checking,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
 
 .. index:: wish_list, wish, list
 
@@ -19,6 +19,15 @@ open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 
 .. contents::
    :local:
+
+.. index:: check_all.sh
+
+.. _wish_list@check_all.sh:
+
+check_all.sh
+************
+Change check_all.sh so that it is one of the development tools; i.e.,
+can be used for any package.
 
 .. index:: spell, checking
 

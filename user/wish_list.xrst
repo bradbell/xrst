@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-25 Bradley M. Bell
+SPDX-FileContributor: 2020-26 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell
@@ -13,6 +13,12 @@ Wish List
 The following is a wish list for future improvements to ``run_xrst``.
 If you want to help with one of these, or some other aspect of xrst,
 open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
+
+
+check_all.sh
+************
+Change check_all.sh so that it is one of the development tools; i.e.,
+can be used for any package.
 
 Spell Checking
 **************

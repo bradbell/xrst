@@ -13,6 +13,11 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+04-03
+=====
+#. Add the :ref:`wish_list@check_all.sh` wish list item.
+
+
 01-06
 =====
 The typos package was used to fix spelling errors in the source code comments
