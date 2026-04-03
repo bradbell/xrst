@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import re
 import xrst
@@ -67,6 +67,9 @@ def process_children(
       assert type(list_children[0]) == str
    # END_DEF
    #
+   # indent
+   indent = 3 * ' '
+   #
    if len(list_children) == 0 :
       m_child = pattern_toc.search(data_in)
       assert m_child is None
@@ -99,10 +102,10 @@ def process_children(
       elif toc_type == 'table' :
          cmd  = '\n\n'
          cmd += '.. csv-table::\n'
-         cmd += '   :header:  "Name", "Title"\n'
-         cmd += '   :widths: auto\n\n'
+         cmd += indent + ':header:  "Name", "Title"\n'
+         cmd += indent + ':widths: auto\n\n'
          for child in list_children :
-            cmd += '   "' + child + '"'
+            cmd += indent + '"' + child + '"'
             cmd += ', :ref:`' + child + '-title`\n'
       else :
          assert toc_type == 'hidden'
@@ -123,10 +126,10 @@ def process_children(
    # links to the child pages at the end of the page.
    if not page_has_child_command :
       data_out += '.. csv-table::\n'
-      data_out += '   :header: "Child", "Title"\n'
-      data_out += '   :widths: 20, 80\n\n'
+      data_out += indent + ':header: "Child", "Title"\n'
+      data_out += indent + ':widths: 20, 80\n\n'
       for child in list_children :
-         data_out += '   "' + child + '"'
+         data_out += indent + '"' + child + '"'
          data_out += ', :ref:`' + child + '-title`\n'
       data_out += '\n'
    #

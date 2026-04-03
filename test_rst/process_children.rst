@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_children.py
-   :lines: 58-67,144-146
+   :lines: 58-67,147-149
    :language: py
 
 .. index:: data_in
