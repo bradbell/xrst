@@ -19,39 +19,39 @@ set -e -u
 git reset --hard
 for file in $(git ls-files )
 do
-   if [[ "$file" =~ test_rst/.* ]]
-   then
-      echo "skip $file"
-   else
-      echo "process $file"
-      ext=$(echo $file | sed -e 's|.*[.]|.|')
-      #
-      if [ "$ext" != '.yml' ] \
-      && [ "$ext" != '.yaml' ] \
-      && [ "$ext" != '.png' ] \
-      && [ "$ext" != '.xml' ] \
-      && [ "$ext" != "$file" ]
-      then
-         if ! indent_32.py $file
-         then
-            echo "error: $file"
-            exit 1
-         fi
-      fi
-   fi
+    if [[ "$file" =~ test_rst/.* ]]
+    then
+        echo "skip $file"
+    else
+        echo "process $file"
+        ext=$(echo $file | sed -e 's|.*[.]|.|')
+        #
+        if [ "$ext" != '.yml' ] \
+        && [ "$ext" != '.yaml' ] \
+        && [ "$ext" != '.png' ] \
+        && [ "$ext" != '.xml' ] \
+        && [ "$ext" != "$file" ]
+        then
+            if ! indent_32.py $file
+            then
+                echo "error: $file"
+                exit 1
+            fi
+        fi
+    fi
 done
 for file in $(git ls-files test_rst)
 do
-   ext=$(echo $file | sed -e 's|.*[.]\([^.]*\).rst|.\1|')
-   #
-   if [ "$ext" != '.yaml' ]
-   then
-      if ! rst_32.py $file
-      then
-         echo "error: $file"
-         exit 1
-      fi
-   fi
+    ext=$(echo $file | sed -e 's|.*[.]\([^.]*\).rst|.\1|')
+    #
+    if [ "$ext" != '.yaml' ]
+    then
+        if ! rst_32.py $file
+        then
+            echo "error: $file"
+            exit 1
+        fi
+    fi
 done
 #
 echo 'Use bin/check_xrst.sh to see if indent_32.py and rst_32.py work.'

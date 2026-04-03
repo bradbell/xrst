@@ -5,7 +5,7 @@ user-guide
 !!!!!!!!!!
 
 .. meta::
-   :keywords: user-guide,extract,sphinx,rst,files,license,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
+    :keywords: user-guide,extract,sphinx,rst,files,license,git,repository,versions,install,stable,version,testing,from,source,dependencies,run,program,contents
 
 .. index:: user-guide, extract, sphinx, rst, files
 
@@ -18,7 +18,7 @@ and then runs sphinx to obtain html, tex, or pdf output files.
 It includes automatic processing and commands that make sphinx easier to use.
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: license
 
@@ -44,16 +44,16 @@ Versions
 ********
 
 .. list-table::
-   :widths: auto
+    :widths: auto
 
-   * - This version
-     - xrst-2026.4.3
-   * - Documentation for latest version
-     - `latest <https://xrst.readthedocs.io/latest>`_
-   * - Documentation for most recent stable version
-     - `stable-2026 <https://xrst.readthedocs.io/stable-2026>`_
-   * - Most recent release of this stable version
-     - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
+    * - This version
+      - xrst-2026.4.3
+    * - Documentation for latest version
+      - `latest <https://xrst.readthedocs.io/latest>`_
+    * - Documentation for most recent stable version
+      - `stable-2026 <https://xrst.readthedocs.io/stable-2026>`_
+    * - Most recent release of this stable version
+      - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
 
 .. index:: install, stable, version
 
@@ -65,7 +65,7 @@ Features in stable-2026 were frozen at the beginning of
 the year and only includes bug fixed after that.
 ::
 
-   pip install xrst
+    pip install xrst
 
 .. index:: install, testing, version
 
@@ -78,9 +78,9 @@ to determine the date corresponding to this version.
 This installs the xrst dependencies and then replaces xrst
 by its most recent test version::
 
-   pip install xrst
-   pip uninstall -y xrst
-   pip install --index-url https://test.pypi.org/simple/ xrst
+    pip install xrst
+    pip uninstall -y xrst
+    pip install --index-url https://test.pypi.org/simple/ xrst
 
 .. index:: install, from, source
 
@@ -92,16 +92,16 @@ The following commands will download, test, build, and install
 the current version from the master branch.
 ::
 
-   git clone https://github.com/bradbell/xrst.git xrst.git
-   cd xrst.git
-   pytest -s pytest
-   pip install .
+    git clone https://github.com/bradbell/xrst.git xrst.git
+    cd xrst.git
+    pytest -s pytest
+    pip install .
 
 You can determine the date corresponding to a version of the source code
 using the following command:
 ::
 
-   grep '^version *=' pyproject.toml
+    grep '^version *=' pyproject.toml
 
 .. index:: dependencies
 
@@ -113,8 +113,8 @@ The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 
 .. literalinclude:: ../../pyproject.toml
-   :lines: 34-41
-   :language: toml
+    :lines: 34-41
+    :language: toml
 
 .. index:: run, program
 
@@ -138,11 +138,11 @@ Contents
 -  :ref:`wish_list-title`
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+    :maxdepth: 1
+    :hidden:
 
-   config_file
-   run_xrst
-   commands
-   automatic
-   wish_list
+    config_file
+    run_xrst
+    commands
+    automatic
+    wish_list

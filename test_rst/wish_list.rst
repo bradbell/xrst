@@ -5,7 +5,7 @@ wish_list
 !!!!!!!!!
 
 .. meta::
-   :keywords: wish_list,wish,list,check_all.sh,spell,checking,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
+    :keywords: wish_list,wish,list,check_all.sh,spell,checking,theme,sphinx_rtd_theme,sphinx_book_theme,search,rst,command,file,names,tabs
 
 .. index:: wish_list, wish, list
 
@@ -18,7 +18,7 @@ If you want to help with one of these, or some other aspect of xrst,
 open an `xrst issue <https://github.com/bradbell/xrst/issues>`_ .
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: check_all.sh
 
@@ -45,12 +45,12 @@ Spell Checking
 .e.g, the following text should not require a special spelling entry for
 ``samp`` ::
 
-   :samp:`print 1+{variable}`
+    :samp:`print 1+{variable}`
 
 #. The spell checker should not check web addresses in external link
    definitions of the form ::
 
-      .. external link name: external link web address
+        .. external link name: external link web address
 
 .. index:: theme
 

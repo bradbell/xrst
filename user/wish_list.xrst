@@ -4,8 +4,8 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin wish_list user}
 {xrst_spell
-   rtd
-   samp
+    rtd
+    samp
 }
 
 Wish List
@@ -32,12 +32,12 @@ Spell Checking
 .e.g, the following text should not require a special spelling entry for
 ``samp`` ::
 
-   :samp:`print 1+{variable}`
+    :samp:`print 1+{variable}`
 
 #. The spell checker should not check web addresses in external link
    definitions of the form ::
 
-      .. external link name: external link web address
+        .. external link name: external link web address
 
 Theme
 *****

@@ -4,20 +4,20 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2024 user}
 {xrst_spell
-   breakpoint
-   docstring
-   github
-   grep
-   homebrew
-   ini
-   macos
-   pyenchant
-   pytest
-   sed
-   stderr
-   tox
-   workflow
-   urllib
+    breakpoint
+    docstring
+    github
+    grep
+    homebrew
+    ini
+    macos
+    pyenchant
+    pytest
+    sed
+    stderr
+    tox
+    workflow
+    urllib
 }
 
 xrst Release Notes for 2024
@@ -126,8 +126,8 @@ configuration file. In addition put xrst.toml in the page for the
 It used to be the case that the following input would cause xrst to crash
 in the file auto_indent.py::
 
-   \{xrst_begin empty_page}
-   \{xrst_end   empty_page}
+    \{xrst_begin empty_page}
+    \{xrst_end   empty_page}
 
 This has been fixed.
 
@@ -202,11 +202,11 @@ This was completed; see 03-28 above.
    In addition, links were added to the page name.
    Old links to the page title had the form::
 
-      :ref:`xrst_table_of_contents-title`
+        :ref:`xrst_table_of_contents-title`
 
-   These links need to be changed to::
+    These links need to be changed to::
 
-      :ref:`xrst_contents-title`
+        :ref:`xrst_contents-title`
 
 #. The pages with names that begin with ``xrst_`` were modified
    to make the names, titles, and linking text more consistent; see
@@ -237,8 +237,8 @@ which is at most 100, instead of the total number of matches.
 This has been fixed.
 In addition, you can now link to the xrst search using either::
 
-   :ref:`xrst_search-name`
-   :ref:`xrst_search-tilte`
+    :ref:`xrst_search-name`
+    :ref:`xrst_search-tilte`
 
 02-25
 =====
@@ -274,7 +274,7 @@ Add the :ref:`run_xrst@ignore_spell_commands` option to the
 #. It was possible for the assert below to fail.
    This has been changed into an error message::
 
-      assert page_name == 'xrst_table_of_contents'
+        assert page_name == 'xrst_table_of_contents'
 
 #. The information and suggestions printed below the spelling warnings
    has been improved.
@@ -298,10 +298,10 @@ A link to the current release was included; see
 #. Each *file_name* in the latest documentation was moved
    (this is important if you have links to previous web pages):
 
-   .. csv-table::
+    .. csv-table::
 
-      Old Location,  ``https://xrst.readthedocs.io/``\ *file_name*
-      New Location,  ``https://xrst.readthedocs.io/latest/``\ *file_name*
+        Old Location,  ``https://xrst.readthedocs.io/``\ *file_name*
+        New Location,  ``https://xrst.readthedocs.io/latest/``\ *file_name*
 
 
 

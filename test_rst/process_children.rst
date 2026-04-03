@@ -5,7 +5,7 @@ process_children
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: process_children,add,child,information,to,a,page,prototype,data_in,list_children,data_out
+    :keywords: process_children,add,child,information,to,a,page,prototype,data_in,list_children,data_out
 
 .. index:: process_children, add, child, information, page
 
@@ -15,7 +15,7 @@ Add child information to a page
 ###############################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_children.py
-   :lines: 58-67,147-149
-   :language: py
+    :lines: 58-67,147-149
+    :language: py
 
 .. index:: data_in
 
@@ -54,12 +54,12 @@ data_out
 ********
 The return value data_out has the child information added.
 
- #. A hidden table of contents (toctree) for the children is added at the
-    end of data_out.
- #. If the TOC command in data_in is {xrst_TOC_list} or {xrst_TOC_table},
-    the corresponding links will replace the command.
- #. If the child command is {xrst_TOC_hidden}, the command is removed
-    and no table of links is added.
- #. If there is no TOC command and list_children is non-empty,
-    the toc_table style is used for the links to the children which are
-    placed at the end of the data_out (before the toctree).
+  #.  A hidden table of contents (toctree) for the children is added at the
+      end of data_out.
+  #.  If the TOC command in data_in is {xrst_TOC_list} or {xrst_TOC_table},
+      the corresponding links will replace the command.
+  #.  If the child command is {xrst_TOC_hidden}, the command is removed
+      and no table of links is added.
+  #.  If there is no TOC command and list_children is non-empty,
+      the toc_table style is used for the links to the children which are
+      placed at the end of the data_out (before the toctree).

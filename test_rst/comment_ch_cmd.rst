@@ -5,7 +5,7 @@ comment_ch_cmd
 !!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: comment_ch_cmd,comment,character,command,syntax,purpose,ch,input,stream,indentation,example
+    :keywords: comment_ch_cmd,comment,character,command,syntax,purpose,ch,input,stream,indentation,example
 
 .. index:: comment_ch_cmd, comment, character
 
@@ -15,7 +15,7 @@ Comment Character Command
 #########################
 
 .. contents::
-   :local:
+    :local:
 
 .. _comment_ch_cmd@Syntax:
 
@@ -60,12 +60,12 @@ and the ``def`` token indented the same amount:
 
 .. code-block:: py
 
-   # Factorial
-   # ---------
-   def factorial(n) :
-      if n == 1 :
-         return 1
-      return n * factorial(n-1)
+    # Factorial
+    # ---------
+    def factorial(n) :
+        if n == 1 :
+            return 1
+        return n * factorial(n-1)
 
 .. index:: indentation
 

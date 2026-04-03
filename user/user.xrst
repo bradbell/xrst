@@ -4,8 +4,8 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin purpose user}
 {xrst_spell
-   autodoc
-   doxygen
+    autodoc
+    doxygen
 }
 
 Purpose of this Sphinx Wrapper
@@ -18,7 +18,7 @@ which is written in C, uses sphinx for its documentation,
 and has its documentation
 in separate files from the corresponding source code; see::
 
-   https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+    https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
 Goal
 ****
@@ -109,12 +109,12 @@ The xrst features below can be considered a wish list for sphinx:
 ----------------------------------------------------------------------------
 {xrst_begin user-guide user}
 {xrst_spell
-   grep
-   pdf
-   pypi
-   pyproject
-   pytest
-   url
+    grep
+    pdf
+    pypi
+    pyproject
+    pytest
+    url
 }
 
 Extract Sphinx RST Files
@@ -137,16 +137,16 @@ Versions
 ********
 
 .. list-table::
-   :widths: auto
+    :widths: auto
 
-   * - This version
-     - xrst-2026.4.3
-   * - Documentation for latest version
-     - `latest <https://xrst.readthedocs.io/latest>`_
-   * - Documentation for most recent stable version
-     - `stable-2026 <https://xrst.readthedocs.io/stable-2026>`_
-   * - Most recent release of this stable version
-     - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
+    * - This version
+      - xrst-2026.4.3
+    * - Documentation for latest version
+      - `latest <https://xrst.readthedocs.io/latest>`_
+    * - Documentation for most recent stable version
+      - `stable-2026 <https://xrst.readthedocs.io/stable-2026>`_
+    * - Most recent release of this stable version
+      - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
 
 {xrst_comment END: Before changing see bin/new_release and check_version.sh}
 
@@ -156,7 +156,7 @@ Features in stable-2026 were frozen at the beginning of
 the year and only includes bug fixed after that.
 ::
 
-   pip install xrst
+    pip install xrst
 {xrst_comment END: Before changing see bin/ new_release and check_version.sh}
 
 Install Testing Version
@@ -166,9 +166,9 @@ to determine the date corresponding to this version.
 This installs the xrst dependencies and then replaces xrst
 by its most recent test version::
 
-   pip install xrst
-   pip uninstall -y xrst
-   pip install --index-url https://test.pypi.org/simple/ xrst
+    pip install xrst
+    pip uninstall -y xrst
+    pip install --index-url https://test.pypi.org/simple/ xrst
 
 Install From Source
 *******************
@@ -176,25 +176,25 @@ The following commands will download, test, build, and install
 the current version from the master branch.
 ::
 
-   git clone https://github.com/bradbell/xrst.git xrst.git
-   cd xrst.git
-   pytest -s pytest
-   pip install .
+    git clone https://github.com/bradbell/xrst.git xrst.git
+    cd xrst.git
+    pytest -s pytest
+    pip install .
 
 You can determine the date corresponding to a version of the source code
 using the following command:
 ::
 
-   grep '^version *=' pyproject.toml
+    grep '^version *=' pyproject.toml
 
 Dependencies
 ************
 The following is a list of the projects that xrst depends on
 (and should be automatically installed by pip when you install xrst):
 {xrst_literal
-   pyproject.toml
-   # BEGIN_DEPENDENCIES
-   # END_DEPENDENCIES
+    pyproject.toml
+    # BEGIN_DEPENDENCIES
+    # END_DEPENDENCIES
 }
 
 
@@ -205,11 +205,11 @@ Run Program
 Contents
 ********
 {xrst_toc_list
-   xrst/get_conf_dict.py
-   xrst/run_xrst.py
-   user/commands.xrst
-   user/automatic.xrst
-   user/wish_list.xrst
+    xrst/get_conf_dict.py
+    xrst/run_xrst.py
+    user/commands.xrst
+    user/automatic.xrst
+    user/wish_list.xrst
 }
 
 {xrst_end user-guide}
@@ -219,12 +219,12 @@ Contents
 xrst Release Notes By Year
 ##########################
 {xrst_toc_hidden
-   user/2026.xrst
-   user/2025.xrst
-   user/2024.xrst
-   user/2023.xrst
-   user/2022.xrst
-   user/2021.xrst
+    user/2026.xrst
+    user/2025.xrst
+    user/2024.xrst
+    user/2023.xrst
+    user/2022.xrst
+    user/2021.xrst
 }
 :ref:`2026-name`,
 :ref:`2025-name`,

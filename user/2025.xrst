@@ -4,14 +4,14 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2025 user}
 {xrst_spell
-   bradbell
-   conda
-   furo
-   pyenchant
-   tomli
-   dev
-   readthedocs
-   yaml
+    bradbell
+    conda
+    furo
+    pyenchant
+    tomli
+    dev
+    readthedocs
+    yaml
 }
 
 xrst Release Notes for 2025
@@ -77,12 +77,12 @@ being one line to sort in a section of a file.
 Do not include *text* in spell checking where *text*
 is only letters and appears as either::
 
-   \begin{text}
-   \end{text}
+    \begin{text}
+    \end{text}
 
 This avoid spelling errors certain latex commands; for example::
 
-   \begin{bmatrix}
+    \begin{bmatrix}
 
 
 04-17

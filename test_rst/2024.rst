@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2024,xrst,release,notes,for,mm-dd,12-28,12-10,12-09,12-08,12-01,11-30,11-27,10-25,10-01,09-09,08-25,08-13,08-12,06-25,04-30,04-06,04-05,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
+    :keywords: 2024,xrst,release,notes,for,mm-dd,12-28,12-10,12-09,12-08,12-01,11-30,11-27,10-25,10-01,09-09,08-25,08-13,08-12,06-25,04-30,04-06,04-05,03-30,03-29,03-28,03-19,03-16,03-04,03-02,03-01,02-29,02-25,02-14,02-03,01-29,01-21,01-04,01-01
 
 .. index:: 2024, xrst, release, notes, 2024
 
@@ -15,7 +15,7 @@ xrst Release Notes for 2024
 ###########################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: mm-dd
 
@@ -150,8 +150,8 @@ configuration file. In addition put xrst.toml in the page for the
 It used to be the case that the following input would cause xrst to crash
 in the file auto_indent.py::
 
-   {xrst_begin empty_page}
-   {xrst_end   empty_page}
+    {xrst_begin empty_page}
+    {xrst_end   empty_page}
 
 This has been fixed.
 
@@ -244,11 +244,11 @@ This was completed; see 03-28 above.
    In addition, links were added to the page name.
    Old links to the page title had the form::
 
-      :ref:`xrst_table_of_contents-title`
+        :ref:`xrst_table_of_contents-title`
 
-   These links need to be changed to::
+    These links need to be changed to::
 
-      :ref:`xrst_contents-title`
+        :ref:`xrst_contents-title`
 
 #. The pages with names that begin with ``xrst_`` were modified
    to make the names, titles, and linking text more consistent; see
@@ -285,8 +285,8 @@ which is at most 100, instead of the total number of matches.
 This has been fixed.
 In addition, you can now link to the xrst search using either::
 
-   :ref:`xrst_search-name`
-   :ref:`xrst_search-tilte`
+    :ref:`xrst_search-name`
+    :ref:`xrst_search-tilte`
 
 .. _2024@mm-dd@02-25:
 
@@ -332,7 +332,7 @@ Add the :ref:`run_xrst@ignore_spell_commands` option to the
 #. It was possible for the assert below to fail.
    This has been changed into an error message::
 
-      assert page_name == 'xrst_table_of_contents'
+        assert page_name == 'xrst_table_of_contents'
 
 #. The information and suggestions printed below the spelling warnings
    has been improved.
@@ -358,7 +358,7 @@ A link to the current release was included; see
 #. Each *file_name* in the latest documentation was moved
    (this is important if you have links to previous web pages):
 
-   .. csv-table::
+    .. csv-table::
 
-      Old Location,  ``https://xrst.readthedocs.io/``\ *file_name*
-      New Location,  ``https://xrst.readthedocs.io/latest/``\ *file_name*
+        Old Location,  ``https://xrst.readthedocs.io/``\ *file_name*
+        New Location,  ``https://xrst.readthedocs.io/latest/``\ *file_name*

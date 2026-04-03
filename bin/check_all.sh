@@ -6,14 +6,14 @@ set -e -u
 # -----------------------------------------------------------------------------
 # echo_eval
 echo_eval() {
-   echo $*
-   eval $*
+    echo $*
+    eval $*
 }
 # -----------------------------------------------------------------------------
 if [ "$0" != "bin/check_all.sh" ]
 then
-   echo "bin/check_all.sh: must be executed from its parent directory"
-   exit 1
+    echo "bin/check_all.sh: must be executed from its parent directory"
+    exit 1
 fi
 #
 # flags, skip_check_copy
@@ -21,31 +21,31 @@ flags=''
 skip_check_copy='no'
 while [ "$#" != 0 ]
 do
-   case "$1" in
+    case "$1" in
 
-      --skip_external_links)
-      flags+=" $1"
-      ;;
+        --skip_external_links)
+        flags+=" $1"
+        ;;
 
-      --skip_check_copy)
-      skip_check_copy='yes'
-      ;;
+        --skip_check_copy)
+        skip_check_copy='yes'
+        ;;
 
-      --suppress_spell_warnings)
-      flags+=" $1"
-      ;;
+        --suppress_spell_warnings)
+        flags+=" $1"
+        ;;
 
-      *)
-      echo "bin/check_all.sh: "$1" is not one of the following"
-      echo '--skip_external_links'
-      echo '--skip_check_copy'
-      echo '--suppress_spell_warnings'
-      exit 1
-      ;;
+        *)
+        echo "bin/check_all.sh: "$1" is not one of the following"
+        echo '--skip_external_links'
+        echo '--skip_check_copy'
+        echo '--suppress_spell_warnings'
+        exit 1
+        ;;
 
-   esac
-   #
-   shift
+    esac
+    #
+    shift
 done
 #
 # sed
@@ -54,26 +54,26 @@ source bin/grep_and_sed.sh
 # typos
 if which typos >& /dev/null
 then
-   if ! typos
-   then
-      echo 'check_all: see typos errors above'
-      exit 1
-   fi
+    if ! typos
+    then
+        echo 'check_all: see typos errors above'
+        exit 1
+    fi
 fi
 #
 # check_list
 check_list=$(ls bin/check_* | $sed \
-   -e '/^bin[/]check_copy.sh/d' \
-   -e '/^bin[/]check_xrst.sh/d' \
-   -e '/^bin[/]check_all.sh/d' \
+    -e '/^bin[/]check_copy.sh/d' \
+    -e '/^bin[/]check_xrst.sh/d' \
+    -e '/^bin[/]check_all.sh/d' \
 )
 if [ "$skip_check_copy" == 'no' ]
 then
-   bin/check_copy.sh
+    bin/check_copy.sh
 fi
 for check in $check_list
 do
-   echo_eval $check
+    echo_eval $check
 done
 #
 # bin/check_xrst.sh
@@ -82,7 +82,7 @@ echo_eval bin/check_xrst.sh $flags
 # tox
 if [ "$flags" == '' ]
 then
-   tox
+    tox
 fi
 #
 echo "check_all.sh $flags: OK"

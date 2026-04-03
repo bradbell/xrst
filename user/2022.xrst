@@ -4,24 +4,24 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2022 user}
 {xrst_spell
-   amd
-   breakpoint
-   conf
-   css
-   dev
-   dismod
-   genindex
-   len
-   literalinclude
-   matlab
-   pdf
-   pyproject
-   rtd
-   spdx
-   toctree
-   txt
-   underbar
-   xsrst
+    amd
+    breakpoint
+    conf
+    css
+    dev
+    dismod
+    genindex
+    len
+    literalinclude
+    matlab
+    pdf
+    pyproject
+    rtd
+    spdx
+    toctree
+    txt
+    underbar
+    xsrst
 }
 
 xrst Release Notes for 2022
@@ -280,16 +280,16 @@ If a table only has one entry, the entry is named data.
 2. The wish list configuration item was completed using
    :ref:`config_file-name` .
 
-   #. The output_dir command line argument was replaced by
-      output_directory in the ``config_file`` file.
-   #. The sphinx_dir command line argument was replaced by
-      :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
-   #. The preamble.rst file was replaced by the
-      preamble section of the ``config_file`` file.
-   #. The spelling file was replaced by the
-      :ref:`config_file@project_dictionary` section of the ``config_file`` file.
-   #. The keyword file was replaced by the
-      :ref:`config_file@not_in_index` section of the ``config_file`` file.
+    #. The output_dir command line argument was replaced by
+       output_directory in the ``config_file`` file.
+    #. The sphinx_dir command line argument was replaced by
+       :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
+    #. The preamble.rst file was replaced by the
+       preamble section of the ``config_file`` file.
+    #. The spelling file was replaced by the
+       :ref:`config_file@project_dictionary` section of the ``config_file`` file.
+    #. The keyword file was replaced by the
+       :ref:`config_file@not_in_index` section of the ``config_file`` file.
 
 11-18
 =====
@@ -369,8 +369,8 @@ This has been fixed.
 1. The program used to generate the assert below when there was no newline
    at the end of an input file. This has been fixed::
 
-      File .. add_line_numbers.py ...
-         assert previous == len(data_in) - 1
+        File .. add_line_numbers.py ...
+            assert previous == len(data_in) - 1
 
 2. The list example was removed and the :ref:`testExample-name` was added.
 3. The required packages were not being automatically installed because they
@@ -448,7 +448,7 @@ preamble.rst file. This has been fixed.
 3. Fix a problem with build the pdf :ref:`run_xrst@target` on sphinx 4.1.2,
    to be specific::
 
-      ! LaTeX Error: Command \thesubpage undefined.
+        ! LaTeX Error: Command \thesubpage undefined.
 
 4. There was a problem with the :ref:`code_cmd-name` when it was inside a list.
    This has been fixed and the corresponding
@@ -640,13 +640,13 @@ To be specific, do not include
    This was done because the child commands act like sphinx toctree commands
    and the file command acts like a sphinx literalinclude command.
 
-   .. csv-table::
-      :widths: auto
+    .. csv-table::
+        :widths: auto
 
-      xrst_file,->,xrst_literal
-      xrst_children,->,xrst_toc_hidden
-      xrst_child_list,->,xrst_toc_list
-      xrst_child_table,->,xrst_toc_table
+        xrst_file,->,xrst_literal
+        xrst_children,->,xrst_toc_hidden
+        xrst_child_list,->,xrst_toc_list
+        xrst_child_table,->,xrst_toc_table
 
 2. Use the backslash in ``\{xrst_`` to escape xrst :ref:`commands-name` .
    In addition, remove the restriction that commands must occur

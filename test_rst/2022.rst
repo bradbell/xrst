@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-   :keywords: 2022,xrst,release,notes,for,mm-dd,12-31,12-30,12-22,12-20,12-16,12-15,12-14,12-12,12-11,12-10,12-09,12-08,12-05,12-1,11-30,11-29,11-28,11-27,11-26,11-24,11-23,11-22,11-21,11-20,11-19,11-18,11-16,11-15,11-14,11-13,11-05,11-01,10-31,10-29,10-24,10-23,10-21,10-11,10-05,10-04,10-03,10-02,09-26,09-25,09-24,09-23,09-22,09-21,09-20,09-19,09-18,09-17,09-15,09-14,09-13,09-11,09-09,09-08,09-05,09-04,09-02,08-31,08-30,08-29,08-27,08-24,08-22,08-21,08-20,08-17,08-15,08-09,08-08,08-07,08-06,08-05,08-04,08-03,07-31,07-30,07-28,07-27,07-26,07-25,07-24,07-21
+    :keywords: 2022,xrst,release,notes,for,mm-dd,12-31,12-30,12-22,12-20,12-16,12-15,12-14,12-12,12-11,12-10,12-09,12-08,12-05,12-1,11-30,11-29,11-28,11-27,11-26,11-24,11-23,11-22,11-21,11-20,11-19,11-18,11-16,11-15,11-14,11-13,11-05,11-01,10-31,10-29,10-24,10-23,10-21,10-11,10-05,10-04,10-03,10-02,09-26,09-25,09-24,09-23,09-22,09-21,09-20,09-19,09-18,09-17,09-15,09-14,09-13,09-11,09-09,09-08,09-05,09-04,09-02,08-31,08-30,08-29,08-27,08-24,08-22,08-21,08-20,08-17,08-15,08-09,08-08,08-07,08-06,08-05,08-04,08-03,07-31,07-30,07-28,07-27,07-26,07-25,07-24,07-21
 
 .. index:: 2022, xrst, release, notes, 2022
 
@@ -15,7 +15,7 @@ xrst Release Notes for 2022
 ###########################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: mm-dd
 
@@ -325,16 +325,16 @@ If a table only has one entry, the entry is named data.
 2. The wish list configuration item was completed using
    :ref:`config_file-name` .
 
-   #. The output_dir command line argument was replaced by
-      output_directory in the ``config_file`` file.
-   #. The sphinx_dir command line argument was replaced by
-      :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
-   #. The preamble.rst file was replaced by the
-      preamble section of the ``config_file`` file.
-   #. The spelling file was replaced by the
-      :ref:`config_file@project_dictionary` section of the ``config_file`` file.
-   #. The keyword file was replaced by the
-      :ref:`config_file@not_in_index` section of the ``config_file`` file.
+    #. The output_dir command line argument was replaced by
+       output_directory in the ``config_file`` file.
+    #. The sphinx_dir command line argument was replaced by
+       :ref:`config_file@directory@rst_directory` in the ``config_file`` file.
+    #. The preamble.rst file was replaced by the
+       preamble section of the ``config_file`` file.
+    #. The spelling file was replaced by the
+       :ref:`config_file@project_dictionary` section of the ``config_file`` file.
+    #. The keyword file was replaced by the
+       :ref:`config_file@not_in_index` section of the ``config_file`` file.
 
 .. _2022@mm-dd@11-18:
 
@@ -432,8 +432,8 @@ This has been fixed.
 1. The program used to generate the assert below when there was no newline
    at the end of an input file. This has been fixed::
 
-      File .. add_line_numbers.py ...
-         assert previous == len(data_in) - 1
+        File .. add_line_numbers.py ...
+            assert previous == len(data_in) - 1
 
 2. The list example was removed and the :ref:`testExample-name` was added.
 3. The required packages were not being automatically installed because they
@@ -533,7 +533,7 @@ preamble.rst file. This has been fixed.
 3. Fix a problem with build the pdf :ref:`run_xrst@target` on sphinx 4.1.2,
    to be specific::
 
-      ! LaTeX Error: Command \thesubpage undefined.
+        ! LaTeX Error: Command \thesubpage undefined.
 
 4. There was a problem with the :ref:`code_cmd-name` when it was inside a list.
    This has been fixed and the corresponding
@@ -769,13 +769,13 @@ To be specific, do not include
    This was done because the child commands act like sphinx toctree commands
    and the file command acts like a sphinx literalinclude command.
 
-   .. csv-table::
-      :widths: auto
+    .. csv-table::
+        :widths: auto
 
-      xrst_file,->,xrst_literal
-      xrst_children,->,xrst_toc_hidden
-      xrst_child_list,->,xrst_toc_list
-      xrst_child_table,->,xrst_toc_table
+        xrst_file,->,xrst_literal
+        xrst_children,->,xrst_toc_hidden
+        xrst_child_list,->,xrst_toc_list
+        xrst_child_table,->,xrst_toc_table
 
 2. Use the backslash in ``{xrst_`` to escape xrst :ref:`commands-name` .
    In addition, remove the restriction that commands must occur

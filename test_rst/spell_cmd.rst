@@ -5,7 +5,7 @@ spell_cmd
 !!!!!!!!!
 
 .. meta::
-   :keywords: spell_cmd,spell,command,syntax,spell_off,spell_on,words,special,project_dictionary,page_name,capital,letters,double,example
+    :keywords: spell_cmd,spell,command,syntax,spell_off,spell_on,words,special,project_dictionary,page_name,capital,letters,double,example
 
 .. index:: spell_cmd, spell
 
@@ -15,7 +15,7 @@ Spell Command
 #############
 
 .. contents::
-   :local:
+    :local:
 
 .. _spell_cmd@Syntax:
 
@@ -140,7 +140,7 @@ Double words errors occur in the output the user sees.
 for example, the input:
 ::
 
-   `python package index <https://pypi.org/>`_ index.
+    `python package index <https://pypi.org/>`_ index.
 
 results in the double word 'index index' in the output the user sees; i.e.,
 the following output:

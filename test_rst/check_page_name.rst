@@ -5,7 +5,7 @@ check_page_name
 !!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data,prototype
+    :keywords: check_page_name,check,the,rules,for,a,page,name,page_name,file_name,m_obj,data,prototype
 
 .. index:: check_page_name, check, rules, page, name
 
@@ -15,7 +15,7 @@ Check the rules for a page name
 ###############################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: page_name
 
@@ -32,7 +32,7 @@ The page_name appears in *m_obj* in one of the following ways
 A valid page name must satisfy the following conditions:
 
 #.  The valid characters in a page name are [A-Z], [a-z], [0-9],
-    dash, period and underbar.
+     dash, period and underbar.
 #.  A page name cannot begin with ``xrst_`` .
 #.  A page name cannot be ``index`` or ``genindex`` .
 
@@ -72,5 +72,5 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/check_page_name.py
-   :lines: 62-66
-   :language: py
+    :lines: 62-66
+    :language: py

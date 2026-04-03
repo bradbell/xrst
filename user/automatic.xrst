@@ -8,8 +8,8 @@ Automatic Processing
 ####################
 The processing described below happens without any commands:
 {xrst_toc_list
-   xrst/process_headings.py
-   xrst/auto_file.py
+    xrst/process_headings.py
+    xrst/auto_file.py
 }
 
 

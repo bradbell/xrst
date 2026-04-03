@@ -5,7 +5,7 @@ run_xrst
 !!!!!!!!
 
 .. meta::
-   :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,link_timeout,group_list,example,rename_group,old_group_name,new_group_name
+    :keywords: run_xrst,extract,rst,files,and,run,sphinx,syntax,version,local_toc,page_source,external_links,replace_spell_commands,ignore_spell_commands,suppress_spell_warnings,continue_with_warnings,rst_line_numbers,rst_only,index_page_name,config_file,xrst.toml,html_theme,theme,choices,sphinx_rtd_theme,target,tex,number_jobs,link_timeout,group_list,example,rename_group,old_group_name,new_group_name
 
 .. index:: run_xrst, extract, rst, files, run, sphinx
 
@@ -15,7 +15,7 @@ Extract RST Files And Run Sphinx
 ################################
 
 .. contents::
-   :local:
+    :local:
 
 .. _run_xrst@Syntax:
 
@@ -259,13 +259,13 @@ that work well with xrst,
 please post an issue on github so that it can be added to the list below.
 
 .. csv-table:: Sphinx Themes
-   :header: name,  local_toc
+    :header: name,  local_toc
 
-   sphinx_rtd_theme,     yes
-   furo,                 no
-   sphinx_book_theme,    no
-   pydata_sphinx_theme,  no
-   piccolo_theme,        no
+    sphinx_rtd_theme,     yes
+    furo,                 no
+    sphinx_book_theme,    no
+    pydata_sphinx_theme,  no
+    piccolo_theme,        no
 
 .. index:: sphinx_rtd_theme
 
@@ -310,7 +310,7 @@ Once you have built *project_name*\ ``.tex``, the following command
 executed in :ref:`config_file@directory@project_directory`
 will accomplish both purposes:
 
-   make -C *tex_directory* *project_name*\ ``.pdf``
+    make -C *tex_directory* *project_name*\ ``.pdf``
 
 #. The :ref:`config_file@project_name` is specified in the configuration file.
 #. The resulting output file will be *project*\ ``.pdf`` in the
@@ -321,15 +321,15 @@ will accomplish both purposes:
    in the file *project_name*\ ``.log`` in the *tex_directory* .
 #. Translating Latex errors to the corresponding xrst input file:
 
-   #. Latex error messages are reported using line numbers in
-      the file *project*\ ``.tex`` .
-   #. You may be able to find the corresponding xrst input file
-      using by using ``grep`` to find text that is near the error.
-   #. The page numbers in the :ref:`xrst_contents-title` are
-      present in the latex input (often near ``section*{`` above the error)
-      and may help translate these line numbers to page names.
-   #. Given a page name, the corresponding xrst input file can
-      be found at the top of the html version of the page.
+    #. Latex error messages are reported using line numbers in
+       the file *project*\ ``.tex`` .
+    #. You may be able to find the corresponding xrst input file
+       using by using ``grep`` to find text that is near the error.
+    #. The page numbers in the :ref:`xrst_contents-title` are
+       present in the latex input (often near ``section*{`` above the error)
+       and may help translate these line numbers to page names.
+    #. Given a page name, the corresponding xrst input file can
+       be found at the top of the html version of the page.
 
 .. index:: number_jobs
 
@@ -390,17 +390,17 @@ and it is your current working directory.
 #. The xrst examples use the default group
    and their documentation can be built using
 
-      ``xrst --group_list default``
+        ``xrst --group_list default``
 
 #. The xrst user documentation uses the default and user groups
    and its documentation can be built using
 
-      ``xrst --group_list default user``
+        ``xrst --group_list default user``
 
 #. The xrst developer documentation uses the default, user, and dev
    groups and its documentation can be built using
 
-      ``xrst --group_list default user dev``
+        ``xrst --group_list default user dev``
 
 .. index:: rename_group
 

@@ -18,13 +18,13 @@ readme            = 'readme.md'
 keywords          = [ 'sphinx', 'rst', 'documentation', 'source' ]
 license           = { text = 'GPL-3.0-or-later' }
 classifiers       = [
-   'Topic :: Documentation :: Sphinx',
-   'Development Status :: 4 - Beta',
-   'License :: OSI Approved',
-   'Operating System :: OS Independent',
-   'Environment :: Console',
-   'Intended Audience :: Developers',
-   'Natural Language :: English',
+    'Topic :: Documentation :: Sphinx',
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved',
+    'Operating System :: OS Independent',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
 ]
 # Oldest version of python that has not reached end of life.
 requires-python   = '>=3.10'
@@ -32,12 +32,12 @@ requires-python   = '>=3.10'
 # Switch to tomlib and remove tomli dependency when requires-python >= 3.11.
 # BEGIN_DEPENDENCIES
 dependencies      = [
-   # Always requires to run xrst
-   'sphinx', 'tomli', 'sphinx-copybutton',
-   # The default spell checker
-   'pyspellchecker',
-   # The default theme
-   'furo',
+    # Always requires to run xrst
+    'sphinx', 'tomli', 'sphinx-copybutton',
+    # The default spell checker
+    'pyspellchecker',
+    # The default theme
+    'furo',
 ]
 # END_DEPENDENCIES
 # -----------------------------------------------------------------------------

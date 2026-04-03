@@ -5,7 +5,7 @@ table_of_contents
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: table_of_contents,create,the,table,of,contents,and,modify,titles,prototype,tmp_dir,target,tex,html,all_page_info,root_page_list,content
+    :keywords: table_of_contents,create,the,table,of,contents,and,modify,titles,prototype,tmp_dir,target,tex,html,all_page_info,root_page_list,content
 
 .. index:: table_of_contents, create, table, contents, modify, titles
 
@@ -15,7 +15,7 @@ Create the table of contents and Modify Titles
 ##############################################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/table_of_contents.py
-   :lines: 213-222,253-255
-   :language: py
+    :lines: 213-222,253-255
+    :language: py
 
 .. index:: tmp_dir
 
@@ -76,12 +76,12 @@ The value all_page_info[page_index] is a dictionary for this page
 with the following key, value pairs (all the keys are strings):
 
 ..  csv-table::
-    :header: key, value, type
+      :header: key, value, type
 
-    page_name, contains the name of this page, str
-    page_title,  contains the title for this page, str
-    parent_page, index in all_page_info for the parent of this page, int
-    in_parent_file, is this page in same input file as its parent, bool
+      page_name, contains the name of this page, str
+      page_title,  contains the title for this page, str
+      parent_page, index in all_page_info for the parent of this page, int
+      in_parent_file, is this page in same input file as its parent, bool
 
 .. index:: root_page_list
 
@@ -104,4 +104,4 @@ The following are placed at the beginning of the of content.
 
 1.  The page name xrst_contents and corresponding label xrst_contents-name
 2.  The page title Table of Contents and corresponding label
-    xrst_contents-title
+     xrst_contents-title

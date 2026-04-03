@@ -5,7 +5,7 @@ spell_example
 !!!!!!!!!!!!!
 
 .. meta::
-   :keywords: spell_example,spell,command,example,text,spelling,file,math,double,words,off,and,on,xrst_spell,this
+    :keywords: spell_example,spell,command,example,text,spelling,file,math,double,words,off,and,on,xrst_spell,this
 
 .. index:: spell_example, spell
 
@@ -15,7 +15,7 @@ Spell Command Example
 #####################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: text
 
@@ -47,7 +47,7 @@ are automatically considered correct spelling.
 
 .. math::
 
-   z = \cos( \theta ) + {\rm i} \sin( \theta )
+    z = \cos( \theta ) + {\rm i} \sin( \theta )
 
 .. index:: double, words
 
@@ -85,4 +85,4 @@ This Example File
 *****************
 
 .. literalinclude:: ../../example/spell.xrst
-   :language: rst
+    :language: rst

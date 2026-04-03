@@ -5,7 +5,7 @@ process_headings
 !!!!!!!!!!!!!!!!
 
 .. meta::
-   :keywords: process_headings,add,labels,and,index,entries,for,headings,prototype,check_headings,conf_dict,local_toc,data_in,page_file,page_name,not_in_index_list,data_out,page_title,pseudo_heading,keywords
+    :keywords: process_headings,add,labels,and,index,entries,for,headings,prototype,check_headings,conf_dict,local_toc,data_in,page_file,page_name,not_in_index_list,data_out,page_title,pseudo_heading,keywords
 
 .. index:: process_headings, add, labels, index, entries, headings
 
@@ -15,7 +15,7 @@ Add labels and index entries for headings
 #########################################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: prototype
 
@@ -25,8 +25,8 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/process_headings.py
-   :lines: 274-289,600-607
-   :language: py
+    :lines: 274-289,600-607
+    :language: py
 
 .. index:: check_headings
 
@@ -100,11 +100,11 @@ data_out
 ********
 is a copy of data_in with the following extra command added:
 
- #. The index entries, and meta keyword entries (same as index),
-    and the :ref:`heading_links@Labels` for this page.
- #. The command \\n{xrst@before_title} is placed directly before the
-    first heading for this page; i.e. its title.
-    This is makes it easy to add the page number to the heading text.
+  #.  The index entries, and meta keyword entries (same as index),
+      and the :ref:`heading_links@Labels` for this page.
+  #.  The command \\n{xrst@before_title} is placed directly before the
+      first heading for this page; i.e. its title.
+      This is makes it easy to add the page number to the heading text.
 
 .. index:: page_title
 
@@ -125,9 +125,9 @@ This is an automatically generated heading for this page. It is intended
 to come before the page_title heading.
 It has three lines each terminated by a newline:
 
- 1. an overline line
- 2. heading text line for this page title
- 3. an underline line
+  1.  an overline line
+  2.  heading text line for this page title
+  3.  an underline line
 
 .. index:: keywords
 

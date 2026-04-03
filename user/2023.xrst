@@ -4,16 +4,16 @@ SPDX-FileContributor: 2020-25 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin 2023 user}
 {xrst_spell
-   autodoc
-   backend
-   copybutton
-   doxygen
-   furo
-   pyproject
-   pytest
-   rtd
-   setuptools
-   tox
+    autodoc
+    backend
+    copybutton
+    doxygen
+    furo
+    pyproject
+    pytest
+    rtd
+    setuptools
+    tox
 }
 
 xrst Release Notes for 2023
@@ -95,7 +95,7 @@ Allow for newlines in sphinx ``ref`` role targets; see
    If :ref:`run_xrst@page_source` was not present on the xrst command line,
    and :ref:`run_xrst@target` was tex, the program crashed with the message::
 
-      UnboundLocalError: cannot access local variable 'data_out' ...
+        UnboundLocalError: cannot access local variable 'data_out' ...
 
 #. When ``page_source`` is present and *target* is ``tex`` ,
    the location of the page source file name was changed so it stands out.
@@ -125,10 +125,10 @@ because sphinx book theme does not support as many levels; see
 There was a bug in the :ref:`run_xrst@replace_spell_commands` option.
 To be specific, the program would halt with the following message::
 
-   ... line 92, in replace_spell
-   data_copy = xrst.add_line_numbers(data_copy)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   ... add_line_numbers() missing 1 required positional argument: 'file_in'
+    ... line 92, in replace_spell
+    data_copy = xrst.add_line_numbers(data_copy)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ... add_line_numbers() missing 1 required positional argument: 'file_in'
 
 This has been fixed.
 
@@ -163,8 +163,8 @@ If there is an undefined label,
 that could not be an xrst :ref:`label <heading_links@Labels>` ,
 then following message is added to the warning:
 
-   | The label above does not contain an @ or end with -name or -title.
-   | Hence it is not automatically generates by xrst.
+    | The label above does not contain an @ or end with -name or -title.
+    | Hence it is not automatically generates by xrst.
 
 08-17
 =====
@@ -198,10 +198,10 @@ Add an optional :ref:`literal_cmd@separator` to the literal command.
 =====
 #. Make it an error for the following text to appear in an input file:
 
-   |  ``@xrst_line`` *number*
+    |  ``@xrst_line`` *number*
 
-   where *number* is an integer.
-   (This pattern used is used to report line numbers in error messages.)
+    where *number* is an integer.
+    (This pattern used is used to report line numbers in error messages.)
 #. A check was added that will report an error when the text ``\{xrst_``
    is not the beginning of a recognized command and
    it is not preceded by a backslash.
@@ -271,7 +271,7 @@ so that it properly fetches the xrst dependencies.
    the program would crash with the message below.
    This has been fixed by printing a useful error message in this case::
 
-      assert m_child is None
+        assert m_child is None
 
 #. The :ref:`.readthedocs.yaml-name` example file was modified to
    show how to use the most recent testing version of xrst.

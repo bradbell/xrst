@@ -5,7 +5,7 @@ purpose
 !!!!!!!
 
 .. meta::
-   :keywords: purpose,of,this,sphinx,wrapper,motivation,goal,features
+    :keywords: purpose,of,this,sphinx,wrapper,motivation,goal,features
 
 .. index:: purpose, sphinx, wrapper
 
@@ -15,7 +15,7 @@ Purpose of this Sphinx Wrapper
 ##############################
 
 .. contents::
-   :local:
+    :local:
 
 .. index:: motivation
 
@@ -28,7 +28,7 @@ which is written in C, uses sphinx for its documentation,
 and has its documentation
 in separate files from the corresponding source code; see::
 
-   https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
+    https://git.savannah.gnu.org/cgit/gsl.git/tree/doc
 
 .. index:: goal
 
