@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
 # echo_eval
 echo_eval() {
@@ -16,7 +16,7 @@ then
    exit 1
 fi
 #
-# external_links, suppress_spell_warnings
+# flags, skip_check_copy
 flags=''
 skip_check_copy='no'
 while [ "$#" != 0 ]
@@ -36,10 +36,13 @@ do
       ;;
 
       *)
-      echo "bin/check_all.sh: command line argument "$1" is not"
-      echo '--skip_external_links or --suppress_spell_warnings'
+      echo "bin/check_all.sh: "$1" is not one of the following"
+      echo '--skip_external_links'
+      echo '--skip_check_copy'
+      echo '--suppress_spell_warnings'
       exit 1
       ;;
+
    esac
    #
    shift
