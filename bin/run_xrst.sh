@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bin/run_xrst.sh flags
 # possible flags
@@ -77,7 +77,7 @@ do
         ;;
 
         --external_links)
-        extra_flags+=" $1 --link_timeout 5"
+        extra_flags+=" $1 --link_timeout 10"
         ;;
 
         *)

@@ -5,6 +5,6 @@ authors:
   given-names: "Bradley"
   orcid: "https://www.seanet.com/~bradbell/home.html"
 title: "Extract Sphinx RST Files"
-version: "2026.4.3"
+version: "2026.4.11"
 url: "https://github.com/bradbell/xrst"
 

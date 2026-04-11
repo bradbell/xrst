@@ -13,10 +13,20 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+04-11
+=====
+The :ref:`run_xrst@link_timeout` used by
+
+    bin/run_xrst.sh --external_links
+
+was changed from 5 to 10 seconds.
+Note that ``run_xrst.sh`` is a development tool and should be updated
+by packages that use it.
+
 04-03
 =====
 #. Fix the usage message in the bin/check_all.sh development tool.
-#. Add the check_all wish list item. 
+#. Add the check_all wish list item.
 #. Change the spacing for one level of indent from 3 to 4 spaces.
    This was done in the xrst output rst files and in the xrst source code.
 
