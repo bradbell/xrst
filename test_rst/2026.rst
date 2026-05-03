@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-    :keywords: 2026,xrst,release,notes,for,mm-dd,04-11,04-03,01-06,01-04
+    :keywords: 2026,xrst,release,notes,for,mm-dd,05-03,04-11,04-03,01-06,01-04
 
 .. index:: 2026, xrst, release, notes, 2026
 
@@ -23,6 +23,14 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+.. _2026@mm-dd@05-03:
+
+05-03
+=====
+The :ref:`literal_cmd@dedent` option was added to the literal command.
+This enables one to include rust documentation tests; e.g., see
+:ref:`literal_dedent_example-name` .
 
 .. _2026@mm-dd@04-11:
 

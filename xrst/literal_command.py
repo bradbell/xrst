@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 r"""
 {xrst_begin literal_cmd user}
 {xrst_spell
+    dedent
     literalinclude
 }
 
@@ -20,7 +21,7 @@ Entire File
 
 With Separator
 ==============
-| ``\{xrst_literal`` *separator*
+| ``\{xrst_literal`` *separator* *dedent*
 |     *display_file*
 |     *start_after_1* *separator* *end_before_1*
 |     *start_after_2* *separator* *end_before_2*
@@ -69,19 +70,36 @@ The xrst literal command has the following difference:
 Tokens
 ******
 #. Leading and trailing spaces are not included in
-   *separator*, *display_file*, each *start_after*, and each *end_before*.
+   *separator*, *display_file*, *dedent*,
+   each *start_after*, and each *end_before*.
 #. Each *start_after* must have a corresponding *end_before*.
-#. If there are an even number of tokens (not counting *separator*),
+#. If there are an even number of tokens,
+   not counting the *separator* and *dedent* tokens,
    the *display_file* is not present and the current page file is used.
-#. The new line character separates the tokens.
+#. The new line character separates tokens.
 #. If there are multiple lines in the command, the last line contains
    the ``}`` and must have nothing else but white space.
 
 
 separator
 *********
-If *separator* is present, it must be a single character.
-At most one *separator* can be in each line and it also separates tokens.
+If *separator* is present, it must be a single character,
+it also separates tokens, and
+at most one *separator* can be in each line.
+
+dedent
+******
+If *dedent* is present, it must be a sequence of non-white space characters:
+
+#.  Leading spaces, that is common to all the output, are removed.
+    All the output lines must have the same number of leading spaces
+    (except for lines that are empty or all spaces).
+
+#.  If, after the leading spaces, one of the lines starts with the
+    *dedent* string, they all must start with the *dedent* string
+    (except for lines that are empty or all spaces).
+    It is an error for only some output lines to start with the
+    *dedent* string.
 
 display_file
 ************
@@ -233,21 +251,35 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
     m_literal  = pattern_literal.search(data_out)
     while m_literal != None :
         #
-        # separator
-        if m_literal.group(1) == None :
-            separator = ''
-        else :
-            separator = m_literal.group(1).strip()
-        if len(separator) > 1 :
-            msg  =  '{xrst_literal separator\n'
-            msg += f'separator = "{separator}" is more than one character'
-            xrst.system_exit(
-                msg,
-                file_name = page_file,
-                page_name = page_name,
-                m_obj     = m_literal,
-                data      = data_out
-            )
+        # separator, dedent
+        separator = ''
+        dedent    = ''
+        if m_literal.group(1) != None :
+            both = m_literal.group(1).split()
+            if len(both) > 0 :
+                separator = both[0]
+            if len(both) > 1 :
+                dedent    = both[1]
+            if len(both) > 2 :
+                msg  =  '{xrst_literal separator dedent\n'
+                msg += f'another token follow dedent in xrst_literal command'
+                xrst.system_exit(
+                    msg,
+                    file_name = page_file,
+                    page_name = page_name,
+                    m_obj     = m_literal,
+                    data      = data_out
+                )
+            if len(separator) > 1 :
+                msg  =  '{xrst_literal separator\n'
+                msg += f'separator = "{separator}" is more than one character'
+                xrst.system_exit(
+                    msg,
+                    file_name = page_file,
+                    page_name = page_name,
+                    m_obj     = m_literal,
+                    data      = data_out
+                )
         #
         # arg_list, m_list
         arg_list  = list()
@@ -333,15 +365,16 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
             if os.path.samefile(display_file, page_file) :
                 display_file = page_file
         #
-        # start_end_line_list
+        # start_end_line_list, n_dedent
         assert len(arg_list) % 2 == 0
         start_end_line_list = list()
+        number_dedent       = 0
         for i in range(0, len(arg_list), 2) :
             start_after = arg_list[i]
             end_before  = arg_list[i+1]
             #
             # start_line, end_line
-            start_line, end_line = xrst.start_end_file(
+            start_line, end_line, n_dedent = xrst.start_end_file(
                 page_file    = page_file,
                 page_name    = page_name,
                 input_file   = input_file,
@@ -352,7 +385,24 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
                 m_start      = m_list[i],
                 m_end        = m_list[i+1],
                 m_data       = data_out,
+                dedent       = dedent,
             )
+            if i == 0 :
+                number_dedent = n_dedent
+            elif number_dedent != n_dedent :
+                msg  = 'xrst_literal: number of dedent characters differs\n'
+                msg += f'display_file = {display_file}\n'
+                msg += f'start_after = {start_line}, '
+                msg += f'end_before = {end_before}, '
+                msg += f'n_dedent = {n_dedent}\n'
+                msg += f'previous n_dedent = {number_dedent}\n'
+                xrst.system_exit(
+                    msg,
+                    file_name = page_file,
+                    page_name = page_name,
+                    m_obj     = m_arg,
+                    data      = data_out,
+                )
             if start_line + 1 >= end_line :
                 msg  = 'xrst_literal start after line + 1 >= end before line\n'
                 msg += f'start after line = {start_line}\n'
@@ -388,6 +438,8 @@ def literal_command(data_in, page_file, page_name, rst2project_dir) :
         extension = file_extension( display_file )
         if extension != '' :
             cmd += 4 * ' ' + f':language: {extension}\n'
+        if 0 < number_dedent :
+            cmd += 4 * ' ' + f':dedent: {number_dedent}\n'
         cmd = '\n' + cmd + '\n\n'
         if m_literal.start() > 0 :
             if data_out[m_literal.start() - 1] != '\n' :

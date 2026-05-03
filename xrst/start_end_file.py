@@ -1,13 +1,39 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 import xrst
 import re
+# ----------------------------------------------------------------------------
+def number_dedent(display_data, dedent) :
+    lines    = display_data.split('\n')
+    n_dedent = None
+    for line in lines :
+        n_space = 0
+        while n_space < len(line) and line[n_space] == ' ' :
+            n_space += 1
+        if n_space < len(line) :
+            if n_dedent == None :
+                n_dedent = n_space
+                if n_space + len(dedent) < len(line) :
+                    if line[n_space : n_space + len(dedent)] == dedent :
+                        n_dedent = n_space + len(dedent) + 1
+            else :
+                n_check = n_space
+                if n_space + len(dedent) < len(line) :
+                    if line[n_space : n_space + len(dedent)] == dedent :
+                        n_check = n_space + len(dedent) + 1
+                if n_check != n_dedent :
+                    return None
+    if n_dedent == None :
+        n_dedent = 0
+    return n_dedent
+# ----------------------------------------------------------------------------
 #
 # {xrst_begin start_end_file dev}
 # {xrst_spell
-#     cmd
+#   cmd
+#   dedent
 # }
 # {xrst_comment_ch #}
 #
@@ -84,6 +110,11 @@ import re
 # is the data for the entire page, including template expansion.
 # It corresponds to *m_start* , *m_end* and is only used for reporting errors.
 #
+# dedent
+# ******
+# see :ref:`literal_cmd@dedent` .
+# The value dedent == '' is used for dedent not present in the command.
+#
 # {xrst_end start_end_file}
 # BEGIN_DEF
 def start_end_file(
@@ -97,6 +128,7 @@ def start_end_file(
     m_start,
     m_end,
     m_data,
+    dedent,
 ) :
     assert type(page_file) == str
     assert type(page_name) == str
@@ -110,6 +142,7 @@ def start_end_file(
     assert type(m_start) == re.Match
     assert type(m_end) == re.Match
     assert type(m_data) == str
+    assert type(dedent) == str
     # END_DEF
     # ------------------------------------------------------------------------
     # exclude_line
@@ -147,15 +180,16 @@ def start_end_file(
     data      = file_obj.read()
     file_obj.close()
     #
-    # start_line
-    start_index = data.find(start_after)
-    count = 0
-    while 0 <= start_index :
-        line = data[: start_index].count('\n') + 1
+    # start_index, start_line
+    start_try = data.find(start_after)
+    count     = 0
+    while 0 <= start_try :
+        line = data[: start_try].count('\n') + 1
         if  line < exclude_line[0] or exclude_line[1] < line :
-            start_line = line
-            count      = count + 1
-        start_index = data.find(start_after, start_index + len(start_after) )
+            start_index = data.find('\n', start_try + len(start_after))
+            start_line  = line
+            count       = count + 1
+        start_try = data.find(start_after, start_try + len(start_after) )
     if count != 1 :
         msg += f'\nstart_after   =  {start_after}'
         msg += f'\ndisplay_file  =  {display_file}'
@@ -166,15 +200,18 @@ def start_end_file(
             m_obj = m_start, data = m_data
         )
     #
-    # end_line
-    stop_index = data.find(end_before)
-    count = 0
-    while 0 <= stop_index :
-        line = data[: stop_index].count('\n') + 1
+    # end_index, end_line
+    end_try = data.find(end_before)
+    count   = 0
+    while 0 <= end_try :
+        line = data[: end_try].count('\n') + 1
         if  line < exclude_line[0] or exclude_line[1] < line :
-            end_line = line
+            end_index = end_try
+            while 0 < end_index and data[end_index] != '\n' :
+                end_index -= 1
+            end_line  = line
             count     = count + 1
-        stop_index = data.find(end_before, stop_index + len(end_before) )
+        end_try = data.find(end_before, end_try + len(end_before) )
     if count != 1 :
         msg += f'\nend_before   =  {end_before}'
         msg += f'\ndisplay_file =  {display_file}'
@@ -185,9 +222,35 @@ def start_end_file(
             m_obj = m_end, data = m_data
         )
     # ------------------------------------------------------------------------
+    # n_dedent
+    n_dedent = 0
+    if dedent != '' :
+        #
+        # display_data
+        assert 0 <= start_index
+        assert start_index <= end_index
+        if start_index == end_index:
+            display_data = ''
+        else :
+            assert start_index < end_index
+            assert end_index < len(data)
+            display_data = data[start_index + 1: end_index ]
+            n_dedent     = number_dedent(display_data, dedent)
+            if n_dedent == None :
+                msg += f' dedent = {dedent}'
+                msg += f'\nstart_after   =  {start_after}'
+                msg += f'\nend_before    =  {end_before}'
+                msg += f'\ndisplay_file  =  {display_file}'
+                msg += '\nNumber of characters to dedent not the same '
+                msg += 'for all lines'
+                xrst.system_exit(msg, file_name=page_file, page_name=page_name,
+                    m_obj = m_end, data = m_data
+                )
+    # ------------------------------------------------------------------------
     # BEGIN_RETURN
     #
     assert type(start_line) == int
     assert type(end_line) == int
-    return start_line, end_line
+    assert type(n_dedent) == int
+    return start_line, end_line, n_dedent
     # END_RETURN

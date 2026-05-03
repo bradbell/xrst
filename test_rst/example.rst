@@ -20,6 +20,7 @@ Examples
 
     "get_started", :ref:`get_started-title`
     "literal_example", :ref:`literal_example-title`
+    "literal_dedent_example", :ref:`literal_dedent_example-title`
     "dir_example", :ref:`dir_example-title`
     "toc_list_example", :ref:`toc_list_example-title`
     "spell_example", :ref:`spell_example-title`
@@ -43,6 +44,7 @@ Examples
 
     get_started
     literal_example
+    literal_dedent_example
     dir_example
     toc_list_example
     spell_example

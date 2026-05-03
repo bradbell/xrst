@@ -11,29 +11,30 @@ Table of Contents
 | :ref:`1<example-title>` Examples
 |     :ref:`1.1<get_started-title>` Title: Getting Started
 |     :ref:`1.2<literal_example-title>` Literal Command Example
-|     :ref:`1.3<dir_example-title>` Dir Command Example
-|     :ref:`1.4<toc_list_example-title>` toc_list Example Parent Page
-|         :ref:`1.4.1<child_example_one-title>` First Child Example Page
-|         :ref:`1.4.2<child_example_two-title>` Second Child Example Page
-|         :ref:`1.4.3<child_example_three-title>` Third Child Example Page
-|     :ref:`1.5<spell_example-title>` Spell Command Example
-|     :ref:`1.6<suspend_example-title>` Suspend Command Example
-|     :ref:`1.7<code_example-title>` Code Command Example
-|     :ref:`1.8<comment_example-title>` Comment Command Example
-|     :ref:`1.9<comment_ch_example-title>` Comment Character Command Example
-|     :ref:`1.10<heading_example-title>` Heading and Link Example
-|     :ref:`1.11<ref_example-title>` Sphinx ref Role Example
-|     :ref:`1.12<indent_example-title>` Indent Example
-|     :ref:`1.13<docstring_example-title>` Docstring Example
-|     :ref:`1.14<configure_example-title>` Example Using TOML Configure File
-|     :ref:`1.15<class_example-title>` Example Documenting a Class
-|         :ref:`1.15.1<example_ad_double-title>` An Example Using the ad_double Class
-|         :ref:`1.15.2<test_ad_double-title>` Run ad_double Example and Check its Result
-|     :ref:`1.16<.readthedocs.yaml-title>` Example Read the Docs Configuration
-|     :ref:`1.17<template_example-title>` Template Command Example
-|         :ref:`1.17.1<example_expansion_one-title>` First Expansion
-|         :ref:`1.17.2<example_expansion_two-title>` Second Expansion
-|     :ref:`1.18<testExample-title>` Test Special Conditions
+|     :ref:`1.3<literal_dedent_example-title>` Example Using dedent in Literal Command
+|     :ref:`1.4<dir_example-title>` Dir Command Example
+|     :ref:`1.5<toc_list_example-title>` toc_list Example Parent Page
+|         :ref:`1.5.1<child_example_one-title>` First Child Example Page
+|         :ref:`1.5.2<child_example_two-title>` Second Child Example Page
+|         :ref:`1.5.3<child_example_three-title>` Third Child Example Page
+|     :ref:`1.6<spell_example-title>` Spell Command Example
+|     :ref:`1.7<suspend_example-title>` Suspend Command Example
+|     :ref:`1.8<code_example-title>` Code Command Example
+|     :ref:`1.9<comment_example-title>` Comment Command Example
+|     :ref:`1.10<comment_ch_example-title>` Comment Character Command Example
+|     :ref:`1.11<heading_example-title>` Heading and Link Example
+|     :ref:`1.12<ref_example-title>` Sphinx ref Role Example
+|     :ref:`1.13<indent_example-title>` Indent Example
+|     :ref:`1.14<docstring_example-title>` Docstring Example
+|     :ref:`1.15<configure_example-title>` Example Using TOML Configure File
+|     :ref:`1.16<class_example-title>` Example Documenting a Class
+|         :ref:`1.16.1<example_ad_double-title>` An Example Using the ad_double Class
+|         :ref:`1.16.2<test_ad_double-title>` Run ad_double Example and Check its Result
+|     :ref:`1.17<.readthedocs.yaml-title>` Example Read the Docs Configuration
+|     :ref:`1.18<template_example-title>` Template Command Example
+|         :ref:`1.18.1<example_expansion_one-title>` First Expansion
+|         :ref:`1.18.2<example_expansion_two-title>` Second Expansion
+|     :ref:`1.19<testExample-title>` Test Special Conditions
 | :ref:`2<purpose-title>` Purpose of this Sphinx Wrapper
 | :ref:`3<user-guide-title>` Extract Sphinx RST Files
 |     :ref:`3.1<config_file-title>` The xrst.toml Configuration File

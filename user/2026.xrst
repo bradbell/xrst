@@ -13,6 +13,12 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+05-03
+=====
+The :ref:`literal_cmd@dedent` option was added to the literal command.
+This enables one to include rust documentation tests; e.g., see
+:ref:`literal_dedent_example-name` .
+
 04-11
 =====
 The :ref:`run_xrst@link_timeout` used by

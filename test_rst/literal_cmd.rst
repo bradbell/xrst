@@ -5,7 +5,7 @@ literal_cmd
 !!!!!!!!!!!
 
 .. meta::
-    :keywords: literal_cmd,literal,command,syntax,entire,file,with,separator,without,purpose,literalinclude,tokens,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
+    :keywords: literal_cmd,literal,command,syntax,entire,file,with,separator,without,purpose,literalinclude,tokens,dedent,display_file,extension,no,start,or,end,start_after,end_before,spell,checking,example
 
 .. index:: literal_cmd, literal
 
@@ -36,7 +36,7 @@ Entire File
 
 With Separator
 ==============
-| ``{xrst_literal`` *separator*
+| ``{xrst_literal`` *separator* *dedent*
 |     *display_file*
 |     *start_after_1* *separator* *end_before_1*
 |     *start_after_2* *separator* *end_before_2*
@@ -99,11 +99,13 @@ The xrst literal command has the following difference:
 Tokens
 ******
 #. Leading and trailing spaces are not included in
-   *separator*, *display_file*, each *start_after*, and each *end_before*.
+   *separator*, *display_file*, *dedent*,
+   each *start_after*, and each *end_before*.
 #. Each *start_after* must have a corresponding *end_before*.
-#. If there are an even number of tokens (not counting *separator*),
+#. If there are an even number of tokens,
+   not counting the *separator* and *dedent* tokens,
    the *display_file* is not present and the current page file is used.
-#. The new line character separates the tokens.
+#. The new line character separates tokens.
 #. If there are multiple lines in the command, the last line contains
    the ``}`` and must have nothing else but white space.
 
@@ -113,8 +115,27 @@ Tokens
 
 separator
 *********
-If *separator* is present, it must be a single character.
-At most one *separator* can be in each line and it also separates tokens.
+If *separator* is present, it must be a single character,
+it also separates tokens, and
+at most one *separator* can be in each line.
+
+.. index:: dedent
+
+.. _literal_cmd@dedent:
+
+dedent
+******
+If *dedent* is present, it must be a sequence of non-white space characters:
+
+#.  Leading spaces, that is common to all the output, are removed.
+    All the output lines must have the same number of leading spaces
+    (except for lines that are empty or all spaces).
+
+#.  If, after the leading spaces, one of the lines starts with the
+    *dedent* string, they all must start with the *dedent* string
+    (except for lines that are empty or all spaces).
+    It is an error for only some output lines to start with the
+    *dedent* string.
 
 .. index:: display_file
 

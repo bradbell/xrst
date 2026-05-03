@@ -5,7 +5,7 @@ start_end_file
 !!!!!!!!!!!!!!
 
 .. meta::
-    :keywords: start_end_file,convert,literal,command,start,,end,from,text,to,line,numbers,prototype,page_file,page_name,input_file,display_file,cmd_line,start_after,end_before,start_line,end_line,m_start,m_end,m_data
+    :keywords: start_end_file,convert,literal,command,start,,end,from,text,to,line,numbers,prototype,page_file,page_name,input_file,display_file,cmd_line,start_after,end_before,start_line,end_line,m_start,m_end,m_data,dedent
 
 .. index:: start_end_file, convert, literal, start,, end, from, text, line, numbers
 
@@ -25,7 +25,7 @@ Prototype
 *********
 
 .. literalinclude:: ../../xrst/start_end_file.py
-    :lines: 89-112,189-192
+    :lines: 120-145,251-255
     :language: py
 
 .. index:: page_file
@@ -138,3 +138,12 @@ m_data
 ******
 is the data for the entire page, including template expansion.
 It corresponds to *m_start* , *m_end* and is only used for reporting errors.
+
+.. index:: dedent
+
+.. _start_end_file@dedent:
+
+dedent
+******
+see :ref:`literal_cmd@dedent` .
+The value dedent == '' is used for dedent not present in the command.

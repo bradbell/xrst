@@ -426,6 +426,12 @@ def system_command(
     result = subprocess.run(command, capture_output = True)
     stderr = result.stderr.decode('utf-8')
     #
+    # stderr
+    pattern_ignore_warning = re.compile(
+        r'.*WARNING: non-whitespace stripped by dedent\n'
+    )
+    stderr = pattern_ignore_warning.sub('', stderr)
+    #
     # alert_data, pattern_alert
     if build_html or build_tex :
         #
@@ -456,6 +462,7 @@ def system_command(
     ok  =  result.returncode == 0 and alert_data == ''
     if ok :
         return
+    breakpoint()
     #
     if page_name2line_tuple == None :
         message  = alert_data
@@ -633,7 +640,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2026.4.11'
+version = '2026.5.3'
 #
 def run_xrst() :
     #

@@ -1,6 +1,6 @@
 SPDX-License-Identifier: GPL-3.0-or-later
 SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-SPDX-FileContributor: 2020-24 Bradley M. Bell
+SPDX-FileContributor: 2020-26 Bradley M. Bell
 ----------------------------------------------------------------------------
 {xrst_begin example default}
 
@@ -9,6 +9,7 @@ Examples
 {xrst_toc_table
     example/get_started.xrst
     example/literal.cpp
+    example/dedent.rs
     example/dir.cpp
     example/toc_list.xrst
     example/spell.xrst
