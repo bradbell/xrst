@@ -5,6 +5,7 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
 {xrst_begin 2026 user}
 {xrst_spell
     yyyymmdd
+    breakpoint
 }
 
 xrst Release Notes for 2026
@@ -12,6 +13,12 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+05-08
+=====
+The change below dated 05-03 caused a breakpoint
+in the ``run_xrst.py`` file when there was an error in the xrst input.
+This was only meant for debugging that change and has been removed.
 
 05-03
 =====

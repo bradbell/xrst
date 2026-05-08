@@ -462,7 +462,6 @@ def system_command(
     ok  =  result.returncode == 0 and alert_data == ''
     if ok :
         return
-    breakpoint()
     #
     if page_name2line_tuple == None :
         message  = alert_data
@@ -640,7 +639,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2026.5.3'
+version = '2026.5.8'
 #
 def run_xrst() :
     #

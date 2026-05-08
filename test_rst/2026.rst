@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-    :keywords: 2026,xrst,release,notes,for,mm-dd,05-03,04-11,04-03,01-06,01-04
+    :keywords: 2026,xrst,release,notes,for,mm-dd,05-08,05-03,04-11,04-03,01-06,01-04
 
 .. index:: 2026, xrst, release, notes, 2026
 
@@ -23,6 +23,14 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+.. _2026@mm-dd@05-08:
+
+05-08
+=====
+The change below dated 05-03 caused a breakpoint
+in the ``run_xrst.py`` file when there was an error in the xrst input.
+This was only meant for debugging that change and has been removed.
 
 .. _2026@mm-dd@05-03:
 
