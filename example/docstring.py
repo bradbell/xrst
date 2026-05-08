@@ -11,6 +11,12 @@ r'''
 Docstring Example
 #################
 
+factorial
+*********
+{xrst_literal ,
+    """:, :"""
+}
+
 Python Docstring
 ****************
 This example demonstrates using a python docstring to document a function.
@@ -21,12 +27,6 @@ See :ref:`indent_example@Python Docstring`
 for an example where the xrst input is indented and
 the xrst commands are in the docstring.
 
-factorial
-*********
-{xrst_literal ,
-    """:, :"""
-}
-
 This Example File
 *****************
 {xrst_literal}
@@ -36,6 +36,11 @@ This Example File
 def factorial(n) :
     r""":
     This function returns the product 1 * 2 * ... * n
+
+    For example:
+    >>> factorial(3)
+    6
+
     :"""
     if n == 1 :
         return 1

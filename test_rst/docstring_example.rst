@@ -5,7 +5,7 @@ docstring_example
 !!!!!!!!!!!!!!!!!
 
 .. meta::
-    :keywords: docstring_example,docstring,example,python,factorial,this,file
+    :keywords: docstring_example,docstring,example,factorial,python,this,file
 
 .. index:: docstring_example, docstring
 
@@ -16,6 +16,17 @@ Docstring Example
 
 .. contents::
     :local:
+
+.. index:: factorial
+
+.. _docstring_example@factorial:
+
+factorial
+*********
+
+.. literalinclude:: ../../example/docstring.py
+    :lines: 38-43
+    :language: py
 
 .. index:: python, docstring
 
@@ -30,17 +41,6 @@ This avoids having xrst commands in the corresponding python help output.
 See :ref:`indent_example@Python Docstring`
 for an example where the xrst input is indented and
 the xrst commands are in the docstring.
-
-.. index:: factorial
-
-.. _docstring_example@factorial:
-
-factorial
-*********
-
-.. literalinclude:: ../../example/docstring.py
-    :lines: 38-38
-    :language: py
 
 .. _docstring_example@This Example File:
 
