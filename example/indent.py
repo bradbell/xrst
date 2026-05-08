@@ -1,10 +1,14 @@
+'''
+This is doctring documentation for the module corresponding to this file.
+'''
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-24 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 def factorial(n) :
     r"""
     {xrst_begin indent_example}
+    {xrst_spell docstring}
 
     Indent Example
     ##############
@@ -20,8 +24,10 @@ def factorial(n) :
     ****************
     This example input is a python docstring for the factorial function
     defined in this file, but it is documenting indentation instead
-    of the function. See :ref:`docstring_example-name` for an alternative
-    way to construct a docstring.
+    of the function. Note that the xrst commands are in the docstring.
+    See :ref:`docstring_example@Python Docstring` for an alternative
+    way to have xrst include a docstring without having xrst commands
+    in the docstring.
 
     This Example File
     *****************

@@ -28,9 +28,11 @@ mm-dd
 
 05-08
 =====
-The change below dated 05-03 caused a breakpoint
-in the ``run_xrst.py`` file when there was an error in the xrst input.
-This was only meant for debugging that change and has been removed.
+#.  The change below dated 05-03 caused a breakpoint
+    in the ``run_xrst.py`` file when there was an error in the xrst input.
+    This was only meant for debugging that change and has been removed.
+#.  Change the :ref:`docstring_example-name` to not have any xrst commands
+    in its docstring, so they are not in the corresponding python help output.
 
 .. _2026@mm-dd@05-03:
 
@@ -56,10 +58,10 @@ by packages that use it.
 
 04-03
 =====
-#. Fix the usage message in the bin/check_all.sh development tool.
-#. Add the check_all wish list item.
-#. Change the spacing for one level of indent from 3 to 4 spaces.
-   This was done in the xrst output rst files and in the xrst source code.
+#.  Fix the usage message in the bin/check_all.sh development tool.
+#.  Add the check_all wish list item.
+#.  Change the spacing for one level of indent from 3 to 4 spaces.
+    This was done in the xrst output rst files and in the xrst source code.
 
 .. _2026@mm-dd@01-06:
 
