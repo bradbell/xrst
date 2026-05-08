@@ -122,3 +122,6 @@ The xrst features below can be considered a wish list for sphinx:
 #. The :ref:`config_file@heading` configuration option
    can be used to check that all the pages in a project use the same
    underline and overline convention.
+#. Examples for many languages are included; e.g.,
+   python docstrings :ref:`docstring_example-name` and
+   rust documentation tests :ref:`literal_dedent_example-name` .
