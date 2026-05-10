@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
 if [ $# != 1 ] && [ $# != 2 ]
 then
@@ -26,7 +26,18 @@ then
 fi
 if [ ! -d "$dest_repo/bin" ]
 then
-    echo "dev_tools.sh: $dest_repo/bin is not a directory"
+    echo "dev_tools.sh: must first create the directory $dest_repo/bin"
+    exit 1
+fi
+if [ ! -f "$dest_repo/.gitignore" ]
+then
+    echo "dev_tools.sh: must first create the file $dest_repo/.gitignore"
+    exit 1
+fi
+if ! grep '^temp[.][*]' "$dest_repo/.gitignore" > /dev/null
+then
+    echo "dev_tools.sh: $dest_repo/.gitignore does not contain the line"
+    echo 'temp.*'
     exit 1
 fi
 #
