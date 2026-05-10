@@ -69,7 +69,6 @@ source bin/grep_and_sed.sh
 # dev_tools
 # BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
-    bin/new_file.sh
     bin/check_copy.sh
     bin/check_invisible.sh
     bin/check_sort.sh
@@ -78,6 +77,7 @@ dev_tools='
     bin/dev_settings.sh
     bin/git_commit.sh
     bin/grep_and_sed.sh
+    bin/new_file.sh
     bin/new_release.sh
     bin/sort.sh
 '
@@ -290,7 +290,7 @@ for variable in \
     invisible_and_tab_ok \
     check_git_commit
 do
-    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|   |')
+    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|    |')
     if [[ "$replace" =~ ^( *)$ ]]
     then
         $sed -i $dest_repo/bin/dev_settings.sh \
@@ -317,7 +317,7 @@ do
     non_space=$(echo ${!variable} | sed -e 's| ||g')
     if [ "$non_space" == '' ]
     then
-        echo "  $variable"
+        echo "    $variable"
     fi
 done
 echo 'If a setting is incorrect, abort the changes except for dev_setting.sh,'

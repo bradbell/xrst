@@ -24,7 +24,7 @@ fi
 # grep, sed
 source bin/grep_and_sed.sh
 #
-# spdx_license_id, spdx_copyright_text, no_copyright_list
+# package_name, spdx_license_id, spdx_copyright_text, no_copyright_list
 source bin/dev_settings.sh
 #
 # yy
@@ -85,8 +85,8 @@ copyright_changed=$(
     git status --porcelain | $sed -e 's|^...||' | $sed -f temp.sed
 )
 # ---------------------------------------------------------------------------
+# missing
 missing='no'
-changed='no'
 for file_name in $copyright_all
 do
     # if file has not been deleted
@@ -106,12 +106,50 @@ do
         fi
     fi
 done
+if [ "$missing" == 'yes' ]
+then
+    echo 'check_copy.sh: spdx_license_id is missing'
+    exit 1
+fi
+# ---------------------------------------------------------------------------
+# missing
+missing='no'
+#
+# dev_tools
+# The copyright text for the development tools does not change
+# BEGIN_SORT_THIS_LINE_PLUS_2
+dev_tools='
+    bin/check_copy.sh
+    bin/check_invisible.sh
+    bin/check_sort.sh
+    bin/check_tab.sh
+    bin/check_version.sh
+    bin/dev_settings.sh
+    bin/git_commit.sh
+    bin/grep_and_sed.sh
+    bin/new_file.sh
+    bin/new_release.sh
+    bin/sort.sh
+'
+# END_SORT_THIS_LINE_MINUS_1
 for file_name in $copyright_all
 do
-    # if file has not been deleted
-    if [ -e $file_name ]
+    check='yes'
+    if [ ! -e $file_name ]
     then
-        # if file does not have expected license identifier
+        check='no'
+    fi
+    if [[ "$dev_tools" == *"$file_name"* ]]
+    then
+        if [ "$package_name" != 'xrst' ]
+        then
+            check='no'
+        fi
+    fi
+    # if file has not been deleted
+    if [ "$check" == 'yes' ]
+    then
+        # if file does not have expected copyright text
         if ! $grep "$spdx_copyright_text\$" $file_name > /dev/null
         then
             if [ "$missing" == 'no' ]
@@ -125,7 +163,14 @@ do
         fi
     fi
 done
+if [ "$missing" == 'yes' ]
+then
+    echo 'check_copy.sh: spdx_copyright_text is missing'
+    exit 1
+fi
 # ---------------------------------------------------------------------------
+# changed
+changed='no'
 cat << EOF > temp.sed
 /SPDX-FileContributor:[ 0-9.-]*$fullname/! b end
 s|\\([0-9]\\{4\\}\\)[-0-9]* |\\1-$yy |
@@ -177,7 +222,7 @@ do
     fi
 done
 #
-if [ "$missing" = 'yes' ] || [ "$changed" == 'yes' ]
+if [ "$changed" == 'yes' ]
 then
     echo 'check_copy.sh: The copyright messages above were updated.'
     echo 'Re-execute bin/check_copy.sh ?'
