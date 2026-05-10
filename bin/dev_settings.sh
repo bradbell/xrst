@@ -18,7 +18,7 @@
 # spdx_license_id
 # Each file, except those specified by no_copyright_list, should have a line
 # that ends with the following text:
-spdx_license_id='SPDX-License-Identifier: GPL-3.0-or-later'
+spdx_license_id='GPL-3.0-or-later'
 #
 # package_name
 package_name='xrst'
