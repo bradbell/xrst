@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2023-25 Bradley M. Bell
+# SPDX-FileContributor: 2023-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # bin/check_copy.sh
 # Checks that the copyright message, in all the source files,
@@ -24,7 +24,7 @@ fi
 # grep, sed
 source bin/grep_and_sed.sh
 #
-# spdx_license_id, no_copyright_list
+# spdx_license_id, spdx_copyright_text, no_copyright_list
 source bin/dev_settings.sh
 #
 # yy
@@ -99,6 +99,25 @@ do
             then
                 echo "Cannot find line that ends with:"
                 echo "   $spdx_license_id"
+                echo "In the following files:"
+            fi
+            echo "$file_name"
+            missing='yes'
+        fi
+    fi
+done
+for file_name in $copyright_all
+do
+    # if file has not been deleted
+    if [ -e $file_name ]
+    then
+        # if file does not have expected license identifier
+        if ! $grep "$spdx_copyright_text\$" $file_name > /dev/null
+        then
+            if [ "$missing" == 'no' ]
+            then
+                echo "Cannot find line that ends with:"
+                echo "   $spdx_copyright_text"
                 echo "In the following files:"
             fi
             echo "$file_name"

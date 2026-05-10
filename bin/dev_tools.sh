@@ -12,7 +12,7 @@ usage: bin/devel_tools.sh dest_repo [spdx_license_id]
 Copies the current development tools from xrst.git to dest_repo
 
 If spdx_license_id is not present, dest_repo/bin/dev_settings.sh must already
-exist and contain value of spdx_license_id for the packare in dest_repo.
+exist and contain value of spdx_license_id for the package in dest_repo.
 EOF
     exit 1
 fi
@@ -69,6 +69,7 @@ source bin/grep_and_sed.sh
 # dev_tools
 # BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
+    bin/new_file.sh
     bin/check_copy.sh
     bin/check_invisible.sh
     bin/check_sort.sh
@@ -168,7 +169,8 @@ do
 done
 rm temp.$$
 #
-# package_name, ... , invisible_and_tab_ok
+# spdx_copyright_text, package_name, ... , invisible_and_tab_ok
+spdx_copyright_text=''
 package_name=''
 index_page_name=''
 version_file_list=''
@@ -278,6 +280,7 @@ rm sed.$$
 #
 # $dest_repo/bin/dev_settings.sh
 $sed -i $dest_repo/bin/dev_settings.sh \
+    -e "s|^spdx_copyright_text=.*|spdx_copyright_text='$spdx_copyright_text'|" \
     -e "s|^package_name=.*|package_name='$package_name'|" \
     -e "s|^index_page_name=.*|index_page_name='$index_page_name'|"
 for variable in \
@@ -302,6 +305,7 @@ echo 'The following variables are empty and may need to be corrected ?'
 echo 'The variable check_git_commit is usually empty. The settings are in'
 echo "$dest_repo/bin/dev_settings.sh"
 for variable in  \
+    spdx_copyright_text \
     package_name \
     index_page_name \
     version_file_list \

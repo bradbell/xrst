@@ -8,6 +8,7 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
     breakpoint
     dev
     gitignore
+    spdx
 }
 
 xrst Release Notes for 2026
@@ -21,7 +22,10 @@ mm-dd
 Change ``bin/dev_tools.sh`` to provide instructions
 when the destination directory does not contain the bin subdirectory
 or the .gitignore file.
-Also check that ``temp.*`` is in .gitignore file.
+Check that ``temp.*`` is in .gitignore file.
+Add the ``spdx_copyright_text`` setting in bin/dev_settings.sh and
+the ``bin/new_file.sh`` development tool.
+
 
 05-08
 =====
