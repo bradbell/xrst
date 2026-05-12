@@ -6,7 +6,9 @@ set -e -u
 # -----------------------------------------------------------------------------
 # bin/new_file.sh path_to_file
 # Creates a new file with the copyright message at the top.
+#
 # If the file name ends with .sh, a bash shebang and sed -e -u are included.
+# In addition, the file mode is set to executable.
 # ----------------------------------------------------------------------------
 # path_to_file
 if [ "$0" != 'bin/new_file.sh' ]
@@ -82,6 +84,7 @@ set -e -u
 # SPDX-FileContributor: $year $fullname
 # -----------------------------------------------------------------------------
 EOF
+    chmod +x $path_to_file
     ;;
 
     .txt)
