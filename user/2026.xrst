@@ -17,6 +17,10 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+05-13
+=====
+Add the ``.py`` extension to the cases handled by ``bin/new_file.sh`` .
+
 05-10
 =====
 Change ``bin/dev_tools.sh`` to provide instructions

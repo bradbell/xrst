@@ -75,26 +75,24 @@ ext=$(echo $path_to_file | sed -e 's|^.*[.]\([^.]*\)$|.\1|')
 # path_to_file
 case $ext in
 
-    .sh)
-    cat << EOF > $path_to_file
-#! /usr/bin/env bash
-set -e -u
+    .sh|.txt|.py)
+    if [ "$ext" == '.sh' ]
+    then
+        echo '#! /usr/bin/env bash' >> $path_to_file
+        echo 'set -e -u' >> $path_to_file
+    fi
+    cat << EOF >> $path_to_file
 # SPDX-License-Identifier: $spdx_license_id
 # SPDX-FileCopyrightText: $spdx_copyright_text
 # SPDX-FileContributor: $year $fullname
 # -----------------------------------------------------------------------------
 EOF
-    chmod +x $path_to_file
+    if [ "$ext" == '.sh' ]
+    then
+        chmod +x $path_to_file
+    fi
     ;;
 
-    .txt)
-    cat << EOF > $path_to_file
-# SPDX-License-Identifier: $spdx_license_id
-# SPDX-FileCopyrightText: $spdx_copyright_text
-# SPDX-FileContributor: $year $fullname
-# -----------------------------------------------------------------------------
-EOF
-    ;;
 
     .hpp|.cpp)
     cat << EOF > $path_to_file
