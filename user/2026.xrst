@@ -17,6 +17,11 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+05-26
+=====
+The program would crash when reporting an error or warning
+at the last input file line. This has been fixed.
+
 05-13
 =====
 Add the ``.py`` extension to the cases handled by ``bin/new_file.sh`` .

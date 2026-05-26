@@ -553,7 +553,7 @@ def auto_file(
         html_theme_options = None
     else :
         html_theme_options = conf_dict['html_theme_options'][html_theme]
-        html_theme_optiosn = str( html_theme_options )
+        html_theme_options = str( html_theme_options )
         assert '"' not in html_theme_options
     #
     # conf_py

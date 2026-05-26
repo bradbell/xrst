@@ -535,11 +535,12 @@ def system_command(
                 # n_tuple
                 n_tuple = len(line_tuple)
                 #
-                # index
+                # index, len_line_tuple
                 index  = 0
-                while index < n_tuple and line_tuple[index][0] < rst_line :
+                while index + 1 < n_tuple and line_tuple[index][0] < rst_line :
                         index += 1
-                assert len(line_tuple[index]) == 2 or len(line_tuple[index]) == 4
+                len_line_tuple = len( line_tuple[index] )
+                assert len_line_tuple == 2 or len_line_tuple == 4
                 #
                 # line_before, line_after
                 if index == n_tuple :
@@ -563,7 +564,7 @@ def system_command(
                     alert = f'{page_file}:{line_before}:'
                 else :
                     alert = f'{page_file}:{line_before}-{line_after}:'
-                if len( line_tuple[index] ) == 4 :
+                if len_line_tuple == 4 :
                     template_file = line_tuple[index][2]
                     template_line = line_tuple[index][3]
                     alert += f'{template_file}:{template_line}:'
@@ -639,7 +640,7 @@ if( os.getcwd().endswith('/xrst.git') ) :
 import xrst
 #
 # version
-version = '2026.5.13'
+version = '2026.5.26'
 #
 def run_xrst() :
     #
