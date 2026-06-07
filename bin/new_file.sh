@@ -9,6 +9,8 @@ set -e -u
 #
 # If the file name ends with .sh, a bash shebang and sed -e -u are included.
 # In addition, the file mode is set to executable.
+#
+# If the file name ends with .hpp, #pragma once is included.
 # ----------------------------------------------------------------------------
 # path_to_file
 if [ "$0" != 'bin/new_file.sh' ]
@@ -93,9 +95,12 @@ EOF
     fi
     ;;
 
-
     .hpp|.cpp)
-    cat << EOF > $path_to_file
+    if [ "$ext" == '.hpp' ]
+    then
+        echo '#pragma once' >> $path_to_file
+    fi
+    cat << EOF >> $path_to_file
 // SPDX-License-Identifier: $spdx_license_id
 // SPDX-FileCopyrightText: $spdx_copyright_text
 // SPDX-FileContributor: $year $fullname

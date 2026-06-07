@@ -9,6 +9,8 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
     dev
     gitignore
     spdx
+    pragma
+    hpp
 }
 
 xrst Release Notes for 2026
@@ -16,6 +18,10 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+06-07
+=====
+Have `bin/new_file.sh`` add ``#pragma once`` at top of ``.hpp`` files.
 
 05-26
 =====
