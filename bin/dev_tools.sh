@@ -290,7 +290,7 @@ for variable in \
     invisible_and_tab_ok \
     check_git_commit
 do
-    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n   |g' -e 's|^|    |')
+    replace=$(echo ${!variable} | $sed -e 's|[ \n]|\\n    |g' -e 's|^|    |')
     if [[ "$replace" =~ ^( *)$ ]]
     then
         $sed -i $dest_repo/bin/dev_settings.sh \
