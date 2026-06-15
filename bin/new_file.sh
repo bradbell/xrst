@@ -95,7 +95,7 @@ EOF
     fi
     ;;
 
-    .hpp|.cpp)
+    .hpp|.cpp|.rs)
     if [ "$ext" == '.hpp' ]
     then
         echo '#pragma once' >> $path_to_file

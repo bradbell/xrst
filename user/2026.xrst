@@ -19,6 +19,10 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+06/14
+=====
+Add the ``.rs`` extension to the cases handled by ``bin/new_file.sh`` .
+
 06-07
 =====
 Have `bin/new_file.sh`` add ``#pragma once`` at top of ``.hpp`` files.
