@@ -19,6 +19,10 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+06/16
+=====
+The development tools were moved from ``bin`` to ``tools`` .
+
 06/14
 =====
 Add the ``.rs`` extension to the cases handled by ``bin/new_file.sh`` .
