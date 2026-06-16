@@ -23,9 +23,9 @@ function continue_yes_no {
     fi
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/check_xrst.sh" ]
+if [ "$0" != "tools/check_xrst.sh" ]
 then
-    echo "bin/check_xrst.sh: must be executed from its parent directory"
+    echo "tools/check_xrst.sh: must be executed from its parent directory"
     exit 1
 fi
 #
@@ -45,7 +45,7 @@ do
         ;;
 
         *)
-        echo "bin/check_xrst.sh: command line argument "$1" is not"
+        echo "tools/check_xrst.sh: command line argument "$1" is not"
         echo '--skip_external_links or --suppress_spell_warnings'
         exit 1
         ;;

@@ -4,9 +4,9 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
-if [ "$0" != "bin/indent_32.sh" ]
+if [ "$0" != "tools/indent_32.sh" ]
 then
-  echo "bin/indent_32.sh: must be executed from its parent directory"
+  echo "tools/indent_32.sh: must be executed from its parent directory"
   exit 1
 fi
 if [ "$#" != 0 ]
@@ -54,6 +54,6 @@ do
     fi
 done
 #
-echo 'Use bin/check_xrst.sh to see if indent_32.py and rst_32.py work.'
+echo 'Use tools/check_xrst.sh to see if indent_32.py and rst_32.py work.'
 echo 'indent_32.sh: OK'
 exit 0

@@ -4,9 +4,9 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
-# bin/check_verison.sh
+# tools/check_verison.sh
 # Checks that the version number in the version_file_list are correct;
-# see bin/dev_settings.sh for more discussion.
+# see tools/dev_settings.sh for more discussion.
 # -----------------------------------------------------------------------------
 #
 # echo_eval
@@ -16,14 +16,14 @@ echo_eval() {
 }
 #
 # sed
-source bin/grep_and_sed.sh
+source tools/grep_and_sed.sh
 #
 # package_name, version_file_list
-source bin/dev_settings.sh
+source tools/dev_settings.sh
 #
-if [ "$0" != "bin/check_version.sh" ]
+if [ "$0" != "tools/check_version.sh" ]
 then
-    echo "bin/check_version.sh: must be executed from its parent directory"
+    echo "tools/check_version.sh: must be executed from its parent directory"
     exit 1
 fi
 if [ "$#" != 0 ]
@@ -33,7 +33,7 @@ then
 fi
 if [ ! -e './.git' ]
 then
-    echo 'bin/check_version.sh: cannot find ./.git'
+    echo 'tools/check_version.sh: cannot find ./.git'
     exit 1
 fi
 # -----------------------------------------------------------------------------
@@ -161,7 +161,7 @@ done
 if [ "$version_ok" == 'no' ]
 then
     echo 'check_version.sh: The version numbers were fixed (see above).'
-    echo 'Re-execute bin/check_version.sh ?'
+    echo 'Re-execute tools/check_version.sh ?'
     exit 1
 fi
 echo 'check_version.sh OK'

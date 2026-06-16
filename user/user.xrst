@@ -135,7 +135,7 @@ Git Repository
 **************
 `<https://github.com/bradbell/xrst>`_
 
-{xrst_comment BEGIN: Before changing see bin/new_release and check_version.sh}
+{xrst_comment BEGIN: Before changing see tools/new_release and check_version.sh}
 
 Versions
 ********
@@ -144,7 +144,7 @@ Versions
     :widths: auto
 
     * - This version
-      - xrst-2026.6.14
+      - xrst-2026.6.16
     * - Documentation for latest version
       - `latest <https://xrst.readthedocs.io/latest>`_
     * - Documentation for most recent stable version
@@ -152,7 +152,7 @@ Versions
     * - Most recent release of this stable version
       - `release-2026 <https://codeload.github.com/bradbell/xrst/tar.gz/refs/tags/2026.0.0>`_
 
-{xrst_comment END: Before changing see bin/new_release and check_version.sh}
+{xrst_comment END: Before changing see tools/new_release and check_version.sh}
 
 Install Stable Version
 **********************
@@ -161,7 +161,7 @@ the year and only includes bug fixed after that.
 ::
 
     pip install xrst
-{xrst_comment END: Before changing see bin/ new_release and check_version.sh}
+{xrst_comment END: Before changing see tools/ new_release and check_version.sh}
 
 Install Testing Version
 ***********************

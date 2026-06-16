@@ -42,7 +42,7 @@ Change ``bin/dev_tools.sh`` to provide instructions
 when the destination directory does not contain the bin subdirectory
 or the .gitignore file.
 Check that ``temp.*`` is in .gitignore file.
-Add the ``spdx_copyright_text`` setting in bin/dev_settings.sh and
+Add the ``spdx_copyright_text`` setting in tools/dev_settings.sh and
 the ``bin/new_file.sh`` development tool.
 
 
@@ -64,7 +64,7 @@ This enables one to include rust documentation tests; e.g., see
 =====
 The :ref:`run_xrst@link_timeout` used by
 
-    bin/run_xrst.sh --external_links
+    tools/run_xrst.sh --external_links
 
 was changed from 5 to 10 seconds.
 Note that ``run_xrst.sh`` is a development tool and should be updated
@@ -72,7 +72,7 @@ by packages that use it.
 
 04-03
 =====
-#.  Fix the usage message in the bin/check_all.sh development tool.
+#.  Fix the usage message in the tools/check_all.sh development tool.
 #.  Add the check_all wish list item.
 #.  Change the spacing for one level of indent from 3 to 4 spaces.
     This was done in the xrst output rst files and in the xrst source code.

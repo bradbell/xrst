@@ -4,7 +4,7 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-25 Bradley M. Bell
 # ----------------------------------------------------------------------------
-# bin/group_list.sh
+# tools/group_list.sh
 # Returns a space separated list of the group names for this project.
 # The list is extracted from the [root_file] section of the xrst.toml
 # file for this project.
@@ -12,7 +12,7 @@ set -e -u
 # the default group.
 #
 # sed
-source bin/grep_and_sed.sh
+source tools/grep_and_sed.sh
 #
 if [ ! -e xrst.toml ]
 then

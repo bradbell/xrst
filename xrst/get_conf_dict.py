@@ -294,7 +294,7 @@ Example
 input_files.sh
 ==============
 {xrst_literal
-    bin/input_files.sh
+    tools/input_files.sh
 }
 {xrst_comment --------------------------------------------------------------- }
 

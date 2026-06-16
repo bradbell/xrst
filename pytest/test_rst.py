@@ -55,7 +55,7 @@ def run_xrst(
     #
     # command
     # This command should have the same group_list as the last group_list in
-    # bin/check_xrst.sh which is used to keep the test_rst up to date.
+    # tools/check_xrst.sh which is used to keep the test_rst up to date.
     command += [
         '--local_toc',
         '--rst_only',

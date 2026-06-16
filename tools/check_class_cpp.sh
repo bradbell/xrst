@@ -10,9 +10,9 @@ echo_eval() {
     eval $*
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/check_class_cpp.sh" ]
+if [ "$0" != "tools/check_class_cpp.sh" ]
 then
-    echo "bin/check_class_cpp.sh: must be executed from its parent directory"
+    echo "tools/check_class_cpp.sh: must be executed from its parent directory"
     exit 1
 fi
 if [ ! -e build ]

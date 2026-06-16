@@ -40,12 +40,12 @@ jobs:
       - name: install pytest
         run: pip install .
       #
-      - name: bin/check_install.sh
+      - name: tools/check_install.sh
         shell: bash -el {0}
         run: |
           echo 'matrix.os = ${{ matrix.os }}'
           if [ '${{ matrix.os }}' == 'windows-latest' ]
           then
-            sed -i -e 's|/bin:$PATH|/Scripts:$PATH|' bin/check_install.sh
+            sed -i -e 's|/bin:$PATH|/Scripts:$PATH|' tools/check_install.sh
           fi
-          bin/check_install.sh
+          tools/check_install.sh

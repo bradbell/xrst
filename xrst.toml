@@ -41,7 +41,7 @@ overline  = [ false, false, false, false, false,  ]
 # BEGIN_INPUT_FILES
 [input_files]
 data = [
-    [ 'bin/input_files.sh' ] ,
+    [ 'tools/input_files.sh' ] ,
 ]
 # END_INPUT_FILES
 # -----------------------------------------------------------------------------

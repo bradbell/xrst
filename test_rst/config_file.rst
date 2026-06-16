@@ -323,7 +323,7 @@ Example
 input_files.sh
 ==============
 
-.. literalinclude:: ../../bin/input_files.sh
+.. literalinclude:: ../../tools/input_files.sh
     :language: sh
 
 .. index:: html_theme_options

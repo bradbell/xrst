@@ -4,9 +4,9 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/check_install.sh" ]
+if [ "$0" != "tools/check_install.sh" ]
 then
-    echo "bin/check_install.sh: must be executed from its parent directory"
+    echo "tools/check_install.sh: must be executed from its parent directory"
     exit 1
 fi
 # -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ pip install --prefix=$prefix .
 site_packages="$(find $prefix -name 'site-packages')"
 if [ "$site_packages" == '' ]
 then
-    echo "bin/check_install.sh: cannot find site-packages below $prefix"
+    echo "tools/check_install.sh: cannot find site-packages below $prefix"
     exit 1
 fi
 #
@@ -48,9 +48,9 @@ export PYTHONPATH
 #
 # PATH
 PATH="$prefix/bin:$PATH"
-if ! which xrst | grep "$prefix/bin/xrst\$" > /dev/null
+if ! which xrst | grep "$prefix/tools/xrst\$" > /dev/null
 then
-    echo "bin/check_install.sh: which_xrst = $(which_xrst)"
+    echo "tools/check_install.sh: which_xrst = $(which_xrst)"
     exit
 fi
 #

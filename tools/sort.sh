@@ -4,7 +4,7 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
-# bin/sort.sh file_name
+# tools/sort.sh file_name
 # Checks all the sections between
 #  BEGIN_SORT_THIS_LINE_PLUS_#
 #  END_SORT_THIS_LINE_MINUS_#
@@ -31,7 +31,7 @@ fi
 file_name="$1"
 #
 # grep, sed
-source bin/grep_and_sed.sh
+source tools/grep_and_sed.sh
 #
 if $grep 'BEGIN_SORT_THIS_LINE_PLUS_[1-9][0-9]' "$file_name"
 then

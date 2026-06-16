@@ -10,9 +10,9 @@ echo_eval() {
     eval $*
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "bin/check_all.sh" ]
+if [ "$0" != "tools/check_all.sh" ]
 then
-    echo "bin/check_all.sh: must be executed from its parent directory"
+    echo "tools/check_all.sh: must be executed from its parent directory"
     exit 1
 fi
 #
@@ -36,7 +36,7 @@ do
         ;;
 
         *)
-        echo "bin/check_all.sh: "$1" is not one of the following"
+        echo "tools/check_all.sh: "$1" is not one of the following"
         echo '--skip_external_links'
         echo '--skip_check_copy'
         echo '--suppress_spell_warnings'
@@ -49,7 +49,7 @@ do
 done
 #
 # sed
-source bin/grep_and_sed.sh
+source tools/grep_and_sed.sh
 #
 # typos
 if which typos >& /dev/null
@@ -62,22 +62,22 @@ then
 fi
 #
 # check_list
-check_list=$(ls bin/check_* | $sed \
-    -e '/^bin[/]check_copy.sh/d' \
-    -e '/^bin[/]check_xrst.sh/d' \
-    -e '/^bin[/]check_all.sh/d' \
+check_list=$(ls tools/check_* | $sed \
+    -e '/^tools[/]check_copy.sh/d' \
+    -e '/^tools[/]check_xrst.sh/d' \
+    -e '/^tools[/]check_all.sh/d' \
 )
 if [ "$skip_check_copy" == 'no' ]
 then
-    bin/check_copy.sh
+    tools/check_copy.sh
 fi
 for check in $check_list
 do
     echo_eval $check
 done
 #
-# bin/check_xrst.sh
-echo_eval bin/check_xrst.sh $flags
+# tools/check_xrst.sh
+echo_eval tools/check_xrst.sh $flags
 #
 # tox
 if [ "$flags" == '' ]

@@ -22,7 +22,7 @@ def main() :
     #
     # rst_file, man_file
     if len(sys.argv) != 3 :
-        msg = 'usage: bin/rst2man.py rst_file man_file'
+        msg = 'usage: tools/rst2man.py rst_file man_file'
         sys.exit(msg)
     rst_file = sys.argv[1]
     man_file = sys.argv[2]

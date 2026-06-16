@@ -873,7 +873,7 @@ to ``:ref:`` ` @ *page_name* ` to get the linking text to be the title
 The following can be used to convert
 *file_name* to this new convention:
 
-|    bin/update_xrst.py ref_section *file_name* *file_name*
+|    tools/update_xrst.py ref_section *file_name* *file_name*
 
 .. _2022@mm-dd@07-31:
 
