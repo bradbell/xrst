@@ -15,7 +15,7 @@ set -e -u
 year='2026' # Year for this stable version
 release='0' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
-if [ "$0" != 'tools/new_release.sh' ]
+if [ ! -e 'tools/new_release.sh' ]
 then
     echo 'tools/new_release.sh: must be executed from its parent directory'
     exit 1

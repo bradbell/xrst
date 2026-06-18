@@ -13,7 +13,7 @@ set -e -u
 # If the file name ends with .hpp, #pragma once is included.
 # ----------------------------------------------------------------------------
 # path_to_file
-if [ "$0" != 'tools/new_file.sh' ]
+if [ ! -e 'tools/new_file.sh' ]
 then
     echo 'new_file.sh must be executed from its parent directory'
     exit 1

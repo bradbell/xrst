@@ -10,7 +10,7 @@ set -e -u
 #  END_SORT_THIS_LINE_MINUS_#
 # are sorted. If not, it is corrected and an error is returned.
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/check_sort.sh" ]
+if [ ! -e 'tools/check_sort.sh' ]
 then
     echo "tools/check_sort.sh: must be executed from its parent directory"
     exit 1

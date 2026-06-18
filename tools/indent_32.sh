@@ -4,7 +4,7 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-24 Bradley M. Bell
 # ----------------------------------------------------------------------------
-if [ "$0" != "tools/indent_32.sh" ]
+if [ ! -e 'tools/indent_32.sh' ]
 then
   echo "tools/indent_32.sh: must be executed from its parent directory"
   exit 1

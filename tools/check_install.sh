@@ -4,7 +4,7 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-25 Bradley M. Bell
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/check_install.sh" ]
+if [ ! -e 'tools/check_install.sh' ]
 then
     echo "tools/check_install.sh: must be executed from its parent directory"
     exit 1

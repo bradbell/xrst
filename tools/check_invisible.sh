@@ -10,7 +10,7 @@ set -e -u
 # and this script exits with an error.
 # Files that are not checked can be specified in tools/dev_setting.sh
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/check_invisible.sh" ]
+if [ ! -e 'tools/check_invisible.sh' ]
 then
     echo "tools/check_invisible.sh: must be executed from its parent directory"
     exit 1

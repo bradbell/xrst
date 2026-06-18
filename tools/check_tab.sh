@@ -8,7 +8,7 @@ set -e -u
 # Checks for tabs in the source and returns an error if it finds any.
 # Files that are not checked can be specified in tools/dev_settings.sh.
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/check_tab.sh" ]
+if [ ! -e 'tools/check_tab.sh' ]
 then
     echo "tools/check_tab.sh: must be executed from its parent directory"
     exit 1

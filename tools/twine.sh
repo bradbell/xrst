@@ -17,7 +17,7 @@ echo_eval() {
     eval $*
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/twine.sh" ]
+if [ ! -e 'tools/twine.sh' ]
 then
     echo "tools/twine.sh: must be executed from its parent directory"
     exit 1

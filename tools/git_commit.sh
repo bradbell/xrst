@@ -30,7 +30,7 @@ then
     echo 'usage: tools/git_commit.sh: does not expect arguments'
     exit 1
 fi
-if [ "$0" != 'tools/git_commit.sh' ]
+if [ ! -e 'tools/git_commit.sh' ]
 then
     echo 'tools/git_commit.sh: must execute this script from its parent directory'
     exit 1

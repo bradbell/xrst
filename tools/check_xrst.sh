@@ -23,7 +23,7 @@ function continue_yes_no {
     fi
 }
 # -----------------------------------------------------------------------------
-if [ "$0" != "tools/check_xrst.sh" ]
+if [ ! -e 'tools/check_xrst.sh' ]
 then
     echo "tools/check_xrst.sh: must be executed from its parent directory"
     exit 1
