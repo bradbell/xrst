@@ -24,9 +24,14 @@ then
     echo "dev_tools.sh: $dest_repo is not a git repository"
     exit 1
 fi
-if [ ! -d "$dest_repo/bin" ]
+if [ -d "$dest_repo/bin" ]
 then
-    echo "dev_tools.sh: must first create the directory $dest_repo/bin"
+    echo "dev_tools.sh: must first move $dest_repo/bin to $dest_repo/tools"
+    exit 1
+fi
+if [ ! -d "$dest_repo/tools" ]
+then
+    echo "dev_tools.sh: must first create $dest_repo/tools"
     exit 1
 fi
 if [ ! -f "$dest_repo/.gitignore" ]
@@ -77,6 +82,7 @@ dev_tools='
     tools/dev_settings.sh
     tools/git_commit.sh
     tools/grep_and_sed.sh
+    tools/tools_path.sh
     tools/new_file.sh
     tools/new_release.sh
     tools/sort.sh
@@ -100,6 +106,7 @@ for file in $dev_tools
 do
     if [ $file == tools/dev_settings.sh ] \
     || [ $file == tools/grep_and_sed.sh ] \
+    || [ $file == tools/tools_path.sh ] \
     || [ $file == .readthedocs.yaml ]
     then
         if [ -x $file ]

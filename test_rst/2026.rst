@@ -5,7 +5,7 @@
 !!!!
 
 .. meta::
-    :keywords: 2026,xrst,release,notes,for,mm-dd,06/16,06/14,06-07,05-26,05-13,05-10,05-08,05-03,04-11,04-03,01-06,01-04
+    :keywords: 2026,xrst,release,notes,for,mm-dd,06-19,06/16,06/14,06-07,05-26,05-13,05-10,05-08,05-03,04-11,04-03,01-06,01-04
 
 .. index:: 2026, xrst, release, notes, 2026
 
@@ -23,6 +23,14 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+.. _2026@mm-dd@06-19:
+
+06-19
+=====
+Add tools/tools_path to the development tools.
+For example, if you execute ``source tools/tools_path``,
+then executing ``run_xrst.sh`` is the same as ``tools/run_xrst.sh``.
 
 .. index:: 06/16
 
