@@ -175,6 +175,7 @@ else
         chmod +x $file_name
     fi
     echo 'sort.sh: Done'
+    exit 0
 fi
 echo "$script_path: OK"
 exit 0
