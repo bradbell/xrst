@@ -2,8 +2,13 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2023-25 Bradley M. Bell
+# SPDX-FileContributor: 2023-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # tools/sort.sh file_name
 # Checks all the sections between
 #  BEGIN_SORT_THIS_LINE_PLUS_#
@@ -171,4 +176,5 @@ else
     fi
     echo 'sort.sh: Done'
 fi
+echo "$script_path: OK"
 exit 0

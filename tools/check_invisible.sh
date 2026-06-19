@@ -2,8 +2,13 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # tools/check_invisible.sh
 # Checks that there is no invisible white space in any of the source files.
 # If there is, a message is printed about it, it is automatically removed,
@@ -98,5 +103,5 @@ then
     echo 'Re-execute tools/check_invisible.sh ?'
     exit 1
 fi
-echo 'check_invisible.sh: OK'
+echo "$script_path: OK"
 exit 0

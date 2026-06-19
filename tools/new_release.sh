@@ -4,6 +4,11 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # tools/new_release.sh  [--skip_stable_check_all]
 # Creates and check a release for the year and release number specified below.
 #
@@ -327,5 +332,5 @@ then
     exit 1
 fi
 # ----------------------------------------------------------------------------
-echo 'tools/new_release.sh: OK'
+echo "$script_path: OK"
 exit 0

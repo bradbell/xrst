@@ -2,8 +2,13 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 if [ ! -e 'tools/check_install.sh' ]
 then
     echo "tools/check_install.sh: must be executed from its parent directory"
@@ -68,5 +73,5 @@ pytest/test_rst.py \
 pip install .
 #
 # -----------------------------------------------------------------------------
-echo 'check_install.sh: OK'
+echo "$script_path: OK"
 exit 0

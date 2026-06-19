@@ -4,6 +4,11 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 if [ $# != 1 ] && [ $# != 2 ]
 then
 cat << EOF
@@ -82,10 +87,10 @@ dev_tools='
     tools/dev_settings.sh
     tools/git_commit.sh
     tools/grep_and_sed.sh
-    tools/tools_path.sh
     tools/new_file.sh
     tools/new_release.sh
     tools/sort.sh
+    tools/tools_path.sh
 '
 # END_SORT_THIS_LINE_MINUS_2
 if [ -e "$dest_repo/xrst.toml" ]
@@ -330,5 +335,5 @@ done
 echo 'If a setting is incorrect, abort the changes except for dev_setting.sh,'
 echo 'fix the settings in dev_setting.sh, commit fix, and re-run dev_tools.sh.'
 echo
-echo 'dev_tools.sh: OK'
+echo "$script_path: OK"
 exit 0

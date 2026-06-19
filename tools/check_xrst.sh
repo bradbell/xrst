@@ -2,8 +2,13 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2020-25 Bradley M. Bell
+# SPDX-FileContributor: 2020-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # bash function that echos and executes a command
 function echo_eval {
     echo $*
@@ -197,5 +202,5 @@ then
 fi
 # -----------------------------------------------------------------------------
 echo
-echo "$0: OK"
+echo "$script_path: OK"
 exit 0

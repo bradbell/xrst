@@ -2,8 +2,13 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2023-24 Bradley M. Bell
+# SPDX-FileContributor: 2023-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 if [ ! -e 'tools/indent_32.sh' ]
 then
   echo "tools/indent_32.sh: must be executed from its parent directory"
@@ -55,5 +60,5 @@ do
 done
 #
 echo 'Use tools/check_xrst.sh to see if indent_32.py and rst_32.py work.'
-echo 'indent_32.sh: OK'
+echo "$script_path: OK"
 exit 0

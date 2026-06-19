@@ -4,6 +4,11 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2026 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # tools/new_file.sh path_to_file
 # Creates a new file with the copyright message at the top.
 #
@@ -88,6 +93,11 @@ case $ext in
 # SPDX-FileCopyrightText: $spdx_copyright_text
 # SPDX-FileContributor: $year $fullname
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 EOF
     ;;
 
@@ -102,6 +112,11 @@ EOF
 # SPDX-FileCopyrightText: $spdx_copyright_text
 # SPDX-FileContributor: $year $fullname
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 EOF
     if [ "$ext" == '.sh' ]
     then
@@ -128,5 +143,5 @@ EOF
 
 esac
 #
-echo 'new_file.sh: OK'
+echo "$script_path: OK"
 exit 0

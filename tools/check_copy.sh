@@ -4,6 +4,11 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2023-26 Bradley M. Bell
 # ----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # tools/check_copy.sh
 # Checks that the copyright message, in all the source files,
 # is correct and up to date. If there were any errors, a message is printed,
@@ -228,5 +233,5 @@ then
     echo 'Re-execute tools/check_copy.sh ?'
     exit 1
 fi
-echo 'tools/check_copy.sh: OK'
+echo "$script_path: OK"
 exit 0

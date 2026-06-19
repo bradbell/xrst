@@ -4,6 +4,11 @@ set -e -u
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
 # SPDX-FileContributor: 2020-26 Bradley M. Bell
 # -----------------------------------------------------------------------------
+# script_path
+script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
+script_dir="$( cd -- "$script_dir" &> /dev/null && pwd )"
+script_path="$script_dir/$(basename $0)"
+#
 # echo_eval
 echo_eval() {
     echo $*
@@ -85,5 +90,5 @@ then
     tox
 fi
 #
-echo "check_all.sh $flags: OK"
+echo "$script_path: $flags: OK"
 exit 0
