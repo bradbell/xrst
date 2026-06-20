@@ -2,7 +2,7 @@
 set -e -u
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2023-26 Bradley M. Bell
+# SPDX-FileContributor: 2026 Bradley M. Bell
 # ----------------------------------------------------------------------------
 # script_path
 script_dir="$( dirname -- "${BASH_SOURCE[0]}" )"
