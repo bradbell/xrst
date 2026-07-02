@@ -19,10 +19,14 @@ xrst Release Notes for 2026
 mm-dd
 *****
 
+07-02
+=====
+Fix Exclusion of the development tools from copyright text check.
+
 06-19
 =====
 Add tools/tools_path to the development tools.
-For example, if you execute ``source tools/tools_path``, 
+For example, if you execute ``source tools/tools_path``,
 then executing ``run_xrst.sh`` is the same as ``tools/run_xrst.sh``.
 
 06/16

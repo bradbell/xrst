@@ -122,8 +122,10 @@ missing='no'
 #
 # dev_tools
 # The copyright text for the development tools does not change
+# must be the same as in tools/dev_tools.sh
 # BEGIN_SORT_THIS_LINE_PLUS_2
 dev_tools='
+    .readthedocs.yaml
     tools/check_copy.sh
     tools/check_invisible.sh
     tools/check_sort.sh
@@ -132,9 +134,13 @@ dev_tools='
     tools/dev_settings.sh
     tools/git_commit.sh
     tools/grep_and_sed.sh
+    tools/group_list.sh
     tools/new_file.sh
     tools/new_release.sh
+    tools/run_xrst.sh
     tools/sort.sh
+    tools/tools_path.sh
+    tools/twine.sh
 '
 # END_SORT_THIS_LINE_MINUS_1
 for file_name in $copyright_all
