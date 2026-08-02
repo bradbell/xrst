@@ -11,6 +11,7 @@ SPDX-FileContributor: 2020-26 Bradley M. Bell
     spdx
     pragma
     hpp
+    txt
 }
 
 xrst Release Notes for 2026
@@ -18,6 +19,11 @@ xrst Release Notes for 2026
 
 mm-dd
 *****
+
+08-02
+=====
+Fix and tools/new_file.sh for \*.sh and \*.txt files.
+Improve tools/new_file.sh for the \*.sh case.
 
 07-02
 =====
